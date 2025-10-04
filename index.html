@@ -128,90 +128,55 @@
 
 <script>
 <!-- CONFIG: EDIT THESE LINKS -->
-const ALIEXPRESS_LINK = "https://s.click.aliexpress.com/e/_c35B3nnp"; // AliExpress
-const CPAGRIP_LINK = "https://singingfiles.com/show.php?l=0&u=180655&id=72074"; // CPAgrip
-const MONETAG_LINK = "https://syndication.monetag.com/smartlink?zoneid=4590821"; // Monetag Smartlink
+<!-- CONFIG + LOGIC (single script only) -->
+<script>
+// ================================
+// CONFIG: EDIT THESE LINKS ONCE
+// ================================
+const ALIEXPRESS_LINK = "https://s.click.aliexpress.com/e/_c35B3nnp";
+const CPAGRIP_LINK    = "https://singingfiles.com/show.php?l=0&u=180655&id=72074";
+const MONETAG_LINK    = "https://syndication.monetag.com/smartlink?zoneid=4590821";
 
-// Detect device
+// ================================
+// COUNTDOWN TIMER (5:00)
+// ================================
+let t = 5 * 60;
+const m = document.getElementById("m");
+const s = document.getElementById("s");
+function tick() {
+  if (m) m.textContent = String(Math.floor(t / 60)).padStart(2, "0");
+  if (s) s.textContent = String(t % 60).padStart(2, "0");
+  if (t > 0) setTimeout(tick, 1000);
+  t--;
+}
+tick();
+
+// ================================
+// AUTO YEAR
+// ================================
+const yearEl = document.getElementById("year");
+if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+// ================================
+// DEVICE DETECTION + LINK LOGIC
+// ================================
 const isAndroid = /Android/i.test(navigator.userAgent);
 const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-// Get elements
 const cta = document.getElementById("cta");
 const warn = document.getElementById("warn");
 const fallback = document.getElementById("fallback");
 
-// Logic: set proper link
-if (isAndroid) {
-  cta.href = MONETAG_LINK; // Android → Monetag
-} else if (isIOS) {
-  cta.href = ALIEXPRESS_LINK; // iOS → AliExpress
-} else {
-  cta.href = CPAGRIP_LINK; // Other devices → CPAgrip
-  warn.style.display = "block";
-  fallback.href = CPAGRIP_LINK;
-}
-</script>
-// Countdown 5:00
-let t = 5 * 60;
-const m = document.getElementById("m"),
-      s = document.getElementById("s");
-...
-/* ======== CONFIG: EDIT THESE LINKS ======== */
-// const ANDROID_LINK = "https://doctoreditss.com/show.php?l=0&u=180655&id=72074";
-const ANDROID_LINK  = "https://syndication.monetag.com/smartlink?zoneid=4590821";
-const FALLBACK_LINK = "https://syndication.monetag.com/smartlink?zoneid=4590821";
-/* ========================================== */
-
-// Countdown 5:00
-let t = 5 * 60;
-const m = document.getElementById("m"),
-      s = document.getElementById("s");
-<script>
-// ==============================
-// CONFIG: EDIT THESE LINKS
-// ==============================
-const ALIEXPRESS_LINK = "https://s.click.aliexpress.com/e/_c35B3nnp";
-const CPAGRIP_LINK   = "https://singingfiles.com/show.php?l=0&u=180655&id=72074";
-const MONETAG_LINK   = "https://syndication.monetag.com/smartlink?zoneid=4590821";
-
-// ==============================
-// COUNTDOWN TIMER (5:00)
-// ==============================
-let t = 5 * 60;
-const m = document.getElementById("m");
-const s = document.getElementById("s");
-
-function tick() {
-  t--;
-  m.textContent = String(Math.floor(t / 60)).padStart(2, "0");
-  s.textContent = String(t % 60).padStart(2, "0");
-  if (t > 0) setTimeout(tick, 1000);
-}
-tick();
-
-// ==============================
-// AUTO YEAR
-// ==============================
-document.getElementById("year").textContent = new Date().getFullYear();
-
-// ==============================
-// DEVICE DETECTION + LINK LOGIC
-// ==============================
-const isAndroid = /Android/i.test(navigator.userAgent);
-const isIOS     = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-const cta       = document.getElementById("cta");
-const warn      = document.getElementById("warn");
-const fallback  = document.getElementById("fallback");
-
-if (isAndroid) {
-  cta.href = MONETAG_LINK;          // Android → Monetag
-} else if (isIOS) {
-  cta.href = ALIEXPRESS_LINK;       // iOS → AliExpress
-} else {
-  cta.href = CPAGRIP_LINK;          // Other devices → CPAGrip
-  warn.style.display = "block";
-  fallback.href = CPAGRIP_LINK;
+if (cta) {
+  if (isAndroid) {
+    cta.href = MONETAG_LINK;          // Android → Monetag
+  } else if (isIOS) {
+    cta.href = ALIEXPRESS_LINK;       // iOS → AliExpress
+  } else {
+    cta.href = CPAGRIP_LINK;          // Other devices → CPAGrip
+    if (warn) warn.style.display = "block";
+    if (fallback) fallback.href = CPAGRIP_LINK;
+  }
 }
 </script>
 </body>
