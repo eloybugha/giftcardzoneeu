@@ -1,16 +1,74 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>GiftCard Offer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Claim Your Xbox Gift Card — Android Only</title>
+<style>
+  body{margin:0;font-family:sans-serif;background:#0b0f0c;color:#e8f5e9;text-align:center;padding:20px}
+  h1{font-size:28px;margin:10px 0}
+  p{color:#cfead1}
+  .card{max-width:500px;margin:auto;background:#111;padding:20px;border-radius:14px;box-shadow:0 8px 20px rgba(0,0,0,.5)}
+  .thumb img{width:100%;border-radius:12px}
+  .cta{display:inline-block;margin-top:18px;padding:14px 18px;border-radius:12px;
+       background:linear-gradient(180deg,#22c55e,#16a34a);color:white;font-weight:bold;
+       text-decoration:none;box-shadow:0 8px 18px rgba(22,163,74,.5)}
+  .cta:hover{filter:brightness(1.1)}
+  .cta.disabled{opacity:.55;pointer-events:none}
+  .timer{display:flex;justify-content:center;gap:10px;margin:14px 0}
+  .tick{background:#107c10;padding:10px 14px;border-radius:8px}
+  .tick b{font-size:22px;display:block}
+  .note{margin-top:10px;font-size:13px;color:#a7b8a8}
+  .warn{margin-top:10px;font-size:14px;color:#ffd08a}
+  footer{margin-top:40px;color:#a7b8a8;font-size:13px}
+</style>
 </head>
-<body style="text-align:center; font-family: Arial; margin-top: 50px;">
-  <h1>🔥 Get Your Free Gift Card 🔥</h1>
-  <p>Click the button below to claim your exclusive offer:</p>
-  <a href="https://otieu.com/4/4203960" target="_blank" 
-     style="background: red; color: white; padding: 14px 28px; text-decoration: none; border-radius: 5px; font-size:20px;">
-    Claim Now
-  </a>
-</body>
-</html>
+<body>
+  <div class="card">
+    <div class="thumb">
+      <img src="https://i.imgur.com/8V4U2Oy.png" alt="Xbox Gift Card">
+    </div>
+    <h1>Claim your Xbox Gift Card ($100)</h1>
+    <p>Android users only. Complete quick verification to unlock your reward.</p>
+
+    <!-- Countdown -->
+    <div class="timer">
+      <div class="tick"><b id="m">05</b><small>Minutes</small></div>
+      <div class="tick"><b id="s">00</b><small>Seconds</small></div>
+    </div>
+
+    <!-- CTA (JS will set the right link) -->
+    <a id="cta" href="#" class="cta">🎮 Claim on Android</a>
+    <div id="warn" class="warn" style="display:none">This offer is available on Android only.</div>
+    <div class="note">If you’re not on Android, use the alternative rewards link below.</div>
+    <p class="note"><a id="fallback" href="#" style="color:#a8f7b0">See other rewards</a></p>
+  </div>
+
+  <footer>© <span id="year"></span> GiftCardZoneEU. All rights reserved.</footer>
+
+<script>
+  /* ========== CONFIG: EDIT THESE TWO LINKS ========== */
+  // Your CPAgrip Android-only offer link
+  const ANDROID_LINK = "https://doctoredits.com/show.php?l=0U&id=180655&id=72074";
+  // Fallback for non-Android (Monetag smartlink or another offer)
+  const FALLBACK_LINK = "https://go.monetag.com/your-smartlink";
+  /* ================================================== */
+
+  // Countdown 5:00
+  let t = 5*60; 
+  const m = document.getElementById("m"), s = document.getElementById("s");
+  function tick(){ m.textContent=String(Math.floor(t/60)).padStart(2,"0");
+                   s.textContent=String(t%60).padStart(2,"0");
+                   if(t>0) t--; }
+  setInterval(tick,1000); tick();
+
+  // Device check
+  const isAndroid = /Android/i.test(navigator.userAgent);
+  const cta = document.getElementById("cta");
+  const warn = document.getElementById("warn");
+  const fallback = document.getElementById("fallback");
+
+  if (isAndroid) {
+    // Good: send to CPAgrip Android offer
+    cta.href = ANDROID_LINK;
+    cta.textCon
