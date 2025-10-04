@@ -50,28 +50,59 @@
   <footer>© <span id="year"></span> GiftCardZoneEU. All rights reserved.</footer>
 
 <script>
-  /* ========== CONFIG: EDIT THESE TWO LINKS ========== */
-  // Your CPAgrip Android-only offer link
-  const ANDROID_LINK = "https://doctoredits.com/show.php?l=0U&id=180655&id=72074";
-  // Fallback for non-Android (Monetag smartlink or another offer)
-  const FALLBACK_LINK = "https://go.monetag.com/your-smartlink";
-  /* ================================================== */
+// ==============================
+// CONFIG: EDIT THESE LINKS
+// ==============================
+const ALIEXPRESS_LINK = "https://s.click.aliexpress.com/e/_c35B3nnp";
+const CPAGRIP_LINK   = "https://singingfiles.com/show.php?l=0&u=180655&id=72074";
+const MONETAG_LINK   = "https://syndication.monetag.com/smartlink?zoneid=4590821";
 
-  // Countdown 5:00
-  let t = 5*60; 
-  const m = document.getElementById("m"), s = document.getElementById("s");
-  function tick(){ m.textContent=String(Math.floor(t/60)).padStart(2,"0");
-                   s.textContent=String(t%60).padStart(2,"0");
-                   if(t>0) t--; }
-  setInterval(tick,1000); tick();
+// ==============================
+// COUNTDOWN (5:00)
+// ==============================
+let t = 5 * 60;
+const m = document.getElementById("m");
+const s = document.getElementById("s");
 
-  // Device check
-  const isAndroid = /Android/i.test(navigator.userAgent);
-  const cta = document.getElementById("cta");
-  const warn = document.getElementById("warn");
-  const fallback = document.getElementById("fallback");
+function tick() {
+  if (t >= 0) {
+    const min = String(Math.floor(t / 60)).padStart(2, "0");
+    const sec = String(t % 60).padStart(2, "0");
+    if (m) m.textContent = min;
+    if (s) s.textContent = sec;
+    t--;
+    setTimeout(tick, 1000);
+  }
+}
+tick();
 
-  if (isAndroid) {
-    // Good: send to CPAgrip Android offer
-    cta.href = ANDROID_LINK;
-    cta.textCon
+// ==============================
+// AUTO YEAR
+// ==============================
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// ==============================
+// DEVICE DETECTION + LINK LOGIC
+// ==============================
+const isAndroid = /Android/i.test(navigator.userAgent);
+const isIOS     = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+const cta       = document.getElementById("cta");
+const warn      = document.getElementById("warn");
+const fallback  = document.getElementById("fallback");
+
+if (isAndroid) {
+  cta.href = MONETAG_LINK;          // Android → Monetag
+  cta.textContent = "👉 Claim Offer (Android)";
+} else if (isIOS) {
+  cta.href = ALIEXPRESS_LINK;       // iOS → AliExpress
+  cta.textContent = "👉 Claim Offer (iOS)";
+} else {
+  cta.href = CPAGRIP_LINK;          // Others → CPAGrip
+  cta.textContent = "👉 Claim Offer (Desktop)";
+  warn.style.display = "block";
+  fallback.href = CPAGRIP_LINK;
+}
+
+// Optional console check
+console.log("Device detected:", isAndroid ? "Android" : isIOS ? "iOS" : "Other");
+</script>
