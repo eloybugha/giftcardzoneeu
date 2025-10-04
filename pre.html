@@ -1,42 +1,88 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="tl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Congratulations!</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; text-align: center; }
-    .wrap { max-width: 680px; margin: 60px auto; padding: 0 16px; }
-    h1 { font-size: 28px; margin-bottom: 12px; }
-    p  { font-size: 16px; margin-bottom: 28px; }
-    .btn {
-      display: inline-block;
-      background: #16a34a;
-      color: #fff;
-      padding: 12px 24px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 600;
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Paunang Pahina – Gift Card Verification</title>
+<meta name="robots" content="noindex" />
+
+<style>
+  :root { --brand:#16a34a; --brand-dark:#15803d; }
+  *{box-sizing:border-box}
+  body{
+    margin:0; font-family: Arial, sans-serif; color:#0f172a; background:#f8fafc;
+    display:flex; min-height:100vh; align-items:center; justify-content:center; text-align:center;
+  }
+  .card{
+    width:100%; max-width:680px; background:#fff; padding:32px 20px; border-radius:16px;
+    box-shadow:0 10px 30px rgba(2,6,23,.08);
+  }
+  h1{font-size:28px; margin:0 0 8px}
+  p{font-size:16px; margin:0 0 18px}
+  .badges{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin:12px 0 20px}
+  .badge{font-size:12px; padding:6px 10px; border-radius:999px; background:#eef2ff}
+  .timer{font-size:14px; margin-top:6px; color:#475569}
+  .btn{
+    display:inline-block; background:var(--brand); color:#fff; text-decoration:none;
+    padding:12px 22px; border-radius:10px; font-weight:700; margin-top:8px;
+  }
+  .btn:hover{background:var(--brand-dark)}
+  #warn{display:none; margin-top:14px; color:#ef4444; font-size:14px}
+  footer{margin-top:22px; font-size:12px; color:#64748b}
+</style>
 </head>
+
 <body>
-  <div class="wrap">
-    <h1>🎉 Congratulations!</h1>
-    <p>You have a chance to win a FREE gift card!</p>
+  <div class="card">
+    <h1>🎉 Congrats! Huling Hakbang Na Lang</h1>
+    <p>Panandaliang beripikasyon bago ka mag-claim ng <strong>LIBRENG gift card</strong>.</p>
 
-    <!-- Kung ang main page mo ay index.html, gamitin ito: -->
-    <a class="btn" href="index.html#claim">Continue</a>
+    <div class="badges">
+      <span class="badge">🔒 Ligtas at Secure</span>
+      <span class="badge">⚡ Mabilis ang Proseso</span>
+      <span class="badge">🌍 Gumagana sa Bawat Rehiyon</span>
+    </div>
 
-    <!-- Kung iba ang filename ng landing mo (hal. landing.html), palitan:
-    <a class="btn" href="landing.html#claim">Continue</a>
-    -->
+    <a id="cta" class="btn" href="#">Magpatuloy Ngayon</a>
+    <div id="warn">⚠️ Pansamantalang available lang ito sa Android devices.</div>
+    <div class="timer">Awtomatikong magre-redirect sa <span id="secs">10</span>s…</div>
+
+    <footer>© <span id="yr"></span> GiftCardZoneEU · All rights reserved.</footer>
   </div>
 
-  <!-- OPTIONAL: auto-redirect after 2s, alisin ang comment kung gusto mo
-  <script>
-    setTimeout(() => { window.location.href = "index.html#claim"; }, 2000);
-  </script>
-  -->
+<script>
+  // 👉 Palitan mo lang ito ng iyong Android link (Monetag o CPA link)
+  const ANDROID_LINK = "https://your-android-offer-link.com";
+  const FALLBACK_LINK = "#"; // kapag hindi Android, walang redirect
+
+  const isAndroid = /Android/i.test(navigator.userAgent);
+  const cta = document.getElementById("cta");
+  const warn = document.getElementById("warn");
+  const timer = document.getElementById("secs");
+
+  document.getElementById("yr").textContent = new Date().getFullYear();
+
+  if (isAndroid) {
+    cta.href = ANDROID_LINK;
+    let remaining = 10;
+    timer.textContent = remaining;
+
+    const t = setInterval(() => {
+      remaining--;
+      timer.textContent = remaining;
+      if (remaining <= 0) {
+        clearInterval(t);
+        window.location.href = ANDROID_LINK;
+      }
+    }, 1000);
+
+    cta.addEventListener("click", () => clearInterval(t));
+  } else {
+    // Hindi Android – ipakita warning at huwag i-redirect
+    cta.href = FALLBACK_LINK;
+    document.querySelector(".timer").style.display = "none";
+    warn.style.display = "block";
+  }
+</script>
 </body>
 </html>
