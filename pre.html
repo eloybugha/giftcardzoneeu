@@ -23,6 +23,62 @@
   .badge{font-size:12px; padding:6px 10px; border-radius:999px; background:#eef2ff}
   .timer{font-size:14px; margin-top:6px; color:#475569}
   .btn{
+   </head>
+
+<body>
+  <div class="card">
+    <h1>🎉 Congrats! Huling Hakbang Na Lang</h1>
+    <p>Panandaliang beripikasyon bago ka mag-claim ng <strong>LIBRENG gift card</strong>.</p>
+
+    <div class="badges">
+      <span class="badge">🔒 Ligtas at Secure</span>
+      <span class="badge">⚡ Mabilis ang Proseso</span>
+      <span class="badge">🌍 Gumagana sa Bawat Rehiyon</span>
+    </div>
+
+    <a id="cta" class="btn" href="#">Magpatuloy Ngayon</a>
+    <div id="warn">⚠️ Pansamantalang available lang ito sa Android devices.</div>
+    <div class="timer">Awtomatikong magre-redirect sa <span id="secs">10</span>s…</div>
+
+    <footer>© <span id="yr"></span> GiftCardZoneEU · All rights reserved.</footer>
+  </div>
+
+<script>
+  // 👉 Palitan mo lang ito ng iyong Android link (CPAgrip / Monetag)
+  const ANDROID_LINK = "https://your-android-offer-link.com";
+  const FALLBACK_LINK = "#";
+
+  const isAndroid = /Android/i.test(navigator.userAgent);
+  const cta = document.getElementById("cta");
+  const warn = document.getElementById("warn");
+  const timer = document.getElementById("secs");
+
+  document.getElementById("yr").textContent = new Date().getFullYear();
+
+  if (isAndroid) {
+    cta.href = ANDROID_LINK;
+    let remaining = 10;
+    timer.textContent = remaining;
+
+    const t = setInterval(() => {
+      remaining--;
+      timer.textContent = remaining;
+      if (remaining <= 0) {
+        clearInterval(t);
+        window.location.href = ANDROID_LINK;
+      }
+    }, 1000);
+
+    cta.addEventListener("click", () => clearInterval(t));
+  } else {
+    // Kapag hindi Android
+    cta.href = FALLBACK_LINK;
+    document.querySelector(".timer").style.display = "none";
+    warn.style.display = "block";
+  }
+</script>
+</body>
+</html>
     display:inline-block; background:var(--brand); color:#fff; text-decoration:none;
     padding:12px 22px; border-radius:10px; font-weight:700; margin-top:8px;
   }
