@@ -127,12 +127,32 @@
   <footer>© <span id="year"></span> GiftCardZoneEU. All rights reserved.</footer>
 
 <script>
-/* ======== CONFIG: EDIT THESE LINKS ======== */
-// const ANDROID_LINK = "https://singingfiles.com/show.php?l=0&u=180655&id=72074";
-const ANDROID_LINK  = "https://syndication.monetag.com/smartlink?zoneid=4590821";
-const FALLBACK_LINK = "https://syndication.monetag.com/smartlink?zoneid=4590821";
-/* ========================================== */
+<!-- CONFIG: EDIT THESE LINKS -->
+<script>
+const ALIEXPRESS_LINK = "https://s.click.aliexpress.com/e/_c35B3nnp"; // AliExpress
+const CPAGRIP_LINK = "https://doctoreditss.com/show.php?l=0&u=180655&id=72074"; // CPAgrip
+const MONETAG_LINK = "https://syndication.monetag.com/smartlink?zoneid=4590821"; // Monetag Smartlink
 
+// Detect device
+const isAndroid = /Android/i.test(navigator.userAgent);
+const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+// Get elements
+const cta = document.getElementById("cta");
+const warn = document.getElementById("warn");
+const fallback = document.getElementById("fallback");
+
+// Logic: set proper link
+if (isAndroid) {
+  cta.href = MONETAG_LINK; // Android → Monetag
+} else if (isIOS) {
+  cta.href = ALIEXPRESS_LINK; // iOS → AliExpress
+} else {
+  cta.href = CPAGRIP_LINK; // Other devices → CPAgrip
+  warn.style.display = "block";
+  fallback.href = CPAGRIP_LINK;
+}
+</script>
 // Countdown 5:00
 let t = 5 * 60;
 const m = document.getElementById("m"),
