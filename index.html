@@ -179,9 +179,7 @@ const iv = setInterval(() => {
   }
 }, 1000);
   }
-    // update digits
-    if (minEl && secEl) {
-      minEl.textContent = min;
+    if (!unlocked && remaining <= TOTAL - 30)
       secEl.textContent = sec;
     }
 
