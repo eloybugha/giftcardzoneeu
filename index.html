@@ -6,15 +6,12 @@
 <title>GiftCardZoneEU – Claim Your Gift Card</title>
 <meta name="robots" content="noindex,nofollow">
 <style>
-:root{
-  --bg:#0b1220; --txt:#f8fafc; --muted:#cbd5e1;
-  --acc1:#22c55e; --acc2:#16a34a;
-}
+:root{ --bg:#0b1220; --txt:#f8fafc; --muted:#cbd5e1; --acc1:#22c55e; --acc2:#16a34a; --warn:#f59e0b; }
 *{box-sizing:border-box}
 html,body{height:100%;margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(900px 600px at 50% -10%,#162945 0%,#0b1220 70%) fixed,var(--bg);color:var(--txt);display:grid;place-items:center}
 main{width:min(720px,92vw);background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:28px 24px;box-shadow:0 20px 60px rgba(0,0,0,.35);text-align:center}
 h1{margin:0 0 8px;font-size:clamp(26px,4.5vw,40px)}
-p{margin:0 0 18px;color:var(--muted)}
+p.sub{margin:0 0 18px;color:var(--muted)}
 .bar{height:10px;background:rgba(255,255,255,.12);border-radius:999px;overflow:hidden;margin:10px 0 16px}
 #fill{height:100%;width:0%;background:linear-gradient(90deg,var(--acc1),var(--acc2));transition:width .2s linear}
 a.cta{display:inline-block;background:var(--acc1);color:#fff;text-decoration:none;padding:14px 26px;border-radius:12px;font-weight:700;font-size:18px;box-shadow:0 8px 24px rgba(34,197,94,.35);transition:.25s}
@@ -23,41 +20,98 @@ a.cta:hover{transform:translateY(-1px);background:var(--acc2)}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(34,197,94,.55)}70%{box-shadow:0 0 0 14px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
 .stock{margin-top:14px;color:#facc15;font-weight:600;font-size:15px;animation:fade 2s ease-in-out infinite alternate}
 @keyframes fade{from{opacity:.7}to{opacity:1}}
+.badge{display:inline-block;margin:8px 0 12px;padding:6px 10px;border-radius:999px;background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.35);font-weight:600}
+.badge.warn{background:rgba(245,158,11,.15);border-color:rgba(245,158,11,.35)}
 </style>
 </head>
-
 <body>
 <main>
   <h1>🎁 Claim Your Gift Card Now!</h1>
-  <p>Unlocking in <span id="secs">8</span>s...</p>
+  <p class="sub">Unlocking in <span id="secs">8</span>s...</p>
   <div class="bar"><div id="fill"></div></div>
-  <a id="cta" class="cta" href="https://s.click.aliexpress.com/e/_c3pEdWXN" target="_blank" rel="nofollow noopener noreferrer">👉 Claim Now</a>
+  <div id="geoNote" class="badge" style="display:none"></div>
+  <a id="cta" class="cta" href="#" target="_blank" rel="nofollow noopener noreferrer">👉 Claim Now</a>
   <div class="stock" id="stockText">Only a few gift cards left!</div>
 </main>
 
 <script>
-const fill=document.getElementById("fill");
-const secs=document.getElementById("secs");
-const cta=document.getElementById("cta");
-let total=8,t=total;
-function tick(){
-  t=Math.max(0,t-0.1);
-  fill.style.width=((total-t)/total*100).toFixed(1)+"%";
-  secs.textContent=Math.ceil(t);
-  if(t<=0){cta.classList.add("pulse");clearInterval(timer);}
-}
-const timer=setInterval(tick,100);tick();
+/* -------- LINKS -------- */
+const LINKS = {
+  monetag: "https://syndication.monetag.com/smartlink?zoneid=4590821",
+  cpa:     "https://singingfiles.com/show.php?l=0&u=180655&id=72074",
+  ali:     "https://s.click.aliexpress.com/e/_c3pEdWXN"
+};
+const cta = document.getElementById("cta");
+const geoNote = document.getElementById("geoNote");
 
-// fake dynamic stock messages
-const stock=document.getElementById("stockText");
-const msgs=[
-  "🎉 5 users claimed in the last 10 minutes!",
+/* -------- Optional force mode for testing: ?mode=monetag | cpa | ali -------- */
+const params = new URLSearchParams(location.search);
+const force = (params.get("mode") || "").toLowerCase();
+if (force && LINKS[force]) cta.href = LINKS[force];
+
+/* -------- Instant local guess (works even if GEO API blocked) -------- */
+if (!force){
+  const lang = (navigator.language || "").toLowerCase();
+  const tz   = (Intl.DateTimeFormat().resolvedOptions().timeZone || "").toLowerCase();
+  const likelyNL = lang.startsWith("nl") || tz.includes("amsterdam");
+  const likelyDE = lang.startsWith("de") || tz.includes("berlin");
+  if (likelyNL || likelyDE){
+    cta.href = LINKS.ali;
+    geoNote.textContent = "Using fallback";
+    geoNote.classList.add("warn");
+    geoNote.style.display = "inline-block";
+  } else {
+    cta.href = LINKS.monetag;
+    geoNote.textContent = "Fast redirect";
+    geoNote.style.display = "inline-block";
+  }
+}
+
+/* -------- Precise GEO (overrides guess) -------- */
+if (!force){
+  fetch("https://ipapi.co/json/")
+    .then(r => r.json())
+    .then(d => {
+      const cc = (d.country_code || "").toUpperCase();
+      if (cc === "NL" || cc === "DE") {
+        cta.href = LINKS.ali;
+        geoNote.textContent = "Using fallback";
+        geoNote.classList.add("warn");
+      } else if (cc === "US") {
+        cta.href = LINKS.cpa;
+        geoNote.textContent = "US offer";
+        geoNote.classList.remove("warn");
+      } else {
+        cta.href = LINKS.monetag;
+        geoNote.textContent = "Fast redirect";
+        geoNote.classList.remove("warn");
+      }
+      geoNote.style.display = "inline-block";
+    })
+    .catch(()=>{ /* keep instant guess */ });
+}
+
+/* -------- Countdown + progress -------- */
+const fill = document.getElementById("fill");
+const secs = document.getElementById("secs");
+let total = 8, t = total;
+function tick(){
+  t = Math.max(0, t - 0.1);
+  fill.style.width = ((total - t) / total * 100).toFixed(1) + "%";
+  secs.textContent = Math.ceil(t);
+  if (t <= 0){ cta.classList.add("pulse"); clearInterval(timer); }
+}
+const timer = setInterval(tick, 100); tick();
+
+/* -------- Rotating stock messages -------- */
+const stock = document.getElementById("stockText");
+const msgs = [
   "⚡ Only 12 gift cards left today!",
+  "🎉 5 users claimed in the last 10 minutes!",
   "🔥 Claim yours before it's gone!",
   "🎁 New codes dropping soon!"
 ];
-let i=0;
-setInterval(()=>{stock.textContent=msgs[i%msgs.length];i++;},4000);
+let i = 0; setInterval(()=>{ stock.textContent = msgs[i++ % msgs.length]; }, 4000);
 </script>
 </body>
 </html>
