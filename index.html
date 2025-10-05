@@ -69,100 +69,38 @@
 
     <footer>© <span id="year"></span> GiftCardZoneEU. All rights reserved.</footer>
   </main>72074
-
-  <!-- ===== Single script: config + logic ===== -->
 <script defer>
-// ================== LINKS ==================
+// ================== CONFIG ==================
+const COUNTDOWN_START = 300; // 5 minutes
+let remaining = COUNTDOWN_START;
+const timerEl = document.querySelector("h2"); // assuming h2 is your timer
+const cta = document.getElementById("cta");
+
+// your links
 const LINKS = {
-  cpa:     "https://singingfiles.com/show.php?l=0&u=180655&id=72074",   // CPA (US)
-  monetag: "https://syndication.monetag.com/smartlink?zoneid=4590821",  // Default (non-US)
-  ali:     "https://s.click.aliexpress.com/e/_c35B3nnp"                  // Fallback kapag down ang Monetag
+  ali:     "https://s.click.aliexpress.com/e/_c35B3nnp",
+  cpa:     "https://doctoredits.com/show.php?l=0&u=180655&id=72074",
+  monetag: "https://syndication.monetag.com/smartlink?zoneid=4590821"
 };
 
-// ================== STATE / DOM HOOKS ==================
-const params = new URLSearchParams(location.search);
-const forcedMode = params.get("mode"); // optional ?mode=cpa|monetag|ali
-let FINAL_URL = LINKS.monetag;
-
-let cta, mEl, sEl, yearEl;
-
-// ------------------ HELPERS ------------------
-function applyFinalUrl(url) {
-  FINAL_URL = url;
-  if (!cta) return;
-
-  // UTM pass-through (para sa ads tracking)
-  try {
-    const keep = [
-      "utm_source","utm_medium","utm_campaign","utm_content","utm_term",
-      "ad_id","adset_id","campaign_id","adset","placement"
-    ];
-    const qs = new URLSearchParams(location.search);
-    const add = new URLSearchParams();
-    keep.forEach(k => { if (qs.get(k)) add.set(k, qs.get(k)); });
-    if ([...add.keys()].length) {
-<body>
-  <main class="wrap">
-    <img id="card" alt="Xbox Gift Card" src="/assets/xbox.png" />
-    <h1>Claim your Xbox Gift Card ($100)</h1>
-    <p>Android users only. Complete quick verification to unlock your reward.</p>
-
-    <div id="countdown"><span id="m">05</span> Min&nbsp; <span id="s">00</span> Sec</div>
-
-    <a id="cta" class="btn" href="#" rel="nofollow noopener noreferrer" aria-disabled="true">
-      🎮 Claim on Android
-    </a>
-
-    <footer>© GiftCardZoneEU. All rights reserved.</footer>
-  </main>
-
-  <style>
-    body{margin:0;font-family:system-ui,Arial,sans-serif;background:#0c2b66;color:#fff}
-    .wrap{max-width:720px;margin:32px auto;padding:20px;text-align:center}
-    #card{width:80%;max-width:420px;border-radius:18px;box-shadow:0 20px 60px rgba(0,0,0,.35);display:block;margin:0 auto 20px}
-    #countdown{font-size:28px;font-weight:700;margin:14px 0}
-    .btn{display:inline-block;padding:16px 22px;border-radius:12px;background:#16c172;color:#fff;
-         text-decoration:none;font-weight:700;box-shadow:0 8px 24px rgba(0,0,0,.25)}
-    .btn[aria-disabled="true"]{opacity:.6;pointer-events:none}
-    footer{opacity:.7;margin-top:28px;font-size:12px}
-  </style>
-
-  <!-- JS must be inside proper <script> tag -->
-  <script>
-  // ====== CONFIG: EDIT YOUR LINKS HERE ======
-  const LINKS = {
-    monetag: "https://syndication.monetag.com/smartlink?zoneid=4590821"
-    // cpa:  "https://doctoreditss.com/show.php?l=0&u=180655&id=72074",
-    // ali:  "https://s.click.aliexpress.com/e/_c35B3nnp"
-  };
-
-  // ====== COUNTDOWN + CTA ======
-  let t = 5 * 60; // 5 minutes in seconds
-  const m = document.getElementById("m"), s = document.getElementById("s");
-  const cta = document.getElementById("cta");
-
-  function render(){
-    const mm = String(Math.floor(t/60)).padStart(2,"0");
-    const ss = String(t%60).padStart(2,"0");
-    m.textContent = mm; s.textContent = ss;
+// ================== COUNTDOWN ==================
+function tick() {
+  if (remaining > 0) {
+    remaining--;
+    const min = Math.floor(remaining / 60).toString().padStart(2, "0");
+    const sec = (remaining % 60).toString().padStart(2, "0");
+    timerEl.textContent = `${min}:${sec}`;
+  } else {
+    cta.disabled = false;
+    cta.classList.add("active");
   }
-  function enableCTA(){
-    cta.setAttribute("aria-disabled","false");
-    cta.removeAttribute("aria-disabled");
-  }
-  cta.addEventListener("click", function(e){
-    e.preventDefault();
-    // kung gusto mo ali/cpa sa ibang GEO, palitan dito via logic
-    location.href = LINKS.monetag;
-  });
+}
+setInterval(tick, 1000);
+tick();
 
-  render();
-  const iv = setInterval(()=>{
-    if(t>0){ t--; render(); }
-    else { clearInterval(iv); enableCTA();
-           // fallback auto-redirect after 2s
-           setTimeout(()=>cta.click(),2000);
-    }
-  },1000);
-  </script>
-</body>
+// ================== CLICK HANDLER ==================
+cta.addEventListener("click", (e) => {
+  e.preventDefault();
+  window.location.href = LINKS.monetag;
+});
+</script>
