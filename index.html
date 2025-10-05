@@ -138,18 +138,19 @@ function draw(){
   }
 }
 
-// 6) TICK LOOP
+/// 6) TICK LOOP
 function tick(){
   if (remaining > 0) remaining--;
   draw();
 }
 
-// Start
-cta.classList.add("disabled");
-cta.style.pointerEvents = "none";
+// Start (clickable agad kahit may countdown)
+cta.classList.remove("disabled");
+cta.style.pointerEvents = "auto";
+cta.href = FINAL_URL;
+cta.textContent = "👉 Claim Now";
 draw();
 setInterval(tick, 1000);
-
 // 7) Failsafe (unlock kahit may glitch)
 setTimeout(() => {
   if (!unlocked) {
