@@ -1,183 +1,101 @@
-      <!doctype html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>GiftCardZoneEU — Xbox Gift Card</title>
-<link rel="icon" href="https://i.ibb.co/2vvPY0t/xbox-giftcard.png" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GiftCardZoneEU — Claim Your Xbox Gift Card</title>
+<meta name="robots" content="noindex,nofollow" />
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: "Poppins", sans-serif;
-    background: linear-gradient(-45deg, #0f172a, #1e293b, #2563eb, #0ea5e9);
-    background-size: 400% 400%;
-    animation: gradientShift 10s ease infinite;
-    color: #fff;
-    text-align: center;
-    padding: 35px 20px;
+  :root { --bg1:#0ea5e9; --bg2:#2563eb; --text:#f8fafc; --muted:#cbd5e1; --accent:#22c55e; }
+  *{box-sizing:border-box} body{
+    margin:0; font-family:system-ui, Arial, sans-serif; color:var(--text); text-align:center;
+    background:linear-gradient(90deg,var(--bg1),var(--bg2)); background-size:200% 200%;
+    animation:grad 8s ease-in-out infinite alternate; padding:32px 18px;
   }
-
-  @keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-
-  img {
-    max-width: 100%;
-    border-radius: 15px;
-    margin-bottom: 18px;
-    box-shadow: 0 0 25px rgba(59,130,246,0.4);
-  }
-
-  h1 {
-    font-size: 24px;
-    margin-bottom: 8px;
-    color: #f8fafc;
-  }
-
-  p {
-    color: #cbd5e1;
-    font-size: 15px;
-    margin-bottom: 12px;
-  }
-
-  .timer {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin: 12px 0 20px;
-    font-size: 18px;
-    font-weight: bold;
-  }
-
-  .cta {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 14px 30px;
-    background: linear-gradient(90deg, #22c55e, #16a34a);
-    color: white;
-    font-weight: 700;
-    border-radius: 12px;
-    text-decoration: none;
-    font-size: 17px;
-    letter-spacing: 0.5px;
-    box-shadow: 0 0 20px rgba(34,197,94,0.6);
-    transition: all 0.3s ease;
-    animation: pulseGlow 2s infinite alternate;
-  }
-
-  @keyframes pulseGlow {
-    from { box-shadow: 0 0 12px rgba(34,197,94,0.4); }
-    to { box-shadow: 0 0 25px rgba(34,197,94,0.9); }
-  }
-
-  .cta:hover {
-    transform: scale(1.05);
-    background: linear-gradient(90deg, #16a34a, #22c55e);
-  }
-
-  .warn {
-    background: rgba(30,41,59,0.9);
-    border: 1px solid #475569;
-    color: #facc15;
-    padding: 12px;
-    border-radius: 12px;
-    margin-top: 18px;
-    display: none;
-    font-size: 14px;
-  }
-
-  .warn a {
-    color: #22c55e;
-    font-weight: bold;
-    text-decoration: none;
-  }
-
-  footer {
-    margin-top: 40px;
-    font-size: 13px;
-    color: #94a3b8;
-  }
+  @keyframes grad{0%{background-position:0% 50%}100%{background-position:100% 50%}}
+  .card{max-width:680px;margin:0 auto;background:rgba(255,255,255,.06);backdrop-filter:blur(6px);
+    border:1px solid rgba(255,255,255,.15); border-radius:18px; padding:22px; box-shadow:0 10px 30px rgba(0,0,0,.25)}
+  h1{font-size:24px;margin:6px 0 8px}
+  p.lead{margin:0 0 14px;color:var(--muted)}
+  .hero{display:block;margin:8px auto 14px; max-width:360px; width:90%; border-radius:12px; box-shadow:0 8px 22px rgba(0,0,0,.35)}
+  .timer{font:700 28px/1 monospace; letter-spacing:.5px; margin:8px 0 14px}
+  .cta{display:inline-block; padding:12px 18px; border-radius:12px; background:var(--accent); color:#052e16;
+       text-decoration:none; font-weight:700; box-shadow:0 6px 18px rgba(0,0,0,.25)}
+  .badges{list-style:none; padding:0; margin:14px 0 0; display:grid; gap:6px; justify-content:center}
+  .badges li{background:rgba(255,255,255,.08); padding:6px 10px; border-radius:12px; display:inline-block}
+  .warn{display:none; margin-top:14px; background:rgba(255,255,255,.12); border:1px dashed rgba(255,255,255,.35);
+        padding:12px; border-radius:12px; color:#fff}
+  footer{margin-top:18px; color:var(--muted); font-size:13px}
 </style>
 </head>
-
 <body>
-  <!-- Xbox Gift Card Image -->
-  <img src="https://i.ibb.co/2vvPY0t/xbox-giftcard.png" alt="Xbox Gift Card $100">
+  <main class="card">
+    <h1>Claim Your Xbox Gift Card</h1>
+    <p class="lead">Limited slots only. Finish the quick check to unlock your reward.</p>
 
-  <h1>Claim your Xbox Gift Card ($100)</h1>
-  <p>Android users only. Complete quick verification to unlock your reward.</p>
+    <!-- Image (also clickable later by CTA only) -->
+    <img class="hero" src="https://i.ibb.co/bRvBScs8/claim-your-xbox-gift-card.png"
+         alt="Claim Your Xbox Gift Card">
 
-  <!-- Countdown -->
-  <div class="timer">
-    <div><b id="m">05</b><small> Min</small></div>
-    <div><b id="s">00</b><small> Sec</small></div>
-  </div>
+    <!-- Timer -->
+    <div class="timer"><span id="m">05</span>:<span id="s">00</span></div>
 
-  <!-- CTA (JS will set the right link) -->
-  <a id="cta" href="#" class="cta">🎮 Claim on Android</a>
+    <!-- CTA (set by script) -->
+    <a id="cta" class="cta" href="#">👉 Claim Now</a>
 
-  <div id="warn" class="warn">
-    ⚠️ <b>Note:</b> This offer is available only on Android devices.<br>
-    If you’re not on Android, use this verified link:  
-    <a id="fallback" href="#">Open Offer</a>
-  </div>
+    <!-- Benefits -->
+    <ul class="badges">
+      <li>📱 Android Optimized</li>
+      <li>🔒 Safe & Verified</li>
+      <li>⚡ Instant Access</li>
+    </ul>
 
-  <footer>© <span id="year"></span> GiftCardZoneEU. All rights reserved.</footer>
+    <!-- Non-Android notice + fallback link -->
+    <div id="warn" class="warn">
+      <b>Note:</b> This offer is best on Android.<br>
+      If you’re not on Android, use this verified link:
+      <a id="fallback" href="#" style="color:#d1fae5;font-weight:700">Open Offer</a>
+    </div>
 
-<script>
-<!-- CONFIG: EDIT THESE LINKS -->
-<!-- CONFIG + LOGIC (single script only) -->
-<script>
-// ================================
-// CONFIG: EDIT THESE LINKS ONCE
-// ================================
-const ALIEXPRESS_LINK = "https://s.click.aliexpress.com/e/_c35B3nnp";
-const CPAGRIP_LINK    = "https://singingfiles.com/show.php?l=0&u=180655&id=72074";
-const MONETAG_LINK    = "https://syndication.monetag.com/smartlink?zoneid=4590821";
+    <footer>© <span id="year"></span> GiftCardZoneEU. All rights reserved.</footer>
+  </main>
 
-// ================================
-// COUNTDOWN TIMER (5:00)
-// ================================
-let t = 5 * 60;
-const m = document.getElementById("m");
-const s = document.getElementById("s");
-function tick() {
-  if (m) m.textContent = String(Math.floor(t / 60)).padStart(2, "0");
-  if (s) s.textContent = String(t % 60).padStart(2, "0");
-  if (t > 0) setTimeout(tick, 1000);
-  t--;
-}
-tick();
+  <!-- ===== Single script: config + logic ===== -->
+  <script>
+    // --- EDIT THESE LINKS ONLY (keep everything else) ---
+    const ALIEXPRESS_LINK = "https://s.click.aliexpress.com/e/_c35B3nnp";
+    const CPAGRIP_LINK    = "https://singingfiles.com/show.php?l=0&u=180655&id=72074";
+    const MONETAG_LINK    = "https://syndication.monetag.com/smartlink?zoneid=4590821";
 
-// ================================
-// AUTO YEAR
-// ================================
-const yearEl = document.getElementById("year");
-if (yearEl) yearEl.textContent = new Date().getFullYear();
+    // Routing choice
+    const ANDROID_LINK  = MONETAG_LINK;   // Android → Monetag
+    const FALLBACK_LINK = CPAGRIP_LINK;   // non-Android → CPAgrip (you can swap to ALIEXPRESS_LINK)
 
-// ================================
-// DEVICE DETECTION + LINK LOGIC
-// ================================
-const isAndroid = /Android/i.test(navigator.userAgent);
-const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+    // DOM hooks
+    const cta = document.getElementById("cta");
+    const warn = document.getElementById("warn");
+    const fallback = document.getElementById("fallback");
+    const year = document.getElementById("year");
+    const m = document.getElementById("m");
+    const s = document.getElementById("s");
 
-const cta = document.getElementById("cta");
-const warn = document.getElementById("warn");
-const fallback = document.getElementById("fallback");
+    // Set year
+    year.textContent = new Date().getFullYear();
 
-if (cta) {
-  if (isAndroid) {
-    cta.href = MONETAG_LINK;          // Android → Monetag
-  } else if (isIOS) {
-    cta.href = ALIEXPRESS_LINK;       // iOS → AliExpress
-  } else {
-    cta.href = CPAGRIP_LINK;          // Other devices → CPAGrip
-    if (warn) warn.style.display = "block";
-    if (fallback) fallback.href = CPAGRIP_LINK;
-  }
-}
-</script>
+    // Device detection + links
+    const isAndroid = /Android/i.test(navigator.userAgent);
+    cta.href = isAndroid ? ANDROID_LINK : FALLBACK_LINK;
+    if (!isAndroid) { warn.style.display = "block"; fallback.href = FALLBACK_LINK; }
+
+    // Countdown 5:00 + optional auto-redirect for Android
+    let t = 5 * 60;
+    function tick(){
+      m.textContent = String(Math.floor(t/60)).padStart(2,"0");
+      s.textContent = String(t%60).padStart(2,"0");
+      if (t>0){ t--; setTimeout(tick,1000); }
+      else if (isAndroid){ window.location.href = ANDROID_LINK; }
+    }
+    tick();
+  </script>
 </body>
 </html>
