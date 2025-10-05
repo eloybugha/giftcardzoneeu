@@ -162,10 +162,6 @@ const iv = setInterval(() => {
     remaining--;
 
     // update visible countdown text kung meron kang element <span id="sec"></span>
-    if (typeof secEl !== "undefined") {
-      secEl.textContent = remaining;
-    }
-
     // unlock after 30 seconds
     if (!unlocked && remaining <= TOTAL - 30) {
       unlocked = true;
@@ -174,8 +170,7 @@ const iv = setInterval(() => {
       cta.classList.add("active");
     }
 
-    draw(); // update bar, etc.
-  } else {
+    draw(); // } else }
     clearInterval(iv);
 
     // enable button pag tapos countdown
