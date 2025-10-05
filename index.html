@@ -130,13 +130,19 @@
 
   // ---- COUNTDOWN (5 minutes = 300s) ----
   let remaining = 300; // 5 minutes
-  const TOTAL = remaining;const TOTAL = remaining;    // baka nasa code mo na ito
+  const TOTAL = remaining;    // baka nasa code mo na ito
 let unlocked = false;       // NEW
 
   const draw = () => {
     const min = String(Math.floor(remaining / 60)).padStart(2, "0");
     const sec = String(remaining % 60).padStart(2, "0");
-
+// unlock after 10 seconds
+  if (!unlocked && remaining <= TOTAL - 10) {
+    unlocked = true;
+    cta.style.pointerEvents = "auto";
+    cta.classList.remove("disabled");
+    cta.classList.add("active");
+  }
     // update digits
     if (minEl && secEl) {
       minEl.textContent = min;
