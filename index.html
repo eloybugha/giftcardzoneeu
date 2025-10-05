@@ -156,9 +156,15 @@ const draw = () => {
 
 draw();
 
+// ====== COUNTDOWN TIMER ======
 const iv = setInterval(() => {
   if (remaining > 0) {
     remaining--;
+
+    // update visible countdown text kung meron kang element <span id="sec"></span>
+    if (typeof secEl !== "undefined") {
+      secEl.textContent = remaining;
+    }
 
     // unlock after 30 seconds
     if (!unlocked && remaining <= TOTAL - 30) {
@@ -168,21 +174,22 @@ const iv = setInterval(() => {
       cta.classList.add("active");
     }
 
-    draw();
+    draw(); // update bar, etc.
   } else {
     clearInterval(iv);
+
     // enable button pag tapos countdown
     cta.style.pointerEvents = "auto";
     cta.classList.remove("disabled");
     cta.classList.add("active");
     if (progress) progress.style.width = "100%";
+
+    // optional: final countdown number = 0
+    if (typeof secEl !== "undefined") {
+      secEl.textContent = "0";
+    }
   }
 }, 1000);
-  }
-    if (!unlocked && remaining <= TOTAL - 30)
-      secEl.textContent = sec;
-    }
-
     // update progress bar
     if (progress) {
       const pct = 100 - Math.floor((remaining / TOTAL) * 100);
