@@ -87,100 +87,46 @@ footer{margin-top:16px; color:#94a3b8; font-size:13px; text-align:center}
 </main>
 
 <script>
-// v9-bulletproof
-
+<script>
 document.addEventListener("DOMContentLoaded", () => {
-  // ===== 1) LINKS =====
   const LINKS = {
     ali:     "https://s.click.aliexpress.com/e/_c35B3nnp",
     cpa:     "https://doctoredits.com/show.php?l=0&u=180655&id=72074",
+    // WORKING Monetag direct link (gumagana sa'yo)
     monetag: "https://otieu.com/4/4203960"
   };
 
-  // ===== 2) TIMER =====
-  const TOTAL = 300; // 5 minutes
-  let remaining = TOTAL;
-  let unlocked = false;
-  let intervalId = null;
-
-  // ===== 3) ELEMENTS =====
-  const cta      = document.getElementById("cta");
-  const progress = document.getElementById("bar");
-  const minEl    = document.getElementById("m");
-  const secEl    = document.getElementById("s");
-
-  if (!cta || !progress || !minEl || !secEl) {
-    console.error("Missing required elements (#cta, #bar, #m, #s).");
-    return;
-  }
-
-  // ===== Beacon (debug overlay) =====
-  const beacon = document.createElement("div");
-  beacon.style.cssText = "position:fixed;right:8px;bottom:8px;background:#111;color:#0f0;font:12px system-ui;padding:6px 8px;border-radius:6px;opacity:.85;z-index:9999";
-  document.body.appendChild(beacon);
-  function ping(msg){ beacon.textContent = "JS OK • " + msg; }
-
-  // ===== 4) PICK FINAL URL =====
   function chooseURL(){
     const p = new URLSearchParams(location.search);
-    const forced = p.get("mode"); // ?mode=ali|cpa|monetag
+    const forced = p.get("mode");                 // ?mode=ali|cpa|monetag
     if (forced && LINKS[forced]) return LINKS[forced];
 
     const ua = navigator.userAgent || "";
-    if (/Android/i.test(ua)) return LINKS.monetag;
+    if (/Android/i.test(ua)) return LINKS.monetag; // fill on Android
 
-    const pool = [LINKS.ali, LINKS.cpa, LINKS.monetag];
-    return pool[Math.floor(Math.random() * pool.length)];
+    const pool = [LINKS.ali, LINKS.cpa, LINKS.monetag]; // keep monetag
+    return pool[Math.floor(Math.random()*pool.length)];
   }
+
   const FINAL_URL = chooseURL();
-  console.log("Chosen URL:", FINAL_URL);
 
-  // ===== 5) RENDER =====
-  function draw(){
-    const m = String(Math.floor(remaining / 60)).padStart(2,"0");
-    const s = String(remaining % 60).padStart(2,"0");
-    minEl.textContent = m;
-    secEl.textContent = s;
-    progress.style.width = ((TOTAL - remaining) / TOTAL * 100) + "%";
+  // --- click handler with fallback ---
+  const cta = document.getElementById("cta");
+  cta.addEventListener("click", (e) => {
+    e.preventDefault();
+    // try Monetag first; if blocked/failed after 2.5s, fallback to Ali
+    let done = false;
+    const t = setTimeout(() => {
+      if (!done) { done = true; window.location.href = LINKS.ali; }
+    }, 2500);
 
-    if (remaining <= 0 && !unlocked) {
-      unlocked = true;
-      cta.classList.remove("disabled");
-      cta.textContent = "✅ Unlocked — Claim Now!";
-      cta.href = FINAL_URL;
-      cta.classList.add("active");
-      cta.style.pointerEvents = "auto";
-      console.log("CTA unlocked.");
+    // same-tab navigate (mas hindi na-ba-block)
+    try {
+      window.location.href = FINAL_URL;
+    } catch (err) {
+      clearTimeout(t);
+      window.location.href = LINKS.ali; // hard fallback
     }
-    ping(`remaining: ${m}:${s}`);
-  }
-
-  // ===== 6) TICK LOOP =====
-  function tick(){
-    if (remaining > 0) remaining--;
-    draw();
-  }
-
-  // ===== 7) START =====
-  cta.classList.remove("disabled");
-  cta.style.pointerEvents = "auto";
-  cta.href = FINAL_URL;
-  cta.textContent = "⚡ Skip Timer — Claim Now!";
-  draw();
-  if (intervalId) clearInterval(intervalId);
-  intervalId = setInterval(tick, 1000);
-
-  // ===== 8) Failsafe =====
-  setTimeout(() => {
-    if (!unlocked) {
-      unlocked = true;
-      cta.classList.remove("disabled");
-      cta.textContent = "✅ Unlocked — Claim Now!";
-      cta.href = FINAL_URL;
-      cta.classList.add("active");
-      cta.style.pointerEvents = "auto";
-      console.warn("Failsafe unlock fired.");
-    }
-  }, (TOTAL + 3) * 1000);
+  });
 });
 </script>
