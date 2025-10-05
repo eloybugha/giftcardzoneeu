@@ -60,58 +60,31 @@
   </main>
 
 <script>
-/* ========= LINKS ========= */
 const LINKS = {
-  monetag: "https://syndication.monetag.com/smartlink?zoneid=4590821",
-  cpa:     "https://singingfiles.com/show.php?l=0&u=180655&id=72074",
+  monetag: "https://syndication.monetag.com/smartlink?zoneid=XXXXXXX",
+  cpa:     "https://doctoredits.com/show.php?l=0&u=180655&id=72074",
   ali:     "https://s.click.aliexpress.com/e/_c3pEdWXN"
 };
 
-const cta = document.getElementById("cta");
-const geoNote = document.getElementById("geoNote");
-
-/* ========= 0) INSTANT LOCAL GUESS (works even if GEO API blocked) ========= */
-const lang = (navigator.language || "").toLowerCase();
-const tz   = (Intl.DateTimeFormat().resolvedOptions().timeZone || "").toLowerCase();
-const likelyNL = lang.startsWith("nl") || tz.includes("amsterdam");
-const likelyDE = lang.startsWith("de") || tz.includes("berlin");
-cta.href = (likelyNL || likelyDE) ? LINKS.ali : LINKS.monetag;
-if (likelyNL || likelyDE) geoNote.style.display = "inline-block";
-
-/* ========= 1) PRECISE GEO (overrides guess when available) ========= */
-fetch("https://ipapi.co/json/")
+fetch("https://ipapi.co/json")
   .then(r => r.json())
-  .then(d => {
-    const cc = (d.country_code || "").toUpperCase();
-    if (cc === "NL" || cc === "DE") {
-      cta.href = LINKS.ali;
-      geoNote.style.display = "inline-block";
+  .then(data => {
+    const region = data.country_code;
+    let finalURL = LINKS.monetag; // default
+    
+    // 🔒 EU list para i-bypass
+    const EU = ["NL","DE","FR","BE","ES","IT","PL","SE","FI","DK","AT","LU","PT","GR","IE","CZ","SK","SI","HR","HU","RO","BG","LT","LV","EE"];
+    if (EU.includes(region)) {
+      finalURL = LINKS.cpa;  // o AliExpress
+      console.log("EU detected → CPA fallback used:", region);
     } else {
-      cta.href = LINKS.monetag;
-      geoNote.style.display = "none";
+      console.log("Non-EU detected → Monetag active:", region);
     }
+
+    document.getElementById("cta").href = finalURL;
   })
-  .catch(()=>{/* keep instant guess */});
-
-/* ========= 2) REDUNDANT OPEN (bypass some blockers) ========= */
-cta.addEventListener("click", (e)=>{
-  const url = cta.href;
-  if (!url || url === "#") return;
-  const w = window.open(url, "_blank", "noopener");
-  if (!w) window.location.href = url;
-});
-
-/* ========= 3) COUNTDOWN + PROGRESS (cosmetic; button is always clickable) ========= */
-const fill = document.getElementById("fill");
-const secs = document.getElementById("secs");
-let total = 8, t = total;
-function tick(){
-  t = Math.max(0, t-0.1);
-  fill.style.width = ((total - t)/total*100).toFixed(1) + "%";
-  secs.textContent = Math.ceil(t);
-  if (t <= 0){ cta.classList.add("pulse"); clearInterval(timer); }
-}
-const timer = setInterval(tick, 100); tick();
+  .catch(() => {
+    // kung fail detection, fallback sa Ali
+    document.getElementById("cta").href = LINKS.ali;
+  });
 </script>
-</body>
-</html>
