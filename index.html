@@ -34,36 +34,50 @@ a.cta:hover { background: #16a34a; transform: scale(1.05); }
 <body>
   <div>
     <h1>🎁 Claim Your Gift Card Now!</h1>
-    <a id="cta" class="cta" href="#" rel="nofollow noopener noreferrer">👉 Claim Now</a>
-  </div>
+    <a id="cta" class="cta" href="#" target="_blank" rel="nofollow noopener noreferrer">
+  👉 Claim Now
+</a>
 
 <script>
+// ---- Your links ----
 const LINKS = {
-  monetag: "https://syndication.monetag.com/smartlink?zoneid=4590821", // replace zoneid
-  cpa:     "https://singingfiles.com/show.php?l=0&u=180655&id=72074", // optional fallback
-  ali: "https://s.click.aliexpress.com/e/_c3pEdWXN" // AliExpress fallback
-
+  monetag: "https://syndication.monetag.com/smartlink?zoneid=4590821",
+  cpa:     "https://singingfiles.com/show.php?l=0&u=180655&id=72074",
+  ali:     "https://s.click.aliexpress.com/e/_c3pEdWXN"
 };
 
-// detect GEO/IP para sa fallback (simple version)
-fetch("https://ipapi.co/json/")
-  .then(res => res.json())
-  .then(data => {
-    const country = data.country_code;
-    const cta = document.getElementById("cta");
+const cta = document.getElementById("cta");
 
-    if (["NL", "DE"].includes(country)) {
-      // Netherlands o Germany (Monetag minsan blocked)
-      cta.href = LINKS.ali;
+// 1) Instant local guess (para gumana kahit ma-block ang geo API)
+//    NL/DE -> Ali agad; iba -> Monetag (temporary)
+const lang = (navigator.language || "").toLowerCase();
+const tz   = (Intl.DateTimeFormat().resolvedOptions().timeZone || "").toLowerCase();
+const likelyNL = lang.startsWith("nl") || tz.includes("amsterdam");
+const likelyDE = lang.startsWith("de") || tz.includes("berlin");
+
+cta.href = (likelyNL || likelyDE) ? LINKS.ali : LINKS.monetag;
+
+// 2) Precise GEO check; override kapag successful
+fetch("https://ipapi.co/json/")
+  .then(r => r.json())
+  .then(d => {
+    const cc = (d.country_code || "").toUpperCase();
+    if (cc === "NL" || cc === "DE") {
+      cta.href = LINKS.ali;      // fallback for blocked GEOs
     } else {
-      // Default: send to Monetag
-      cta.href = LINKS.monetag;
+      cta.href = LINKS.monetag;  // default worldwide
     }
   })
   .catch(() => {
-    // kung may error, default sa Monetag
-    document.getElementById("cta").href = LINKS.monetag;
+    // kung may error sa geo, hayaan ang instant guess sa taas
   });
+
+// 3) Redundancy: siguradong mag-navigate kahit may odd blockers
+cta.addEventListener("click", (e) => {
+  const url = cta.href;
+  if (!url || url === "#") return; // safety
+  // open in new tab; kung bawal, go same tab
+  const w = window.open(url, "_blank", "noopener");
+  if (!w) window.location.href = url;
+});
 </script>
-</body>
-</html>
