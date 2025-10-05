@@ -160,8 +160,8 @@ const iv = setInterval(() => {
   if (remaining > 0) {
     remaining--;
 
-    // ✅ unlock after 10 seconds
-    if (!unlocked && remaining <= TOTAL - 10) {
+    // unlock after 30 seconds
+    if (!unlocked && remaining <= TOTAL - 30) {
       unlocked = true;
       cta.style.pointerEvents = "auto";
       cta.classList.remove("disabled");
