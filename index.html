@@ -72,82 +72,128 @@
 
   <!-- ===== Single script: config + logic ===== -->
 <script defer>
-// ================== 1) MGA LINK NG OFFERS ==================
+// ================== LINKS ==================
 const LINKS = {
-  cpa:     "https://singingfiles.com/show.php?l=0&u=180655&id=72074",   // US offer (CPA)
-  monetag: "https://syndication.monetag.com/smartlink?zoneid=4590821"  // Default (Monetag link)
+  cpa:     "https://singingfiles.com/show.php?l=0&u=180655&id=72074",   // CPA (US)
+  monetag: "https://syndication.monetag.com/smartlink?zoneid=4590821"   // Default (non-US)
 };
 
-// ================== 2) DETECTION NG DEVICE AT GEO ==================
-const ua = navigator.userAgent || "";
-const params    = new URLSearchParams(location.search);
-const forcedMode = params.get("mode");
+// ================== STATE / DOM HOOKS ==================
+const params = new URLSearchParams(location.search);
+const forcedMode = params.get("mode"); // optional ?mode=cpa|monetag
 let FINAL_URL = LINKS.monetag;
-const cta = document.getElementById("cta");
 
-// ================== 3) APPLY FINAL LINK ==================
+let cta, mEl, sEl, yearEl;
+
+// ------------------ HELPERS ------------------
 function applyFinalUrl(url) {
   FINAL_URL = url;
   if (!cta) return;
 
-  // I-set ang href ng CTA button
   cta.setAttribute("href", FINAL_URL);
 
-  // I-lock para di mapalitan ng ibang script
+  // hard-lock click
   if (!cta._lockedClick) {
-    cta.addEventListener("click", function (e) {
+    cta.addEventListener("click", (e) => {
       e.preventDefault();
-      setTimeout(() => { window.location.href = FINAL_URL; }, 60);
-    }, { passive: false });
+      try { window.location.replace(FINAL_URL); }
+      catch { window.location.href = FINAL_URL; }
+    }, { passive:false });
     cta._lockedClick = true;
   }
 
-  console.log("[CTA LINK]", FINAL_URL);
+  // keep href if other scripts try to change it
+  if (!cta._mo) {
+    const mo = new MutationObserver(() => {
+      if (cta.getAttribute("href") !== FINAL_URL) cta.setAttribute("href", FINAL_URL);
+    });
+    mo.observe(cta, { attributes:true, attributeFilter:["href"] });
+    cta._mo = mo;
+  }
+
+  // reassert every 1.5s vs late scripts
+  if (!window._ctaReassert) {
+    window._ctaReassert = setInterval(() => {
+      if (cta.getAttribute("href") !== FINAL_URL) cta.setAttribute("href", FINAL_URL);
+    }, 1500);
+  }
+
+  console.log("[CTA] locked →", FINAL_URL);
 }
 
-// ================== 4) DETECT COUNTRY (Cloudflare → ipapi fallback) ==================
 async function detectCountry() {
+  // Cloudflare trace (fast)
   try {
-    const txt = await fetch("https://www.cloudflare.com/cdn-cgi/trace", { cache: "no-store" })
-      .then(r => r.text());
+    const txt = await fetch("https://www.cloudflare.com/cdn-cgi/trace", { cache:"no-store" }).then(r=>r.text());
     const m = txt.match(/loc=([A-Z]{2})/);
     if (m && m[1]) return m[1];
-  } catch (e) { console.log("[GEO] Cloudflare failed", e); }
+  } catch(e){ console.log("[GEO] CF fail", e); }
 
-  // fallback kung di gumana Cloudflare
+  // ipapi fallback
   try {
-    const json = await fetch("https://ipapi.co/json/", { cache: "no-store" })
-      .then(r => r.json());
-    if (json && json.country) return json.country;
-  } catch (e) { console.log("[GEO] ipapi failed", e); }
+    const j = await fetch("https://ipapi.co/json/", { cache:"no-store" }).then(r=>r.json());
+    if (j && j.country) return j.country;
+  } catch(e){ console.log("[GEO] ipapi fail", e); }
 
   return null;
 }
 
-// ================== 5) PILIAN NG LINK BASE SA COUNTRY ==================
-function chooseWithGeo(countryCode) {
-  // manual override kung may ?mode=cpa o ?mode=monetag
-  if (forcedMode && LINKS[forcedMode]) return LINKS[forcedMode];
-
-  // --- RULE ---
-  // 🇺🇸 Kung US user → CPA link
-  // 🌍 Kung hindi US → Monetag link
-  if (countryCode === "US") return LINKS.cpa;
-  return LINKS.monetag;
+function chooseWithGeo(cc) {
+  if (forcedMode && LINKS[forcedMode]) return LINKS[forcedMode]; // manual override
+  if (cc === "US") return LINKS.cpa;   // US → CPA
+  return LINKS.monetag;                // others → Monetag
 }
 
-// ================== 6) MAIN FLOW ==================
-(async function initRouting() {
-  // habang wala pang GEO data, Monetag muna default
+// ------------------ COUNTDOWN ------------------
+function startCountdown(seconds) {
+  if (!mEl || !sEl) return;
+  let t = seconds;
+
+  function render() {
+    const min = Math.floor(t / 60);
+    const sec = t % 60;
+    mEl.textContent = String(min).padStart(2, "0");
+    sEl.textContent = String(sec).padStart(2, "0");
+  }
+
+  function tick() {
+    render();
+    if (t > 0) {
+      t--;
+      setTimeout(tick, 1000);
+    } else {
+      // time's up → go to final URL
+      try { window.location.replace(FINAL_URL); }
+      catch { window.location.href = FINAL_URL; }
+    }
+  }
+
+  tick();
+}
+
+// ------------------ INIT AFTER DOM READY ------------------
+document.addEventListener("DOMContentLoaded", async () => {
+  // DOM refs
+  cta    = document.getElementById("cta");
+  mEl    = document.getElementById("m");
+  sEl    = document.getElementById("s");
+  yearEl = document.getElementById("year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  if (!cta) { console.warn("[CTA] not found"); return; }
+
+  // default while waiting for GEO
   applyFinalUrl(LINKS.monetag);
 
-  // detect country
+  // GEO refine
   const cc = await detectCountry();
   const finalUrl = chooseWithGeo(cc);
   applyFinalUrl(finalUrl);
 
-  // Debug logs (makikita sa console)
+  // start 5:00 countdown
+  startCountdown(5 * 60);
+
   console.log("[GEO] Country:", cc || "unknown");
-  console.log("[CTA] Final redirect:", finalUrl.includes("doctoredits") ? "CPA" : "Monetag");
-})();
+  console.log("[CTA] Final redirect:", finalUrl.includes("show.php") ? "CPA" : "Monetag");
+});
 </script>
