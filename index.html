@@ -80,7 +80,7 @@ p{color:var(--muted);font-size:.95rem;margin-bottom:20px;}
   <p>Wait for the verification timer to finish before claiming.</p>
 
   <div class="progress"><div id="bar"></div></div>
-  <span id="time">02:00</span>
+  <span id="time">00:30</span>
 
   <a id="cta" href="#" rel="nofollow noopener noreferrer">👉 Claim My Gift Card</a>
 </main>
@@ -89,7 +89,7 @@ p{color:var(--muted);font-size:.95rem;margin-bottom:20px;}
 const LINKS = {
   ali:"https://s.click.aliexpress.com/e/_c35B3nnp",
   cpa:"https://doctoredits.com/show.php?l=0&u=180655&id=72074",
-  monetag:"https://otieu.com/4/4203960"
+  monetag:"https://syndication.monetag.com/smartlink?zoneid=4590821"
 };
 
 // choose mode from ?mode=ali|cpa|monetag
@@ -97,13 +97,13 @@ const params = new URLSearchParams(location.search);
 const mode = params.get("mode") || "monetag";
 const FINAL_URL = LINKS[mode] || LINKS.monetag;
 
-// get elements
+// elements
 const btn = document.getElementById("cta");
 const timeEl = document.getElementById("time");
 const bar = document.getElementById("bar");
 
-// timer
-let duration = 30"; // seconds
+// timer default 30 seconds
+let duration = 30;
 let remaining = duration;
 updateTime();
 
@@ -136,4 +136,3 @@ startCountdown();
 </script>
 </body>
 </html>
-
