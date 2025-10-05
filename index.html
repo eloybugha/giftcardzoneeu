@@ -79,54 +79,122 @@ footer{margin-top:16px; color:#94a3b8; font-size:13px; text-align:center}
   <!-- Progress bar -->
   <div class="progress"><div id="bar"></div></div>
 
-  <ul class="badges">
-    <li>✔️ Secure</li><li>⚡ Fast process</li><li>🛡️ Verified</li>
-  </ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GiftCardZoneEU – Claim Your Xbox Gift Card</title>
+<meta name="robots" content="noindex,nofollow" />
+<style>
+:root{
+  --bg:#0b1220; --card:#0f1a2b; --txt:#f8fafc; --muted:#cbd5e1;
+  --acc1:#22c55e; --acc2:#16a34a; --danger:#ef4444;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:radial-gradient(900px 600px at 50% -10%,#162945 0%,#0b1220 70%) fixed,var(--bg);
+  color:var(--txt); line-height:1.45; display:grid; place-items:center; padding:24px;
+}
+main.card{
+  width:100%; max-width:560px; background:linear-gradient(180deg,#0f1a2b 0%, #0c1626 100%);
+  border:1px solid rgba(255,255,255,.06); border-radius:24px; padding:24px; box-shadow:0 20px 60px rgba(0,0,0,.35);
+}
+.header{display:flex; gap:12px; align-items:center; margin-bottom:10px}
+.logo{
+  width:40px;height:40px;border-radius:12px;display:grid;place-items:center;
+  background:linear-gradient(135deg,#1f8f3e,#2bd164);
+}
+.logo svg{width:24px;height:24px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.3))}
+h1{
+  font-size:clamp(18px,3.6vw,22px); margin:0; font-weight:700; letter-spacing:.2px;
+}
+p.lead{color:var(--muted); margin:.25rem 0 1rem; font-size:14px}
 
-  <footer>GiftCardZoneEU. All rights reserved.</footer>
-</main>
+.hero{
+  aspect-ratio:16/9; width:100%; border-radius:16px; overflow:hidden; background:
+  linear-gradient(120deg,rgba(46,204,113,.18),rgba(46,204,113,0)) , 
+  radial-gradient(600px 220px at 60% -10%, rgba(34,197,94,.3), rgba(34,197,94,0)),
+  #0b1323;
+  display:grid; place-items:center; margin:10px 0 16px; position:relative;
+}
+.hero .mark{
+  font-weight:800; font-size:clamp(22px,6vw,28px); letter-spacing:.3px;
+  border:2px solid rgba(255,255,255,.14); padding:.6rem 1rem; border-radius:14px;
+  backdrop-filter: blur(4px);
+}
 
-<script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const LINKS = {
-    ali:     "https://s.click.aliexpress.com/e/_c35B3nnp",
-    cpa:     "https://doctoredits.com/show.php?l=0&u=180655&id=72074",
-    // WORKING Monetag direct link (gumagana sa'yo)
-    monetag: "https://otieu.com/4/4203960"
-  };
+.badge{
+  display:inline-flex; gap:8px; align-items:center;
+  background:rgba(34,197,94,.12); color:#bbf7d0; border:1px solid rgba(34,197,94,.3);
+  padding:6px 10px; border-radius:999px; font-size:12px; margin:2px 0 8px;
+}
 
-  function chooseURL(){
-    const p = new URLSearchParams(location.search);
-    const forced = p.get("mode");                 // ?mode=ali|cpa|monetag
-    if (forced && LINKS[forced]) return LINKS[forced];
+.progress{ width:100%; height:8px; background: rgba(255,255,255,.12); border-radius:999px; overflow:hidden; margin:10px 0 12px;}
+#bar{ width:0%; height:100%; background: linear-gradient(90deg, var(--acc1), var(--acc2)); transition: width .25s linear;}
 
-    const ua = navigator.userAgent || "";
-    if (/Android/i.test(ua)) return LINKS.monetag; // fill on Android
+.timer-row{display:flex; justify-content:space-between; align-items:center; gap:12px; margin-top:4px}
+#time{font-variant-numeric:tabular-nums; font-weight:700}
+#status{color:var(--muted); font-size:13px}
 
-    const pool = [LINKS.ali, LINKS.cpa, LINKS.monetag]; // keep monetag
-    return pool[Math.floor(Math.random()*pool.length)];
-  }
+.cta{
+  display:block; text-align:center; font-weight:800; text-decoration:none;
+  background:linear-gradient(90deg,var(--acc1),var(--acc2));
+  color:#04110a; padding:14px 16px; border-radius:14px; margin-top:12px;
+  user-select:none;
+}
+.cta[aria-disabled="true"]{
+  opacity:.55; pointer-events:none; filter:grayscale(.1); 
+}
+.sub{
+  margin-top:8px; display:flex; gap:10px; align-items:center; justify-content:center; color:var(--muted); font-size:12px;
+}
+.sub a{color:#86efac; text-decoration:underline dotted}
+.warn{
+  display:none; margin-top:10px; font-size:12px; color:#fecaca; background:rgba(239,68,68,.12);
+  border:1px solid rgba(239,68,68,.3); padding:8px 10px; border-radius:10px;
+}
+.footer{
+  margin-top:14px; text-align:center; color:#9aa5b1; font-size:11px;
+}
+.small{font-size:11px;color:#9aa5b1}
+</style>
+</head>
+<body>
+  <main class="card">
+    <div class="header">
+      <div class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2Zm5.4 15.32a.75.75 0 0 1-1.02-.23 6.972 6.972 0 0 0-2.31-2.19.75.75 0 0 1-.24-1.08 4.5 4.5 0 0 1 3.73-1.82.75.75 0 0 1 .74.76 8.51 8.51 0 0 1-.9 4.56ZM7.62 9.99a.75.75 0 0 1 .74-.76 4.5 4.5 0 0 1 3.73 1.82.75.75 0 0 1-.24 1.08 6.972 6.972 0 0 0-2.31 2.19.75.75 0 0 1-1.02.23 8.55 8.55 0 0 1-.9-4.56Z"/></svg>
+      </div>
+      <h1>Claim Your Xbox Gift Card</h1>
+    </div>
 
-  const FINAL_URL = chooseURL();
+    <p class="lead">Quick verification. Your button unlocks after the timer.</p>
 
-  // --- click handler with fallback ---
-  const cta = document.getElementById("cta");
-  cta.addEventListener("click", (e) => {
-    e.preventDefault();
-    // try Monetag first; if blocked/failed after 2.5s, fallback to Ali
-    let done = false;
-    const t = setTimeout(() => {
-      if (!done) { done = true; window.location.href = LINKS.ali; }
-    }, 2500);
+    <div class="badge" id="modeBadge">Smart routing active</div>
 
-    // same-tab navigate (mas hindi na-ba-block)
-    try {
-      window.location.href = FINAL_URL;
-    } catch (err) {
-      clearTimeout(t);
-      window.location.href = LINKS.ali; // hard fallback
-    }
-  });
-});
-</script>
+    <div class="hero">
+      <div class="mark">Xbox Gift Card</div>
+    </div>
+
+    <div class="progress"><div id="bar"></div></div>
+    <div class="timer-row">
+      <div id="status">Preparing your link…</div>
+      <div id="time" aria-live="polite">00:30</div>
+    </div>
+
+    <!-- CTA BUTTON (keep same id) -->
+    <a id="cta" class="cta" href="#" rel="nofollow noopener noreferrer" aria-disabled="true">👉 Claim My Gift Card</a>
+
+    <div class="sub">
+      <span class="small">Can’t wait?</span>
+      <a href="#" id="unlockEarly">Unlock anyway</a>
+    </div>
+
+    <div id="warn" class="warn">Note: Your device may open an alternate offer. Use the fallback if needed:
+      <a id="fallback" href="#" style="color:#fecaca;text-decoration:underline;">Open fallback</a>
+    </div>
+
+    <div class="footer">GiftCardZoneEU · <span class="small">No purchase required o
