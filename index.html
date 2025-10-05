@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>GiftCardZoneEU – Xbox Gift Card</title>
 <meta name="robots" content="noindex,nofollow" />
-
 <style>
 :root{
   --bg:#0b1220; --card:#0f1a2b; --txt:#f8fafc; --muted:#94a3b8;
@@ -17,7 +16,6 @@ body{
   background:radial-gradient(900px 600px at 50% -10%,#162945 0%,#0b1220 70%);
   color:var(--txt); display:grid; place-items:center; min-height:100vh;
 }
-
 .card{
   background:var(--card);
   padding:24px;
@@ -27,48 +25,31 @@ body{
   text-align:center;
   box-shadow:0 0 30px rgba(0,0,0,.4);
 }
-
-img{
-  width:120px; border-radius:16px; margin-bottom:16px;
-}
-
+img{width:120px;border-radius:16px;margin-bottom:16px;}
 h1{font-size:1.3rem;margin-bottom:8px;}
 p{color:var(--muted);font-size:.95rem;margin-bottom:20px;}
-
-.progress{
-  width:100%;height:8px;background:rgba(255,255,255,.15);
-  border-radius:999px;overflow:hidden;margin-bottom:12px;
-}
-#bar{
-  width:0%;height:100%;
+.progress{width:100%;height:8px;background:rgba(255,255,255,.15);
+  border-radius:999px;overflow:hidden;margin-bottom:12px;}
+#bar{width:0%;height:100%;
   background:linear-gradient(90deg,var(--acc1),var(--acc2));
-  transition:width .25s linear;
-}
-
+  transition:width .25s linear;}
 #time{font-weight:bold;margin-bottom:16px;display:block;}
-
+.notice{
+  color:#facc15;font-weight:700;
+  font-size:.9rem;margin-bottom:8px;animation:blink 1.5s infinite;
+}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.6;}}
 #cta{
-  display:inline-block;
-  padding:12px 18px;
+  display:inline-block;padding:12px 18px;
   background:linear-gradient(90deg,var(--acc1),var(--acc2));
-  color:#fff;
-  border:none;
-  border-radius:12px;
-  font-weight:bold;
-  cursor:not-allowed;
-  opacity:.6;
-  text-decoration:none;
-  transition:opacity .3s,transform .3s;
+  color:#fff;border:none;border-radius:12px;
+  font-weight:bold;cursor:not-allowed;opacity:.6;
+  text-decoration:none;transition:opacity .3s,transform .3s;
 }
-#cta.unlocked{
-  cursor:pointer;
-  opacity:1;
-  animation:pulse 1.5s infinite;
-}
-@keyframes pulse{
-  0%{transform:scale(1);}
-  50%{transform:scale(1.04);}
-  100%{transform:scale(1);}
+#cta.unlocked{cursor:pointer;opacity:1;animation:pulse 1.5s infinite;}
+@keyframes pulse{0%{transform:scale(1);}50%{transform:scale(1.04);}100%{transform:scale(1);}}
+.footer{
+  margin-top:16px;font-size:.8rem;color:#64748b;
 }
 </style>
 </head>
@@ -82,56 +63,48 @@ p{color:var(--muted);font-size:.95rem;margin-bottom:20px;}
   <div class="progress"><div id="bar"></div></div>
   <span id="time">00:30</span>
 
+  <div class="notice">⚡ Hurry! Only few gift cards left!</div>
   <a id="cta" href="#" rel="nofollow noopener noreferrer">👉 Claim My Gift Card</a>
+
+  <div class="footer">
+    Promo ends: <strong>October&nbsp;31,&nbsp;2025</strong><br>
+    © 2025 GiftCardZoneEU. All rights reserved.
+  </div>
 </main>
 
 <script>
 const LINKS = {
   ali:"https://s.click.aliexpress.com/e/_c35B3nnp",
   cpa:"https://doctoredits.com/show.php?l=0&u=180655&id=72074",
-  monetag:"https://otieu.com/4/4203960"
+  monetag:"https://syndication.monetag.com/smartlink?zoneid=4590821"
 };
-
-// choose mode from ?mode=ali|cpa|monetag
 const params = new URLSearchParams(location.search);
 const mode = params.get("mode") || "monetag";
 const FINAL_URL = LINKS[mode] || LINKS.monetag;
 
-// elements
-const btn = document.getElementById("cta");
-const timeEl = document.getElementById("time");
-const bar = document.getElementById("bar");
+const btn=document.getElementById("cta"),
+      timeEl=document.getElementById("time"),
+      bar=document.getElementById("bar");
 
-// timer default 30 seconds
-let duration = 30;
-let remaining = duration;
+let duration=30,remaining=duration;
 updateTime();
 
 function updateTime(){
-  const m = String(Math.floor(remaining/60)).padStart(2,"0");
-  const s = String(remaining%60).padStart(2,"0");
-  timeEl.textContent = `${m}:${s}`;
-  const percent = ((duration-remaining)/duration)*100;
-  bar.style.width = percent + "%";
+  const m=String(Math.floor(remaining/60)).padStart(2,"0");
+  const s=String(remaining%60).padStart(2,"0");
+  timeEl.textContent=`${m}:${s}`;
+  bar.style.width=((duration-remaining)/duration)*100+"%";
 }
-
 function startCountdown(){
-  const timer = setInterval(()=>{
-    remaining--;
-    updateTime();
-    if(remaining<=0){
-      clearInterval(timer);
-      unlock();
-    }
+  const timer=setInterval(()=>{
+    remaining--;updateTime();
+    if(remaining<=0){clearInterval(timer);unlock();}
   },1000);
 }
-
 function unlock(){
   btn.classList.add("unlocked");
-  btn.style.cursor="pointer";
-  btn.onclick = ()=>{location.href=FINAL_URL};
+  btn.onclick=()=>{location.href=FINAL_URL};
 }
-
 startCountdown();
 </script>
 </body>
