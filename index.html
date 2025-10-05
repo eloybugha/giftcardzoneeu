@@ -2,110 +2,67 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>GiftCardZoneEU – Xbox Gift Card</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GiftCardZoneEU – Claim Your Gift Card</title>
 <meta name="robots" content="noindex,nofollow" />
+
 <style>
-:root{
-  --bg:#0b1220; --card:#0f1a2b; --txt:#f8fafc; --muted:#94a3b8;
-  --acc1:#22c55e; --acc2:#16a34a;
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #0b1220;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  background:radial-gradient(900px 600px at 50% -10%,#162945 0%,#0b1220 70%);
-  color:var(--txt); display:grid; place-items:center; min-height:100vh;
+a.cta {
+  display: inline-block;
+  background: #22c55e;
+  color: #fff;
+  padding: 14px 30px;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: 0.3s;
 }
-.card{
-  background:var(--card);
-  padding:24px;
-  border-radius:20px;
-  max-width:400px;
-  width:90%;
-  text-align:center;
-  box-shadow:0 0 30px rgba(0,0,0,.4);
-}
-img{width:120px;border-radius:16px;margin-bottom:16px;}
-h1{font-size:1.3rem;margin-bottom:8px;}
-p{color:var(--muted);font-size:.95rem;margin-bottom:20px;}
-.progress{width:100%;height:8px;background:rgba(255,255,255,.15);
-  border-radius:999px;overflow:hidden;margin-bottom:12px;}
-#bar{width:0%;height:100%;
-  background:linear-gradient(90deg,var(--acc1),var(--acc2));
-  transition:width .25s linear;}
-#time{font-weight:bold;margin-bottom:16px;display:block;}
-.notice{
-  color:#facc15;font-weight:700;
-  font-size:.9rem;margin-bottom:8px;animation:blink 1.5s infinite;
-}
-@keyframes blink{0%,100%{opacity:1;}50%{opacity:.6;}}
-#cta{
-  display:inline-block;padding:12px 18px;
-  background:linear-gradient(90deg,var(--acc1),var(--acc2));
-  color:#fff;border:none;border-radius:12px;
-  font-weight:bold;cursor:not-allowed;opacity:.6;
-  text-decoration:none;transition:opacity .3s,transform .3s;
-}
-#cta.unlocked{cursor:pointer;opacity:1;animation:pulse 1.5s infinite;}
-@keyframes pulse{0%{transform:scale(1);}50%{transform:scale(1.04);}100%{transform:scale(1);}}
-.footer{
-  margin-top:16px;font-size:.8rem;color:#64748b;
-}
+a.cta:hover { background: #16a34a; transform: scale(1.05); }
 </style>
 </head>
+
 <body>
-
-<main class="card">
-  <img src="https://i.ibb.co/bRvbSCs8/xbox-card.png" alt="Xbox Gift Card" />
-  <h1>Claim your Xbox Gift Card</h1>
-  <p>Wait for the verification timer to finish before claiming.</p>
-
-  <div class="progress"><div id="bar"></div></div>
-  <span id="time">00:30</span>
-
-  <div class="notice">⚡ Hurry! Only few gift cards left!</div>
-  <a id="cta" href="#" rel="nofollow noopener noreferrer">👉 Claim My Gift Card</a>
-
-  <div class="footer">
-    Promo ends: <strong>October&nbsp;31,&nbsp;2025</strong><br>
-    © 2025 GiftCardZoneEU. All rights reserved.
+  <div>
+    <h1>🎁 Claim Your Gift Card Now!</h1>
+    <a id="cta" class="cta" href="#" rel="nofollow noopener noreferrer">👉 Claim Now</a>
   </div>
-</main>
 
 <script>
 const LINKS = {
-  ali:"https://s.click.aliexpress.com/e/_c35B3nnp",
-  cpa:"https://singingfiles.com/show.php?l=0&u=180655&id=72074",
-  monetag:"https://otieu.com/4/4203960"
+  monetag: "https://syndication.monetag.com/smartlink?zoneid=XXXXXXX", // replace zoneid
+  cpa:     "https://example.com", // optional fallback
+  ali:     "https://s.click.aliexpress.com/e/_xxxxx" // optional fallback
 };
-const params = new URLSearchParams(location.search);
-const mode = params.get("mode") || "monetag";
-const FINAL_URL = LINKS[mode] || LINKS.monetag;
 
-const btn=document.getElementById("cta"),
-      timeEl=document.getElementById("time"),
-      bar=document.getElementById("bar");
+// detect GEO/IP para sa fallback (simple version)
+fetch("https://ipapi.co/json/")
+  .then(res => res.json())
+  .then(data => {
+    const country = data.country_code;
+    const cta = document.getElementById("cta");
 
-let duration=30,remaining=duration;
-updateTime();
-
-function updateTime(){
-  const m=String(Math.floor(remaining/60)).padStart(2,"0");
-  const s=String(remaining%60).padStart(2,"0");
-  timeEl.textContent=`${m}:${s}`;
-  bar.style.width=((duration-remaining)/duration)*100+"%";
-}
-function startCountdown(){
-  const timer=setInterval(()=>{
-    remaining--;updateTime();
-    if(remaining<=0){clearInterval(timer);unlock();}
-  },1000);
-}
-function unlock(){
-  btn.classList.add("unlocked");
-  btn.onclick=()=>{location.href=FINAL_URL};
-}
-startCountdown();
+    if (["NL", "DE"].includes(country)) {
+      // Netherlands o Germany (Monetag minsan blocked)
+      cta.href = LINKS.ali;
+    } else {
+      // Default: send to Monetag
+      cta.href = LINKS.monetag;
+    }
+  })
+  .catch(() => {
+    // kung may error, default sa Monetag
+    document.getElementById("cta").href = LINKS.monetag;
+  });
 </script>
 </body>
 </html>
