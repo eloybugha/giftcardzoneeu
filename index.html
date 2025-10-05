@@ -1,167 +1,52 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>GiftCardZoneEU — Claim Your Xbox Gift Card</title>
+<title>GiftCardZoneEU – Claim Your Xbox Gift Card</title>
 <meta name="robots" content="noindex,nofollow" />
 <style>
-  :root { --bg1:#0ea5e9; --bg2:#2563eb; --text:#f8fafc; --muted:#cbd5e1; --accent:#22c55e; }
-  *{box-sizing:border-box} body{
-    margin:0; font-family:system-ui, Arial, sans-serif; color:var(--text); text-align:center;
-    background:linear-gradient(90deg,var(--bg1),var(--bg2)); background-size:200% 200%;
-    animation:grad 8s ease-in-out infinite alternate; padding:32px 18px;
-  }
-  @keyframes grad{0%{background-position:0% 50%}100%{background-position:100% 50%}}
-  .card{max-width:680px;margin:0 auto;background:rgba(255,255,255,.06);backdrop-filter:blur(6px);
-    border:1px solid rgba(255,255,255,.15); border-radius:18px; padding:22px; box-shadow:0 10px 30px rgba(0,0,0,.25)}
-  h1{font-size:24px;margin:6px 0 8px}
-  p.lead{margin:0 0 14px;color:var(--muted)}
-  .hero{display:block;margin:8px auto 14px; max-width:360px; width:90%; border-radius:12px; box-shadow:0 8px 22px rgba(0,0,0,.35)}
-  .timer{font:700 28px/1 monospace; letter-spacing:.5px; margin:8px 0 14px}
-  .cta{display:inline-block; padding:12px 18px; border-radius:12px; background:var(--accent); color:#052e16;
-       text-decoration:none; font-weight:700; box-shadow:0 6px 18px rgba(0,0,0,.25)}
-  .badges{list-style:none; padding:0; margin:14px 0 0; display:grid; gap:6px; justify-content:center}
-  .badges li{background:rgba(255,255,255,.08); padding:6px 10px; border-radius:12px; display:inline-block}
-  .warn{display:none; margin-top:14px; background:rgba(255,255,255,.12); border:1px dashed rgba(255,255,255,.35);
-        padding:12px; border-radius:12px; color:#fff}
-  footer{margin-top:18px; color:var(--muted); font-size:13px}style>
-  .progress {
-    width: 100%;
-    height: 8px;
-    background: rgba(255,255,255,.15);
-    border-radius: 999px;
-    overflow: hidden;
-    margin: 10px 0 16px;
-  }
-  #bar {
-    width: 0%;
-    height: 100%;
-    background: linear-gradient(90deg, #22c55e, #16a34a);
-    transition: width 0.3s linear;
-  }
-  @keyframes pulse {
-    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(34,197,94,.6); }
-    70% { transform: scale(1.02); box-shadow: 0 0 0 12px rgba(34,197,94,0); }
-    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(34,197,94,0); }
-  }
-  .cta.active {
-    animation: pulse 1.6s infinite;
-  }
-</style>
-</head>
-<body>
-  <main class="card">
-    <h1>Claim Your Xbox Gift Card</h1>
-    <p class="lead">Limited slots only. Finish the quick check to unlock your reward.</p>
-
-    <!-- Image (also clickable later by CTA only) -->
-<!-- Built-in Xbox Gift Card image (no external host needed) -->
-<svg class="hero" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="grad" x1="0" x2="1" y1="0" y2="1">
-      <stop offset="0%" stop-color="#107C10"/>
-      <stop offset="100%" stop-color="#3dbb3d"/>
-    </linearGradient>
-  </defs>
-  <rect x="60" y="60" width="1080" height="580" rx="40" fill="url(#grad)" stroke="#1b1b1b" stroke-width="4"/>
-  <text x="180" y="300" font-size="90" font-family="Arial Black" fill="white">XBOX</text>
-  <text x="180" y="420" font-size="60" font-family="Arial Black" fill="white" opacity="0.9">GIFT CARD</text>
-  <text x="180" y="480" font-size="28" font-family="Arial" fill="white" opacity="0.8">Instant Digital Reward</text>
-</svg>
-    <!-- Timer -->
-    <div class="timer"><span id="m">05</span>:<span id="s">00</span></div>
-
-    <!-- CTA (set by script) -->
-    <a id="cta" class="cta disabled" href="#" rel="nofollow noopener noreferrer">Wait 05:00…</a>
-<div class="progress"><div id="bar"></div></div>
-
-/* Pulse effect kapag active na ang button */
-@keyframes pulse {
-  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(34,197,94,.6); }
-  70% { transform: scale(1.02); box-shadow: 0 0 0 12px rgba(34,197,94,0); }
-  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+:root{
+  --bg:#0b1220; --card:#0f1a2b; --txt:#f8fafc; --muted:#cbd5e1;
+  --acc1:#22c55e; --acc2:#16a34a;
 }
-.cta.active {
-  animation: pulse 1.6s infinite;
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GiftCardZoneEU — Claim Your Xbox Gift Card</title>
-
-  <style>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Claim Your Xbox Gift Card</title>
-<style>
-  :root{
-    --bg:#0b1220;
-    --card:#0f1a2b;
-    --txt:#f8fafc;
-    --muted:#cbd5e1;
-    --acc1:#22c55e;
-    --acc2:#16a34a;
-  }
-  *{box-sizing:border-box}
-  body{
-    margin:0; font-family:system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    background: radial-gradient(1000px 600px at 50% -10%, #152642 0%, #0b1220 60%) fixed, var(--bg);
-    color:var(--txt); line-height:1.45; -webkit-font-smoothing:antialiased;
-  }
-  main.card{
-    max-width:920px; margin:32px auto; padding:24px; background:rgba(15,26,43,.85);
-    border:1px solid rgba(255,255,255,.08); border-radius:24px; backdrop-filter: blur(6px);
-    box-shadow: 0 10px 30px rgba(0,0,0,.35);
-  }
-  h1{font-size:clamp(24px,4vw,36px); margin:0 0 8px}
-  p.lead{color:var(--muted); margin:0 0 16px}
-
-  /* Hero SVG is responsive */
-  .hero{width:100%; height:auto; display:block; border-radius:18px; overflow:hidden}
-
-  /* Timer */
-  .timer{display:flex; align-items:center; gap:8px; margin:16px 0 8px}
-  .timer .pill{
-    background:rgba(255,255,255,.08); padding:6px 10px; border-radius:999px; font-weight:600;
-    letter-spacing:.5px; font-variant-numeric:tabular-nums;
-  }
-
-  /* CTA */
-  .cta{
-    display:inline-flex; align-items:center; justify-content:center; gap:8px;
-    margin:8px 0 12px; padding:14px 18px; border-radius:14px; font-weight:700;
-    text-decoration:none; color:#091114; background:linear-gradient(90deg,var(--acc1),var(--acc2));
-    box-shadow:0 8px 18px rgba(34,197,94,.35);
-    transition:transform .15s ease, box-shadow .15s ease, opacity .2s ease;
-  }
-  .cta:hover{transform:translateY(-1px); box-shadow:0 10px 22px rgba(34,197,94,.40)}
-  .cta.disabled{
-    opacity:.55; pointer-events:none; filter:grayscale(.1); box-shadow:none;
-    background:linear-gradient(90deg,#93c5fd,#60a5fa);
-    color:#0b1220;
-  }
-
-  /* Progress bar */
-  .progress{width:100%; height:8px; background:rgba(255,255,255,.15); border-radius:999px; overflow:hidden; margin:10px 0 16px}
-  #bar{width:0%; height:100%; background:linear-gradient(90deg,var(--acc1),var(--acc2)); transition:width .3s linear}
-
-  /* Badges */
-  ul.badges{display:flex; flex-wrap:wrap; gap:10px; list-style:none; padding:0; margin:14px 0 0}
-  ul.badges li{background:rgba(255,255,255,.08); padding:9px 10px; border:1px solid rgba(255,255,255,.1); border-radius:999px; font-size:14px; color:#e5e7eb}
-
-  footer{margin-top:16px; color:#94a3b8; font-size:13px; text-align:center}
-
-  /* Pulse effect kapag active na ang button */
-  @keyframes pulse {
-    0%   { transform:scale(1);   box-shadow:0 0 0 0 rgba(34,197,94,.55); }
-    70%  { transform:scale(1.02); box-shadow:0 0 0 18px rgba(34,197,94,0); }
-    100% { transform:scale(1);   box-shadow:0 0 0 0 rgba(34,197,94,0); }
-  }
+*{box-sizing:border-box}
+body{
+  margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:radial-gradient(900px 600px at 50% -10%,#162945 0%,#0b1220 70%) fixed,var(--bg);
+  color:var(--txt); line-height:1.45;
+}
+main.card{
+  max-width:720px; margin:40px auto; padding:28px;
+  background:rgba(15,26,43,.88); border:1px solid rgba(255,255,255,.08);
+  border-radius:22px; box-shadow:0 10px 28px rgba(0,0,0,.35); backdrop-filter:blur(6px);
+}
+h1{font-size:clamp(24px,4vw,34px); margin:0 0 8px}
+p.lead{color:var(--muted); margin:0 0 18px}
+.hero{width:100%; height:auto; display:block; border-radius:18px; overflow:hidden}
+.timer{display:flex; align-items:center; gap:8px; margin:16px 0 8px}
+.timer .pill{background:rgba(255,255,255,.08); padding:6px 10px; border-radius:999px; font-weight:600; font-variant-numeric:tabular-nums}
+.cta{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  margin:8px 0 12px; padding:14px 18px; border-radius:14px; font-weight:700;
+  text-decoration:none; color:#091114;
+  background:linear-gradient(90deg,var(--acc1),var(--acc2));
+  box-shadow:0 8px 18px rgba(34,197,94,.35);
+  transition:transform .15s ease, box-shadow .15s ease, opacity .2s ease;
+}
+.cta:hover{transform:translateY(-1px); box-shadow:0 10px 22px rgba(34,197,94,.4)}
+.cta.disabled{opacity:.55; pointer-events:none; filter:grayscale(.1); box-shadow:none;
+  background:linear-gradient(90deg,#93c5fd,#60a5fa); color:#0b1220}
+.progress{width:100%; height:8px; background:rgba(255,255,255,.15); border-radius:999px; overflow:hidden; margin:10px 0 16px}
+#bar{width:0%; height:100%; background:linear-gradient(90deg,var(--acc1),var(--acc2)); transition:width .3s linear}
+ul.badges{display:flex; flex-wrap:wrap; gap:10px; list-style:none; padding:0; margin:14px 0 0}
+ul.badges li{background:rgba(255,255,255,.08); padding:9px 10px; border:1px solid rgba(255,255,255,.1); border-radius:999px; font-size:14px; color:#e5e7eb}
+footer{margin-top:16px; color:#94a3b8; font-size:13px; text-align:center}
+@keyframes pulse{
+  0%{transform:scale(1); box-shadow:0 0 0 0 rgba(34,197,94,.55)}
+  70%{transform:scale(1.02); box-shadow:0 0 0 18px rgba(34,197,94,0)}
+  100%{transform:scale(1); box-shadow:0 0 0 0 rgba(34,197,94,0)}
+}
 </style>
 </head>
 <body>
@@ -169,25 +54,17 @@
   <h1>Claim Your Xbox Gift Card</h1>
   <p class="lead">Limited slots only. Finish the quick check to unlock your claim button.</p>
 
-  <!-- Built-in Xbox Card image (SVG, no external host) -->
+  <!-- Built-in image (no external host) -->
   <svg class="hero" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Xbox Gift Card">
     <defs>
       <linearGradient id="grad" x1="0" x2="1" y1="0" y2="1">
-        <stop offset="0%" stop-color="#10B981"/>
-        <stop offset="100%" stop-color="#3DBB3D"/>
+        <stop offset="0%" stop-color="#10B981"/><stop offset="100%" stop-color="#3DBB3D"/>
       </linearGradient>
-      <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
-        <feGaussianBlur stdDeviation="12"/>
-      </filter>
     </defs>
     <rect x="60" y="60" width="1080" height="580" rx="40" fill="url(#grad)"/>
-    <circle cx="210" cy="350" r="110" fill="white" opacity=".12" filter="url(#soft)"/>
-    <circle cx="210" cy="350" r="84" fill="white" opacity=".18"/>
-    <path d="M210 285c35 0 72 48 72 86 0 44-37 80-82 80s-82-36-82-80c0-38 37-86 72-86"
-          fill="#fff" opacity=".9"/>
-    <text x="360" y="300" font-size="90" font-family="Arial Black" fill="white">XBOX</text>
-    <text x="360" y="420" font-size="60" font-family="Arial Black" fill="white">GIFT CARD</text>
-    <text x="360" y="480" font-size="28" font-family="Arial" fill="white" opacity=".9">$25 — Limited</text>
+    <text x="180" y="300" font-size="90" font-family="Arial Black" fill="white">XBOX</text>
+    <text x="180" y="420" font-size="60" font-family="Arial Black" fill="white">GIFT CARD</text>
+    <text x="180" y="480" font-size="28" font-family="Arial" fill="white" opacity=".9">$25 — Limited</text>
   </svg>
 
   <!-- Timer -->
@@ -196,23 +73,46 @@
     <span class="pill"><span id="m">05</span>:<span id="s">00</span></span>
   </div>
 
-  <!-- CTA (will be enabled by script) -->
+  <!-- CTA -->
   <a id="cta" class="cta disabled" href="#" rel="nofollow noopener noreferrer" target="_blank">Please wait…</a>
 
   <!-- Progress bar -->
   <div class="progress"><div id="bar"></div></div>
 
-  <!-- Trust badges -->
   <ul class="badges">
-    <li>✔️ Secure</li>
-    <li>⚡ Fast process</li>
-    <li>🛡️ Anti-spam</li>
+    <li>✔️ Secure</li><li>⚡ Fast process</li><li>🛡️ Verified</li>
   </ul>
 
   <footer>GiftCardZoneEU. All rights reserved.</footer>
 </main>
 
 <script>
-/* ========================= 1) CONFIG ========================= */
+// 1) LINKS
 const LINKS = {
-  ali:     "https://s.click.aliexpress.com/e/_
+  ali:     "https://s.click.aliexpress.com/e/_c35B3nnp",
+  cpa:     "https://doctoredits.com/show.php?l=0&u=180655&id=72074",
+  monetag: "https://syndication.monetag.com/smartlink?zoneid=4590821"
+};
+
+// 2) TIMER (change to 300 for 5 mins)
+let TOTAL = 300; // seconds
+let remaining = TOTAL;
+let unlocked = false;
+
+// 3) ELEMENTS
+const cta = document.getElementById("cta");
+const progress = document.getElementById("bar");
+const minEl = document.getElementById("m");
+const secEl = document.getElementById("s");
+
+// 4) PICK FINAL URL
+function chooseURL(){
+  const p = new URLSearchParams(location.search);
+  const forced = p.get("mode"); // ?mode=ali|cpa|monetag
+  if (forced && LINKS[forced]) return LINKS[forced];
+
+  const ua = navigator.userAgent || "";
+  if (/Android/i.test(ua)) return LINKS.monetag; // better fill sa Android
+
+  const pool = [LINKS.ali, LINKS.cpa, LINKS.monetag];
+  r    
