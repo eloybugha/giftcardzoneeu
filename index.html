@@ -138,7 +138,7 @@ function draw(){
   }
 }
 
-/// 6) TICK LOOP
+/cta// 6) TICK LOOP
 function tick(){
   if (remaining > 0) remaining--;
   draw();
@@ -148,7 +148,7 @@ function tick(){
 cta.classList.remove("disabled");
 cta.style.pointerEvents = "auto";
 cta.href = FINAL_URL;
-cta.textContent = "👉 Claim Now";
+cta.textContent = "⚡ Skip Timer — Claim Now!";
 draw();
 setInterval(tick, 1000);
 // 7) Failsafe (unlock kahit may glitch)
