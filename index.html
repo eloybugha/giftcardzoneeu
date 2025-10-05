@@ -68,39 +68,65 @@
     </div>
 
     <footer>© <span id="year"></span> GiftCardZoneEU. All rights reserved.</footer>
-  </main>72074
+  </main>
 <script defer>
-// ================== CONFIG ==================
-const COUNTDOWN_START = 300; // 5 minutes
-let remaining = COUNTDOWN_START;
-const timerEl = document.querySelector("h2"); // assuming h2 is your timer
-const cta = document.getElementById("cta");
+(function () {
+  // ---- Links mo ----
+  const LINKS = {
+    ali:     "https://s.click.aliexpress.com/e/_c35B3nnp",
+    cpa:     "https://doctoreditss.com/show.php?l=0&u=180655&id=72074",
+    monetag: "https://syndication.monetag.com/smartlink?zoneid=4590821",
+  };
 
-// your links
-const LINKS = {
-  ali:     "https://s.click.aliexpress.com/e/_c35B3nnp",
-  cpa:     "https://doctoredits.com/show.php?l=0&u=180655&id=72074",
-  monetag: "https://syndication.monetag.com/smartlink?zoneid=4590821"
-};
+  // ---- Elements (safe) ----
+  const timerEl  = document.getElementById("timer");
+  const cta      = document.getElementById("cta");
+  const warn     = document.getElementById("warn");
+  const fallback = document.getElementById("fallback");
 
-// ================== COUNTDOWN ==================
-function tick() {
-  if (remaining > 0) {
-    remaining--;
-    const min = Math.floor(remaining / 60).toString().padStart(2, "0");
-    const sec = (remaining % 60).toString().padStart(2, "0");
-    timerEl.textContent = `${min}:${sec}`;
-  } else {
-    cta.disabled = false;
-    cta.classList.add("active");
+  // Kung kulang ang elements, huwag mag-crash
+  if (!timerEl || !cta) return;
+
+  // Year sa footer
+  const y = document.getElementById("year");
+  if (y) y.textContent = new Date().getFullYear();
+
+  // Non-Android notice + fallback link (optional)
+  const isAndroid = /Android/i.test(navigator.userAgent);
+  if (!isAndroid && warn && fallback) {
+    warn.style.display = "block";
+    fallback.href = LINKS.ali; // puwede mong gawing LINKS.monetag kung gusto mo
   }
-}
-setInterval(tick, 1000);
-tick();
 
-// ================== CLICK HANDLER ==================
-cta.addEventListener("click", (e) => {
-  e.preventDefault();
-  window.location.href = LINKS.monetag;
-});
+  // Start disabled
+  cta.classList.add("disabled");
+  cta.style.pointerEvents = "none";
+
+  // ---- COUNTDOWN (5 minutes = 300s) ----
+  let remaining = 300;
+  const draw = () => {
+    const min = String(Math.floor(remaining / 60)).padStart(2, "0");
+    const sec = String(remaining % 60).padStart(2, "0");
+    timerEl.textContent = `${min}:${sec}`;
+  };
+  draw();
+
+  const iv = setInterval(() => {
+    if (remaining > 0) {
+      remaining--;
+      draw();
+    } else {
+      clearInterval(iv);
+      cta.style.pointerEvents = "auto";
+      cta.classList.remove("disabled");
+      cta.classList.add("active");
+    }
+  }, 1000);
+
+  // ---- CLICK handler ----
+  cta.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.location.href = LINKS.monetag; // palitan kung gusto mo (e.g., LINKS.cpa para US)
+  });
+})();
 </script>
