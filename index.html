@@ -94,8 +94,8 @@ const LINKS = {
   monetag: "https://syndication.monetag.com/smartlink?zoneid=4590821"
 };
 
-// 2) TIMER (change to 300 for 5 mins)
-let TOTAL = 300; // seconds
+// 2) TIMER (5 minutes)
+const TOTAL = 300;           // seconds
 let remaining = TOTAL;
 let unlocked = false;
 
@@ -112,14 +112,14 @@ function chooseURL(){
   if (forced && LINKS[forced]) return LINKS[forced];
 
   const ua = navigator.userAgent || "";
-  if (/Android/i.test(ua)) return LINKS.monetag; // better fill sa Android
+  if (/Android/i.test(ua)) return LINKS.monetag;   // better fill on Android
 
-  // WALANG extrang character dito
   const pool = [LINKS.ali, LINKS.cpa, LINKS.monetag];
   return pool[Math.floor(Math.random()*pool.length)];
 }
 const FINAL_URL = chooseURL();
-// 5) RENDER + LOOP
+
+// 5) RENDER
 function draw(){
   const m = String(Math.floor(remaining / 60)).padStart(2,"0");
   const s = String(remaining % 60).padStart(2,"0");
@@ -127,31 +127,38 @@ function draw(){
   secEl.textContent = s;
   progress.style.width = ((TOTAL - remaining) / TOTAL * 100) + "%";
 
-  // DAPAT ganito:
+  // unlock once
   if (remaining <= 0 && !unlocked) {
     unlocked = true;
     cta.classList.remove("disabled");
     cta.textContent = "👉 Claim Now!";
     cta.href = FINAL_URL;
     cta.style.animation = "pulse 2s infinite";
+    cta.style.pointerEvents = "auto";
   }
 }
-function draw(){
-  const m = String(Math.floor(remaining / 60)).padStart(2,"0");
-  const s = String(remaining % 60).padStart(2,"0");
-  minEl.textContent = m;
-  secEl.textContent = s;
-  progress.style.width = ((TOTAL - remaining) / TOTAL * 100) + "%";
 
-  // DAPAT ganito:
-  if (remaining <= 0 && !unlocked) {
+// 6) TICK LOOP
+function tick(){
+  if (remaining > 0) remaining--;
+  draw();
+}
+
+// Start
+cta.classList.add("disabled");
+cta.style.pointerEvents = "none";
+draw();
+setInterval(tick, 1000);
+
+// 7) Failsafe (unlock kahit may glitch)
+setTimeout(() => {
+  if (!unlocked) {
     unlocked = true;
     cta.classList.remove("disabled");
     cta.textContent = "👉 Claim Now!";
     cta.href = FINAL_URL;
     cta.style.animation = "pulse 2s infinite";
+    cta.style.pointerEvents = "auto";
   }
-}
+}, (TOTAL + 2) * 1000);
 </script>
-</body>
-</html>
