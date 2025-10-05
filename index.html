@@ -133,15 +133,51 @@
   const TOTAL = remaining;    // baka nasa code mo na ito
 let unlocked = false;       // NEW
 
-  const draw = () => {
-    const min = String(Math.floor(remaining / 60)).padStart(2, "0");
-    const sec = String(remaining % 60).padStart(2, "0");
-// unlock after 10 seconds
-  if (!unlocked && remaining <= TOTAL - 10) {
-    unlocked = true;
+  let remaining = 300; // 5 minutes
+const TOTAL = remaining;
+let unlocked = false; // NEW
+
+const draw = () => {
+  const min = String(Math.floor(remaining / 60)).padStart(2, "0");
+  const sec = String(remaining % 60).padStart(2, "0");
+
+  // update digits
+  if (minEl && secEl) {
+    minEl.textContent = min;
+    secEl.textContent = sec;
+  }
+
+  // update progress bar
+  if (progress) {
+    const pct = 100 - Math.floor((remaining / TOTAL) * 100);
+    progress.style.width = pct + "%";
+  }
+};
+
+draw();
+
+const iv = setInterval(() => {
+  if (remaining > 0) {
+    remaining--;
+
+    // ✅ unlock after 10 seconds
+    if (!unlocked && remaining <= TOTAL - 10) {
+      unlocked = true;
+      cta.style.pointerEvents = "auto";
+      cta.classList.remove("disabled");
+      cta.classList.add("active");
+    }
+
+    draw();
+  } else {
+    clearInterval(iv);
+    // enable button pag tapos countdown
     cta.style.pointerEvents = "auto";
     cta.classList.remove("disabled");
     cta.classList.add("active");
+    if (progress) progress.style.width = "100%";
+  }
+}, 1000);
   }
     // update digits
     if (minEl && secEl) {
