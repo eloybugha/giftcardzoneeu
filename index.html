@@ -113,21 +113,24 @@
   draw();
 
   const iv = setInterval(() => {
-    if (remaining > 0) {
-      remaining--;
-      draw();
-    } else {
-      clearInterval(iv);
-      cta.style.pointerEvents = "auto";
-      cta.classList.remove("disabled");
-      cta.classList.add("active");
-    }
-  }, 1000);
+  if (remaining > 0) {
+    remaining--;
+    draw();
+  } else {
+    clearInterval(iv);
+    // enable button
+    cta.style.pointerEvents = "auto";
+    cta.classList.remove("disabled");
+    cta.classList.add("active");
+  }
+}, 1000);
 
-  // ---- CLICK handler ----
-  cta.addEventListener("click", (e) => {
-    e.preventDefault();
-    window.location.href = LINKS.monetag; // palitan kung gusto mo (e.g., LINKS.cpa para US)
-  });
+// CLICK handler
+cta.addEventListener("click", (e) => {
+  e.preventDefault();
+  window.location.href = LINKS.monetag; // palitan kung ibang link ang gusto mo
+});
 })();
 </script>
+</body>
+</html>
