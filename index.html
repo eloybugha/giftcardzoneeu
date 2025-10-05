@@ -2,364 +2,137 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>GiftCardZoneEU – Claim Your Xbox Gift Card</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>GiftCardZoneEU – Xbox Gift Card</title>
 <meta name="robots" content="noindex,nofollow" />
+
 <style>
 :root{
-  --bg:#0b1220; --card:#0f1a2b; --txt:#f8fafc; --muted:#cbd5e1;
+  --bg:#0b1220; --card:#0f1a2b; --txt:#f8fafc; --muted:#94a3b8;
   --acc1:#22c55e; --acc2:#16a34a;
 }
-*{box-sizing:border-box}
+*{box-sizing:border-box;margin:0;padding:0}
 body{
-  margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  background:radial-gradient(900px 600px at 50% -10%,#162945 0%,#0b1220 70%) fixed,var(--bg);
-  color:var(--txt); line-height:1.45;
-}
-main.card{
-  max-width:720px; margin:40px auto; padding:28px;
-  background:rgba(15,26,43,.88); border:1px solid rgba(255,255,255,.08);
-  border-radius:22px; box-shadow:0 10px 28px rgba(0,0,0,.35); backdrop-filter:blur(6px);
-}
-h1{font-size:clamp(24px,4vw,34px); margin:0 0 8px}
-p.lead{color:var(--muted); margin:0 0 18px}
-.hero{width:100%; height:auto; display:block; border-radius:18px; overflow:hidden}
-.timer{display:flex; align-items:center; gap:8px; margin:16px 0 8px}
-.timer .pill{background:rgba(255,255,255,.08); padding:6px 10px; border-radius:999px; font-weight:600; font-variant-numeric:tabular-nums}
-.cta{
-  display:inline-flex; align-items:center; justify-content:center; gap:8px;
-  margin:8px 0 12px; padding:14px 18px; border-radius:14px; font-weight:700;
-  text-decoration:none; color:#091114;
-  background:linear-gradient(90deg,var(--acc1),var(--acc2));
-  box-shadow:0 8px 18px rgba(34,197,94,.35);
-  transition:transform .15s ease, box-shadow .15s ease, opacity .2s ease;
-}
-.cta:hover{transform:translateY(-1px); box-shadow:0 10px 22px rgba(34,197,94,.4)}
-.cta.disabled{opacity:.55; pointer-events:none; filter:grayscale(.1); box-shadow:none;
-  background:linear-gradient(90deg,#93c5fd,#60a5fa); color:#0b1220}
-.progress{width:100%; height:8px; background:rgba(255,255,255,.15); border-radius:999px; overflow:hidden; margin:10px 0 16px}
-#bar{width:0%; height:100%; background:linear-gradient(90deg,var(--acc1),var(--acc2)); transition:width .3s linear}
-ul.badges{display:flex; flex-wrap:wrap; gap:10px; list-style:none; padding:0; margin:14px 0 0}
-ul.badges li{background:rgba(255,255,255,.08); padding:9px 10px; border:1px solid rgba(255,255,255,.1); border-radius:999px; font-size:14px; color:#e5e7eb}
-footer{margin-top:16px; color:#94a3b8; font-size:13px; text-align:center}
-@keyframes pulse{
-  0%{transform:scale(1); box-shadow:0 0 0 0 rgba(34,197,94,.55)}
-  70%{transform:scale(1.02); box-shadow:0 0 0 18px rgba(34,197,94,0)}
-  100%{transform:scale(1); box-shadow:0 0 0 0 rgba(34,197,94,0)}
-}
-</style>
-</head>
-<body>
-<main class="card">
-  <h1>Claim Your Xbox Gift Card</h1>
-  <p class="lead">Limited slots only. Finish the quick check to unlock your claim button.</p>
-
-  <!-- Built-in image (no external host) -->
-  <svg class="hero" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Xbox Gift Card">
-    <defs>
-      <linearGradient id="grad" x1="0" x2="1" y1="0" y2="1">
-        <stop offset="0%" stop-color="#10B981"/><stop offset="100%" stop-color="#3DBB3D"/>
-      </linearGradient>
-    </defs>
-    <rect x="60" y="60" width="1080" height="580" rx="40" fill="url(#grad)"/>
-    <text x="180" y="300" font-size="90" font-family="Arial Black" fill="white">XBOX</text>
-    <text x="180" y="420" font-size="60" font-family="Arial Black" fill="white">GIFT CARD</text>
-    <text x="180" y="480" font-size="28" font-family="Arial" fill="white" opacity=".9">$25 — Limited</text>
-  </svg>
-
-  <!-- Timer -->
-  <div class="timer">
-    <span class="pill">Unlock in</span>
-    <span class="pill"><span id="m">05</span>:<span id="s">00</span></span>
-  </div>
-
-  <!-- CTA -->
-  <a id="cta" class="cta disabled" href="#" rel="nofollow noopener noreferrer" target="_blank">Please wait…</a>
-
-  <!-- Progress bar -->
-  <div class="progress"><div id="bar"></div></div>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>GiftCardZoneEU – Claim Your Xbox Gift Card</title>
-<meta name="robots" content="noindex,nofollow" />
-<style>
-:root{
-  --bg:#0b1220; --card:#0f1a2b; --txt:#f8fafc; --muted:#cbd5e1;
-  --acc1:#22c55e; --acc2:#16a34a; --danger:#ef4444;
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>GiftCardZoneEU — Xbox Gift Card</title>
-<meta name="robots" content="noindex,nofollow" />
-
-<style>
-:root{
-  --bg:#0b1220; --bg2:#0f1a2b; --card:#101a2d; --ink:#eaf2ff; --muted:#a9b6cf;
-  --acc:#22c55e; --acc2:#16a34a; --danger:#ef4444;
-}
-
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  color:var(--ink);
-  background:
-    radial-gradient(900px 600px at 50% -10%, #162945 0%, #0b1220 70%) fixed,
-    linear-gradient(180deg, var(--bg), var(--bg2));
-}
-
-.container{
-  max-width:900px; margin:0 auto; padding:24px;
-  display:grid; place-items:center; min-height:100dvh;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:radial-gradient(900px 600px at 50% -10%,#162945 0%,#0b1220 70%);
+  color:var(--txt); display:grid; place-items:center; min-height:100vh;
 }
 
 .card{
-  width:100%; background:linear-gradient(180deg,#0f1a2b, #0c1526);
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:24px; box-shadow:0 20px 60px rgba(0,0,0,.35);
-  overflow:hidden;
+  background:var(--card);
+  padding:24px;
+  border-radius:20px;
+  max-width:400px;
+  width:90%;
+  text-align:center;
+  box-shadow:0 0 30px rgba(0,0,0,.4);
 }
 
-.header{
-  padding:28px 28px 0; display:flex; align-items:center; gap:14px;
+img{
+  width:120px; border-radius:16px; margin-bottom:16px;
 }
-.badge{
-  font-weight:700; letter-spacing:.6px; font-size:.85rem;
-  background:rgba(34,197,94,.15); color:#b5f3c8;
-  border:1px solid rgba(34,197,94,.35);
-  padding:6px 10px; border-radius:999px;
-}
-.h1{ font-size:1.6rem; margin:0; }
-.sub{ color:var(--muted); font-size:.98rem; margin:6px 0 0; }
 
-.hero{
-  margin:20px 24px; border-radius:18px; padding:28px;
-  background:
-    radial-gradient(600px 300px at 80% -60%, rgba(34,197,94,.25), transparent 60%),
-    linear-gradient(135deg,#0f1a2b 0%, #0b1424 100%);
-  border:1px solid rgba(255,255,255,.06);
-  display:flex; gap:24px; align-items:center;
-}
-.hero .art{
-  width:120px; height:120px; border-radius:20px;
-  background:
-    conic-gradient(from 0deg at 50% 50%, #22c55e, #16a34a, #22c55e);
-  position:relative; flex-shrink:0; box-shadow:0 12px 24px rgba(34,197,94,.25) inset;
-}
-.hero .art::after{
-  content:"🎮"; position:absolute; inset:0; display:grid; place-items:center;
-  font-size:56px; filter:drop-shadow(0 4px 10px rgba(0,0,0,.35));
-}
-.hero .copy{ flex:1; }
-.hero .copy h2{ margin:0 0 6px; font-size:1.3rem; }
-.hero .copy p{ margin:0; color:var(--muted) }
+h1{font-size:1.3rem;margin-bottom:8px;}
+p{color:var(--muted);font-size:.95rem;margin-bottom:20px;}
 
-.timerWrap{ margin:10px 24px 6px; }
-.timer{
-  display:flex; align-items:center; justify-content:space-between;
-  font-variant-numeric: tabular-nums; letter-spacing:.4px;
+.progress{
+  width:100%;height:8px;background:rgba(255,255,255,.15);
+  border-radius:999px;overflow:hidden;margin-bottom:12px;
 }
-#time{ font-weight:800; font-size:1.2rem; }
-
-.progress{ width:100%; height:8px; background:rgba(255,255,255,.12);
-  border-radius:999px; overflow:hidden; margin:10px 0 16px; }
-#bar{ width:0%; height:100%; background:linear-gradient(90deg, var(--acc), var(--acc2));
-  transition:width .25s linear; }
-
-.actions{ padding:0 24px 24px; display:grid; gap:10px; }
-
-.cta{
-  display:inline-flex; align-items:center; justify-content:center; gap:10px;
-  text-decoration:none; color:#05140a; font-weight:800; letter-spacing:.3px;
-  background:linear-gradient(180deg,#25cf68,#149a46);
-  border:1px solid rgba(255,255,255,.15); border-bottom-color:rgba(0,0,0,.35);
-  padding:14px 18px; border-radius:14px; box-shadow:0 10px 30px rgba(34,197,94,.25);
-  cursor:pointer; user-select:none;
+#bar{
+  width:0%;height:100%;
+  background:linear-gradient(90deg,var(--acc1),var(--acc2));
+  transition:width .25s linear;
 }
-.cta[aria-disabled="true"]{
-  filter:grayscale(.6) brightness(.7); cursor:not-allowed; color:#a6b5a8;
-}
-.cta .pill{
-  font-size:.78rem; font-weight:800;
-  padding:6px 8px; border-radius:999px; background:rgba(255,255,255,.18);
-}
-.note{ color:var(--muted); font-size:.9rem; }
 
-@keyframes pulse {
-  0% { transform: translateZ(0) scale(1); box-shadow:0 0 0 0 rgba(34,197,94,.60);}
-  70%{ transform: translateZ(0) scale(1.02); box-shadow:0 0 0 14px rgba(34,197,94,0);}
-  100%{ transform: translateZ(0) scale(1); box-shadow:0 0 0 0 rgba(34,197,94,0);}
-}
-.pulse{ animation:pulse 1.4s ease-out infinite; }
+#time{font-weight:bold;margin-bottom:16px;display:block;}
 
-.footer{ padding:18px 24px; border-top:1px solid rgba(255,255,255,.08);
-  color:#6a7893; font-size:.85rem; display:flex; gap:8px; flex-wrap:wrap; }
-.footer a{ color:#9fb1d6 }
+#cta{
+  display:inline-block;
+  padding:12px 18px;
+  background:linear-gradient(90deg,var(--acc1),var(--acc2));
+  color:#fff;
+  border:none;
+  border-radius:12px;
+  font-weight:bold;
+  cursor:not-allowed;
+  opacity:.6;
+  text-decoration:none;
+  transition:opacity .3s,transform .3s;
+}
+#cta.unlocked{
+  cursor:pointer;
+  opacity:1;
+  animation:pulse 1.5s infinite;
+}
+@keyframes pulse{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.04);}
+  100%{transform:scale(1);}
+}
 </style>
 </head>
 <body>
-<main class="container">
-  <section class="card">
-    <div class="header">
-      <span class="badge">LIMITED • STOCKS MOVING FAST</span>
-    </div>
 
-    <div class="hero">
-      <div class="art" aria-hidden="true"></div>
-      <div class="copy">
-        <h2>Claim your Xbox Gift Card</h2>
-        <p>Unlock the button after the short verification timer. No app install required.</p>
-      </div>
-    </div>
+<main class="card">
+  <img src="https://i.ibb.co/bRvbSCs8/xbox-card.png" alt="Xbox Gift Card" />
+  <h1>Claim your Xbox Gift Card</h1>
+  <p>Wait for the verification timer to finish before claiming.</p>
 
-    <div class="timerWrap">
-      <div class="timer">
-        <span id="status">Verifying…</span>
-        <span id="time">02:00</span>
-      </div>
-      <div class="progress"><div id="bar"></div></div>
-    </div>
+  <div class="progress"><div id="bar"></div></div>
+  <span id="time">02:00</span>
 
-    <div class="actions">
-      <a id="cta" class="cta" href="#" aria-disabled="true" rel="nofollow noopener noreferrer">
-        👉 <span>Claim My Gift Card</span> <span class="pill" id="pill">Locked</span>
-      </a>
-      <div class="note" id="warn" style="display:none;">
-        If you can’t open the link, try a different browser tab or disable pop-up blockers.
-      </div>
-    </div>
-
-    <div class="footer">
-      <span>© 2025 GiftCardZoneEU</span> •
-      <a href="#" onclick="event.preventDefault();alert('For demo only.');">Privacy</a> •
-      <a href="#" onclick="event.preventDefault();alert('For demo only.');">Terms</a>
-    </div>
-  </section>
+  <a id="cta" href="#" rel="nofollow noopener noreferrer">👉 Claim My Gift Card</a>
 </main>
 
 <script>
-/* =========================
-   1) LINKS (edit these)
-   ========================= */
 const LINKS = {
-  ali:     "https://s.click.aliexpress.com/e/_c35B3nnp",
-  cpa:     "https://singingfiles.com/show.php?l=0&u=180655&id=72074",
-  monetag: "https://otieu.com/4/4203960"
+  ali:"https://s.click.aliexpress.com/e/_c35B3nnp",
+  cpa:"https://doctoredits.com/show.php?l=0&u=180655&id=72074",
+  monetag:"https://syndication.monetag.com/smartlink?zoneid=4590821"
 };
 
-/* =========================
-   2) ELEMENTS
-   ========================= */
-const $cta   = document.getElementById("cta");
-const $pill  = document.getElementById("pill");
-const $bar   = document.getElementById("bar");
-const $time  = document.getElementById("time");
-const $status= document.getElementById("status");
-const $warn  = document.getElementById("warn");
-
-/* =========================
-   3) PARAMS & MODES
-   ========================= */
+// choose mode from ?mode=ali|cpa|monetag
 const params = new URLSearchParams(location.search);
-const forcedMode = (params.get("mode") || "").toLowerCase();   // ali | cpa | monetag
-const bypass     = params.has("unlock");                        // ?unlock=1 to skip timer
-const DURATION   = Math.max(5, parseInt(params.get("t") || "120", 10)); // seconds
+const mode = params.get("mode") || "monetag";
+const FINAL_URL = LINKS[mode] || LINKS.monetag;
 
-function chooseURL(){
-  if (["ali","cpa","monetag"].includes(forcedMode)) return LINKS[forcedMode];
-  return LINKS.monetag; // default
-}
-const FINAL_URL = chooseURL();
+// get elements
+const btn = document.getElementById("cta");
+const timeEl = document.getElementById("time");
+const bar = document.getElementById("bar");
 
-/* =========================
-   4) BUTTON ENABLE/DISABLE
-   ========================= */
-function setEnabled(on){
-  if(on){
-    $cta.setAttribute("aria-disabled","false");
-    $cta.classList.add("pulse");
-    $pill.textContent = "Unlocked";
-    $status.textContent = "Ready!";
-  }else{
-    $cta.setAttribute("aria-disabled","true");
-    $cta.classList.remove("pulse");
-    $pill.textContent = "Locked";
-    $status.textContent = "Verifying…";
-  }
+// timer
+let duration = 120; // seconds
+let remaining = duration;
+updateTime();
+
+function updateTime(){
+  const m = String(Math.floor(remaining/60)).padStart(2,"0");
+  const s = String(remaining%60).padStart(2,"0");
+  timeEl.textContent = `${m}:${s}`;
+  const percent = ((duration-remaining)/duration)*100;
+  bar.style.width = percent + "%";
 }
 
-/* Guard against double listeners */
-$cta.onclick = (ev)=>{
-  const disabled = $cta.getAttribute("aria-disabled") === "true";
-  if(disabled){ ev.preventDefault(); return; }
-  // Navigate (single decisive redirect)
-  location.href = FINAL_URL;
-};
-
-/* =========================
-   5) ROBUST COUNTDOWN
-   - requestAnimationFrame to avoid setInterval drift
-   - updates shown time only when the seconds change
-   ========================= */
-function fmt(sec){
-  const m = Math.floor(sec/60);
-  const s = sec % 60;
-  return String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
-}
-
-function startCountdown(durationSec){
-  const start = performance.now();
-  let lastShown = -1;
-
-  function frame(now){
-    const elapsed = Math.floor((now - start)/1000);
-    const left = Math.max(0, durationSec - elapsed);
-
-    // only update DOM when whole seconds change
-    if(left !== lastShown){
-      $time.textContent = fmt(left);
-      const pct = ((durationSec - left) / durationSec) * 100;
-      $bar.style.width = pct.toFixed(1) + "%";
-      lastShown = left;
+function startCountdown(){
+  const timer = setInterval(()=>{
+    remaining--;
+    updateTime();
+    if(remaining<=0){
+      clearInterval(timer);
+      unlock();
     }
-
-    if(left > 0){
-      requestAnimationFrame(frame);
-    }else{
-      setEnabled(true);
-      $bar.style.width = "100%";
-    }
-  }
-  requestAnimationFrame(frame);
+  },1000);
 }
 
-/* =========================
-   6) INIT
-   ========================= */
-(function init(){
-  // Show hint text
-  $warn.style.display = "block";
+function unlock(){
+  btn.classList.add("unlocked");
+  btn.style.cursor="pointer";
+  btn.onclick = ()=>{location.href=FINAL_URL};
+}
 
-  // Prepare initial UI
-  setEnabled(false);
-  $time.textContent = fmt(DURATION);
-  $bar.style.width = "0%";
-
-  if(bypass){
-    // Instant unlock
-    setEnabled(true);
-    $time.textContent = "00:00";
-    $bar.style.width = "100%";
-  }else{
-    startCountdown(DURATION);
-  }
-})();
+startCountdown();
 </script>
 </body>
 </html>
