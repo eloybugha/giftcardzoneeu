@@ -116,3 +116,48 @@ function chooseURL(){
 
   const pool = [LINKS.ali, LINKS.cpa, LINKS.monetag];
   r    
+return pool[Math.floor(Math.random()*pool.length)];
+}
+const FINAL_URL = chooseURL();
+
+// 5) RENDER + LOOP
+function draw(){
+  const m = String(Math.floor(remaining / 60)).padStart(2,"0");
+  const s = String(remaining % 60).padStart(2,"0");
+  minEl.textContent = m;
+  secEl.textContent = s;
+  progress.style.width = ((TOTAL - remaining) / TOTAL * 100) + "%";
+
+  if (remaining <= 0 && !unlocked) {
+    unlocked = true;
+    cta.classList.remove("disabled");
+    cta.textContent = "👉 Claim Now!";
+    cta.href = FINAL_URL;
+    cta.style.animation = "pulse 2s infinite";
+  }
+}
+
+function tick() {
+  if (remaining > 0) {
+    remaining--;
+    draw();
+  }
+}
+
+// Start timer
+draw();
+setInterval(tick, 1000);
+
+// Optional backup unlock (failsafe)
+setTimeout(() => {
+  if (!unlocked) {
+    unlocked = true;
+    cta.classList.remove("disabled");
+    cta.textContent = "👉 Claim Now!";
+    cta.href = FINAL_URL;
+    cta.style.animation = "pulse 2s infinite";
+  }
+}, (TOTAL + 2) * 1000);
+</script>
+</body>
+</html>
