@@ -75,12 +75,13 @@
 // ================== LINKS ==================
 const LINKS = {
   cpa:     "https://singingfiles.com/show.php?l=0&u=180655&id=72074",   // CPA (US)
-  monetag: "https://syndication.monetag.com/smartlink?zoneid=4590821"   // Default (non-US)
+  monetag: "https://syndication.monetag.com/smartlink?zoneid=4590821",  // Default (non-US)
+  ali:     "https://s.click.aliexpress.com/e/_c35B3nnp"                  // Fallback kapag down ang Monetag
 };
 
 // ================== STATE / DOM HOOKS ==================
 const params = new URLSearchParams(location.search);
-const forcedMode = params.get("mode"); // optional ?mode=cpa|monetag
+const forcedMode = params.get("mode"); // optional ?mode=cpa|monetag|ali
 let FINAL_URL = LINKS.monetag;
 
 let cta, mEl, sEl, yearEl;
@@ -89,6 +90,22 @@ let cta, mEl, sEl, yearEl;
 function applyFinalUrl(url) {
   FINAL_URL = url;
   if (!cta) return;
+
+  // UTM pass-through (para sa ads tracking)
+  try {
+    const keep = [
+      "utm_source","utm_medium","utm_campaign","utm_content","utm_term",
+      "ad_id","adset_id","campaign_id","adset","placement"
+    ];
+    const qs = new URLSearchParams(location.search);
+    const add = new URLSearchParams();
+    keep.forEach(k => { if (qs.get(k)) add.set(k, qs.get(k)); });
+    if ([...add.keys()].length) {
+      const u = new URL(FINAL_URL);
+      add.forEach((v,k)=>u.searchParams.set(k,v));
+      FINAL_URL = u.toString();
+    }
+  } catch(e){ console.log("[UTM] append error", e); }
 
   cta.setAttribute("href", FINAL_URL);
 
@@ -121,79 +138,24 @@ function applyFinalUrl(url) {
   console.log("[CTA] locked →", FINAL_URL);
 }
 
+// Reachability check (DNS/connection). true kung maabot.
+async function isReachable(url, ms = 2000) {
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), ms);
+  try {
+    await fetch(url, { mode: "no-cors", cache: "no-store", signal: ctrl.signal });
+    clearTimeout(timer);
+    return true;
+  } catch (e) {
+    clearTimeout(timer);
+    console.log("[HEALTH] unreachable:", url, e && e.name);
+    return false;
+  }
+}
+
+// GEO: Cloudflare → ipapi fallback
 async function detectCountry() {
-  // Cloudflare trace (fast)
   try {
     const txt = await fetch("https://www.cloudflare.com/cdn-cgi/trace", { cache:"no-store" }).then(r=>r.text());
     const m = txt.match(/loc=([A-Z]{2})/);
-    if (m && m[1]) return m[1];
-  } catch(e){ console.log("[GEO] CF fail", e); }
-
-  // ipapi fallback
-  try {
-    const j = await fetch("https://ipapi.co/json/", { cache:"no-store" }).then(r=>r.json());
-    if (j && j.country) return j.country;
-  } catch(e){ console.log("[GEO] ipapi fail", e); }
-
-  return null;
-}
-
-function chooseWithGeo(cc) {
-  if (forcedMode && LINKS[forcedMode]) return LINKS[forcedMode]; // manual override
-  if (cc === "US") return LINKS.cpa;   // US → CPA
-  return LINKS.monetag;                // others → Monetag
-}
-
-// ------------------ COUNTDOWN ------------------
-function startCountdown(seconds) {
-  if (!mEl || !sEl) return;
-  let t = seconds;
-
-  function render() {
-    const min = Math.floor(t / 60);
-    const sec = t % 60;
-    mEl.textContent = String(min).padStart(2, "0");
-    sEl.textContent = String(sec).padStart(2, "0");
-  }
-
-  function tick() {
-    render();
-    if (t > 0) {
-      t--;
-      setTimeout(tick, 1000);
-    } else {
-      // time's up → go to final URL
-      try { window.location.replace(FINAL_URL); }
-      catch { window.location.href = FINAL_URL; }
-    }
-  }
-
-  tick();
-}
-
-// ------------------ INIT AFTER DOM READY ------------------
-document.addEventListener("DOMContentLoaded", async () => {
-  // DOM refs
-  cta    = document.getElementById("cta");
-  mEl    = document.getElementById("m");
-  sEl    = document.getElementById("s");
-  yearEl = document.getElementById("year");
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-  if (!cta) { console.warn("[CTA] not found"); return; }
-
-  // default while waiting for GEO
-  applyFinalUrl(LINKS.monetag);
-
-  // GEO refine
-  const cc = await detectCountry();
-  const finalUrl = chooseWithGeo(cc);
-  applyFinalUrl(finalUrl);
-
-  // start 5:00 countdown
-  startCountdown(5 * 60);
-
-  console.log("[GEO] Country:", cc || "unknown");
-  console.log("[CTA] Final redirect:", finalUrl.includes("show.php") ? "CPA" : "Monetag");
-});
-</script>
+    if (
