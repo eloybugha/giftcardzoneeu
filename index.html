@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+why<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
@@ -127,15 +127,15 @@ function draw(){
   secEl.textContent = s;
   progress.style.width = ((TOTAL - remaining) / TOTAL * 100) + "%";
 
-  // unlock once
-cta.textContent = "✅ Unlocked — Claim Now!";{
-    unlocked = true;
-    cta.classList.remove("disabled");
-    cta.textContent = "👉 Claim Now!";
-    cta.href = FINAL_URL;
-    cta.style.animation = "pulse 2s infinite";
-    cta.style.pointerEvents = "auto";
-  }
+// unlock once
+if (remaining <= 0 && !unlocked) {
+  unlocked = true;
+  cta.classList.remove("disabled");
+  cta.textContent = "✅ Unlocked — Claim Now!";
+  cta.href = FINAL_URL;
+  cta.style.animation = "pulse 2s infinite";
+  cta.style.pointerEvents = "auto";
+}
 }
 
 /cta// 6) TICK LOOP
