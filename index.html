@@ -92,122 +92,127 @@
   <title>GiftCardZoneEU — Claim Your Xbox Gift Card</title>
 
   <style>
-    :root{
-      --bg1:#0ea5e9; --bg2:#2563eb; --text:#f8fafc; --muted:#cbd5e1;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0; font-family:system-ui, Arial, sans-serif; color:var(--text);
-      background:linear-gradient(90deg,var(--bg1),var(--bg2));
-      min-height:100dvh; display:grid; place-items:center; padding:24px;
-    }
-    .card{
-      width:min(680px,100%); background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.15); border-radius:18px;
-      padding:22px; box-shadow:0 10px 50px rgba(0,0,0,.25);
-      backdrop-filter: blur(8px);
-    }
-    h1{font-size:24px;margin:6px 0 8px}
-    p.lead{margin:0 0 14px;color:var(--muted)}
-    .timer{font:700 28px/1 monospace; text-align:center; margin:12px 0 14px}
-    .cta{
-      display:inline-block; padding:12px 18px; border-radius:12px;
-      background:#22c55e; color:#062a12; text-decoration:none; font-weight:700;
-      box-shadow:0 0 0 rgba(0,0,0,0); transition:transform .12s;
-    }
-    .cta.disabled{pointer-events:none; opacity:.6; filter:grayscale(.3)}
-    .cta.active{animation:pulse 1.6s infinite}
-    .progress{width:100%; height:8px; background:rgba(255,255,255,.15);
-      border-radius:999px; overflow:hidden; margin:10px 0 16px}
-    #bar{width:0%; height:100%; background:linear-gradient(90deg,#22c55e,#16a34a);
-      transition:width .3s linear}
-    @keyframes pulse{
-      0%{transform:scale(1); box-shadow:0 0 0 0 rgba(34,197,94,.6)}
-      70%{transform:scale(1.02); box-shadow:0 0 0 12px rgba(34,197,94,0)}
-      100%{transform:scale(1); box-shadow:0 0 0 0 rgba(34,197,94,0)}
-    }
-    footer{margin-top:18px; color:#e5e7eb; font-size:13px; text-align:center}
-  </style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Claim Your Xbox Gift Card</title>
+<style>
+  :root{
+    --bg:#0b1220;
+    --card:#0f1a2b;
+    --txt:#f8fafc;
+    --muted:#cbd5e1;
+    --acc1:#22c55e;
+    --acc2:#16a34a;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; font-family:system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    background: radial-gradient(1000px 600px at 50% -10%, #152642 0%, #0b1220 60%) fixed, var(--bg);
+    color:var(--txt); line-height:1.45; -webkit-font-smoothing:antialiased;
+  }
+  main.card{
+    max-width:920px; margin:32px auto; padding:24px; background:rgba(15,26,43,.85);
+    border:1px solid rgba(255,255,255,.08); border-radius:24px; backdrop-filter: blur(6px);
+    box-shadow: 0 10px 30px rgba(0,0,0,.35);
+  }
+  h1{font-size:clamp(24px,4vw,36px); margin:0 0 8px}
+  p.lead{color:var(--muted); margin:0 0 16px}
+
+  /* Hero SVG is responsive */
+  .hero{width:100%; height:auto; display:block; border-radius:18px; overflow:hidden}
+
+  /* Timer */
+  .timer{display:flex; align-items:center; gap:8px; margin:16px 0 8px}
+  .timer .pill{
+    background:rgba(255,255,255,.08); padding:6px 10px; border-radius:999px; font-weight:600;
+    letter-spacing:.5px; font-variant-numeric:tabular-nums;
+  }
+
+  /* CTA */
+  .cta{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    margin:8px 0 12px; padding:14px 18px; border-radius:14px; font-weight:700;
+    text-decoration:none; color:#091114; background:linear-gradient(90deg,var(--acc1),var(--acc2));
+    box-shadow:0 8px 18px rgba(34,197,94,.35);
+    transition:transform .15s ease, box-shadow .15s ease, opacity .2s ease;
+  }
+  .cta:hover{transform:translateY(-1px); box-shadow:0 10px 22px rgba(34,197,94,.40)}
+  .cta.disabled{
+    opacity:.55; pointer-events:none; filter:grayscale(.1); box-shadow:none;
+    background:linear-gradient(90deg,#93c5fd,#60a5fa);
+    color:#0b1220;
+  }
+
+  /* Progress bar */
+  .progress{width:100%; height:8px; background:rgba(255,255,255,.15); border-radius:999px; overflow:hidden; margin:10px 0 16px}
+  #bar{width:0%; height:100%; background:linear-gradient(90deg,var(--acc1),var(--acc2)); transition:width .3s linear}
+
+  /* Badges */
+  ul.badges{display:flex; flex-wrap:wrap; gap:10px; list-style:none; padding:0; margin:14px 0 0}
+  ul.badges li{background:rgba(255,255,255,.08); padding:9px 10px; border:1px solid rgba(255,255,255,.1); border-radius:999px; font-size:14px; color:#e5e7eb}
+
+  footer{margin-top:16px; color:#94a3b8; font-size:13px; text-align:center}
+
+  /* Pulse effect kapag active na ang button */
+  @keyframes pulse {
+    0%   { transform:scale(1);   box-shadow:0 0 0 0 rgba(34,197,94,.55); }
+    70%  { transform:scale(1.02); box-shadow:0 0 0 18px rgba(34,197,94,0); }
+    100% { transform:scale(1);   box-shadow:0 0 0 0 rgba(34,197,94,0); }
+  }
+</style>
 </head>
 <body>
-  <main class="card">
-    <h1>Claim Your Xbox Gift Card</h1>
-    <p class="lead">Limited slots only. Finish the quick check to unlock your reward.</p>
+<main class="card">
+  <h1>Claim Your Xbox Gift Card</h1>
+  <p class="lead">Limited slots only. Finish the quick check to unlock your claim button.</p>
 
-    <!-- Timer -->
-    <div class="timer"><span id="min">05</span>:<span id="sec">00</span></div>
+  <!-- Built-in Xbox Card image (SVG, no external host) -->
+  <svg class="hero" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Xbox Gift Card">
+    <defs>
+      <linearGradient id="grad" x1="0" x2="1" y1="0" y2="1">
+        <stop offset="0%" stop-color="#10B981"/>
+        <stop offset="100%" stop-color="#3DBB3D"/>
+      </linearGradient>
+      <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+        <feGaussianBlur stdDeviation="12"/>
+      </filter>
+    </defs>
+    <rect x="60" y="60" width="1080" height="580" rx="40" fill="url(#grad)"/>
+    <circle cx="210" cy="350" r="110" fill="white" opacity=".12" filter="url(#soft)"/>
+    <circle cx="210" cy="350" r="84" fill="white" opacity=".18"/>
+    <path d="M210 285c35 0 72 48 72 86 0 44-37 80-82 80s-82-36-82-80c0-38 37-86 72-86"
+          fill="#fff" opacity=".9"/>
+    <text x="360" y="300" font-size="90" font-family="Arial Black" fill="white">XBOX</text>
+    <text x="360" y="420" font-size="60" font-family="Arial Black" fill="white">GIFT CARD</text>
+    <text x="360" y="480" font-size="28" font-family="Arial" fill="white" opacity=".9">$25 — Limited</text>
+  </svg>
 
-    <!-- CTA (text and href set by script) -->
-    <a id="cta" class="cta disabled" href="#" rel="nofollow noopener noreferrer">Wait 05:00…</a>
+  <!-- Timer -->
+  <div class="timer">
+    <span class="pill">Unlock in</span>
+    <span class="pill"><span id="m">05</span>:<span id="s">00</span></span>
+  </div>
 
-    <!-- Progress bar -->
-    <div class="progress"><div id="bar"></div></div>
+  <!-- CTA (will be enabled by script) -->
+  <a id="cta" class="cta disabled" href="#" rel="nofollow noopener noreferrer" target="_blank">Please wait…</a>
 
-    <ul class="badges" style="list-style:none; padding:0; margin:14px 0 0; display:grid; gap:8px;">
-      <li style="background:rgba(255,255,255,.08); padding:9px 10px; border-radius:10px;">📱 Android Optimized</li>
-      <li style="background:rgba(255,255,255,.08); padding:9px 10px; border-radius:10px;">🔒 Safe &amp; Verified</li>
-      <li style="background:rgba(255,255,255,.08); padding:9px 10px; border-radius:10px;">⚡ Instant Access</li>
-    </ul>
+  <!-- Progress bar -->
+  <div class="progress"><div id="bar"></div></div>
 
-    <footer>GiftCardZoneEU. All rights reserved.</footer>
-  </main>
+  <!-- Trust badges -->
+  <ul class="badges">
+    <li>✔️ Secure</li>
+    <li>⚡ Fast process</li>
+    <li>🛡️ Anti-spam</li>
+  </ul>
 
-  <script>
-    // ====== CONFIG ======
-    let TOTAL = 300;           // 5:00 minutes
-    let remaining = TOTAL;
-    let unlocked = false;
+  <footer>GiftCardZoneEU. All rights reserved.</footer>
+</main>
 
-    // ====== ELEMENTS ======
-    const cta = document.getElementById("cta");
-    const progress = document.getElementById("bar");
-    const minEl = document.getElementById("min");
-    const secEl = document.getElementById("sec");
-
-    // ====== RENDER ======
-    const draw = () => {
-      const min = String(Math.floor(remaining / 60)).padStart(2, "0");
-      const sec = String(remaining % 60).padStart(2, "0");
-
-      if (minEl && secEl) { minEl.textContent = min; secEl.textContent = sec; }
-
-      if (progress) {
-        const pct = 100 - Math.floor((remaining / TOTAL) * 100);
-        progress.style.width = pct + "%";
-      }
-
-      if (!unlocked && cta) cta.textContent = `Wait ${min}:${sec}…`;
-    };
-    draw(); // initial
-
-    // ====== TIMER ======
-    const iv = setInterval(() => {
-      if (remaining > 0) {
-        remaining--;
-
-        // unlock after 30 seconds
-        if (!unlocked && remaining <= TOTAL - 30) {
-          unlocked = true;
-          cta.style.pointerEvents = "auto";
-          cta.classList.remove("disabled");
-          cta.classList.add("active");
-          cta.textContent = "👉 Claim My Gift Card";
-          // set your link here:
-          cta.href = "#"; // e.g. "https://syndication.monetag.com/smartlink?zoneid=4590821"
-        }
-
-        draw();
-      } else {
-        clearInterval(iv);
-        cta.style.pointerEvents = "auto";
-        cta.classList.remove("disabled");
-        cta.classList.add("active");
-        if (progress) progress.style.width = "100%";
-        if (minEl) minEl.textContent = "00";
-        if (secEl) secEl.textContent = "00";
-        cta.textContent = "👉 Claim My Gift Card";
-      }
-    }, 1000);
-  </script>
-</body>
-</html>
+<script>
+/* ========================= 1) CONFIG ========================= */
+const LINKS = {
+  ali:     "https://s.click.aliexpress.com/e/_
