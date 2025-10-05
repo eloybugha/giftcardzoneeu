@@ -114,12 +114,11 @@ function chooseURL(){
   const ua = navigator.userAgent || "";
   if (/Android/i.test(ua)) return LINKS.monetag; // better fill sa Android
 
+  // WALANG extrang character dito
   const pool = [LINKS.ali, LINKS.cpa, LINKS.monetag];
-  r    
-return pool[Math.floor(Math.random()*pool.length)];
+  return pool[Math.floor(Math.random()*pool.length)];
 }
 const FINAL_URL = chooseURL();
-
 // 5) RENDER + LOOP
 function draw(){
   const m = String(Math.floor(remaining / 60)).padStart(2,"0");
