@@ -71,41 +71,83 @@
   </main>
 
   <!-- ===== Single script: config + logic ===== -->
-  <script>
-    // --- EDIT THESE LINKS ONLY (keep everything else) ---
-    const ALIEXPRESS_LINK = "https://s.click.aliexpress.com/e/_c35B3nnp";
-    const CPAGRIP_LINK    = "https://singingfiles.com/show.php?l=0&u=180655&id=72074";
-    const MONETAG_LINK    = "https://otieu.com/4/9975080";
+<script defer>
+// ================== 1) MGA LINK NG OFFERS ==================
+const LINKS = {
+  cpa:     "https://doctoredits.com/show.php?l=0&u=180655&id=72074",   // US offer (CPA)
+  monetag: "https://syndication.monetag.com/smartlink?zoneid=4590821"  // Default (Monetag link)
+};
 
-    // Routing choice
-    const ANDROID_LINK  = MONETAG_LINK;   // Android → Monetag
-    const FALLBACK_LINK = CPAGRIP_LINK;   // non-Android → CPAgrip (you can swap to ALIEXPRESS_LINK)
+// ================== 2) DETECTION NG DEVICE AT GEO ==================
+const ua = navigator.userAgent || "";
+const params    = new URLSearchParams(location.search);
+const forcedMode = params.get("mode");
+let FINAL_URL = LINKS.monetag;
+const cta = document.getElementById("cta");
 
-    // DOM hooks
-    const cta = document.getElementById("cta");
-    const warn = document.getElementById("warn");
-    const fallback = document.getElementById("fallback");
-    const year = document.getElementById("year");
-    const m = document.getElementById("m");
-    const s = document.getElementById("s");
+// ================== 3) APPLY FINAL LINK ==================
+function applyFinalUrl(url) {
+  FINAL_URL = url;
+  if (!cta) return;
 
-    // Set year
-    year.textContent = new Date().getFullYear();
+  // I-set ang href ng CTA button
+  cta.setAttribute("href", FINAL_URL);
 
-    // Device detection + links
-    const isAndroid = /Android/i.test(navigator.userAgent);
-    cta.href = isAndroid ? ANDROID_LINK : FALLBACK_LINK;
-    if (!isAndroid) { warn.style.display = "block"; fallback.href = FALLBACK_LINK; }
+  // I-lock para di mapalitan ng ibang script
+  if (!cta._lockedClick) {
+    cta.addEventListener("click", function (e) {
+      e.preventDefault();
+      setTimeout(() => { window.location.href = FINAL_URL; }, 60);
+    }, { passive: false });
+    cta._lockedClick = true;
+  }
 
-    // Countdown 5:00 + optional auto-redirect for Android
-    let t = 5 * 60;
-    function tick(){
-      m.textContent = String(Math.floor(t/60)).padStart(2,"0");
-      s.textContent = String(t%60).padStart(2,"0");
-      if (t>0){ t--; setTimeout(tick,1000); }
-      else if (isAndroid){ window.location.href = ANDROID_LINK; }
-    }
-    tick();
-  </script>
-</body>
-</html>
+  console.log("[CTA LINK]", FINAL_URL);
+}
+
+// ================== 4) DETECT COUNTRY (Cloudflare → ipapi fallback) ==================
+async function detectCountry() {
+  try {
+    const txt = await fetch("https://www.cloudflare.com/cdn-cgi/trace", { cache: "no-store" })
+      .then(r => r.text());
+    const m = txt.match(/loc=([A-Z]{2})/);
+    if (m && m[1]) return m[1];
+  } catch (e) { console.log("[GEO] Cloudflare failed", e); }
+
+  // fallback kung di gumana Cloudflare
+  try {
+    const json = await fetch("https://ipapi.co/json/", { cache: "no-store" })
+      .then(r => r.json());
+    if (json && json.country) return json.country;
+  } catch (e) { console.log("[GEO] ipapi failed", e); }
+
+  return null;
+}
+
+// ================== 5) PILIAN NG LINK BASE SA COUNTRY ==================
+function chooseWithGeo(countryCode) {
+  // manual override kung may ?mode=cpa o ?mode=monetag
+  if (forcedMode && LINKS[forcedMode]) return LINKS[forcedMode];
+
+  // --- RULE ---
+  // 🇺🇸 Kung US user → CPA link
+  // 🌍 Kung hindi US → Monetag link
+  if (countryCode === "US") return LINKS.cpa;
+  return LINKS.monetag;
+}
+
+// ================== 6) MAIN FLOW ==================
+(async function initRouting() {
+  // habang wala pang GEO data, Monetag muna default
+  applyFinalUrl(LINKS.monetag);
+
+  // detect country
+  const cc = await detectCountry();
+  const finalUrl = chooseWithGeo(cc);
+  applyFinalUrl(finalUrl);
+
+  // Debug logs (makikita sa console)
+  console.log("[GEO] Country:", cc || "unknown");
+  console.log("[CTA] Final redirect:", finalUrl.includes("doctoredits") ? "CPA" : "Monetag");
+})();
+</script>
