@@ -85,91 +85,130 @@
 }
 .cta.active {
   animation: pulse 1.6s infinite;
-}
-    <!-- Benefits -->
-    <ul class="badges">
-      <li>📱 Android Optimized</li>
-      <li>🔒 Safe & Verified</li>
-      <li>⚡ Instant Access</li>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GiftCardZoneEU — Claim Your Xbox Gift Card</title>
+
+  <style>
+    :root{
+      --bg1:#0ea5e9; --bg2:#2563eb; --text:#f8fafc; --muted:#cbd5e1;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:system-ui, Arial, sans-serif; color:var(--text);
+      background:linear-gradient(90deg,var(--bg1),var(--bg2));
+      min-height:100dvh; display:grid; place-items:center; padding:24px;
+    }
+    .card{
+      width:min(680px,100%); background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.15); border-radius:18px;
+      padding:22px; box-shadow:0 10px 50px rgba(0,0,0,.25);
+      backdrop-filter: blur(8px);
+    }
+    h1{font-size:24px;margin:6px 0 8px}
+    p.lead{margin:0 0 14px;color:var(--muted)}
+    .timer{font:700 28px/1 monospace; text-align:center; margin:12px 0 14px}
+    .cta{
+      display:inline-block; padding:12px 18px; border-radius:12px;
+      background:#22c55e; color:#062a12; text-decoration:none; font-weight:700;
+      box-shadow:0 0 0 rgba(0,0,0,0); transition:transform .12s;
+    }
+    .cta.disabled{pointer-events:none; opacity:.6; filter:grayscale(.3)}
+    .cta.active{animation:pulse 1.6s infinite}
+    .progress{width:100%; height:8px; background:rgba(255,255,255,.15);
+      border-radius:999px; overflow:hidden; margin:10px 0 16px}
+    #bar{width:0%; height:100%; background:linear-gradient(90deg,#22c55e,#16a34a);
+      transition:width .3s linear}
+    @keyframes pulse{
+      0%{transform:scale(1); box-shadow:0 0 0 0 rgba(34,197,94,.6)}
+      70%{transform:scale(1.02); box-shadow:0 0 0 12px rgba(34,197,94,0)}
+      100%{transform:scale(1); box-shadow:0 0 0 0 rgba(34,197,94,0)}
+    }
+    footer{margin-top:18px; color:#e5e7eb; font-size:13px; text-align:center}
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>Claim Your Xbox Gift Card</h1>
+    <p class="lead">Limited slots only. Finish the quick check to unlock your reward.</p>
+
+    <!-- Timer -->
+    <div class="timer"><span id="min">05</span>:<span id="sec">00</span></div>
+
+    <!-- CTA (text and href set by script) -->
+    <a id="cta" class="cta disabled" href="#" rel="nofollow noopener noreferrer">Wait 05:00…</a>
+
+    <!-- Progress bar -->
+    <div class="progress"><div id="bar"></div></div>
+
+    <ul class="badges" style="list-style:none; padding:0; margin:14px 0 0; display:grid; gap:8px;">
+      <li style="background:rgba(255,255,255,.08); padding:9px 10px; border-radius:10px;">📱 Android Optimized</li>
+      <li style="background:rgba(255,255,255,.08); padding:9px 10px; border-radius:10px;">🔒 Safe &amp; Verified</li>
+      <li style="background:rgba(255,255,255,.08); padding:9px 10px; border-radius:10px;">⚡ Instant Access</li>
     </ul>
 
-    <!-- Non-Android notice + fallback link -->
-    <div id="warn" class="warn">
-      <b>Note:</b> This offer is best on Android.<br>
-      If you’re not on Android, use this verified link:
-      <a id="fallback" href="#" style="color:#d1fae5;font-weight:700">Open Offer</a>
-    </div>
+    <footer>GiftCardZoneEU. All rights reserved.</footer>
+  </main>
 
-   </main>
-      <footer><span id="year"></span> GiftCardZoneEU. All rights reserved.</footer>
+  <script>
+    // ====== CONFIG ======
+    let TOTAL = 300;           // 5:00 minutes
+    let remaining = TOTAL;
+    let unlocked = false;
 
-<script defer>
-<script>
-// ====== CONFIG ======
-let TOTAL = 60;                // total seconds ng countdown
-let remaining = TOTAL;
-let unlocked = false;
+    // ====== ELEMENTS ======
+    const cta = document.getElementById("cta");
+    const progress = document.getElementById("bar");
+    const minEl = document.getElementById("min");
+    const secEl = document.getElementById("sec");
 
-// ====== ELEMENTS ======
-const cta = document.getElementById("cta");        // claim button
-const progress = document.getElementById("bar");   // progress bar
-const minEl = document.getElementById("min");      // minute text
-const secEl = document.getElementById("sec");      // second text
+    // ====== RENDER ======
+    const draw = () => {
+      const min = String(Math.floor(remaining / 60)).padStart(2, "0");
+      const sec = String(remaining % 60).padStart(2, "0");
 
-// ====== DRAW FUNCTION (updates digits & bar) ======
-const draw = () => {
-  // compute minutes at seconds
-  const min = String(Math.floor(remaining / 60)).padStart(2, "0");
-  const sec = String(remaining % 60).padStart(2, "0");
+      if (minEl && secEl) { minEl.textContent = min; secEl.textContent = sec; }
 
-  // update countdown digits
-  if (minEl && secEl) {
-    minEl.textContent = min;
-    secEl.textContent = sec;
-  }
+      if (progress) {
+        const pct = 100 - Math.floor((remaining / TOTAL) * 100);
+        progress.style.width = pct + "%";
+      }
 
-  // update progress bar width
-  if (progress) {
-    const pct = 100 - Math.floor((remaining / TOTAL) * 100);
-    progress.style.width = pct + "%";
-  }
+      if (!unlocked && cta) cta.textContent = `Wait ${min}:${sec}…`;
+    };
+    draw(); // initial
 
-  // optional: ipakita countdown sa button habang locked
-  if (!unlocked && cta) {
-    cta.textContent = `Wait ${min}:${sec}…`;
-  }
-};
+    // ====== TIMER ======
+    const iv = setInterval(() => {
+      if (remaining > 0) {
+        remaining--;
 
-// initial render
-draw();
+        // unlock after 30 seconds
+        if (!unlocked && remaining <= TOTAL - 30) {
+          unlocked = true;
+          cta.style.pointerEvents = "auto";
+          cta.classList.remove("disabled");
+          cta.classList.add("active");
+          cta.textContent = "👉 Claim My Gift Card";
+          // set your link here:
+          cta.href = "#"; // e.g. "https://syndication.monetag.com/smartlink?zoneid=4590821"
+        }
 
-// ====== COUNTDOWN TIMER ======
-const iv = setInterval(() => {
-  if (remaining > 0) {
-    remaining--;
-
-    // unlock after 30 seconds
-    if (!unlocked && remaining <= TOTAL - 30) {
-      unlocked = true;
-      cta.style.pointerEvents = "auto";
-      cta.classList.remove("disabled");
-      cta.classList.add("active");
-      cta.textContent ="👉Claim My Gift Card";
-    }
-
-    draw(); // update bar & digits
-  } else {
-    clearInterval(iv);
-
-    // enable button pag tapos countdown
-    cta.style.pointerEvents = "auto";
-    cta.classList.remove("disabled");
-    cta.classList.add("active");
-    if (progress) progress.style.width = "100%";
-
-    if (minEl) minEl.textContent = "00";
-    if (secEl) secEl.textContent = "00";
-    cta.textContent ="👉Claim My Gift Card";
-  }
-}, 1000);
-</script>
+        draw();
+      } else {
+        clearInterval(iv);
+        cta.style.pointerEvents = "auto";
+        cta.classList.remove("disabled");
+        cta.classList.add("active");
+        if (progress) progress.style.width = "100%";
+        if (minEl) minEl.textContent = "00";
+        if (secEl) secEl.textContent = "00";
+        cta.textContent = "👉 Claim My Gift Card";
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
