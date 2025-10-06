@@ -96,4 +96,14 @@
       // Try CPA first
       window.location.href = url;
       // Safety fallback after 1.2s (blocked / geo-mismatch)
-      setTimeout(() => { if (FALLBACK) window.o
+      setTimeout(() => { if (FALLBACK) window.open(FALLBACK, "_blank","noopener,noreferrer"); }, 1200);
+    } catch(e){
+      if (FALLBACK) window.location.href = FALLBACK;
+    }
+  }
+
+  // prevent accidental back navigation auto-closing
+  window.addEventListener('pageshow', e => { if (e.persisted) { t.textContent="01"; left=1; }});
+</script>
+</body>
+</html>
