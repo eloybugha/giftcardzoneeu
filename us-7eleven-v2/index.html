@@ -1,1 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>7-Eleven $100 Gift Card – Quick Eligibility</title>
+<meta name="robots" content="noindex,nofollow"/>
+<style>
+  :root{--bg:#0b1220;--card:#0f1a2b;--txt:#eef2f7;--muted:#b7c3d4;--acc:#22c55e;--acc2:#16a34a;--outline:rgba(255,255,255,.08)}
+  *{box-sizing:border-box} html,body{height:100%}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(900px 600px at 50% -10%,#162945 0%,#0b1220 70%) fixed;color:var(--txt)}
+  .wrap{min-height:100%;display:grid;place-items:center;padding:22px}
+  .card{width:min(620px,94%);background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid var(--outline);border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.35);padding:22px}
+  .tag{display:inline-flex;gap:8px;align-items:center;background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.35);color:#bbf7d0;border-radius:999px;padding:6px 12px;font-weight:700;font-size:13px}
+  h1{margin:12px 0 6px;font-size:clamp(22px,4.5vw,30px)}
+  p{margin:6px 0;color:var(--muted)}
+  .row{display:flex;gap:12px;flex-wrap:wrap;margin:12px 0}
+  .pill{flex:1 1 160px;background:rgba(255,255,255,.05);border:1px solid var(--outline);border-radius:12px;padding:10px 12px;font-size:14px}
+  .progress{height:9px;background:rgba(255,255,255,.15);border-radius:999px;overflow:hidden;margin:10px 0 16px}
+  #bar{height:100%;width:0%;background:linear-gradient(90deg,var(--acc),var(--acc2));transition:width .25s linear}
+  .timer{font-variant-numeric:tabular-nums;font-weight:800}
+  .cta{display:block;text-align:center;text-decoration:none;background:linear-gradient(90deg,var(--acc),var(--acc2));color:#052e16;font-weight:900;border-radius:14px;padding:14px 18px;margin-top:10px;font-size:clamp(16px,3.8vw,18px);box-shadow:0 10px 25px rgba(34,197,94,.35);opacity:.6;pointer-events:none;transition:.2s}
+  .cta.active{opacity:1;pointer-events:auto;animation:pulse 1.6s infinite}
+  @keyframes pulse{0%{transform:scale(1);box-shadow:0 0 0 0 rgba(34,197,94,.45)}70%{transform:scale(1.02);box-shadow:0 0 0 14px rgba(34,197,94,0)}100%{transform:scale(1)}}
+  .badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+  .badge{background:rgba(255,255,255,.07);border:1px solid var(--outline);border-radius:10px;padding:4px 8px;font-size:12px;color:#cfe2ff}
+  .note{font-size:12px;color:#9fb3c8;margin-top:12px}
+  .logo{font-weight:900;letter-spacing:.3px}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <section class="card">
+    <span class="tag">🇺🇸 US Exclusive • Limited Slots</span>
+    <h1><span class="logo">🟩 7-Eleven</span> just released <b>$100 Gift Cards</b></h1>
+    <p>Quick eligibility check… please wait <span class="timer" id="t">08</span>s.</p>
 
+    <div class="progress"><div id="bar"></div></div>
+
+    <div class="row">
+      <div class="pill">✅ Region: <b>United States</b></div>
+      <div class="pill">🖥 Device: <b>Desktop</b></div>
+      <div class="pill">⏱ Est. time: <b>30–60 sec</b></div>
+    </div>
+
+    <a id="cta" class="cta" href="#" rel="nofollow noopener noreferrer">👉 Continue to Eligibility</a>
+
+    <div class="badges">
+      <div class="badge">Encrypted via HTTPS</div>
+      <div class="badge">Email/ZIP Submit</div>
+      <div class="badge">18+ Only</div>
+    </div>
+    <p class="note">By continuing, you agree this is a promotional offer with limited availability. Participation may vary by region and eligibility.</p>
+  </section>
+</main>
+
+<script>
+  // ===== 1) LINKS =====
+  const CPA_URL  = "YOUR_CPA_LINK_HERE"; // paste same 7-Eleven CPA link as v1
+  const FALLBACK = ""; // e.g. Monetag smartlink (optional)
+
+  // ===== 2) RANDOMIZED TIMER (5–9s) =====
+  const total = Math.floor(Math.random()*5)+5; // 5..9
+  let left = total;
+  const t = document.getElementById('t');
+  const bar = document.getElementById('bar');
+  const btn = document.getElementById('cta');
+
+  // unlock at ~40% progress
+  const unlockAt = Math.max(2, Math.floor(total*0.4));
+
+  const tick = () => {
+    left = Math.max(0, left - 1);
+    t.textContent = String(left).padStart(2,'0');
+    bar.style.width = ((total-left)/total*100).toFixed(1)+"%";
+    if (left <= total - unlockAt && !btn.classList.contains('active')) {
+      btn.classList.add('active');
+      btn.textContent = "👉 Yes, I want my $100 Gift Card";
+    }
+    if (left <= 0) go(CPA_URL);
+  };
+
+  // start
+  t.textContent = String(left).padStart(2,'0');
+  bar.style.width = "0%";
+  const iv = setInterval(tick, 1000);
+
+  // manual click
+  btn.addEventListener('click', e => { e.preventDefault(); go(CPA_URL); });
+
+  function go(url){
+    clearInterval(iv);
+    try{
+      window.location.href = url;
+      setTimeout(()=>{ if(FALLBACK) window.open(FALLBACK,"_blank","noopener,noreferrer"); },1200);
+    }catch(e){ if(FALLBACK) window.location.href = FALLBACK; }
+  }
+</script>
+</body>
+</html>
