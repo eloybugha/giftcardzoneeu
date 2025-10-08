@@ -3,98 +3,95 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Spin & Win – $100 Gift Card</title>
+<title>🎡 Spin & Win – $100 Gift Card</title>
 <meta name="robots" content="noindex,nofollow"/>
 
-<!-- Monetag Popunder (Anti-Adblock + Fallback) -->
+<!-- 💰 Monetag Popunder (Anti-Adblock + Fallback) -->
 <script async data-cfasync="false" src="https://syndication.monetag.com/9975017/tag.min.js"></script>
 <script async data-cfasync="false" src="https://syndication.monetag.com/9975016/tag.min.js"></script>
 
 <style>
-  :root{--bg:#0b1220;--card:#0f1a2b;--txt:#e6eefb;--muted:#9fb0c9;--acc1:#22c55e;--acc2:#16a34a;--ring:#60a5fa;--gold:#facc15;}
+  :root{--bg:#0b1220;--card:#0f1a2b;--txt:#e6eefb;--muted:#9fb0c9;--acc1:#22c55e;--acc2:#16a34a;--gold:#facc15;}
   *{box-sizing:border-box}
   html,body{height:100%}
-  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-       background:radial-gradient(1200px 600px at 50% -20%,#1b2a44 0%,#0b1220 60%,#070d19 100%);color:var(--txt);
-       display:grid;place-items:center}
-  .wrap{width:min(680px,92%);background:linear-gradient(180deg,#0f1a2b,#0b1220);border:1px solid rgba(255,255,255,.06);
-        border-radius:18px;box-shadow:0 10px 40px rgba(0,0,0,.4);padding:22px}
-  h1{margin:6px 0 2px;font-size:clamp(22px,4.5vw,30px);text-align:center}
-  p.sub{margin:0 0 18px;text-align:center;color:var(--muted)}
-  .stage{display:grid;place-items:center;margin:14px 0 10px}
-  .wheel-wrap{position:relative;width:min(360px,88vw);aspect-ratio:1;display:grid;place-items:center}
-  .wheel{width:100%;height:100%;border-radius:50%;border:8px solid #0a1526;background:
-        conic-gradient(#1e293b 0 12.5%, #0ea5e9 0 25%, #1e293b 0 37.5%, #06b6d4 0 50%,
-                       #1e293b 0 62.5%, #0ea5e9 0 75%, #1e293b 0 87.5%, #06b6d4 0 100%);
-        position:relative;transition:transform 4s cubic-bezier(.17,.67,.26,1.02);box-shadow:inset 0 0 50px rgba(0,0,0,.35)}
-  .tick{position:absolute;top:-16px;left:50%;transform:translateX(-50%);width:0;height:0;
-        border-left:10px solid transparent;border-right:10px solid transparent;border-bottom:18px solid var(--gold);
-        filter:drop-shadow(0 2px 2px rgba(0,0,0,.5))}
-  .hub{position:absolute;width:26%;aspect-ratio:1;border-radius:50%;background:#0b1220;border:4px solid var(--gold);
-       box-shadow:0 6px 18px rgba(0,0,0,.6)}
-  .spin-btn{margin-top:14px;display:inline-block;background:linear-gradient(90deg,var(--acc1),var(--acc2));
-            color:#fff;text-decoration:none;font-weight:700;padding:14px 26px;border-radius:11px;box-shadow:0 0 0 0 rgba(96,165,250,.0);
-            transition:.25s;cursor:pointer;border:none}
+  body{
+    margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    background:radial-gradient(1200px 600px at 50% -20%,#1b2a44 0%,#0b1220 60%,#070d19 100%);
+    color:var(--txt);display:grid;place-items:center;
+  }
+  .wrap{width:min(680px,92%);background:linear-gradient(180deg,#0f1a2b,#0b1220);
+    border:1px solid rgba(255,255,255,.06);border-radius:18px;
+    box-shadow:0 10px 40px rgba(0,0,0,.4);padding:22px;text-align:center}
+  h1{font-size:clamp(22px,4.5vw,30px);margin:6px 0 2px}
+  p.sub{margin:0 0 18px;color:var(--muted)}
+  .wheel-wrap{position:relative;width:min(360px,88vw);aspect-ratio:1;margin:auto}
+  .wheel{width:100%;height:100%;border-radius:50%;border:8px solid #0a1526;
+    background:conic-gradient(#1e293b 0 12.5%,#0ea5e9 0 25%,#1e293b 0 37.5%,#06b6d4 0 50%,#1e293b 0 62.5%,#0ea5e9 0 75%,#1e293b 0 87.5%,#06b6d4 0 100%);
+    transition:transform 4s cubic-bezier(.17,.67,.26,1.02);box-shadow:inset 0 0 50px rgba(0,0,0,.35)}
+  .tick{position:absolute;top:-16px;left:50%;transform:translateX(-50%);
+    width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;
+    border-bottom:18px solid var(--gold);filter:drop-shadow(0 2px 2px rgba(0,0,0,.5))}
+  .hub{position:absolute;width:26%;aspect-ratio:1;border-radius:50%;
+    background:#0b1220;border:4px solid var(--gold);box-shadow:0 6px 18px rgba(0,0,0,.6)}
+  .spin-btn{margin-top:14px;background:linear-gradient(90deg,var(--acc1),var(--acc2));
+    color:#fff;font-weight:700;padding:14px 26px;border-radius:11px;border:none;
+    cursor:pointer;transition:.25s}
   .spin-btn:disabled{opacity:.6;cursor:not-allowed}
   .spin-btn:hover{transform:translateY(-1px)}
-  .result{margin:12px 0 2px;text-align:center;font-weight:800;font-size:clamp(18px,4vw,22px)}
-  .note{color:var(--muted);text-align:center;font-size:13px;margin-top:6px}
-  .cta{display:none;margin:16px auto 0;text-align:center;text-decoration:none;background:linear-gradient(90deg,#f59e0b,#facc15);
-       color:#1a1a1a;font-weight:900;padding:14px 26px;border-radius:12px;box-shadow:0 0 18px rgba(250,204,21,.35)}
-  footer{margin-top:14px;text-align:center;color:#8aa0c5;font-size:12px}
+  .result{margin:14px 0 6px;font-weight:800;font-size:clamp(18px,4vw,22px)}
+  .cta{display:none;margin:16px auto 0;text-decoration:none;
+    background:linear-gradient(90deg,#f59e0b,#facc15);color:#1a1a1a;
+    font-weight:900;padding:14px 26px;border-radius:12px;
+    box-shadow:0 0 18px rgba(250,204,21,.35)}
+  footer{margin-top:18px;color:#8aa0c5;font-size:12px}
 </style>
 </head>
 <body>
-  <div class="wrap">
-    <h1>🎡 Spin the Wheel</h1>
-    <p class="sub">Try your luck and unlock bonus deals. Monetag only — no signup required.</p>
+<div class="wrap">
+  <h1>🎡 Spin the Wheel</h1>
+  <p class="sub">Try your luck and unlock exclusive rewards!</p>
 
-    <div class="stage">
-      <div class="wheel-wrap">
-        <div class="wheel" id="wheel"></div>
-        <div class="tick"></div>
-        <div class="hub"></div>
-      </div>
-      <button class="spin-btn" id="spinBtn">SPIN NOW</button>
-      <div class="result" id="result"></div>
-      <a id="claim" class="cta" href="https://syndication.monetag.com/smartlink?zoneid=9975080" target="_blank" rel="nofollow noopener">🎁 CLAIM REWARD</a>
-      <p class="note">Popunder may open in background on first click (Monetag).</p>
-    </div>
-
-    <footer>© 2025 GiftCardZoneEU.com · Monetag Solo Setup</footer>
+  <div class="wheel-wrap">
+    <div class="wheel" id="wheel"></div>
+    <div class="tick"></div>
+    <div class="hub"></div>
   </div>
 
+  <button class="spin-btn" id="spinBtn">SPIN NOW</button>
+  <div class="result" id="result"></div>
+
+  <!-- 🎯 Monetag shortlink (working redirect) -->
+  <a id="claim" class="cta" href="https://otieu.com/4/4203960" target="_blank" rel="nofollow noopener">🎁 CLAIM REWARD</a>
+
+  <footer>© 2025 GiftCardZoneEU.com · Monetag Solo Setup</footer>
+</div>
+
 <script>
-  // basic spin + reveal
-  const btn = document.getElementById('spinBtn');
-  const wheel = document.getElementById('wheel');
-  const res = document.getElementById('result');
-  const claim = document.getElementById('claim');
+const btn=document.getElementById('spinBtn');
+const wheel=document.getElementById('wheel');
+const res=document.getElementById('result');
+const claim=document.getElementById('claim');
+let spinning=false;
 
-  let spinning = false;
-
-  function spin() {
-    if (spinning) return;
-    spinning = true;
-    btn.disabled = true; res.textContent = 'Spinning...';
-    // random final angle (several full turns + random stop)
-    const turns = 6 + Math.random() * 3;      // 6–9 rotations
-    const stop  = Math.random() * 360;        // random sector
-    const deg = 360 * turns + stop;
-    wheel.style.transform = `rotate(${deg}deg)`;
-
-    setTimeout(()=> {
-      res.textContent = 'Nice! Bonus Unlocked 🎉';
-      claim.style.display = 'inline-block';
-      btn.textContent = 'SPIN AGAIN';
-      btn.disabled = false;
-      spinning = false;
-    }, 4200);
-  }
-
-  // First user interaction = best moment for popunder
-  btn.addEventListener('click', spin);
+function spin(){
+  if(spinning) return;
+  spinning=true;
+  btn.disabled=true; res.textContent='Spinning...';
+  const turns=6+Math.random()*3;
+  const stop=Math.random()*360;
+  const deg=360*turns+stop;
+  wheel.style.transform=`rotate(${deg}deg)`;
+  setTimeout(()=>{
+    res.textContent='🎉 Congratulations! You unlocked a bonus!';
+    claim.style.display='inline-block';
+    btn.textContent='SPIN AGAIN';
+    btn.disabled=false;
+    spinning=false;
+  },4200);
+}
+btn.addEventListener('click',spin);
 </script>
 </body>
 </html>
+
 
