@@ -1,124 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>🎡 Spin & Win – $100 Gift Card</title>
-<meta name="robots" content="noindex,nofollow"/>
-
-<!-- 💰 Monetag Popunder (Anti-Adblock + Fallback) -->
-<script async data-cfasync="false" src="https://syndication.monetag.com/9975017/tag.min.js"></script>
-<script async data-cfasync="false" src="https://syndication.monetag.com/9975016/tag.min.js"></script>
-
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Spin the Wheel – Bonus Unlocked</title>
+<meta name="robots" content="noindex,nofollow" />
 <style>
   :root{
-    --bg:#0b1220;--card:#0f1a2b;--txt:#e6eefb;--muted:#9fb0c9;
-    --acc1:#22c55e;--acc2:#16a34a;--gold:#facc15;
+    --bg:#0b1220; --panel:#111b2c; --txt:#e6eefb; --muted:#a8b3c7;
+    --ok:#22c55e; --ok2:#16a34a; --accent:#06b6d4; --gold:#facc15; --cta:#f59e0b;
+    --ring:#60a5fa;
   }
   *{box-sizing:border-box}
   html,body{height:100%}
   body{
-    margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-    background:radial-gradient(1200px 600px at 50% -20%,#1b2a44 0%,#0b1220 60%,#070d19 100%);
-    color:var(--txt);display:grid;place-items:center;
+    margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    color:var(--txt); background:radial-gradient(1200px 800px at 50% -10%,#162746 0%,#0b1220 60%,#080d17 100%);
+    display:flex; align-items:center; justify-content:center; padding:16px;
   }
-  .wrap{
-    width:min(680px,92%);
-    background:linear-gradient(180deg,#0f1a2b,#0b1220);
-    border:1px solid rgba(255,255,255,.06);
-    border-radius:18px;
-    box-shadow:0 10px 40px rgba(0,0,0,.4);
-    padding:22px;text-align:center
+  .card{
+    width:min(720px,95vw); background:linear-gradient(180deg,#0e1726,#0c1423);
+    border-radius:20px; padding:28px; box-shadow:0 10px 40px rgba(0,0,0,.45);
+    border:1px solid rgba(96,165,250,.15); position:relative; overflow:hidden;
   }
-  h1{font-size:clamp(22px,4.5vw,30px);margin:6px 0 2px}
-  p.sub{margin:0 0 18px;color:var(--muted)}
-  .wheel-wrap{position:relative;width:min(360px,88vw);aspect-ratio:1;margin:auto}
+  h1{margin:0 0 8px;font-weight:800;letter-spacing:.3px;font-size:32px;display:flex;gap:8px;align-items:center}
+  .sub{color:var(--muted); margin-bottom:20px}
+  .wrap{display:grid; grid-template-columns:1fr; gap:18px}
+  @media (min-width:740px){ .wrap{grid-template-columns:1fr 1fr; align-items:center} }
+  /* Wheel */
+  .stage{display:grid; place-items:center; padding:6px}
+  .wheel-wrap{position:relative; width:min(340px,70vw); aspect-ratio:1; display:grid; place-items:center}
   .wheel{
-    width:100%;height:100%;border-radius:50%;border:8px solid #0a1526;
-    background:conic-gradient(#1e293b 0 12.5%,#0ea5e9 0 25%,#1e293b 0 37.5%,#06b6d4 0 50%,
-                             #1e293b 0 62.5%,#0ea5e9 0 75%,#1e293b 0 87.5%,#06b6d4 0 100%);
-    transition:transform 4s cubic-bezier(.19,1,.22,1);
-    box-shadow:inset 0 0 40px rgba(0,0,0,.35)
+    width:100%; height:100%; border-radius:50%;
+    background:
+      conic-gradient(#0ea5e9 0 45deg,#0d1b2a 45deg 90deg,
+                     #22d3ee 90deg 135deg,#0d1b2a 135deg 180deg,
+                     #38bdf8 180deg 225deg,#0d1b2a 225deg 270deg,
+                     #22d3ee 270deg 315deg,#0d1b2a 315deg 360deg);
+    border:10px solid rgba(255,255,255,.06);
+    box-shadow:inset 0 0 30px rgba(0,0,0,.35), 0 10px 30px rgba(0,0,0,.35);
+    transition:transform 4.5s cubic-bezier(.12,.57,0,1);
   }
-  .tick{
-    position:absolute;top:-16px;left:50%;transform:translateX(-50%);
-    width:0;height:0;
-    border-left:10px solid transparent;border-right:10px solid transparent;
-    border-bottom:18px solid var(--gold);
-    filter:drop-shadow(0 2px 2px rgba(0,0,0,.5))
-  }
-  /* cleaned center hub (no yellow circle) */
   .hub{
-    position:absolute;width:20%;aspect-ratio:1;
-    border-radius:50%;background:#0b1220;
-    border:3px solid #0b1220;box-shadow:none;
+    position:absolute; width:76px; height:76px; border-radius:50%; background:#0f172a;
+    border:6px solid rgba(255,255,255,.1); box-shadow:0 4px 12px rgba(0,0,0,.4);
+    display:grid; place-items:center; font-weight:800; color:#a5b4fc; letter-spacing:.5px
   }
-  .spin-btn{
-    margin-top:14px;
-    background:linear-gradient(90deg,var(--acc1),var(--acc2));
-    color:#fff;font-weight:700;
-    padding:14px 26px;border-radius:11px;border:none;
-    cursor:pointer;transition:.25s
+  .pointer{
+    position:absolute; top:-8px; width:0; height:0;
+    border-left:12px solid transparent; border-right:12px solid transparent;
+    border-bottom:20px solid var(--gold); filter:drop-shadow(0 2px 2px rgba(0,0,0,.6));
   }
-  .spin-btn:disabled{opacity:.6;cursor:not-allowed}
-  .spin-btn:hover{transform:translateY(-1px)}
-  .result{margin:14px 0 6px;font-weight:800;font-size:clamp(18px,4vw,22px)}
+  /* Buttons */
+  .btn{
+    border:0; padding:14px 18px; border-radius:12px; font-weight:700;
+    color:#0b1220; background:linear-gradient(180deg,#34d399,#22c55e);
+    box-shadow:0 8px 20px rgba(34,197,94,.35); cursor:pointer; transition:.2s transform;
+  }
+  .btn:disabled{opacity:.6; cursor:not-allowed; transform:none}
+  .btn:hover{transform:translateY(-1px)}
+  .btn.secondary{background:#0b1220;color:#e6eefb;border:1px solid rgba(148,163,184,.25);box-shadow:none}
   .cta{
-    display:none;margin:16px auto 0;text-decoration:none;
-    background:linear-gradient(90deg,#f59e0b,#facc15);color:#1a1a1a;
-    font-weight:900;padding:14px 26px;border-radius:12px;
-    box-shadow:0 0 18px rgba(250,204,21,.35)
+    display:flex; gap:12px; align-items:center; justify-content:center; margin-top:10px
   }
-  footer{margin-top:18px;color:#8aa0c5;font-size:12px}
+  .claim{
+    border:0; padding:16px 18px; border-radius:14px; font-weight:800; width:100%;
+    background:linear-gradient(180deg,#fbd34d,#f59e0b);
+    color:#111827; box-shadow:0 10px 22px rgba(245,158,11,.35); cursor:pointer; transition:.2s transform
+  }
+  .claim:disabled{opacity:.55; cursor:not-allowed}
+  .claim:hover{transform:translateY(-1px)}
+  .msg{font-size:18px; margin:10px 0 6px; font-weight:700}
+  .muted{color:var(--muted)}
+  .badge{display:inline-flex; gap:8px; align-items:center; background:#0f1a2b; border:1px solid rgba(148,163,184,.2); padding:8px 12px; border-radius:999px; font-size:14px; color:#c7d2fe}
+  .countdown{font-variant-numeric:tabular-nums; font-weight:800; color:#fde68a}
+  footer{margin-top:16px; color:#6b7280; font-size:12px; text-align:center}
+  /* Confetti canvas */
+  #fx{position:absolute; inset:0; pointer-events:none}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <h1>🎡 Spin the Wheel</h1>
-  <p class="sub">Try your luck and unlock exclusive rewards!</p>
+<canvas id="fx"></canvas>
 
-  <div class="wheel-wrap">
-    <div class="wheel" id="wheel"></div>
-    <div class="tick"></div>
-    <div class="hub"></div>
+<div class="card" id="card">
+  <h1>🎰 Spin the Wheel</h1>
+  <div class="sub">Try your luck and unlock exclusive rewards! </div>
+
+  <div class="wrap">
+    <div class="stage">
+      <div class="wheel-wrap">
+        <div class="pointer"></div>
+        <div class="wheel" id="wheel"></div>
+        <div class="hub" id="hub">SPIN</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="badge">⚡ Limited-time bonus — <span class="countdown" id="cd">00:30</span></div>
+      <div class="msg" id="result">Auto-spinning… good luck!</div>
+      <p class="muted" id="desc">Your reward unlocks after the spin. Hurry before the timer ends.</p>
+
+      <div class="cta">
+        <button class="btn" id="spinBtn">SPIN AGAIN</button>
+        <button class="btn secondary" id="muteBtn" aria-pressed="false">🔊 Sound</button>
+      </div>
+
+      <button class="claim" id="claimBtn" disabled>🎁 CLAIM REWARD</button>
+      <small class="muted">By continuing, you agree to view a promotional offer.</small>
+    </div>
   </div>
-
-  <button class="spin-btn" id="spinBtn">SPIN NOW</button>
-  <div class="result" id="result"></div>
-
-  <!-- 🎯 Monetag shortlink -->
-  <a id="claim" class="cta" href="https://otieu.com/4/4203960" target="_blank" rel="nofollow noopener">🎁 CLAIM REWARD</a>
 
   <footer>© 2025 GiftCardZoneEU.com · Monetag Solo Setup</footer>
 </div>
 
 <script>
-const btn=document.getElementById('spinBtn');
-const wheel=document.getElementById('wheel');
-const res=document.getElementById('result');
-const claim=document.getElementById('claim');
-let spinning=false;
+/* ================== CONFIG ================== */
+const MONETAG_URL = "https://otieu.com/4/4203960"; // <- your Monetag smartlink
+const FALLBACK_URL = "https://giftcardzoneeu.com/"; // local fallback
+const COUNTDOWN_SECS = 30;
+const MAX_SPINS = 3; // keep it fun but controlled
+/* ============================================ */
 
-function spin(){
-  if(spinning) return;
-  spinning=true;
-  btn.disabled=true; res.textContent='Spinning...';
-  const turns=6+Math.random()*2.5;
-  const stop=Math.random()*360;
-  const deg=360*turns+stop;
-  wheel.style.transform=`rotate(${deg}deg)`;
-  setTimeout(()=>{
-    res.textContent='🎉 Congratulations! You unlocked a bonus!';
-    claim.style.display='inline-block';
-    btn.textContent='SPIN AGAIN';
-    btn.disabled=false;
-    spinning=false;
-  },4200);
+const wheel = document.getElementById("wheel");
+const hub = document.getElementById("hub");
+const spinBtn = document.getElementById("spinBtn");
+const claimBtn = document.getElementById("claimBtn");
+const result = document.getElementById("result");
+const desc = document.getElementById("desc");
+const cd = document.getElementById("cd");
+const muteBtn = document.getElementById("muteBtn");
+
+let spinning = false, spins = 0, allowSound = false, countdownTimer=null, remaining = COUNTDOWN_SECS;
+let currentAngle = 0;
+
+/* ======= Simple sound via WebAudio (no assets) ======= */
+const ctx = new (window.AudioContext || window.webkitAudioContext)();
+function beep(freq=880, dur=0.08, vol=0.05){
+  if(!allowSound) return;
+  const o = ctx.createOscillator(), g = ctx.createGain();
+  o.type = "triangle"; o.frequency.value = freq;
+  g.gain.value = vol; o.connect(g); g.connect(ctx.destination);
+  o.start(); setTimeout(() => o.stop(), dur*1000);
 }
-btn.addEventListener('click',spin);
+
+/* ======= Confetti ======= */
+const fx = document.getElementById("fx");
+const fctx = fx.getContext("2d");
+let confetti = [];
+function resize(){ fx.width = innerWidth; fx.height = innerHeight; }
+addEventListener("resize", resize); resize();
+
+function shootConfetti(){
+  confetti = [];
+  const N = 140;
+  for(let i=0;i<N;i++){
+    confetti.push({
+      x: innerWidth/2, y: innerHeight/3,
+      vx: (Math.random()*6-3), vy: (Math.random()*-5-2),
+      r: Math.random()*6+3, a: 1, spin: Math.random()*6.28
+    });
+  }
+}
+function tick(){
+  fctx.clearRect(0,0,fx.width,fx.height);
+  confetti.forEach(p=>{
+    p.vy += 0.08; p.x += p.vx; p.y += p.vy; p.a -= 0.007; p.spin += 0.2;
+    fctx.globalAlpha = Math.max(p.a,0);
+    fctx.save();
+    fctx.translate(p.x,p.y); fctx.rotate(p.spin);
+    fctx.fillStyle = ["#60a5fa","#22d3ee","#38bdf8","#facc15"][ (p.x|0)%4 ];
+    fctx.fillRect(-p.r/2,-p.r/2,p.r,p.r);
+    fctx.restore();
+  });
+  requestAnimationFrame(tick);
+}
+tick();
+
+/* ======= Spin logic ======= */
+function rand(min,max){ return Math.random()*(max-min)+min; }
+
+function startCountdown(){
+  clearInterval(countdownTimer);
+  remaining = COUNTDOWN_SECS;
+  cd.textContent = `00:${String(remaining).padStart(2,"0")}`;
+  countdownTimer = setInterval(()=>{
+    remaining--;
+    cd.textContent = `00:${String(Math.max(remaining,0)).padStart(2,"0")}`;
+    if(remaining<=0){ clearInterval(countdownTimer); claimBtn.disabled = false; }
+  },1000);
+}
+
+function spin(auto=false){
+  if(spinning) return;
+  if(spins >= MAX_SPINS && !auto) return navigator.vibrate?.(10);
+
+  spinning = true; spins++;
+  spinBtn.disabled = true; claimBtn.disabled = true;
+
+  // Random target angle: we bias to "win" slices (light blues) a bit
+  const winSlices = [0, 90, 180, 270]; // centers of the bright slices
+  const base = winSlices[Math.floor(Math.random()*winSlices.length)];
+  const jitter = rand(-30,30);
+  const target = 360*4 + base + jitter; // 4 full rotations + target
+
+  currentAngle += target;
+  wheel.style.transform = `rotate(${currentAngle}deg)`;
+
+  hub.textContent = "…";
+  result.textContent = "Spinning…";
+  desc.textContent = "Hold on, checking your luck!";
+  beep(600,.06); beep(700,.06); beep(800,.06);
+
+  setTimeout(()=>{
+    // End of spin
+    navigator.vibrate?.([15,80,15]);
+    shootConfetti(); beep(1040,.09); beep(1240,.09);
+
+    result.textContent = pickWinText();
+    desc.textContent = "Your bonus is ready. Tap CLAIM to continue.";
+    hub.textContent = "WIN";
+    spinBtn.disabled = (spins>=MAX_SPINS);
+    startCountdown();
+    spinning = false;
+  }, 4600);
+}
+
+function pickWinText(){
+  const pool = [
+    "🎉 Congratulations! You unlocked a bonus!",
+    "💥 Nice! You hit a winning slice!",
+    "🎁 You’ve got a special 7-Eleven reward!",
+    "✨ Winner! A limited-time bonus is waiting!"
+  ];
+  return pool[Math.floor(Math.random()*pool.length)];
+}
+
+/* ======= Buttons ======= */
+spinBtn.addEventListener("click", ()=> spin(false));
+claimBtn.addEventListener("click", ()=>{
+  // Safety: prefer Monetag, fallback if blocked.
+  try { window.location.href = MONETAG_URL; }
+  catch(e){ window.location.href = FALLBACK_URL; }
+});
+muteBtn.addEventListener("click", ()=>{
+  allowSound = !allowSound;
+  muteBtn.setAttribute("aria-pressed", String(allowSound));
+  muteBtn.textContent = allowSound ? "🔇 Mute" : "🔊 Sound";
+});
+
+/* ======= Auto-run on load ======= */
+document.addEventListener("visibilitychange",()=>{
+  // If user returns, keep CTA enabled when timer already ended
+  if(document.hidden===false && remaining<=0) claimBtn.disabled = false;
+});
+window.addEventListener("load", ()=>{
+  // First-time UX: enable sound after a user gesture if they tap anywhere
+  document.body.addEventListener("pointerdown", ()=>{ allowSound ||= true; }, {once:true});
+  spin(true); // auto-spin
+});
 </script>
 </body>
 </html>
+
 
 
 
