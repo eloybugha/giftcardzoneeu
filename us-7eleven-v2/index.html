@@ -55,46 +55,50 @@
 </main>
 
 <script>
-  // ===== 1) LINKS =====
-  const CPA_URL  = "https://singingfiles.com/show.php?l=0&u=180655&id=69081"; // paste same 7-Eleven CPA link as v1
-  const FALLBACK = ""; // e.g. Monetag smartlink (optional)
+// ===== 1) LINKS =====
+const CPA_URL = "https://otieu.com/4/4203960";
+const FALLBACK = "https://otieu.com/4/4203960";
 
-  // ===== 2) RANDOMIZED TIMER (5–9s) =====
-  const total = Math.floor(Math.random()*5)+5; // 5..9
-  let left = total;
-  const t = document.getElementById('t');
-  const bar = document.getElementById('bar');
-  const btn = document.getElementById('cta');
+// ===== 2) RANDOMIZED TIMER (5–9s) =====
+const total = Math.floor(Math.random() * 5) + 5; // 5..9
+let left = total;
+const t = document.getElementById('t');
+const bar = document.getElementById('bar');
+const btn = document.getElementById('cta');
 
-  // unlock at ~40% progress
-  const unlockAt = Math.max(2, Math.floor(total*0.4));
+// unlock at ~40% progress
+const unlockAt = Math.max(2, Math.floor(total * 0.4));
 
-  const tick = () => {
-    left = Math.max(0, left - 1);
-    t.textContent = String(left).padStart(2,'0');
-    bar.style.width = ((total-left)/total*100).toFixed(1)+"%";
-    if (left <= total - unlockAt && !btn.classList.contains('active')) {
-      btn.classList.add('active');
-      btn.textContent = "👉 Yes, I want my $100 Gift Card";
-    }
-    if (left <= 0) go(CPA_URL);
-  };
-
-  // start
-  t.textContent = String(left).padStart(2,'0');
-  bar.style.width = "0%";
-  const iv = setInterval(tick, 1000);
-
-  // manual click
-  btn.addEventListener('click', e => { e.preventDefault(); go(CPA_URL); });
-
-  function go(url){
-    clearInterval(iv);
-    try{
-      window.location.href = url;
-      setTimeout(()=>{ if(FALLBACK) window.open(FALLBACK,"_blank","noopener,noreferrer"); },1200);
-    }catch(e){ if(FALLBACK) window.location.href = FALLBACK; }
+const tick = () => {
+  left = Math.max(0, left - 1);
+  t.textContent = String(left).padStart(2, '0');
+  bar.style.width = ((total - left) / total * 100).toFixed(1) + "%";
+  if (left <= total - unlockAt && !btn.classList.contains('active')) {
+    btn.classList.add('active');
+    btn.textContent = "👉 Yes, I want my $100 Gift Card";
   }
+  if (left <= 0) go(CPA_URL);
+};
+
+// start timer
+t.textContent = String(left).padStart(2, '0');
+bar.style.width = "0%";
+const iv = setInterval(tick, 1000);
+
+btn.addEventListener('click', e => {
+  e.preventDefault();
+  go(CPA_URL);
+});
+
+function go(url) {
+  clearInterval(iv);
+  try {
+    window.location.href = url;
+    setTimeout(() => { if (FALLBACK) window.open(FALLBACK, "_blank", "noopener,noreferrer"); }, 300);
+  } catch (e) {
+    if (FALLBACK) window.location.href = FALLBACK;
+  }
+}
 </script>
 </body>
 </html>
