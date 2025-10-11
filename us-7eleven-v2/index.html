@@ -1,219 +1,243 @@
 <!doctype html>
-<html lang="en">
+<html lang="tl">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Rewards • Spin & Unlock</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Spin & Unlock • US 7-Eleven</title>
 <meta name="theme-color" content="#0b1220" />
 <style>
   :root{
-    --bg1:#090f1e; --bg2:#13233f;
-    --card:rgba(18,26,43,.82);
-    --border:rgba(255,255,255,.06);
-    --txt:#e6ecff; --muted:#9bb0ff;
-    --accent:#5eead4; --accent2:#3b82f6;
+    --bg:#0b1220; --card:#111a2a; --muted:#9fb3ff; --txt:#e8eeff; --accent:#60f0db; --accent2:#4ea3ff;
+    --ring:#1c2742; --ok:#22c55e; --warn:#f59e0b;
   }
-  *{box-sizing:border-box} html,body{height:100%}
+  *{box-sizing:border-box}
+  html,body{height:100%}
   body{
-    margin:0; color:var(--txt);
-    font:500 16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;
-    background:
-      radial-gradient(1100px 760px at 20% 18%, var(--bg2), transparent 60%),
-      radial-gradient(900px 700px at 85% -5%, #0e1a33, transparent 55%),
-      #0b1220;
+    margin:0; color:var(--txt); background:
+      radial-gradient(1200px 800px at 10% -10%, #152446 0%, transparent 50%),
+      radial-gradient(900px 700px at 100% 0%, #0f1b34 0%, transparent 60%),
+      var(--bg);
+    font:500 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;
+    -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
   }
-  .wrap{min-height:100dvh; display:grid; place-items:start center; padding:28px}
-  .container{width:100%; max-width:880px}
-
-  .panel{
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:20px;
-    padding:22px;
-    box-shadow:0 14px 40px rgba(0,0,0,.45), 0 0 60px rgba(90,140,255,.14);
-    backdrop-filter:blur(16px);
-    animation:floaty 6s ease-in-out infinite;
+  .wrap{min-height:100%; display:grid; place-items:center; padding:22px}
+  .card{
+    width:100%; max-width:520px; background:linear-gradient(180deg,#0f1829 0%, #0b1220 100%);
+    border:1px solid var(--ring); border-radius:22px; padding:22px;
+    box-shadow:0 18px 50px rgba(0,0,0,.45);
   }
-  @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-
-  h1{margin:0 0 6px; font-size:26px}
-  p.lead{margin:0 0 14px; color:var(--muted)}
-
-  /* reward rows */
-  .row{display:flex; gap:16px; align-items:center; padding:16px;
-       border:1px solid var(--border); border-radius:16px; background:rgba(8,12,24,.5)}
-  .row + .row{margin-top:12px}
-  .copy h3{margin:0 0 6px; font-size:18px}
-  .copy p{margin:0 10px 10px 0; color:var(--muted); font-size:14px}
-
-  /* phone thumbnails (safe even if image missing) */
-  .device-thumb{
-    width:78px; aspect-ratio:9/19.5; border-radius:18px; overflow:hidden; position:relative; flex-shrink:0;
-    background:#0d1426 linear-gradient(180deg,#101a33, #0b1220);
-    box-shadow:0 6px 16px rgba(0,0,0,.45), inset 0 0 0 2px rgba(255,255,255,.06);
+  header{display:flex; align-items:center; gap:12px; margin-bottom:10px}
+  .dot{width:12px;height:12px;border-radius:50%;background:linear-gradient(90deg,var(--accent),var(--accent2));box-shadow:0 0 20px var(--accent)}
+  h1{font-size:22px; margin:0}
+  p.lead{margin:2px 0 14px; color:var(--muted)}
+  .wheelBox{
+    position:relative; display:grid; place-items:center; margin:14px 0 8px;
+    aspect-ratio:1/1; width:100%; max-width:360px; justify-self:center;
   }
-  .device-thumb::after{
-    content:""; position:absolute; inset:0;
-    background: var(--img, radial-gradient(circle at 50% 40%, #1d2b4b 0%, #0b1220 60%)) center/cover no-repeat;
-    filter:saturate(1.05) contrast(1.02);
-  }
-  .device-thumb::before{
-    content:""; position:absolute; inset:0;
-    background:linear-gradient(180deg, rgba(255,255,255,.08), transparent 28%, transparent 72%, rgba(255,255,255,.06));
-    pointer-events:none;
-  }
-
-  /* buttons */
-  .btn{
-    background:linear-gradient(90deg, var(--accent), var(--accent2));
-    border:none; color:#081225; font-weight:700; letter-spacing:.2px;
-    padding:10px 18px; border-radius:12px; cursor:pointer;
-    transition:transform .22s ease, box-shadow .22s ease;
-  }
-  .btn:hover{transform:translateY(-2px) scale(1.03); box-shadow:0 0 18px rgba(94,234,212,.5)}
-  .btn.secondary{background:#1c2742; color:#d6e1ff}
-
-  /* spinner */
-  .spin-panel{margin-top:18px; text-align:center}
   .wheel{
-    width:260px; height:260px; margin:8px auto 10px; border-radius:50%;
-    background:conic-gradient(#7aa5ff 0 60deg,#77e8e1 0 120deg,#ff996e 0 180deg,#ffd15c 0 240deg,#a88bff 0 300deg,#7bd0ff 0 360deg);
-    position:relative; box-shadow:0 12px 32px rgba(0,0,0,.35), inset 0 0 0 10px #0e1426;
+    width:100%; height:100%; border-radius:50%;
+    background:
+      conic-gradient(#1e293b 0 25%, #0f172a 0 50%, #1e293b 0 75%, #0f172a 0 100%);
+    border:8px solid #0a1020; box-shadow:inset 0 0 40px rgba(0,0,0,.6), 0 10px 30px rgba(0,0,0,.3);
+    transition:transform 1.2s cubic-bezier(.2,.8,.2,1);
   }
-  .wheel::after{
-    content:"Spin"; position:absolute; inset:50% auto auto 50%; transform:translate(-50%,-50%);
-    width:90px;height:90px;border-radius:50%; background:#0e1426; color:#9bb0ff; display:grid; place-items:center; font-weight:800; letter-spacing:.4px
+  .pin{
+    position:absolute; top:-8px; width:0; height:0; border-left:10px solid transparent;
+    border-right:10px solid transparent; border-bottom:18px solid var(--accent2); filter:drop-shadow(0 2px 6px rgba(0,0,0,.6));
   }
-  .tip{width:0;height:0;border-left:9px solid transparent;border-right:9px solid transparent;border-bottom:14px solid #ffd15c;margin:0 auto 6px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.35))}
-
-  /* progress bar */
-  .progress{height:6px; background:#16203a; border-radius:4px; overflow:hidden; margin:8px 0 0}
-  .progress > i{display:block; height:100%; width:0%; background:linear-gradient(90deg,var(--accent),var(--accent2)); transition:width 2s ease}
-
-  /* trust + feed */
-  .trust{margin-top:14px; text-align:center; opacity:.88; font-size:13px}
-  .feed{margin-top:6px; text-align:center; font-size:13px; color:#c9d6ff; opacity:.95}
-
-  /* footer badge */
-  .tag{position:fixed; right:12px; bottom:12px; font-size:12px; opacity:.7; background:#0f1830; border:1px solid var(--border); padding:6px 10px; border-radius:999px}
-
-  @media (max-width:540px){
-    .row{align-items:flex-start}
-    .copy h3{font-size:17px}
+  .controls{display:grid; gap:10px; margin-top:14px}
+  .btn{
+    appearance:none; border:0; padding:14px 16px; border-radius:14px; font-weight:700;
+    background:linear-gradient(90deg,var(--accent),var(--accent2)); color:#07211c;
+    cursor:pointer; box-shadow:0 6px 18px rgba(0,0,0,.35);
   }
+  .btn.secondary{
+    background:#0f1a2b; color:var(--txt); border:1px solid var(--ring);
+  }
+  .btn[disabled]{opacity:.55; cursor:not-allowed}
+  .row{display:flex; gap:10px; flex-wrap:wrap}
+  .row > *{flex:1 1 180px}
+
+  /* Progress + countdown */
+  .progressWrap{margin-top:8px}
+  .bar{height:10px; background:#0e1728; border:1px solid #16203a; border-radius:999px; overflow:hidden}
+  .fill{height:100%; width:0%; background:linear-gradient(90deg,var(--accent),var(--accent2)); transition:width .3s ease}
+  .mini{display:flex; justify-content:space-between; color:var(--muted); font-size:12px; margin-top:6px}
+
+  .status{display:flex; align-items:center; gap:8px; margin-top:10px; color:var(--muted); font-size:14px}
+  .led{width:10px;height:10px;border-radius:50%;background:#334155; box-shadow:0 0 0 0 rgba(34,197,94,0)}
+  .status.ok .led{background:var(--ok); box-shadow:0 0 16px 0 rgba(34,197,94,.8)}
+  .status.wait .led{background:var(--warn); box-shadow:0 0 16px 0 rgba(245,158,11,.7)}
+
+  footer{margin-top:14px; opacity:.7; font-size:12px; text-align:center}
+  .badge{display:inline-flex; align-items:center; gap:8px; padding:8px 10px; border:1px solid #17223c; border-radius:12px; background:#0c1526}
+  .footRow{display:flex; justify-content:center; gap:10px; flex-wrap:wrap}
 </style>
 </head>
 <body>
   <div class="wrap">
-    <div class="container">
-      <div class="panel">
-        <h1>Choose your device</h1>
-        <p class="lead">Pick your reward, then spin to unlock. If the first tab is blocked, we’ll auto-retry safe fallbacks.</p>
+    <main class="card">
+      <header>
+        <span class="dot"></span>
+        <div>
+          <h1>Spin & Unlock</h1>
+          <p class="lead">Tap <b>Spin</b>. After verification, countdown will finish then you can <b>Continue</b>. If the first tab is blocked, we’ll auto-retry safe fallbacks.</p>
+        </div>
+      </header>
 
-        <!-- iPhone row -->
+      <section class="wheelBox">
+        <div class="pin"></div>
+        <div id="wheel" class="wheel"></div>
+      </section>
+
+      <div class="controls">
         <div class="row">
-          <!-- uses WebP, falls back to PNG if needed -->
-          <div class="device-thumb"
-               style="--img:url('/assets/iphone17-front.webp'), url('/assets/iphone17-front.png')"></div>
-          <div class="copy">
-            <h3>iPhone 17 Reward</h3>
-            <p>Premium Apple-style flow.</p>
-            <button class="btn" id="pickIphone">Select iPhone 17</button>
-          </div>
+          <button id="spinBtn" class="btn">🎡 Spin now</button>
+          <button id="continueBtn" class="btn secondary" disabled>Continue</button>
         </div>
 
-        <!-- Android row -->
-        <div class="row">
-          <div class="device-thumb"
-               style="--img:url('/assets/android-flagship.webp'), url('/assets/android-flagship.png')"></div>
-          <div class="copy">
-            <h3>Android Flagship Reward</h3>
-            <p>Top-tier Android appeal.</p>
-            <button class="btn" id="pickAndroid">Select Android</button>
+        <div class="progressWrap" id="progressWrap" style="display:none">
+          <div class="bar"><div id="fill" class="fill"></div></div>
+          <div class="mini">
+            <span id="phase">Verifying…</span>
+            <span id="count">00:08</span>
           </div>
-        </div>
-
-        <!-- Spinner area -->
-        <div class="spin-panel" id="spinArea" hidden>
-          <h2 id="spinTitle">Unlock your Reward</h2>
-          <div class="tip"></div>
-          <div class="wheel" id="wheel"></div>
-
-          <div class="progress"><i id="bar"></i></div>
-
-          <div style="margin-top:12px">
-            <button class="btn" id="continueBtn">Continue to Claim</button>
-            <button class="btn secondary" id="tryAgainBtn">Try Again</button>
-            <button class="btn secondary" id="changeBtn">← Change Device</button>
-          </div>
-
-          <div class="trust">
-            🔒 Secure Connection • Verified 2025
-            <div class="feed" id="feed">Loading recent claims…</div>
-          </div>
+          <div id="status" class="status wait"><span class="led"></span><span id="statusText">Please wait while we prepare a safe tab…</span></div>
         </div>
       </div>
-    </div>
+
+      <footer>
+        <div class="footRow">
+          <div class="badge">🔒 Secure flow</div>
+          <div class="badge">🛡️ Smart fallbacks</div>
+          <div class="badge">⚡ Fast launch</div>
+        </div>
+        <div style="margin-top:8px">v2-lite-pro • <script>document.write(new Date().toLocaleDateString())</script></div>
+      </footer>
+    </main>
   </div>
 
-  <div class="tag">v2-lite-pro • 11 Oct</div>
-
 <script>
-/* ========= LINKS (edit only these) ========= */
-const PRIMARY_LINK = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"; // Adsterra
+/* =========================
+   LINKS (edit here only)
+   ========================= */
+const PRIMARY_LINK = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"; // Adsterra Smartlink
 const FALLBACK_LINKS = [
-  "https://your-monetag-smartlink.example/xxxx", // Monetag
-  "https://s.click.aliexpress.com/e/your-aff-id" // optional AliExpress
+  "https://syndication.monetag.com/smartlink", // TODO: paste your Monetag Smartlink here
+  "https://s.click.aliexpress.com/e/_DEMO"     // optional backup (okay if left as-is)
 ];
 
-/* ========= UI logic ========= */
-const spinArea = document.getElementById("spinArea");
-const wheel    = document.getElementById("wheel");
-const bar      = document.getElementById("bar");
-const feed     = document.getElementById("feed");
-const titleEl  = document.getElementById("spinTitle");
+/* ====== state ====== */
+let hasFired = false;
+let spinning = false;
+const spinBtn = document.getElementById("spinBtn");
+const contBtn = document.getElementById("continueBtn");
+const wheel   = document.getElementById("wheel");
+const wrap    = document.getElementById("progressWrap");
+const fill    = document.getElementById("fill");
+const countEl = document.getElementById("count");
+const phaseEl = document.getElementById("phase");
+const statusEl= document.getElementById("status");
+const statusTx= document.getElementById("statusText");
 
-document.getElementById("pickIphone").addEventListener("click", ()=>startSpin("iPhone 17"));
-document.getElementById("pickAndroid").addEventListener("click", ()=>startSpin("Android Flagship"));
-document.getElementById("changeBtn").addEventListener("click", resetToChoice);
-document.getElementById("continueBtn").addEventListener("click", openWithFallback);
-document.getElementById("tryAgainBtn").addEventListener("click", ()=>wheel.animate(
-  [{transform:"rotate(0deg)"},{transform:"rotate(360deg)"}],{duration:700,easing:"cubic-bezier(.2,.7,.2,1)"}));
+const COUNTDOWN_SECS = 8;
 
-function startSpin(name){
-  document.querySelectorAll(".row").forEach(r=>r.style.display="none");
-  spinArea.hidden=false; titleEl.textContent = `Unlock your ${name} Reward`;
-  wheel.animate([{transform:"rotate(0deg)"},{transform:"rotate(1440deg)"}],{duration:2200,easing:"cubic-bezier(.15,.9,.2,1)"});
-  setTimeout(()=>bar.style.width="100%",300);
-  setTimeout(()=>wheel.style.transform="rotate(1510deg)",2200);
+/* Prevent re-spin on back: if user already spun this session, go straight to countdown */
+(function guardBack(){
+  if (sessionStorage.getItem("spunOnce")==="1") {
+    startVerification();
+  }
+})();
 
-  const items=[
-    "Maria (California) just unlocked an iPhone 17 — 2 mins ago",
-    "Jorge (Texas) claimed an Android Flagship — 4 mins ago",
-    "Sophia (New York) spun the wheel — 6 mins ago",
-    "Liam (Florida) opened the reward page — 9 mins ago"
-  ];
-  let i=0; feed.textContent=items[i++]; setInterval(()=>feed.textContent=items[i++%items.length],3000);
+/* Open helper with fallback chain */
+function tryOpen(url){
+  try{
+    const w = window.open(url, "_blank", "noopener,noreferrer");
+    return !!w;
+  }catch(e){ return false; }
 }
 
-function resetToChoice(){
-  spinArea.hidden=true; bar.style.width="0%"; wheel.style.transform="";
-  document.querySelectorAll(".row").forEach(r=>r.style.display="flex");
-}
-
-/* ========= opener w/ fallbacks ========= */
-let hasFired=false;
-function tryOpen(url){ try{ const w=window.open(url,"_blank","noopener,noreferrer"); return !!w; }catch(e){ return false; } }
 function openWithFallback(){
-  if(hasFired) return; hasFired=true;
-  if(tryOpen(PRIMARY_LINK)) return;
-  let i=0; const tick=()=>{ if(i>=FALLBACK_LINKS.length) return; if(!tryOpen(FALLBACK_LINKS[i++])) setTimeout(tick,350); };
-  setTimeout(tick,320);
-}
-</script>
+  if (hasFired) return;
+  hasFired = true;
 
-<footer style="text-align:center;color:#9bb0ff;font-size:12px;opacity:.65;padding:20px 0">
-  © 2025 GiftCardZoneEU — All rights reserved.
-</footer>
+  // primary attempt
+  const ok = tryOpen(PRIMARY_LINK);
+  if (ok) return;
+
+  // chain fallbacks one by one
+  let i = 0;
+  const tick = () => {
+    if (i >= FALLBACK_LINKS.length) return;
+    const good = tryOpen(FALLBACK_LINKS[i++]);
+    if (!good) setTimeout(tick, 400);
+  };
+  setTimeout(tick, 320);
+}
+
+/* Spin animation then verification */
+function spin(){
+  if (spinning) return;
+  spinning = true;
+
+  // visual spin
+  const deg = 1440 + Math.floor(Math.random()*360);
+  wheel.style.transform = `rotate(${deg}deg)`;
+
+  // after spin, start verification/countdown
+  setTimeout(startVerification, 1100);
+}
+
+function startVerification(){
+  // show UI
+  wrap.style.display = "block";
+  spinBtn.disabled = true;
+  contBtn.disabled = true;
+  sessionStorage.setItem("spunOnce","1");
+
+  // smooth progress + countdown
+  let secs = COUNTDOWN_SECS;
+  let pct  = 0;
+  phaseEl.textContent = "Verifying…";
+  statusEl.classList.remove("ok");
+  statusEl.classList.add("wait");
+  statusTx.textContent = "Please wait while we prepare a safe tab…";
+
+  const interval = setInterval(()=>{
+    secs = Math.max(0, secs - 1);
+    pct  = Math.min(100, pct + (100/COUNTDOWN_SECS));
+    fill.style.width = pct + "%";
+    countEl.textContent = "00:" + String(secs).padStart(2,"0");
+
+    // halfway message
+    if (secs === Math.ceil(COUNTDOWN_SECS/2)) {
+      phaseEl.textContent = "Hardening fallbacks…";
+    }
+
+    if (secs <= 0){
+      clearInterval(interval);
+      phaseEl.textContent = "Ready";
+      statusEl.classList.remove("wait");
+      statusEl.classList.add("ok");
+      statusTx.textContent = "All set! Tap Continue. If blocked, we’ll auto-retry.";
+      contBtn.disabled = false;
+    }
+  }, 1000);
+}
+
+/* Events */
+spinBtn.addEventListener("click", ()=>{
+  spin();
+});
+contBtn.addEventListener("click", openWithFallback);
+
+/* Safety: also trigger on Enter key once ready */
+document.addEventListener("keydown", (e)=>{
+  if ((e.key==="Enter" || e.key===" ") && !contBtn.disabled) {
+    openWithFallback();
+  }
+});
+</script>
 </body>
 </html>
+
