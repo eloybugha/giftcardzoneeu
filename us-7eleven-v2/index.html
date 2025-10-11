@@ -114,53 +114,72 @@ function randomColor() {
   const colors = ['#ff4747', '#ffcc00', '#00c853', '#2196f3', '#ff6f00'];
   return colors[Math.floor(Math.random()*colors.length)];
 }
+<!-- ====== CTA + Countdown ====== -->
+<div id="card" style="text-align:center;max-width:560px;margin:24px auto;padding:20px;border-radius:18px;background:#fff;box-shadow:0 10px 35px rgba(0,0,0,.08)">
+  <h2 style="margin:0 0 8px">🎁 Spin the Wheel to Claim Your Reward!</h2>
+  <p style="margin:0 0 18px">🎉 Only a few rewards left today!</p>
+  <button id="spinBtn" style="font-size:18px;padding:14px 22px;border:0;border-radius:14px;background:#ff7a7a;color:#fff;cursor:pointer">
+    SPIN NOW
+  </button>
+  <p id="exp" style="margin:14px 0 6px;font-weight:600;color:#e24">Offer expires in <span id="t">15</span> seconds!</p>
+  <small>Tip: If the offer doesn’t open, we’ll automatically redirect you to a backup link.</small>
+</div>
 
-function startConfetti() {
-  let confetti = [];
-  for(let i=0;i<150;i++){
-    confetti.push({
-      x: Math.random()*canvas.width,
-      y: Math.random()*canvas.height - canvas.height,
-      r: Math.random()*6+2,
-      c: randomColor(),
-      vy: Math.random()*3+2,
-      vx: Math.random()*2-1
-    });
-  }
-  function draw(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    confetti.forEach(p=>{
-      ctx.beginPath();
-      ctx.arc(p.x,p.y,p.r,0,2*Math.PI);
-      ctx.fillStyle=p.c;
-      ctx.fill();
-    });
-  }
-  function update(){
-    confetti.forEach(p=>{
-      p.y+=p.vy;
-      p.x+=p.vx;
-      if(p.y>canvas.height) p.y=-10;
-    });
-  }
-  function loop(){
-    draw();
-    update();
-    requestAnimationFrame(loop);
-  }
-  loop();
-}
+<noscript>
+  <!-- Absolute last-resort backup when JS is off -->
+  <a href="https://www.effectivegatecpm.com/REPLACE" rel="nofollow">Open Offer</a>
+</noscript>
 
-btn.addEventListener('click', ()=>{
-  startConfetti();
-  setTimeout(()=> {
-    window.location.href = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";
-  }, 2000); // redirect after 2 seconds
-});
+<script>
+  /* ========= CONFIGURE THESE ========= */
+  const ADSTERRA_URL = 'https://www.effectivegatecpm.com/REPLACE'; // primary
+  const MONETAG_URL  = 'https://otieu.com/4/4203960';              // fallback
+  /* ================================== */
+
+  // COUNTDOWN
+  (function countdown(){
+    const span = document.getElementById('t');
+    let left = 15;
+    const timer = setInterval(() => {
+      left--; span.textContent = left;
+      if (left <= 0) { clearInterval(timer); autoOpen(); }
+    }, 1000);
+  })();
+
+  // MAIN FLOW
+  function openPrimaryThenFallback(){
+    let opened = false;
+
+    // Try open Adsterra in new tab
+    const w = window.open(ADSTERRA_URL, '_blank');
+    if (w) opened = true;
+
+    // If popup blocked or closed → fallback
+    setTimeout(() => {
+      if (!w || w.closed) {
+        const f = window.open(MONETAG_URL, '_blank');
+        if (!f) location.href = MONETAG_URL; // last resort
+      }
+    }, 1200);
+
+    return opened;
+  }
+
+  function autoOpen(){
+    // Auto attempt after countdown (still respects popup rules)
+    const ok = openPrimaryThenFallback();
+    if (!ok) {
+      // If both blocked, do a hard redirect to fallback after a short wait
+      setTimeout(() => { location.href = MONETAG_URL; }, 1200);
+    }
+  }
+
+  // Wire the CTA
+  document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('spinBtn');
+    if (btn) btn.addEventListener('click', openPrimaryThenFallback);
+  });
 </script>
-
-</body>
-</html>
 
 
 
