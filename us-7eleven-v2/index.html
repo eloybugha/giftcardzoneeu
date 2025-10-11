@@ -343,72 +343,313 @@ function todayKey(){
 
     <button id="continueBtn" class="btn glow" disabled>Continue</button>
     <p class="sub" style="margin:10px 2px 0">Tip: After spinning, press “Continue” to open the offer. If blocked, we’ll auto-retry fallbacks.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>iPhone 17 • Reward Unlock</title>
+  <meta name="description" content="Spin to unlock your iPhone 17 reward. Premium, fast, and mobile-friendly.">
+  <style>
+    :root{
+      --bg:#0b1220;
+      --panel:#121a2b;
+      --ink:#e5f0ff;
+      --ink-dim:#a7b3c6;
+      --brand:#4aa3ff;
+      --brand-2:#7dd3fc;
+      --accent:#22d3ee;
+      --good:#34d399;
+      --ring: 0 0 0 2px rgba(74,163,255,.25), 0 8px 30px rgba(0,0,0,.35);
+      --radius: 22px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background:
+        radial-gradient(1200px 600px at 80% -10%, #163154 0%, transparent 60%),
+        radial-gradient(900px 500px at -10% 110%, #112844 0%, transparent 60%),
+        var(--bg);
+      color:var(--ink); font:500 16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      display:flex; align-items:center; justify-content:center; padding:28px;
+    }
+    .card{
+      width:min(860px,100%); background:linear-gradient(180deg, #121a2b 0%, #0e1728 100%);
+      border-radius:var(--radius); box-shadow: var(--ring); padding:28px; position:relative; overflow:hidden;
+    }
+    .top{
+      display:grid; grid-template-columns: 1.1fr .9fr; gap:24px; align-items:center;
+    }
+    @media (max-width:860px){ .top{grid-template-columns:1fr; text-align:center} }
+    h1{margin:0 0 6px; font-weight:800; font-size:clamp(26px,4vw,36px); letter-spacing:.2px}
+    .sub{color:var(--ink-dim); margin-bottom:14px}
+    .badges{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-start}
+    .badge{
+      background:rgba(74,163,255,.12); color:#cce5ff; border:1px solid rgba(74,163,255,.25);
+      padding:6px 10px; border-radius:999px; font-size:12px; letter-spacing:.2px
+    }
+    @media (max-width:860px){ .badges{justify-content:center} }
+
+    .hero{
+      display:grid; place-items:center; border-radius:18px; background:
+        radial-gradient(500px 220px at 50% -50%, rgba(34,211,238,.25) 0%, transparent 70%),
+        linear-gradient(180deg,#0e1728 0%, #0a1424 100%);
+      padding:24px; border:1px solid rgba(125,211,252,.2)
+    }
+    .phone{
+      width:min(280px,70%); aspect-ratio:9/19.5; border-radius:36px;
+      background:
+        radial-gradient(140% 60% at 50% -10%, rgba(125,211,252,.25), transparent 60%),
+        linear-gradient(145deg, #111827 0%, #0b1220 50%, #0f1a2d 100%);
+      border:2px solid #22314d; box-shadow: inset 0 0 0 6px #0a1323, 0 15px 60px rgba(0,0,0,.6);
+      position:relative;
+    }
+    .phone:before{
+      content:"iPhone 17"; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+      font-weight:700; font-size:20px; color:#9fd6ff; letter-spacing:.3px; opacity:.9
+    }
+
+    .panel{
+      margin-top:20px; display:grid; gap:18px; background:rgba(255,255,255,.02);
+      border:1px solid rgba(148,163,184,.15); border-radius:18px; padding:18px;
+    }
+    .row{display:flex; gap:14px; align-items:center; justify-content:center; flex-wrap:wrap}
+    .btn{
+      appearance:none; border:1px solid rgba(148,163,184,.14); color:#0b1220;
+      background:linear-gradient(180deg,#bfe1ff 0%, #8cc8ff 100%); font-weight:800; letter-spacing:.3px;
+      padding:14px 18px; border-radius:14px; cursor:pointer; transition:transform .08s ease, filter .2s;
+      box-shadow: inset 0 0 12px rgba(255,255,255,.35), 0 10px 30px rgba(74,163,255,.18);
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn:active{transform:translateY(0)}
+    .btn.secondary{
+      background:transparent; color:var(--ink); border-color:rgba(148,163,184,.28)
+    }
+    .hint{color:var(--ink-dim); font-size:13px; text-align:center}
+
+    /* Wheel */
+    .wheel-wrap{display:grid; place-items:center; padding:20px}
+    .wheel{
+      width:min(360px,78vw); aspect-ratio:1/1; border-radius:50%;
+      background:conic-gradient(#7dd3fc 0 60deg,#a78bfa 60deg 120deg,#60a5fa 120deg 180deg,#22d3ee 180deg 240deg,#f59e0b 240deg 300deg,#f87171 300deg 360deg);
+      border:10px solid #0d1628; box-shadow: 0 10px 40px rgba(0,0,0,.4);
+      position:relative; display:grid; place-items:center; overflow:hidden;
+      transition:filter .2s ease;
+    }
+    .wheel:after{ /* center hub */
+      content:"TAP TO SPIN"; position:absolute; width:36%; aspect-ratio:1;
+      border-radius:50%; background:#0b1220; border:6px solid #111b2d;
+      display:grid; place-items:center; font-weight:900; font-size:clamp(11px,2.5vw,14px);
+      color:#9cc9ff; letter-spacing:.6px; text-align:center; padding:6px;
+      box-shadow: inset 0 0 30px rgba(125,211,252,.15), 0 0 0 6px rgba(17,27,45,.9);
+      pointer-events:none;
+    }
+    .pointer{
+      width:0; height:0; border-left:14px solid transparent; border-right:14px solid transparent;
+      border-bottom:18px solid #ffd86b; filter:drop-shadow(0 6px 10px rgba(0,0,0,.3));
+      position:absolute; top:-3px; left:50%; transform:translateX(-50%);
+    }
+    .spin{cursor:pointer}
+    .spinning{filter:saturate(1.05) brightness(1.02)}
+    .result{display:none; text-align:center; color:#c1f0d0; font-weight:800}
+    .result.show{display:block}
+
+    /* Confetti */
+    canvas#fx{position:fixed; inset:0; pointer-events:none}
+
+    /* V2 badge */
+    .badge-v{position:fixed; right:10px; bottom:10px; background:#121a2b; color:#a7f3d0;
+      padding:6px 10px; border:1px solid rgba(125,211,252,.25); border-radius:12px; font:700 12px/1 system-ui}
+  </style>
+</head>
+<body>
+  <canvas id="fx"></canvas>
+
+  <div class="card" role="main" aria-label="iPhone 17 Reward">
+    <div class="top">
+      <div>
+        <h1>Unlock your <span style="background:linear-gradient(90deg,var(--brand),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent">iPhone 17 Reward</span></h1>
+        <p class="sub">Spin once to reveal today’s best offer. If the first tab is blocked, we’ll auto-retry safe fallbacks for you.</p>
+        <div class="badges">
+          <span class="badge">Official-style UI</span>
+          <span class="badge">1-tap open w/ fallbacks</span>
+          <span class="badge">Mobile-first • Fast</span>
+        </div>
+        <div class="panel">
+          <div class="row">
+            <button class="btn" id="startSpin">Spin for iPhone 17</button>
+            <button class="btn secondary" id="learnBtn">Why spin?</button>
+          </div>
+          <p class="hint" id="hint">Tip: After unlocking, tap <strong>Continue to Claim</strong>.</p>
+        </div>
+      </div>
+      <div class="hero">
+        <div class="phone" aria-hidden="true"></div>
+      </div>
+    </div>
+
+    <div class="wheel-wrap" id="wheelArea" style="display:none">
+      <div class="pointer"></div>
+      <div class="wheel spin" id="wheel" aria-label="Spin wheel"></div>
+      <div class="panel" style="max-width:520px">
+        <p class="result" id="resultText">Unlocked: iPhone 17 Reward ✔</p>
+        <div class="row">
+          <button class="btn" id="continueBtn" disabled>Continue to Claim</button>
+          <button class="btn secondary" id="tryAgainBtn">Try Again</button>
+        </div>
+        <p class="hint">If pop-ups are blocked, we’ll retry automatically with trusted fallbacks.</p>
+      </div>
+    </div>
   </div>
 
-<script>
-/* ===== CONFIG ===== */
-// Primary: Adsterra (given)
-const PRIMARY_LINK = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";
-// Fallbacks: Monetag + extra try
-const FALLBACK_LINKS = [
-  "YOUR_MONETAG_SMARTLINK_HERE",
-  PRIMARY_LINK + "&src=fallback-2"
-];
-// One spin per user per day
-const SPIN_KEY = "gczeu.spinstamp.v1";
-const COUNTDOWN_SECS = 30;
+  <div class="badge-v">iPhone 17 • v3</div>
 
-/* ===== ELEMENTS ===== */
-const wheel = document.getElementById("wheel");
-const resultEl = document.getElementById("result");
-const loadingEl = document.getElementById("loading");
-const expiryEl = document.getElementById("expiry");
-const cdEl = document.getElementById("cd");
-const continueBtn = document.getElementById("continueBtn");
-const fx = document.getElementById("fx"); const fctx = fx.getContext("2d");
+  <script>
+  /* =========================
+      LINKS (Edit these only)
+     ========================= */
+  const PRIMARY_LINK   = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"; // Adsterra Smartlink
+  const MONETAG_LINK   = "https://smartlink.monetag.com/MONETAG_SMARTLINK_HERE"; // <-- REPLACE
+  const EXTRA_LINK     = "https://ali.ski/OPTIONAL_AliExpress"; // optional extra fallback
 
-/* ===== POPUP / FALLBACK ===== */
-let hasFired = false;
-function tryOpen(url){ try{ const w = window.open(url,"_blank","noopener,noreferrer"); return !!w; }catch(e){ return false; } }
-function openWithFallback(){
-  if (hasFired) return; hasFired = true;
-  if (tryOpen(PRIMARY_LINK)) return;
-  let i=0; const tick=()=>{ if(i>=FALLBACK_LINKS.length) return; if(!tryOpen(FALLBACK_LINKS[i++])) setTimeout(tick,400); };
-  setTimeout(tick,320);
-}
-continueBtn.addEventListener("click", openWithFallback);
+  const FALLBACK_LINKS = [MONETAG_LINK, EXTRA_LINK].filter(Boolean);
 
-/* ===== CONFETTI ===== */
-function resizeFx(){ fx.width = document.getElementById("card").clientWidth; fx.height = document.getElementById("card").clientHeight; }
-addEventListener("resize", resizeFx, {passive:true}); resizeFx();
-let confetti=[];
-function burst(n=45){ for(let i=0;i<n;i++){ confetti.push({x:fx.width/2,y:140+(Math.random()*30-15),vx:(Math.random()*6-3),vy:(Math.random()*-5-2),r:Math.random()*6+3,a:1,spin:Math.random()*6.28}); } }
-(function loop(){ fctx.clearRect(0,0,fx.width,fx.height); confetti=confetti.filter(p=>p.a>0);
-  confetti.forEach(p=>{ p.vy+=0.08;p.x+=p.vx;p.y+=p.vy;p.a-=0.007;p.spin+=0.2;
-    fctx.globalAlpha=Math.max(p.a,0); fctx.save(); fctx.translate(p.x,p.y); fctx.rotate(p.spin);
-    fctx.fillStyle=["#60a5fa","#22d3ee","#34d399","#f59e0b","#ef4444","#a78bfa"][Math.floor(Math.random()*6)];
-    fctx.fillRect(-p.r/2,-p.r/2,p.r,p.r); fctx.restore();}); requestAnimationFrame(loop);}());
+  /* =========================
+      Spin + Unlock logic
+     ========================= */
+  const startBtn   = document.getElementById("startSpin");
+  const learnBtn   = document.getElementById("learnBtn");
+  const wheelArea  = document.getElementById("wheelArea");
+  const wheel      = document.getElementById("wheel");
+  const resultText = document.getElementById("resultText");
+  const continueBtn= document.getElementById("continueBtn");
+  const tryAgainBtn= document.getElementById("tryAgainBtn");
+  const hint       = document.getElementById("hint");
 
-/* ===== GAME LOGIC ===== */
-function todayKey(){ const d=new Date(); d.setHours(0,0,0,0); return String(d.getTime()); }
-function alreadySpunToday(){ return localStorage.getItem(SPIN_KEY) === todayKey(); }
-function lockSpin(){ localStorage.setItem(SPIN_KEY, todayKey()); }
-function fmt(s){ const m=String(Math.floor(s/60)).padStart(2,"0"); const r=String(s%60).padStart(2,"0"); return `${m}:${r}`; }
-function startCountdown(){ let t=COUNTDOWN_SECS; expiryEl.hidden=false; cdEl.textContent=fmt(t);
-  const iv=setInterval(()=>{ t--; cdEl.textContent=fmt(t); if(t<=0){clearInterval(iv); expiryEl.textContent="⏳ Offer refreshes soon";}},1000);}
-function setResult(text="⭐ Special"){ resultEl.textContent=text; continueBtn.disabled=false; continueBtn.classList.add("glow"); loadingEl.hidden=true; startCountdown(); burst(); }
-function doSpin(){
-  const slices=8, indexWin=[0,2,5,7][Math.floor(Math.random()*4)], sliceAngle=360/slices, offset=sliceAngle*indexWin+sliceAngle/2;
-  wheel.style.setProperty("--end", `${offset}deg`); wheel.classList.add("spinning"); loadingEl.hidden=false;
-  setTimeout(()=>{ lockSpin(); setTimeout(()=>setResult("⭐ Special"), 650); }, 2400);
-}
-function init(){
-  if (alreadySpunToday()){ resultEl.textContent="⭐ Special"; continueBtn.disabled=false; continueBtn.classList.add("glow"); startCountdown(); expiryEl.hidden=false; }
-  else { wheel.addEventListener("click", ()=>{ if(!wheel.classList.contains("spinning")) doSpin(); }, {once:true}); }
-}
-init();
-</script>
+  let hasUnlocked = false;
+  let hasFired    = false;
+
+  startBtn.addEventListener("click", () => {
+    wheelArea.style.display = "grid";
+    window.scrollTo({ top: document.body.scrollHeight, behavior:"smooth" });
+    // auto spin once visible
+    setTimeout(spinWheel, 400);
+  });
+
+  learnBtn.addEventListener("click", () => {
+    alert("We use a quick spin to randomize the reward bucket and prevent abuse. After it stops, tap Continue to open the offer. If a pop-up is blocked, we seamlessly try fallbacks.");
+  });
+
+  function spinWheel(){
+    if (wheel.classList.contains("spinning")) return;
+    wheel.classList.add("spinning");
+    resultText.classList.remove("show");
+    continueBtn.disabled = true;
+
+    // random end angle between 3–6 full turns + random segment
+    const turns = Math.floor(Math.random()*3)+3; // 3..5
+    const segment = Math.floor(Math.random()*6); // 0..5
+    const endDeg = 360*turns + (segment*60 + 30 + (Math.random()*10-5)); // center of a slice
+    wheel.style.transition = "transform 2.2s cubic-bezier(.08,.82,.17,1)";
+    wheel.style.transform = `rotate(${endDeg}deg)`;
+
+    wheel.addEventListener("transitionend", onStop, { once:true });
+  }
+
+  function onStop(){
+    wheel.classList.remove("spinning");
+    resultText.classList.add("show");
+    continueBtn.disabled = false;
+    burstConfetti();
+  }
+
+  tryAgainBtn.addEventListener("click", spinWheel);
+
+  /* =========================
+      Open with fallbacks
+     ========================= */
+  function tryOpen(url){
+    try{
+      const w = window.open(url, "_blank", "noopener,noreferrer");
+      return !!w;
+    }catch(e){ return false; }
+  }
+
+  function openWithFallback(){
+    if (hasFired) return;
+    hasFired = true;
+
+    // 1) Primary attempt
+    const ok = tryOpen(PRIMARY_LINK);
+    if (ok) return;
+
+    // 2) Fallback chain
+    let i = 0;
+    const tick = () => {
+      if (i >= FALLBACK_LINKS.length) return;
+      const ok2 = tryOpen(FALLBACK_LINKS[i++]);
+      if (!ok2) setTimeout(tick, 400);
+    };
+    setTimeout(tick, 350);
+  }
+
+  continueBtn.addEventListener("click", openWithFallback);
+
+  /* =========================
+      Tiny confetti
+     ========================= */
+  const fx = document.getElementById("fx");
+  const ctx = fx.getContext("2d");
+  let confetti = [];
+
+  function resize(){
+    fx.width = innerWidth; fx.height = innerHeight;
+  }
+  addEventListener("resize", resize); resize();
+
+  function burstConfetti(){
+    const n = 90;
+    for (let i=0;i<n;i++){
+      confetti.push({
+        x: innerWidth/2,
+        y: innerHeight/3,
+        vx: (Math.random()*6-3),
+        vy: (Math.random()*-5-2),
+        r: Math.random()*5+3,
+        a: 1,
+        spin: Math.random()*6.28
+      });
+    }
+  }
+
+  function tick(){
+    ctx.clearRect(0,0,fx.width,fx.height);
+    confetti.forEach(p=>{
+      p.vy += 0.08; p.x += p.vx; p.y += p.vy; p.a -= 0.012; p.spin += 0.2;
+      ctx.globalAlpha = Math.max(p.a,0);
+      ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.spin);
+      ctx.fillStyle = ["#60a5fa","#22d3ee","#7dd3fc","#f59e0b","#f87171","#a78bfa"][ (p.r|0)%6 ];
+      ctx.fillRect(-p.r, -p.r, p.r*2, p.r*2);
+      ctx.restore();
+    });
+    confetti = confetti.filter(p=>p.a>0 && p.y<fx.height+20);
+    requestAnimationFrame(tick);
+  }
+  tick();
+
+  // Accessibility: allow Enter/Space to spin on the wheel
+  wheel.addEventListener("click", spinWheel);
+  wheel.tabIndex = 0;
+  wheel.addEventListener("keydown", e=>{
+    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); spinWheel(); }
+  });
+  </script>
 </body>
 </html>
+
 
 
