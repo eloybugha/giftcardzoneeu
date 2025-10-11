@@ -169,73 +169,256 @@ function openWithFallback(){
   let i = 0;
   const tick = () => {
     if (i >= FALLBACK_LINKS.length) return;
-    const good = tryOpen(FALLBACK_LINKS[i++]);
-    if (!good) setTimeout(tick, 400);
-  };
-  setTimeout(tick, 320);
+<!doctype html>
+<html lang="tl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Spin & Unlock • Neon Glass</title>
+<meta name="theme-color" content="#0c0f1f" />
+<style>
+  :root{
+    /* NEW PALETTE (light + neon) */
+    --page:#f5f7fb;
+    --bg1:#e9eef8; --bg2:#ffffff;
+    --glass:rgba(255,255,255,.72);
+    --border:rgba(20,34,66,.10);
+    --txt:#0f1630; --muted:#5b6b90;
+    --accent:#7c3aed;   /* violet */
+    --accent2:#06b6d4;  /* cyan  */
+    --ring:#c9d4f1;
+    --ok:#16a34a; --warn:#eab308;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0; color:var(--txt);
+    background:
+      radial-gradient(1200px 800px at 20% -10%, #dbe7ff 0%, transparent 60%),
+      radial-gradient(900px 700px at 100% 0%, #f0e7ff 0%, transparent 60%),
+      linear-gradient(180deg,var(--bg1),var(--bg2));
+    font:500 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;
+  }
+  .wrap{min-height:100%; display:grid; place-items:center; padding:24px}
+  .card{
+    width:100%; max-width:560px;
+    background:var(--glass);
+    border:1px solid var(--border);
+    border-radius:22px; padding:22px;
+    backdrop-filter: blur(10px);
+    box-shadow:0 30px 60px rgba(16,24,40,.15);
+  }
+  header{display:flex; align-items:center; gap:12px; margin-bottom:8px}
+  .dot{width:12px;height:12px;border-radius:50%;
+       background:linear-gradient(90deg,var(--accent),var(--accent2));
+       box-shadow:0 0 16px rgba(124,58,237,.65)}
+  h1{font-size:22px; margin:0}
+  p.lead{margin:4px 0 14px; color:var(--muted)}
+
+  /* NEW SPINNER look */
+  .wheelBox{position:relative; display:grid; place-items:center; margin:16px 0 10px; aspect-ratio:1/1; width:100%; max-width:380px; justify-self:center;}
+  .wheel{
+    width:100%; height:100%; border-radius:50%;
+    background:
+      conic-gradient(from 0deg,
+        #ececff 0 25%,
+        #dadbff 0 50%,
+        #ececff 0 75%,
+        #dadbff 0 100%);
+    border:10px solid #ffffff;
+    box-shadow:
+      inset 0 20px 40px rgba(124,58,237,.08),
+      0 10px 30px rgba(15,22,48,.15);
+    transition:transform 1.2s cubic-bezier(.2,.8,.2,1);
+  }
+  .ringGlow{
+    position:absolute; inset:-12px;
+    border-radius:50%;
+    background: radial-gradient(120px 120px at 50% 0%, rgba(124,58,237,.45), transparent 60%);
+    pointer-events:none; filter:blur(14px); opacity:.6;
+  }
+  .pin{
+    position:absolute; top:-6px; width:0; height:0;
+    border-left:11px solid transparent; border-right:11px solid transparent;
+    border-bottom:20px solid var(--accent);
+    filter: drop-shadow(0 4px 8px rgba(124,58,237,.45));
+  }
+
+  .controls{display:grid; gap:10px; margin-top:14px}
+  .row{display:flex; gap:10px; flex-wrap:wrap}
+  .row > *{flex:1 1 180px}
+
+  .btn{
+    appearance:none; border:0; padding:14px 16px; border-radius:14px; font-weight:800;
+    color:white; cursor:pointer;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    box-shadow:0 10px 24px rgba(124,58,237,.25);
+  }
+  .btn.secondary{
+    background:white; color:var(--txt); border:1px solid var(--ring);
+    box-shadow:none;
+  }
+  .btn[disabled]{opacity:.55; cursor:not-allowed}
+
+  /* Progress + countdown */
+  .progressWrap{margin-top:8px}
+  .bar{height:12px; background:#ecf1ff; border:1px solid var(--ring); border-radius:999px; overflow:hidden}
+  .fill{height:100%; width:0%; background:linear-gradient(90deg,var(--accent),var(--accent2)); transition:width .3s ease}
+  .mini{display:flex; justify-content:space-between; color:var(--muted); font-size:12px; margin-top:6px}
+
+  .status{display:flex; align-items:center; gap:8px; margin-top:10px; color:var(--muted); font-size:14px}
+  .led{width:10px;height:10px;border-radius:50%;background:#cbd5e1}
+  .status.ok .led{background:var(--ok); box-shadow:0 0 12px rgba(22,163,74,.8)}
+  .status.wait .led{background:var(--warn); box-shadow:0 0 12px rgba(234,179,8,.8)}
+
+  footer{margin-top:14px; opacity:.8; font-size:12px; text-align:center; color:var(--muted)}
+  .badge{display:inline-flex; align-items:center; gap:8px; padding:8px 10px; border:1px solid var(--ring); border-radius:12px; background:white}
+  .footRow{display:flex; justify-content:center; gap:10px; flex-wrap:wrap}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <main class="card">
+      <header>
+        <span class="dot"></span>
+        <div>
+          <h1>Spin & Unlock</h1>
+          <p class="lead">Tap <b>Spin</b>. After verification, the countdown ends then press <b>Continue</b>. If the first tab is blocked, we’ll rotate safe fallbacks.</p>
+        </div>
+      </header>
+
+      <section class="wheelBox">
+        <div class="ringGlow"></div>
+        <div class="pin"></div>
+        <div id="wheel" class="wheel"></div>
+      </section>
+
+      <div class="controls">
+        <div class="row">
+          <button id="spinBtn" class="btn">🎡 Spin now</button>
+          <button id="continueBtn" class="btn secondary" disabled>Continue</button>
+        </div>
+
+        <div class="progressWrap" id="progressWrap" style="display:none">
+          <div class="bar"><div id="fill" class="fill"></div></div>
+          <div class="mini">
+            <span id="phase">Verifying…</span>
+            <span id="count">00:08</span>
+          </div>
+          <div id="status" class="status wait"><span class="led"></span><span id="statusText">Please wait while we prepare a safe tab…</span></div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="footRow">
+          <div class="badge">🔒 Secure flow</div>
+          <div class="badge">🛡️ Smart fallbacks</div>
+          <div class="badge">⚡ Fast launch</div>
+        </div>
+        <div style="margin-top:8px">neon-glass • <script>document.write(new Date().toLocaleDateString())</script></div>
+      </footer>
+    </main>
+  </div>
+
+<script>
+/* =========================
+   LINKS – edit here
+   ========================= */
+const PRIMARY_LINK = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"; // Adsterra
+const FALLBACK_LINKS = [
+  "https://syndication.monetag.com/smartlink", // TODO: your Monetag smartlink
+  "https://s.click.aliexpress.com/e/_DEMO"      // optional
+];
+
+/* ===== state ===== */
+const COUNTDOWN_SECS = 8;
+let spinning = false;
+let attempt = 0;      // rotate links
+let clickLock = false;
+
+const spinBtn = document.getElementById("spinBtn");
+const contBtn = document.getElementById("continueBtn");
+const wheel   = document.getElementById("wheel");
+const wrap    = document.getElementById("progressWrap");
+const fill    = document.getElementById("fill");
+const countEl = document.getElementById("count");
+const phaseEl = document.getElementById("phase");
+const statusEl= document.getElementById("status");
+const statusTx= document.getElementById("statusText");
+
+/* Back guard: if already spun, go straight to verify UI */
+(function guardBack(){
+  if (sessionStorage.getItem("spunOnce")==="1") startVerification();
+})();
+
+/* Open helpers */
+const LINK_CHAIN = [PRIMARY_LINK, ...FALLBACK_LINKS];
+
+function tryOpen(url){
+  try{ const w = window.open(url, "_blank", "noopener,noreferrer"); return !!w; }
+  catch(e){ return false; }
 }
 
-/* Spin animation then verification */
-function spin(){
-  if (spinning) return;
-  spinning = true;
+function openNext(){
+  if (clickLock) return;
+  clickLock = true; setTimeout(()=> clickLock=false, 600);
 
-  // visual spin
+  const url = LINK_CHAIN[attempt % LINK_CHAIN.length];
+  const ok = tryOpen(url);
+  attempt++;
+
+  if (ok){
+    contBtn.textContent = "Continue";
+    statusTx.textContent = "Tab opened. You can try again if needed.";
+    statusEl.classList.remove("wait"); statusEl.classList.add("ok");
+  }else{
+    contBtn.textContent = "Try again";
+    statusTx.textContent = "Blocked by browser. Tap Try again — we’ll rotate fallbacks.";
+    statusEl.classList.remove("ok"); statusEl.classList.add("wait");
+  }
+}
+
+/* Spin + verification */
+function spin(){
+  if (spinning) return; spinning = true;
   const deg = 1440 + Math.floor(Math.random()*360);
   wheel.style.transform = `rotate(${deg}deg)`;
-
-  // after spin, start verification/countdown
   setTimeout(startVerification, 1100);
 }
 
 function startVerification(){
-  // show UI
   wrap.style.display = "block";
   spinBtn.disabled = true;
   contBtn.disabled = true;
   sessionStorage.setItem("spunOnce","1");
 
-  // smooth progress + countdown
-  let secs = COUNTDOWN_SECS;
-  let pct  = 0;
+  let secs = COUNTDOWN_SECS, pct = 0;
   phaseEl.textContent = "Verifying…";
-  statusEl.classList.remove("ok");
-  statusEl.classList.add("wait");
+  statusEl.classList.remove("ok"); statusEl.classList.add("wait");
   statusTx.textContent = "Please wait while we prepare a safe tab…";
 
-  const interval = setInterval(()=>{
-    secs = Math.max(0, secs - 1);
-    pct  = Math.min(100, pct + (100/COUNTDOWN_SECS));
+  const timer = setInterval(()=>{
+    secs = Math.max(0, secs-1);
+    pct = Math.min(100, pct + (100/COUNTDOWN_SECS));
     fill.style.width = pct + "%";
     countEl.textContent = "00:" + String(secs).padStart(2,"0");
-
-    // halfway message
-    if (secs === Math.ceil(COUNTDOWN_SECS/2)) {
-      phaseEl.textContent = "Hardening fallbacks…";
-    }
-
+    if (secs === Math.ceil(COUNTDOWN_SECS/2)) phaseEl.textContent = "Hardening fallbacks…";
     if (secs <= 0){
-      clearInterval(interval);
+      clearInterval(timer);
       phaseEl.textContent = "Ready";
-      statusEl.classList.remove("wait");
-      statusEl.classList.add("ok");
-      statusTx.textContent = "All set! Tap Continue. If blocked, we’ll auto-retry.";
+      statusEl.classList.remove("wait"); statusEl.classList.add("ok");
+      statusTx.textContent = "All set! Tap Continue. If blocked, tap Try again.";
       contBtn.disabled = false;
+      contBtn.textContent = "Continue";
     }
   }, 1000);
 }
 
 /* Events */
-spinBtn.addEventListener("click", ()=>{
-  spin();
-});
-contBtn.addEventListener("click", openWithFallback);
-
-/* Safety: also trigger on Enter key once ready */
-document.addEventListener("keydown", (e)=>{
-  if ((e.key==="Enter" || e.key===" ") && !contBtn.disabled) {
-    openWithFallback();
-  }
+spinBtn.addEventListener("click", spin);
+contBtn.addEventListener("click", openNext);
+document.addEventListener("keydown",(e)=>{
+  if ((e.key==="Enter"||e.key===" ") && !contBtn.disabled) openNext();
 });
 </script>
 </body>
