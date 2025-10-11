@@ -244,6 +244,92 @@
     spinning = false;
     hasSpun  = true;
 
-    /
+    // reveal claim card and start countdown
+    wheelCard.classList.add("hidden");
+    claimCard.classList.remove("hidden");
+    startCountdown(); // only starts after actual spin
+  }
+
+  spinBtn.addEventListener("click", spinWheel);
+
+  /* ====== OPEN + FALLBACK LOGIC ====== */
+  function tryOpen(url){
+    try{
+      const win = window.open(url, "_blank", "noopener,noreferrer");
+      return !!win;
+    }catch(e){ return false; }
+  }
+
+  function openWithFallback(){
+    if (hasFired) return;
+    hasFired = true;
+
+    // 1) Primary attempt
+    const opened = tryOpen(PRIMARY_LINK);
+    if (opened) return;
+
+    // 2) If blocked, chain fallbacks with tiny delay to avoid duplicates
+    let i = 0;
+    const tick = () => {
+      if (i >= FALLBACK_LINKS.length) return;
+      const ok = tryOpen(FALLBACK_LINKS[i++]);
+      if (!ok) setTimeout(tick, 350);
+    };
+    setTimeout(tick, 300);
+  }
+
+  document.getElementById("continueBtn").addEventListener("click", openWithFallback);
+  document.getElementById("tryAgainBtn").addEventListener("click", () => {
+    for (const url of FALLBACK_LINKS) { const ok = tryOpen(url); if (ok) break; }
+  });
+
+  // Disable CTAs once fired (avoid double open)
+  function disableCtas(){
+    document.getElementById("continueBtn").disabled = true;
+    document.getElementById("tryAgainBtn").disabled = true;
+  }
+  ["continueBtn","tryAgainBtn"].forEach(id=>{
+    document.getElementById(id).addEventListener("click", disableCtas, { once:true });
+  });
+
+  /* ====== COUNTDOWN (starts ONLY after spin) ====== */
+  const timerEl = document.getElementById("timer");
+  const barFill = document.getElementById("barFill");
+  let secs = 30, total = 30, countdownStarted = false, interval;
+
+  function renderTimer(){
+    const m = String(Math.floor(secs/60)).padStart(2,"0");
+    const s = String(secs%60).padStart(2,"0");
+    timerEl.textContent = `${m}:${s}`;
+    const pct = Math.min(100, Math.round(((total-secs)/total)*100));
+    barFill.style.width = pct + "%";
+  }
+
+  function startCountdown(){
+    if (countdownStarted) return;
+    countdownStarted = true;
+    renderTimer();
+    interval = setInterval(()=>{
+      secs--;
+      if (secs <= 0){
+        clearInterval(interval);
+        renderTimer();
+        openWithFallback(); // auto-open when finished
+      } else {
+        renderTimer();
+      }
+    }, 1000);
+
+    // Non-blocking warm-up ping
+    try{
+      const img = new Image();
+      img.referrerPolicy = "no-referrer";
+      img.src = PRIMARY_LINK + (PRIMARY_LINK.includes("?") ? "&" : "?") + "prefetch=1";
+      setTimeout(()=>{ img.remove && img.remove(); }, 4000);
+    }catch(e){}
+  }
+</script>
+</body>
+</html>
 
 
