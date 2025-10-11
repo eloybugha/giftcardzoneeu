@@ -85,101 +85,127 @@
   <h2>🎁 Spin the Wheel to Claim Your Reward!</h2>
   <p>🎉 Only a few rewards left today! Others have already claimed theirs — don’t miss your chance!</p>
 
-  <button class="blink-btn" id="spinBtn">SPIN NOW</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Claim Your Reward</title>
+  <style>
+    :root { --bg:#0b1220; --card:#111a2c; --text:#e8eefc; --accent:#66d17a; }
+    html,body{margin:0;height:100%;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;background:radial-gradient(1200px 700px at 50% -200px,#1b2a50 0%,#0b1220 40%,#07101d 100%);color:var(--text);}
+    .wrap{min-height:100%;display:grid;place-items:center;padding:24px;}
+    .card{width:100%;max-width:520px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:18px;box-shadow:0 20px 60px rgba(0,0,0,.45);padding:24px;}
+    .badge{display:inline-block;background:rgba(102,209,122,.15);border:1px solid rgba(102,209,122,.35);color:#b7f6c5;padding:6px 10px;border-radius:999px;font-size:12px;letter-spacing:.3px}
+    h1{margin:12px 0 6px;font-size:26px}
+    p{opacity:.9;line-height:1.5}
+    .timer{font-variant-numeric:tabular-nums;font-size:28px;margin:8px 0 16px}
+    .bar{height:10px;background:rgba(255,255,255,.08);border-radius:999px;overflow:hidden}
+    .bar>i{display:block;height:100%;width:0%;background:linear-gradient(90deg,#65d36e,#8bdc62);transition:width .4s ease}
+    .cta{margin-top:18px;display:grid;gap:10px}
+    .btn{cursor:pointer;border:0;border-radius:12px;padding:14px 16px;font-weight:700;font-size:16px}
+    .btn-primary{background:var(--accent);color:#052a10}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,.15);color:var(--text)}
+    .note{font-size:12px;opacity:.7}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <span class="badge">Limited • Verified Offer</span>
+      <h1>Spin Reward Unlocked</h1>
+      <p>Congrats! You’ve unlocked a claim window. Tap <strong>Continue</strong> to open the offer.
+         If it doesn’t open, the backup link will auto-start.</p>
 
-  <p id="countdown">Offer expires in <b>30</b> seconds!</p>
-  <p id="tip">Tip: If the offer doesn’t open, we’ll automatically redirect you to a backup link.</p>
-</div>
+      <div class="timer" id="timer">00:30</div>
+      <div class="bar"><i id="barFill" style="width:0%"></i></div>
 
-<script>
-let sec = 30;
-const countdown = document.getElementById('countdown');
-const timer = setInterval(()=>{
-  sec--;
-  countdown.innerHTML = `Offer expires in <b>${sec}</b> seconds!`;
-  if(sec <= 0){
-    clearInterval(timer);
-    countdown.innerHTML = "<b>Offer expired — new spins may appear soon!</b>";
-  }
-},1000);
+      <div class="cta">
+        <button id="continueBtn" class="btn btn-primary">Continue</button>
+        <button id="tryAgainBtn" class="btn btn-ghost">Open Backup Link</button>
+        <div class="note">Tip: Allow popups for smoother redirect. One window only—no duplicates.</div>
+      </div>
+    </div>
+  </div>
 
-// Confetti effect when user clicks SPIN NOW
-const btn = document.getElementById('spinBtn');
-const canvas = document.getElementById('confetti');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+  <script>
+    // ======== LINKS (EDIT HERE IF NEEDED) ========
+    // Primary: Adsterra smartlink (ikaw ang nagbigay)
+    const PRIMARY_LINK = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";
 
-function randomColor() {
-  const colors = ['#ff4747', '#ffcc00', '#00c853', '#2196f3', '#ff6f00'];
-  return colors[Math.floor(Math.random()*colors.length)];
-}
-<!-- ====== CTA + Countdown ====== -->
-<div id="card" style="text-align:center;max-width:560px;margin:24px auto;padding:20px;border-radius:18px;background:#fff;box-shadow:0 10px 35px rgba(0,0,0,.08)">
-  <h2 style="margin:0 0 8px">🎁 Spin the Wheel to Claim Your Reward!</h2>
-  <p style="margin:0 0 18px">🎉 Only a few rewards left today!</p>
-  <button id="spinBtn" style="font-size:18px;padding:14px 22px;border:0;border-radius:14px;background:#ff7a7a;color:#fff;cursor:pointer">
-    SPIN NOW
-  </button>
-  <p id="exp" style="margin:14px 0 6px;font-weight:600;color:#e24">Offer expires in <span id="t">15</span> seconds!</p>
-  <small>Tip: If the offer doesn’t open, we’ll automatically redirect you to a backup link.</small>
-</div>
+    // Fallbacks: Monetag smartlink mo (palitan ang placeholder), optional extra
+    const FALLBACK_LINKS = [
+      "https://example.monetag.com/smartlink?id=YOUR_MONETAG_ID", // <= palitan mo ito
+      // "https://s.click.aliexpress.com/e/your-affiliate",         // optional pang-2 fallback
+    ];
 
-<noscript>
-  <!-- Absolute last-resort backup when JS is off -->
-  <a href="https://www.effectivegatecpm.com/REPLACE" rel="nofollow">Open Offer</a>
-</noscript>
+    // ======== OPEN LOGIC (1 window lang, with fallback) ========
+    let hasFired = false;
 
-<script>
-  /* ========= CONFIGURE THESE ========= */
-  const ADSTERRA_URL = 'https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c'; // primary
-  const MONETAG_URL  = 'https://otieu.com/4/4203960';              // fallback
-  /* ================================== */
-
-  // COUNTDOWN
-  (function countdown(){
-    const span = document.getElementById('t');
-    let left = 15;
-    const timer = setInterval(() => {
-      left--; span.textContent = left;
-      if (left <= 0) { clearInterval(timer); autoOpen(); }
-    }, 1000);
-  })();
-
-  // MAIN FLOW
-  function openPrimaryThenFallback(){
-    let opened = false;
-
-    // Try open Adsterra in new tab
-    const w = window.open(ADSTERRA_URL, '_blank');
-    if (w) opened = true;
-
-    // If popup blocked or closed → fallback
-    setTimeout(() => {
-      if (!w || w.closed) {
-        const f = window.open(MONETAG_URL, '_blank');
-        if (!f) location.href = MONETAG_URL; // last resort
-      }
-    }, 1200);
-
-    return opened;
-  }
-
-  function autoOpen(){
-    // Auto attempt after countdown (still respects popup rules)
-    const ok = openPrimaryThenFallback();
-    if (!ok) {
-      // If both blocked, do a hard redirect to fallback after a short wait
-      setTimeout(() => { location.href = MONETAG_URL; }, 1200);
+    function tryOpen(url){
+      try{
+        const win = window.open(url, "_blank", "noopener,noreferrer");
+        return !!win;
+      }catch(e){ return false; }
     }
-  }
 
-  // Wire the CTA
-  document.addEventListener('DOMContentLoaded', () => {
-    const btn = document.getElementById('spinBtn');
-    if (btn) btn.addEventListener('click', openPrimaryThenFallback);
-  });
-</script>
+    function openWithFallback(){
+      if (hasFired) return;
+      hasFired = true;
 
+      // 1) Primary attempt
+      const opened = tryOpen(PRIMARY_LINK);
+
+      if (opened) return;
+
+      // 2) If blocked, chain fallbacks with tiny delay to avoid duplicate openings
+      let i = 0;
+      const tick = () => {
+        if (i >= FALLBACK_LINKS.length) return;
+        const ok = tryOpen(FALLBACK_LINKS[i++]);
+        if (!ok) setTimeout(tick, 350);
+      };
+      setTimeout(tick, 300);
+    }
+
+    // Button hooks
+    document.getElementById("continueBtn").addEventListener("click", openWithFallback);
+    document.getElementById("tryAgainBtn").addEventListener("click", () => {
+      // manual fallback cycle even after first click
+      for (const url of FALLBACK_LINKS) {
+        const ok = tryOpen(url);
+        if (ok) break;
+      }
+    });
+
+    // ======== Countdown + progress ========
+    const timerEl = document.getElementById("timer");
+    const barFill = document.getElementById("barFill");
+    let secs = 30, total = 30;
+
+    function render(){
+      const m = String(Math.floor(secs/60)).padStart(2,"0");
+      const s = String(secs%60).padStart(2,"0");
+      timerEl.textContent = `${m}:${s}`;
+      const pct = Math.min(100, Math.round(((total-secs)/total)*100));
+      barFill.style.width = pct + "%";
+    }
+    render();
+
+    const interval = setInterval(()=>{
+      secs--;
+      if (secs <= 0){
+        clearInterval(interval);
+        render();
+        // Auto-open when countdown finishes (still obeys single-window rule)
+        openWithFallback();
+      } else {
+        render();
+      }
+    }, 1000);
+
+    // ======== Safety: prevent multiple opens on accidental double taps ========
+    // Disable buttons once fired
+    functio
 
 
