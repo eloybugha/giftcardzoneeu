@@ -1,258 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🎁 Spin & Win a Reward!</title>
-<style>
-  body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(180deg,#fff,#ffeaea);
-    text-align: center;
-    margin: 0;
-    padding: 0;
-  }
-
-  .container {
-    max-width: 500px;
-    margin: 60px auto;
-    background: #fff;
-    padding: 40px 20px;
-    border-radius: 15px;
-    box-shadow: 0 0 25px rgba(0,0,0,0.1);
-    position: relative;
-  }
-
-  h2 {
-    color: #ff4747;
-    font-size: 28px;
-    margin-bottom: 10px;
-  }
-
-  p {
-    color: #333;
-    font-size: 17px;
-    margin-bottom: 15px;
-  }
-
-  .blink-btn {
-    background-color: #ff4747;
-    color: #fff;
-    font-weight: bold;
-    border: none;
-    padding: 16px 35px;
-    font-size: 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    animation: blink 1s infinite;
-    box-shadow: 0 0 15px rgba(255,71,71,0.8);
-  }
-
-  @keyframes blink {
-    0% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.7; transform: scale(1.07); }
-    100% { opacity: 1; transform: scale(1); }
-  }
-
-  .blink-btn:hover {
-    background-color: #ff2a2a;
-  }
-
-  #countdown {
-    font-size: 16px;
-    color: #ff4747;
-    margin-top: 20px;
-  }
-
-  #tip {
-    font-size: 13px;
-    color: #888;
-    margin-top: 10px;
-  }
-
-  canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-  }
-</style>
-</head>
-<body>
-
-<div class="container">
-  <canvas id="confetti"></canvas>
-  <h2>🎁 Spin the Wheel to Claim Your Reward!</h2>
-  <p>🎉 Only a few rewards left today! Others have already claimed theirs — don’t miss your chance!</p>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Claim Your Reward</title>
-  <style>
-    :root { --bg:#0b1220; --card:#111a2c; --text:#e8eefc; --accent:#66d17a; }
-    html,body{margin:0;height:100%;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;background:radial-gradient(1200px 700px at 50% -200px,#1b2a50 0%,#0b1220 40%,#07101d 100%);color:var(--text);}
-    .wrap{min-height:100%;display:grid;place-items:center;padding:24px;}
-    .card{width:100%;max-width:520px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:18px;box-shadow:0 20px 60px rgba(0,0,0,.45);padding:24px;}
-    .badge{display:inline-block;background:rgba(102,209,122,.15);border:1px solid rgba(102,209,122,.35);color:#b7f6c5;padding:6px 10px;border-radius:999px;font-size:12px;letter-spacing:.3px}
-    h1{margin:12px 0 6px;font-size:26px}
-    p{opacity:.9;line-height:1.5}
-    .timer{font-variant-numeric:tabular-nums;font-size:28px;margin:8px 0 16px}
-    .bar{height:10px;background:rgba(255,255,255,.08);border-radius:999px;overflow:hidden}
-    .bar>i{display:block;height:100%;width:0%;background:linear-gradient(90deg,#65d36e,#8bdc62);transition:width .4s ease}
-    .cta{margin-top:18px;display:grid;gap:10px}
-    .btn{cursor:pointer;border:0;border-radius:12px;padding:14px 16px;font-weight:700;font-size:16px}
-    .btn-primary{background:var(--accent);color:#052a10}
-    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,.15);color:var(--text)}
-    .note{font-size:12px;opacity:.7}
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <div class="card">
-      <span class="badge">Limited • Verified Offer</span>
-      <h1>Spin Reward Unlocked</h1>
-      <p>Congrats! You’ve unlocked a claim window. Tap <strong>Continue</strong> to open the offer.
-         If it doesn’t open, the backup link will auto-start.</p>
-
-      <div class="timer" id="timer">00:30</div>
-      <div class="bar"><i id="barFill" style="width:0%"></i></div>
-
-      <div class="cta">
-        <button id="continueBtn" class="btn btn-primary">Continue</button>
-        <button id="tryAgainBtn" class="btn btn-ghost">Open Backup Link</button>
-        <div class="note">Tip: Allow popups for smoother redirect. One window only—no duplicates.</div>
-      </div>
-    </div>
-  </div>
-
-<!DOCTYPE html>
-<html lang="en">
+  <!doctype html>
+<html lang="tl">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Spin the Wheel to Claim Your Reward!</title>
+<title>Spin & Unlock</title>
 <style>
-  :root { --bg:#f7f7fb; --card:#ffffff; --ink:#222; --muted:#6b7280; --ok:#22c55e; --bar:#e5e7eb; --shadow:0 16px 40px rgba(0,0,0,.12); }
-  *{box-sizing:border-box;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
-  body{margin:0;background:var(--bg);color:var(--ink)}
-  .wrap{max-width:720px;margin:28px auto;padding:16px}
-  h1{font-size:32px;line-height:1.2;margin:0 0 8px}
-  .sub{color:var(--muted);font-size:18px}
-  .card{background:var(--card);border-radius:22px;box-shadow:var(--shadow);padding:24px;margin-top:20px}
-  .hidden{display:none}
-
-  /* Wheel */
-  .wheel-wrap{display:grid;place-items:center;gap:14px}
-  #wheelBox{position:relative;width:290px;height:290px}
-  #wheel{width:100%;height:100%;border-radius:50%;border:10px solid #fff;background:
-      conic-gradient(#ffb4b4 0 45deg,#ffd59e 45deg 90deg,#c9f4aa 90deg 135deg,
-                     #a0e7ff 135deg 180deg,#bdb2ff 180deg 225deg,#ffc6ff 225deg 270deg,
-                     #caffbf 270deg 315deg,#ffd6a5 315deg 360deg);
-      transition:transform 4.2s cubic-bezier(.12,.72,.07,1);}
-  #pointer{position:absolute;top:-6px;left:50%;transform:translateX(-50%);
-    width:0;height:0;border-left:14px solid transparent;border-right:14px solid transparent;border-bottom:22px solid #111;border-radius:3px}
-  .btn{appearance:none;border:0;border-radius:14px;padding:14px 18px;font-weight:700;cursor:pointer}
-  .btn-primary{background:#10b981;color:#fff}
-  .btn-ghost{background:#eef2ff;color:#111}
-  .center{text-align:center}
-
-  /* Claim */
-  .timer{font-size:42px;font-weight:800;letter-spacing:1px;margin:6px 0}
-  .bar{width:100%;height:10px;background:var(--bar);border-radius:999px;overflow:hidden}
-  .fill{height:100%;width:0;background:var(--ok);transition:width .2s}
-  .fine{color:var(--muted);font-size:14px;margin-top:10px}
+  :root { --bg:#0b1220; --card:#121a2b; --txt:#e6ecff; --muted:#9bb0ff; --accent:#5eead4; }
+  *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--txt);font:500 16px/1.5 system-ui,-apple-system,Segoe UI,Roboto}
+  .wrap{min-height:100dvh;display:grid;place-items:center;padding:24px}
+  .card{width:100%;max-width:440px;background:var(--card);border:1px solid #1c2742;border-radius:20px;padding:20px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+  h1{margin:0 0 8px;font-size:22px}
+  p.lead{margin:0 0 16px;color:var(--muted)}
+  .wheelBox{display:grid;place-items:center;margin:10px 0 14px}
+  .wheel{position:relative;width:280px;aspect-ratio:1;border-radius:50%;border:10px solid #0f1931;background:
+    conic-gradient(#3b82f6 0 45deg,#22d3ee 0 90deg,#a78bfa 0 135deg,#34d399 0 180deg,#f59e0b 0 225deg,#ef4444 0 270deg,#10b981 0 315deg,#eab308 0 360deg)}
+  .center{position:absolute;inset:50% auto auto 50%;transform:translate(-50%,-50%);width:110px;height:110px;background:#0f1931;color:#fff;border-radius:50%;display:grid;place-items:center;border:6px solid #0b1220;text-align:center;padding:6px}
+  .pin{position:absolute;left:50%;top:-18px;transform:translateX(-50%);width:0;height:0;border-left:12px solid transparent;border-right:12px solid transparent;border-bottom:18px solid #ffd43b;filter:drop-shadow(0 2px 0 #0005)}
+  .btn{width:100%;border:0;border-radius:12px;padding:14px 16px;font-weight:700;background:linear-gradient(180deg,#53ffd6,#23bfa6);color:#06131a;cursor:pointer}
+  .btn[disabled]{opacity:.55;cursor:not-allowed}
+  .note{margin-top:10px;font-size:13px;color:#9db3ff;}
+  .result{margin:10px 0 6px;font-weight:700;text-align:center}
+  .hide{display:none}
 </style>
 </head>
 <body>
-  <div class="wrap">
-    <h1>🎁 Spin the Wheel to Claim Your Reward!</h1>
-    <p class="sub">🎉 Only a few rewards left today—don’t miss your chance.</p>
+<div class="wrap">
+  <div class="card">
+    <h1>Spin the Wheel</h1>
+    <p class="lead">Paikutin mo para ma-unlock ang best offer ngayong araw.</p>
 
-    <!-- WHEEL CARD -->
-    <section id="wheelCard" class="card">
-      <div class="wheel-wrap">
-        <div id="wheelBox">
-          <div id="pointer"></div>
-          <div id="wheel" aria-label="spin wheel"></div>
-        </div>
-        <button id="spinBtn" class="btn btn-primary">SPIN</button>
-        <p class="fine">Tip: Single tap only. After a successful spin, you’ll unlock the claim window.</p>
+    <div class="wheelBox">
+      <div class="wheel" id="wheel">
+        <div class="pin"></div>
+        <div class="center"><small>Tap to</small><div style="font-size:18px;font-weight:800">SPIN</div></div>
       </div>
-    </section>
+    </div>
 
-    <!-- CLAIM CARD (hidden until after spin) -->
-    <section id="claimCard" class="card hidden">
-      <div class="center">
-        <div style="background:#e8fff0;color:#0a8f3c;display:inline-block;padding:6px 12px;border-radius:999px;margin-bottom:10px">
-          Limited • Verified Offer
-        </div>
-        <h2 style="margin:6px 0 6px">Spin Reward Unlocked</h2>
-        <p>Congrats! You’ve unlocked a claim window. Tap Continue to open the offer.
-          If it doesn’t open, the backup link will auto-start.</p>
-
-        <div id="timer" class="timer">00:30</div>
-        <div class="bar"><div id="barFill" class="fill"></div></div>
-
-        <div style="margin-top:14px;display:grid;gap:10px">
-          <button id="continueBtn" class="btn btn-primary">Continue</button>
-          <button id="tryAgainBtn" class="btn btn-ghost">Open Backup Link</button>
-        </div>
-        <p class="fine">Allow popups for smoother redirect. One window only—no duplicates.</p>
-      </div>
-    </section>
+    <div id="result" class="result hide">Result: —</div>
+    <button id="continueBtn" class="btn hide">Continue</button>
+    <p class="note">Tip: Pagkatapos mag-spin, pindutin ang “Continue” para magbukas ang offer. If blocked, we’ll auto-retry fallbacks.</p>
   </div>
+</div>
 
 <script>
-  /* ====== LINKS (edit as needed) ====== */
-  const PRIMARY_LINK   = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"; // Adsterra Smartlink
+/* ----- HARD GUARD: bawal mag-init nang dalawang beses ----- */
+if (!window.__SPIN_INIT__) {
+  window.__SPIN_INIT__ = true;
+
+  // === LINKS (Primary → Fallbacks) ===
+  const PRIMARY_LINK   = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"; // Adsterra
   const FALLBACK_LINKS = [
-    "https://otieu.com/4/4203960",                                  // Monetag (SmartLink / zone 4203960)
-    "https://s.click.aliexpress.com/e/_DEMO_DEAL_"                   // (optional) AliExpress universal / example
+    "https://traffserve.com/?a=XXXX&c=YYYY",        // Monetag smartlink (palitan mo)
+    // "https://s.click.aliexpress.com/e/XXXXXXXX", // (optional) AliExpress
   ];
 
-  /* ====== STATE ====== */
-  let spinning = false;
-  let hasSpun  = false;
-  let hasFired = false; // window opened already?
+  // === Elements ===
+  const wheel = document.getElementById("wheel");
+  const resultBox = document.getElementById("result");
+  const continueBtn = document.getElementById("continueBtn");
 
-  /* ====== WHEEL ====== */
-  const wheelEl = document.getElementById("wheel");
-  const wheelCard = document.getElementById("wheelCard");
-  const claimCard = document.getElementById("claimCard");
-  const spinBtn = document.getElementById("spinBtn");
+  // === State ===
+  let hasSpun = false;   // para di mag-doble ang spin
+  let hasFired = false;  // para di mag-doble ang window.open chain
 
-  let currentRot = 0;
-
-  function spinWheel(){
-    if (spinning || hasSpun) return;
-    spinning = true;
-
-    // random 5–8 full turns + random offset to feel real
-    const extraTurns = 5 + Math.floor(Math.random()*3);  // 5–7
-    const offsetDeg  = Math.floor(Math.random()*360);
-    currentRot += extraTurns*360 + offsetDeg;
-
-    wheelEl.style.transform = `rotate(${currentRot}deg)`;
-
-    wheelEl.addEventListener("transitionend", onSpinEnd, { once:true });
+  // === Helpers ===
+  function pickPrize() {
+    // 8 slices @ 45deg each; babagay sa conic-gradient sa CSS
+    const prizes = ["🔥 Bonus","🎁 Gift","⭐ Special","💥 Extra","🎉 Win","💎 Premium","🪙 Coins","✅ Unlock"];
+    const idx = Math.floor(Math.random()*prizes.length);
+    return { label: prizes[idx], index: idx };
   }
 
-  function onSpinEnd(){
-    spinning = false;
-    hasSpun  = true;
-
-    // reveal claim card and start countdown
-    wheelCard.classList.add("hidden");
-    claimCard.classList.remove("hidden");
-    startCountdown(); // only starts after actual spin
-  }
-
-  spinBtn.addEventListener("click", spinWheel);
-
-  /* ====== OPEN + FALLBACK LOGIC ====== */
   function tryOpen(url){
     try{
       const win = window.open(url, "_blank", "noopener,noreferrer");
@@ -264,58 +82,35 @@
     if (hasFired) return;
     hasFired = true;
 
-    // 1) Primary attempt
     const opened = tryOpen(PRIMARY_LINK);
     if (opened) return;
 
-    // 2) If blocked, chain fallbacks with tiny delay to avoid duplicates
     let i = 0;
-    const tick = () => {
+    const step = () => {
       if (i >= FALLBACK_LINKS.length) return;
       const ok = tryOpen(FALLBACK_LINKS[i++]);
-      if (!ok) setTimeout(tick, 350);
+      if (!ok) setTimeout(step, 350);
     };
-    setTimeout(tick, 300);
-<script>
-let timerId=null, timerStarted=false, hasFired=false;
+    setTimeout(step, 300);
+  }
 
-function format(t){const m=String(Math.floor(t/60)).padStart(2,'0');
-  const s=String(t%60).padStart(2,'0'); return `${m}:${s}`;}
+  // === Spin Logic (CSS rotate) ===
+  function spinOnce(){
+    if (hasSpun) return;            // one spin only
+    hasSpun = true;
 
-function startTimer(seconds, onEnd){
-  if (timerId) clearInterval(timerId);
-  timerId=null;
-  let t=seconds;
-  const el=document.querySelector('.claim-card #count');
-  el.textContent=format(t);
-  timerId=setInterval(()=>{
-    t--; el.textContent=format(t);
-    if(t<=0){ clearInterval(timerId); timerId=null; onEnd&&onEnd(); }
-  },1000);
-}
+    const { label, index } = pickPrize();
+    // target angle: center ng slice sa pin (pin nasa top). Each slice = 45deg.
+    const slice = 45;
+    const targetSliceCenter = index * slice + slice/2;
+    const fullTurns = 6 * 360;      // smooth na paikot
+    const finalDeg = fullTurns + (360 - targetSliceCenter) + (Math.random()*10-5);
 
-// only allow starting once
-function startTimerOnce(){ if (timerStarted) return; timerStarted=true; startTimer(30, openWithFallback); }
+    wheel.style.transition = "transform 3s cubic-bezier(.17,.67,.22,1)";
+    wheel.style.transform = `rotate(${finalDeg}deg)`;
 
-// popup + fallback (once only)
-const PRIMARY_LINK="https://YOUR-ADSTERRA";
-const FALLBACK_LINKS=["https://YOUR-MONETAG","https://YOUR-ALIEXPRESS"];
-
-function tryOpen(url){ try{ const w=window.open(url,"_blank","noopener,noreferrer"); return !!w; }catch(e){ return false; } }
-function openWithFallback(){
-  if (hasFired) return; hasFired=true;
-  if (tryOpen(PRIMARY_LINK)) return;
-  let i=0; const step=()=>{ if(i>=FALLBACK_LINKS.length) return;
-    if(!tryOpen(FALLBACK_LINKS[i++])) setTimeout(step,350); };
-  setTimeout(step,300);
-}
-
-// buttons (fire once)
-document.getElementById('continueBtn').addEventListener('click', openWithFallback, { once:true });
-document.getElementById('tryAgainBtn').addEventListener('click', openWithFallback);
-
-// call this AFTER spin success:
-function onSpinWin(){ startTimerOnce(); }
-</script>
-
-
+    // reveal result + button after animation
+    setTimeout(() => {
+      resultBox.textContent = "Result: " + label;
+      resultBox.classList.remove("hide");
+      continueBtn.classList.  
