@@ -113,4 +113,17 @@ if (!window.__SPIN_INIT__) {
     setTimeout(() => {
       resultBox.textContent = "Result: " + label;
       resultBox.classList.remove("hide");
-      continueBtn.classList.  
+      continueBtn.classList.remove("hide");
+    }, 3000);
+  }
+
+  // === Events (single binding lang) ===
+  wheel.addEventListener("click", spinOnce, { once:true });
+  continueBtn.addEventListener("click", openWithFallback);
+
+  // Safety: kung may ibang script na nagre-render muli ng HTML,
+  // hindi magdo-double ang init dahil sa window.__SPIN_INIT__ guard.
+}
+</script>
+</body>
+</html>
