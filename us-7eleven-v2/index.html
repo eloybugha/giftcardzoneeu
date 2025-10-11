@@ -311,11 +311,174 @@ function openWithFallback(){
 
       <footer>
         <div class="footRow">
+<!doctype html>
+<html lang="tl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>🎁 Amazon Gift Card • Spin & Unlock</title>
+<meta name="theme-color" content="#111827" />
+<style>
+  :root{
+    /* AMAZON-STYLE THEME */
+    --page:#0b0f19;
+    --bg1:#0b0f19; --bg2:#0e1627;
+    --card:#0f1626;
+    --glass:rgba(16,24,39,.82);
+    --border:rgba(255,255,255,.08);
+    --txt:#f8fafc; --muted:#94a3b8;
+    --accent:#f59e0b;   /* amber/orange */
+    --accent2:#ffb84a;  /* lighter amber */
+    --ring:#22304a;
+    --ok:#22c55e; --warn:#f59e0b;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0; color:var(--txt);
+    background:
+      radial-gradient(1200px 800px at 10% -10%, #15223e 0%, transparent 55%),
+      radial-gradient(900px 700px at 100% 0%, #0e1a33 0%, transparent 60%),
+      linear-gradient(180deg,var(--bg1),var(--bg2));
+    font:500 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;
+    -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  }
+  .wrap{min-height:100%; display:grid; place-items:center; padding:22px}
+  .card{
+    width:100%; max-width:560px;
+    background:var(--glass);
+    border:1px solid var(--border);
+    border-radius:22px; padding:22px;
+    backdrop-filter: blur(10px);
+    box-shadow:0 24px 60px rgba(0,0,0,.45);
+  }
+  header{display:flex; align-items:center; gap:12px; margin-bottom:10px}
+  .dot{width:12px;height:12px;border-radius:50%;
+       background:linear-gradient(90deg,var(--accent),var(--accent2));
+       box-shadow:0 0 16px rgba(245,158,11,.7)}
+  h1{font-size:22px; margin:0}
+  p.lead{margin:4px 0 14px; color:var(--muted)}
+  .hdrRow{display:flex; align-items:center; gap:10px; flex-wrap:wrap}
+  .tag{font-size:12px; padding:6px 10px; border:1px solid var(--ring); border-radius:999px; color:#111; background:linear-gradient(90deg,var(--accent),var(--accent2)); font-weight:800}
+
+  /* GIFT CARD STRIP */
+  .gift{
+    margin:8px 0 6px; display:flex; gap:12px; align-items:center;
+    padding:12px; border:1px dashed #2a3a5e; border-radius:16px; background:rgba(255,255,255,.03)
+  }
+  .gcLogo{width:44px;height:44px;border-radius:10px;background:#111; display:grid; place-items:center; font-weight:900; color:var(--accent)}
+  .gctxt{line-height:1.3}
+  .gctxt b{font-size:15px}
+  .gctxt small{display:block; color:var(--muted)}
+
+  /* SPINNER */
+  .wheelBox{position:relative; display:grid; place-items:center; margin:14px 0 8px; aspect-ratio:1/1; width:100%; max-width:380px; justify-self:center;}
+  .ringGlow{position:absolute; inset:-12px; border-radius:50%;
+    background: radial-gradient(120px 120px at 50% 0%, rgba(245,158,11,.35), transparent 60%); filter:blur(14px); opacity:.65; pointer-events:none}
+  .wheel{
+    width:100%; height:100%; border-radius:50%;
+    background:
+      conic-gradient(from 0deg,
+        #1b2643 0 25%,
+        #0f1b34 0 50%,
+        #1b2643 0 75%,
+        #0f1b34 0 100%);
+    border:10px solid #0a1020;
+    box-shadow:
+      inset 0 18px 40px rgba(245,158,11,.08),
+      0 10px 30px rgba(0,0,0,.35);
+    transition:transform 1.2s cubic-bezier(.2,.8,.2,1);
+  }
+  .pin{
+    position:absolute; top:-6px; width:0; height:0;
+    border-left:11px solid transparent; border-right:11px solid transparent;
+    border-bottom:20px solid var(--accent);
+    filter: drop-shadow(0 4px 8px rgba(245,158,11,.45));
+  }
+
+  /* CONTROLS */
+  .controls{display:grid; gap:10px; margin-top:14px}
+  .row{display:flex; gap:10px; flex-wrap:wrap}
+  .row > *{flex:1 1 180px}
+  .btn{
+    appearance:none; border:0; padding:14px 16px; border-radius:14px; font-weight:800;
+    color:#111; cursor:pointer;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    box-shadow:0 10px 24px rgba(245,158,11,.25);
+  }
+  .btn.secondary{
+    background:#0f1a2b; color:var(--txt); border:1px solid var(--ring);
+    box-shadow:none;
+  }
+  .btn[disabled]{opacity:.55; cursor:not-allowed}
+
+  /* PROGRESS */
+  .progressWrap{margin-top:8px}
+  .bar{height:12px; background:#0f1a2b; border:1px solid #22304a; border-radius:999px; overflow:hidden}
+  .fill{height:100%; width:0%; background:linear-gradient(90deg,var(--accent),var(--accent2)); transition:width .3s ease}
+  .mini{display:flex; justify-content:space-between; color:var(--muted); font-size:12px; margin-top:6px}
+
+  .status{display:flex; align-items:center; gap:8px; margin-top:10px; color:var(--muted); font-size:14px}
+  .led{width:10px;height:10px;border-radius:50%;background:#334155}
+  .status.ok .led{background:var(--ok); box-shadow:0 0 12px rgba(34,197,94,.8)}
+  .status.wait .led{background:var(--warn); box-shadow:0 0 12px rgba(245,158,11,.8)}
+
+  footer{margin-top:14px; opacity:.85; font-size:12px; text-align:center; color:var(--muted)}
+  .badge{display:inline-flex; align-items:center; gap:8px; padding:8px 10px; border:1px solid #22304a; border-radius:12px; background:#0c1526}
+  .footRow{display:flex; justify-content:center; gap:10px; flex-wrap:wrap}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <main class="card">
+      <header>
+        <span class="dot"></span>
+        <div>
+          <div class="hdrRow">
+            <h1>Spin & Unlock • Amazon Gift Card</h1>
+            <span class="tag">$100 Offer</span>
+          </div>
+          <p class="lead">You’ve been randomly selected! Tap <b>Spin</b>. After verification and countdown, press <b>Continue</b>. If the first tab is blocked, we’ll rotate safe fallbacks.</p>
+        </div>
+      </header>
+
+      <div class="gift">
+        <div class="gcLogo">a</div>
+        <div class="gctxt">
+          <b>Amazon Gift Card (US)</b>
+          <small>Works on amazon.com • Online only • Limited slots today</small>
+        </div>
+      </div>
+
+      <section class="wheelBox">
+        <div class="ringGlow"></div>
+        <div class="pin"></div>
+        <div id="wheel" class="wheel"></div>
+      </section>
+
+      <div class="controls">
+        <div class="row">
+          <button id="spinBtn" class="btn">🎡 Spin now</button>
+          <button id="continueBtn" class="btn secondary" disabled>Continue</button>
+        </div>
+
+        <div class="progressWrap" id="progressWrap" style="display:none">
+          <div class="bar"><div id="fill" class="fill"></div></div>
+          <div class="mini">
+            <span id="phase">Verifying…</span>
+            <span id="count">00:08</span>
+          </div>
+          <div id="status" class="status wait"><span class="led"></span><span id="statusText">Please wait while we prepare a safe tab…</span></div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="footRow">
           <div class="badge">🔒 Secure flow</div>
           <div class="badge">🛡️ Smart fallbacks</div>
           <div class="badge">⚡ Fast launch</div>
         </div>
-        <div style="margin-top:8px">neon-glass • <script>document.write(new Date().toLocaleDateString())</script></div>
+        <div style="margin-top:8px">amazon-themed • <script>document.write(new Date().toLocaleDateString())</script></div>
       </footer>
     </main>
   </div>
@@ -324,9 +487,9 @@ function openWithFallback(){
 /* =========================
    LINKS – edit here
    ========================= */
-const PRIMARY_LINK = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"; // Adsterra
+const PRIMARY_LINK = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"; // Adsterra Smartlink (US)
 const FALLBACK_LINKS = [
-  "https://syndication.monetag.com/smartlink", // TODO: your Monetag smartlink
+  "https://syndication.monetag.com/smartlink", // TODO: paste your Monetag smartlink
   "https://s.click.aliexpress.com/e/_DEMO"      // optional
 ];
 
@@ -351,7 +514,7 @@ const statusTx= document.getElementById("statusText");
   if (sessionStorage.getItem("spunOnce")==="1") startVerification();
 })();
 
-/* Open helpers */
+/* Open helpers (rotating fallbacks) */
 const LINK_CHAIN = [PRIMARY_LINK, ...FALLBACK_LINKS];
 
 function tryOpen(url){
@@ -423,4 +586,5 @@ document.addEventListener("keydown",(e)=>{
 </script>
 </body>
 </html>
+
 
