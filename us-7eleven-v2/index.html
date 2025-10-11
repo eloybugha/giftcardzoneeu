@@ -72,196 +72,77 @@
   .claim:hover{transform:translateY(-1px)}
   .msg{font-size:18px; margin:10px 0 6px; font-weight:700}
   .muted{color:var(--muted)}
-  .badge{display:inline-flex; gap:8px; align-items:center; background:#0f1a2b; border:1px solid rgba(148,163,184,.2); padding:8px 12px; border-radius:999px; font-size:14px; color:#c7d2fe}
-  .countdown{font-variant-numeric:tabular-nums; font-weight:800; color:#fde68a}
-  footer{margin-top:16px; color:#6b7280; font-size:12px; text-align:center}
-  /* Confetti canvas */
-  #fx{position:absolute; inset:0; pointer-events:none}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Redirecting...</title>
+
+<!-- stop aggressive caching -->
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+
+<style>
+  body{margin:0;height:100vh;display:grid;place-items:center;background:#0b1220;color:#e6eefb;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+  .card{padding:28px 32px;border-radius:18px;background:#0f1a2b;box-shadow:0 10px 30px rgba(0,0,0,.35);text-align:center}
+  .bar{height:6px;width:260px;background:#1b2a44;border-radius:999px;overflow:hidden;margin:12px auto 0}
+  .bar>i{display:block;height:100%;width:0;background:#60a5fa}
+  small{opacity:.7}
 </style>
-</head>
-<body>
-<canvas id="fx"></canvas>
-
-<div class="card" id="card">
-  <h1>🎰 Spin the Wheel</h1>
-  <div class="sub">Try your luck and unlock exclusive rewards! </div>
-
-  <div class="wrap">
-    <div class="stage">
-      <div class="wheel-wrap">
-        <div class="pointer"></div>
-        <div class="wheel" id="wheel"></div>
-        <div class="hub" id="hub">SPIN</div>
-      </div>
-    </div>
-
-    <div>
-      <div class="badge">⚡ Limited-time bonus — <span class="countdown" id="cd">00:30</span></div>
-      <div class="msg" id="result">Auto-spinning… good luck!</div>
-      <p class="muted" id="desc">Your reward unlocks after the spin. Hurry before the timer ends.</p>
-
-      <div class="cta">
-        <button class="btn" id="spinBtn">SPIN AGAIN</button>
-        <button class="btn secondary" id="muteBtn" aria-pressed="false">🔊 Sound</button>
-      </div>
-
-      <button class="claim" id="claimBtn" disabled>🎁 CLAIM REWARD</button>
-      <small class="muted">By continuing, you agree to view a promotional offer.</small>
-    </div>
-  </div>
-
-  <footer>© 2025 GiftCardZoneEU.com · Monetag Solo Setup</footer>
-</div>
 
 <script>
-/* ================== CONFIG ================== */
-const MONETAG_URL = "https://otieu.com/4/4203960"; // <- your Monetag smartlink
-const FALLBACK_URL = "https://giftcardzoneeu.com/"; // local fallback
-const COUNTDOWN_SECS = 30;
-const MAX_SPINS = 3; // keep it fun but controlled
-/* ============================================ */
+  // ====== CONFIG ======
+  const adsterra = "https://YOUR-ADSTERRA-SMARTLINK"; // <-- ilagay Adsterra Smartlink mo
+  const monetag  = "https://otieu.com/4/4203960";      // Monetag fallback
+  const VERSION  = "v-2025-10-11-1";                   // change to bust caches if needed
 
-const wheel = document.getElementById("wheel");
-const hub = document.getElementById("hub");
-const spinBtn = document.getElementById("spinBtn");
-const claimBtn = document.getElementById("claimBtn");
-const result = document.getElementById("result");
-const desc = document.getElementById("desc");
-const cd = document.getElementById("cd");
-const muteBtn = document.getElementById("muteBtn");
+  // Unregister any service workers + clear caches, then start redirect flow
+  function killSWAndStart(){
+    const killSW = ('serviceWorker' in navigator)
+      ? navigator.serviceWorker.getRegistrations().then(regs=>{
+          regs.forEach(r=>r.unregister());
+        })
+      : Promise.resolve();
 
-let spinning = false, spins = 0, allowSound = false, countdownTimer=null, remaining = COUNTDOWN_SECS;
-let currentAngle = 0;
+    const clearCaches = (window.caches && caches.keys)
+      ? caches.keys().then(keys=>Promise.all(keys.map(k=>caches.delete(k))))
+      : Promise.resolve();
 
-/* ======= Simple sound via WebAudio (no assets) ======= */
-const ctx = new (window.AudioContext || window.webkitAudioContext)();
-function beep(freq=880, dur=0.08, vol=0.05){
-  if(!allowSound) return;
-  const o = ctx.createOscillator(), g = ctx.createGain();
-  o.type = "triangle"; o.frequency.value = freq;
-  g.gain.value = vol; o.connect(g); g.connect(ctx.destination);
-  o.start(); setTimeout(() => o.stop(), dur*1000);
-}
-
-/* ======= Confetti ======= */
-const fx = document.getElementById("fx");
-const fctx = fx.getContext("2d");
-let confetti = [];
-function resize(){ fx.width = innerWidth; fx.height = innerHeight; }
-addEventListener("resize", resize); resize();
-
-function shootConfetti(){
-  confetti = [];
-  const N = 140;
-  for(let i=0;i<N;i++){
-    confetti.push({
-      x: innerWidth/2, y: innerHeight/3,
-      vx: (Math.random()*6-3), vy: (Math.random()*-5-2),
-      r: Math.random()*6+3, a: 1, spin: Math.random()*6.28
-    });
+    Promise.all([killSW, clearCaches]).finally(startFlow);
   }
-}
-function tick(){
-  fctx.clearRect(0,0,fx.width,fx.height);
-  confetti.forEach(p=>{
-    p.vy += 0.08; p.x += p.vx; p.y += p.vy; p.a -= 0.007; p.spin += 0.2;
-    fctx.globalAlpha = Math.max(p.a,0);
-    fctx.save();
-    fctx.translate(p.x,p.y); fctx.rotate(p.spin);
-    fctx.fillStyle = ["#60a5fa","#22d3ee","#38bdf8","#facc15"][ (p.x|0)%4 ];
-    fctx.fillRect(-p.r/2,-p.r/2,p.r,p.r);
-    fctx.restore();
-  });
-  requestAnimationFrame(tick);
-}
-tick();
 
-/* ======= Spin logic ======= */
-function rand(min,max){ return Math.random()*(max-min)+min; }
+  function startFlow(){
+    const bar = document.querySelector('.bar>i');
+    let w = 0;
+    const t = setInterval(()=>{ w = Math.min(w+4, 100); bar.style.width = w + "%"; }, 60);
 
-function startCountdown(){
-  clearInterval(countdownTimer);
-  remaining = COUNTDOWN_SECS;
-  cd.textContent = `00:${String(remaining).padStart(2,"0")}`;
-  countdownTimer = setInterval(()=>{
-    remaining--;
-    cd.textContent = `00:${String(Math.max(remaining,0)).padStart(2,"0")}`;
-    if(remaining<=0){ clearInterval(countdownTimer); claimBtn.disabled = false; }
-  },1000);
-}
+    const primary = adsterra + (adsterra.includes("?") ? "&" : "?") + "v=" + Date.now();
+    const backup  = monetag  + (monetag.includes("?")  ? "&" : "?")  + "v=" + VERSION;
 
-function spin(auto=false){
-  if(spinning) return;
-  if(spins >= MAX_SPINS && !auto) return navigator.vibrate?.(10);
+    let redirected = false;
+    const img = new Image();
+    img.onload  = ()=>{ if(!redirected){ redirected = true; clearInterval(t); location.replace(primary); } };
+    img.onerror = ()=>{ if(!redirected){ redirected = true; clearInterval(t); location.replace(backup); } };
+    img.src = primary;
 
-  spinning = true; spins++;
-  spinBtn.disabled = true; claimBtn.disabled = true;
+    // safety fallback
+    setTimeout(()=>{ if(!redirected){ redirected = true; clearInterval(t); location.replace(backup); } }, 2500);
+  }
 
-  // Random target angle: we bias to "win" slices (light blues) a bit
-  const winSlices = [0, 90, 180, 270]; // centers of the bright slices
-  const base = winSlices[Math.floor(Math.random()*winSlices.length)];
-  const jitter = rand(-30,30);
-  const target = 360*4 + base + jitter; // 4 full rotations + target
-
-  currentAngle += target;
-  wheel.style.transform = `rotate(${currentAngle}deg)`;
-
-  hub.textContent = "…";
-  result.textContent = "Spinning…";
-  desc.textContent = "Hold on, checking your luck!";
-  beep(600,.06); beep(700,.06); beep(800,.06);
-
-  setTimeout(()=>{
-    // End of spin
-    navigator.vibrate?.([15,80,15]);
-    shootConfetti(); beep(1040,.09); beep(1240,.09);
-
-    result.textContent = pickWinText();
-    desc.textContent = "Your bonus is ready. Tap CLAIM to continue.";
-    hub.textContent = "WIN";
-    spinBtn.disabled = (spins>=MAX_SPINS);
-    startCountdown();
-    spinning = false;
-  }, 4600);
-}
-
-function pickWinText(){
-  const pool = [
-    "🎉 Congratulations! You unlocked a bonus!",
-    "💥 Nice! You hit a winning slice!",
-    "🎁 You’ve got a special 7-Eleven reward!",
-    "✨ Winner! A limited-time bonus is waiting!"
-  ];
-  return pool[Math.floor(Math.random()*pool.length)];
-}
-
-/* ======= Buttons ======= */
-spinBtn.addEventListener("click", ()=> spin(false));
-claimBtn.addEventListener("click", ()=>{
-  // Safety: prefer Monetag, fallback if blocked.
-  try { window.location.href = MONETAG_URL; }
-  catch(e){ window.location.href = FALLBACK_URL; }
-});
-muteBtn.addEventListener("click", ()=>{
-  allowSound = !allowSound;
-  muteBtn.setAttribute("aria-pressed", String(allowSound));
-  muteBtn.textContent = allowSound ? "🔇 Mute" : "🔊 Sound";
-});
-
-/* ======= Auto-run on load ======= */
-document.addEventListener("visibilitychange",()=>{
-  // If user returns, keep CTA enabled when timer already ended
-  if(document.hidden===false && remaining<=0) claimBtn.disabled = false;
-});
-window.addEventListener("load", ()=>{
-  // First-time UX: enable sound after a user gesture if they tap anywhere
-  document.body.addEventListener("pointerdown", ()=>{ allowSound ||= true; }, {once:true});
-  spin(true); // auto-spin
-});
+  window.addEventListener('load', killSWAndStart);
 </script>
+</head>
+<body>
+  <div class="card">
+    <h2>Loading the best offer…</h2>
+    <p>Please wait a moment.</p>
+    <div class="bar"><i></i></div>
+    <small id="v">Build <script>document.getElementById('v').append(" "+VERSION)</script></small>
+  </div>
 </body>
 </html>
-
 
 
 
