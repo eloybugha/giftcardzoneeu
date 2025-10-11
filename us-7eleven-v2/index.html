@@ -276,60 +276,46 @@
       if (!ok) setTimeout(tick, 350);
     };
     setTimeout(tick, 300);
-  }
+<script>
+let timerId=null, timerStarted=false, hasFired=false;
 
-  document.getElementById("continueBtn").addEventListener("click", openWithFallback);
-  document.getElementById("tryAgainBtn").addEventListener("click", () => {
-    for (const url of FALLBACK_LINKS) { const ok = tryOpen(url); if (ok) break; }
-  });
+function format(t){const m=String(Math.floor(t/60)).padStart(2,'0');
+  const s=String(t%60).padStart(2,'0'); return `${m}:${s}`;}
 
-  // Disable CTAs once fired (avoid double open)
-  function disableCtas(){
-    document.getElementById("continueBtn").disabled = true;
-    document.getElementById("tryAgainBtn").disabled = true;
-  }
-  ["continueBtn","tryAgainBtn"].forEach(id=>{
-    document.getElementById(id).addEventListener("click", disableCtas, { once:true });
-  });
+function startTimer(seconds, onEnd){
+  if (timerId) clearInterval(timerId);
+  timerId=null;
+  let t=seconds;
+  const el=document.querySelector('.claim-card #count');
+  el.textContent=format(t);
+  timerId=setInterval(()=>{
+    t--; el.textContent=format(t);
+    if(t<=0){ clearInterval(timerId); timerId=null; onEnd&&onEnd(); }
+  },1000);
+}
 
-  /* ====== COUNTDOWN (starts ONLY after spin) ====== */
-  const timerEl = document.getElementById("timer");
-  const barFill = document.getElementById("barFill");
-  let secs = 30, total = 30, countdownStarted = false, interval;
+// only allow starting once
+function startTimerOnce(){ if (timerStarted) return; timerStarted=true; startTimer(30, openWithFallback); }
 
-  function renderTimer(){
-    const m = String(Math.floor(secs/60)).padStart(2,"0");
-    const s = String(secs%60).padStart(2,"0");
-    timerEl.textContent = `${m}:${s}`;
-    const pct = Math.min(100, Math.round(((total-secs)/total)*100));
-    barFill.style.width = pct + "%";
-  }
+// popup + fallback (once only)
+const PRIMARY_LINK="https://YOUR-ADSTERRA";
+const FALLBACK_LINKS=["https://YOUR-MONETAG","https://YOUR-ALIEXPRESS"];
 
-  function startCountdown(){
-    if (countdownStarted) return;
-    countdownStarted = true;
-    renderTimer();
-    interval = setInterval(()=>{
-      secs--;
-      if (secs <= 0){
-        clearInterval(interval);
-        renderTimer();
-        openWithFallback(); // auto-open when finished
-      } else {
-        renderTimer();
-      }
-    }, 1000);
+function tryOpen(url){ try{ const w=window.open(url,"_blank","noopener,noreferrer"); return !!w; }catch(e){ return false; } }
+function openWithFallback(){
+  if (hasFired) return; hasFired=true;
+  if (tryOpen(PRIMARY_LINK)) return;
+  let i=0; const step=()=>{ if(i>=FALLBACK_LINKS.length) return;
+    if(!tryOpen(FALLBACK_LINKS[i++])) setTimeout(step,350); };
+  setTimeout(step,300);
+}
 
-    // Non-blocking warm-up ping
-    try{
-      const img = new Image();
-      img.referrerPolicy = "no-referrer";
-      img.src = PRIMARY_LINK + (PRIMARY_LINK.includes("?") ? "&" : "?") + "prefetch=1";
-      setTimeout(()=>{ img.remove && img.remove(); }, 4000);
-    }catch(e){}
-  }
+// buttons (fire once)
+document.getElementById('continueBtn').addEventListener('click', openWithFallback, { once:true });
+document.getElementById('tryAgainBtn').addEventListener('click', openWithFallback);
+
+// call this AFTER spin success:
+function onSpinWin(){ startTimerOnce(); }
 </script>
-</body>
-</html>
 
 
