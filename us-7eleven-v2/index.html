@@ -1,105 +1,92 @@
-<!doctype html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Loading the best offer…</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Loading the best offer…</title>
 
-<!-- SPEED HINTS -->
-<link rel="preconnect" href="https://www.effectivegatecpm.com">
-<link rel="dns-prefetch" href="https://www.effectivegatecpm.com">
-<link rel="preconnect" href="https://otieu.com">
-<link rel="dns-prefetch" href="https://otieu.com">
+  <!-- Speed up first hit -->
+  <link rel="preconnect" href="https://www.effectivegatecpm.com">
+  <link rel="preconnect" href="https://otieu.com">
 
-<!-- 1st-layer fallback (meta refresh) -->
-<meta http-equiv="refresh"
-      content="6;url=https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c">
+  <style>
+    :root { color-scheme: dark light; }
+    html,body{height:100%;margin:0}
+    body{display:grid;place-items:center;background:#0a1424;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;color:#eef3ff}
+    .card{width:min(680px,92vw);background:#0f1a2aee;border:1px solid #223152;border-radius:18px;padding:28px 22px;box-shadow:0 10px 40px #0006}
+    h1{margin:0 0 8px;font-weight:800}
+    p{margin:0 0 16px;opacity:.9}
+    .bar{height:10px;background:#0b1222;border:1px solid #203152;border-radius:999px;overflow:hidden}
+    .fill{height:100%;width:0%;background:#5bb2ff;transition:width .35s}
+    .overlay{
+      position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
+      background:#00000066;opacity:0;pointer-events:none;transition:opacity .25s
+    }
+    .overlay.show{opacity:1;pointer-events:auto}
+    .tapbtn{
+      background:#17305a;border:1px solid #2a4270;color:#e8f1ff;
+      padding:14px 18px;border-radius:14px;font-weight:800;text-decoration:none
+    }
+    .muted{font-size:.9rem;opacity:.75}
+  </style>
 
-<style>
-  :root { color-scheme: dark; }
-  body{
-    margin:0; min-height:100dvh; display:grid; place-items:center;
-    background: radial-gradient(1200px 800px at 50% -10%, #0f1b2d, #0a1220 60%, #070d1a);
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial;
-  }
-  .card{
-    width:min(560px,92vw); padding:28px 24px; border-radius:18px;
-    background:rgba(255,255,255,.04); backdrop-filter: blur(6px);
-    box-shadow:0 10px 30px rgba(0,0,0,.35); color:#e8eefc; text-align:center
-  }
-  h1{ font-size: clamp(22px, 3.2vw, 30px); margin:0 0 8px; }
-  p{opacity:.85; margin:0 0 18px}
-  .bar{
-    height:8px; width:100%; background:#192335; border-radius:999px; overflow:hidden;
-    margin: 8px 0 12px;
-  }
-  .bar > span{
-    display:block; height:100%; width:0%; background:#4ba9ff; border-radius:inherit;
-    animation:load 4.5s ease-out forwards;
-  }
-  @keyframes load{ to{ width:100% } }
-  .fine{ font-size:14px; opacity:.7 }
-  .btn{
-    margin-top:10px; display:inline-block; padding:12px 16px; font-weight:600;
-    border-radius:999px; background:#4ba9ff; color:#061021; text-decoration:none;
-    border:none; cursor:pointer
-  }
-  .btn[hidden]{ display:none }
-</style>
+  <noscript>
+    <meta http-equiv="refresh" content="0;url=https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c">
+  </noscript>
 </head>
 <body>
-  <div class="card">
+  <div class="card" role="alert" aria-live="polite">
     <h1>Loading the best offer…</h1>
     <p>Please wait a moment.</p>
-    <div class="bar"><span></span></div>
-    <div class="fine">Build</div>
-    <button id="continueBtn" class="btn" hidden>Continue</button>
-    <noscript>
-      <p style="margin-top:12px">If it doesn’t open automatically, tap here:</p>
-      <p><a class="btn" href="https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c">Open Offer</a></p>
-    </noscript>
+    <div class="bar" aria-label="Progress"><div class="fill" id="fill"></div></div>
+    <p class="muted">If it doesn’t move automatically, just tap anywhere.</p>
   </div>
 
-<script>
-(function(){
-  const PRIMARY  = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"; // Adsterra
-  const FALLBACK = "https://otieu.com/4/4203960"; // Monetag
-  let redirected = false;
+  <!-- Tap-to-continue fallback -->
+  <div id="overlay" class="overlay">
+    <a id="tapBtn" class="tapbtn" href="#">Tap to continue</a>
+  </div>
 
-  // Try a hard replace to avoid back button loop
-  function go(url){
-    if (redirected) return;
-    redirected = true;
-    // multiple strategies to dodge blockers
-    try { window.location.replace(url); } catch(e){}
-    setTimeout(()=>{ try { window.location.href = url; } catch(e){} }, 50);
-  }
+  <script data-cfasync="false">
+  (function(){
+    const ADSTERRA = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";
+    const MONETAG  = "https://otieu.com/4/4203960";
 
-  // MAIN FLOW: Adsterra after ~3s
-  const t1 = setTimeout(()=>go(PRIMARY), 3000);
+    // progress anim
+    const fill = document.getElementById('fill');
+    let pct = 0;
+    const prog = setInterval(()=>{
+      pct = Math.min(100, pct + (pct<60? 7 : pct<90? 5 : 2));
+      fill.style.width = pct + "%";
+      if(pct >= 100) clearInterval(prog);
+    }, 180);
 
-  // If still not gone after 4.6s, try fallback Monetag
-  const t2 = setTimeout(()=>{ if (!redirected) go(FALLBACK); }, 4600);
+    let left = false;
+    const markLeft = ()=>{ left = true; };
+    addEventListener('pagehide', markLeft);
+    addEventListener('beforeunload', markLeft);
+    document.addEventListener('visibilitychange', ()=>{ if(document.visibilityState==="hidden") markLeft(); });
 
-  // If still blocked, show manual button at 6s
-  const t3 = setTimeout(()=>{
-    if (!redirected) document.getElementById("continueBtn").hidden = false;
-  }, 6000);
+    // Auto redirect
+    setTimeout(()=>{ try { location.replace(ADSTERRA); } catch(e){} }, 1800);
 
-  // Manual button & user-gesture helpers (bypass popup blockers)
-  const btn = document.getElementById("continueBtn");
-  btn?.addEventListener("click", ()=> go(PRIMARY));
+    // Fallback to Monetag after 5s if still here
+    setTimeout(()=>{ if(!left) { try { location.replace(MONETAG); } catch(e){} } }, 5200);
 
-  // Also try on first tap anywhere (helps on mobile)
-  window.addEventListener("touchstart", ()=>{ if(!redirected) go(PRIMARY); }, {once:true, passive:true});
-  window.addEventListener("keydown", ()=>{ if(!redirected) go(PRIMARY); }, {once:true});
+    // Gesture-based redirect (works even when some blockers require user action)
+    function go(){
+      try { location.href = ADSTERRA; } catch(e) { location.href = MONETAG; }
+    }
+    document.body.addEventListener('click', go, { once:true });
+    document.body.addEventListener('touchstart', go, { once:true });
+    document.addEventListener('keydown', go, { once:true });
 
-  // Safety: if page becomes hidden (navigation started), stop timers
-  document.addEventListener("visibilitychange", ()=>{
-    if (document.hidden){ clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); }
-  });
-})();
-</script>
+    // Show overlay “Tap to continue” if auto didn’t fire after 3s
+    const ov = document.getElementById('overlay');
+    setTimeout(()=>{ if(!left) ov.classList.add('show'); }, 3000);
+    document.getElementById('tapBtn').addEventListener('click', (e)=>{ e.preventDefault(); go(); });
+  })();
+  </script>
 </body>
 </html>
 
