@@ -1,885 +1,140 @@
-  <!doctype html>
-<html lang="tl">
+<!doctype html>
+<html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Spin & Unlock</title>
+<meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rewards • Choose Your Device</title>
 <style>
-  :root { --bg:#0b1220; --card:#121a2b; --txt:#e6ecff; --muted:#9bb0ff; --accent:#5eead4; }
-  *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--txt);font:500 16px/1.5 system-ui,-apple-system,Segoe UI,Roboto}
-  .wrap{min-height:100dvh;display:grid;place-items:center;padding:24px}
-  .card{width:100%;max-width:440px;background:var(--card);border:1px solid #1c2742;border-radius:20px;padding:20px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
-  h1{margin:0 0 8px;font-size:22px}
-  p.lead{margin:0 0 16px;color:var(--muted)}
-  .wheelBox{display:grid;place-items:center;margin:10px 0 14px}
-  .wheel{position:relative;width:280px;aspect-ratio:1;border-radius:50%;border:10px solid #0f1931;background:
-    conic-gradient(#3b82f6 0 45deg,#22d3ee 0 90deg,#a78bfa 0 135deg,#34d399 0 180deg,#f59e0b 0 225deg,#ef4444 0 270deg,#10b981 0 315deg,#eab308 0 360deg)}
-  .center{position:absolute;inset:50% auto auto 50%;transform:translate(-50%,-50%);width:110px;height:110px;background:#0f1931;color:#fff;border-radius:50%;display:grid;place-items:center;border:6px solid #0b1220;text-align:center;padding:6px}
-  .pin{position:absolute;left:50%;top:-18px;transform:translateX(-50%);width:0;height:0;border-left:12px solid transparent;border-right:12px solid transparent;border-bottom:18px solid #ffd43b;filter:drop-shadow(0 2px 0 #0005)}
-  .btn{width:100%;border:0;border-radius:12px;padding:14px 16px;font-weight:700;background:linear-gradient(180deg,#53ffd6,#23bfa6);color:#06131a;cursor:pointer}
-  .btn[disabled]{opacity:.55;cursor:not-allowed}
-  .note{margin-top:10px;font-size:13px;color:#9db3ff;}
-  .result{margin:10px 0 6px;font-weight:700;text-align:center}
+  :root{--bg:#0b1220;--panel:#121a2b;--ink:#e6f0ff;--mut:#9fb0c9;--ring:0 0 0 2px rgba(74,163,255,.25),0 10px 40px rgba(0,0,0,.35)}
+  *{box-sizing:border-box} html,body{height:100%}
+  body{margin:0;background:
+    radial-gradient(1200px 600px at 80% -10%, #163154 0%, transparent 60%),
+    radial-gradient(900px 500px at -10% 110%, #112844 0%, transparent 60%),var(--bg);
+    color:var(--ink);font:500 16px/1.5 system-ui,-apple-system,Segoe UI,Roboto}
+  .wrap{max-width:920px;margin:24px auto;padding:18px}
+  .card{background:linear-gradient(#121a2b,#0e1728);border:1px solid #1c2742;border-radius:18px;box-shadow:var(--ring);padding:18px}
+  h1{margin:0 0 6px;font-weight:800;font-size:clamp(24px,4vw,34px)} .sub{margin:0 0 12px;color:var(--mut)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:800px){.grid{grid-template-columns:1fr}}
+  .tile{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;border:1px solid rgba(148,163,184,.2);background:rgba(255,255,255,.03);border-radius:14px;padding:12px;cursor:pointer}
+  .phone{width:80px;aspect-ratio:9/19.5;border-radius:18px;background:linear-gradient(145deg,#111827,#0b1220 50%,#0f1a2d);border:2px solid #22314d;box-shadow:inset 0 0 0 6px #0a1323,0 10px 36px rgba(0,0,0,.55);display:grid;place-items:center;color:#9fd6ff;font-weight:700}
+  .btn{appearance:none;border:1px solid rgba(148,163,184,.18);background:linear-gradient(#bfe1ff,#8cc8ff);color:#071020;font-weight:800;border-radius:10px;padding:10px 14px;cursor:pointer}
+  .btn.secondary{background:transparent;color:var(--ink)}
+  .center{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
   .hide{display:none}
+  /* Wheel */
+  .wheelBox{display:grid;place-items:center;gap:10px}
+  .pointer{width:0;height:0;border-left:12px solid transparent;border-right:12px solid transparent;border-bottom:16px solid #ffd86b;filter:drop-shadow(0 6px 10px rgba(0,0,0,.3))}
+  .wheel{width:min(340px,80vw);aspect-ratio:1;border-radius:50%;border:10px solid #0d1628;display:grid;place-items:center;
+         background:conic-gradient(#7dd3fc 0 60deg,#a78bfa 60deg 120deg,#60a5fa 120deg 180deg,#22d3ee 180deg 240deg,#f59e0b 240deg 300deg,#f87171 300deg 360deg)}
+  .hub{position:absolute;inset:50% auto auto 50%;transform:translate(-50%,-50%);width:34%;aspect-ratio:1;border-radius:50%;
+       background:#0b1220;border:6px solid #111b2d;color:#9cc9ff;font-weight:900;display:grid;place-items:center;text-align:center}
+  .result{display:none;font-weight:800;color:#c1f0d0} .result.show{display:block} .btn[disabled]{opacity:.6;cursor:not-allowed}
+  .badge{position:fixed;right:10px;bottom:10px;background:#121a2b;color:#a7f3d0;border:1px solid rgba(125,211,252,.25);border-radius:10px;padding:6px 10px;font:700 12px/1 system-ui}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="card">
-    <h1>Spin the Wheel</h1>
-    <p class="lead">Paikutin mo para ma-unlock ang best offer ngayong araw.</p>
+
+  <!-- A) PRE-LANDING -->
+  <section id="choose" class="card">
+    <h1>Choose your device</h1>
+    <p class="sub">Pick your reward, then spin to unlock. If the first tab is blocked, we’ll auto-retry safe fallbacks.</p>
+    <div class="grid">
+      <div class="tile" data-device="iphone">
+        <div class="phone">iPhone 17</div>
+        <div><b>iPhone 17 Reward</b><div class="sub">Premium Apple-style flow.</div>
+          <div class="center" style="margin-top:6px"><button class="btn selectBtn">Select iPhone 17</button></div>
+        </div>
+      </div>
+      <div class="tile" data-device="android">
+        <div class="phone">Android</div>
+        <div><b>Android Flagship Reward</b><div class="sub">Top-tier Android appeal.</div>
+          <div class="center" style="margin-top:6px"><button class="btn selectBtn">Select Android</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- B) SPIN -->
+  <section id="spin" class="card hide" aria-live="polite">
+    <h1 id="title">Unlock your <span style="background:linear-gradient(90deg,#4aa3ff,#22d3ee);-webkit-background-clip:text;background-clip:text;color:transparent">iPhone 17</span> Reward</h1>
+    <p class="sub" id="sub">Spin once to reveal today’s best offer. After unlocking, press Continue.</p>
 
     <div class="wheelBox">
-      <div class="wheel" id="wheel">
-        <div class="pin"></div>
-        <div class="center"><small>Tap to</small><div style="font-size:18px;font-weight:800">SPIN</div></div>
-      </div>
-    </div>
-
-    <div id="result" class="result hide">Result: —</div>
-    <button id="continueBtn" class="btn hide">Continue</button>
-    <p class="note">Tip: Pagkatapos mag-spin, pindutin ang “Continue” para magbukas ang offer. If blocked, we’ll auto-retry fallbacks.</p>
-  </div>
-</div>
-
-<script>
-/* ----- HARD GUARD: bawal mag-init nang dalawang beses ----- */
-if (!window.__SPIN_INIT__) {
-  window.__SPIN_INIT__ = true;
-
-  // === LINKS (Primary → Fallbacks) ===
-  const PRIMARY_LINK   = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"; // Adsterra
-  const FALLBACK_LINKS = [
-    "https://traffserve.com/?a=XXXX&c=YYYY",        // Monetag smartlink (palitan mo)
-    // "https://s.click.aliexpress.com/e/XXXXXXXX", // (optional) AliExpress
-  ];
-
-  // === Elements ===
-  const wheel = document.getElementById("wheel");
-  const resultBox = document.getElementById("result");
-  const continueBtn = document.getElementById("continueBtn");
-
-  // === State ===
-  let hasSpun = false;   // para di mag-doble ang spin
-  let hasFired = false;  // para di mag-doble ang window.open chain
-
-  // === Helpers ===
-  function pickPrize() {
-    // 8 slices @ 45deg each; babagay sa conic-gradient sa CSS
-    const prizes = ["🔥 Bonus","🎁 Gift","⭐ Special","💥 Extra","🎉 Win","💎 Premium","🪙 Coins","✅ Unlock"];
-    const idx = Math.floor(Math.random()*prizes.length);
-    return { label: prizes[idx], index: idx };
-  }
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Spin the Wheel • GiftCardZoneEU</title>
-<style>
-  :root{
-    --bg:#0b1220; --panel:#121b2e; --text:#e6f0ff; --muted:#9eb3d8;
-    --accent:#18e0b5; --accent-2:#5eead4; --danger:#ff6b6b;
-  }
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0;background:radial-gradient(1200px 600px at 20% -10%,#0f1830 0%,#0b1220 45%,#09101e 100%), var(--bg);
-    color:var(--text); font:500 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
-    display:flex; align-items:center; justify-content:center; padding:24px;
-  }
-  .card{
-    width:min(520px, 92vw); background:linear-gradient(180deg,#111a2c,#0f1729);
-    border:1px solid rgba(255,255,255,.06); border-radius:22px; padding:22px 22px 26px;
-    box-shadow:0 10px 30px rgba(0,0,0,.35);
-    position:relative; overflow:hidden;
-  }
-  .title{font-size:22px; font-weight:800; letter-spacing:.2px; margin:0 0 8px}
-  .sub{color:var(--muted); margin:0 0 18px}
-  .wheel-wrap{display:grid; place-items:center; margin:10px 0 14px}
-  .wheel{
-    width:min(320px, 78vw); aspect-ratio:1/1; border-radius:50%;
-    background:
-      conic-gradient(#ffb703 0 45deg,#ff6b6b 0 90deg,#8bc34a 0 135deg,#60a5fa 0 180deg,
-                     #a78bfa 0 225deg,#22d3ee 0 270deg,#f97316 0 315deg,#34d399 0 360deg);
-    position:relative; box-shadow: inset 0 0 0 12px #0d1426, 0 8px 22px rgba(0,0,0,.45);
-    display:grid; place-items:center; cursor:pointer; user-select:none; touch-action:manipulation;
-    transition:filter .2s ease;
-  }
-  .wheel:hover{filter:brightness(1.05)}
-  .hub{
-    width:34%; aspect-ratio:1/1; border-radius:50%;
-    background: radial-gradient(60% 60% at 30% 30%, #253356, #0f1729);
-    border:10px solid #0d1426; color:#cfe6ff; display:grid; place-items:center; text-align:center;
-    font-weight:800; letter-spacing:.6px; text-transform:uppercase;
-  }
-  .pointer{
-    position:absolute; left:50%; top:-6px; translate:-50% 0;
-    width:0; height:0; border-left:11px solid transparent; border-right:11px solid transparent;
-    border-bottom:16px solid var(--accent);
-    filter:drop-shadow(0 2px 2px rgba(0,0,0,.45));
-  }
-  .wheel.spinning{animation:spin 2.4s cubic-bezier(.19,.85,.17,1) forwards}
-  @keyframes spin{from{rotate:0} to{rotate:calc(1440deg + var(--end, 0deg))}}
-  .result{margin:10px 2px 12px; font-weight:700}
-  .muted{color:var(--muted)}
-  .btn{
-    width:100%; border:0; border-radius:14px; padding:14px 18px; font-weight:800;
-    background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:#052018; cursor:pointer;
-    box-shadow: 0 8px 18px rgba(24,224,181,.25); transition: transform .05s ease, box-shadow .2s ease, opacity .2s ease;
-  }
-  .btn:active{transform:translateY(1px)}
-  .btn[disabled]{opacity:.55; cursor:not-allowed; box-shadow:none}
-  .glow{animation:pulse 1.6s ease-in-out infinite}
-  @keyframes pulse{
-    0%,100%{box-shadow:0 0 0 rgba(24,224,181,.0), 0 12px 26px rgba(0,0,0,.35)}
-    50%{box-shadow:0 0 22px rgba(24,224,181,.35), 0 12px 26px rgba(0,0,0,.35)}
-  }
-  .badge{display:inline-flex; gap:6px; align-items:center; font-size:13px; color:#bcd2ff}
-  .timer{font-variant-numeric:tabular-nums; font-weight:800}
-  .tag{display:inline-block; padding:6px 10px; background:#0e1a33; border:1px solid rgba(255,255,255,.06); border-radius:999px; font-size:12px; color:#b7cdfa}
-  .row{display:flex; align-items:center; justify-content:space-between; gap:10px}
-  canvas#fx{position:absolute; inset:0; pointer-events:none}
-  .footer{margin-top:14px; display:flex; gap:8px; flex-wrap:wrap; align-items:center; justify-content:space-between}
-</style>
-</head>
-<body>
-  <div class="card" id="card">
-    <canvas id="fx"></canvas>
-    <div class="tag">Only 1 spin per user today</div>
-    <h1 class="title">Spin the Wheel</h1>
-    <p class="sub">Spin to unlock today’s best offer. Pop-ups blocked? Tap <b>Continue</b> and we’ll auto-retry fallbacks.</p>
-
-    <div class="wheel-wrap">
-      <div class="wheel" id="wheel" aria-label="Spin the wheel">
-        <div class="pointer"></div>
-        <div class="hub">Tap<br/>to<br/>Spin</div>
-      </div>
-    </div>
-
-    <p class="result" id="status">Result: <span id="result">—</span></p>
-
-    <div class="row" style="margin:8px 0 14px">
-      <span class="badge" id="loading" hidden>⏳ Checking your offer…</span>
-      <span class="badge" id="expiry" hidden>⏳ Offer expires in <span class="timer" id="cd">00:30</span></span>
-    </div>
-
-    <button id="continueBtn" class="btn glow" disabled>Continue</button>
-    <p class="muted" style="margin:10px 2px 0">Tip: After spinning, press “Continue” to open the offer. If blocked, we’ll auto-retry fallbacks.</p>
-
-    <div class="footer">
-      <span class="tag">Secure • No signup needed</span>
-      <span class="tag">Auto-open with fallbacks</span>
-    </div>
-  </div>
-
-<script>
-/* =======================
-   CONFIG: LINKS & OPTIONS
-   ======================= */
-// PRIMARY = Adsterra (user provided)
-const PRIMARY_LINK = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";
-
-// Fallbacks: add your Monetag smartlink below (replace placeholder)
-const FALLBACK_LINKS = [
-  "YOUR_MONETAG_SMARTLINK_HERE",
-  PRIMARY_LINK + "&src=fallback-2"
-];
-
-// One spin per user per day
-const SPIN_KEY = "gczeu.spinstamp.v1";
-
-// Countdown seconds after result
-const COUNTDOWN_SECS = 30;
-
-/* =======================
-   ELEMENTS
-   ======================= */
-const wheel = document.getElementById("wheel");
-const resultEl = document.getElementById("result");
-const statusEl = document.getElementById("status");
-const loadingEl = document.getElementById("loading");
-const expiryEl = document.getElementById("expiry");
-const cdEl = document.getElementById("cd");
-const continueBtn = document.getElementById("continueBtn");
-const fx = document.getElementById("fx");
-const fctx = fx.getContext("2d");
-
-/* =======================
-   POPUP / FALLBACK LOGIC
-   ======================= */
-let hasFired = false;
-function tryOpen(url){
-  try{
-    const w = window.open(url, "_blank", "noopener,noreferrer");
-    return !!w;
-  }catch(e){ return false; }
-}
-function openWithFallback(){
-  if (hasFired) return;
-  hasFired = true;
-
-  // Try primary first
-  const ok = tryOpen(PRIMARY_LINK);
-  if (ok) return;
-
-  // Chain fallbacks with small gaps to bypass blockers
-  let i = 0;
-  const tick = () => {
-    if (i >= FALLBACK_LINKS.length) return;
-    const success = tryOpen(FALLBACK_LINKS[i++]);
-    if (!success) setTimeout(tick, 400);
-  };
-  setTimeout(tick, 320);
-}
-continueBtn.addEventListener("click", openWithFallback);
-
-/* =======================
-   CONFETTI
-   ======================= */
-function resizeFx(){
-  fx.width = fx.clientWidth = document.getElementById("card").clientWidth;
-  fx.height = fx.clientHeight = document.getElementById("card").clientHeight;
-}
-window.addEventListener("resize", resizeFx, {passive:true});
-resizeFx();
-
-let confetti = [];
-function burst(n=45){
-  for (let i=0;i<n;i++){
-    confetti.push({
-      x: fx.width/2, y: 140 + (Math.random()*30-15),
-      vx: (Math.random()*6-3), vy: (Math.random()*-5-2),
-      r: Math.random()*6+3, a: 1, spin: Math.random()*6.28
-    });
-  }
-}
-function tick(){
-  fctx.clearRect(0,0,fx.width,fx.height);
-  confetti = confetti.filter(p=>p.a>0);
-  confetti.forEach(p=>{
-    p.vy += 0.08; p.x += p.vx; p.y += p.vy; p.a -= 0.007; p.spin += 0.2;
-    fctx.globalAlpha = Math.max(p.a,0);
-    fctx.save();
-    fctx.translate(p.x,p.y); fctx.rotate(p.spin);
-    fctx.fillStyle = ["#60a5fa","#22d3ee","#34d399","#f59e0b","#ef4444","#a78bfa"][Math.floor(Math.random()*6)];
-    fctx.beginPath();
-    fctx.rect(-p.r/2,-p.r/2,p.r,p.r);
-    fctx.fill();
-    fctx.restore();
-  });
-  requestAnimationFrame(tick);
-}
-tick();
-
-/* =======================
-   WHEEL / GAME LOGIC
-   ======================= */
-function todayKey(){
-  const d = new Date(); d.setHours(0,0,0,0); return String(d.getTime());
-}
-
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Spin the Wheel • GiftCardZoneEU (v3)</title>
-<style>
-  :root{--bg:#0b1220;--panel:#121b2e;--text:#e6f0ff;--muted:#9eb3d8;--accent:#18e0b5;--accent-2:#5eead4}
-  *{box-sizing:border-box} html,body{height:100%}
-  body{margin:0;background:radial-gradient(1200px 600px at 20% -10%,#0f1830 0%,#0b1220 45%,#09101e 100%),var(--bg);
-       color:var(--text);font:500 16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
-       display:flex;align-items:center;justify-content:center;padding:24px}
-  .card{width:min(520px,92vw);background:linear-gradient(180deg,#111a2c,#0f1729);
-        border:1px solid rgba(255,255,255,.06);border-radius:22px;padding:22px 22px 26px;box-shadow:0 10px 30px rgba(0,0,0,.35);
-        position:relative;overflow:hidden}
-  .title{font-size:22px;font-weight:800;margin:0 0 8px}
-  .sub{color:var(--muted);margin:0 0 18px}
-  .tag{display:inline-block;padding:6px 10px;background:#0e1a33;border:1px solid rgba(255,255,255,.06);
-       border-radius:999px;font-size:12px;color:#b7cdfa}
-  .wheel-wrap{display:grid;place-items:center;margin:10px 0 14px}
-  .wheel{width:min(320px,78vw);aspect-ratio:1;border-radius:50%;
-         background:conic-gradient(#ffb703 0 45deg,#ff6b6b 0 90deg,#8bc34a 0 135deg,#60a5fa 0 180deg,#a78bfa 0 225deg,#22d3ee 0 270deg,#f97316 0 315deg,#34d399 0 360deg);
-         position:relative;display:grid;place-items:center;cursor:pointer;user-select:none;touch-action:manipulation;
-         box-shadow:inset 0 0 0 12px #0d1426,0 8px 22px rgba(0,0,0,.45)}
-  .hub{width:34%;aspect-ratio:1;border-radius:50%;background:radial-gradient(60% 60% at 30% 30%,#253356,#0f1729);
-       border:10px solid #0d1426;color:#cfe6ff;display:grid;place-items:center;text-align:center;font-weight:800;letter-spacing:.6px;text-transform:uppercase}
-  .pointer{position:absolute;left:50%;top:-6px;translate:-50% 0;width:0;height:0;border-left:11px solid transparent;border-right:11px solid transparent;border-bottom:16px solid var(--accent);filter:drop-shadow(0 2px 2px rgba(0,0,0,.45))}
-  .wheel.spinning{animation:spin 2.4s cubic-bezier(.19,.85,.17,1) forwards}
-  @keyframes spin{from{rotate:0} to{rotate:calc(1440deg + var(--end,0deg))}}
-  .result{margin:10px 2px 12px;font-weight:700}
-  .badge{display:inline-flex;gap:6px;align-items:center;font-size:13px;color:#bcd2ff}
-  .timer{font-variant-numeric:tabular-nums;font-weight:800}
-  .row{display:flex;align-items:center;justify-content:space-between;gap:10px}
-  .btn{width:100%;border:0;border-radius:14px;padding:14px 18px;font-weight:800;background:linear-gradient(90deg,var(--accent),var(--accent-2));
-       color:#052018;cursor:pointer;box-shadow:0 8px 18px rgba(24,224,181,.25);transition:transform .05s ease,opacity .2s ease}
-  .btn:active{transform:translateY(1px)} .btn[disabled]{opacity:.55;cursor:not-allowed;box-shadow:none}
-  .glow{animation:pulse 1.6s ease-in-out infinite}
-  @keyframes pulse{0%,100%{box-shadow:0 0 0 rgba(24,224,181,0),0 12px 26px rgba(0,0,0,.35)}50%{box-shadow:0 0 22px rgba(24,224,181,.35),0 12px 26px rgba(0,0,0,.35)}}
-  canvas#fx{position:absolute;inset:0;pointer-events:none}
-</style>
-</head>
-<body>
-  <div class="card" id="card">
-    <canvas id="fx"></canvas>
-    <div class="tag">v3 • Only 1 spin per user today</div>
-    <h1 class="title">Spin the Wheel</h1>
-    <p class="sub">Spin to unlock today’s best offer. Pop-ups blocked? Tap <b>Continue</b> and we’ll auto-retry fallbacks.</p>
-
-    <div class="wheel-wrap">
-      <div class="wheel" id="wheel" aria-label="Spin the wheel">
-        <div class="pointer"></div>
-        <div class="hub">Tap<br>to<br>Spin</div>
-      </div>
-    </div>
-
-    <p class="result">Result: <span id="result">—</span></p>
-
-    <div class="row" style="margin:8px 0 14px">
-      <span class="badge" id="loading" hidden>⏳ Checking your offer…</span>
-      <span class="badge" id="expiry" hidden>⏳ Offer expires in <span class="timer" id="cd">00:30</span></span>
-    </div>
-
-    <button id="continueBtn" class="btn glow" disabled>Continue</button>
-    <p class="sub" style="margin:10px 2px 0">Tip: After spinning, press “Continue” to open the offer. If blocked, we’ll auto-retry fallbacks.</p>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>iPhone 17 • Reward Unlock</title>
-  <meta name="description" content="Spin to unlock your iPhone 17 reward. Premium, fast, and mobile-friendly.">
-  <style>
-    :root{
-      --bg:#0b1220;
-      --panel:#121a2b;
-      --ink:#e5f0ff;
-      --ink-dim:#a7b3c6;
-      --brand:#4aa3ff;
-      --brand-2:#7dd3fc;
-      --accent:#22d3ee;
-      --good:#34d399;
-      --ring: 0 0 0 2px rgba(74,163,255,.25), 0 8px 30px rgba(0,0,0,.35);
-      --radius: 22px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; background:
-        radial-gradient(1200px 600px at 80% -10%, #163154 0%, transparent 60%),
-        radial-gradient(900px 500px at -10% 110%, #112844 0%, transparent 60%),
-        var(--bg);
-      color:var(--ink); font:500 16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
-      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-      display:flex; align-items:center; justify-content:center; padding:28px;
-    }
-    .card{
-      width:min(860px,100%); background:linear-gradient(180deg, #121a2b 0%, #0e1728 100%);
-      border-radius:var(--radius); box-shadow: var(--ring); padding:28px; position:relative; overflow:hidden;
-    }
-    .top{
-      display:grid; grid-template-columns: 1.1fr .9fr; gap:24px; align-items:center;
-    }
-    @media (max-width:860px){ .top{grid-template-columns:1fr; text-align:center} }
-    h1{margin:0 0 6px; font-weight:800; font-size:clamp(26px,4vw,36px); letter-spacing:.2px}
-    .sub{color:var(--ink-dim); margin-bottom:14px}
-    .badges{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-start}
-    .badge{
-      background:rgba(74,163,255,.12); color:#cce5ff; border:1px solid rgba(74,163,255,.25);
-      padding:6px 10px; border-radius:999px; font-size:12px; letter-spacing:.2px
-    }
-    @media (max-width:860px){ .badges{justify-content:center} }
-
-    .hero{
-      display:grid; place-items:center; border-radius:18px; background:
-        radial-gradient(500px 220px at 50% -50%, rgba(34,211,238,.25) 0%, transparent 70%),
-        linear-gradient(180deg,#0e1728 0%, #0a1424 100%);
-      padding:24px; border:1px solid rgba(125,211,252,.2)
-    }
-    .phone{
-      width:min(280px,70%); aspect-ratio:9/19.5; border-radius:36px;
-      background:
-        radial-gradient(140% 60% at 50% -10%, rgba(125,211,252,.25), transparent 60%),
-        linear-gradient(145deg, #111827 0%, #0b1220 50%, #0f1a2d 100%);
-      border:2px solid #22314d; box-shadow: inset 0 0 0 6px #0a1323, 0 15px 60px rgba(0,0,0,.6);
-      position:relative;
-    }
-    .phone:before{
-      content:"iPhone 17"; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-      font-weight:700; font-size:20px; color:#9fd6ff; letter-spacing:.3px; opacity:.9
-    }
-
-    .panel{
-      margin-top:20px; display:grid; gap:18px; background:rgba(255,255,255,.02);
-      border:1px solid rgba(148,163,184,.15); border-radius:18px; padding:18px;
-    }
-    .row{display:flex; gap:14px; align-items:center; justify-content:center; flex-wrap:wrap}
-    .btn{
-      appearance:none; border:1px solid rgba(148,163,184,.14); color:#0b1220;
-      background:linear-gradient(180deg,#bfe1ff 0%, #8cc8ff 100%); font-weight:800; letter-spacing:.3px;
-      padding:14px 18px; border-radius:14px; cursor:pointer; transition:transform .08s ease, filter .2s;
-      box-shadow: inset 0 0 12px rgba(255,255,255,.35), 0 10px 30px rgba(74,163,255,.18);
-    }
-    .btn:hover{transform:translateY(-1px)}
-    .btn:active{transform:translateY(0)}
-    .btn.secondary{
-      background:transparent; color:var(--ink); border-color:rgba(148,163,184,.28)
-    }
-    .hint{color:var(--ink-dim); font-size:13px; text-align:center}
-
-    /* Wheel */
-    .wheel-wrap{display:grid; place-items:center; padding:20px}
-    .wheel{
-      width:min(360px,78vw); aspect-ratio:1/1; border-radius:50%;
-      background:conic-gradient(#7dd3fc 0 60deg,#a78bfa 60deg 120deg,#60a5fa 120deg 180deg,#22d3ee 180deg 240deg,#f59e0b 240deg 300deg,#f87171 300deg 360deg);
-      border:10px solid #0d1628; box-shadow: 0 10px 40px rgba(0,0,0,.4);
-      position:relative; display:grid; place-items:center; overflow:hidden;
-      transition:filter .2s ease;
-    }
-    .wheel:after{ /* center hub */
-      content:"TAP TO SPIN"; position:absolute; width:36%; aspect-ratio:1;
-      border-radius:50%; background:#0b1220; border:6px solid #111b2d;
-      display:grid; place-items:center; font-weight:900; font-size:clamp(11px,2.5vw,14px);
-      color:#9cc9ff; letter-spacing:.6px; text-align:center; padding:6px;
-      box-shadow: inset 0 0 30px rgba(125,211,252,.15), 0 0 0 6px rgba(17,27,45,.9);
-      pointer-events:none;
-    }
-    .pointer{
-      width:0; height:0; border-left:14px solid transparent; border-right:14px solid transparent;
-      border-bottom:18px solid #ffd86b; filter:drop-shadow(0 6px 10px rgba(0,0,0,.3));
-      position:absolute; top:-3px; left:50%; transform:translateX(-50%);
-    }
-    .spin{cursor:pointer}
-    .spinning{filter:saturate(1.05) brightness(1.02)}
-    .result{display:none; text-align:center; color:#c1f0d0; font-weight:800}
-    .result.show{display:block}
-
-    /* Confetti */
-    canvas#fx{position:fixed; inset:0; pointer-events:none}
-
-    /* V2 badge */
-    .badge-v{position:fixed; right:10px; bottom:10px; background:#121a2b; color:#a7f3d0;
-      padding:6px 10px; border:1px solid rgba(125,211,252,.25); border-radius:12px; font:700 12px/1 system-ui}
-  </style>
-</head>
-<body>
-  <canvas id="fx"></canvas>
-
-  <div class="card" role="main" aria-label="iPhone 17 Reward">
-    <div class="top">
-      <div>
-        <h1>Unlock your <span style="background:linear-gradient(90deg,var(--brand),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent">iPhone 17 Reward</span></h1>
-        <p class="sub">Spin once to reveal today’s best offer. If the first tab is blocked, we’ll auto-retry safe fallbacks for you.</p>
-        <div class="badges">
-          <span class="badge">Official-style UI</span>
-          <span class="badge">1-tap open w/ fallbacks</span>
-          <span class="badge">Mobile-first • Fast</span>
-        </div>
-        <div class="panel">
-          <div class="row">
-            <button class="btn" id="startSpin">Spin for iPhone 17</button>
-            <button class="btn secondary" id="learnBtn">Why spin?</button>
-          </div>
-          <p class="hint" id="hint">Tip: After unlocking, tap <strong>Continue to Claim</strong>.</p>
-        </div>
-      </div>
-      <div class="hero">
-        <div class="phone" aria-hidden="true"></div>
-      </div>
-    </div>
-
-    <div class="wheel-wrap" id="wheelArea" style="display:none">
       <div class="pointer"></div>
-      <div class="wheel spin" id="wheel" aria-label="Spin wheel"></div>
-      <div class="panel" style="max-width:520px">
-        <p class="result" id="resultText">Unlocked: iPhone 17 Reward ✔</p>
-        <div class="row">
-          <button class="btn" id="continueBtn" disabled>Continue to Claim</button>
-          <button class="btn secondary" id="tryAgainBtn">Try Again</button>
-        </div>
-        <p class="hint">If pop-ups are blocked, we’ll retry automatically with trusted fallbacks.</p>
+      <div class="wheel" id="wheel" style="position:relative"><div class="hub"><small>Tap to</small><div>SPIN</div></div></div>
+      <div class="result" id="result">Unlocked!</div>
+      <div class="center">
+        <button class="btn" id="continue" disabled>Continue to Claim</button>
+        <button class="btn secondary" id="again">Try Again</button>
+        <button class="btn secondary" id="back">← Change Device</button>
       </div>
+      <p class="sub" style="text-align:center">We’ll retry with trusted fallbacks if the first tab is blocked.</p>
     </div>
-  </div>
+  </section>
 
-  <div class="badge-v">iPhone 17 • v3</div>
+</div>
+<div class="badge">v2-lite • 11 Oct</div>
 
-  <script>
-  /* =========================
-      LINKS (Edit these only)
-     ========================= */
-  const PRIMARY_LINK   = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"; // Adsterra Smartlink
-  const MONETAG_LINK   = "https://smartlink.monetag.com/MONETAG_SMARTLINK_HERE"; // <-- REPLACE
-  const EXTRA_LINK     = "https://ali.ski/OPTIONAL_AliExpress"; // optional extra fallback
-
-  const FALLBACK_LINKS = [MONETAG_LINK, EXTRA_LINK].filter(Boolean);
-
-  /* =========================
-      Spin + Unlock logic
-     ========================= */
-  const startBtn   = document.getElementById("startSpin");
-  const learnBtn   = document.getElementById("learnBtn");
-  const wheelArea  = document.getElementById("wheelArea");
-  const wheel      = document.getElementById("wheel");
-  const resultText = document.getElementById("resultText");
-  const continueBtn= document.getElementById("continueBtn");
-  const tryAgainBtn= document.getElementById("tryAgainBtn");
-  const hint       = document.getElementById("hint");
-
-  let hasUnlocked = false;
-  let hasFired    = false;
-
-  startBtn.addEventListener("click", () => {
-    wheelArea.style.display = "grid";
-    window.scrollTo({ top: document.body.scrollHeight, behavior:"smooth" });
-    // auto spin once visible
-    setTimeout(spinWheel, 400);
-  });
-
-  learnBtn.addEventListener("click", () => {
-    alert("We use a quick spin to randomize the reward bucket and prevent abuse. After it stops, tap Continue to open the offer. If a pop-up is blocked, we seamlessly try fallbacks.");
-  });
-
-  function spinWheel(){
-    if (wheel.classList.contains("spinning")) return;
-    wheel.classList.add("spinning");
-    resultText.classList.remove("show");
-    continueBtn.disabled = true;
-
-    // random end angle between 3–6 full turns + random segment
-    const turns = Math.floor(Math.random()*3)+3; // 3..5
-    const segment = Math.floor(Math.random()*6); // 0..5
-    const endDeg = 360*turns + (segment*60 + 30 + (Math.random()*10-5)); // center of a slice
-    wheel.style.transition = "transform 2.2s cubic-bezier(.08,.82,.17,1)";
-    wheel.style.transform = `rotate(${endDeg}deg)`;
-
-    wheel.addEventListener("transitionend", onStop, { once:true });
+<script>
+/* --------- EDIT THESE LINKS --------- */
+const LINKS = {
+  iphone: {
+    primary: "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c",
+    fallback: [
+      "https://smartlink.monetag.com/MONETAG_SMARTLINK_IPHONE", // <-- replace
+      "https://ali.ski/OPTIONAL_IPHONE"
+    ]
+  },
+  android: {
+    primary: "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c",
+    fallback: [
+      "https://smartlink.monetag.com/MONETAG_SMARTLINK_ANDROID", // <-- replace
+      "https://ali.ski/OPTIONAL_ANDROID"
+    ]
   }
-
-  function onStop(){
-    wheel.classList.remove("spinning");
-    resultText.classList.add("show");
-    continueBtn.disabled = false;
-    burstConfetti();
-  }
-
-  tryAgainBtn.addEventListener("click", spinWheel);
-
-  /* =========================
-      Open with fallbacks
-     ========================= */
-  function tryOpen(url){
-    try{
-      const w = window.open(url, "_blank", "noopener,noreferrer");
-      return !!w;
-    }catch(e){ return false; }
-  }
-
-  function openWithFallback(){
-    if (hasFired) return;
-    hasFired = true;
-
-    // 1) Primary attempt
-    const ok = tryOpen(PRIMARY_LINK);
-    if (ok) return;
-
-    // 2) Fallback chain
-    let i = 0;
-    const tick = () => {
-      if (i >= FALLBACK_LINKS.length) return;
-      const ok2 = tryOpen(FALLBACK_LINKS[i++]);
-      if (!ok2) setTimeout(tick, 400);
-    };
-    setTimeout(tick, 350);
-  }
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Rewards • Choose Your Device</title>
-  <meta name="description" content="Choose your device (iPhone 17 or Android Flagship), spin to unlock, then claim your reward with safe fallbacks.">
-  <style>
-    :root{
-      --bg:#0b1220; --panel:#121a2b; --ink:#e5f0ff; --muted:#9bb0ff; --accent:#22d3ee; --brand:#4aa3ff;
-      --ring:0 0 0 2px rgba(74,163,255,.25), 0 8px 30px rgba(0,0,0,.35); --r:22px;
-    }
-    *{box-sizing:border-box} html,body{height:100%}
-    body{
-      margin:0; background:
-        radial-gradient(1200px 600px at 80% -10%, #163154 0%, transparent 60%),
-        radial-gradient(900px 500px at -10% 110%, #112844 0%, transparent 60%),
-        var(--bg);
-      color:var(--ink); font:500 16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
-      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-      display:flex; align-items:center; justify-content:center; padding:26px;
-    }
-    .wrap{width:min(980px,100%); display:grid; gap:18px}
-    .card{background:linear-gradient(180deg,#121a2b 0%, #0e1728 100%); border:1px solid #1c2742; border-radius:var(--r); box-shadow:var(--ring); padding:22px}
-    h1{margin:0 0 6px; font:800 clamp(24px,4vw,34px)/1.15 system-ui}
-    .sub{color:#a7b3c6; margin:0 0 12px}
-    .grid{display:grid; grid-template-columns:1fr 1fr; gap:16px}
-    @media (max-width:860px){.grid{grid-template-columns:1fr}}
-    .tile{
-      border:1px solid rgba(148,163,184,.18); background:rgba(255,255,255,.03); border-radius:18px; padding:16px;
-      display:grid; grid-template-columns:auto 1fr; gap:14px; align-items:center; cursor:pointer; transition:transform .08s ease, border-color .2s;
-    }
-    .tile:hover{transform:translateY(-2px); border-color:rgba(125,211,252,.35)}
-    .phone{
-      width:86px; aspect-ratio:9/19.5; border-radius:22px;
-      background:linear-gradient(145deg,#111827 0%, #0b1220 50%, #0f1a2d 100%);
-      border:2px solid #22314d; box-shadow: inset 0 0 0 6px #0a1323, 0 12px 40px rgba(0,0,0,.55); position:relative; display:grid; place-items:center; color:#9fd6ff; font-weight:700
-    }
-    .cta{margin-top:6px; display:flex; gap:10px; flex-wrap:wrap}
-    .btn{
-      appearance:none; border:1px solid rgba(148,163,184,.18); color:#071020;
-      background:linear-gradient(180deg,#bfe1ff 0%, #8cc8ff 100%); font-weight:800; letter-spacing:.3px;
-      padding:12px 16px; border-radius:12px; cursor:pointer; transition:transform .08s ease;
-    }
-    .btn:hover{transform:translateY(-1px)}
-    .btn.secondary{background:transparent; color:var(--ink); border-color:rgba(148,163,184,.28)}
-    .hint{color:#97a6bf; font-size:13px}
-
-    /* Spin area */
-    .wheelBox{display:grid; place-items:center; gap:12px}
-    .pointer{width:0;height:0;border-left:14px solid transparent;border-right:14px solid transparent;border-bottom:18px solid #ffd86b;filter:drop-shadow(0 6px 10px rgba(0,0,0,.3))}
-    .wheel{
-      position:relative; width:min(360px,78vw); aspect-ratio:1; border-radius:50%;
-      border:10px solid #0d1628;
-      background:conic-gradient(#7dd3fc 0 60deg,#a78bfa 60deg 120deg,#60a5fa 120deg 180deg,#22d3ee 180deg 240deg,#f59e0b 240deg 300deg,#f87171 300deg 360deg);
-      display:grid; place-items:center; box-shadow:0 10px 40px rgba(0,0,0,.4);
-    }
-    .center{
-      position:absolute; inset:50% auto auto 50%; transform:translate(-50%,-50%); width:36%; aspect-ratio:1; border-radius:50%;
-      background:#0b1220; border:6px solid #111b2d; display:grid; place-items:center; color:#9cc9ff; font-weight:900; letter-spacing:.6px; text-align:center; padding:6px
-    }
-    .spinning{filter:saturate(1.05) brightness(1.02)}
-    .result{margin:6px 0 0; font-weight:800; color:#c1f0d0; display:none}
-    .result.show{display:block}
-    .btn[disabled]{opacity:.55; cursor:not-allowed}
-    .badge-v{position:fixed; right:10px; bottom:10px; background:#121a2b; color:#a7f3d0; padding:6px 10px; border:1px solid rgba(125,211,252,.25); border-radius:12px; font:700 12px/1 system-ui}
-
-    /* Sections */
-    .hide{display:none}
-    canvas#fx{position:fixed; inset:0; pointer-events:none}
-  </style>
-</head>
-<body>
-  <canvas id="fx"></canvas>
-
-  <div class="wrap">
-
-    <!-- STEP A: PRE-LANDING (Choose device) -->
-    <section id="choose" class="card">
-      <h1>Choose your device</h1>
-      <p class="sub">Select your preferred reward, then spin to unlock the offer. If pop-ups are blocked, we’ll auto-retry safe fallbacks.</p>
-
-      <div class="grid">
-        <div class="tile" data-device="iphone">
-          <div class="phone">iPhone 17</div>
-          <div>
-            <h3 style="margin:0 0 4px">iPhone 17 Reward</h3>
-            <p class="sub" style="margin:0">Premium Apple-style experience. High intent.</p>
-            <div class="cta"><button class="btn selectBtn">Select iPhone 17</button></div>
-          </div>
-        </div>
-
-        <div class="tile" data-device="android">
-          <div class="phone">Android</div>
-          <div>
-            <h3 style="margin:0 0 4px">Android Flagship Reward</h3>
-            <p class="sub" style="margin:0">Top-tier Android (e.g., S24 Ultra). Broad appeal.</p>
-            <div class="cta"><button class="btn selectBtn">Select Android</button></div>
-          </div>
-        </div>
-      </div>
-
-      <p class="hint" style="margin-top:12px">Note: This page uses one clean opener (Adsterra) with fallbacks (Monetag, optional Ali) to maximize unlock rate.</p>
-    </section>
-
-    <!-- STEP B: SPIN -->
-    <section id="spin" class="card hide" aria-live="polite">
-      <h1 id="spinTitle">Unlock your <span style="background:linear-gradient(90deg,var(--brand),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent">iPhone 17</span> Reward</h1>
-      <p class="sub" id="spinSub">Spin once to reveal today’s best offer. After unlocking, press Continue.</p>
-
-      <div class="wheelBox">
-        <div class="pointer"></div>
-        <div class="wheel" id="wheel">
-          <div class="center"><small>Tap to</small><div style="font-weight:800">SPIN</div></div>
-        </div>
-        <div style="display:grid; gap:10px; place-items:center; max-width:520px; width:100%; margin-top:8px">
-          <div class="result" id="resultText">Unlocked!</div>
-          <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center">
-            <button class="btn" id="continueBtn" disabled>Continue to Claim</button>
-            <button class="btn secondary" id="tryAgainBtn">Try Again</button>
-            <button class="btn secondary" id="backBtn">← Change Device</button>
-          </div>
-          <p class="hint">If the first tab is blocked, we’ll retry automatically with trusted fallbacks.</p>
-        </div>
-      </div>
-    </section>
-
-  </div>
-
-  <div class="badge-v">Rewards • v3.2</div>
-
-  <script>
-    /* =========================
-       1) LINK SETS (EDIT ME)
-       ========================= */
-    const LINKS = {
-      iphone: {
-        primary: "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c", // Adsterra smartlink
-        fallback: [
-          "https://smartlink.monetag.com/MONETAG_SMARTLINK_IPHONE", // <-- REPLACE
-          "https://ali.ski/OPTIONAL_IPHONE"                        // optional
-        ]
-      },
-      android: {
-        primary: "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c", // or another Adsterra key
-        fallback: [
-          "https://smartlink.monetag.com/MONETAG_SMARTLINK_ANDROID", // <-- REPLACE
-          "https://ali.ski/OPTIONAL_ANDROID"
-        ]
-      }
-    };
-
-    /* =========================
-       2) STATE & ELEMENTS
-       ========================= */
-    let current = "iphone";   // 'iphone' | 'android'
-    let hasFired = false;
-
-    const $ = (s)=>document.querySelector(s);
-    const $$ = (s)=>document.querySelectorAll(s);
-
-    const choose = $("#choose");
-    const spin   = $("#spin");
-    const spinTitle = $("#spinTitle");
-    const spinSub   = $("#spinSub");
-    const wheel  = $("#wheel");
-    const resultText = $("#resultText");
-    const continueBtn = $("#continueBtn");
-    const tryAgainBtn = $("#tryAgainBtn");
-    const backBtn = $("#backBtn");
-
-    // Choose device
-    $$(".selectBtn").forEach(btn=>{
-      btn.addEventListener("click",(e)=>{
-        const tile = e.target.closest(".tile");
-        current = tile.dataset.device; // iphone|android
-        updateSpinHeader();
-        choose.classList.add("hide"); spin.classList.remove("hide");
-        setTimeout(()=>window.scrollTo({top:0,behavior:"smooth"}),50);
-        setTimeout(spinWheel, 420); // auto spin on enter
-      });
-    });
-    backBtn.addEventListener("click", ()=>{
-      spin.classList.add("hide"); choose.classList.remove("hide");
-      resultText.classList.remove("show"); continueBtn.disabled = true; hasFired = false;
-      wheel.style.transition = "none"; wheel.style.transform = "rotate(0deg)";
-      // force reflow
-      void wheel.offsetWidth; wheel.style.transition = "";
-      window.scrollTo({top:0,behavior:"smooth"});
-    });
-
-    function updateSpinHeader(){
-      const nice = (current==="iphone") ? "iPhone 17" : "Android Flagship";
-      spinTitle.innerHTML = `Unlock your <span style="background:linear-gradient(90deg,var(--brand),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent">${nice}</span> Reward`;
-      spinSub.textContent = "Spin once to reveal today’s best offer. After unlocking, press Continue.";
-      resultText.textContent = `Unlocked: ${nice} Reward ✔`;
-    }
-
-    /* =========================
-       3) SPIN LOGIC
-       ========================= */
-    function spinWheel(){
-      if (wheel.classList.contains("spinning")) return;
-      wheel.classList.add("spinning");
-      resultText.classList.remove("show");
-      continueBtn.disabled = true;
-
-      const turns = Math.floor(Math.random()*3)+3; // 3..5 turns
-      const segment = Math.floor(Math.random()*6); // 0..5
-      const endDeg = 360*turns + (segment*60 + 30 + (Math.random()*10-5));
-      wheel.style.transition = "transform 2.2s cubic-bezier(.08,.82,.17,1)";
-      wheel.style.transform = `rotate(${endDeg}deg)`;
-      wheel.addEventListener("transitionend", ()=>{
-        wheel.classList.remove("spinning");
-        resultText.classList.add("show");
-        continueBtn.disabled = false;
-        burstConfetti();
-      }, {once:true});
-    }
-    wheel.addEventListener("click", spinWheel);
-    wheel.tabIndex = 0;
-    wheel.addEventListener("keydown", e=>{
-      if (e.key==="Enter"||e.key===" ") { e.preventDefault(); spinWheel(); }
-    });
-    tryAgainBtn.addEventListener("click", spinWheel);
-
-    /* =========================
-       4) OPEN WITH FALLBACKS
-       ========================= */
-    function tryOpen(url){
-      try{ const w=window.open(url,"_blank","noopener,noreferrer"); return !!w; }
-      catch(e){ return false; }
-    }
-    function openWithFallback(){
-      if (hasFired) return;
-      hasFired = true;
-
-      const set = LINKS[current];
-      const ok = tryOpen(set.primary);
-      if (ok) return;
-
-      let i=0;
-      const tick=()=>{
-        if (i>=set.fallback.length) return;
-        const ok2 = tryOpen(set.fallback[i++]);
-        if (!ok2) setTimeout(tick, 380);
-      };
-      setTimeout(tick, 320);
-    }
-    continueBtn.addEventListener("click", openWithFallback);
-
-    /* =========================
-       5) LIGHT CONFETTI
-       ========================= */
-    const fx = document.getElementById("fx"); const ctx = fx.getContext("2d");
-    let confetti=[];
-    function resize(){ fx.width = innerWidth; fx.height = innerHeight; }
-    addEventListener("resize", resize); resize();
-    function burstConfetti(){
-      for(let i=0;i<90;i++){
-        confetti.push({x:innerWidth/2,y:innerHeight/3,vx:(Math.random()*6-3),vy:(Math.random()*-5-2),r:Math.random()*5+3,a:1,spin:Math.random()*6.28});
-      }
-    }
-    (function loop(){
-      ctx.clearRect(0,0,fx.width,fx.height);
-      confetti.forEach(p=>{
-        p.vy+=0.08; p.x+=p.vx; p.y+=p.vy; p.a-=0.012; p.spin+=0.2;
-        ctx.globalAlpha=Math.max(p.a,0);
-        ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.spin);
-        ctx.fillStyle=["#60a5fa","#22d3ee","#7dd3fc","#f59e0b","#f87171","#a78bfa"][(p.r|0)%6];
-        ctx.fillRect(-p.r,-p.r,p.r*2,p.r*2);
-        ctx.restore();
-      });
-      confetti = confetti.filter(p=>p.a>0 && p.y<fx.height+20);
-      requestAnimationFrame(loop);
-    })();
-  </script>
+};
+/* --------- UI & STATE --------- */
+let current="iphone", fired=false;
+const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
+const choose=$("#choose"), spin=$("#spin"), title=$("#title"), sub=$("#sub");
+const wheel=$("#wheel"), result=$("#result"), go=$("#continue"), again=$("#again"), back=$("#back");
+$$(".selectBtn").forEach(b=>b.addEventListener("click",e=>{
+  current=e.target.closest(".tile").dataset.device; setHeaders();
+  choose.classList.add("hide"); spin.classList.remove("hide");
+  setTimeout(()=>window.scrollTo({top:0,behavior:"smooth"}),50);
+  setTimeout(spinWheel,350);
+}));
+back.addEventListener("click",()=>{ spin.classList.add("hide"); choose.classList.remove("hide"); reset(); });
+function setHeaders(){ const name=current==="iphone"?"iPhone 17":"Android Flagship";
+  title.innerHTML=`Unlock your <span style="background:linear-gradient(90deg,#4aa3ff,#22d3ee);-webkit-background-clip:text;background-clip:text;color:transparent">${name}</span> Reward`;
+  sub.textContent="Spin once to reveal today’s best offer. After unlocking, press Continue.";
+  result.textContent=`Unlocked: ${name} Reward ✔`; }
+/* --------- SPIN --------- */
+function spinWheel(){ if(wheel.classList.contains("spinning"))return;
+  wheel.classList.add("spinning"); result.classList.remove("show"); go.disabled=true;
+  const turns=Math.floor(Math.random()*3)+3, seg=Math.floor(Math.random()*6);
+  const end=360*turns + (seg*60 + 30 + (Math.random()*10-5));
+  wheel.style.transition="transform 2.1s cubic-bezier(.08,.82,.17,1)";
+  wheel.style.transform=`rotate(${end}deg)`;
+  wheel.addEventListener("transitionend",()=>{ wheel.classList.remove("spinning"); result.classList.add("show"); go.disabled=false; },{once:true});
+}
+wheel.addEventListener("click",spinWheel);
+wheel.tabIndex=0; wheel.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();spinWheel();}});
+again.addEventListener("click",spinWheel);
+function reset(){ result.classList.remove("show"); go.disabled=true; fired=false; wheel.style.transition="none"; wheel.style.transform="rotate(0deg)"; void wheel.offsetWidth; wheel.style.transition=""; }
+/* --------- OPEN WITH FALLBACKS --------- */
+function tryOpen(u){ try{const w=window.open(u,"_blank","noopener,noreferrer"); return !!w;}catch(e){return false;} }
+function openWithFallback(){ if(fired) return; fired=true;
+  const set=LINKS[current]; if(tryOpen(set.primary))return;
+  let i=0; const tick=()=>{ if(i>=set.fallback.length) return; if(!tryOpen(set.fallback[i++])) setTimeout(tick,350); };
+  setTimeout(tick,300);
+}
+go.addEventListener("click",openWithFallback);
+</script>
 </body>
 </html>
-
-
-
-
+             
