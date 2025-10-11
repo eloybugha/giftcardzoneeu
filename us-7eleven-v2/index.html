@@ -128,104 +128,122 @@
     </div>
   </div>
 
-  <script>
-    // ======== LINKS (EDIT HERE IF NEEDED) ========
-    // Primary: Adsterra smartlink (ikaw ang nagbigay)
-    const PRIMARY_LINK = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Spin the Wheel to Claim Your Reward!</title>
+<style>
+  :root { --bg:#f7f7fb; --card:#ffffff; --ink:#222; --muted:#6b7280; --ok:#22c55e; --bar:#e5e7eb; --shadow:0 16px 40px rgba(0,0,0,.12); }
+  *{box-sizing:border-box;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
+  body{margin:0;background:var(--bg);color:var(--ink)}
+  .wrap{max-width:720px;margin:28px auto;padding:16px}
+  h1{font-size:32px;line-height:1.2;margin:0 0 8px}
+  .sub{color:var(--muted);font-size:18px}
+  .card{background:var(--card);border-radius:22px;box-shadow:var(--shadow);padding:24px;margin-top:20px}
+  .hidden{display:none}
 
-    // Fallbacks: Monetag smartlink mo (palitan ang placeholder), optional extra
-    const FALLBACK_LINKS = [
-      "https://otieu.com/4/4203960", // <= palitan mo ito
-      // "https://s.click.aliexpress.com/e/your-affiliate",         // optional pang-2 fallback
-    ];
+  /* Wheel */
+  .wheel-wrap{display:grid;place-items:center;gap:14px}
+  #wheelBox{position:relative;width:290px;height:290px}
+  #wheel{width:100%;height:100%;border-radius:50%;border:10px solid #fff;background:
+      conic-gradient(#ffb4b4 0 45deg,#ffd59e 45deg 90deg,#c9f4aa 90deg 135deg,
+                     #a0e7ff 135deg 180deg,#bdb2ff 180deg 225deg,#ffc6ff 225deg 270deg,
+                     #caffbf 270deg 315deg,#ffd6a5 315deg 360deg);
+      transition:transform 4.2s cubic-bezier(.12,.72,.07,1);}
+  #pointer{position:absolute;top:-6px;left:50%;transform:translateX(-50%);
+    width:0;height:0;border-left:14px solid transparent;border-right:14px solid transparent;border-bottom:22px solid #111;border-radius:3px}
+  .btn{appearance:none;border:0;border-radius:14px;padding:14px 18px;font-weight:700;cursor:pointer}
+  .btn-primary{background:#10b981;color:#fff}
+  .btn-ghost{background:#eef2ff;color:#111}
+  .center{text-align:center}
 
-    // ======== OPEN LOGIC (1 window lang, with fallback) ========
-    let hasFired = false;
+  /* Claim */
+  .timer{font-size:42px;font-weight:800;letter-spacing:1px;margin:6px 0}
+  .bar{width:100%;height:10px;background:var(--bar);border-radius:999px;overflow:hidden}
+  .fill{height:100%;width:0;background:var(--ok);transition:width .2s}
+  .fine{color:var(--muted);font-size:14px;margin-top:10px}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>🎁 Spin the Wheel to Claim Your Reward!</h1>
+    <p class="sub">🎉 Only a few rewards left today—don’t miss your chance.</p>
 
-    function tryOpen(url){
-      try{
-        const win = window.open(url, "_blank", "noopener,noreferrer");
-        return !!win;
-      }catch(e){ return false; }
-    }
+    <!-- WHEEL CARD -->
+    <section id="wheelCard" class="card">
+      <div class="wheel-wrap">
+        <div id="wheelBox">
+          <div id="pointer"></div>
+          <div id="wheel" aria-label="spin wheel"></div>
+        </div>
+        <button id="spinBtn" class="btn btn-primary">SPIN</button>
+        <p class="fine">Tip: Single tap only. After a successful spin, you’ll unlock the claim window.</p>
+      </div>
+    </section>
 
-    function openWithFallback(){
-      if (hasFired) return;
-      hasFired = true;
+    <!-- CLAIM CARD (hidden until after spin) -->
+    <section id="claimCard" class="card hidden">
+      <div class="center">
+        <div style="background:#e8fff0;color:#0a8f3c;display:inline-block;padding:6px 12px;border-radius:999px;margin-bottom:10px">
+          Limited • Verified Offer
+        </div>
+        <h2 style="margin:6px 0 6px">Spin Reward Unlocked</h2>
+        <p>Congrats! You’ve unlocked a claim window. Tap Continue to open the offer.
+          If it doesn’t open, the backup link will auto-start.</p>
 
-      // 1) Primary attempt
-      const opened = tryOpen(PRIMARY_LINK);
+        <div id="timer" class="timer">00:30</div>
+        <div class="bar"><div id="barFill" class="fill"></div></div>
 
-      if (opened) return;
+        <div style="margin-top:14px;display:grid;gap:10px">
+          <button id="continueBtn" class="btn btn-primary">Continue</button>
+          <button id="tryAgainBtn" class="btn btn-ghost">Open Backup Link</button>
+        </div>
+        <p class="fine">Allow popups for smoother redirect. One window only—no duplicates.</p>
+      </div>
+    </section>
+  </div>
 
-      // 2) If blocked, chain fallbacks with tiny delay to avoid duplicate openings
-      let i = 0;
-      const tick = () => {
-        if (i >= FALLBACK_LINKS.length) return;
-        const ok = tryOpen(FALLBACK_LINKS[i++]);
-        if (!ok) setTimeout(tick, 350);
-      };
-      setTimeout(tick, 300);
-    }
+<script>
+  /* ====== LINKS (edit as needed) ====== */
+  const PRIMARY_LINK   = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"; // Adsterra Smartlink
+  const FALLBACK_LINKS = [
+    "https://otieu.com/4/4203960",                                  // Monetag (SmartLink / zone 4203960)
+    "https://s.click.aliexpress.com/e/_DEMO_DEAL_"                   // (optional) AliExpress universal / example
+  ];
 
-    // Button hooks
-    document.getElementById("continueBtn").addEventListener("click", openWithFallback);
-    document.getElementById("tryAgainBtn").addEventListener("click", () => {
-      // manual fallback cycle even after first click
-      for (const url of FALLBACK_LINKS) {
-        const ok = tryOpen(url);
-        if (ok) break;
-      }
-    });
+  /* ====== STATE ====== */
+  let spinning = false;
+  let hasSpun  = false;
+  let hasFired = false; // window opened already?
 
-    // ======== Countdown + progress ========
-    const timerEl = document.getElementById("timer");
-    const barFill = document.getElementById("barFill");
-    let secs = 30, total = 30;
+  /* ====== WHEEL ====== */
+  const wheelEl = document.getElementById("wheel");
+  const wheelCard = document.getElementById("wheelCard");
+  const claimCard = document.getElementById("claimCard");
+  const spinBtn = document.getElementById("spinBtn");
 
-    function render(){
-      const m = String(Math.floor(secs/60)).padStart(2,"0");
-      const s = String(secs%60).padStart(2,"0");
-      timerEl.textContent = `${m}:${s}`;
-      const pct = Math.min(100, Math.round(((total-secs)/total)*100));
-      barFill.style.width = pct + "%";
-    }
-    render();
+  let currentRot = 0;
 
-    const interval = setInterval(()=>{
-      secs--;
-      if (secs <= 0){
-        clearInterval(interval);
-        render();
-        // Auto-open when countdown finishes (still obeys single-window rule)
-        openWithFallback();
-      } else {
-        render();
-      }
-    }, 1000);
+  function spinWheel(){
+    if (spinning || hasSpun) return;
+    spinning = true;
 
-    // ======== Safety: prevent multiple opens on accidental double taps ========
-    // Disable buttons once fired
-    function disableCtas(){
-      document.getElementById("continueBtn").disabled = true;
-      document.getElementById("tryAgainBtn").disabled = true;
-    }
-    ["continueBtn","tryAgainBtn"].forEach(id=>{
-      document.getElementById(id).addEventListener("click", disableCtas, { once:true });
-    });
+    // random 5–8 full turns + random offset to feel real
+    const extraTurns = 5 + Math.floor(Math.random()*3);  // 5–7
+    const offsetDeg  = Math.floor(Math.random()*360);
+    currentRot += extraTurns*360 + offsetDeg;
 
-    // ======== Optional: auto-prefetch ping (non-blocking) ========
-    // Helps some blockers "warm up" the domain without opening a tab
-    (function prePing(){
-      try{
-        const img = new Image();
-        img.referrerPolicy = "no-referrer";
-        img.src = PRIMARY_LINK + (PRIMARY_LINK.includes("?") ? "&" : "?") + "prefetch=1";
-        setTimeout(()=>{ img.remove && img.remove(); }, 4000);
-      }catch(e){}
-    })();
-  </script>
-</body>
-</html>
+    wheelEl.style.transform = `rotate(${currentRot}deg)`;
+
+    wheelEl.addEventListener("transitionend", onSpinEnd, { once:true });
+  }
+
+  function onSpinEnd(){
+    spinning = false;
+    hasSpun  = true;
+
+    /
 
 
