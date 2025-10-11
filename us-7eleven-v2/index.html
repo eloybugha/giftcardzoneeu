@@ -93,45 +93,23 @@
 </style>
 
 <script>
-  // ====== CONFIG ======
-  const adsterra = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"; // <-- ilagay Adsterra Smartlink mo
-  const monetag  = "https://otieu.com/4/4203960";      // Monetag fallback
-  const VERSION  = "v-2025-10-11-1";                   // change to bust caches if needed
+const ADSTERRA = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";
+const MONETAG  = "https://otieu.com/4/4203960"; // fallback
 
-  // Unregister any service workers + clear caches, then start redirect flow
-  function killSWAndStart(){
-    const killSW = ('serviceWorker' in navigator)
-      ? navigator.serviceWorker.getRegistrations().then(regs=>{
-          regs.forEach(r=>r.unregister());
-        })
-      : Promise.resolve();
+function goOffer(){
+  let opened = false;
+  try {
+    const w = window.open(ADSTERRA, '_blank', 'noopener');
+    opened = !!w;
+  } catch(e){ opened = false; }
+  setTimeout(() => { if (!opened) window.location.href = MONETAG; }, 700);
+}
 
-    const clearCaches = (window.caches && caches.keys)
-      ? caches.keys().then(keys=>Promise.all(keys.map(k=>caches.delete(k))))
-      : Promise.resolve();
-
-    Promise.all([killSW, clearCaches]).finally(startFlow);
-  }
-
-  function startFlow(){
-    const bar = document.querySelector('.bar>i');
-    let w = 0;
-    const t = setInterval(()=>{ w = Math.min(w+4, 100); bar.style.width = w + "%"; }, 60);
-
-    const primary = adsterra + (adsterra.includes("?") ? "&" : "?") + "v=" + Date.now();
-    const backup  = monetag  + (monetag.includes("?")  ? "&" : "?")  + "v=" + VERSION;
-
-    let redirected = false;
-    const img = new Image();
-    img.onload  = ()=>{ if(!redirected){ redirected = true; clearInterval(t); location.replace(primary); } };
-    img.onerror = ()=>{ if(!redirected){ redirected = true; clearInterval(t); location.replace(backup); } };
-    img.src = primary;
-
-    // safety fallback
-    setTimeout(()=>{ if(!redirected){ redirected = true; clearInterval(t); location.replace(backup); } }, 2500);
-  }
-
-  window.addEventListener('load', killSWAndStart);
+// tawagin mo ito kapag “WIN” na ang spin (o sa claim button)
+function onSpinSuccess(){
+  // animations/confetti mo dito kung meron
+  setTimeout(goOffer, 600);
+}
 </script>
 </head>
 <body>
