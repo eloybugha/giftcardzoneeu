@@ -279,72 +279,136 @@ function todayKey(){
   const d = new Date(); d.setHours(0,0,0,0); return String(d.getTime());
 }
 
-function alreadySpunToday(){
-  const k = localStorage.getItem(SPIN_KEY);
-  return k === todayKey();
-}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Spin the Wheel • GiftCardZoneEU (v3)</title>
+<style>
+  :root{--bg:#0b1220;--panel:#121b2e;--text:#e6f0ff;--muted:#9eb3d8;--accent:#18e0b5;--accent-2:#5eead4}
+  *{box-sizing:border-box} html,body{height:100%}
+  body{margin:0;background:radial-gradient(1200px 600px at 20% -10%,#0f1830 0%,#0b1220 45%,#09101e 100%),var(--bg);
+       color:var(--text);font:500 16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+       display:flex;align-items:center;justify-content:center;padding:24px}
+  .card{width:min(520px,92vw);background:linear-gradient(180deg,#111a2c,#0f1729);
+        border:1px solid rgba(255,255,255,.06);border-radius:22px;padding:22px 22px 26px;box-shadow:0 10px 30px rgba(0,0,0,.35);
+        position:relative;overflow:hidden}
+  .title{font-size:22px;font-weight:800;margin:0 0 8px}
+  .sub{color:var(--muted);margin:0 0 18px}
+  .tag{display:inline-block;padding:6px 10px;background:#0e1a33;border:1px solid rgba(255,255,255,.06);
+       border-radius:999px;font-size:12px;color:#b7cdfa}
+  .wheel-wrap{display:grid;place-items:center;margin:10px 0 14px}
+  .wheel{width:min(320px,78vw);aspect-ratio:1;border-radius:50%;
+         background:conic-gradient(#ffb703 0 45deg,#ff6b6b 0 90deg,#8bc34a 0 135deg,#60a5fa 0 180deg,#a78bfa 0 225deg,#22d3ee 0 270deg,#f97316 0 315deg,#34d399 0 360deg);
+         position:relative;display:grid;place-items:center;cursor:pointer;user-select:none;touch-action:manipulation;
+         box-shadow:inset 0 0 0 12px #0d1426,0 8px 22px rgba(0,0,0,.45)}
+  .hub{width:34%;aspect-ratio:1;border-radius:50%;background:radial-gradient(60% 60% at 30% 30%,#253356,#0f1729);
+       border:10px solid #0d1426;color:#cfe6ff;display:grid;place-items:center;text-align:center;font-weight:800;letter-spacing:.6px;text-transform:uppercase}
+  .pointer{position:absolute;left:50%;top:-6px;translate:-50% 0;width:0;height:0;border-left:11px solid transparent;border-right:11px solid transparent;border-bottom:16px solid var(--accent);filter:drop-shadow(0 2px 2px rgba(0,0,0,.45))}
+  .wheel.spinning{animation:spin 2.4s cubic-bezier(.19,.85,.17,1) forwards}
+  @keyframes spin{from{rotate:0} to{rotate:calc(1440deg + var(--end,0deg))}}
+  .result{margin:10px 2px 12px;font-weight:700}
+  .badge{display:inline-flex;gap:6px;align-items:center;font-size:13px;color:#bcd2ff}
+  .timer{font-variant-numeric:tabular-nums;font-weight:800}
+  .row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .btn{width:100%;border:0;border-radius:14px;padding:14px 18px;font-weight:800;background:linear-gradient(90deg,var(--accent),var(--accent-2));
+       color:#052018;cursor:pointer;box-shadow:0 8px 18px rgba(24,224,181,.25);transition:transform .05s ease,opacity .2s ease}
+  .btn:active{transform:translateY(1px)} .btn[disabled]{opacity:.55;cursor:not-allowed;box-shadow:none}
+  .glow{animation:pulse 1.6s ease-in-out infinite}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 rgba(24,224,181,0),0 12px 26px rgba(0,0,0,.35)}50%{box-shadow:0 0 22px rgba(24,224,181,.35),0 12px 26px rgba(0,0,0,.35)}}
+  canvas#fx{position:absolute;inset:0;pointer-events:none}
+</style>
+</head>
+<body>
+  <div class="card" id="card">
+    <canvas id="fx"></canvas>
+    <div class="tag">v3 • Only 1 spin per user today</div>
+    <h1 class="title">Spin the Wheel</h1>
+    <p class="sub">Spin to unlock today’s best offer. Pop-ups blocked? Tap <b>Continue</b> and we’ll auto-retry fallbacks.</p>
 
-function lockSpin(){
-  localStorage.setItem(SPIN_KEY, todayKey());
-}
+    <div class="wheel-wrap">
+      <div class="wheel" id="wheel" aria-label="Spin the wheel">
+        <div class="pointer"></div>
+        <div class="hub">Tap<br>to<br>Spin</div>
+      </div>
+    </div>
 
-function formatSecs(s){
-  const m = Math.floor(s/60).toString().padStart(2,"0");
-  const r = (s%60).toString().padStart(2,"0");
-  return `${m}:${r}`;
-}
+    <p class="result">Result: <span id="result">—</span></p>
 
-function startCountdown(){
-  let t = COUNTDOWN_SECS;
-  expiryEl.hidden = false;
-  cdEl.textContent = formatSecs(t);
-  const iv = setInterval(()=>{
-    t--; cdEl.textContent = formatSecs(t);
-    if (t<=0){ clearInterval(iv); expiryEl.textContent = "⏳ Offer refreshed soon"; }
-  },1000);
-}
+    <div class="row" style="margin:8px 0 14px">
+      <span class="badge" id="loading" hidden>⏳ Checking your offer…</span>
+      <span class="badge" id="expiry" hidden>⏳ Offer expires in <span class="timer" id="cd">00:30</span></span>
+    </div>
 
-function setResult(text="⭐ Special"){
-  resultEl.textContent = text;
-  continueBtn.disabled = false;
-  continueBtn.classList.add("glow");
-  loadingEl.hidden = true;
-  startCountdown();
-  burst();
-}
+    <button id="continueBtn" class="btn glow" disabled>Continue</button>
+    <p class="sub" style="margin:10px 2px 0">Tip: After spinning, press “Continue” to open the offer. If blocked, we’ll auto-retry fallbacks.</p>
+  </div>
 
+<script>
+/* ===== CONFIG ===== */
+// Primary: Adsterra (given)
+const PRIMARY_LINK = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";
+// Fallbacks: Monetag + extra try
+const FALLBACK_LINKS = [
+  "YOUR_MONETAG_SMARTLINK_HERE",
+  PRIMARY_LINK + "&src=fallback-2"
+];
+// One spin per user per day
+const SPIN_KEY = "gczeu.spinstamp.v1";
+const COUNTDOWN_SECS = 30;
+
+/* ===== ELEMENTS ===== */
+const wheel = document.getElementById("wheel");
+const resultEl = document.getElementById("result");
+const loadingEl = document.getElementById("loading");
+const expiryEl = document.getElementById("expiry");
+const cdEl = document.getElementById("cd");
+const continueBtn = document.getElementById("continueBtn");
+const fx = document.getElementById("fx"); const fctx = fx.getContext("2d");
+
+/* ===== POPUP / FALLBACK ===== */
+let hasFired = false;
+function tryOpen(url){ try{ const w = window.open(url,"_blank","noopener,noreferrer"); return !!w; }catch(e){ return false; } }
+function openWithFallback(){
+  if (hasFired) return; hasFired = true;
+  if (tryOpen(PRIMARY_LINK)) return;
+  let i=0; const tick=()=>{ if(i>=FALLBACK_LINKS.length) return; if(!tryOpen(FALLBACK_LINKS[i++])) setTimeout(tick,400); };
+  setTimeout(tick,320);
+}
+continueBtn.addEventListener("click", openWithFallback);
+
+/* ===== CONFETTI ===== */
+function resizeFx(){ fx.width = document.getElementById("card").clientWidth; fx.height = document.getElementById("card").clientHeight; }
+addEventListener("resize", resizeFx, {passive:true}); resizeFx();
+let confetti=[];
+function burst(n=45){ for(let i=0;i<n;i++){ confetti.push({x:fx.width/2,y:140+(Math.random()*30-15),vx:(Math.random()*6-3),vy:(Math.random()*-5-2),r:Math.random()*6+3,a:1,spin:Math.random()*6.28}); } }
+(function loop(){ fctx.clearRect(0,0,fx.width,fx.height); confetti=confetti.filter(p=>p.a>0);
+  confetti.forEach(p=>{ p.vy+=0.08;p.x+=p.vx;p.y+=p.vy;p.a-=0.007;p.spin+=0.2;
+    fctx.globalAlpha=Math.max(p.a,0); fctx.save(); fctx.translate(p.x,p.y); fctx.rotate(p.spin);
+    fctx.fillStyle=["#60a5fa","#22d3ee","#34d399","#f59e0b","#ef4444","#a78bfa"][Math.floor(Math.random()*6)];
+    fctx.fillRect(-p.r/2,-p.r/2,p.r,p.r); fctx.restore();}); requestAnimationFrame(loop);}());
+
+/* ===== GAME LOGIC ===== */
+function todayKey(){ const d=new Date(); d.setHours(0,0,0,0); return String(d.getTime()); }
+function alreadySpunToday(){ return localStorage.getItem(SPIN_KEY) === todayKey(); }
+function lockSpin(){ localStorage.setItem(SPIN_KEY, todayKey()); }
+function fmt(s){ const m=String(Math.floor(s/60)).padStart(2,"0"); const r=String(s%60).padStart(2,"0"); return `${m}:${r}`; }
+function startCountdown(){ let t=COUNTDOWN_SECS; expiryEl.hidden=false; cdEl.textContent=fmt(t);
+  const iv=setInterval(()=>{ t--; cdEl.textContent=fmt(t); if(t<=0){clearInterval(iv); expiryEl.textContent="⏳ Offer refreshes soon";}},1000);}
+function setResult(text="⭐ Special"){ resultEl.textContent=text; continueBtn.disabled=false; continueBtn.classList.add("glow"); loadingEl.hidden=true; startCountdown(); burst(); }
 function doSpin(){
-  // Determine end angle that points to a “good” slice (visual only)
-  const slices = 8;
-  const indexWin = [0,2,5,7][Math.floor(Math.random()*4)]; // some winning-ish slices
-  const sliceAngle = 360/slices;
-  const offset = sliceAngle*indexWin + sliceAngle/2;
-  wheel.style.setProperty("--end", `${offset}deg`);
-  wheel.classList.add("spinning");
-  loadingEl.hidden = false;
-
-  // Finish after spin + a short check delay
+  const slices=8, indexWin=[0,2,5,7][Math.floor(Math.random()*4)], sliceAngle=360/slices, offset=sliceAngle*indexWin+sliceAngle/2;
+  wheel.style.setProperty("--end", `${offset}deg`); wheel.classList.add("spinning"); loadingEl.hidden=false;
   setTimeout(()=>{ lockSpin(); setTimeout(()=>setResult("⭐ Special"), 650); }, 2400);
 }
-
 function init(){
-  if (alreadySpunToday()){
-    // If already spun, show locked state
-    const last = "⭐ Special";
-    resultEl.textContent = last;
-    continueBtn.disabled = false;
-    continueBtn.classList.add("glow");
-    expiryEl.hidden = false;
-    startCountdown();
-  }else{
-    wheel.addEventListener("click", ()=>{
-      if (wheel.classList.contains("spinning")) return;
-      doSpin();
-    }, {once:true});
-  }
+  if (alreadySpunToday()){ resultEl.textContent="⭐ Special"; continueBtn.disabled=false; continueBtn.classList.add("glow"); startCountdown(); expiryEl.hidden=false; }
+  else { wheel.addEventListener("click", ()=>{ if(!wheel.classList.contains("spinning")) doSpin(); }, {once:true}); }
 }
 init();
 </script>
 </body>
 </html>
+
 
