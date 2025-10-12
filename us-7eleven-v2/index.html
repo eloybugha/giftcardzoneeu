@@ -228,78 +228,58 @@ const FALLBACK_LINKS = [
 
 <script>
 /* ========= 🔗 LINKS (edit here only) ========= */
-const ADSTERRA = "https://www.adsterralink.com/27725838";  // your Smartlink
+const ADSTERRA = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";  // your Smartlink
 const MONETAG  = "https://otieu.com/4/4203960";            // Monetag direct link
 const ALIEXP   = "https://s.click.aliexpress.com/e/_DyourAff"; // optional fallback
 /* ============================================= */
+<script>
+/* LINKS */
+const ADSTERRA = "https://www.adsterralink.com/27725838";  // palitan kung iba ID mo
+const MONETAG  = "https://otieu.com/4/4203960";
+const ALIEXP   = "https://s.click.aliexpress.com/e/_DyourAff";
 
-/* UTM passthrough: append current querystring to outgoing links */
+/* UTM passthrough */
 function withUTM(url){
   try{
-    const qs = location.search;
-    if(!qs) return url;
-    const u = new URL(url);
-    // keep existing params, add ours
-    const from = new URLSearchParams(qs);
-    from.forEach((v,k)=>{ if(!u.searchParams.has(k)) u.searchParams.set(k,v); });
+    const u = new URL(url), q = new URLSearchParams(location.search);
+    q.forEach((v,k)=>{ if(!u.searchParams.has(k)) u.searchParams.set(k,v); });
     return u.toString();
-  }catch(e){ return url; }
+  }catch(_){ return url; }
 }
 
-/* Device / OS helpers */
+/* Device detect */
 const ua = navigator.userAgent;
 const isMobile = /Android|iPhone|iPad|iPod|IEMobile|Opera Mini/i.test(ua);
-const isWindows = /Windows NT/i.test(ua);
-const isMac = /Macintosh|Mac OS X/i.test(ua);
 
-/* Progress bar animation */
-const prog = document.getElementById("prog");
-let pw = 18, timer = setInterval(()=>{ pw = Math.min(pw+6, 92); prog.style.width = pw+"%"; if(pw>=92) clearInterval(timer); }, 450);
-document.getElementById("yr").textContent = new Date().getFullYear();
-
-/* One-time fire guard */
-let hasFired = false;
-
+/* Safe opener */
 function tryOpen(url){
   try{
-    const win = window.open(url, "_blank", "noopener,noreferrer");
-    return !!win;
-  }catch(e){ return false; }
+    const w = window.open(url, "_blank", "noopener,noreferrer");
+    return !!w;
+  }catch(_){ return false; }
 }
 
-function openChain(){
-  if(hasFired) return;
-  hasFired = true;
+/* Click handler */
+function openChain(e){
+  // para hindi agad umalis sa page kapag gagamit ng JS rotation
+  e.preventDefault();
 
-  // Decide primary by device: desktop → Adsterra, mobile → Monetag
-  const primary = (isMobile ? MONETAG : ADSTERRA);
-  const second  = (isMobile ? ADSTERRA : MONETAG);
-  const third   = ALIEXP;
+  const p1 = isMobile ? withUTM(MONETAG) : withUTM(ADSTERRA);
+  const p2 = isMobile ? withUTM(ADSTERRA) : withUTM(MONETAG);
+  const p3 = withUTM(ALIEXP);
 
-  const p1 = tryOpen(withUTM(primary));
-  if(p1) return;
-
-  // small stagger to evade blockers
-  setTimeout(()=>{
-    const p2 = tryOpen(withUTM(second));
-    if(p2) return;
-
-    // final hard redirect
-    location.href = withUTM(third);
-  }, 350);
+  if (tryOpen(p1)) return;
+  setTimeout(()=>{ if (tryOpen(p2)) return; location.href = p3; }, 300);
 }
 
-/* Button hook */
-document.getElementById("continueBtn").addEventListener("click", openChain);
-
-/* Optional: auto-route mobile instantly to Monetag to avoid UX friction */
-if(isMobile){
-  // slight delay so users see the page
-  setTimeout(()=>{ if(!hasFired){ hasFired = true; location.href = withUTM(MONETAG); } }, 900);
+/* Attach listener */
+const btn = document.getElementById("continueBtn");
+if (btn) {
+  // siguradong may JS rotation
+  btn.addEventListener("click", openChain);
+  // at i-update din ang href para sakaling walang JS, tama pa rin
+  btn.setAttribute("href", isMobile ? withUTM(MONETAG) : withUTM(ADSTERRA));
 }
-
-/* Prevent multiple opens via back/forward cache */
-window.addEventListener("pagehide", ()=>{ hasFired = true; });
 </script>
 </body>
 </html>
