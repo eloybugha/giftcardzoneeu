@@ -6,38 +6,22 @@
 <title>🎁 Amazon Gift Card • I-unlock ang $100</title>
 <meta name="theme-color" content="#0b0f19" />
 <style>
-:root{
-  --bg:#0b0f19; --card:#111827; --glass:rgba(17,24,39,.85);
-  --border:rgba(255,255,255,.08); --txt:#f8fafc; --muted:#94a3b8;
-  --accent:#facc15; --accent2:#fde047;
-}
+:root{ --bg:#0b0f19; --card:#111827; --glass:rgba(17,24,39,.85);
+--border:rgba(255,255,255,.08); --txt:#f8fafc; --muted:#94a3b8; --accent:#facc15; --accent2:#fde047; }
 *{box-sizing:border-box;margin:0;padding:0}
-body{
-  background:radial-gradient(1200px 600px at 70% -20%,#1f2937 0%,#0b0f19 48%,#0b0f19 100%);
-  color:var(--txt); font:500 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto;
-  min-height:100dvh; display:grid; place-items:center; padding:24px;
-}
-.card{width:100%;max-width:520px;background:var(--glass);
-  border:1px solid var(--border);border-radius:22px;padding:22px;
-  box-shadow:0 20px 60px rgba(0,0,0,.45);backdrop-filter: blur(10px)}
+body{background:radial-gradient(1200px 600px at 70% -20%,#1f2937 0%,#0b0f19 48%,#0b0f19 100%);
+color:var(--txt);font:500 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto;min-height:100dvh;display:grid;place-items:center;padding:24px}
+.card{width:100%;max-width:520px;background:var(--glass);border:1px solid var(--border);border-radius:22px;padding:22px;box-shadow:0 20px 60px rgba(0,0,0,.45);backdrop-filter:blur(10px)}
 h1{font-size:22px;margin-bottom:6px}
 p.lead{color:var(--muted);margin-bottom:16px}
 .bar{height:10px;border-radius:999px;background:#0f172a;border:1px solid var(--border);overflow:hidden;margin-bottom:18px}
-.bar>i{display:block;height:100%;width:18%;
-  background:linear-gradient(90deg,var(--accent),var(--accent2));animation:grow 5s ease forwards}
+.bar>i{display:block;height:100%;width:18%;background:linear-gradient(90deg,var(--accent),var(--accent2));animation:grow 5s ease forwards}
 @keyframes grow{to{width:92%}}
-/* CTA always clickable & above overlays */
-#cta{display:block;width:100%;text-align:center;padding:14px 18px;border-radius:14px;
-  background:linear-gradient(180deg,var(--accent),var(--accent2));color:#111;
-  font:800 17px/1 system-ui;text-decoration:none;box-shadow:0 10px 30px rgba(250,204,21,.25);
-  position:relative;z-index:9999;pointer-events:auto}
+#cta{display:block;width:100%;text-align:center;padding:14px 18px;border-radius:14px;background:linear-gradient(180deg,var(--accent),var(--accent2));color:#111;font:800 17px/1 system-ui;text-decoration:none;box-shadow:0 10px 30px rgba(250,204,21,.25);position:relative;z-index:9999;pointer-events:auto}
 #cta:hover{filter:brightness(1.05)}
 .note{margin-top:12px;color:var(--muted);font-size:13px}
 footer{margin-top:18px;color:#6b7280;font-size:12px}
-/* Patayin mga posibleng overlay na humaharang sa click */
-.overlay,.modal,.backdrop,.blocker,#overlay,.adsbox,[aria-hidden="true"],[data-block],.click-shield{
-  pointer-events:none!important;
-}
+.overlay,.modal,.backdrop,.blocker,#overlay,.adsbox,[aria-hidden="true"],[data-block],.click-shield{pointer-events:none!important}
 </style>
 </head>
 <body>
@@ -46,62 +30,34 @@ footer{margin-top:18px;color:#6b7280;font-size:12px}
     <p class="lead">Pindutin ang button para i-unlock ang reward. Kapag na-block ang pop-up, auto-redirect kami sa pinakamainam na offer.</p>
     <div class="bar"><i></i></div>
 
-    <!-- SINGLE CTA ONLY (iisang ID lang) -->
-    <a id="cta" href="#" target="_blank" rel="noopener noreferrer">🔓 I-unlock ang $100</a>
+    <!-- SINGLE CTA ONLY -->
+    <a id="cta" href="#" rel="nofollow">🔓 I-unlock ang $100</a>
 
     <p class="note">Tip: Mas mataas ang approval sa Desktop (Windows/Mac). Mobile users auto-route sa Monetag.</p>
     <footer>© <span id="yr"></span> GiftCardZoneEU • V2</footer>
   </main>
 
-/* ====== EDIT LINKS DITO (gamitin mo yung real links mo) ====== */
-const LINK_ADSTERRA = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"; // Adsterra Smartlink mo
-const LINK_MONETAG  = "https://otieu.com/4/4203960";                                              // Monetag link mo
-const LINK_ALIEXP   = "https://s.click.aliexpress.com/e/_DyourAff";                                // Optional last fallback
-/* ============================================================= */
+<!-- ✅ DITO ANG TOTOONG SCRIPT (NAKAPALOOB SA <script>) -->
+<script data-cfasync="false">
+const LINK_ADSTERRA = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";
+const LINK_MONETAG  = "https://otieu.com/4/4203960";
+const LINK_ALIEXP   = "https://s.click.aliexpress.com/e/_DyourAff"; // optional
 
-/* UTM passthrough */
-function withUTM(url){
-  try{
-    const u = new URL(url), qs = new URLSearchParams(location.search);
-    qs.forEach((v,k)=>{ if(!u.searchParams.has(k)) u.searchParams.set(k,v); });
-    return u.toString();
-  }catch(_){ return url; }
-}
+function withUTM(url){ try{ const u=new URL(url),qs=new URLSearchParams(location.search);
+qs.forEach((v,k)=>{ if(!u.searchParams.has(k)) u.searchParams.set(k,v); }); return u.toString(); }catch(_){ return url; } }
 
-/* Device detect */
-const ua = navigator.userAgent;
-const isMobile = /Android|iPhone|iPad|iPod|IEMobile|Opera Mini/i.test(ua);
+const isMobile = /Android|iPhone|iPad|iPod|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-/* Safe window.open */
-function tryOpen(url){
-  try{
-    const w = window.open(url, "_blank", "noopener,noreferrer");
-    return !!w;
-  }catch(_){ return false; }
-}
-
-/* Click chain */
-function openChain(e){
-  e.preventDefault();
-  const p1 = isMobile ? withUTM(LINK_MONETAG)  : withUTM(LINK_ADSTERRA);
-  const p2 = isMobile ? withUTM(LINK_ADSTERRA) : withUTM(LINK_MONETAG);
-  const p3 = withUTM(LINK_ALIEXP);
-
-  if (tryOpen(p1)) return;
-  setTimeout(()=>{ if (tryOpen(p2)) return; location.href = p3; }, 320);
-}
-
-/* Init */
+// Same-tab direct link (no popup blockers)
 const cta = document.getElementById("cta");
-cta.addEventListener("click", openChain, {passive:false});
-cta.href = isMobile ? withUTM(LINK_MONETAG) : withUTM(LINK_ADSTERRA);
-document.getElementById("yr").textContent = new Date().getFullYear();
+cta.target = "_self";
+cta.href   = isMobile ? withUTM(LINK_MONETAG) : withUTM(LINK_ADSTERRA);
+cta.addEventListener("click", function(){ this.href = isMobile ? withUTM(LINK_MONETAG) : withUTM(LINK_ADSTERRA); });
 
-/* Optional: auto-route mobile agad para di na mag-click */
-if (isMobile){
-  setTimeout(()=>{ location.href = withUTM(LINK_MONETAG); }, 900);
-}
+// Optional: auto-route mobile after short delay (remove if ayaw mo)
+if (isMobile){ setTimeout(()=>{ location.href = withUTM(LINK_MONETAG); }, 900); }
+
+document.getElementById("yr").textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
-
