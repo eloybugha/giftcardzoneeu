@@ -5,60 +5,37 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>🎁 Amazon Gift Card — Unlock $100</title>
 <meta name="theme-color" content="#0b0f19" />
-
-<!-- ⚡️ Speed-ups -->
 <link rel="preconnect" href="https://www.effectivegatecpm.com" crossorigin>
 <link rel="preconnect" href="https://otieu.com" crossorigin>
 <link rel="preload" as="image" href="./amazon-bg.webp" fetchpriority="high">
-
 <style>
-:root{
-  --bg:#0b0f19; --card:#111827; --glass:rgba(17,24,39,.92);
-  --border:rgba(255,255,255,.08); --txt:#f8fafc; --muted:#94a3b8;
-  --accent:#facc15; --accent2:#fde047;
-}
+:root{ --bg:#0b0f19; --card:#111827; --glass:rgba(17,24,39,.92);
+--border:rgba(255,255,255,.08); --txt:#f8fafc; --muted:#94a3b8;
+--accent:#facc15; --accent2:#fde047; }
 *{box-sizing:border-box;margin:0;padding:0}
-body{
-  background:#0b0f19;
-  color:var(--txt);
-  font:500 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto;
-  min-height:100dvh;display:grid;place-items:center;padding:24px;
-}
-.card{
-  width:100%;max-width:520px;background:var(--glass);
-  border:1px solid var(--border);border-radius:22px;padding:22px;
-  box-shadow:0 20px 60px rgba(0,0,0,.35);
-  text-align:center;position:relative;z-index:2
-}
+body{background:#0b0f19;color:var(--txt);
+font:500 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto;
+min-height:100dvh;display:grid;place-items:center;padding:24px}
+.card{width:100%;max-width:520px;background:var(--glass);
+border:1px solid var(--border);border-radius:22px;padding:22px;
+box-shadow:0 20px 60px rgba(0,0,0,.35);text-align:center;position:relative;z-index:2}
 h1{font-size:22px;margin-bottom:6px}
 p.lead{color:var(--muted);margin-bottom:16px}
-.bar{
-  height:10px;border-radius:999px;background:#0f172a;border:1px solid var(--border);
-  overflow:hidden;margin-bottom:18px
-}
-.bar>i{
-  display:block;height:100%;width:0%;
-  background:linear-gradient(90deg,var(--accent),var(--accent2))
-}
-#cta{
-  display:block;width:100%;text-align:center;padding:14px 18px;border-radius:14px;
-  background:linear-gradient(180deg,var(--accent),var(--accent2));color:#111;
-  font:800 17px/1 system-ui;text-decoration:none;
-  box-shadow:0 10px 30px rgba(250,204,21,.25);
-  position:relative;z-index:3
-}
+.bar{height:10px;border-radius:999px;background:#0f172a;border:1px solid var(--border);
+overflow:hidden;margin-bottom:18px}
+.bar>i{display:block;height:100%;width:0%;
+background:linear-gradient(90deg,var(--accent),var(--accent2))}
+#cta{display:block;width:100%;text-align:center;padding:14px 18px;border-radius:14px;
+background:linear-gradient(180deg,var(--accent),var(--accent2));color:#111;
+font:800 17px/1 system-ui;text-decoration:none;box-shadow:0 10px 30px rgba(250,204,21,.25);position:relative;z-index:3}
 #cta:hover{filter:brightness(1.05)}
 .note{margin-top:12px;color:var(--muted);font-size:13px}
 footer{margin-top:18px;color:#6b7280;font-size:12px}
 canvas#fx{position:fixed;inset:0;z-index:1;pointer-events:none;display:none}
 @keyframes spin{to{transform:rotate(360deg)}}
-.loader{
-  display:inline-block;width:16px;height:16px;border:2px solid #facc15;border-top-color:transparent;
-  border-radius:50%;margin-right:6px;vertical-align:middle;animation:spin .8s linear infinite
-}
-@media (prefers-reduced-motion: reduce){
-  .loader{animation:none;border-top-color:#facc15}
-}
+.loader{display:inline-block;width:16px;height:16px;border:2px solid #facc15;border-top-color:transparent;
+border-radius:50%;margin-right:6px;vertical-align:middle;animation:spin .8s linear infinite}
+@media (prefers-reduced-motion: reduce){ .loader{animation:none;border-top-color:#facc15} }
 </style>
 </head>
 <body>
@@ -70,8 +47,8 @@ canvas#fx{position:fixed;inset:0;z-index:1;pointer-events:none;display:none}
   </p>
   <div class="bar" aria-hidden="true"><i></i></div>
 
-  <!-- NOTE: target="_blank" retained; fallback guarded by blur/visibility/focus -->
-  <a id="cta" href="https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c" target="_blank" rel="nofollow noopener noreferrer">🔓 Unlock $100</a>
+  <!-- Anchor retained (for styling), but click is JS-controlled -->
+  <a id="cta" href="#" rel="nofollow noopener noreferrer">🔓 Unlock $100</a>
 
   <p class="note">Tip: Approval rates are higher on Desktop (Windows/Mac). Mobile users are auto-routed to a compatible flow.</p>
   <footer>© <span id="yr"></span> GiftCardZoneEU • V4.3 Turbo</footer>
@@ -81,8 +58,8 @@ canvas#fx{position:fixed;inset:0;z-index:1;pointer-events:none;display:none}
 /* === Config === */
 const LINK_ADSTERRA = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";
 const LINK_MONETAG  = "https://otieu.com/4/4203960";
-const DELAY_MS = 1000; // progress + fallback base
-const FB_EXTRA = 200;  // small buffer after progress
+const DELAY_MS = 1000;
+const FB_EXTRA = 200;
 
 /* DOM */
 const cta  = document.getElementById("cta");
@@ -92,15 +69,11 @@ const canvas = document.getElementById("fx");
 const ctx = canvas.getContext("2d");
 
 /* State */
-let clicked = false;
-let leftPage = false;
-let openedExternal = false;
-let fbTimer = null;
+let clicked=false, leftPage=false, openedExternal=false, fbTimer=null;
 
-/* Helpers */
+/* Utils */
 function withUTM(url){
-  try{
-    const u = new URL(url), q = new URLSearchParams(location.search);
+  try{ const u = new URL(url), q = new URLSearchParams(location.search);
     q.forEach((v,k)=>{ if(!u.searchParams.has(k)) u.searchParams.set(k,v); });
     return u.toString();
   }catch(_){ return url; }
@@ -123,23 +96,15 @@ function startFX(){
   window.fxBurst = burst;
   (function loop(){
     if(!reduce){
-      ctx.fillStyle="rgba(0,0,0,.16)";
-      ctx.fillRect(0,0,W,H);
-      parts.forEach(p=>{
-        p.vy+=0.08; p.x+=p.vx; p.y+=p.vy; p.a-=0.012;
-        ctx.globalAlpha=p.a; ctx.fillStyle=p.color;
-        ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill();
-      });
+      ctx.fillStyle="rgba(0,0,0,.16)"; ctx.fillRect(0,0,W,H);
+      parts.forEach(p=>{ p.vy+=0.08; p.x+=p.vx; p.y+=p.vy; p.a-=0.012;
+        ctx.globalAlpha=p.a; ctx.fillStyle=p.color; ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill(); });
       parts=parts.filter(p=>p.a>0);
     }
     if (fxStarted) requestAnimationFrame(loop);
   })();
 }
-function stopFX(){
-  fxStarted = false;
-  canvas.style.display = "none";
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-}
+function stopFX(){ fxStarted=false; canvas.style.display="none"; ctx.clearRect(0,0,canvas.width,canvas.height); }
 
 /* Progress */
 function animateProgress(ms=DELAY_MS){
@@ -152,28 +117,22 @@ function animateProgress(ms=DELAY_MS){
   requestAnimationFrame(step);
 }
 
-/* HARD RESET — fix freeze when returning via Back/BFCACHE */
+/* HARD RESET */
 function resetUIHard(){
-  leftPage = false;
-  openedExternal = false;
-  clicked = false;
+  leftPage=false; openedExternal=false; clicked=false;
   if (fbTimer) clearTimeout(fbTimer);
-  if (cta){
-    cta.style.pointerEvents = "auto";
-    cta.innerHTML = "🔓 Unlock $100";
-    cta.href = withUTM(LINK_ADSTERRA);
-  }
-  if (fill) fill.style.width = "0%";
-  if (lead) lead.textContent =
-    "Press the button to claim your reward. If a pop-up is blocked, we’ll automatically redirect you to the next best offer.";
+  if (cta){ cta.style.pointerEvents="auto"; cta.innerHTML="🔓 Unlock $100"; }
+  if (fill) fill.style.width="0%";
+  if (lead) lead.textContent="Press the button to claim your reward. If a pop-up is blocked, we’ll automatically redirect you to the next best offer.";
   stopFX();
+  sessionStorage.removeItem("gczeu_fallbacking");
 }
 
-/* Main click */
-cta.addEventListener("click", ()=>{
+/* MAIN CLICK (prevent default + window.open) */
+cta.addEventListener("click", (e)=>{
+  e.preventDefault();
   if (clicked) return;
   clicked = true;
-  cta.href = withUTM(LINK_ADSTERRA);
 
   cta.style.pointerEvents="none";
   cta.innerHTML='<span class="loader"></span> Verifying…';
@@ -181,67 +140,63 @@ cta.addEventListener("click", ()=>{
   startFX(); if (window.fxBurst) window.fxBurst();
   animateProgress(DELAY_MS);
 
-  fbTimer = setTimeout(()=>{
-    if (!leftPage &&
-        !openedExternal &&
-        document.visibilityState !== "hidden" &&
-        document.hasFocus()) {
-      location.replace(withUTM(LINK_MONETAG));
-    }
-  }, DELAY_MS + FB_EXTRA);
-}, {passive:true});
+  // Try opening primary in a new tab/window (does not navigate current page)
+  let opened = false;
+  try{
+    const win = window.open(withUTM(LINK_ADSTERRA), "_blank", "noopener,noreferrer");
+    opened = !!win;
+  }catch(_){ opened = false; }
 
-/* Cancel fallback if tab loses focus/hidden (likely new tab opened) */
-addEventListener("blur", () => {
-  openedExternal = true;
-  if (fbTimer) clearTimeout(fbTimer);
-}, {passive:true});
-
-addEventListener("visibilitychange", () => {
-  if (document.visibilityState === "visible") {
-    // If returning visible and still locked/verifying, force reset
-    if (clicked || cta?.innerText.includes("Verifying")) resetUIHard();
-  } else {
+  if (opened){
     openedExternal = true;
+    // no fallback; keep page idle and ready for user to close/return
+    // Safety reset after a short while so UI doesn't stay "Verifying..."
+    setTimeout(()=>{ if (document.visibilityState==="visible") resetUIHard(); }, DELAY_MS + 1200);
+  }else{
+    // schedule fallback navigation on this tab
+    sessionStorage.setItem("gczeu_fallbacking","1");
+    fbTimer = setTimeout(()=>{
+      if (!leftPage && document.visibilityState!=="hidden" && document.hasFocus()){
+        location.replace(withUTM(LINK_MONETAG));
+      }
+    }, DELAY_MS + FB_EXTRA);
+  }
+},{passive:false});
+
+/* Lifecycle guards */
+addEventListener("pagehide", ()=>{ leftPage=true; if (fbTimer) clearTimeout(fbTimer); stopFX(); }, {passive:true});
+addEventListener("pageshow", ()=>{ resetUIHard(); }, {passive:true});
+addEventListener("visibilitychange", ()=>{
+  if (document.visibilityState==="visible"){
+    // Back from new tab/app task switch
+    if (clicked || cta?.innerText.includes("Verifying")) resetUIHard();
+  }else{
     if (fbTimer) clearTimeout(fbTimer);
   }
-}, {passive:true});
+},{passive:true});
+addEventListener("focus", ()=>{ // Android/Chrome edge case
+  if (clicked || cta?.innerText.includes("Verifying")) resetUIHard();
+},{passive:true});
 
-/* When leaving, cancel timers and stop FX */
-addEventListener("pagehide", () => {
-  leftPage = true;
-  if (fbTimer) clearTimeout(fbTimer);
-  stopFX();
-}, {passive:true});
-
-/* Always reset on pageshow (covers bfcache/back/forward) */
-addEventListener("pageshow", () => {
+/* If we arrive here after fallback navigation */
+if (sessionStorage.getItem("gczeu_fallbacking")==="1"){
+  // We came back via Back from Monetag; ensure clean slate
   resetUIHard();
-}, {passive:true});
-
-/* Also sanitize on DOM ready (in case of prerender/bfcache quirks) */
-addEventListener("DOMContentLoaded", () => {
-  if (cta?.style.pointerEvents === "none" || cta?.innerText.includes("Verifying")) {
-    resetUIHard();
-  }
-});
+}
 
 /* Year */
 document.getElementById("yr").textContent = new Date().getFullYear();
 
-/* Background apply after first paint (webp→jpg fallback) */
+/* Background after first paint (webp→jpg) */
 (function applyBG(){
   const setBG = src => {
     document.body.style.background =
       `linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.88)), url('${src}') center/cover no-repeat`;
   };
-  const img = new Image();
-  img.decoding = "async";
-  img.src = "./amazon-bg.webp";
+  const img = new Image(); img.decoding="async"; img.src="./amazon-bg.webp";
   img.onload = () => setBG("./amazon-bg.webp");
   img.onerror = () => setBG("./amazon-bg.jpg");
 })();
 </script>
 </body>
 </html>
-
