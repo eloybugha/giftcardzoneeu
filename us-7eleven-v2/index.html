@@ -161,80 +161,146 @@ const FALLBACK_LINKS = [
   "https://otieu.com/4/4203960", // ← your Monetag link
   "https://s.click.aliexpress.com/e/_c3ZWaFRV?bz=300*250"
 ];
-
-/* STATE */
-const COUNTDOWN_SECS = 8;
-let spinning=false, attempt=0, clickLock=false;
-
-const sectionHero=document.getElementById("sectionHero");
-const sectionSpin=document.getElementById("sectionSpin");
-const unlockBtn=document.getElementById("unlockBtn");
-const spinBtn=document.getElementById("spinBtn");
-const contBtn=document.getElementById("continueBtn");
-const wheel=document.getElementById("wheel");
-const wrap=document.getElementById("progressWrap");
-const fill=document.getElementById("fill");
-const countEl=document.getElementById("count");
-const phaseEl=document.getElementById("phase");
-const statusEl=document.getElementById("status");
-const statusTx=document.getElementById("statusText");
-
-/* If user returns (back), show spin section directly */
-(function guardBack(){
-  if (sessionStorage.getItem("spunOnce")==="1") {
-    sectionHero.style.display="none";
-    sectionSpin.style.display="block";
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>🎁 Unlock $100 Amazon Gift Card</title>
+<meta name="theme-color" content="#0b0f19" />
+<style>
+  :root{
+    --bg:#0b0f19; --card:#111827; --glass:rgba(17,24,39,.85);
+    --border:rgba(255,255,255,.08); --txt:#f8fafc; --muted:#94a3b8;
+    --accent:#facc15; --accent2:#fde047; --ok:#22c55e; --ring:#1f2937;
   }
-})();
+  *{box-sizing:border-box}
+  body{margin:0;background:radial-gradient(1200px 600px at 70% -20%,#1f2937 0%,#0b0f19 48%,#0b0f19 100%);color:var(--txt);font:500 16px/1.55 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto}
+  .wrap{min-height:100dvh;display:grid;place-items:center;padding:24px}
+  .card{width:100%;max-width:520px;background:var(--glass);border:1px solid var(--border);border-radius:22px;padding:22px;box-shadow:0 20px 60px rgba(0,0,0,.45);backdrop-filter: blur(10px)}
+  .hdr{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+  .logo{width:36px;height:36px;border-radius:9px;background:#111;border:1px solid var(--border);display:grid;place-items:center;font-weight:800}
+  h1{margin:0;font-size:22px}
+  p.lead{margin:2px 0 14px;color:var(--muted)}
+  .bar{height:10px;border-radius:999px;background:#0f172a;border:1px solid var(--border);overflow:hidden;margin:10px 0 6px}
+  .bar>i{display:block;height:100%;width:18%;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .6s ease}
+  .row{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:13px;margin-bottom:16px}
+  .pill{padding:6px 10px;border:1px solid var(--border);border-radius:999px;background:#0f172a}
+  button.cta{width:100%;padding:14px 18px;border:0;border-radius:14px;background:linear-gradient(180deg,var(--accent),var(--accent2));color:#111;font:800 17px/1 ui-sans-serif;cursor:pointer;box-shadow:0 10px 30px rgba(250,204,21,.25)}
+  button.cta:hover{filter:brightness(1.05)}
+  .note{margin-top:10px;color:var(--muted);font-size:13px}
+  .badges{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+  .badge{border:1px dashed var(--border);border-radius:12px;padding:10px 8px;text-align:center;color:var(--muted);font-size:12px;background:#0f172a}
+  footer{margin-top:14px;text-align:center;color:#6b7280;font-size:12px}
+  .hid{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <div class="hdr">
+      <div class="logo">A</div>
+      <div>
+        <h1>Claim your $100 Amazon Gift Card</h1>
+        <p class="lead">Limited slots. Continue to unlock your reward.</p>
+      </div>
+    </div>
 
-/* Unlock → show spinner section (auto start spin) */
-unlockBtn.addEventListener("click", ()=>{
-  sectionHero.style.display="none";
-  sectionSpin.style.display="block";
-  // optional: auto-spin to reduce steps
-  spin();
-});
+    <div class="bar"><i id="prog"></i></div>
+    <div class="row">
+      <span class="pill">Verified • Secure</span>
+      <span class="pill">Desktop Best Rate</span>
+      <span class="pill" id="geoPill">US Priority</span>
+    </div>
 
-/* Open helpers */
-const LINK_CHAIN=[PRIMARY_LINK,...FALLBACK_LINKS];
-function tryOpen(url){try{const w=window.open(url,"_blank","noopener,noreferrer");return !!w;}catch(e){return false;}}
-function openNext(){
-  if(clickLock) return; clickLock=true; setTimeout(()=>clickLock=false,600);
-  const url=LINK_CHAIN[attempt%LINK_CHAIN.length]; const ok=tryOpen(url); attempt++;
-  if(ok){contBtn.textContent="Continue";statusTx.textContent="Tab opened. You can try again if needed.";statusEl.classList.remove("wait");statusEl.classList.add("ok");}
-  else{contBtn.textContent="Try again";statusTx.textContent="Blocked by browser. Tap Try again — rotating fallback...";statusEl.classList.remove("ok");statusEl.classList.add("wait");}
+    <button id="continueBtn" class="cta">Continue</button>
+    <p class="note">Tip: Desktop (Windows/Mac) users get higher approval rates. If a pop-up is blocked, we’ll auto-redirect to the best offer for your device.</p>
+
+    <div class="badges">
+      <div class="badge">SSL Encrypted</div>
+      <div class="badge">No CC Required</div>
+      <div class="badge">Fast Payout</div>
+    </div>
+
+    <footer>© <span id="yr"></span> GiftCardZoneEU • V2</footer>
+  </div>
+</div>
+
+<script>
+/* ========= 🔗 LINKS (edit here only) ========= */
+const ADSTERRA = "https://www.adsterralink.com/27725838";  // your Smartlink
+const MONETAG  = "https://otieu.com/4/4203960";            // Monetag direct link
+const ALIEXP   = "https://s.click.aliexpress.com/e/_DyourAff"; // optional fallback
+/* ============================================= */
+
+/* UTM passthrough: append current querystring to outgoing links */
+function withUTM(url){
+  try{
+    const qs = location.search;
+    if(!qs) return url;
+    const u = new URL(url);
+    // keep existing params, add ours
+    const from = new URLSearchParams(qs);
+    from.forEach((v,k)=>{ if(!u.searchParams.has(k)) u.searchParams.set(k,v); });
+    return u.toString();
+  }catch(e){ return url; }
 }
 
-/* Spin + countdown */
-function spin(){
-  if(spinning) return; spinning=true;
-  const deg=1440+Math.floor(Math.random()*360);
-  wheel.style.transform=`rotate(${deg}deg)`;
-  setTimeout(startVerification,1100);
-}
-function startVerification(){
-  wrap.style.display="block"; spinBtn.disabled=true; contBtn.disabled=true;
-  sessionStorage.setItem("spunOnce","1");
-  let secs=COUNTDOWN_SECS, pct=0;
-  phaseEl.textContent="Verifying…";
-  statusEl.classList.remove("ok");statusEl.classList.add("wait");
-  statusTx.textContent="Please wait while we prepare a safe tab…";
-  const timer=setInterval(()=>{
-    secs=Math.max(0,secs-1); pct=Math.min(100,pct+(100/COUNTDOWN_SECS));
-    fill.style.width=pct+"%"; countEl.textContent="00:"+String(secs).padStart(2,"0");
-    if(secs===Math.ceil(COUNTDOWN_SECS/2)) phaseEl.textContent="Hardening fallbacks…";
-    if(secs<=0){clearInterval(timer); phaseEl.textContent="Ready";
-      statusEl.classList.remove("wait"); statusEl.classList.add("ok");
-      statusTx.textContent="All set! Tap Continue. If blocked, tap Try again.";
-      contBtn.disabled=false; contBtn.textContent="Continue";
-    }
-  },1000);
+/* Device / OS helpers */
+const ua = navigator.userAgent;
+const isMobile = /Android|iPhone|iPad|iPod|IEMobile|Opera Mini/i.test(ua);
+const isWindows = /Windows NT/i.test(ua);
+const isMac = /Macintosh|Mac OS X/i.test(ua);
+
+/* Progress bar animation */
+const prog = document.getElementById("prog");
+let pw = 18, timer = setInterval(()=>{ pw = Math.min(pw+6, 92); prog.style.width = pw+"%"; if(pw>=92) clearInterval(timer); }, 450);
+document.getElementById("yr").textContent = new Date().getFullYear();
+
+/* One-time fire guard */
+let hasFired = false;
+
+function tryOpen(url){
+  try{
+    const win = window.open(url, "_blank", "noopener,noreferrer");
+    return !!win;
+  }catch(e){ return false; }
 }
 
-/* Events */
-spinBtn.addEventListener("click", spin);
-contBtn.addEventListener("click", openNext);
-document.addEventListener("keydown", (e)=>{ if((e.key==="Enter"||e.key===" ")&&!contBtn.disabled) openNext(); });
+function openChain(){
+  if(hasFired) return;
+  hasFired = true;
+
+  // Decide primary by device: desktop → Adsterra, mobile → Monetag
+  const primary = (isMobile ? MONETAG : ADSTERRA);
+  const second  = (isMobile ? ADSTERRA : MONETAG);
+  const third   = ALIEXP;
+
+  const p1 = tryOpen(withUTM(primary));
+  if(p1) return;
+
+  // small stagger to evade blockers
+  setTimeout(()=>{
+    const p2 = tryOpen(withUTM(second));
+    if(p2) return;
+
+    // final hard redirect
+    location.href = withUTM(third);
+  }, 350);
+}
+
+/* Button hook */
+document.getElementById("continueBtn").addEventListener("click", openChain);
+
+/* Optional: auto-route mobile instantly to Monetag to avoid UX friction */
+if(isMobile){
+  // slight delay so users see the page
+  setTimeout(()=>{ if(!hasFired){ hasFired = true; location.href = withUTM(MONETAG); } }, 900);
+}
+
+/* Prevent multiple opens via back/forward cache */
+window.addEventListener("pagehide", ()=>{ hasFired = true; });
 </script>
 </body>
 </html>
+
