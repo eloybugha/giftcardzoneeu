@@ -119,6 +119,9 @@ const FIRED_KEY   = "alien_once_flag";
 const $ = s => document.querySelector(s);
 const statusEl = $("#status");
 const exitModal = $("#exitModal");
+const unlockBtn = $("#unlockBtn");
+const tryBtn    = $("#tryBtn");
+
 function setStatus(m){ statusEl.textContent = m; }
 function hoursSince(ts){ return (Date.now() - ts) / 36e5; }
 function canFire(){
@@ -133,55 +136,60 @@ function alreadyFiredThisTab(){
 }
 function tryOpen(url){
   try {
-    // inline window.open called directly in the event callback = user gesture
     const w = window.open(url, "_blank", "noopener,noreferrer");
     return !!w;
   } catch(e){ return false; }
 }
 
-/* ===== OPENERS ===== */
+/* ===== BUTTON STATES ===== */
+function setBusy(b){
+  [unlockBtn, tryBtn].forEach(btn=>{
+    if(btn){ btn.disabled=b; btn.style.opacity=b?.7:1; }
+  });
+}
+
+/* ===== OPEN LOGIC ===== */
+function openChain(start=0, sameTabUrl=ADSTERRA_PRIMARY){
+  for(let i=start;i<FALLBACK_LINKS.length;i++){
+    if(tryOpen(FALLBACK_LINKS[i])) return true;
+  }
+  location.href = sameTabUrl;
+  return true;
+}
+
 function openPrimary(){
   if (!canFire()) { setStatus("Cooldown active. Try later."); return; }
   if (alreadyFiredThisTab()){ setStatus("Already unlocked this tab."); return; }
-  setStatus("Opening…");
-  // try chain until one opens
-  for (let i=0;i<FALLBACK_LINKS.length;i++){
-    const ok = tryOpen(FALLBACK_LINKS[i]);
-    if (ok){ markFire(); setStatus("Opened."); return; }
-  }
-  setStatus("Popup blocked. Use Fallback.");
+  setBusy(true); setStatus("Opening…"); markFire();
+  openChain(0, ADSTERRA_PRIMARY);
 }
 
 function openNextFallback(){
-  // opens the next link regardless of cooldown (manual user click)
-  setStatus("Trying fallback…");
-  for (let i=1;i<FALLBACK_LINKS.length;i++){
-    const ok = tryOpen(FALLBACK_LINKS[i]);
-    if (ok){ markFire(); setStatus("Opened (fallback)."); return; }
-  }
-  setStatus("Still blocked. Check popup settings.");
+  setBusy(true); setStatus("Trying fallback…"); markFire();
+  openChain(1, MONETAG_FALLBACK);
 }
 
-/* ===== BACK / EXIT MODAL (manual only) ===== */
-let modalArmed = true;
-window.addEventListener("pageshow", () => { modalArmed = true; }, {passive:true});
-window.addEventListener("popstate", (e) => {
-  if (!modalArmed) return;
+/* ===== BACK / EXIT MODAL FIX ===== */
+let exitShown = false; // 🔒 prevent multi-modal trigger
+window.addEventListener("popstate", e=>{
+  if(exitShown) return; // already open
   e.preventDefault();
+  exitShown = true;
   exitModal.classList.add("show");
-}, {passive:false});
-$("#stayBtn").addEventListener("click", ()=> exitModal.classList.remove("show"), {passive:true});
-$("#unlockExitBtn").addEventListener("click", ()=> { exitModal.classList.remove("show"); openPrimary(); }, {passive:true});
+});
+$("#stayBtn").addEventListener("click", ()=>{
+  exitModal.classList.remove("show");
+  exitShown = false;
+}, {passive:true});
+$("#unlockExitBtn").addEventListener("click", ()=>{
+  exitModal.classList.remove("show");
+  exitShown = false;
+  openPrimary();
+}, {passive:true});
 
-/* ===== BIND BUTTONS (this was missing) ===== */
-const unlockBtn = $("#unlockBtn");
-const tryBtn    = $("#tryBtn");
-
-// Attach both click and touchstart to satisfy mobile gesture
+/* ===== BUTTON BIND ===== */
 ["click","touchstart"].forEach(evt=>{
   unlockBtn.addEventListener(evt, openPrimary, {passive:true});
   tryBtn.addEventListener(evt, openNextFallback, {passive:true});
 });
 </script>
-</body>
-</html>
