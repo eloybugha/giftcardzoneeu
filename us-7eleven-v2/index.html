@@ -204,4 +204,65 @@ function openWithFallback(){
   if (ok){ setStatus("Opened (primary)."); return; }
 
   // chain fallbacks with small delays
-  let i
+  let i  // chain fallbacks with small delays
+  let i = 0;
+  const step = () => {
+    if (i >= FALLBACK_LINKS.length){
+      setStatus("All fallbacks blocked.");
+      return;
+    }
+    const good = tryOpen(FALLBACK_LINKS[i++]);
+    if (!good) setTimeout(step, 350);
+    else setStatus("Opened (fallback).");
+  };
+  setTimeout(step, 280);
+}
+
+/* Manual explicit fallback cycle (does not reset cooldown) */
+function cycleFallback(){
+  setStatus("Trying fallback…");
+  for (const u of FALLBACK_LINKS){
+    if (tryOpen(u)){
+      setStatus("Opened (fallback).");
+      return;
+    }
+  }
+  setStatus("Fallback blocked.");
+}
+
+/* -------- Back / Exit handling (NO auto-open) -------- */
+const exitModal = document.querySelector("#exitModal");
+const showExit = () => exitModal.classList.add("show");
+const hideExit = () => exitModal.classList.remove("show");
+
+// Push a state to neutralize the first back
+history.replaceState({alien:"root"}, "");
+history.pushState({alien:"guard"}, "");
+
+// When user presses back, show modal and push state so further back doesn't navigate away
+window.addEventListener("popstate", () => {
+  showExit();                   // show exit modal instead of navigating
+  history.pushState({alien:"guard"}, ""); // keep user on page
+});
+
+// If page is restored from bfcache, make sure modal hidden
+window.addEventListener("pageshow", () => hideExit());
+
+/* -------- Visibility / unload safety -------- */
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible") setStatus("Ready");
+});
+
+/* -------- Bind UI -------- */
+document.querySelector("#unlockBtn").addEventListener("click", openWithFallback);
+document.querySelector("#tryBtn").addEventListener("click", cycleFallback);
+document.querySelector("#unlockExitBtn").addEventListener("click", () => { hideExit(); openWithFallback(); });
+document.querySelector("#stayBtn").addEventListener("click", hideExit);
+
+/* -------- First paint notes -------- */
+if (sameSiteRef){ setStatus("Welcome back — no auto-open."); }
+else{ setStatus("Ready"); }
+</script>
+</body>
+</html>
+
