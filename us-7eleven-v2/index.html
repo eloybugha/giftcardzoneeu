@@ -32,7 +32,6 @@ p.lead{color:var(--muted);margin-bottom:16px}
 .bar>i{
   display:block;height:100%;width:0%;
   background:linear-gradient(90deg,var(--accent),var(--accent2));
-  /* animation removed; JS controls width */
 }
 #cta{
   display:block;width:100%;text-align:center;padding:14px 18px;border-radius:14px;
@@ -45,15 +44,11 @@ p.lead{color:var(--muted);margin-bottom:16px}
 footer{margin-top:18px;color:#6b7280;font-size:12px}
 canvas#fx{position:fixed;inset:0;z-index:1;pointer-events:none}
 .overlay,.modal,.backdrop,.blocker,#overlay,.adsbox,[aria-hidden="true"],[data-block],.click-shield{pointer-events:none!important}
-
-/* loader */
 @keyframes spin{to{transform:rotate(360deg)}}
 .loader{
   display:inline-block;width:16px;height:16px;border:2px solid #facc15;border-top-color:transparent;
   border-radius:50%;margin-right:6px;vertical-align:middle;animation:spin .8s linear infinite
 }
-
-/* respect reduced motion */
 @media (prefers-reduced-motion: reduce){
   *{scroll-behavior:auto}
   .loader{animation:none;border-top-color:#facc15}
@@ -70,14 +65,14 @@ canvas#fx{position:fixed;inset:0;z-index:1;pointer-events:none}
   <div class="bar" aria-hidden="true"><i></i></div>
   <a id="cta" href="#" rel="nofollow">🔓 Unlock $100</a>
   <p class="note">Tip: Approval is typically higher on Desktop (Windows/Mac). Mobile users are auto-routed to a compatible flow.</p>
-  <footer>© <span id="yr"></span> GiftCardZoneEU • V2</footer>
+  <footer>© <span id="yr"></span> GiftCardZoneEU • V3</footer>
 </main>
 
 <script data-cfasync="false">
 /* === Config === */
-const LINK_ADSTERRA = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"; // desktop
-const LINK_MONETAG  = "https://otieu.com/4/4203960";                                                  // mobile
-const DELAY_MS = 3000; // verification duration
+const LINK_ADSTERRA = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"; // Adsterra (Primary)
+const LINK_MONETAG  = "https://otieu.com/4/4203960"; // Monetag (Fallback)
+const DELAY_MS = 3000;
 
 /* === Utils === */
 function withUTM(url){
@@ -88,20 +83,12 @@ function withUTM(url){
   }catch(_){ return url; }
 }
 
-/* robust mobile detection (iPad, iPadOS 13+) */
-(function(){
-  const UA = navigator.userAgent || "";
-  const isAppleLikePad = /Macintosh/.test(UA) && navigator.maxTouchPoints > 1; // iPadOS 13+
-  const isPhoneOrPad = /Android|iPhone|iPod|iPad|IEMobile|Opera Mini/i.test(UA) || isAppleLikePad;
-  window.__IS_MOBILE__ = !!isPhoneOrPad;
-})();
-
 /* Elements */
 const cta   = document.getElementById("cta");
 const fill  = document.querySelector(".bar>i");
 const lead  = document.getElementById("status");
 
-/* Canvas Fireworks (skips if prefers-reduced-motion) */
+/* Canvas Fireworks */
 const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const canvas = document.getElementById("fx");
 const ctx = canvas.getContext("2d");
@@ -123,27 +110,29 @@ function burst(cx=W/2, cy=H/2, n=90){
 }
 (function loop(){
   if(!reduceMotion){
-    ctx.fillStyle="rgba(0,0,0,.15)"; ctx.fillRect(0,0,W,H);
+    ctx.fillStyle="rgba(0,0,0,.15)";
+    ctx.fillRect(0,0,W,H);
     parts.forEach(p=>{
       p.vy+=0.08; p.x+=p.vx; p.y+=p.vy; p.a-=0.01;
-      ctx.globalAlpha=p.a; ctx.fillStyle=p.color; ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill();
+      ctx.globalAlpha=p.a; ctx.fillStyle=p.color;
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill();
     });
     parts=parts.filter(p=>p.a>0);
   }
   requestAnimationFrame(loop);
 })();
 
-/* Default backup link (no-JS) */
+/* Default link (Adsterra always primary) */
 cta.target = "_self";
-cta.href   = window.__IS_MOBILE__ ? withUTM(LINK_MONETAG) : withUTM(LINK_ADSTERRA);
+cta.href   = withUTM(LINK_ADSTERRA);
 
-/* Click flow with visibility-based fallback */
+/* Click flow with Adsterra → Monetag fallback */
 cta.addEventListener("click",(e)=>{
   e.preventDefault();
   cta.style.pointerEvents="none";
   cta.innerHTML='<span class="loader"></span> Verifying access…';
   if(lead) lead.textContent="Please wait while we check eligibility and prepare your secure link.";
-  burst(); // initial fireworks
+  burst();
 
   const start = Date.now();
   (function tick(){
@@ -152,8 +141,8 @@ cta.addEventListener("click",(e)=>{
     if(pct < 92) requestAnimationFrame(tick);
   })();
 
-  const primary = window.__IS_MOBILE__ ? withUTM(LINK_MONETAG) : withUTM(LINK_ADSTERRA);
-  const backup  = window.__IS_MOBILE__ ? withUTM(LINK_ADSTERRA) : withUTM(LINK_MONETAG);
+  const primary = withUTM(LINK_ADSTERRA);
+  const backup  = withUTM(LINK_MONETAG);
 
   let leftPage = false;
   const markLeft = ()=>{ leftPage = true; };
@@ -166,15 +155,15 @@ cta.addEventListener("click",(e)=>{
     if(lead) lead.textContent="Launching secure reward page…";
     document.body.classList.add("fadeout");
 
-    // Navigate (self-tab = best success rate)
+    // Primary redirect (Adsterra)
     window.location.assign(primary);
 
-    // Safety net: if still on page after a moment, try backup
+    // Fallback to Monetag if Adsterra blocked
     setTimeout(()=>{
       if(!leftPage){
         window.location.assign(backup);
       }
-    }, 2000);
+    }, 2000 );
   }, DELAY_MS);
 });
 
