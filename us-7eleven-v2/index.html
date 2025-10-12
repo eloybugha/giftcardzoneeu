@@ -3,200 +3,205 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>🎁 Amazon Gift Card — Unlock $100</title>
+<title>👽 Alien Gift Drop — Unlock $100 Amazon</title>
 <meta name="theme-color" content="#0b0f19" />
+<meta http-equiv="Cache-Control" content="no-store" />
+
+<!-- Speed-ups -->
 <link rel="preconnect" href="https://www.effectivegatecpm.com" crossorigin>
 <link rel="preconnect" href="https://otieu.com" crossorigin>
-<link rel="preload" as="image" href="./amazon-bg.webp" fetchpriority="high">
+<link rel="preload" as="image" href="./bg-alien.webp" fetchpriority="high">
+
 <style>
-:root{ --bg:#0b0f19; --card:#111827; --glass:rgba(17,24,39,.92);
---border:rgba(255,255,255,.08); --txt:#f8fafc; --muted:#94a3b8;
---accent:#facc15; --accent2:#fde047; }
+:root{
+  --bg:#0b0f19; --card:#111827; --glass:rgba(17,24,39,.9);
+  --border:rgba(255,255,255,.08); --txt:#f8fafc; --muted:#94a3b8;
+  --accent:#22d3ee; --accent2:#60a5fa; --ok:#22c55e; --warn:#f59e0b;
+}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:#0b0f19;color:var(--txt);
-font:500 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto;
-min-height:100dvh;display:grid;place-items:center;padding:24px}
-.card{width:100%;max-width:520px;background:var(--glass);
-border:1px solid var(--border);border-radius:22px;padding:22px;
-box-shadow:0 20px 60px rgba(0,0,0,.35);text-align:center;position:relative;z-index:2}
-h1{font-size:22px;margin-bottom:6px}
-p.lead{color:var(--muted);margin-bottom:16px}
-.bar{height:10px;border-radius:999px;background:#0f172a;border:1px solid var(--border);
-overflow:hidden;margin-bottom:18px}
-.bar>i{display:block;height:100%;width:0%;
-background:linear-gradient(90deg,var(--accent),var(--accent2))}
-#cta{display:block;width:100%;text-align:center;padding:14px 18px;border-radius:14px;
-background:linear-gradient(180deg,var(--accent),var(--accent2));color:#111;
-font:800 17px/1 system-ui;text-decoration:none;box-shadow:0 10px 30px rgba(250,204,21,.25);position:relative;z-index:3}
-#cta:hover{filter:brightness(1.05)}
-.note{margin-top:12px;color:var(--muted);font-size:13px}
-footer{margin-top:18px;color:#6b7280;font-size:12px}
-canvas#fx{position:fixed;inset:0;z-index:1;pointer-events:none;display:none}
-@keyframes spin{to{transform:rotate(360deg)}}
-.loader{display:inline-block;width:16px;height:16px;border:2px solid #facc15;border-top-color:transparent;
-border-radius:50%;margin-right:6px;vertical-align:middle;animation:spin .8s linear infinite}
-@media (prefers-reduced-motion: reduce){ .loader{animation:none;border-top-color:#facc15} }
+body{
+  background:
+    radial-gradient(1200px 600px at 70% -20%, #1f2937 0%, #0b0f19 48%, #0b0f19 100%),
+    url('./bg-alien.webp') center/cover fixed no-repeat;
+  color:var(--txt);
+  font:500 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter;
+  min-height:100dvh;
+}
+.wrap{min-height:100dvh;display:grid;place-items:center;padding:20px}
+.card{
+  width:100%;max-width:520px;background:var(--glass);
+  border:1px solid var(--border);border-radius:20px;
+  padding:22px;box-shadow:0 20px 50px rgba(0,0,0,.45);
+  backdrop-filter: blur(8px);
+}
+.header{display:flex;gap:12px;align-items:center;margin-bottom:6px}
+.badge{
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  color:#001523;border-radius:999px;padding:6px 12px;
+  font-weight:700;font-size:12px;letter-spacing:.4px;text-transform:uppercase;
+}
+h1{font-size:22px;margin:8px 0 6px}
+p.lead{color:var(--muted);margin-bottom:14px}
+.features{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.f{border:1px dashed var(--border);border-radius:14px;padding:10px}
+.f b{display:block;font-size:13px}
+.cta{
+  display:flex;flex-direction:column;gap:10px;margin-top:12px
+}
+button.primary,button.secondary{
+  width:100%;padding:14px 16px;border-radius:14px;border:1px solid var(--border);
+  background:linear-gradient(180deg,#0ea5e9,#0369a1);color:white;font-weight:800;
+  letter-spacing:.2px;cursor:pointer;transition:transform .05s ease,opacity .2s ease;
+}
+button.primary:active{transform:translateY(1px)}
+button.secondary{
+  background:#0f172a;border:1px solid #1f2a44;color:#cbd5e1;font-weight:700
+}
+.note{font-size:12px;color:#8aa3c5;text-align:center}
+.footer{
+  margin-top:14px;display:flex;justify-content:space-between;
+  font-size:12px;color:#7f93b3
+}
+.logoRow{display:flex;gap:8px;align-items:center}
+.logo{
+  width:26px;height:26px;border-radius:8px;background:#0b1220;
+  display:grid;place-items:center;border:1px solid #1c2742;font-weight:900
+}
+
+/* Exit modal (on back) */
+.modal{
+  position:fixed;inset:0;background:rgba(0,0,0,.6);
+  display:none;align-items:center;justify-content:center;padding:16px;z-index:50
+}
+.modal.show{display:flex}
+.modal .sheet{
+  width:100%;max-width:440px;background:rgba(13,20,35,.98);
+  border:1px solid var(--border);border-radius:18px;padding:18px;
+  box-shadow:0 20px 50px rgba(0,0,0,.6)
+}
+.sheet h2{font-size:18px;margin-bottom:6px}
+.sheet p{color:#a6b3ca;margin-bottom:12px}
+.actions{display:flex;gap:10px}
+.actions button{flex:1;padding:12px;border-radius:12px;border:1px solid var(--border)}
+.actions .stay{background:#0b1220;color:#dbeafe}
+.actions .unlock{background:linear-gradient(180deg,#0ea5e9,#0369a1);color:white;font-weight:800}
+small.dim{display:block;margin-top:8px;color:#6f809e}
 </style>
 </head>
 <body>
-<canvas id="fx" aria-hidden="true"></canvas>
-<main class="card" role="main">
-  <h1>Amazon Gift Card • Unlock $100</h1>
-  <p class="lead" id="status" aria-live="polite">
-    Press the button to claim your reward. If a pop-up is blocked, we’ll automatically redirect you to the next best offer.
-  </p>
-  <div class="bar" aria-hidden="true"><i></i></div>
+  <div class="wrap">
+    <div class="card" id="card">
+      <div class="header">
+        <span class="badge">Alien Gift Drop</span>
+      </div>
+      <h1>👽 Limited Beam: $100 Amazon Gift Code</h1>
+      <p class="lead">Naka-lock sa hyperdrive. Click “Unlock” to beam in. 1 claim per device (cooldown active).</p>
 
-  <!-- Anchor retained (for styling), but click is JS-controlled -->
-  <a id="cta" href="#" rel="nofollow noopener noreferrer">🔓 Unlock $100</a>
+      <div class="features">
+        <div class="f"><b>⚡ Instant</b>Auto-redirect after verify</div>
+        <div class="f"><b>🛡️ Safe</b>No adult / casino mixing</div>
+        <div class="f"><b>📱 Mobile-first</b>Single tab, no spam</div>
+        <div class="f"><b>🧊 Anti-freeze</b>No back-loop, no auto-fire</div>
+      </div>
 
-  <p class="note">Tip: Approval rates are higher on Desktop (Windows/Mac). Mobile users are auto-routed to a compatible flow.</p>
-  <footer>© <span id="yr"></span> GiftCardZoneEU • V4.3 Turbo</footer>
-</main>
+      <div class="cta">
+        <button class="primary" id="unlockBtn">Unlock Now</button>
+        <button class="secondary" id="tryBtn">Try Fallback</button>
+        <div class="note">Tip: One unlock per <b>12h</b> per device to avoid duplicates.</div>
+      </div>
+
+      <div class="footer">
+        <div class="logoRow">
+          <div class="logo">👽</div><div class="logo">A</div><div class="logo">$</div>
+        </div>
+        <span id="status">Ready</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Exit / Back Modal -->
+  <div class="modal" id="exitModal" aria-hidden="true">
+    <div class="sheet">
+      <h2>Leaving so soon?</h2>
+      <p>Pwede mong i-unlock ang gift code bago ka umalis.</p>
+      <div class="actions">
+        <button class="stay" id="stayBtn">Stay</button>
+        <button class="unlock" id="unlockExitBtn">Unlock</button>
+      </div>
+      <small class="dim">No auto-open on back. Manual lang para iwas loop.</small>
+    </div>
+  </div>
 
 <script>
-/* === Config === */
-const LINK_ADSTERRA = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";
-const LINK_MONETAG  = "https://otieu.com/4/4203960";
-const DELAY_MS = 1000;
-const FB_EXTRA = 200;
+/* -------- CONFIG -------- */
+// 🔗 Replace if needed (using your latest working links)
+const ADSTERRA_PRIMARY = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"; // Smartlink
+const ADSTERRA_EXTRA   = "https://www.effectivegatecpm.com/b3tf3q5h?key=d30075f9a8298d2e723defde10af4e33"; // Clean maintraim
+const MONETAG_FALLBACK = "https://otieu.com/4/4203960";
 
-/* DOM */
-const cta  = document.getElementById("cta");
-const fill = document.querySelector(".bar>i");
-const lead = document.getElementById("status");
-const canvas = document.getElementById("fx");
-const ctx = canvas.getContext("2d");
+const FALLBACK_LINKS = [MONETAG_FALLBACK, ADSTERRA_EXTRA];
 
-/* State */
-let clicked=false, leftPage=false, openedExternal=false, fbTimer=null;
+const COOLDOWN_HOURS = 12;               // one-click per device per 12h
+const STORAGE_KEY = "alien_unlock_last";
+const FIRED_KEY   = "alien_once_flag";
 
-/* Utils */
-function withUTM(url){
-  try{ const u = new URL(url), q = new URLSearchParams(location.search);
-    q.forEach((v,k)=>{ if(!u.searchParams.has(k)) u.searchParams.set(k,v); });
-    return u.toString();
-  }catch(_){ return url; }
+/* -------- UTILS -------- */
+const $ = (q) => document.querySelector(q);
+const statusEl = $("#status");
+function setStatus(msg){ statusEl.textContent = msg; }
+
+function hoursSince(ts){
+  return (Date.now() - ts) / 36e5;
 }
-
-/* Confetti */
-let fxStarted=false;
-function startFX(){
-  if (fxStarted) return; fxStarted=true;
-  canvas.style.display="block";
-  let W=canvas.width=innerWidth, H=canvas.height=innerHeight, parts=[];
-  const reduce = matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
-  addEventListener("resize", ()=>{ W=canvas.width=innerWidth; H=canvas.height=innerHeight; }, {passive:true});
-  function burst(cx=W/2, cy=H/2, n=80){
-    if(reduce) return;
-    for(let i=0;i<n;i++){
-      parts.push({x:cx,y:cy,vx:(Math.random()*6-3),vy:(Math.random()*-6-2),a:1,r:Math.random()*3+2,color:`hsl(${Math.random()*360},100%,60%)`});
-    }
-  }
-  window.fxBurst = burst;
-  (function loop(){
-    if(!reduce){
-      ctx.fillStyle="rgba(0,0,0,.16)"; ctx.fillRect(0,0,W,H);
-      parts.forEach(p=>{ p.vy+=0.08; p.x+=p.vx; p.y+=p.vy; p.a-=0.012;
-        ctx.globalAlpha=p.a; ctx.fillStyle=p.color; ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill(); });
-      parts=parts.filter(p=>p.a>0);
-    }
-    if (fxStarted) requestAnimationFrame(loop);
-  })();
-}
-function stopFX(){ fxStarted=false; canvas.style.display="none"; ctx.clearRect(0,0,canvas.width,canvas.height); }
-
-/* Progress */
-function animateProgress(ms=DELAY_MS){
-  const start = performance.now();
-  function step(now){
-    const pct = Math.min(92, ((now-start)/ms)*92);
-    fill.style.width = pct + "%";
-    if (pct < 92) requestAnimationFrame(step);
-  }
-  requestAnimationFrame(step);
-}
-
-/* HARD RESET */
-function resetUIHard(){
-  leftPage=false; openedExternal=false; clicked=false;
-  if (fbTimer) clearTimeout(fbTimer);
-  if (cta){ cta.style.pointerEvents="auto"; cta.innerHTML="🔓 Unlock $100"; }
-  if (fill) fill.style.width="0%";
-  if (lead) lead.textContent="Press the button to claim your reward. If a pop-up is blocked, we’ll automatically redirect you to the next best offer.";
-  stopFX();
-  sessionStorage.removeItem("gczeu_fallbacking");
-}
-
-/* MAIN CLICK (prevent default + window.open) */
-cta.addEventListener("click", (e)=>{
-  e.preventDefault();
-  if (clicked) return;
-  clicked = true;
-
-  cta.style.pointerEvents="none";
-  cta.innerHTML='<span class="loader"></span> Verifying…';
-  if(lead) lead.textContent="Preparing your secure link...";
-  startFX(); if (window.fxBurst) window.fxBurst();
-  animateProgress(DELAY_MS);
-
-  // Try opening primary in a new tab/window (does not navigate current page)
-  let opened = false;
+function canFire(){
   try{
-    const win = window.open(withUTM(LINK_ADSTERRA), "_blank", "noopener,noreferrer");
-    opened = !!win;
-  }catch(_){ opened = false; }
-
-  if (opened){
-    openedExternal = true;
-    // no fallback; keep page idle and ready for user to close/return
-    // Safety reset after a short while so UI doesn't stay "Verifying..."
-    setTimeout(()=>{ if (document.visibilityState==="visible") resetUIHard(); }, DELAY_MS + 1200);
-  }else{
-    // schedule fallback navigation on this tab
-    sessionStorage.setItem("gczeu_fallbacking","1");
-    fbTimer = setTimeout(()=>{
-      if (!leftPage && document.visibilityState!=="hidden" && document.hasFocus()){
-        location.replace(withUTM(LINK_MONETAG));
-      }
-    }, DELAY_MS + FB_EXTRA);
-  }
-},{passive:false});
-
-/* Lifecycle guards */
-addEventListener("pagehide", ()=>{ leftPage=true; if (fbTimer) clearTimeout(fbTimer); stopFX(); }, {passive:true});
-addEventListener("pageshow", ()=>{ resetUIHard(); }, {passive:true});
-addEventListener("visibilitychange", ()=>{
-  if (document.visibilityState==="visible"){
-    // Back from new tab/app task switch
-    if (clicked || cta?.innerText.includes("Verifying")) resetUIHard();
-  }else{
-    if (fbTimer) clearTimeout(fbTimer);
-  }
-},{passive:true});
-addEventListener("focus", ()=>{ // Android/Chrome edge case
-  if (clicked || cta?.innerText.includes("Verifying")) resetUIHard();
-},{passive:true});
-
-/* If we arrive here after fallback navigation */
-if (sessionStorage.getItem("gczeu_fallbacking")==="1"){
-  // We came back via Back from Monetag; ensure clean slate
-  resetUIHard();
+    const ts = +localStorage.getItem(STORAGE_KEY) || 0;
+    if (!ts) return true;
+    return hoursSince(ts) >= COOLDOWN_HOURS;
+  }catch(e){ return true; }
+}
+function markFire(){
+  try{
+    localStorage.setItem(STORAGE_KEY, String(Date.now()));
+    sessionStorage.setItem(FIRED_KEY, "1");
+  }catch(e){}
+}
+function alreadyFiredThisTab(){
+  try{ return sessionStorage.getItem(FIRED_KEY) === "1"; }catch(e){ return false; }
 }
 
-/* Year */
-document.getElementById("yr").textContent = new Date().getFullYear();
-
-/* Background after first paint (webp→jpg) */
-(function applyBG(){
-  const setBG = src => {
-    document.body.style.background =
-      `linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.88)), url('${src}') center/cover no-repeat`;
-  };
-  const img = new Image(); img.decoding="async"; img.src="./amazon-bg.webp";
-  img.onload = () => setBG("./amazon-bg.webp");
-  img.onerror = () => setBG("./amazon-bg.jpg");
+/* Single-tab guard via window.name */
+(function setTabId(){
+  if (!window.name) window.name = "alien_tab_" + Math.random().toString(36).slice(2);
 })();
-</script>
-</body>
-</html>
+
+/* Referrer guard: if coming back from our own domain, don't auto anything */
+const sameSiteRef = document.referrer && new URL(document.referrer).host === location.host;
+
+/* Safe opener */
+function tryOpen(url){
+  try{
+    const w = window.open(url, "_blank", "noopener,noreferrer");
+    return !!w;
+  }catch(e){ return false; }
+}
+
+/* Main open with controlled fallback (manual only) */
+function openWithFallback(){
+  if (!canFire()){
+    setStatus("Cooldown active. Try later.");
+    return;
+  }
+  if (alreadyFiredThisTab()){
+    setStatus("Already unlocked this tab.");
+    return;
+  }
+  setStatus("Opening…");
+
+  // primary first
+  const ok = tryOpen(ADSTERRA_PRIMARY);
+  markFire();
+  if (ok){ setStatus("Opened (primary)."); return; }
+
+  // chain fallbacks with small delays
+  let i
