@@ -80,34 +80,131 @@ cta.addEventListener("click",function(e){
   let start=Date.now();
   const tick=()=>{
     const pct=Math.min(92,((Date.now()-start)/DELAY_MS)*92);
-    if(barFill) barFill.style.width=pct+"%";
-    if(pct<92) requestAnimationFrame(tick);
-  };
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>🎁 Amazon Gift Card — Unlock $100</title>
+<meta name="theme-color" content="#0b0f19" />
+<style>
+:root{
+  --bg:#0b0f19; --card:#111827; --glass:rgba(17,24,39,.85);
+  --border:rgba(255,255,255,.08); --txt:#f8fafc; --muted:#94a3b8;
+  --accent:#facc15; --accent2:#fde047;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:radial-gradient(1200px 600px at 70% -20%,#1f2937 0%,#0b0f19 48%,#0b0f19 100%);
+  color:var(--txt); font:500 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto;
+  min-height:100dvh; display:grid; place-items:center; padding:24px;
+  transition:opacity .5s ease;
+}
+body.fadeout{opacity:0}
+.card{width:100%;max-width:520px;background:var(--glass);
+  border:1px solid var(--border);border-radius:22px;padding:22px;
+  box-shadow:0 20px 60px rgba(0,0,0,.45);backdrop-filter:blur(10px);
+  text-align:center;position:relative;z-index:2}
+h1{font-size:22px;margin-bottom:6px}
+p.lead{color:var(--muted);margin-bottom:16px}
+.bar{height:10px;border-radius:999px;background:#0f172a;border:1px solid var(--border);
+  overflow:hidden;margin-bottom:18px}
+.bar>i{display:block;height:100%;width:18%;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));animation:grow 5s ease forwards}
+@keyframes grow{to{width:92%}}
+#cta{display:block;width:100%;text-align:center;padding:14px 18px;border-radius:14px;
+  background:linear-gradient(180deg,var(--accent),var(--accent2));color:#111;
+  font:800 17px/1 system-ui;text-decoration:none;box-shadow:0 10px 30px rgba(250,204,21,.25);
+  position:relative;z-index:3}
+#cta:hover{filter:brightness(1.05)}
+.note{margin-top:12px;color:var(--muted);font-size:13px}
+footer{margin-top:18px;color:#6b7280;font-size:12px}
+canvas#fx{position:fixed;inset:0;z-index:1;pointer-events:none}
+</style>
+</head>
+<body>
+<canvas id="fx"></canvas>
+<main class="card">
+  <h1>Amazon Gift Card • Unlock $100</h1>
+  <p class="lead">Press the button to claim your reward. If a pop-up is blocked, we’ll auto-redirect to the best available offer for your device.</p>
+  <div class="bar"><i></i></div>
+  <a id="cta" href="#">🔓 Unlock $100</a>
+  <p class="note">Tip: Approval is typically higher on Desktop (Windows/Mac). Mobile users are auto-routed to a compatible flow.</p>
+  <footer>© <span id="yr"></span> GiftCardZoneEU • V2</footer>
+</main>
+
+<script>
+const LINK_ADSTERRA="https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";
+const LINK_MONETAG="https://otieu.com/4/4203960";
+const DELAY_MS=3000;
+
+/* fireworks setup */
+const c=document.getElementById("fx"),x=c.getContext("2d");
+let W,H,particles=[];
+function resize(){W=c.width=innerWidth;H=c.height=innerHeight}
+addEventListener("resize",resize);resize();
+function burst(){
+  for(let i=0;i<80;i++){
+    particles.push({
+      x:W/2,y:H/2,
+      vx:(Math.random()*6-3),
+      vy:(Math.random()*-6-2),
+      a:1,r:Math.random()*3+2,
+      color:`hsl(${Math.random()*360},100%,60%)`
+    });
+  }
+}
+function draw(){
+  x.fillStyle="rgba(0,0,0,.15)";
+  x.fillRect(0,0,W,H);
+  particles.forEach(p=>{
+    p.vy+=0.08;p.x+=p.vx;p.y+=p.vy;p.a-=0.01;
+    x.globalAlpha=p.a; x.fillStyle=p.color;
+    x.beginPath();x.arc(p.x,p.y,p.r,0,Math.PI*2);x.fill();
+  });
+  particles=particles.filter(p=>p.a>0);
+  requestAnimationFrame(draw);
+}
+draw();
+
+/* helpers */
+function withUTM(url){
+  try{
+    const u=new URL(url),qs=new URLSearchParams(location.search);
+    qs.forEach((v,k)=>{if(!u.searchParams.has(k))u.searchParams.set(k,v)});
+    return u.toString();
+  }catch(_){return url;}
+}
+const isMobile=/Android|iPhone|iPod|IEMobile|Opera Mini/i.test(navigator.userAgent);
+const cta=document.getElementById("cta");
+const fill=document.querySelector(".bar>i");
+const lead=document.querySelector(".lead");
+
+cta.addEventListener("click",e=>{
+  e.preventDefault();
+  cta.style.pointerEvents="none";
+  cta.textContent="🎆 Verifying...";
+  lead.textContent="Please wait while we verify and prepare your reward.";
+  burst();
+  let start=Date.now();
+  const tick=()=>{const p=Math.min(92,((Date.now()-start)/DELAY_MS)*92);
+    fill.style.width=p+"%"; if(p<92)requestAnimationFrame(tick);}
   requestAnimationFrame(tick);
-
-  const targetUrl=isMobile?withUTM(LINK_MONETAG):withUTM(LINK_ADSTERRA);
-
-  // After delay: change text, then fade out, then redirect
+  const target=isMobile?withUTM(LINK_MONETAG):withUTM(LINK_ADSTERRA);
   setTimeout(()=>{
-    cta.innerHTML="✅ Verified! Opening your reward…";
-    if(lead) lead.textContent="Launching secure link…";
-    // trigger fade-out
+    burst();burst(); // double fireworks
+    cta.textContent="✅ Verified! Opening offer...";
+    lead.textContent="Launching secure reward page...";
     document.body.classList.add("fadeout");
-    // wait a bit for fade to finish, then go
-    setTimeout(()=>{ location.href=targetUrl; }, 520); // match CSS .5s
-  }, DELAY_MS);
-
-  // restore if user comes back
-  window.addEventListener("pageshow",()=>{
-    document.body.classList.remove("fadeout");
-    cta.textContent=original;
-    cta.style.pointerEvents="auto";
-    if(barFill) barFill.style.width="18%";
-  },{once:true});
+    setTimeout(()=>location.href=target,600);
+  },DELAY_MS);
 });
 
 document.getElementById("yr").textContent=new Date().getFullYear();
 </script>
+</body>
+</html>
+
 
 
 
