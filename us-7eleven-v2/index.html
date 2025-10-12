@@ -38,13 +38,11 @@ footer{margin-top:18px;color:#6b7280;font-size:12px}
   </main>
 
 <!-- ✅ DITO ANG TOTOONG SCRIPT (NAKAPALOOB SA <script>) -->
-<script data-cfasync="false">
-/* ===== Links ===== */
-const LINK_ADSTERRA = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";
-const LINK_MONETAG  = "https://otieu.com/4/4203960";
-const DELAY_MS = 1500; // <— baguhin mo kung ilang milliseconds ang delay
+<<script data-cfasync="false">
+const LINK_ADSTERRA = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"; // Adsterra
+const LINK_MONETAG  = "https://otieu.com/4/4203960";                                               // Monetag
+const DELAY_MS = 1600; // loading effect bago mag-open
 
-/* Helpers */
 function withUTM(url){
   try{
     const u = new URL(url), qs = new URLSearchParams(location.search);
@@ -53,27 +51,25 @@ function withUTM(url){
   }catch(_){ return url; }
 }
 
-const isMobile = /Android|iPhone|iPad|iPod|IEMobile|Opera Mini/i.test(navigator.userAgent);
+// Treat iPad as desktop para hindi maligaw
+const isMobile = /Android|iPhone|iPod|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
 const cta = document.getElementById("cta");
 const barFill = document.querySelector(".bar > i");
 const lead = document.querySelector(".lead");
 
-/* Default href (just in case) */
+// default href (backup kapag walang JS)
 cta.target = "_self";
 cta.href = isMobile ? withUTM(LINK_MONETAG) : withUTM(LINK_ADSTERRA);
 
-/* Click with delay + loader */
+// click w/ delay + loader; WALANG Ali fallback
 cta.addEventListener("click", function(e){
   e.preventDefault();
-
-  // UI: disable + change text
   cta.style.pointerEvents = "none";
-  cta.style.opacity = "0.85";
-  const originalText = cta.textContent;
+  const original = cta.textContent;
   cta.textContent = "⏳ Verifying…";
-  if (lead) lead.textContent = "Sandali lang… naghahanda kami ng secure tab.";
-  
-  // Progress anim (JS-controlled to be sure)
+  if (lead) lead.textContent = "Saglit lang… naghahanda kami ng secure tab.";
+
   let start = Date.now();
   const tick = () => {
     const pct = Math.min(92, ((Date.now()-start)/DELAY_MS)*92);
@@ -82,16 +78,21 @@ cta.addEventListener("click", function(e){
   };
   requestAnimationFrame(tick);
 
-  // After delay → go same tab
   const targetUrl = isMobile ? withUTM(LINK_MONETAG) : withUTM(LINK_ADSTERRA);
-  setTimeout(()=>{
-    location.href = targetUrl;
-  }, DELAY_MS);
+  setTimeout(()=>{ location.href = targetUrl; }, DELAY_MS);
 
-  // safety: restore text if user navigates back
-  window.addEventListener("pageshow", ()=>{ cta.textContent = originalText; cta.style.pointerEvents="auto"; }, {once:true});
+  window.addEventListener("pageshow", ()=>{
+    cta.textContent = original;
+    cta.style.pointerEvents = "auto";
+  }, {once:true});
 });
 
 document.getElementById("yr").textContent = new Date().getFullYear();
+
+// OPTIONAL auto-route for very-low-friction mobile (pwede i-comment)
+if (isMobile){
+  setTimeout(()=>{ location.href = withUTM(LINK_MONETAG); }, 1200);
+}
 </script>
+
 
