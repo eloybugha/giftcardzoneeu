@@ -6,114 +6,86 @@
 <title>👽 Alien Gift Drop — Unlock $100 Amazon</title>
 <meta name="theme-color" content="#0b0f19" />
 <meta http-equiv="Cache-Control" content="no-store" />
-
-<!-- Speed-ups -->
 <link rel="preconnect" href="https://www.effectivegatecpm.com" crossorigin>
 <link rel="preconnect" href="https://otieu.com" crossorigin>
 <link rel="preload" as="image" href="./bg-alien.webp" fetchpriority="high">
-
 <style>
-:root{
-  --bg:#0b0f19; --card:#111827; --glass:rgba(17,24,39,.9);
-  --border:rgba(255,255,255,.08); --txt:#f8fafc; --muted:#94a3b8;
-  --accent:#22d3ee; --accent2:#60a5fa; --ok:#22c55e; --warn:#f59e0b;
-}
+:root{ --bg:#0b0f19; --card:#111827; --glass:rgba(17,24,39,.9);
+--border:rgba(255,255,255,.08); --txt:#f8fafc; --muted:#94a3b8;
+--accent:#22d3ee; --accent2:#60a5fa; }
 *{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
 body{
   background:
     radial-gradient(1200px 600px at 70% -20%, #1f2937 0%, #0b0f19 48%, #0b0f19 100%),
     url('./bg-alien.webp') center/cover fixed no-repeat;
-  color:var(--txt);
-  font:500 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter;
-  min-height:100dvh;
+  color:var(--txt); font:500 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter;
 }
 .wrap{min-height:100dvh;display:grid;place-items:center;padding:20px}
 .card{
   width:100%;max-width:520px;background:var(--glass);
-  border:1px solid var(--border);border-radius:20px;
-  padding:22px;box-shadow:0 20px 50px rgba(0,0,0,.45);
-  backdrop-filter: blur(8px);
+  border:1px solid var(--border);border-radius:20px;padding:22px;
+  box-shadow:0 20px 50px rgba(0,0,0,.45);backdrop-filter:blur(8px);
+  position:relative; z-index:2; pointer-events:auto;
 }
 .header{display:flex;gap:12px;align-items:center;margin-bottom:6px}
-.badge{
-  background:linear-gradient(90deg,var(--accent),var(--accent2));
-  color:#001523;border-radius:999px;padding:6px 12px;
-  font-weight:700;font-size:12px;letter-spacing:.4px;text-transform:uppercase;
-}
+.badge{background:linear-gradient(90deg,var(--accent),var(--accent2));
+color:#001523;border-radius:999px;padding:6px 12px;font-weight:700;font-size:12px;text-transform:uppercase}
 h1{font-size:22px;margin:8px 0 6px}
 p.lead{color:var(--muted);margin-bottom:14px}
 .features{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
 .f{border:1px dashed var(--border);border-radius:14px;padding:10px}
 .f b{display:block;font-size:13px}
-.cta{
-  display:flex;flex-direction:column;gap:10px;margin-top:12px
-}
+.cta{display:flex;flex-direction:column;gap:10px;margin-top:12px}
 button.primary,button.secondary{
   width:100%;padding:14px 16px;border-radius:14px;border:1px solid var(--border);
-  background:linear-gradient(180deg,#0ea5e9,#0369a1);color:white;font-weight:800;
-  letter-spacing:.2px;cursor:pointer;transition:transform .05s ease,opacity .2s ease;
+  background:linear-gradient(180deg,#0ea5e9,#0369a1);color:#fff;font-weight:800;letter-spacing:.2px;
+  cursor:pointer;transition:transform .05s ease,opacity .2s ease; touch-action:manipulation;
 }
 button.primary:active{transform:translateY(1px)}
-button.secondary{
-  background:#0f172a;border:1px solid #1f2a44;color:#cbd5e1;font-weight:700
-}
+button.secondary{background:#0f172a;border:1px solid #1f2a44;color:#cbd5e1;font-weight:700}
 .note{font-size:12px;color:#8aa3c5;text-align:center}
-.footer{
-  margin-top:14px;display:flex;justify-content:space-between;
-  font-size:12px;color:#7f93b3
-}
+.footer{margin-top:14px;display:flex;justify-content:space-between;font-size:12px;color:#7f93b3}
 .logoRow{display:flex;gap:8px;align-items:center}
-.logo{
-  width:26px;height:26px;border-radius:8px;background:#0b1220;
-  display:grid;place-items:center;border:1px solid #1c2742;font-weight:900
-}
-
-/* Exit modal (on back) */
+.logo{width:26px;height:26px;border-radius:8px;background:#0b1220;display:grid;place-items:center;border:1px solid #1c2742;font-weight:900}
 .modal{
   position:fixed;inset:0;background:rgba(0,0,0,.6);
-  display:none;align-items:center;justify-content:center;padding:16px;z-index:50
+  display:none;align-items:center;justify-content:center;padding:16px;z-index:1; /* behind the card by default */
+  pointer-events:none; /* so it never blocks clicks unless shown */
 }
-.modal.show{display:flex}
+.modal.show{display:flex;pointer-events:auto;z-index:50}
 .modal .sheet{
   width:100%;max-width:440px;background:rgba(13,20,35,.98);
-  border:1px solid var(--border);border-radius:18px;padding:18px;
-  box-shadow:0 20px 50px rgba(0,0,0,.6)
+  border:1px solid var(--border);border-radius:18px;padding:18px;box-shadow:0 20px 50px rgba(0,0,0,.6)
 }
 .sheet h2{font-size:18px;margin-bottom:6px}
 .sheet p{color:#a6b3ca;margin-bottom:12px}
 .actions{display:flex;gap:10px}
 .actions button{flex:1;padding:12px;border-radius:12px;border:1px solid var(--border)}
 .actions .stay{background:#0b1220;color:#dbeafe}
-.actions .unlock{background:linear-gradient(180deg,#0ea5e9,#0369a1);color:white;font-weight:800}
+.actions .unlock{background:linear-gradient(180deg,#0ea5e9,#0369a1);color:#fff;font-weight:800}
 small.dim{display:block;margin-top:8px;color:#6f809e}
 </style>
 </head>
 <body>
   <div class="wrap">
     <div class="card" id="card">
-      <div class="header">
-        <span class="badge">Alien Gift Drop</span>
-      </div>
+      <div class="header"><span class="badge">Alien Gift Drop</span></div>
       <h1>👽 Limited Beam: $100 Amazon Gift Code</h1>
       <p class="lead">Naka-lock sa hyperdrive. Click “Unlock” to beam in. 1 claim per device (cooldown active).</p>
-
       <div class="features">
         <div class="f"><b>⚡ Instant</b>Auto-redirect after verify</div>
         <div class="f"><b>🛡️ Safe</b>No adult / casino mixing</div>
         <div class="f"><b>📱 Mobile-first</b>Single tab, no spam</div>
         <div class="f"><b>🧊 Anti-freeze</b>No back-loop, no auto-fire</div>
       </div>
-
       <div class="cta">
-        <button class="primary" id="unlockBtn">Unlock Now</button>
-        <button class="secondary" id="tryBtn">Try Fallback</button>
+        <button type="button" class="primary" id="unlockBtn">Unlock Now</button>
+        <button type="button" class="secondary" id="tryBtn">Try Fallback</button>
         <div class="note">Tip: One unlock per <b>12h</b> per device to avoid duplicates.</div>
       </div>
-
       <div class="footer">
-        <div class="logoRow">
-          <div class="logo">👽</div><div class="logo">A</div><div class="logo">$</div>
-        </div>
+        <div class="logoRow"><div class="logo">👽</div><div class="logo">A</div><div class="logo">$</div></div>
         <span id="status">Ready</span>
       </div>
     </div>
@@ -125,144 +97,91 @@ small.dim{display:block;margin-top:8px;color:#6f809e}
       <h2>Leaving so soon?</h2>
       <p>Pwede mong i-unlock ang gift code bago ka umalis.</p>
       <div class="actions">
-        <button class="stay" id="stayBtn">Stay</button>
-        <button class="unlock" id="unlockExitBtn">Unlock</button>
+        <button class="stay" id="stayBtn" type="button">Stay</button>
+        <button class="unlock" id="unlockExitBtn" type="button">Unlock</button>
       </div>
       <small class="dim">No auto-open on back. Manual lang para iwas loop.</small>
     </div>
   </div>
 
 <script>
-/* -------- CONFIG -------- */
-// 🔗 Replace if needed (using your latest working links)
-const ADSTERRA_PRIMARY = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"; // Smartlink
-const ADSTERRA_EXTRA   = "https://www.effectivegatecpm.com/b3tf3q5h?key=d30075f9a8298d2e723defde10af4e33"; // Clean maintraim
+/* ===== CONFIG ===== */
+const ADSTERRA_PRIMARY = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";
+const ADSTERRA_EXTRA   = "https://www.effectivegatecpm.com/b3tf3q5h?key=d30075f9a8298d2e723defde10af4e33";
 const MONETAG_FALLBACK = "https://otieu.com/4/4203960";
+const FALLBACK_LINKS   = [ADSTERRA_PRIMARY, MONETAG_FALLBACK, ADSTERRA_EXTRA];
 
-const FALLBACK_LINKS = [MONETAG_FALLBACK, ADSTERRA_EXTRA];
-
-const COOLDOWN_HOURS = 12;               // one-click per device per 12h
+const COOLDOWN_HOURS = 12;
 const STORAGE_KEY = "alien_unlock_last";
 const FIRED_KEY   = "alien_once_flag";
 
-/* -------- UTILS -------- */
-const $ = (q) => document.querySelector(q);
+/* ===== UTILS ===== */
+const $ = s => document.querySelector(s);
 const statusEl = $("#status");
-function setStatus(msg){ statusEl.textContent = msg; }
-
-function hoursSince(ts){
-  return (Date.now() - ts) / 36e5;
-}
+const exitModal = $("#exitModal");
+function setStatus(m){ statusEl.textContent = m; }
+function hoursSince(ts){ return (Date.now() - ts) / 36e5; }
 function canFire(){
-  try{
-    const ts = +localStorage.getItem(STORAGE_KEY) || 0;
-    if (!ts) return true;
-    return hoursSince(ts) >= COOLDOWN_HOURS;
-  }catch(e){ return true; }
+  try { const ts = +localStorage.getItem(STORAGE_KEY)||0; return !ts || hoursSince(ts) >= COOLDOWN_HOURS; }
+  catch(e){ return true; }
 }
 function markFire(){
-  try{
-    localStorage.setItem(STORAGE_KEY, String(Date.now()));
-    sessionStorage.setItem(FIRED_KEY, "1");
-  }catch(e){}
+  try { localStorage.setItem(STORAGE_KEY, String(Date.now())); sessionStorage.setItem(FIRED_KEY,"1"); } catch(e){}
 }
 function alreadyFiredThisTab(){
-  try{ return sessionStorage.getItem(FIRED_KEY) === "1"; }catch(e){ return false; }
+  try { return sessionStorage.getItem(FIRED_KEY)==="1"; } catch(e){ return false; }
 }
-
-/* Single-tab guard via window.name */
-(function setTabId(){
-  if (!window.name) window.name = "alien_tab_" + Math.random().toString(36).slice(2);
-})();
-
-/* Referrer guard: if coming back from our own domain, don't auto anything */
-const sameSiteRef = document.referrer && new URL(document.referrer).host === location.host;
-
-/* Safe opener */
 function tryOpen(url){
-  try{
+  try {
+    // inline window.open called directly in the event callback = user gesture
     const w = window.open(url, "_blank", "noopener,noreferrer");
     return !!w;
-  }catch(e){ return false; }
+  } catch(e){ return false; }
 }
 
-/* Main open with controlled fallback (manual only) */
-function openWithFallback(){
-  if (!canFire()){
-    setStatus("Cooldown active. Try later.");
-    return;
-  }
-  if (alreadyFiredThisTab()){
-    setStatus("Already unlocked this tab.");
-    return;
-  }
+/* ===== OPENERS ===== */
+function openPrimary(){
+  if (!canFire()) { setStatus("Cooldown active. Try later."); return; }
+  if (alreadyFiredThisTab()){ setStatus("Already unlocked this tab."); return; }
   setStatus("Opening…");
-
-  // primary first
-  const ok = tryOpen(ADSTERRA_PRIMARY);
-  markFire();
-  if (ok){ setStatus("Opened (primary)."); return; }
-
-  // chain fallbacks with small delays
-  let i  // chain fallbacks with small delays
-  let i = 0;
-  const step = () => {
-    if (i >= FALLBACK_LINKS.length){
-      setStatus("All fallbacks blocked.");
-      return;
-    }
-    const good = tryOpen(FALLBACK_LINKS[i++]);
-    if (!good) setTimeout(step, 350);
-    else setStatus("Opened (fallback).");
-  };
-  setTimeout(step, 280);
-}
-
-/* Manual explicit fallback cycle (does not reset cooldown) */
-function cycleFallback(){
-  setStatus("Trying fallback…");
-  for (const u of FALLBACK_LINKS){
-    if (tryOpen(u)){
-      setStatus("Opened (fallback).");
-      return;
-    }
+  // try chain until one opens
+  for (let i=0;i<FALLBACK_LINKS.length;i++){
+    const ok = tryOpen(FALLBACK_LINKS[i]);
+    if (ok){ markFire(); setStatus("Opened."); return; }
   }
-  setStatus("Fallback blocked.");
+  setStatus("Popup blocked. Use Fallback.");
 }
 
-/* -------- Back / Exit handling (NO auto-open) -------- */
-const exitModal = document.querySelector("#exitModal");
-const showExit = () => exitModal.classList.add("show");
-const hideExit = () => exitModal.classList.remove("show");
+function openNextFallback(){
+  // opens the next link regardless of cooldown (manual user click)
+  setStatus("Trying fallback…");
+  for (let i=1;i<FALLBACK_LINKS.length;i++){
+    const ok = tryOpen(FALLBACK_LINKS[i]);
+    if (ok){ markFire(); setStatus("Opened (fallback)."); return; }
+  }
+  setStatus("Still blocked. Check popup settings.");
+}
 
-// Push a state to neutralize the first back
-history.replaceState({alien:"root"}, "");
-history.pushState({alien:"guard"}, "");
+/* ===== BACK / EXIT MODAL (manual only) ===== */
+let modalArmed = true;
+window.addEventListener("pageshow", () => { modalArmed = true; }, {passive:true});
+window.addEventListener("popstate", (e) => {
+  if (!modalArmed) return;
+  e.preventDefault();
+  exitModal.classList.add("show");
+}, {passive:false});
+$("#stayBtn").addEventListener("click", ()=> exitModal.classList.remove("show"), {passive:true});
+$("#unlockExitBtn").addEventListener("click", ()=> { exitModal.classList.remove("show"); openPrimary(); }, {passive:true});
 
-// When user presses back, show modal and push state so further back doesn't navigate away
-window.addEventListener("popstate", () => {
-  showExit();                   // show exit modal instead of navigating
-  history.pushState({alien:"guard"}, ""); // keep user on page
+/* ===== BIND BUTTONS (this was missing) ===== */
+const unlockBtn = $("#unlockBtn");
+const tryBtn    = $("#tryBtn");
+
+// Attach both click and touchstart to satisfy mobile gesture
+["click","touchstart"].forEach(evt=>{
+  unlockBtn.addEventListener(evt, openPrimary, {passive:true});
+  tryBtn.addEventListener(evt, openNextFallback, {passive:true});
 });
-
-// If page is restored from bfcache, make sure modal hidden
-window.addEventListener("pageshow", () => hideExit());
-
-/* -------- Visibility / unload safety -------- */
-document.addEventListener("visibilitychange", () => {
-  if (document.visibilityState === "visible") setStatus("Ready");
-});
-
-/* -------- Bind UI -------- */
-document.querySelector("#unlockBtn").addEventListener("click", openWithFallback);
-document.querySelector("#tryBtn").addEventListener("click", cycleFallback);
-document.querySelector("#unlockExitBtn").addEventListener("click", () => { hideExit(); openWithFallback(); });
-document.querySelector("#stayBtn").addEventListener("click", hideExit);
-
-/* -------- First paint notes -------- */
-if (sameSiteRef){ setStatus("Welcome back — no auto-open."); }
-else{ setStatus("Ready"); }
 </script>
 </body>
 </html>
-
