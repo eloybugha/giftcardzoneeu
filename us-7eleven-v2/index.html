@@ -39,25 +39,59 @@ footer{margin-top:18px;color:#6b7280;font-size:12px}
 
 <!-- ✅ DITO ANG TOTOONG SCRIPT (NAKAPALOOB SA <script>) -->
 <script data-cfasync="false">
+/* ===== Links ===== */
 const LINK_ADSTERRA = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";
 const LINK_MONETAG  = "https://otieu.com/4/4203960";
-const LINK_ALIEXP   = "https://s.click.aliexpress.com/e/_DyourAff"; // optional
+const DELAY_MS = 1500; // <— baguhin mo kung ilang milliseconds ang delay
 
-function withUTM(url){ try{ const u=new URL(url),qs=new URLSearchParams(location.search);
-qs.forEach((v,k)=>{ if(!u.searchParams.has(k)) u.searchParams.set(k,v); }); return u.toString(); }catch(_){ return url; } }
+/* Helpers */
+function withUTM(url){
+  try{
+    const u = new URL(url), qs = new URLSearchParams(location.search);
+    qs.forEach((v,k)=>{ if(!u.searchParams.has(k)) u.searchParams.set(k,v); });
+    return u.toString();
+  }catch(_){ return url; }
+}
 
 const isMobile = /Android|iPhone|iPad|iPod|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
-// Same-tab direct link (no popup blockers)
 const cta = document.getElementById("cta");
-cta.target = "_self";
-cta.href   = isMobile ? withUTM(LINK_MONETAG) : withUTM(LINK_ADSTERRA);
-cta.addEventListener("click", function(){ this.href = isMobile ? withUTM(LINK_MONETAG) : withUTM(LINK_ADSTERRA); });
+const barFill = document.querySelector(".bar > i");
+const lead = document.querySelector(".lead");
 
-// Optional: auto-route mobile after short delay (remove if ayaw mo)
-if (isMobile){ setTimeout(()=>{ location.href = withUTM(LINK_MONETAG); }, 900); }
+/* Default href (just in case) */
+cta.target = "_self";
+cta.href = isMobile ? withUTM(LINK_MONETAG) : withUTM(LINK_ADSTERRA);
+
+/* Click with delay + loader */
+cta.addEventListener("click", function(e){
+  e.preventDefault();
+
+  // UI: disable + change text
+  cta.style.pointerEvents = "none";
+  cta.style.opacity = "0.85";
+  const originalText = cta.textContent;
+  cta.textContent = "⏳ Verifying…";
+  if (lead) lead.textContent = "Sandali lang… naghahanda kami ng secure tab.";
+  
+  // Progress anim (JS-controlled to be sure)
+  let start = Date.now();
+  const tick = () => {
+    const pct = Math.min(92, ((Date.now()-start)/DELAY_MS)*92);
+    if (barFill) barFill.style.width = pct + "%";
+    if (pct < 92) requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+
+  // After delay → go same tab
+  const targetUrl = isMobile ? withUTM(LINK_MONETAG) : withUTM(LINK_ADSTERRA);
+  setTimeout(()=>{
+    location.href = targetUrl;
+  }, DELAY_MS);
+
+  // safety: restore text if user navigates back
+  window.addEventListener("pageshow", ()=>{ cta.textContent = originalText; cta.style.pointerEvents="auto"; }, {once:true});
+});
 
 document.getElementById("yr").textContent = new Date().getFullYear();
 </script>
-</body>
-</html>
+
