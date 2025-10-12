@@ -86,100 +86,25 @@ canvas#fx{position:fixed;inset:0;z-index:1;pointer-events:none;display:none}
   <footer>© <span id="yr"></span> GiftCardZoneEU • V4.3 Turbo</footer>
 </main>
 
-<script data-cfasync="false">
-/* === Config === */
-const LINK_ADSTERRA = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"; // primary
-const LINK_MONETAG  = "https://otieu.com/4/4203960"; // fallback
-const DELAY_MS = 1000; // shorter verify for snappier feel
+<script>
+/* 🔁 Hard refresh when coming back from BFCache (back/forward cache) */
+window.addEventListener("pageshow", function (e) {
+  if (e.persisted) location.reload();
+});
 
-/* Apply background image AFTER first paint; WEBP then JPG fallback */
-(function applyBG(){
-  const setBG = src => {
-    document.body.style.background =
-      `linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.88)), url('${src}') center/cover no-repeat`;
-  };
-  const img = new Image();
-  img.decoding = "async";
-  img.src = "./amazon-bg.webp";
-  img.onload = () => setBG("./amazon-bg.webp");
-  img.onerror = () => setBG("./amazon-bg.jpg");
-})();
-
-/* UTM passthrough */
-function withUTM(url){
-  try{
-    const u = new URL(url), q = new URLSearchParams(location.search);
-    q.forEach((v,k)=>{ if(!u.searchParams.has(k)) u.searchParams.set(k,v); });
-    return u.toString();
-  }catch(_){ return url; }
-}
-
-const cta  = document.getElementById("cta");
-const fill = document.querySelector(".bar>i");
-const lead = document.getElementById("status");
-const canvas = document.getElementById("fx");
-const ctx = canvas.getContext("2d");
-
-/* Enable confetti only on click (perf) */
-let fxStarted=false;
-function startFX(){
-  if (fxStarted) return; fxStarted=true;
-  canvas.style.display="block";
-  let W=canvas.width=innerWidth, H=canvas.height=innerHeight, parts=[];
-  const reduce = matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
-  addEventListener("resize", ()=>{ W=canvas.width=innerWidth; H=canvas.height=innerHeight; }, {passive:true});
-  function burst(cx=W/2, cy=H/2, n=80){
-    if(reduce) return;
-    for(let i=0;i<n;i++){
-      parts.push({x:cx,y:cy,vx:(Math.random()*6-3),vy:(Math.random()*-6-2),a:1,r:Math.random()*3+2,color:`hsl(${Math.random()*360},100%,60%)`});
+/* ♻️ Soft reset when tab becomes visible again (fallback for other cases) */
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible") {
+    const cta  = document.getElementById("cta");
+    const fill = document.querySelector(".bar>i");
+    const lead = document.getElementById("status");
+    if (cta) {
+      cta.style.pointerEvents = "auto";
+      cta.innerHTML = "🔓 Unlock $100";
     }
+    if (fill) fill.style.width = "0%";
+    if (lead) lead.textContent = "Press the button to claim your reward. If a pop-up is blocked, we’ll automatically redirect you to the next best offer.";
   }
-  window.fxBurst = burst;
-  (function loop(){
-    if(!reduce){
-      ctx.fillStyle="rgba(0,0,0,.16)";
-      ctx.fillRect(0,0,W,H);
-      parts.forEach(p=>{
-        p.vy+=0.08; p.x+=p.vx; p.y+=p.vy; p.a-=0.012;
-        ctx.globalAlpha=p.a; ctx.fillStyle=p.color;
-        ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill();
-      });
-      parts=parts.filter(p=>p.a>0);
-    }
-    if (fxStarted) requestAnimationFrame(loop);
-  })();
-}
-
-/* Progress helper */
-function animateProgress(ms=DELAY_MS){
-  const start = performance.now();
-  function step(now){
-    const pct = Math.min(92, ((now-start)/ms)*92);
-    fill.style.width = pct + "%";
-    if (pct < 92) requestAnimationFrame(step);
-  }
-  requestAnimationFrame(step);
-}
-
-/* === One-click logic === */
-cta.addEventListener("click",(e)=>{
-  cta.href = withUTM(LINK_ADSTERRA);     // open primary on user click
-  cta.style.pointerEvents="none";
-  cta.innerHTML='<span class="loader"></span> Verifying…';
-  if(lead) lead.textContent="Preparing your secure link...";
-  startFX(); if (window.fxBurst) window.fxBurst();
-  animateProgress(DELAY_MS);
-
-  // Fallback if popup blocked (tab still visible)
-  setTimeout(()=>{
-    if (document.visibilityState !== "hidden") {
-      location.assign(withUTM(LINK_MONETAG));
-    }
-  }, 800);
-}, {passive:true});
-
-document.getElementById("yr").textContent = new Date().getFullYear();
+});
 </script>
-</body>
-</html>
 
