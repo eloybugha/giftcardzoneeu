@@ -38,61 +38,76 @@ footer{margin-top:18px;color:#6b7280;font-size:12px}
   </main>
 
 <!-- ✅ DITO ANG TOTOONG SCRIPT (NAKAPALOOB SA <script>) -->
-<<script data-cfasync="false">
-const LINK_ADSTERRA = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"; // Adsterra
-const LINK_MONETAG  = "https://otieu.com/4/4203960";                                               // Monetag
-const DELAY_MS = 2000; // loading effect bago mag-open
+<script data-cfasync="false">
+const LINK_ADSTERRA = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";
+const LINK_MONETAG  = "https://otieu.com/4/4203960";
+const DELAY_MS = 2800; // total loading time bago mag-open
 
+/* UTM passthrough */
 function withUTM(url){
   try{
-    const u = new URL(url), qs = new URLSearchParams(location.search);
+    const u=new URL(url),qs=new URLSearchParams(location.search);
     qs.forEach((v,k)=>{ if(!u.searchParams.has(k)) u.searchParams.set(k,v); });
     return u.toString();
   }catch(_){ return url; }
 }
 
-// Treat iPad as desktop para hindi maligaw
-const isMobile = /Android|iPhone|iPod|IEMobile|Opera Mini/i.test(navigator.userAgent);
+/* Detect device (iPad treated as desktop) */
+const isMobile=/Android|iPhone|iPod|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-const cta = document.getElementById("cta");
-const barFill = document.querySelector(".bar > i");
-const lead = document.querySelector(".lead");
+const cta=document.getElementById("cta");
+const barFill=document.querySelector(".bar > i");
+const lead=document.querySelector(".lead");
 
-// default href (backup kapag walang JS)
-cta.target = "_self";
-cta.href = isMobile ? withUTM(LINK_MONETAG) : withUTM(LINK_ADSTERRA);
+/* Spinner style (small) */
+const spin=document.createElement("style");
+spin.textContent=`@keyframes spin{to{transform:rotate(360deg)}}
+.loader{display:inline-block;width:16px;height:16px;border:2px solid #facc15;border-top-color:transparent;border-radius:50%;margin-right:6px;vertical-align:middle;animation:spin .8s linear infinite}`;
+document.head.appendChild(spin);
 
-// click w/ delay + loader; WALANG Ali fallback
-cta.addEventListener("click", function(e){
+/* Default href backup */
+cta.target="_self";
+cta.href=isMobile?withUTM(LINK_MONETAG):withUTM(LINK_ADSTERRA);
+
+cta.addEventListener("click",function(e){
   e.preventDefault();
-  cta.style.pointerEvents = "none";
-  const original = cta.textContent;
-  cta.textContent = "⏳ Verifying…";
-  if (lead) lead.textContent = "Saglit lang… naghahanda kami ng secure tab.";
+  cta.style.pointerEvents="none";
+  const original=cta.textContent;
+  cta.innerHTML='<span class="loader"></span> Verifying access…';
+  if(lead) lead.textContent="Please wait while we check eligibility and prepare your offer.";
 
-  let start = Date.now();
-  const tick = () => {
-    const pct = Math.min(92, ((Date.now()-start)/DELAY_MS)*92);
-    if (barFill) barFill.style.width = pct + "%";
-    if (pct < 92) requestAnimationFrame(tick);
+  // Progress bar animation during delay
+  let start=Date.now();
+  const tick=()=>{
+    const pct=Math.min(92,((Date.now()-start)/DELAY_MS)*92);
+    if(barFill) barFill.style.width=pct+"%";
+    if(pct<92) requestAnimationFrame(tick);
   };
   requestAnimationFrame(tick);
 
-  const targetUrl = isMobile ? withUTM(LINK_MONETAG) : withUTM(LINK_ADSTERRA);
-  setTimeout(()=>{ location.href = targetUrl; }, DELAY_MS);
+  const targetUrl=isMobile?withUTM(LINK_MONETAG):withUTM(LINK_ADSTERRA);
 
-  window.addEventListener("pageshow", ()=>{
-    cta.textContent = original;
-    cta.style.pointerEvents = "auto";
-  }, {once:true});
+  // After delay: change text, then fade out, then redirect
+  setTimeout(()=>{
+    cta.innerHTML="✅ Verified! Opening your reward…";
+    if(lead) lead.textContent="Launching secure link…";
+    // trigger fade-out
+    document.body.classList.add("fadeout");
+    // wait a bit for fade to finish, then go
+    setTimeout(()=>{ location.href=targetUrl; }, 520); // match CSS .5s
+  }, DELAY_MS);
+
+  // restore if user comes back
+  window.addEventListener("pageshow",()=>{
+    document.body.classList.remove("fadeout");
+    cta.textContent=original;
+    cta.style.pointerEvents="auto";
+    if(barFill) barFill.style.width="18%";
+  },{once:true});
 });
 
-document.getElementById("yr").textContent = new Date().getFullYear();
-
-// OPTIONAL auto-route for very-low-friction mobile (pwede i-comment)
-if (isMobile){
-  setTimeout(()=>{ location.href = withUTM(LINK_MONETAG); }, 1200);
-}
+document.getElementById("yr").textContent=new Date().getFullYear();
 </script>
+
 
 
