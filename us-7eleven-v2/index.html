@@ -1,155 +1,135 @@
-   <!doctype html>
+  <!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>🎁 Amazon Gift Card — Unlock $100</title>
+<title>Unlock Exclusive Offer • V2</title>
 <meta name="theme-color" content="#0b0f19" />
+<meta name="description" content="Fast pre-landing. Tap Continue to unlock the best offer." />
 <style>
-:root{ --bg:#0b0f19; --card:#111827; --glass:rgba(17,24,39,.85);
---border:rgba(255,255,255,.08); --txt:#f8fafc; --muted:#94a3b8; --accent:#facc15; --accent2:#fde047; }
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-  background:radial-gradient(1200px 600px at 70% -20%,#1f2937 0%,#0b0f19 48%,#0b0f19 100%);
-  color:var(--txt);font:500 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto;
-  min-height:100dvh;display:grid;place-items:center;padding:24px;
-  transition:opacity .5s ease;
-}
-body.fadeout{opacity:0}
-.card{
-  width:100%;max-width:520px;background:var(--glass);border:1px solid var(--border);
-  border-radius:22px;padding:22px;box-shadow:0 20px 60px rgba(0,0,0,.45);
-  backdrop-filter:blur(10px);text-align:center;position:relative;z-index:2
-}
-h1{font-size:22px;margin-bottom:6px}
-p.lead{color:var(--muted);margin-bottom:16px}
-.bar{
-  height:10px;border-radius:999px;background:#0f172a;border:1px solid var(--border);
-  overflow:hidden;margin-bottom:18px
-}
-.bar>i{
-  display:block;height:100%;width:18%;
-  background:linear-gradient(90deg,var(--accent),var(--accent2));
-  animation:grow 5s ease forwards
-}
-@keyframes grow{to{width:92%}}
-#cta{
-  display:block;width:100%;text-align:center;padding:14px 18px;border-radius:14px;
-  background:linear-gradient(180deg,var(--accent),var(--accent2));color:#111;
-  font:800 17px/1 system-ui;text-decoration:none;
-  box-shadow:0 10px 30px rgba(250,204,21,.25);position:relative;z-index:3
-}
-#cta:hover{filter:brightness(1.05)}
-.note{margin-top:12px;color:var(--muted);font-size:13px}
-footer{margin-top:18px;color:#6b7280;font-size:12px}
-canvas#fx{position:fixed;inset:0;z-index:1;pointer-events:none}
-.overlay,.modal,.backdrop,.blocker,#overlay,.adsbox,[aria-hidden="true"],[data-block],.click-shield{
-  pointer-events:none!important;
-}
+  :root{
+    --page:#0b0f19; --bg1:#0b0f19; --bg2:#0e1627;
+    --card:#0f1626; --glass:rgba(16,24,39,.82); --border:rgba(255,255,255,.08);
+    --txt:#eaf0ff; --muted:#9fb0d1;
+    --accent:#5eead4; --accent2:#7dd3fc; --ok:#22c55e; --warn:#f59e0b;
+    --ring:#22304a;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0; background: radial-gradient(1200px 600px at 20% -10%, #14213d 0%, #0b0f19 40%, #070a12 100%) fixed;
+    color:var(--txt); font:500 16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;
+  }
+  .wrap{min-height:100%; display:grid; place-items:center; padding:28px}
+  .card{
+    width:100%; max-width:460px; background:linear-gradient(180deg, var(--bg2), var(--card));
+    border:1px solid var(--border); border-radius:20px; padding:22px 20px;
+    box-shadow:0 20px 60px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.03);
+    backdrop-filter: blur(6px);
+  }
+  .logo{
+    display:flex; align-items:center; gap:10px; margin-bottom:10px; opacity:.95
+  }
+  .logo .dot{width:10px; height:10px; border-radius:50%; background:var(--accent); box-shadow:0 0 18px var(--accent)}
+  h1{margin:0 0 6px; font-size:22px; letter-spacing:.2px}
+  p.lead{margin:0 0 14px; color:var(--muted); font-size:14px}
+  .progress{
+    position:relative; height:8px; background:#0c1322; border:1px solid var(--border);
+    border-radius:999px; overflow:hidden; margin:10px 0 18px;
+  }
+  .bar{
+    position:absolute; inset:0; width:0%;
+    background:linear-gradient(90deg, var(--accent), var(--accent2));
+    animation: load 2.6s ease forwards;
+  }
+  @keyframes load{to{width:100%}}
+  .steps{display:grid; gap:10px; margin:8px 0 16px}
+  .step{
+    display:flex; gap:10px; align-items:flex-start; padding:10px; border:1px dashed var(--border);
+    border-radius:14px; background:rgba(255,255,255,.02)
+  }
+  .step span.num{
+    width:26px; height:26px; border-radius:50%; display:grid; place-items:center; font-weight:700;
+    background:#0f1a2e; border:1px solid var(--border); color:#b8c7ff; flex:0 0 26px;
+  }
+  .badges{display:flex; gap:10px; flex-wrap:wrap; margin:2px 0 18px}
+  .badge{
+    font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid var(--border);
+    background:rgba(255,255,255,.03); color:#cbd5ff;
+  }
+  a.btn{
+    display:block; text-align:center; text-decoration:none; color:#071019; font-weight:800; letter-spacing:.2px;
+    background:linear-gradient(180deg, var(--accent2), var(--accent));
+    padding:14px 18px; border-radius:14px; box-shadow:0 10px 26px rgba(94,234,212,.25);
+    border:none;
+  }
+  a.btn:active{transform:translateY(1px)}
+  .mini{
+    margin-top:12px; text-align:center; color:var(--muted); font-size:13px;
+  }
+  .mini a{color:#a7f3d0; text-decoration:underline}
+  .foot{
+    margin-top:16px; display:flex; gap:8px; align-items:center; justify-content:center; color:#7a88aa; font-size:12px;
+  }
+  .pulse{
+    width:10px; height:10px; border-radius:50%; background:var(--ok);
+    box-shadow:0 0 0 0 rgba(34,197,94,.6); animation:pulse 1.8s infinite;
+  }
+  @keyframes pulse{to{box-shadow:0 0 0 14px rgba(34,197,94,0)}}
+  /* Accessibility */
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--accent2); outline-offset:2px;
+  }
 </style>
 </head>
 <body>
-<canvas id="fx"></canvas>
+  <div class="wrap">
+    <main class="card" role="main" aria-labelledby="title">
+      <div class="logo">
+        <span class="dot" aria-hidden="true"></span>
+        <strong>Fast Unlock • V2</strong>
+      </div>
 
-<main class="card">
-  <h1>Amazon Gift Card • Unlock $100</h1>
-  <p class="lead">Press the button to claim your reward. If a pop-up is blocked, we’ll automatically redirect you to the best offer for your device.</p>
+      <h1 id="title">You're almost there</h1>
+      <p class="lead">Tap continue to open the best available offer. No popups, direct and secure.</p>
 
-  <div class="bar"><i></i></div>
+      <div class="progress" aria-hidden="true"><div class="bar"></div></div>
 
-  <!-- ✅ Always clickable even if JS fails -->
-  <a id="cta"
-     href="https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"
-     target="_self" rel="nofollow">🔓 Unlock $100</a>
+      <section class="steps" aria-label="How it works">
+        <div class="step"><span class="num">1</span><div>Click <b>Continue</b> below.</div></div>
+        <div class="step"><span class="num">2</span><div>Complete the quick action on the next page.</div></div>
+        <div class="step"><span class="num">3</span><div>Done! Offer will be applied automatically.</div></div>
+      </section>
 
-  <p class="note">Tip: Approval is typically higher on Desktop (Windows/Mac). Mobile users are auto-routed to a compatible flow.</p>
+      <div class="badges" aria-hidden="true">
+        <div class="badge">No popups</div>
+        <div class="badge">Secure redirect</div>
+        <div class="badge">Mobile-ready</div>
+      </div>
 
-  <footer>© <span id="yr"></span> GiftCardZoneEU • V2</footer>
+      <!-- PRIMARY CTA — DIRECT TO ADSTERRA (counted reliably) -->
+      <a class="btn"
+         href="https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"
+         target="_self"
+         rel="nofollow">
+        CONTINUE
+      </a>
 
-  <!-- 🔒 Fallback for users with JS disabled -->
-  <noscript>
-    <p style="margin-top:10px;color:#94a3b8;font-size:13px">
-      JavaScript is disabled. Continue here:
-      <a href="https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c">Open offer</a>
-    </p>
-  </noscript>
-</main>
+      <!-- Optional: secondary fallback link (Monetag or other) -->
+      <p class="mini">
+        Having trouble? 
+        <a href="https://YOUR-MONETAG-SMARTLINK" target="_self" rel="nofollow">Try another offer</a>
+      </p>
 
-<script data-cfasync="false">
-/* 🔗 LINKS */
-const LINK_ADSTERRA="https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";
-const LINK_MONETAG ="https://otieu.com/4/4203960";
-const DELAY_MS=3000;
+      <div class="foot">
+        <span class="pulse" aria-hidden="true"></span> Live check enabled
+      </div>
 
-/* 🎆 Fireworks */
-const canvas=document.getElementById("fx"),ctx=canvas.getContext("2d");
-let W,H,parts=[];
-function size(){W=canvas.width=innerWidth;H=canvas.height=innerHeight}
-addEventListener("resize",size);size();
-function burst(cx=W/2,cy=H/2,n=90){
-  for(let i=0;i<n;i++){
-    parts.push({x:cx,y:cy,vx:(Math.random()*6-3),vy:(Math.random()*-6-2),
-      a:1,r:Math.random()*3+2,color:`hsl(${Math.random()*360},100%,60%)`});
-  }
-}
-(function loop(){
-  ctx.fillStyle="rgba(0,0,0,.15)";
-  ctx.fillRect(0,0,W,H);
-  parts.forEach(p=>{
-    p.vy+=0.08;p.x+=p.vx;p.y+=p.vy;p.a-=0.01;
-    ctx.globalAlpha=p.a;ctx.fillStyle=p.color;
-    ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();
-  });
-  parts=parts.filter(p=>p.a>0);
-  requestAnimationFrame(loop);
-})();
-
-/* 🧩 Helper */
-function withUTM(url){
-  try{
-    const u=new URL(url),q=new URLSearchParams(location.search);
-    q.forEach((v,k)=>{if(!u.searchParams.has(k))u.searchParams.set(k,v)});
-    return u.toString();
-  }catch(_){return url;}
-}
-const isMobile=/Android|iPhone|iPod|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
-const cta=document.getElementById("cta");
-const fill=document.querySelector(".bar>i");
-const lead=document.querySelector(".lead");
-
-/* 🔄 Spinner style */
-const style=document.createElement("style");
-style.textContent=`@keyframes spin{to{transform:rotate(360deg)}}.loader{display:inline-block;width:16px;height:16px;border:2px solid #facc15;border-top-color:transparent;border-radius:50%;margin-right:6px;vertical-align:middle;animation:spin .8s linear infinite}`;
-document.head.appendChild(style);
-
-/* 🔘 Click flow */
-cta.addEventListener("click",e=>{
-  e.preventDefault();
-  cta.style.pointerEvents="none";
-  cta.innerHTML='<span class="loader"></span> Verifying access…';
-  if(lead) lead.textContent="Please wait while we check eligibility and prepare your secure link.";
-  burst(); // initial fireworks
-
-  const start=Date.now();
-  (function tick(){
-    const pct=Math.min(92,((Date.now()-start)/DELAY_MS)*92);
-    fill.style.width=pct+"%";
-    if(pct<92) requestAnimationFrame(tick);
-  })();
-
-  const target=isMobile?withUTM(LINK_MONETAG):withUTM(LINK_ADSTERRA);
-  setTimeout(()=>{
-    burst();burst();
-    cta.textContent="✅ Verified! Opening…";
-    if(lead) lead.textContent="Launching secure reward page…";
-    document.body.classList.add("fadeout");
-    setTimeout(()=>{location.href=target;},600);
-  },DELAY_MS);
-});
-
-document.getElementById("yr").textContent=new Date().getFullYear();
-</script>
+      <!-- No-JS safety: auto-open Adsterra after 3s if JS is disabled -->
+      <noscript>
+        <meta http-equiv="refresh" content="3;url=https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c">
+      </noscript>
+    </main>
+  </div>
 </body>
 </html>
- 
