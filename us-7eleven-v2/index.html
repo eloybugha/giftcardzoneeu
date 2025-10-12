@@ -81,7 +81,10 @@ canvas#fx{position:fixed;inset:0;z-index:1;pointer-events:none;display:none}
     Press the button to claim your reward. If a pop-up is blocked, we’ll automatically redirect you to the next best offer.
   </p>
   <div class="bar" aria-hidden="true"><i></i></div>
+
+  <!-- NOTE: target="_blank" retained; we guard fallback via blur/visibility -->
   <a id="cta" href="https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c" target="_blank" rel="nofollow noopener noreferrer">🔓 Unlock $100</a>
+
   <p class="note">Tip: Approval rates are higher on Desktop (Windows/Mac). Mobile users are auto-routed to a compatible flow.</p>
   <footer>© <span id="yr"></span> GiftCardZoneEU • V4.3 Turbo</footer>
 </main>
@@ -90,7 +93,8 @@ canvas#fx{position:fixed;inset:0;z-index:1;pointer-events:none;display:none}
 /* === Config === */
 const LINK_ADSTERRA = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";
 const LINK_MONETAG  = "https://otieu.com/4/4203960";
-const DELAY_MS = 1000;
+const DELAY_MS = 1000; // progress + fallback base
+const FB_EXTRA = 200;  // buffer para di sabay sa progress
 
 /* DOM */
 const cta  = document.getElementById("cta");
@@ -101,7 +105,8 @@ const ctx = canvas.getContext("2d");
 
 /* State to stop loops */
 let clicked = false;
-let leftPage = false;    // becomes true on pagehide
+let leftPage = false;      // becomes true on pagehide
+let openedExternal = false; // detect new-tab/window or focus loss
 let fbTimer = null;
 
 /* UTM passthrough */
@@ -113,7 +118,7 @@ function withUTM(url){
   }catch(_){ return url; }
 }
 
-/* Confetti only after click (perf) */
+/* Confetti */
 let fxStarted=false;
 function startFX(){
   if (fxStarted) return; fxStarted=true;
@@ -142,6 +147,11 @@ function startFX(){
     if (fxStarted) requestAnimationFrame(loop);
   })();
 }
+function stopFX(){
+  fxStarted = false;
+  canvas.style.display = "none";
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+}
 
 /* Progress */
 function animateProgress(ms=DELAY_MS){
@@ -167,18 +177,35 @@ cta.addEventListener("click", ()=>{
   startFX(); if (window.fxBurst) window.fxBurst();
   animateProgress(DELAY_MS);
 
-  // fallback: use replace (no history entry) + cancel if page left/back
+  // fallback: use replace (no history entry) + multi-guards
   fbTimer = setTimeout(()=>{
-    if (!leftPage && document.visibilityState !== "hidden") {
+    if (!leftPage &&
+        !openedExternal &&
+        document.visibilityState !== "hidden" &&
+        document.hasFocus()) {
       location.replace(withUTM(LINK_MONETAG));
     }
-  }, 800);
+  }, DELAY_MS + FB_EXTRA);
+}, {passive:true});
+
+/* Cancel fallback if the tab loses focus / becomes hidden (likely new tab opened) */
+addEventListener("blur", () => {
+  openedExternal = true;
+  if (fbTimer) clearTimeout(fbTimer);
+}, {passive:true});
+
+addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "hidden") {
+    openedExternal = true;
+    if (fbTimer) clearTimeout(fbTimer);
+  }
 }, {passive:true});
 
 /* When leaving the page (to offer), cancel timers so walang auto-redirect pag BACK */
 addEventListener("pagehide", () => {
   leftPage = true;
   if (fbTimer) clearTimeout(fbTimer);
+  stopFX();
 });
 
 /* When returning via back/forward cache, reset UI (no reload, no redirect) */
@@ -186,11 +213,13 @@ addEventListener("pageshow", (e) => {
   if (e.persisted || (performance.getEntriesByType("navigation")[0]?.type === "back_forward")) {
     // soft reset
     leftPage = false;
+    openedExternal = false;
     clicked = false;
     if (fbTimer) clearTimeout(fbTimer);
     if (cta) { cta.style.pointerEvents="auto"; cta.innerHTML="🔓 Unlock $100"; }
     if (fill) fill.style.width="0%";
     if (lead) lead.textContent="Press the button to claim your reward. If a pop-up is blocked, we’ll automatically redirect you to the next best offer.";
+    stopFX();
   }
 });
 
@@ -210,4 +239,5 @@ document.getElementById("yr").textContent = new Date().getFullYear();
   img.onerror = () => setBG("./amazon-bg.jpg");
 })();
 </script>
-
+</body>
+</html>
