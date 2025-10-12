@@ -1,152 +1,183 @@
 <!doctype html>
-<html lang="tl">
+<html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>🎁 Amazon Gift Card — Unlock $100</title>
-<!-- Monetag Dreamy Tag Anti-AdBlock -->
-<script type="text/javascript" data-cfasync="false" src="https://yourtag.monetag.com/abcd123.js"></script>
-
 <meta name="theme-color" content="#0b0f19" />
-<!-- Speed: preconnect to ad domains -->
-<link rel="preconnect" href="https://www.effectivegatecpm.com" crossorigin>
-<link rel="dns-prefetch" href="https://www.effectivegatecpm.com">
-<link rel="preconnect" href="https://otieu.com" crossorigin>
-<link rel="dns-prefetch" href="https://otieu.com">
-
 <style>
-:root{ --bg:#0b0f19; --card:#111827; --glass:rgba(17,24,39,.85);
---border:rgba(255,255,255,.08); --txt:#f8fafc; --muted:#94a3b8;
---accent:#facc15; --accent2:#fde047; }
+:root{
+  --bg:#0b0f19; --card:#111827; --glass:rgba(17,24,39,.85);
+  --border:rgba(255,255,255,.08); --txt:#f8fafc; --muted:#94a3b8;
+  --accent:#facc15; --accent2:#fde047;
+}
 *{box-sizing:border-box;margin:0;padding:0}
 body{
   background:radial-gradient(1200px 600px at 70% -20%,#1f2937 0%,#0b0f19 48%,#0b0f19 100%);
   color:var(--txt);font:500 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto;
-  min-height:100dvh;display:grid;place-items:center;padding:24px;transition:opacity .45s ease
+  min-height:100dvh;display:grid;place-items:center;padding:24px;transition:opacity .5s ease
 }
-body.fadeout{opacity:.15}
-.card{width:100%;max-width:520px;background:var(--glass);border:1px solid var(--border);
-  border-radius:22px;padding:22px;box-shadow:0 20px 60px rgba(0,0,0,.45);backdrop-filter:blur(10px);
-  text-align:center;position:relative;z-index:2}
+body.fadeout{opacity:0}
+.card{
+  width:100%;max-width:520px;background:var(--glass);border:1px solid var(--border);
+  border-radius:22px;padding:22px;box-shadow:0 20px 60px rgba(0,0,0,.45);
+  backdrop-filter:blur(10px);text-align:center;position:relative;z-index:2
+}
 h1{font-size:22px;margin-bottom:6px}
 p.lead{color:var(--muted);margin-bottom:16px}
-.bar{height:10px;border-radius:999px;background:#0f172a;border:1px solid var(--border);
-  overflow:hidden;margin-bottom:18px}
-.bar>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));
-  transition:width .15s ease}
-#cta{display:block;width:100%;text-align:center;padding:14px 18px;border-radius:14px;
-  background:linear-gradient(180deg,var(--accent),var(--accent2));color:#111;font:800 17px/1 system-ui;
-  text-decoration:none;box-shadow:0 10px 30px rgba(250,204,21,.25);position:relative;z-index:3}
+.bar{
+  height:10px;border-radius:999px;background:#0f172a;border:1px solid var(--border);
+  overflow:hidden;margin-bottom:18px
+}
+.bar>i{
+  display:block;height:100%;width:0%;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  /* animation removed; JS controls width */
+}
+#cta{
+  display:block;width:100%;text-align:center;padding:14px 18px;border-radius:14px;
+  background:linear-gradient(180deg,var(--accent),var(--accent2));color:#111;
+  font:800 17px/1 system-ui;text-decoration:none;box-shadow:0 10px 30px rgba(250,204,21,.25);
+  position:relative;z-index:3
+}
 #cta:hover{filter:brightness(1.05)}
 .note{margin-top:12px;color:var(--muted);font-size:13px}
 footer{margin-top:18px;color:#6b7280;font-size:12px}
 canvas#fx{position:fixed;inset:0;z-index:1;pointer-events:none}
 .overlay,.modal,.backdrop,.blocker,#overlay,.adsbox,[aria-hidden="true"],[data-block],.click-shield{pointer-events:none!important}
+
+/* loader */
+@keyframes spin{to{transform:rotate(360deg)}}
+.loader{
+  display:inline-block;width:16px;height:16px;border:2px solid #facc15;border-top-color:transparent;
+  border-radius:50%;margin-right:6px;vertical-align:middle;animation:spin .8s linear infinite
+}
+
+/* respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  *{scroll-behavior:auto}
+  .loader{animation:none;border-top-color:#facc15}
+}
 </style>
 </head>
 <body>
-<canvas id="fx"></canvas>
-<main class="card">
+<canvas id="fx" aria-hidden="true"></canvas>
+<main class="card" role="main">
   <h1>Amazon Gift Card • Unlock $100</h1>
-  <p class="lead">I-tap ang button para i-claim ang reward. Kung ma-block ang pop-up, auto-redirect ka sa best offer para sa device mo.</p>
-  <div class="bar"><i></i></div>
+  <p class="lead" id="status" aria-live="polite">
+    Press the button to claim your reward. If a pop-up is blocked, we’ll automatically redirect you to the best offer for your device.
+  </p>
+  <div class="bar" aria-hidden="true"><i></i></div>
   <a id="cta" href="#" rel="nofollow">🔓 Unlock $100</a>
-  <p class="note">Tip: Mas madali ang approval sa Desktop (Windows/Mac). Ang Mobile ay auto-routed sa compatible flow.</p>
+  <p class="note">Tip: Approval is typically higher on Desktop (Windows/Mac). Mobile users are auto-routed to a compatible flow.</p>
   <footer>© <span id="yr"></span> GiftCardZoneEU • V2</footer>
 </main>
 
 <script data-cfasync="false">
-/* ===== Links ===== */
-const LINK_ADSTERRA = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"; // Desktop
-const LINK_MONETAG  = "https://otieu.com/4/4203960";                                                 // Mobile
-const DELAY_MS = 3000; // tagal ng "verification"
+/* === Config === */
+const LINK_ADSTERRA = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"; // desktop
+const LINK_MONETAG  = "https://otieu.com/4/4203960";                                                  // mobile
+const DELAY_MS = 3000; // verification duration
 
-/* ===== Fireworks (lightweight) ===== */
-const canvas = document.getElementById("fx"), ctx = canvas.getContext("2d");
-let W,H,parts=[];
-function size(){ W=canvas.width=innerWidth; H=canvas.height=innerHeight; }
-addEventListener("resize",size,{passive:true}); size();
-function burst(cx=W/2,cy=H/2,n=90){
-  for(let i=0;i<n;i++){
-    parts.push({x:cx,y:cy,vx:(Math.random()*6-3),vy:(Math.random()*-6-2),
-      a:1,r:Math.random()*3+2,color:`hsl(${Math.random()*360},100%,60%)`});
-  }
-}
-(function loop(){
-  ctx.fillStyle="rgba(0,0,0,.15)"; ctx.fillRect(0,0,W,H);
-  for(let i=0;i<parts.length;i++){
-    const p=parts[i]; p.vy+=0.08; p.x+=p.vx; p.y+=p.vy; p.a-=0.01;
-    if(p.a<=0){ parts.splice(i,1); i--; continue; }
-    ctx.globalAlpha=p.a; ctx.fillStyle=p.color;
-    ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill();
-  }
-  requestAnimationFrame(loop);
-})();
-
-/* ===== Helpers ===== */
+/* === Utils === */
 function withUTM(url){
   try{
-    const u=new URL(url), q=new URLSearchParams(location.search);
+    const u = new URL(url), q = new URLSearchParams(location.search);
     q.forEach((v,k)=>{ if(!u.searchParams.has(k)) u.searchParams.set(k,v); });
     return u.toString();
   }catch(_){ return url; }
 }
-const isMobile = /Android|iPhone|iPod|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-/* ===== Elements ===== */
-const cta  = document.getElementById("cta");
-const fill = document.querySelector(".bar>i");
-const lead = document.querySelector(".lead");
+/* robust mobile detection (iPad, iPadOS 13+) */
+(function(){
+  const UA = navigator.userAgent || "";
+  const isAppleLikePad = /Macintosh/.test(UA) && navigator.maxTouchPoints > 1; // iPadOS 13+
+  const isPhoneOrPad = /Android|iPhone|iPod|iPad|IEMobile|Opera Mini/i.test(UA) || isAppleLikePad;
+  window.__IS_MOBILE__ = !!isPhoneOrPad;
+})();
 
-/* Tiny spinner style */
-const style=document.createElement("style");
-style.textContent=`@keyframes spin{to{transform:rotate(360deg)}}
-.loader{display:inline-block;width:16px;height:16px;border:2px solid #facc15;border-top-color:transparent;border-radius:50%;margin-right:6px;vertical-align:middle;animation:spin .8s linear infinite}`;
-document.head.appendChild(style);
+/* Elements */
+const cta   = document.getElementById("cta");
+const fill  = document.querySelector(".bar>i");
+const lead  = document.getElementById("status");
+
+/* Canvas Fireworks (skips if prefers-reduced-motion) */
+const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const canvas = document.getElementById("fx");
+const ctx = canvas.getContext("2d");
+let W,H,parts=[];
+function size(){ W=canvas.width=innerWidth; H=canvas.height=innerHeight; }
+addEventListener("resize", size); size();
+
+function burst(cx=W/2, cy=H/2, n=90){
+  if(reduceMotion) return;
+  for(let i=0;i<n;i++){
+    parts.push({
+      x:cx, y:cy,
+      vx:(Math.random()*6-3),
+      vy:(Math.random()*-6-2),
+      a:1, r:Math.random()*3+2,
+      color:`hsl(${Math.random()*360},100%,60%)`
+    });
+  }
+}
+(function loop(){
+  if(!reduceMotion){
+    ctx.fillStyle="rgba(0,0,0,.15)"; ctx.fillRect(0,0,W,H);
+    parts.forEach(p=>{
+      p.vy+=0.08; p.x+=p.vx; p.y+=p.vy; p.a-=0.01;
+      ctx.globalAlpha=p.a; ctx.fillStyle=p.color; ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill();
+    });
+    parts=parts.filter(p=>p.a>0);
+  }
+  requestAnimationFrame(loop);
+})();
 
 /* Default backup link (no-JS) */
-cta.target="_self";
-cta.href = isMobile ? withUTM(LINK_MONETAG) : withUTM(LINK_ADSTERRA);
+cta.target = "_self";
+cta.href   = window.__IS_MOBILE__ ? withUTM(LINK_MONETAG) : withUTM(LINK_ADSTERRA);
 
-/* ===== Click flow (hardened) ===== */
-let fired = false;
-cta.addEventListener("click", (e)=>{
+/* Click flow with visibility-based fallback */
+cta.addEventListener("click",(e)=>{
   e.preventDefault();
-  if (fired) return;
-  fired = true;
-
-  // UI feedback
   cta.style.pointerEvents="none";
-  cta.innerHTML='<span class="loader"></span> Vina-verify…';
-  if (lead) lead.textContent="Please wait habang tinitiyak ang eligibility at ginagawa ang secure link.";
-  burst();
+  cta.innerHTML='<span class="loader"></span> Verifying access…';
+  if(lead) lead.textContent="Please wait while we check eligibility and prepare your secure link.";
+  burst(); // initial fireworks
 
-  // progress animation up to 100%
-  const start = performance.now();
-  (function tick(now){
-    const elapsed = now - start;
-    const pct = Math.min(1, elapsed / DELAY_MS);
-    fill.style.width = (pct*100) + "%";
-    if (pct < 1) requestAnimationFrame(tick);
-  })(start);
+  const start = Date.now();
+  (function tick(){
+    const pct = Math.min(92, ((Date.now()-start)/DELAY_MS)*92);
+    fill.style.width = pct + "%";
+    if(pct < 92) requestAnimationFrame(tick);
+  })();
 
-  // choose target
-  const target = isMobile ? withUTM(LINK_MONETAG) : withUTM(LINK_ADSTERRA);
+  const primary = window.__IS_MOBILE__ ? withUTM(LINK_MONETAG) : withUTM(LINK_ADSTERRA);
+  const backup  = window.__IS_MOBILE__ ? withUTM(LINK_ADSTERRA) : withUTM(LINK_MONETAG);
 
-  // safety: kung super bagal device, hard-redirect after DELAY_MS (+fade)
+  let leftPage = false;
+  const markLeft = ()=>{ leftPage = true; };
+  addEventListener("pagehide", markLeft, { once:true });
+  addEventListener("visibilitychange", ()=>{ if(document.visibilityState==="hidden") leftPage=true; }, { once:true });
+
   setTimeout(()=>{
     burst(); burst();
-    cta.textContent = "✅ Verified! Opening…";
-    if (lead) lead.textContent = "Launching secure reward page…";
+    cta.textContent="✅ Verified! Opening…";
+    if(lead) lead.textContent="Launching secure reward page…";
     document.body.classList.add("fadeout");
-    setTimeout(()=>{ location.href = target; }, 450);
+
+    // Navigate (self-tab = best success rate)
+    window.location.assign(primary);
+
+    // Safety net: if still on page after a moment, try backup
+    setTimeout(()=>{
+      if(!leftPage){
+        window.location.assign(backup);
+      }
+    }, 2000);
   }, DELAY_MS);
+});
 
-  // extra failsafe (rare stalls)
-  setTimeout(()=>{ if (document.visibilityState === "visible") location.href = target; }, DELAY_MS + 4000);
-},{once:true});
-
-/* Footer year */
 document.getElementById("yr").textContent = new Date().getFullYear();
 </script>
 </body>
