@@ -1,59 +1,101 @@
 <!doctype html>
-<html lang="en">
+<html lang="tl">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Amazon Gift Card • Unlock $100</title>
+<title>Spin v2 • Claim Your Reward</title>
 <meta name="theme-color" content="#0b0f19" />
-<meta name="description" content="Press the button to claim your $100 Amazon Gift Card. Fast, secure and verified offer." />
 <style>
-  :root{
-    --bg:#0b0f19; --card:#121a2b; --txt:#f8fafc; --muted:#9bb0ff;
-    --accent:#facc15; --accent2:#fde047; --border:rgba(255,255,255,.08);
-  }
-  *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--txt);
-       font:500 16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Inter}
-  .wrap{min-height:100vh;display:grid;place-items:center;padding:24px}
-  .card{background:var(--card);padding:28px;border-radius:20px;
-        width:100%;max-width:420px;text-align:center;
-        border:1px solid var(--border);box-shadow:0 10px 40px rgba(0,0,0,.45)}
-  h1{margin:0 0 8px;font-size:22px}
-  p{margin:0 0 16px;color:var(--muted)}
-  .progress{height:8px;border-radius:999px;overflow:hidden;background:#1e293b;margin:16px 0}
-  .bar{width:100%;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));
-       animation:load 2s ease}
-  @keyframes load{from{width:0}to{width:100%}}
-  a.btn{
-    display:block;background:linear-gradient(180deg,var(--accent),var(--accent2));
-    color:#1e1b04;font-weight:700;padding:14px 18px;border-radius:14px;
-    text-decoration:none;box-shadow:0 0 20px rgba(250,204,21,.3);
-  }
-  a.btn:active{transform:translateY(1px)}
-  small{display:block;margin-top:10px;color:var(--muted);font-size:13px}
-  footer{margin-top:16px;color:#64748b;font-size:12px}
+:root{
+  --bg:#0b0f19; --card:#101a2e; --border:rgba(255,255,255,.08);
+  --txt:#eaf2ff; --muted:#9fb3d9; --accent:#22d3ee; --accent2:#60a5fa; --ok:#22c55e;
+}
+*{box-sizing:border-box} html,body{height:100%}
+body{margin:0;background:radial-gradient(1200px 600px at 50% -10%, #15233f 0%, transparent 60%), linear-gradient(180deg,#0b0f19,#0d1729);color:var(--txt);font:600 16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Inter}
+.wrap{min-height:100dvh;display:grid;place-items:center;padding:18px}
+.card{width:100%;max-width:460px;background:var(--card);border:1px solid var(--border);border-radius:18px;padding:18px;box-shadow:0 18px 40px rgba(0,0,0,.4)}
+h1{font-size:20px;margin:0 0 6px}
+p.lead{margin:0 0 10px;color:var(--muted)}
+.stage{display:grid;place-items:center;margin:6px 0 8px}
+#wheel{width:100%;max-width:380px;aspect-ratio:1/1;display:block}
+.pin{width:0;height:0;border-left:12px solid transparent;border-right:12px solid transparent;border-top:20px solid var(--accent2);filter:drop-shadow(0 6px 10px rgba(0,0,0,.5));margin:-8px auto 0}
+.controls{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:10px}
+.btn{--bg:linear-gradient(180deg,#1b2a45,#13233b);background:var(--bg);color:#eaf2ff;border:1px solid var(--border);padding:12px 16px;border-radius:12px;font-weight:800;letter-spacing:.2px;box-shadow:0 8px 20px rgba(0,0,0,.35);cursor:pointer;transition:.15s transform,.15s box-shadow}
+.btn:hover{transform:translateY(-1px);box-shadow:0 12px 26px rgba(0,0,0,.4)}
+.btn:active{transform:translateY(0)}
+.btn.primary{--bg:linear-gradient(180deg,#20bfee,#1688b9);border-color:#29c6f2;color:#06273a}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;border:1px solid var(--border);background:rgba(255,255,255,.03);color:var(--muted);font-size:12px;margin-top:8px}
+.badge .dot{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 10px var(--ok)}
+footer{margin-top:10px;color:#88a1d6;font-size:12px;text-align:center}
+.counter{color:#9fb3d9;font-size:13px;text-align:center;margin-top:6px}
 </style>
 </head>
 <body>
-  <div class="wrap">
-    <main class="card">
-      <h1>Amazon Gift Card • Unlock $100</h1>
-      <p>Press the button to claim your reward. If a pop-up is blocked, we’ll automatically redirect you to the best offer for your device.</p>
-      <div class="progress"><div class="bar"></div></div>
+<div class="wrap">
+  <div class="card">
+    <h1>Spin v2 • Claim Your Reward</h1>
+    <p class="lead">May <strong>1 libreng spin</strong> ka ngayon. Paikutin ang roleta at i-tap ang <em>Claim</em> para magpatuloy.</p>
 
-      <!-- ✅ DIRECT MAINSTREAM ADSTERRA LINK -->
-      <a class="btn" 
-         href="https://www.effectivegatecpm.com/b3tf3q5h?key=d30075f9a8298d2e723defde10af4e33" 
-         target="_self" 
-         rel="nofollow">
-         🔓 Unlock $100
-      </a>
+    <div class="stage">
+      <canvas id="wheel" width="800" height="800" aria-label="Spin the wheel"></canvas>
+      <div class="pin" aria-hidden="true"></div>
+      <div class="counter">Spins left: <span id="left">1</span></div>
+    </div>
 
-      <small>Tip: Approval is typically higher on Desktop (Windows/Mac). Mobile users are auto-routed to a compatible flow.</small>
+    <div class="controls">
+      <button class="btn primary" id="spinBtn">SPIN</button>
+      <button class="btn" id="claimBtn">Claim</button>
+    </div>
 
-      <footer>© 2025 GiftCardZoneEU • V2</footer>
-    </main>
+    <div class="badge"><span class="dot"></span> Clean traffic • No adult</div>
+    <footer>Promotional use only. By continuing you agree to our promo terms.</footer>
   </div>
-</body>
-</html>
- 
+</div>
+
+<script>
+// =============== CONFIG (Adsterra only) ===============
+const ADSTERRA_LINK = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"; // palitan kung may bago
+
+// =============== Minimal popup open ===============
+let fired = false;
+function openOffer(){
+  if (fired) return;
+  fired = true;
+  try{
+    const w = window.open(ADSTERRA_LINK, "_blank", "noopener,noreferrer");
+    if (!w) {
+      // fallback: same-tab redirect kung na-block
+      setTimeout(()=>{ window.location.href = ADSTERRA_LINK; }, 200);
+    }
+  }catch(e){
+    setTimeout(()=>{ window.location.href = ADSTERRA_LINK; }, 200);
+  }
+}
+
+// =============== Simple wheel (lightweight) ===============
+const cvs = document.getElementById('wheel');
+const ctx = cvs.getContext('2d');
+const size = cvs.width;
+const cx = size/2, cy = size/2;
+const r = size/2 - 14;
+
+const slices = [
+  {t:"WIN 🎁", c:"#0ea5e9"},
+  {t:"Try", c:"#1e293b"},
+  {t:"Bonus", c:"#0f766e"},
+  {t:"Almost", c:"#1e293b"},
+  {t:"WIN 🎉", c:"#22c55e"},
+  {t:"Try", c:"#1e293b"},
+  {t:"Lucky", c:"#7c3aed"},
+  {t:"Try", c:"#1e293b"}
+];
+const wedge = Math.PI*2/slices.length;
+
+function draw(rot=0){
+  ctx.clearRect(0,0,size,size);
+  ctx.save();
+  ctx.translate(cx,cy);
+  ctx.rotate(rot);
+  for(let i=0;i<slices.length;i++){
+    const a0 = i*wedge, a1 = a0+wedge;
+    ctx.beginPath();
