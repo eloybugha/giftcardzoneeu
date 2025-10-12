@@ -7,36 +7,50 @@
 <meta name="theme-color" content="#0b0f19" />
 <style>
 :root{
-  --bg:#0b0f19; --card:#111827; --glass:rgba(17,24,39,.85);
+  --bg:#0b0f19; --card:#111827; --glass:rgba(17,24,39,.86);
   --border:rgba(255,255,255,.08); --txt:#f8fafc; --muted:#94a3b8;
   --accent:#facc15; --accent2:#fde047;
 }
 *{box-sizing:border-box;margin:0;padding:0}
+
+/* 🔳 Background (replace path if needed) */
 body{
-  background:radial-gradient(1200px 600px at 70% -20%,#1f2937 0%,#0b0f19 48%,#0b0f19 100%);
-  color:var(--txt);font:500 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto;
-  min-height:100dvh;display:grid;place-items:center;padding:24px;transition:opacity .5s ease
+  background:
+    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.88)),
+    url("./amazon-bg.jpg") center/cover no-repeat fixed;
+  color:var(--txt);
+  font:500 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto;
+  min-height:100dvh;display:grid;place-items:center;
+  padding:24px;transition:opacity .5s ease;
 }
 body.fadeout{opacity:0}
+
+/* Card styling */
 .card{
-  width:100%;max-width:520px;background:var(--glass);border:1px solid var(--border);
-  border-radius:22px;padding:22px;box-shadow:0 20px 60px rgba(0,0,0,.45);
+  width:100%;max-width:520px;background:var(--glass);
+  border:1px solid var(--border);border-radius:22px;padding:22px;
+  box-shadow:0 20px 60px rgba(0,0,0,.45);
   backdrop-filter:blur(10px);text-align:center;position:relative;z-index:2
 }
 h1{font-size:22px;margin-bottom:6px}
 p.lead{color:var(--muted);margin-bottom:16px}
+
+/* Progress bar */
 .bar{
   height:10px;border-radius:999px;background:#0f172a;border:1px solid var(--border);
   overflow:hidden;margin-bottom:18px
 }
 .bar>i{
   display:block;height:100%;width:0%;
-  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  background:linear-gradient(90deg,var(--accent),var(--accent2))
 }
+
+/* Button */
 #cta{
   display:block;width:100%;text-align:center;padding:14px 18px;border-radius:14px;
   background:linear-gradient(180deg,var(--accent),var(--accent2));color:#111;
-  font:800 17px/1 system-ui;text-decoration:none;box-shadow:0 10px 30px rgba(250,204,21,.25);
+  font:800 17px/1 system-ui;text-decoration:none;
+  box-shadow:0 10px 30px rgba(250,204,21,.25);
   position:relative;z-index:3
 }
 #cta:hover{filter:brightness(1.05)}
@@ -60,21 +74,21 @@ canvas#fx{position:fixed;inset:0;z-index:1;pointer-events:none}
 <main class="card" role="main">
   <h1>Amazon Gift Card • Unlock $100</h1>
   <p class="lead" id="status" aria-live="polite">
-    Press the button to claim your reward. If a pop-up is blocked, we’ll automatically redirect you to the best offer for your device.
+    Press the button to claim your reward. If a pop-up is blocked, we’ll automatically redirect you to the next best offer.
   </p>
   <div class="bar" aria-hidden="true"><i></i></div>
   <a id="cta" href="#" rel="nofollow">🔓 Unlock $100</a>
-  <p class="note">Tip: Approval is typically higher on Desktop (Windows/Mac). Mobile users are auto-routed to a compatible flow.</p>
-  <footer>© <span id="yr"></span> GiftCardZoneEU • V3</footer>
+  <p class="note">Tip: Approval rates are higher on Desktop (Windows/Mac). Mobile users are auto-routed to a compatible flow.</p>
+  <footer>© <span id="yr"></span> GiftCardZoneEU • V4</footer>
 </main>
 
 <script data-cfasync="false">
 /* === Config === */
-const LINK_ADSTERRA = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"; // Adsterra (Primary)
-const LINK_MONETAG  = "https://otieu.com/4/4203960"; // Monetag (Fallback)
+const LINK_ADSTERRA = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"; // Adsterra (primary)
+const LINK_MONETAG  = "https://otieu.com/4/4203960"; // Monetag (fallback)
 const DELAY_MS = 3000;
 
-/* === Utils === */
+/* === Utility === */
 function withUTM(url){
   try{
     const u = new URL(url), q = new URLSearchParams(location.search);
@@ -88,7 +102,7 @@ const cta   = document.getElementById("cta");
 const fill  = document.querySelector(".bar>i");
 const lead  = document.getElementById("status");
 
-/* Canvas Fireworks */
+/* Canvas fireworks */
 const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const canvas = document.getElementById("fx");
 const ctx = canvas.getContext("2d");
@@ -122,11 +136,11 @@ function burst(cx=W/2, cy=H/2, n=90){
   requestAnimationFrame(loop);
 })();
 
-/* Default link (Adsterra always primary) */
+/* Default link: Adsterra always primary */
 cta.target = "_self";
 cta.href   = withUTM(LINK_ADSTERRA);
 
-/* Click flow with Adsterra → Monetag fallback */
+/* One-click logic: pre-open + fallback */
 cta.addEventListener("click",(e)=>{
   e.preventDefault();
   cta.style.pointerEvents="none";
@@ -144,10 +158,8 @@ cta.addEventListener("click",(e)=>{
   const primary = withUTM(LINK_ADSTERRA);
   const backup  = withUTM(LINK_MONETAG);
 
-  let leftPage = false;
-  const markLeft = ()=>{ leftPage = true; };
-  addEventListener("pagehide", markLeft, { once:true });
-  addEventListener("visibilitychange", ()=>{ if(document.visibilityState==="hidden") leftPage=true; }, { once:true });
+  // ✅ Pre-open a blank tab immediately (counts as user action)
+  const popup = window.open("about:blank", "_blank");
 
   setTimeout(()=>{
     burst(); burst();
@@ -155,15 +167,19 @@ cta.addEventListener("click",(e)=>{
     if(lead) lead.textContent="Launching secure reward page…";
     document.body.classList.add("fadeout");
 
-    // Primary redirect (Adsterra)
-    window.location.assign(primary);
-
-    // Fallback to Monetag if Adsterra blocked
-    setTimeout(()=>{
-      if(!leftPage){
-        window.location.assign(backup);
-      }
-    }, 2000 );
+    if (popup && !popup.closed) {
+      popup.location.href = primary;
+      // fallback after 2s if ad blocked
+      setTimeout(()=>{
+        try{
+          if(!popup.closed && popup.location.href === "about:blank"){
+            popup.location.href = backup;
+          }
+        }catch(e){
+          popup.location.href = backup;
+        }
+      },2000);
+    }
   }, DELAY_MS);
 });
 
