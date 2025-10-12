@@ -1,241 +1,3 @@
- <!doctype html>
-<html lang="tl">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>🎁 Amazon Gift Card • Unlock $100</title>
-<meta name="theme-color" content="#0b0f19" />
-<style>
-:root{
-  --page:#0b0f19; --bg1:#0b0f19; --bg2:#0e1627;
-  --card:#0f1626; --glass:rgba(16,24,39,.82); --border:rgba(255,255,255,.08);
-  --txt:#f8fafc; --muted:#94a3b8;
-  --accent:#f59e0b; --accent2:#ffb84a;
-  --ring:#22304a; --ok:#22c55e; --warn:#f59e0b;
-}
-*{box-sizing:border-box} html,body{height:100%}
-body{
-  margin:0; color:var(--txt);
-  background:
-    radial-gradient(1200px 800px at 10% -10%, #15223e 0%, transparent 55%),
-    radial-gradient(900px 700px at 100% 0%, #0e1a33 0%, transparent 60%),
-    linear-gradient(180deg,var(--bg1),var(--bg2));
-  font:500 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;
-}
-.wrap{min-height:100%; display:grid; place-items:center; padding:22px}
-.card{
-  width:100%; max-width:560px; background:var(--glass); border:1px solid var(--border);
-  border-radius:22px; padding:22px; backdrop-filter: blur(10px);
-  box-shadow:0 24px 60px rgba(0,0,0,.45);
-}
-header{display:flex; align-items:center; gap:12px; margin-bottom:10px}
-.dot{width:12px;height:12px;border-radius:50%; background:linear-gradient(90deg,var(--accent),var(--accent2)); box-shadow:0 0 16px rgba(245,158,11,.7)}
-h1{font-size:22px; margin:0}
-p.lead{margin:4px 0 14px; color:var(--muted)}
-
-/* HERO AMAZON CARD */
-.hero{
-  display:grid; gap:12px; margin:8px 0 6px;
-  background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.02));
-  border:1px solid var(--ring); border-radius:18px; padding:14px;
-}
-.heroRow{display:flex; gap:12px; align-items:center}
-.logoA{width:50px;height:50px;border-radius:12px;display:grid;place-items:center;font-weight:900;color:var(--accent);background:#101520}
-.heroText b{font-size:16px}
-.heroText small{display:block;color:var(--muted)}
-.heroCard{
-  border:1px dashed #334155; border-radius:14px; padding:12px;
-  display:flex; justify-content:space-between; align-items:center;
-}
-.amount{font-size:28px; font-weight:900; color:var(--accent2)}
-.sub{color:var(--muted); font-size:12px}
-
-/* BUTTONS */
-.controls{display:grid; gap:10px; margin-top:14px}
-.row{display:flex; gap:10px; flex-wrap:wrap}
-.row > *{flex:1 1 180px}
-.btn{appearance:none; border:0; padding:14px 16px; border-radius:14px; font-weight:800; cursor:pointer}
-.btn.primary{color:#111; background:linear-gradient(90deg,var(--accent),var(--accent2)); box-shadow:0 10px 24px rgba(245,158,11,.25)}
-.btn.secondary{background:#0f1a2b; color:var(--txt); border:1px solid var(--ring)}
-.btn[disabled]{opacity:.55; cursor:not-allowed}
-
-/* SPINNER (hidden at first) */
-.sectionSpin{display:none}
-.wheelBox{position:relative; display:grid; place-items:center; margin:14px 0 8px; aspect-ratio:1/1; width:100%; max-width:360px; justify-self:center}
-.ringGlow{position:absolute;inset:-12px;border-radius:50%;
-  background:radial-gradient(120px 120px at 50% 0%, rgba(245,158,11,.35), transparent 60%);
-  filter:blur(14px);opacity:.65;pointer-events:none}
-.wheel{
-  width:100%; height:100%; border-radius:50%;
-  background:conic-gradient(from 0deg,#1b2643 0 25%,#0f1b34 0 50%,#1b2643 0 75%,#0f1b34 0 100%);
-  border:10px solid #0a1020; box-shadow:inset 0 18px 40px rgba(245,158,11,.08),0 10px 30px rgba(0,0,0,.35);
-  transition:transform 1.2s cubic-bezier(.2,.8,.2,1);
-}
-.pin{position:absolute; top:-6px; width:0; height:0; border-left:11px solid transparent; border-right:11px solid transparent; border-bottom:20px solid var(--accent); filter: drop-shadow(0 4px 8px rgba(245,158,11,.45))}
-
-/* PROGRESS */
-.progressWrap{margin-top:8px}
-.bar{height:12px; background:#0f1a2b; border:1px solid #22304a; border-radius:999px; overflow:hidden}
-.fill{height:100%; width:0%; background:linear-gradient(90deg,var(--accent),var(--accent2)); transition:width .3s ease}
-.mini{display:flex; justify-content:space-between; color:var(--muted); font-size:12px; margin-top:6px}
-
-.status{display:flex; align-items:center; gap:8px; margin-top:10px; color:var(--muted); font-size:14px}
-.led{width:10px;height:10px;border-radius:50%;background:#334155}
-.status.ok .led{background:var(--ok); box-shadow:0 0 12px rgba(34,197,94,.8)}
-.status.wait .led{background:var(--warn); box-shadow:0 0 12px rgba(245,158,11,.8)}
-
-footer{margin-top:14px; opacity:.85; font-size:12px; text-align:center; color:var(--muted)}
-.badge{display:inline-flex; align-items:center; gap:8px; padding:8px 10px; border:1px solid #22304a; border-radius:12px; background:#0c1526}
-.footRow{display:flex; justify-content:center; gap:10px; flex-wrap:wrap}
-</style>
-</head>
-<body>
-<div class="wrap">
-  <main class="card">
-    <header>
-      <span class="dot"></span>
-      <div>
-        <h1>Amazon Gift Card • Unlock $100</h1>
-        <p class="lead">Claim your reward. Tap <b>Unlock $100</b> to start verification. We’ll open a safe tab and rotate fallbacks if blocked.</p>
-      </div>
-    </header>
-
-    <!-- HERO FIRST -->
-    <section id="sectionHero" class="hero">
-      <div class="heroRow">
-        <div class="logoA">a</div>
-        <div class="heroText">
-          <b>Amazon Gift Card (US)</b>
-          <small>Works on amazon.com • Limited slots today</small>
-        </div>
-      </div>
-      <div class="heroCard">
-        <div>
-          <div class="amount">$100</div>
-          <div class="sub">Instant digital code after unlock</div>
-        </div>
-        <button id="unlockBtn" class="btn primary">🔓 Unlock $100</button>
-      </div>
-    </section>
-
-    <!-- SPIN + COUNTDOWN (appears after Unlock) -->
-    <section id="sectionSpin" class="sectionSpin">
-      <div class="wheelBox">
-        <div class="ringGlow"></div>
-        <div class="pin"></div>
-        <div id="wheel" class="wheel"></div>
-      </div>
-
-      <div class="controls">
-        <div class="row">
-          <button id="spinBtn" class="btn primary">🎡 Spin now</button>
-          <button id="continueBtn" class="btn secondary" disabled>Continue</button>
-        </div>
-
-        <div class="progressWrap" id="progressWrap" style="display:none">
-          <div class="bar"><div id="fill" class="fill"></div></div>
-          <div class="mini">
-            <span id="phase">Verifying…</span>
-            <span id="count">00:08</span>
-          </div>
-          <div id="status" class="status wait"><span class="led"></span><span id="statusText">Please wait while we prepare a safe tab…</span></div>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <div class="footRow">
-        <div class="badge">🔒 Secure flow</div>
-        <div class="badge">🛡️ Smart fallbacks</div>
-        <div class="badge">⚡ Fast launch</div>
-      </div>
-      <div style="margin-top:8px">amazon-hero • <script>document.write(new Date().toLocaleDateString())</script></div>
-    </footer>
-  </main>
-</div>
-
-<script>
-/* LINKS */
-const PRIMARY_LINK = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"; // Adsterra Smartlink
-const FALLBACK_LINKS = [
-  "https://otieu.com/4/4203960", // ← your Monetag link
-  "https://s.click.aliexpress.com/e/_c3ZWaFRV?bz=300*250"
-];
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>🎁 Unlock $100 Amazon Gift Card</title>
-<meta name="theme-color" content="#0b0f19" />
-<style>
-  :root{
-    --bg:#0b0f19; --card:#111827; --glass:rgba(17,24,39,.85);
-    --border:rgba(255,255,255,.08); --txt:#f8fafc; --muted:#94a3b8;
-    --accent:#facc15; --accent2:#fde047; --ok:#22c55e; --ring:#1f2937;
-  }
-  *{box-sizing:border-box}
-  body{margin:0;background:radial-gradient(1200px 600px at 70% -20%,#1f2937 0%,#0b0f19 48%,#0b0f19 100%);color:var(--txt);font:500 16px/1.55 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto}
-  .wrap{min-height:100dvh;display:grid;place-items:center;padding:24px}
-  .card{width:100%;max-width:520px;background:var(--glass);border:1px solid var(--border);border-radius:22px;padding:22px;box-shadow:0 20px 60px rgba(0,0,0,.45);backdrop-filter: blur(10px)}
-  .hdr{display:flex;align-items:center;gap:12px;margin-bottom:12px}
-  .logo{width:36px;height:36px;border-radius:9px;background:#111;border:1px solid var(--border);display:grid;place-items:center;font-weight:800}
-  h1{margin:0;font-size:22px}
-  p.lead{margin:2px 0 14px;color:var(--muted)}
-  .bar{height:10px;border-radius:999px;background:#0f172a;border:1px solid var(--border);overflow:hidden;margin:10px 0 6px}
-  .bar>i{display:block;height:100%;width:18%;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .6s ease}
-  .row{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:13px;margin-bottom:16px}
-  .pill{padding:6px 10px;border:1px solid var(--border);border-radius:999px;background:#0f172a}
-  button.cta{width:100%;padding:14px 18px;border:0;border-radius:14px;background:linear-gradient(180deg,var(--accent),var(--accent2));color:#111;font:800 17px/1 ui-sans-serif;cursor:pointer;box-shadow:0 10px 30px rgba(250,204,21,.25)}
-  button.cta:hover{filter:brightness(1.05)}
-  .note{margin-top:10px;color:var(--muted);font-size:13px}
-  .badges{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
-  .badge{border:1px dashed var(--border);border-radius:12px;padding:10px 8px;text-align:center;color:var(--muted);font-size:12px;background:#0f172a}
-  footer{margin-top:14px;text-align:center;color:#6b7280;font-size:12px}
-  .hid{display:none}
-</style>
-</head>
-<body>
-<div class="wrap">
-  <div class="card">
-    <div class="hdr">
-      <div class="logo">A</div>
-      <div>
-        <h1>Claim your $100 Amazon Gift Card</h1>
-        <p class="lead">Limited slots. Continue to unlock your reward.</p>
-      </div>
-    </div>
-
-    <div class="bar"><i id="prog"></i></div>
-    <div class="row">
-      <span class="pill">Verified • Secure</span>
-      <span class="pill">Desktop Best Rate</span>
-      <span class="pill" id="geoPill">US Priority</span>
-    </div>
-
-    <button id="continueBtn" class="cta">Continue</button>
-    <p class="note">Tip: Desktop (Windows/Mac) users get higher approval rates. If a pop-up is blocked, we’ll auto-redirect to the best offer for your device.</p>
-
-    <div class="badges">
-      <div class="badge">SSL Encrypted</div>
-      <div class="badge">No CC Required</div>
-      <div class="badge">Fast Payout</div>
-    </div>
-
-    <footer>© <span id="yr"></span> GiftCardZoneEU • V2</footer>
-  </div>
-</div>
-
-<script>
-/* ========= 🔗 LINKS (edit here only) ========= */
-const ADSTERRA = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";  // your Smartlink
-const MONETAG  = "https://otieu.com/4/4203960";            // Monetag direct link
-const ALIEXP   = "https://s.click.aliexpress.com/e/_DyourAff"; // optional fallback
-/* ============================================= */
-<script>
-/* LINKS */
-const ADSTERRA = "https://www.adsterralink.com/27725838";  // palitan kung iba ID mo
-const MONETAG  = "https://otieu.com/4/4203960";
 <!doctype html>
 <html lang="tl">
 <head>
@@ -245,105 +7,101 @@ const MONETAG  = "https://otieu.com/4/4203960";
 <meta name="theme-color" content="#0b0f19" />
 <style>
 :root{
-  --page:#0b0f19; --card:#111827; --glass:rgba(17,24,39,.85);
+  --bg:#0b0f19; --card:#111827; --glass:rgba(17,24,39,.85);
   --border:rgba(255,255,255,.08); --txt:#f8fafc; --muted:#94a3b8;
   --accent:#facc15; --accent2:#fde047;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:radial-gradient(1200px 600px at 70% -20%,#1f2937 0%,#0b0f19 48%,#0b0f19 100%);
-font:500 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto;color:var(--txt);
-display:grid;place-items:center;min-height:100dvh;padding:24px}
-.card{width:100%;max-width:480px;background:var(--glass);
-border:1px solid var(--border);border-radius:22px;padding:24px;
-box-shadow:0 20px 60px rgba(0,0,0,.45);backdrop-filter:blur(10px);
-text-align:center}
+body{
+  background:radial-gradient(1200px 600px at 70% -20%,#1f2937 0%,#0b0f19 48%,#0b0f19 100%);
+  color:var(--txt); font:500 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto;
+  min-height:100dvh; display:grid; place-items:center; padding:24px;
+}
+.card{width:100%;max-width:520px;background:var(--glass);
+  border:1px solid var(--border);border-radius:22px;padding:22px;
+  box-shadow:0 20px 60px rgba(0,0,0,.45);backdrop-filter: blur(10px)}
 h1{font-size:22px;margin-bottom:6px}
 p.lead{color:var(--muted);margin-bottom:16px}
-.bar{height:10px;border-radius:999px;background:#0f172a;
-border:1px solid var(--border);overflow:hidden;margin-bottom:18px}
+.bar{height:10px;border-radius:999px;background:#0f172a;border:1px solid var(--border);overflow:hidden;margin-bottom:18px}
 .bar>i{display:block;height:100%;width:18%;
-background:linear-gradient(90deg,var(--accent),var(--accent2));
-animation:grow 5s ease-in-out forwards}
+  background:linear-gradient(90deg,var(--accent),var(--accent2));animation:grow 5s ease forwards}
 @keyframes grow{to{width:92%}}
-#cta{display:block;width:100%;text-align:center;padding:14px 18px;
-border-radius:14px;background:linear-gradient(180deg,var(--accent),var(--accent2));
-color:#111;font:800 17px/1 system-ui;text-decoration:none;
-box-shadow:0 10px 30px rgba(250,204,21,.25);position:relative;
-z-index:9999;pointer-events:auto}
+/* CTA always clickable & above overlays */
+#cta{display:block;width:100%;text-align:center;padding:14px 18px;border-radius:14px;
+  background:linear-gradient(180deg,var(--accent),var(--accent2));color:#111;
+  font:800 17px/1 system-ui;text-decoration:none;box-shadow:0 10px 30px rgba(250,204,21,.25);
+  position:relative;z-index:9999;pointer-events:auto}
 #cta:hover{filter:brightness(1.05)}
 .note{margin-top:12px;color:var(--muted);font-size:13px}
-footer{margin-top:20px;color:#6b7280;font-size:12px}
-.overlay,.modal,.backdrop,.blocker,#overlay,
-.adsbox,[aria-hidden="true"],[data-block],.click-shield{
+footer{margin-top:18px;color:#6b7280;font-size:12px}
+/* Patayin mga posibleng overlay na humaharang sa click */
+.overlay,.modal,.backdrop,.blocker,#overlay,.adsbox,[aria-hidden="true"],[data-block],.click-shield{
   pointer-events:none!important;
 }
 </style>
 </head>
 <body>
-<div class="card">
-  <h1>Amazon Gift Card</h1>
-  <p class="lead">I-claim ang iyong reward. Pindutin ang button para i-unlock ang $100 gift card.</p>
-  <div class="bar"><i></i></div>
+  <main class="card">
+    <h1>Amazon Gift Card • I-unlock ang $100</h1>
+    <p class="lead">Pindutin ang button para i-unlock ang reward. Kapag na-block ang pop-up, auto-redirect kami sa pinakamainam na offer.</p>
+    <div class="bar"><i></i></div>
 
-  <!-- CTA BUTTON -->
-  <a id="cta"
-     href="https://www.adsterralink.com/27725838"
-     target="_blank" rel="noopener noreferrer">
-     🔓 I-unlock ang $100
-  </a>
+    <!-- SINGLE CTA ONLY (iisang ID lang) -->
+    <a id="cta" href="#" target="_blank" rel="noopener noreferrer">🔓 I-unlock ang $100</a>
 
-  <p class="note">Kung naka-block ang pop-up, auto-redirect kami sa best offer para sa iyong device.</p>
-  <footer>© <span id="yr"></span> GiftCardZoneEU • Secure Rewards</footer>
-</div>
+    <p class="note">Tip: Mas mataas ang approval sa Desktop (Windows/Mac). Mobile users auto-route sa Monetag.</p>
+    <footer>© <span id="yr"></span> GiftCardZoneEU • V2</footer>
+  </main>
 
 <script>
-/* ====== EDIT LINKS DITO ====== */
-const ADSTERRA="https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"; // Adsterra Smartlink
-const MONETAG ="https://otieu.com/4/4203960";            // Monetag Direct Link
-const ALIEXP  ="https://s.click.aliexpress.com/e/_DyourAff"; // optional fallback
-/* ============================== */
+/* ====== EDIT LINKS DITO (gamitin mo yung real links mo) ====== */
+const LINK_ADSTERRA = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"; // Adsterra Smartlink mo
+const LINK_MONETAG  = "https://otieu.com/4/4203960";                                              // Monetag link mo
+const LINK_ALIEXP   = "https://s.click.aliexpress.com/e/_DyourAff";                                // Optional last fallback
+/* ============================================================= */
 
-/* helper para madala ang utm tags */
+/* UTM passthrough */
 function withUTM(url){
   try{
-    const u=new URL(url),q=new URLSearchParams(location.search);
-    q.forEach((v,k)=>{if(!u.searchParams.has(k))u.searchParams.set(k,v);});
+    const u = new URL(url), qs = new URLSearchParams(location.search);
+    qs.forEach((v,k)=>{ if(!u.searchParams.has(k)) u.searchParams.set(k,v); });
     return u.toString();
-  }catch(_){return url;}
+  }catch(_){ return url; }
 }
 
-const ua=navigator.userAgent;
-const isMobile=/Android|iPhone|iPad|iPod|IEMobile|Opera Mini/i.test(ua);
+/* Device detect */
+const ua = navigator.userAgent;
+const isMobile = /Android|iPhone|iPad|iPod|IEMobile|Opera Mini/i.test(ua);
 
-function tryOpen(u){
+/* Safe window.open */
+function tryOpen(url){
   try{
-    const w=window.open(u,"_blank","noopener,noreferrer");
+    const w = window.open(url, "_blank", "noopener,noreferrer");
     return !!w;
-  }catch(_){return false;}
+  }catch(_){ return false; }
 }
 
+/* Click chain */
 function openChain(e){
   e.preventDefault();
-  const first =isMobile?withUTM(MONETAG):withUTM(ADSTERRA);
-  const second=isMobile?withUTM(ADSTERRA):withUTM(MONETAG);
-  const third =withUTM(ALIEXP);
+  const p1 = isMobile ? withUTM(LINK_MONETAG)  : withUTM(LINK_ADSTERRA);
+  const p2 = isMobile ? withUTM(LINK_ADSTERRA) : withUTM(LINK_MONETAG);
+  const p3 = withUTM(LINK_ALIEXP);
 
-  if(tryOpen(first))return;
-  setTimeout(()=>{if(tryOpen(second))return;location.href=third;},350);
+  if (tryOpen(p1)) return;
+  setTimeout(()=>{ if (tryOpen(p2)) return; location.href = p3; }, 320);
 }
 
-const btn=document.getElementById("cta");
-btn.addEventListener("click",openChain,{passive:false});
-btn.href=isMobile?withUTM(MONETAG):withUTM(ADSTERRA);
+/* Init */
+const cta = document.getElementById("cta");
+cta.addEventListener("click", openChain, {passive:false});
+cta.href = isMobile ? withUTM(LINK_MONETAG) : withUTM(LINK_ADSTERRA);
+document.getElementById("yr").textContent = new Date().getFullYear();
 
-document.getElementById("yr").textContent=new Date().getFullYear();
-
-/* optional: auto-redirect mobile users agad sa Monetag */
-if(isMobile){
-  setTimeout(()=>{location.href=withUTM(MONETAG);},900);
+/* Optional: auto-route mobile agad para di na mag-click */
+if (isMobile){
+  setTimeout(()=>{ location.href = withUTM(LINK_MONETAG); }, 900);
 }
 </script>
 </body>
 </html>
-
-
