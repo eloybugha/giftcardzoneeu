@@ -1,4 +1,4 @@
-<!doctype html>
+   <!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
@@ -9,62 +9,108 @@
 :root{ --bg:#0b0f19; --card:#111827; --glass:rgba(17,24,39,.85);
 --border:rgba(255,255,255,.08); --txt:#f8fafc; --muted:#94a3b8; --accent:#facc15; --accent2:#fde047; }
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:radial-gradient(1200px 600px at 70% -20%,#1f2937 0%,#0b0f19 48%,#0b0f19 100%);
-color:var(--txt);font:500 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto;min-height:100dvh;display:grid;place-items:center;padding:24px;transition:opacity .5s ease}
+body{
+  background:radial-gradient(1200px 600px at 70% -20%,#1f2937 0%,#0b0f19 48%,#0b0f19 100%);
+  color:var(--txt);font:500 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto;
+  min-height:100dvh;display:grid;place-items:center;padding:24px;
+  transition:opacity .5s ease;
+}
 body.fadeout{opacity:0}
-.card{width:100%;max-width:520px;background:var(--glass);border:1px solid var(--border);border-radius:22px;padding:22px;box-shadow:0 20px 60px rgba(0,0,0,.45);backdrop-filter:blur(10px);text-align:center;position:relative;z-index:2}
+.card{
+  width:100%;max-width:520px;background:var(--glass);border:1px solid var(--border);
+  border-radius:22px;padding:22px;box-shadow:0 20px 60px rgba(0,0,0,.45);
+  backdrop-filter:blur(10px);text-align:center;position:relative;z-index:2
+}
 h1{font-size:22px;margin-bottom:6px}
 p.lead{color:var(--muted);margin-bottom:16px}
-.bar{height:10px;border-radius:999px;background:#0f172a;border:1px solid var(--border);overflow:hidden;margin-bottom:18px}
-.bar>i{display:block;height:100%;width:18%;background:linear-gradient(90deg,var(--accent),var(--accent2));animation:grow 5s ease forwards}
+.bar{
+  height:10px;border-radius:999px;background:#0f172a;border:1px solid var(--border);
+  overflow:hidden;margin-bottom:18px
+}
+.bar>i{
+  display:block;height:100%;width:18%;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  animation:grow 5s ease forwards
+}
 @keyframes grow{to{width:92%}}
-#cta{display:block;width:100%;text-align:center;padding:14px 18px;border-radius:14px;background:linear-gradient(180deg,var(--accent),var(--accent2));color:#111;font:800 17px/1 system-ui;text-decoration:none;box-shadow:0 10px 30px rgba(250,204,21,.25);position:relative;z-index:3}
+#cta{
+  display:block;width:100%;text-align:center;padding:14px 18px;border-radius:14px;
+  background:linear-gradient(180deg,var(--accent),var(--accent2));color:#111;
+  font:800 17px/1 system-ui;text-decoration:none;
+  box-shadow:0 10px 30px rgba(250,204,21,.25);position:relative;z-index:3
+}
 #cta:hover{filter:brightness(1.05)}
 .note{margin-top:12px;color:var(--muted);font-size:13px}
 footer{margin-top:18px;color:#6b7280;font-size:12px}
 canvas#fx{position:fixed;inset:0;z-index:1;pointer-events:none}
-.overlay,.modal,.backdrop,.blocker,#overlay,.adsbox,[aria-hidden="true"],[data-block],.click-shield{pointer-events:none!important}
+.overlay,.modal,.backdrop,.blocker,#overlay,.adsbox,[aria-hidden="true"],[data-block],.click-shield{
+  pointer-events:none!important;
+}
 </style>
 </head>
 <body>
 <canvas id="fx"></canvas>
+
 <main class="card">
   <h1>Amazon Gift Card • Unlock $100</h1>
   <p class="lead">Press the button to claim your reward. If a pop-up is blocked, we’ll automatically redirect you to the best offer for your device.</p>
+
   <div class="bar"><i></i></div>
-  <a id="cta" href="#" rel="nofollow">🔓 Unlock $100</a>
+
+  <!-- ✅ Always clickable even if JS fails -->
+  <a id="cta"
+     href="https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"
+     target="_self" rel="nofollow">🔓 Unlock $100</a>
+
   <p class="note">Tip: Approval is typically higher on Desktop (Windows/Mac). Mobile users are auto-routed to a compatible flow.</p>
+
   <footer>© <span id="yr"></span> GiftCardZoneEU • V2</footer>
+
+  <!-- 🔒 Fallback for users with JS disabled -->
+  <noscript>
+    <p style="margin-top:10px;color:#94a3b8;font-size:13px">
+      JavaScript is disabled. Continue here:
+      <a href="https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c">Open offer</a>
+    </p>
+  </noscript>
 </main>
 
 <script data-cfasync="false">
-/* Links */
-const LINK_ADSTERRA="https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"; // desktop
-const LINK_MONETAG ="https://otieu.com/4/4203960";                                                    // mobile
-const DELAY_MS=3000; // verification duration
+/* 🔗 LINKS */
+const LINK_ADSTERRA="https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";
+const LINK_MONETAG ="https://otieu.com/4/4203960";
+const DELAY_MS=3000;
 
-/* Fireworks */
+/* 🎆 Fireworks */
 const canvas=document.getElementById("fx"),ctx=canvas.getContext("2d");
 let W,H,parts=[];
 function size(){W=canvas.width=innerWidth;H=canvas.height=innerHeight}
-addEventListener("resize",size); size();
+addEventListener("resize",size);size();
 function burst(cx=W/2,cy=H/2,n=90){
   for(let i=0;i<n;i++){
-    parts.push({x:cx,y:cy,vx:(Math.random()*6-3),vy:(Math.random()*-6-2),a:1,r:Math.random()*3+2,color:`hsl(${Math.random()*360},100%,60%)`});
+    parts.push({x:cx,y:cy,vx:(Math.random()*6-3),vy:(Math.random()*-6-2),
+      a:1,r:Math.random()*3+2,color:`hsl(${Math.random()*360},100%,60%)`});
   }
 }
 (function loop(){
-  ctx.fillStyle="rgba(0,0,0,.15)"; ctx.fillRect(0,0,W,H);
-  parts.forEach(p=>{ p.vy+=0.08; p.x+=p.vx; p.y+=p.vy; p.a-=0.01;
-    ctx.globalAlpha=p.a; ctx.fillStyle=p.color; ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill();});
-  parts=parts.filter(p=>p.a>0); requestAnimationFrame(loop);
+  ctx.fillStyle="rgba(0,0,0,.15)";
+  ctx.fillRect(0,0,W,H);
+  parts.forEach(p=>{
+    p.vy+=0.08;p.x+=p.vx;p.y+=p.vy;p.a-=0.01;
+    ctx.globalAlpha=p.a;ctx.fillStyle=p.color;
+    ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();
+  });
+  parts=parts.filter(p=>p.a>0);
+  requestAnimationFrame(loop);
 })();
 
-/* Helpers */
+/* 🧩 Helper */
 function withUTM(url){
-  try{ const u=new URL(url),q=new URLSearchParams(location.search);
-       q.forEach((v,k)=>{ if(!u.searchParams.has(k)) u.searchParams.set(k,v); });
-       return u.toString(); } catch(_){ return url; }
+  try{
+    const u=new URL(url),q=new URLSearchParams(location.search);
+    q.forEach((v,k)=>{if(!u.searchParams.has(k))u.searchParams.set(k,v)});
+    return u.toString();
+  }catch(_){return url;}
 }
 const isMobile=/Android|iPhone|iPod|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
@@ -72,16 +118,12 @@ const cta=document.getElementById("cta");
 const fill=document.querySelector(".bar>i");
 const lead=document.querySelector(".lead");
 
-/* Tiny spinner */
+/* 🔄 Spinner style */
 const style=document.createElement("style");
 style.textContent=`@keyframes spin{to{transform:rotate(360deg)}}.loader{display:inline-block;width:16px;height:16px;border:2px solid #facc15;border-top-color:transparent;border-radius:50%;margin-right:6px;vertical-align:middle;animation:spin .8s linear infinite}`;
 document.head.appendChild(style);
 
-/* Default backup link (no-JS) */
-cta.target="_self";
-cta.href=isMobile?withUTM(LINK_MONETAG):withUTM(LINK_ADSTERRA);
-
-/* Click flow */
+/* 🔘 Click flow */
 cta.addEventListener("click",e=>{
   e.preventDefault();
   cta.style.pointerEvents="none";
@@ -98,15 +140,16 @@ cta.addEventListener("click",e=>{
 
   const target=isMobile?withUTM(LINK_MONETAG):withUTM(LINK_ADSTERRA);
   setTimeout(()=>{
-    burst(); burst(); // extra fireworks
+    burst();burst();
     cta.textContent="✅ Verified! Opening…";
     if(lead) lead.textContent="Launching secure reward page…";
     document.body.classList.add("fadeout");
-    setTimeout(()=>{ location.href=target; }, 600);
-  }, DELAY_MS);
+    setTimeout(()=>{location.href=target;},600);
+  },DELAY_MS);
 });
 
 document.getElementById("yr").textContent=new Date().getFullYear();
 </script>
 </body>
 </html>
+ 
