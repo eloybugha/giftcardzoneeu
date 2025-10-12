@@ -1,135 +1,59 @@
-  <!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Unlock Exclusive Offer • V2</title>
+<title>Amazon Gift Card • Unlock $100</title>
 <meta name="theme-color" content="#0b0f19" />
-<meta name="description" content="Fast pre-landing. Tap Continue to unlock the best offer." />
+<meta name="description" content="Press the button to claim your $100 Amazon Gift Card. Fast, secure and verified offer." />
 <style>
   :root{
-    --page:#0b0f19; --bg1:#0b0f19; --bg2:#0e1627;
-    --card:#0f1626; --glass:rgba(16,24,39,.82); --border:rgba(255,255,255,.08);
-    --txt:#eaf0ff; --muted:#9fb0d1;
-    --accent:#5eead4; --accent2:#7dd3fc; --ok:#22c55e; --warn:#f59e0b;
-    --ring:#22304a;
+    --bg:#0b0f19; --card:#121a2b; --txt:#f8fafc; --muted:#9bb0ff;
+    --accent:#facc15; --accent2:#fde047; --border:rgba(255,255,255,.08);
   }
   *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0; background: radial-gradient(1200px 600px at 20% -10%, #14213d 0%, #0b0f19 40%, #070a12 100%) fixed;
-    color:var(--txt); font:500 16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;
-  }
-  .wrap{min-height:100%; display:grid; place-items:center; padding:28px}
-  .card{
-    width:100%; max-width:460px; background:linear-gradient(180deg, var(--bg2), var(--card));
-    border:1px solid var(--border); border-radius:20px; padding:22px 20px;
-    box-shadow:0 20px 60px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.03);
-    backdrop-filter: blur(6px);
-  }
-  .logo{
-    display:flex; align-items:center; gap:10px; margin-bottom:10px; opacity:.95
-  }
-  .logo .dot{width:10px; height:10px; border-radius:50%; background:var(--accent); box-shadow:0 0 18px var(--accent)}
-  h1{margin:0 0 6px; font-size:22px; letter-spacing:.2px}
-  p.lead{margin:0 0 14px; color:var(--muted); font-size:14px}
-  .progress{
-    position:relative; height:8px; background:#0c1322; border:1px solid var(--border);
-    border-radius:999px; overflow:hidden; margin:10px 0 18px;
-  }
-  .bar{
-    position:absolute; inset:0; width:0%;
-    background:linear-gradient(90deg, var(--accent), var(--accent2));
-    animation: load 2.6s ease forwards;
-  }
-  @keyframes load{to{width:100%}}
-  .steps{display:grid; gap:10px; margin:8px 0 16px}
-  .step{
-    display:flex; gap:10px; align-items:flex-start; padding:10px; border:1px dashed var(--border);
-    border-radius:14px; background:rgba(255,255,255,.02)
-  }
-  .step span.num{
-    width:26px; height:26px; border-radius:50%; display:grid; place-items:center; font-weight:700;
-    background:#0f1a2e; border:1px solid var(--border); color:#b8c7ff; flex:0 0 26px;
-  }
-  .badges{display:flex; gap:10px; flex-wrap:wrap; margin:2px 0 18px}
-  .badge{
-    font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid var(--border);
-    background:rgba(255,255,255,.03); color:#cbd5ff;
-  }
+  body{margin:0;background:var(--bg);color:var(--txt);
+       font:500 16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Inter}
+  .wrap{min-height:100vh;display:grid;place-items:center;padding:24px}
+  .card{background:var(--card);padding:28px;border-radius:20px;
+        width:100%;max-width:420px;text-align:center;
+        border:1px solid var(--border);box-shadow:0 10px 40px rgba(0,0,0,.45)}
+  h1{margin:0 0 8px;font-size:22px}
+  p{margin:0 0 16px;color:var(--muted)}
+  .progress{height:8px;border-radius:999px;overflow:hidden;background:#1e293b;margin:16px 0}
+  .bar{width:100%;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));
+       animation:load 2s ease}
+  @keyframes load{from{width:0}to{width:100%}}
   a.btn{
-    display:block; text-align:center; text-decoration:none; color:#071019; font-weight:800; letter-spacing:.2px;
-    background:linear-gradient(180deg, var(--accent2), var(--accent));
-    padding:14px 18px; border-radius:14px; box-shadow:0 10px 26px rgba(94,234,212,.25);
-    border:none;
+    display:block;background:linear-gradient(180deg,var(--accent),var(--accent2));
+    color:#1e1b04;font-weight:700;padding:14px 18px;border-radius:14px;
+    text-decoration:none;box-shadow:0 0 20px rgba(250,204,21,.3);
   }
   a.btn:active{transform:translateY(1px)}
-  .mini{
-    margin-top:12px; text-align:center; color:var(--muted); font-size:13px;
-  }
-  .mini a{color:#a7f3d0; text-decoration:underline}
-  .foot{
-    margin-top:16px; display:flex; gap:8px; align-items:center; justify-content:center; color:#7a88aa; font-size:12px;
-  }
-  .pulse{
-    width:10px; height:10px; border-radius:50%; background:var(--ok);
-    box-shadow:0 0 0 0 rgba(34,197,94,.6); animation:pulse 1.8s infinite;
-  }
-  @keyframes pulse{to{box-shadow:0 0 0 14px rgba(34,197,94,0)}}
-  /* Accessibility */
-  a:focus-visible, button:focus-visible{
-    outline:2px solid var(--accent2); outline-offset:2px;
-  }
+  small{display:block;margin-top:10px;color:var(--muted);font-size:13px}
+  footer{margin-top:16px;color:#64748b;font-size:12px}
 </style>
 </head>
 <body>
   <div class="wrap">
-    <main class="card" role="main" aria-labelledby="title">
-      <div class="logo">
-        <span class="dot" aria-hidden="true"></span>
-        <strong>Fast Unlock • V2</strong>
-      </div>
+    <main class="card">
+      <h1>Amazon Gift Card • Unlock $100</h1>
+      <p>Press the button to claim your reward. If a pop-up is blocked, we’ll automatically redirect you to the best offer for your device.</p>
+      <div class="progress"><div class="bar"></div></div>
 
-      <h1 id="title">You're almost there</h1>
-      <p class="lead">Tap continue to open the best available offer. No popups, direct and secure.</p>
-
-      <div class="progress" aria-hidden="true"><div class="bar"></div></div>
-
-      <section class="steps" aria-label="How it works">
-        <div class="step"><span class="num">1</span><div>Click <b>Continue</b> below.</div></div>
-        <div class="step"><span class="num">2</span><div>Complete the quick action on the next page.</div></div>
-        <div class="step"><span class="num">3</span><div>Done! Offer will be applied automatically.</div></div>
-      </section>
-
-      <div class="badges" aria-hidden="true">
-        <div class="badge">No popups</div>
-        <div class="badge">Secure redirect</div>
-        <div class="badge">Mobile-ready</div>
-      </div>
-
-      <!-- PRIMARY CTA — DIRECT TO ADSTERRA (counted reliably) -->
-      <a class="btn"
-         href="https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"
-         target="_self"
+      <!-- ✅ DIRECT MAINSTREAM ADSTERRA LINK -->
+      <a class="btn" 
+         href="https://www.effectivegatecpm.com/b3tf3q5h?key=d30075f9a8298d2e723defde10af4e33" 
+         target="_self" 
          rel="nofollow">
-        CONTINUE
+         🔓 Unlock $100
       </a>
 
-      <!-- Optional: secondary fallback link (Monetag or other) -->
-      <p class="mini">
-        Having trouble? 
-        <a href="https://YOUR-MONETAG-SMARTLINK" target="_self" rel="nofollow">Try another offer</a>
-      </p>
+      <small>Tip: Approval is typically higher on Desktop (Windows/Mac). Mobile users are auto-routed to a compatible flow.</small>
 
-      <div class="foot">
-        <span class="pulse" aria-hidden="true"></span> Live check enabled
-      </div>
-
-      <!-- No-JS safety: auto-open Adsterra after 3s if JS is disabled -->
-      <noscript>
-        <meta http-equiv="refresh" content="3;url=https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c">
-      </noscript>
+      <footer>© 2025 GiftCardZoneEU • V2</footer>
     </main>
   </div>
 </body>
 </html>
+ 
