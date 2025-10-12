@@ -13,11 +13,12 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 
-/* 🔳 Background (replace path if needed) */
+/* Background — replace path if needed */
 body{
   background:
     linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.88)),
-    url("./amazon-bg.jpg") center/cover no-repeat fixed;
+    url("./amazon-bg.jpg") center/cover no-repeat;
+  background-attachment: scroll;
   color:var(--txt);
   font:500 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto;
   min-height:100dvh;display:grid;place-items:center;
@@ -77,9 +78,9 @@ canvas#fx{position:fixed;inset:0;z-index:1;pointer-events:none}
     Press the button to claim your reward. If a pop-up is blocked, we’ll automatically redirect you to the next best offer.
   </p>
   <div class="bar" aria-hidden="true"><i></i></div>
-  <a id="cta" href="#" rel="nofollow">🔓 Unlock $100</a>
+  <a id="cta" href="https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c" target="_blank" rel="nofollow">🔓 Unlock $100</a>
   <p class="note">Tip: Approval rates are higher on Desktop (Windows/Mac). Mobile users are auto-routed to a compatible flow.</p>
-  <footer>© <span id="yr"></span> GiftCardZoneEU • V4</footer>
+  <footer>© <span id="yr"></span> GiftCardZoneEU • V4.1</footer>
 </main>
 
 <script data-cfasync="false">
@@ -88,7 +89,7 @@ const LINK_ADSTERRA = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a
 const LINK_MONETAG  = "https://otieu.com/4/4203960"; // Monetag (fallback)
 const DELAY_MS = 3000;
 
-/* === Utility === */
+/* Utility */
 function withUTM(url){
   try{
     const u = new URL(url), q = new URLSearchParams(location.search);
@@ -97,19 +98,17 @@ function withUTM(url){
   }catch(_){ return url; }
 }
 
-/* Elements */
-const cta   = document.getElementById("cta");
-const fill  = document.querySelector(".bar>i");
-const lead  = document.getElementById("status");
+const cta  = document.getElementById("cta");
+const fill = document.querySelector(".bar>i");
+const lead = document.getElementById("status");
 
-/* Canvas fireworks */
+/* Fireworks canvas */
 const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const canvas = document.getElementById("fx");
 const ctx = canvas.getContext("2d");
 let W,H,parts=[];
 function size(){ W=canvas.width=innerWidth; H=canvas.height=innerHeight; }
 addEventListener("resize", size); size();
-
 function burst(cx=W/2, cy=H/2, n=90){
   if(reduceMotion) return;
   for(let i=0;i<n;i++){
@@ -136,16 +135,15 @@ function burst(cx=W/2, cy=H/2, n=90){
   requestAnimationFrame(loop);
 })();
 
-/* Default link: Adsterra always primary */
-cta.target = "_self";
-cta.href   = withUTM(LINK_ADSTERRA);
-
-/* One-click logic: pre-open + fallback */
+/* === One-click logic === */
 cta.addEventListener("click",(e)=>{
-  e.preventDefault();
+  // Adsterra opens instantly (user click)
+  cta.href = withUTM(LINK_ADSTERRA);
+
+  // UI progress + text
   cta.style.pointerEvents="none";
   cta.innerHTML='<span class="loader"></span> Verifying access…';
-  if(lead) lead.textContent="Please wait while we check eligibility and prepare your secure link.";
+  if(lead) lead.textContent="Preparing your secure link...";
   burst();
 
   const start = Date.now();
@@ -155,32 +153,12 @@ cta.addEventListener("click",(e)=>{
     if(pct < 92) requestAnimationFrame(tick);
   })();
 
-  const primary = withUTM(LINK_ADSTERRA);
-  const backup  = withUTM(LINK_MONETAG);
-
-  // ✅ Pre-open a blank tab immediately (counts as user action)
-  const popup = window.open("about:blank", "_blank");
-
+  // Fallback if popup blocked (still visible after 1.2s)
   setTimeout(()=>{
-    burst(); burst();
-    cta.textContent="✅ Verified! Opening…";
-    if(lead) lead.textContent="Launching secure reward page…";
-    document.body.classList.add("fadeout");
-
-    if (popup && !popup.closed) {
-      popup.location.href = primary;
-      // fallback after 2s if ad blocked
-      setTimeout(()=>{
-        try{
-          if(!popup.closed && popup.location.href === "about:blank"){
-            popup.location.href = backup;
-          }
-        }catch(e){
-          popup.location.href = backup;
-        }
-      },2000);
+    if (document.visibilityState !== "hidden") {
+      window.location.assign(withUTM(LINK_MONETAG));
     }
-  }, DELAY_MS);
+  },1200);
 });
 
 document.getElementById("yr").textContent = new Date().getFullYear();
