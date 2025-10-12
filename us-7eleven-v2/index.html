@@ -3,99 +3,149 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Spin v2 • Claim Your Reward</title>
+<title>🎁 Amazon Gift Card — Unlock $100</title>
 <meta name="theme-color" content="#0b0f19" />
+
+<!-- Speed: preconnect to ad domains -->
+<link rel="preconnect" href="https://www.effectivegatecpm.com" crossorigin>
+<link rel="dns-prefetch" href="https://www.effectivegatecpm.com">
+<link rel="preconnect" href="https://otieu.com" crossorigin>
+<link rel="dns-prefetch" href="https://otieu.com">
+
 <style>
-:root{
-  --bg:#0b0f19; --card:#101a2e; --border:rgba(255,255,255,.08);
-  --txt:#eaf2ff; --muted:#9fb3d9; --accent:#22d3ee; --accent2:#60a5fa; --ok:#22c55e;
+:root{ --bg:#0b0f19; --card:#111827; --glass:rgba(17,24,39,.85);
+--border:rgba(255,255,255,.08); --txt:#f8fafc; --muted:#94a3b8;
+--accent:#facc15; --accent2:#fde047; }
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:radial-gradient(1200px 600px at 70% -20%,#1f2937 0%,#0b0f19 48%,#0b0f19 100%);
+  color:var(--txt);font:500 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto;
+  min-height:100dvh;display:grid;place-items:center;padding:24px;transition:opacity .45s ease
 }
-*{box-sizing:border-box} html,body{height:100%}
-body{margin:0;background:radial-gradient(1200px 600px at 50% -10%, #15233f 0%, transparent 60%), linear-gradient(180deg,#0b0f19,#0d1729);color:var(--txt);font:600 16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Inter}
-.wrap{min-height:100dvh;display:grid;place-items:center;padding:18px}
-.card{width:100%;max-width:460px;background:var(--card);border:1px solid var(--border);border-radius:18px;padding:18px;box-shadow:0 18px 40px rgba(0,0,0,.4)}
-h1{font-size:20px;margin:0 0 6px}
-p.lead{margin:0 0 10px;color:var(--muted)}
-.stage{display:grid;place-items:center;margin:6px 0 8px}
-#wheel{width:100%;max-width:380px;aspect-ratio:1/1;display:block}
-.pin{width:0;height:0;border-left:12px solid transparent;border-right:12px solid transparent;border-top:20px solid var(--accent2);filter:drop-shadow(0 6px 10px rgba(0,0,0,.5));margin:-8px auto 0}
-.controls{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:10px}
-.btn{--bg:linear-gradient(180deg,#1b2a45,#13233b);background:var(--bg);color:#eaf2ff;border:1px solid var(--border);padding:12px 16px;border-radius:12px;font-weight:800;letter-spacing:.2px;box-shadow:0 8px 20px rgba(0,0,0,.35);cursor:pointer;transition:.15s transform,.15s box-shadow}
-.btn:hover{transform:translateY(-1px);box-shadow:0 12px 26px rgba(0,0,0,.4)}
-.btn:active{transform:translateY(0)}
-.btn.primary{--bg:linear-gradient(180deg,#20bfee,#1688b9);border-color:#29c6f2;color:#06273a}
-.badge{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;border:1px solid var(--border);background:rgba(255,255,255,.03);color:var(--muted);font-size:12px;margin-top:8px}
-.badge .dot{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 10px var(--ok)}
-footer{margin-top:10px;color:#88a1d6;font-size:12px;text-align:center}
-.counter{color:#9fb3d9;font-size:13px;text-align:center;margin-top:6px}
+body.fadeout{opacity:.15}
+.card{width:100%;max-width:520px;background:var(--glass);border:1px solid var(--border);
+  border-radius:22px;padding:22px;box-shadow:0 20px 60px rgba(0,0,0,.45);backdrop-filter:blur(10px);
+  text-align:center;position:relative;z-index:2}
+h1{font-size:22px;margin-bottom:6px}
+p.lead{color:var(--muted);margin-bottom:16px}
+.bar{height:10px;border-radius:999px;background:#0f172a;border:1px solid var(--border);
+  overflow:hidden;margin-bottom:18px}
+.bar>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));
+  transition:width .15s ease}
+#cta{display:block;width:100%;text-align:center;padding:14px 18px;border-radius:14px;
+  background:linear-gradient(180deg,var(--accent),var(--accent2));color:#111;font:800 17px/1 system-ui;
+  text-decoration:none;box-shadow:0 10px 30px rgba(250,204,21,.25);position:relative;z-index:3}
+#cta:hover{filter:brightness(1.05)}
+.note{margin-top:12px;color:var(--muted);font-size:13px}
+footer{margin-top:18px;color:#6b7280;font-size:12px}
+canvas#fx{position:fixed;inset:0;z-index:1;pointer-events:none}
+.overlay,.modal,.backdrop,.blocker,#overlay,.adsbox,[aria-hidden="true"],[data-block],.click-shield{pointer-events:none!important}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <div class="card">
-    <h1>Spin v2 • Claim Your Reward</h1>
-    <p class="lead">May <strong>1 libreng spin</strong> ka ngayon. Paikutin ang roleta at i-tap ang <em>Claim</em> para magpatuloy.</p>
+<canvas id="fx"></canvas>
+<main class="card">
+  <h1>Amazon Gift Card • Unlock $100</h1>
+  <p class="lead">I-tap ang button para i-claim ang reward. Kung ma-block ang pop-up, auto-redirect ka sa best offer para sa device mo.</p>
+  <div class="bar"><i></i></div>
+  <a id="cta" href="#" rel="nofollow">🔓 Unlock $100</a>
+  <p class="note">Tip: Mas madali ang approval sa Desktop (Windows/Mac). Ang Mobile ay auto-routed sa compatible flow.</p>
+  <footer>© <span id="yr"></span> GiftCardZoneEU • V2</footer>
+</main>
 
-    <div class="stage">
-      <canvas id="wheel" width="800" height="800" aria-label="Spin the wheel"></canvas>
-      <div class="pin" aria-hidden="true"></div>
-      <div class="counter">Spins left: <span id="left">1</span></div>
-    </div>
+<script data-cfasync="false">
+/* ===== Links ===== */
+const LINK_ADSTERRA = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"; // Desktop
+const LINK_MONETAG  = "https://otieu.com/4/4203960";                                                 // Mobile
+const DELAY_MS = 3000; // tagal ng "verification"
 
-    <div class="controls">
-      <button class="btn primary" id="spinBtn">SPIN</button>
-      <button class="btn" id="claimBtn">Claim</button>
-    </div>
-
-    <div class="badge"><span class="dot"></span> Clean traffic • No adult</div>
-    <footer>Promotional use only. By continuing you agree to our promo terms.</footer>
-  </div>
-</div>
-
-<script>
-// =============== CONFIG (Adsterra only) ===============
-const ADSTERRA_LINK = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"; // palitan kung may bago
-
-// =============== Minimal popup open ===============
-let fired = false;
-function openOffer(){
-  if (fired) return;
-  fired = true;
-  try{
-    const w = window.open(ADSTERRA_LINK, "_blank", "noopener,noreferrer");
-    if (!w) {
-      // fallback: same-tab redirect kung na-block
-      setTimeout(()=>{ window.location.href = ADSTERRA_LINK; }, 200);
-    }
-  }catch(e){
-    setTimeout(()=>{ window.location.href = ADSTERRA_LINK; }, 200);
+/* ===== Fireworks (lightweight) ===== */
+const canvas = document.getElementById("fx"), ctx = canvas.getContext("2d");
+let W,H,parts=[];
+function size(){ W=canvas.width=innerWidth; H=canvas.height=innerHeight; }
+addEventListener("resize",size,{passive:true}); size();
+function burst(cx=W/2,cy=H/2,n=90){
+  for(let i=0;i<n;i++){
+    parts.push({x:cx,y:cy,vx:(Math.random()*6-3),vy:(Math.random()*-6-2),
+      a:1,r:Math.random()*3+2,color:`hsl(${Math.random()*360},100%,60%)`});
   }
 }
+(function loop(){
+  ctx.fillStyle="rgba(0,0,0,.15)"; ctx.fillRect(0,0,W,H);
+  for(let i=0;i<parts.length;i++){
+    const p=parts[i]; p.vy+=0.08; p.x+=p.vx; p.y+=p.vy; p.a-=0.01;
+    if(p.a<=0){ parts.splice(i,1); i--; continue; }
+    ctx.globalAlpha=p.a; ctx.fillStyle=p.color;
+    ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill();
+  }
+  requestAnimationFrame(loop);
+})();
 
-// =============== Simple wheel (lightweight) ===============
-const cvs = document.getElementById('wheel');
-const ctx = cvs.getContext('2d');
-const size = cvs.width;
-const cx = size/2, cy = size/2;
-const r = size/2 - 14;
+/* ===== Helpers ===== */
+function withUTM(url){
+  try{
+    const u=new URL(url), q=new URLSearchParams(location.search);
+    q.forEach((v,k)=>{ if(!u.searchParams.has(k)) u.searchParams.set(k,v); });
+    return u.toString();
+  }catch(_){ return url; }
+}
+const isMobile = /Android|iPhone|iPod|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-const slices = [
-  {t:"WIN 🎁", c:"#0ea5e9"},
-  {t:"Try", c:"#1e293b"},
-  {t:"Bonus", c:"#0f766e"},
-  {t:"Almost", c:"#1e293b"},
-  {t:"WIN 🎉", c:"#22c55e"},
-  {t:"Try", c:"#1e293b"},
-  {t:"Lucky", c:"#7c3aed"},
-  {t:"Try", c:"#1e293b"}
-];
-const wedge = Math.PI*2/slices.length;
+/* ===== Elements ===== */
+const cta  = document.getElementById("cta");
+const fill = document.querySelector(".bar>i");
+const lead = document.querySelector(".lead");
 
-function draw(rot=0){
-  ctx.clearRect(0,0,size,size);
-  ctx.save();
-  ctx.translate(cx,cy);
-  ctx.rotate(rot);
-  for(let i=0;i<slices.length;i++){
-    const a0 = i*wedge, a1 = a0+wedge;
-    ctx.beginPath();
+/* Tiny spinner style */
+const style=document.createElement("style");
+style.textContent=`@keyframes spin{to{transform:rotate(360deg)}}
+.loader{display:inline-block;width:16px;height:16px;border:2px solid #facc15;border-top-color:transparent;border-radius:50%;margin-right:6px;vertical-align:middle;animation:spin .8s linear infinite}`;
+document.head.appendChild(style);
+
+/* Default backup link (no-JS) */
+cta.target="_self";
+cta.href = isMobile ? withUTM(LINK_MONETAG) : withUTM(LINK_ADSTERRA);
+
+/* ===== Click flow (hardened) ===== */
+let fired = false;
+cta.addEventListener("click", (e)=>{
+  e.preventDefault();
+  if (fired) return;
+  fired = true;
+
+  // UI feedback
+  cta.style.pointerEvents="none";
+  cta.innerHTML='<span class="loader"></span> Vina-verify…';
+  if (lead) lead.textContent="Please wait habang tinitiyak ang eligibility at ginagawa ang secure link.";
+  burst();
+
+  // progress animation up to 100%
+  const start = performance.now();
+  (function tick(now){
+    const elapsed = now - start;
+    const pct = Math.min(1, elapsed / DELAY_MS);
+    fill.style.width = (pct*100) + "%";
+    if (pct < 1) requestAnimationFrame(tick);
+  })(start);
+
+  // choose target
+  const target = isMobile ? withUTM(LINK_MONETAG) : withUTM(LINK_ADSTERRA);
+
+  // safety: kung super bagal device, hard-redirect after DELAY_MS (+fade)
+  setTimeout(()=>{
+    burst(); burst();
+    cta.textContent = "✅ Verified! Opening…";
+    if (lead) lead.textContent = "Launching secure reward page…";
+    document.body.classList.add("fadeout");
+    setTimeout(()=>{ location.href = target; }, 450);
+  }, DELAY_MS);
+
+  // extra failsafe (rare stalls)
+  setTimeout(()=>{ if (document.visibilityState === "visible") location.href = target; }, DELAY_MS + 4000);
+},{once:true});
+
+/* Footer year */
+document.getElementById("yr").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
