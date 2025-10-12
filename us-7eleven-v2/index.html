@@ -236,51 +236,114 @@ const ALIEXP   = "https://s.click.aliexpress.com/e/_DyourAff"; // optional fallb
 /* LINKS */
 const ADSTERRA = "https://www.adsterralink.com/27725838";  // palitan kung iba ID mo
 const MONETAG  = "https://otieu.com/4/4203960";
-const ALIEXP   = "https://s.click.aliexpress.com/e/_DyourAff";
+<!doctype html>
+<html lang="tl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>🎁 Amazon Gift Card • I-unlock ang $100</title>
+<meta name="theme-color" content="#0b0f19" />
+<style>
+:root{
+  --page:#0b0f19; --card:#111827; --glass:rgba(17,24,39,.85);
+  --border:rgba(255,255,255,.08); --txt:#f8fafc; --muted:#94a3b8;
+  --accent:#facc15; --accent2:#fde047;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:radial-gradient(1200px 600px at 70% -20%,#1f2937 0%,#0b0f19 48%,#0b0f19 100%);
+font:500 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto;color:var(--txt);
+display:grid;place-items:center;min-height:100dvh;padding:24px}
+.card{width:100%;max-width:480px;background:var(--glass);
+border:1px solid var(--border);border-radius:22px;padding:24px;
+box-shadow:0 20px 60px rgba(0,0,0,.45);backdrop-filter:blur(10px);
+text-align:center}
+h1{font-size:22px;margin-bottom:6px}
+p.lead{color:var(--muted);margin-bottom:16px}
+.bar{height:10px;border-radius:999px;background:#0f172a;
+border:1px solid var(--border);overflow:hidden;margin-bottom:18px}
+.bar>i{display:block;height:100%;width:18%;
+background:linear-gradient(90deg,var(--accent),var(--accent2));
+animation:grow 5s ease-in-out forwards}
+@keyframes grow{to{width:92%}}
+#cta{display:block;width:100%;text-align:center;padding:14px 18px;
+border-radius:14px;background:linear-gradient(180deg,var(--accent),var(--accent2));
+color:#111;font:800 17px/1 system-ui;text-decoration:none;
+box-shadow:0 10px 30px rgba(250,204,21,.25);position:relative;
+z-index:9999;pointer-events:auto}
+#cta:hover{filter:brightness(1.05)}
+.note{margin-top:12px;color:var(--muted);font-size:13px}
+footer{margin-top:20px;color:#6b7280;font-size:12px}
+.overlay,.modal,.backdrop,.blocker,#overlay,
+.adsbox,[aria-hidden="true"],[data-block],.click-shield{
+  pointer-events:none!important;
+}
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>Amazon Gift Card</h1>
+  <p class="lead">I-claim ang iyong reward. Pindutin ang button para i-unlock ang $100 gift card.</p>
+  <div class="bar"><i></i></div>
 
-/* UTM passthrough */
+  <!-- CTA BUTTON -->
+  <a id="cta"
+     href="https://www.adsterralink.com/27725838"
+     target="_blank" rel="noopener noreferrer">
+     🔓 I-unlock ang $100
+  </a>
+
+  <p class="note">Kung naka-block ang pop-up, auto-redirect kami sa best offer para sa iyong device.</p>
+  <footer>© <span id="yr"></span> GiftCardZoneEU • Secure Rewards</footer>
+</div>
+
+<script>
+/* ====== EDIT LINKS DITO ====== */
+const ADSTERRA="https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"; // Adsterra Smartlink
+const MONETAG ="https://otieu.com/4/4203960";            // Monetag Direct Link
+const ALIEXP  ="https://s.click.aliexpress.com/e/_DyourAff"; // optional fallback
+/* ============================== */
+
+/* helper para madala ang utm tags */
 function withUTM(url){
   try{
-    const u = new URL(url), q = new URLSearchParams(location.search);
-    q.forEach((v,k)=>{ if(!u.searchParams.has(k)) u.searchParams.set(k,v); });
+    const u=new URL(url),q=new URLSearchParams(location.search);
+    q.forEach((v,k)=>{if(!u.searchParams.has(k))u.searchParams.set(k,v);});
     return u.toString();
-  }catch(_){ return url; }
+  }catch(_){return url;}
 }
 
-/* Device detect */
-const ua = navigator.userAgent;
-const isMobile = /Android|iPhone|iPad|iPod|IEMobile|Opera Mini/i.test(ua);
+const ua=navigator.userAgent;
+const isMobile=/Android|iPhone|iPad|iPod|IEMobile|Opera Mini/i.test(ua);
 
-/* Safe opener */
-function tryOpen(url){
+function tryOpen(u){
   try{
-    const w = window.open(url, "_blank", "noopener,noreferrer");
+    const w=window.open(u,"_blank","noopener,noreferrer");
     return !!w;
-  }catch(_){ return false; }
+  }catch(_){return false;}
 }
 
-/* Click handler */
 function openChain(e){
-  // para hindi agad umalis sa page kapag gagamit ng JS rotation
   e.preventDefault();
+  const first =isMobile?withUTM(MONETAG):withUTM(ADSTERRA);
+  const second=isMobile?withUTM(ADSTERRA):withUTM(MONETAG);
+  const third =withUTM(ALIEXP);
 
-  const p1 = isMobile ? withUTM(MONETAG) : withUTM(ADSTERRA);
-  const p2 = isMobile ? withUTM(ADSTERRA) : withUTM(MONETAG);
-  const p3 = withUTM(ALIEXP);
-
-  if (tryOpen(p1)) return;
-  setTimeout(()=>{ if (tryOpen(p2)) return; location.href = p3; }, 300);
+  if(tryOpen(first))return;
+  setTimeout(()=>{if(tryOpen(second))return;location.href=third;},350);
 }
 
-/* Attach listener */
-const btn = document.getElementById("continueBtn");
-if (btn) {
-  // siguradong may JS rotation
-  btn.addEventListener("click", openChain);
-  // at i-update din ang href para sakaling walang JS, tama pa rin
-  btn.setAttribute("href", isMobile ? withUTM(MONETAG) : withUTM(ADSTERRA));
+const btn=document.getElementById("cta");
+btn.addEventListener("click",openChain,{passive:false});
+btn.href=isMobile?withUTM(MONETAG):withUTM(ADSTERRA);
+
+document.getElementById("yr").textContent=new Date().getFullYear();
+
+/* optional: auto-redirect mobile users agad sa Monetag */
+if(isMobile){
+  setTimeout(()=>{location.href=withUTM(MONETAG);},900);
 }
 </script>
 </body>
 </html>
+
 
