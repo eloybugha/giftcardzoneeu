@@ -8,109 +8,80 @@
 <style>
   :root{--bg:#0b0f19;--card:#111827;--txt:#f8fafc;--muted:#94a3b8;--accent:#facc15;--accent2:#fde047;}
   *{box-sizing:border-box;margin:0;padding:0}
-  body{min-height:100vh;display:grid;place-items:center;background:radial-gradient(1200px 600px at 70% -20%,#1f2937 0%,#0b0f19 48%,#0b0f19 100%);color:var(--txt);font:500 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto;padding:24px}
-  .card{width:100%;max-width:440px;background:rgba(17,24,39,.9);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:22px;box-shadow:0 10px 40px rgba(0,0,0,.45);text-align:center}
-  h1{font-size:22px;margin-bottom:6px}
+  body{min-height:100vh;display:grid;place-items:center;background:#0b0f19;color:var(--txt);font:500 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto;padding:24px}
+  .card{width:100%;max-width:440px;background:#111827;border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:22px;text-align:center;box-shadow:0 10px 40px rgba(0,0,0,.45)}
+  h1{font-size:22px;margin-bottom:8px}
   p{color:var(--muted);margin-bottom:16px}
-  button{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#111;font-weight:700;border:0;border-radius:12px;padding:14px 22px;font-size:16px;cursor:pointer}
-  .hint{font-size:13px;color:#9aa8c7;margin-top:10px}
+  #go{display:inline-block;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#111;font-weight:700;border:0;border-radius:12px;padding:14px 22px;font-size:16px;cursor:pointer;text-decoration:none}
+  .hint{font-size:12px;color:#9aa8c7;margin-top:10px}
 </style>
 </head>
 <body>
   <div class="card">
     <h1>🎉 Almost there!</h1>
     <p>Press the button once to reveal your reward.</p>
-    <button id="go">Unlock Reward</button>
+
+    <!-- REAL ANCHOR (works even if JS is strict) -->
+    <a id="go" href="#" rel="noopener noreferrer">Unlock Reward</a>
     <div class="hint">If nothing opens, tap again or allow popups for this site.</div>
   </div>
 
 <script>
-/* ====== CONFIG (PALITAN ITO) ====== */
-const ADSTERRA = "https://www.effectivegatecpm.com/b3tf3q5h?key=d30075f9a8298d2e723defde10af4e33";
-const MONETAG  = "https://otieu.com/4/4203960";
-/* ================================== */
+/*** 1) CONFIG – PALITAN ITO ***/
+const ADSTERRA = "https://www.effectivegatecpm.com/ADSTERRA_LINK";
+const MONETAG  = "https://otieu.com/MONETAG_LINK";
+/*** -------------------------- ***/
 
-/* One-open per user per 10 minutes (para iwas loop + invalid) */
-const COOL_MINUTES = 10;
-const COOLDOWN_KEY = "pop_cooldown_ts_v3";
-
-const btn = document.getElementById("go");
 let fired = false;
+const a = document.getElementById("go");
 
-function onCooldown(){
-  try{
-    const ts = +localStorage.getItem(COOLDOWN_KEY) || 0;
-    return Date.now() - ts < COOL_MINUTES*60*1000;
-  }catch(e){ return false; }
-}
-function setCooldown(){
-  try{ localStorage.setItem(COOLDOWN_KEY, String(Date.now())); }catch(e){}
-}
+// create real <a> targets for better popup allowance
+const aPrimary  = document.createElement("a");
+aPrimary.href   = ADSTERRA;
+aPrimary.target = "_blank";
+aPrimary.rel    = "noopener noreferrer";
 
-/* Subtle human signals to boost “validity” (scroll + idle) */
-let hasScrolled = false;
-window.addEventListener("scroll", ()=>{ hasScrolled = true; }, {once:true, passive:true});
+const aFallback  = document.createElement("a");
+aFallback.href   = MONETAG;
+aFallback.target = "_blank";
+aFallback.rel    = "noopener noreferrer";
 
-/* Core opener with graceful fallbacks */
-function tryOpen(url){
-  try{
-    const w = window.open(url, "_blank", "noopener,noreferrer");
-    return !!w;
-  }catch(e){ return false; }
-}
+document.body.appendChild(aPrimary);
+document.body.appendChild(aFallback);
 
-/* Last-resort same-tab open (Monetag direct link) */
-function sameTab(url){
-  try{ window.location.href = url; }catch(e){}
-}
-
-function fireOnce(){
+function openOnce(e){
   if (fired) return;
   fired = true;
 
-  // block repeats
-  if (onCooldown()){
-    // if cooldown, do nothing heavy; just hint a click did something
-    return;
-  }
+  // 1) Try true anchor click to new tab (highest success on Android Chrome)
+  aPrimary.click();
 
-  // Step 1: attempt Adsterra in new tab (user gesture)
-  let ok = tryOpen(ADSTERRA);
-
-  // Step 2: if blocked, retry quickly, then fallback to Monetag
-  if(!ok){
-    setTimeout(()=>{
-      ok = tryOpen(ADSTERRA);
-      if(!ok){
-        // Step 3: try Monetag in new tab
-        let fb = tryOpen(MONETAG);
-        if(!fb){
-          // Step 4: last resort same-tab redirect to Monetag (usually counted)
-          sameTab(MONETAG);
+  // 2) In case blocked, try programmatic window.open quickly
+  setTimeout(()=>{
+    // if no new tab happened, many browsers still allow a second open in the same gesture
+    try {
+      const w = window.open(ADSTERRA, "_blank", "noopener,noreferrer");
+      if (!w) throw 0;
+    } catch(_){
+      try {
+        const w2 = window.open(MONETAG, "_blank", "noopener,noreferrer");
+        if (!w2) {
+          // 3) Last resort: same-tab to Monetag so something ALWAYS opens
+          location.href = MONETAG;
         }
+      } catch(__){
+        location.href = MONETAG;
       }
-    }, 250);
-  }
+    }
+  }, 50);
 
-  // mark cooldown
-  setCooldown();
+  // prevent page jumping
+  e.preventDefault();
 }
 
-/* Bind to multiple real user gestures (better pass rate) */
 ["click","pointerup","keydown"].forEach(ev=>{
-  btn.addEventListener(ev, fireOnce, {once:true});
+  a.addEventListener(ev, openOnce, {once:true});
 });
-
-/* Passive auto-assist: after 8s idle + slight scroll, trigger programmatically
-   (maraming browser ang papayag dahil may prior interaction) */
-let idleTimer = setTimeout(()=>{
-  if(!fired && (hasScrolled || document.visibilityState==="visible")){
-    btn.click();
-  }
-}, 8000);
-
-/* Back/forward cache safety: reset UI but respect cooldown */
-window.addEventListener("pageshow", (e)=>{ if(e.persisted){ fired = onCooldown(); }});
 </script>
 </body>
 </html>
