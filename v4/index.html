@@ -3,85 +3,215 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>🎁 Unlock Your Reward</title>
+<title>🎁 Play & Unlock</title>
 <meta name="theme-color" content="#0b0f19" />
+<meta http-equiv="Cache-Control" content="no-store" />
 <style>
-  :root{--bg:#0b0f19;--card:#111827;--txt:#f8fafc;--muted:#94a3b8;--accent:#facc15;--accent2:#fde047;}
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{min-height:100vh;display:grid;place-items:center;background:#0b0f19;color:var(--txt);font:500 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto;padding:24px}
-  .card{width:100%;max-width:440px;background:#111827;border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:22px;text-align:center;box-shadow:0 10px 40px rgba(0,0,0,.45)}
-  h1{font-size:22px;margin-bottom:8px}
-  p{color:var(--muted);margin-bottom:16px}
-  #go{display:inline-block;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#111;font-weight:700;border:0;border-radius:12px;padding:14px 22px;font-size:16px;cursor:pointer;text-decoration:none}
-  .hint{font-size:12px;color:#9aa8c7;margin-top:10px}
+  :root{
+    --bg:#0b0f19; --bg2:#0e1627; --glass:rgba(16,24,39,.88);
+    --border:rgba(255,255,255,.08); --txt:#f8fafc; --muted:#9aa8c7;
+    --accent:#ffd54a; --accent2:#facc15; --ok:#22c55e; --warn:#f59e0b;
+  }
+  *{box-sizing:border-box} html,body{height:100%}
+  body{
+    margin:0; font:500 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto;
+    color:var(--txt);
+    background:
+      radial-gradient(1200px 700px at 70% -20%, #1f2937 0%, #0b0f19 45%, #0b0f19 100%),
+      linear-gradient(180deg, var(--bg), var(--bg2));
+    display:grid; place-items:center; padding:24px;
+  }
+  .wrap{width:100%; max-width:520px}
+  .card{
+    background:var(--glass); border:1px solid var(--border);
+    border-radius:22px; box-shadow:0 14px 60px rgba(0,0,0,.45);
+    padding:22px; text-align:center;
+  }
+  .step{display:none} .step.active{display:block}
+  h1{margin:0 0 6px;font-size:22px}
+  p.lead{margin:0 0 16px;color:var(--muted)}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0 10px}
+  .box{
+    aspect-ratio:1; border:1px dashed var(--border); border-radius:18px;
+    display:grid; place-items:center; font-weight:800; font-size:18px;
+    cursor:pointer; user-select:none; background:#0f172a;
+    transition:transform .12s ease, border-color .12s ease, background .12s ease;
+  }
+  .box:hover{transform:translateY(-2px)}
+  .box.sel{border-color:var(--accent); background:#111c33}
+  .btn{
+    appearance:none; border:0; cursor:pointer; font-weight:800; font-size:16px;
+    padding:14px 22px; border-radius:14px; transition:filter .15s ease;
+    background:linear-gradient(90deg, var(--accent), var(--accent2)); color:#111;
+  }
+  .btn:disabled{opacity:.6; cursor:not-allowed}
+  .hint{color:var(--muted); font-size:13px; margin-top:10px}
+  .pill{display:inline-block; padding:4px 10px; border-radius:999px; font-size:12px;
+    background:rgba(255,255,255,.08); margin-bottom:10px}
+  .ok{color:var(--ok)} .warn{color:var(--warn)}
+  .footer{opacity:.7; font-size:12px; margin-top:14px}
+  noscript{color:#ffb4b4}
 </style>
 </head>
 <body>
-  <div class="card">
-    <h1>🎉 Almost there!</h1>
-    <p>Press the button once to reveal your reward.</p>
+<div class="wrap">
+  <div class="card" id="card">
+    <div class="pill">Step 1 of 2</div>
+    <div class="step active" id="s1">
+      <h1>🎮 Pick a box</h1>
+      <p class="lead">Choose any box below. Then press <b>Continue</b>.</p>
+      <div class="grid" id="grid">
+        <div class="box" data-i="1">1️⃣</div>
+        <div class="box" data-i="2">2️⃣</div>
+        <div class="box" data-i="3">3️⃣</div>
+      </div>
+      <button class="btn" id="btn1" disabled>Continue</button>
+      <div class="hint">Tiny game = real interaction → better counted ads.</div>
+    </div>
 
-    <!-- REAL ANCHOR (works even if JS is strict) -->
-    <a id="go" href="#" rel="noopener noreferrer">Unlock Reward</a>
-    <div class="hint">If nothing opens, tap again or allow popups for this site.</div>
+    <div class="step" id="s2">
+      <div class="pill">Step 2 of 2</div>
+      <h1>🎉 Almost there!</h1>
+      <p class="lead">Press the button once to reveal your reward.</p>
+      <!-- Real anchor improves popup allowance on Android -->
+      <a class="btn" id="claim" href="#" rel="noopener noreferrer">Unlock Reward</a>
+      <div class="hint">If nothing opens, tap again or allow popups for this site.</div>
+      <div class="footer" id="status"></div>
+    </div>
   </div>
+  <noscript>JavaScript is required for this page to function.</noscript>
+</div>
 
 <script>
-/*** 1) CONFIG – PALITAN ITO ***/
-const ADSTERRA = "https://www.effectivegatecpm.com/b3tf3q5h?key=d30075f9a8298d2e723defde10af4e33";
-const MONETAG  = "https://otieu.com/4/4203960";
-/*** -------------------------- ***/
+/* ==================== CONFIG (PALITAN ITO) ==================== */
+// Primary (Adsterra Popunder link):
+const ADSTERRA = "https://www.effectivegatecpm.com/REPLACE_ADSTERRA";
+// Fallback (Monetag Direct link):
+const MONETAG  = "https://otieu.com/REPLACE_MONETAG";
 
-let fired = false;
-const a = document.getElementById("go");
+// Optional: GEO routing (simple, by language region).
+// If true: Tier-1-ish languages -> Adsterra; others -> Monetag.
+const USE_SIMPLE_GEO = true;
+/* =============================================================== */
 
-// create real <a> targets for better popup allowance
+/* Cooldown: one open per 10 minutes per user (avoid loops) */
+const COOL_MIN = 10, KEY = "v5_cool_ts";
+const now = () => Date.now();
+const onCooldown = () => { try { return now() - (+localStorage.getItem(KEY)||0) < COOL_MIN*60*1000; } catch(_) { return false; } };
+const setCooldown = () => { try { localStorage.setItem(KEY, String(now())); } catch(_) {} };
+
+/* Simple GEO guess by navigator.language */
+function pickLink(){
+  if(!USE_SIMPLE_GEO) return ADSTERRA;
+  try{
+    const lang = (navigator.language||"").toUpperCase(); // e.g. en-US
+    // If region looks Tier-1-ish, keep Adsterra, else Monetag
+    const tier1 = ["US","GB","CA","AU","NZ","IE","DE","NL","SE","NO","DK","FI","FR","CH","AT","BE"];
+    const m = lang.match(/-([A-Z]{2})$/);
+    const r = m ? m[1] : "US";
+    return tier1.includes(r) ? ADSTERRA : MONETAG;
+  }catch(_){ return ADSTERRA; }
+}
+
+const grid = document.getElementById("grid");
+const btn1 = document.getElementById("btn1");
+const s1 = document.getElementById("s1");
+const s2 = document.getElementById("s2");
+const claim = document.getElementById("claim");
+const statusEl = document.getElementById("status");
+let selected = null, fired = false;
+
+/* Step 1 interactions (human signals) */
+grid.addEventListener("click", e=>{
+  const box = e.target.closest(".box");
+  if(!box) return;
+  [...grid.children].forEach(b=>b.classList.remove("sel"));
+  box.classList.add("sel");
+  selected = box.dataset.i;
+  btn1.disabled = false;
+});
+btn1.addEventListener("click", ()=>{
+  s1.classList.remove("active");
+  s2.classList.add("active");
+  document.querySelector(".pill").textContent = "Final step";
+});
+
+/* Build real anchors for stronger popup success */
 const aPrimary  = document.createElement("a");
-aPrimary.href   = ADSTERRA;
-aPrimary.target = "_blank";
-aPrimary.rel    = "noopener noreferrer";
+aPrimary.href   = pickLink(); // geo-aware primary
+aPrimary.target = "_blank"; aPrimary.rel = "noopener noreferrer";
 
-const aFallback  = document.createElement("a");
-aFallback.href   = MONETAG;
-aFallback.target = "_blank";
-aFallback.rel    = "noopener noreferrer";
+const aAst      = document.createElement("a");
+aAst.href       = ADSTERRA; aAst.target = "_blank"; aAst.rel = "noopener noreferrer";
+
+const aMono     = document.createElement("a");
+aMono.href      = MONETAG;  aMono.target = "_blank"; aMono.rel = "noopener noreferrer";
 
 document.body.appendChild(aPrimary);
-document.body.appendChild(aFallback);
+document.body.appendChild(aAst);
+document.body.appendChild(aMono);
 
+function updateStatus(txt, cls=""){
+  statusEl.innerHTML = txt;
+  statusEl.className = cls;
+}
+
+/* Core open with layered fallbacks */
 function openOnce(e){
+  e.preventDefault();
   if (fired) return;
   fired = true;
 
-  // 1) Try true anchor click to new tab (highest success on Android Chrome)
+  if (onCooldown()){
+    updateStatus("Cooldown active. Try again later.", "warn");
+    return;
+  }
+
+  updateStatus("Attempting to open…");
+
+  // 1) True anchor click (best success on Android/Chrome)
   aPrimary.click();
 
-  // 2) In case blocked, try programmatic window.open quickly
+  // 2) Quick retry chain within same gesture
   setTimeout(()=>{
-    // if no new tab happened, many browsers still allow a second open in the same gesture
-    try {
-      const w = window.open(ADSTERRA, "_blank", "noopener,noreferrer");
-      if (!w) throw 0;
-    } catch(_){
-      try {
-        const w2 = window.open(MONETAG, "_blank", "noopener,noreferrer");
-        if (!w2) {
-          // 3) Last resort: same-tab to Monetag so something ALWAYS opens
-          location.href = MONETAG;
-        }
-      } catch(__){
-        location.href = MONETAG;
-      }
-    }
-  }, 50);
+    let ok = false;
+    try { ok = !!window.open(aPrimary.href, "_blank", "noopener,noreferrer"); } catch(_){}
 
-  // prevent page jumping
-  e.preventDefault();
+    if (!ok){
+      try { ok = !!window.open(ADSTERRA, "_blank", "noopener,noreferrer"); } catch(_){}
+    }
+    if (!ok){
+      try { ok = !!window.open(MONETAG, "_blank", "noopener,noreferrer"); } catch(_){}
+    }
+    if (!ok){
+      // 3) Last resort: same-tab to Monetag so something ALWAYS opens
+      location.href = MONETAG;
+    }
+    setCooldown();
+    updateStatus("Opened. If blocked, allow popups or tap again.", "ok");
+  }, 60);
 }
 
+/* Bind to multiple real gestures */
 ["click","pointerup","keydown"].forEach(ev=>{
-  a.addEventListener(ev, openOnce, {once:true});
+  claim.addEventListener(ev, openOnce, {once:true});
 });
+
+/* Idle assist: if user lingers 12s on final step, hint + soft click */
+let to;
+function armIdle(){
+  clearTimeout(to);
+  to = setTimeout(()=>{
+    if(!fired && document.visibilityState==="visible"){
+      updateStatus("Tap the button to continue.", "warn");
+    }
+  }, 12000);
+}
+document.addEventListener("visibilitychange", armIdle);
+s2.addEventListener("transitionend", armIdle);
+
+/* Back/forward cache safety */
+window.addEventListener("pageshow", e=>{ if(e.persisted){ fired = onCooldown(); }});
 </script>
 </body>
 </html>
