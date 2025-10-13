@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-style="fun"><!-- change to: clean | fun | dark -->
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -21,7 +21,32 @@
       linear-gradient(180deg, var(--bg), var(--bg2));
     display:grid; place-items:center; padding:24px;
   }
-  .wrap{width:100%; max-width:520px}
+
+  /* ---------- HERO (3 styles) ---------- */
+  .hero{width:100%; max-width:640px; border-radius:24px; padding:20px; margin:0 auto 16px;
+    display:flex; align-items:center; gap:16px; box-shadow:0 14px 60px rgba(0,0,0,.35)}
+  .hero .emoji{font-size:34px}
+  .hero h2{font-size:22px;margin:0 0 4px}
+  .hero p{margin:0; color:var(--muted)}
+  /* A) CLEAN */
+  html[data-style="clean"] .hero{background:linear-gradient(135deg,#fff4bf,#ffe37a); color:#111}
+  html[data-style="clean"] .hero p{color:#2b2b2b}
+  /* B) FUN */
+  html[data-style="fun"] .hero{
+    background:radial-gradient(800px 300px at -10% 10%, #6ea8ff 0%, #5b5bd6 45%, #3a2e6e 100%);
+    border:1px solid rgba(255,255,255,.1)
+  }
+  /* C) DARK PREMIUM */
+  html[data-style="dark"] .hero{
+    background:linear-gradient(135deg,#0b0f19 0%, #131b2e 50%, #0b0f19 100%);
+    border:1px solid rgba(255,255,255,.08);
+    box-shadow:0 18px 80px rgba(0,0,0,.55)
+  }
+  html[data-style="dark"] .hero h2{color:#fff}
+  html[data-style="dark"] .hero .glow{filter:drop-shadow(0 0 18px rgba(250,204,21,.45))}
+
+  /* ---------- CARD / GAME ---------- */
+  .wrap{width:100%; max-width:520px; margin:0 auto}
   .card{
     background:var(--glass); border:1px solid var(--border);
     border-radius:22px; box-shadow:0 14px 60px rgba(0,0,0,.45);
@@ -54,6 +79,16 @@
 </style>
 </head>
 <body>
+
+<!-- HERO BANNER (auto-looks good for all three styles) -->
+<div class="hero">
+  <div class="emoji glow">🎁</div>
+  <div>
+    <h2 id="heroTitle">Win Your Surprise Gift Card</h2>
+    <p id="heroSub">Pick a box, then unlock your reward. Real play → better counted ads.</p>
+  </div>
+</div>
+
 <div class="wrap">
   <div class="card" id="card">
     <div class="pill">Step 1 of 2</div>
@@ -73,7 +108,6 @@
       <div class="pill">Step 2 of 2</div>
       <h1>🎉 Almost there!</h1>
       <p class="lead">Press the button once to reveal your reward.</p>
-      <!-- Real anchor improves popup allowance on Android -->
       <a class="btn" id="claim" href="#" rel="noopener noreferrer">Unlock Reward</a>
       <div class="hint">If nothing opens, tap again or allow popups for this site.</div>
       <div class="footer" id="status"></div>
@@ -83,32 +117,35 @@
 </div>
 
 <script>
-/* ==================== CONFIG (PALITAN ITO) ==================== */
-// Primary (Adsterra Popunder link):
-const ADSTERRA = "https://www.effectivegatecpm.com/b3tf3q5h?key=d30075f9a8298d2e723defde10af4e33";
-// Fallback (Monetag Direct link):
-const MONETAG  = "https://otieu.com/4/4203960";
+/* ===== CONFIG (PALITAN ITO) ===== */
+const ADSTERRA = "https://www.effectivegatecpm.com/REPLACE_ADSTERRA";
+const MONETAG  = "https://otieu.com/REPLACE_MONETAG";
+/* ================================ */
 
-// Optional: GEO routing (simple, by language region).
-// If true: Tier-1-ish languages -> Adsterra; others -> Monetag.
-const USE_SIMPLE_GEO = true;
-/* =============================================================== */
-
-/* Cooldown: one open per 10 minutes per user (avoid loops) */
+/* Cooldown: one open per 10 min */
 const COOL_MIN = 10, KEY = "v5_cool_ts";
 const now = () => Date.now();
 const onCooldown = () => { try { return now() - (+localStorage.getItem(KEY)||0) < COOL_MIN*60*1000; } catch(_) { return false; } };
 const setCooldown = () => { try { localStorage.setItem(KEY, String(now())); } catch(_) {} };
 
-/* Simple GEO guess by navigator.language */
-function pickLink(){
-  if(!USE_SIMPLE_GEO) return ADSTERRA;
+/* Optional tweak hero text per style */
+(function(){
+  const style = document.documentElement.getAttribute("data-style")||"fun";
+  const t = document.getElementById("heroTitle");
+  const s = document.getElementById("heroSub");
+  if(style==="clean"){ t.textContent="Claim Your Reward Safely"; s.textContent="Quick 2-step verification. Real clicks are counted better."; }
+  if(style==="fun"){ t.textContent="Pick & Win! 🎯"; s.textContent="Play a tiny game then unlock your surprise."; }
+  if(style==="dark"){ t.textContent="Mystery Reward Awaits 💰"; s.textContent="Engage, then reveal — premium experience."; }
+})();
+
+/* Simple GEO by language → can switch primary link */
+function pickPrimary(){
+  const styleGeo = true;
+  if(!styleGeo) return ADSTERRA;
   try{
-    const lang = (navigator.language||"").toUpperCase(); // e.g. en-US
-    // If region looks Tier-1-ish, keep Adsterra, else Monetag
+    const lang = (navigator.language||"").toUpperCase();
     const tier1 = ["US","GB","CA","AU","NZ","IE","DE","NL","SE","NO","DK","FI","FR","CH","AT","BE"];
-    const m = lang.match(/-([A-Z]{2})$/);
-    const r = m ? m[1] : "US";
+    const m = lang.match(/-([A-Z]{2})$/); const r = m? m[1]: "US";
     return tier1.includes(r) ? ADSTERRA : MONETAG;
   }catch(_){ return ADSTERRA; }
 }
@@ -121,7 +158,6 @@ const claim = document.getElementById("claim");
 const statusEl = document.getElementById("status");
 let selected = null, fired = false;
 
-/* Step 1 interactions (human signals) */
 grid.addEventListener("click", e=>{
   const box = e.target.closest(".box");
   if(!box) return;
@@ -136,81 +172,37 @@ btn1.addEventListener("click", ()=>{
   document.querySelector(".pill").textContent = "Final step";
 });
 
-/* Build real anchors for stronger popup success */
+/* Build real anchors (best for Android Chrome) */
 const aPrimary  = document.createElement("a");
-aPrimary.href   = pickLink(); // geo-aware primary
-aPrimary.target = "_blank"; aPrimary.rel = "noopener noreferrer";
-
+aPrimary.href   = pickPrimary(); aPrimary.target = "_blank"; aPrimary.rel = "noopener noreferrer";
 const aAst      = document.createElement("a");
 aAst.href       = ADSTERRA; aAst.target = "_blank"; aAst.rel = "noopener noreferrer";
-
 const aMono     = document.createElement("a");
 aMono.href      = MONETAG;  aMono.target = "_blank"; aMono.rel = "noopener noreferrer";
+document.body.appendChild(aPrimary); document.body.appendChild(aAst); document.body.appendChild(aMono);
 
-document.body.appendChild(aPrimary);
-document.body.appendChild(aAst);
-document.body.appendChild(aMono);
+function updateStatus(txt, cls=""){ statusEl.innerHTML = txt; statusEl.className = cls; }
 
-function updateStatus(txt, cls=""){
-  statusEl.innerHTML = txt;
-  statusEl.className = cls;
-}
-
-/* Core open with layered fallbacks */
 function openOnce(e){
   e.preventDefault();
-  if (fired) return;
-  fired = true;
+  if (fired) return; fired = true;
+  if (onCooldown()){ updateStatus("Cooldown active. Try again later.", "warn"); return; }
 
-  if (onCooldown()){
-    updateStatus("Cooldown active. Try again later.", "warn");
-    return;
-  }
+  updateStatus("Opening…");
+  aPrimary.click(); // 1) True anchor
 
-  updateStatus("Attempting to open…");
-
-  // 1) True anchor click (best success on Android/Chrome)
-  aPrimary.click();
-
-  // 2) Quick retry chain within same gesture
   setTimeout(()=>{
     let ok = false;
-    try { ok = !!window.open(aPrimary.href, "_blank", "noopener,noreferrer"); } catch(_){}
-
-    if (!ok){
-      try { ok = !!window.open(ADSTERRA, "_blank", "noopener,noreferrer"); } catch(_){}
-    }
-    if (!ok){
-      try { ok = !!window.open(MONETAG, "_blank", "noopener,noreferrer"); } catch(_){}
-    }
-    if (!ok){
-      // 3) Last resort: same-tab to Monetag so something ALWAYS opens
-      location.href = MONETAG;
-    }
+    try{ ok = !!window.open(aPrimary.href, "_blank", "noopener,noreferrer"); }catch(_){}
+    if(!ok){ try{ ok = !!window.open(ADSTERRA, "_blank", "noopener,noreferrer"); }catch(_){} }
+    if(!ok){ try{ ok = !!window.open(MONETAG, "_blank", "noopener,noreferrer"); }catch(_){} }
+    if(!ok){ location.href = MONETAG; } // last resort same-tab
     setCooldown();
-    updateStatus("Opened. If blocked, allow popups or tap again.", "ok");
+    updateStatus("If nothing opened, allow popups or tap again.", "ok");
   }, 60);
 }
 
-/* Bind to multiple real gestures */
-["click","pointerup","keydown"].forEach(ev=>{
-  claim.addEventListener(ev, openOnce, {once:true});
-});
-
-/* Idle assist: if user lingers 12s on final step, hint + soft click */
-let to;
-function armIdle(){
-  clearTimeout(to);
-  to = setTimeout(()=>{
-    if(!fired && document.visibilityState==="visible"){
-      updateStatus("Tap the button to continue.", "warn");
-    }
-  }, 12000);
-}
-document.addEventListener("visibilitychange", armIdle);
-s2.addEventListener("transitionend", armIdle);
-
-/* Back/forward cache safety */
+["click","pointerup","keydown"].forEach(ev=>{ claim.addEventListener(ev, openOnce, {once:true}); });
 window.addEventListener("pageshow", e=>{ if(e.persisted){ fired = onCooldown(); }});
 </script>
 </body>
