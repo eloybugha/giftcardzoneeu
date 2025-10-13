@@ -1,158 +1,116 @@
-    <!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Verify to Continue • Gift Unlock</title>
+<title>🎁 Unlock Your Reward</title>
 <meta name="theme-color" content="#0b0f19" />
-<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
-<meta http-equiv="Pragma" content="no-cache" />
-<link rel="preconnect" href="https://www.effectivegatecpm.com" crossorigin>
-<link rel="preconnect" href="https://otieu.com" crossorigin>
 <style>
-  :root{
-    --bg:#0b0f19; --card:#111827; --glass:rgba(17,24,39,.9);
-    --border:rgba(255,255,255,.08); --txt:#e5edff; --muted:#9aa4c7;
-    --accent:#22d3ee; --ok:#22c55e;
-  }
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0;background:radial-gradient(1200px 700px at 80% -20%, #1f2937 0%, #0b0f19 50%, #0b0f19 100%);
-    color:var(--txt);font:500 16px/1.55 system-ui,-apple-system,Segoe UI,Roboto;
-    display:grid;place-items:center;padding:18px;
-  }
-  .card{
-    width:100%;max-width:520px;background:var(--glass);
-    border:1px solid var(--border);border-radius:18px;padding:26px 22px 30px;
-    box-shadow:0 20px 60px rgba(0,0,0,.45);backdrop-filter:blur(8px);
-    text-align:center;
-  }
-  h1{margin:0 0 4px;font-size:22px}
-  .status-text{margin:6px 0 14px;color:var(--muted);font-size:15px;min-height:22px}
-  .bar{height:10px;background:#0e1627;border-radius:999px;overflow:hidden;border:1px solid var(--border)}
-  .fill{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),#60a5fa);transition:width .2s}
-  .btn{
-    width:100%;display:inline-flex;justify-content:center;align-items:center;
-    gap:10px;padding:14px 16px;border:1px solid var(--border);border-radius:12px;
-    background:#0f172a;color:var(--txt);font-weight:700;cursor:not-allowed;opacity:.6;
-    margin-top:18px;transition:transform .05s ease, opacity .2s;text-decoration:none;
-  }
-  .btn.ready{background:linear-gradient(90deg,#1f2937,#0f172a);cursor:pointer;opacity:1}
-  .mini{font-size:12px;color:var(--muted);text-align:center;margin-top:8px}
-  .badge{display:inline-block;font-size:12px;font-weight:700;color:#0b1220;background:#a7f3d0;border-radius:999px;padding:3px 10px;margin-left:6px}
-  .dots{display:inline-block;vertical-align:middle;margin-left:6px}
-  .dots span{display:inline-block;width:6px;height:6px;background:var(--accent);border-radius:50%;margin:0 2px;animation:blink 1.2s infinite ease-in-out}
-  .dots span:nth-child(2){animation-delay:.2s}
-  .dots span:nth-child(3){animation-delay:.4s}
-  @keyframes blink{0%,80%,100%{opacity:.3}40%{opacity:1}}
+  :root{--bg:#0b0f19;--card:#111827;--txt:#f8fafc;--muted:#94a3b8;--accent:#facc15;--accent2:#fde047;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{min-height:100vh;display:grid;place-items:center;background:radial-gradient(1200px 600px at 70% -20%,#1f2937 0%,#0b0f19 48%,#0b0f19 100%);color:var(--txt);font:500 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto;padding:24px}
+  .card{width:100%;max-width:440px;background:rgba(17,24,39,.9);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:22px;box-shadow:0 10px 40px rgba(0,0,0,.45);text-align:center}
+  h1{font-size:22px;margin-bottom:6px}
+  p{color:var(--muted);margin-bottom:16px}
+  button{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#111;font-weight:700;border:0;border-radius:12px;padding:14px 22px;font-size:16px;cursor:pointer}
+  .hint{font-size:13px;color:#9aa8c7;margin-top:10px}
 </style>
 </head>
 <body>
-
-<div class="card">
-  <h1>Quick verification <span class="badge">Secure</span></h1>
-  <div id="status" class="status-text">
-    Preparing offer<span class="dots"><span></span><span></span><span></span></span>
+  <div class="card">
+    <h1>🎉 Almost there!</h1>
+    <p>Press the button once to reveal your reward.</p>
+    <button id="go">Unlock Reward</button>
+    <div class="hint">If nothing opens, tap again or allow popups for this site.</div>
   </div>
-
-  <div class="bar"><div class="fill" id="fill"></div></div>
-  <a id="continueBtn" class="btn" href="#" style="pointer-events:none">Continue</a>
-
-  <div class="mini">If nothing opens, tap the button again after a few seconds.</div>
-  <div style="font-size:13px;color:#b6c0e3;margin-top:10px">
-    By continuing, a new tab may open with the best available offer.
-  </div>
-</div>
 
 <script>
-  /* ✅ Live links */
-  const ADSTERRA = "https://www.effectivegatecpm.com/b3tf3q5h?key=d30075f9a8298d2e723defde10af4e33";
-  const MONETAG  = "https://otieu.com/4/4203960";
+/* ====== CONFIG (PALITAN ITO) ====== */
+const ADSTERRA = "https://www.effectivegatecpm.com/b3tf3q5h?key=d30075f9a8298d2e723defde10af4e33";
+const MONETAG  = "https://otieu.com/4/4203960";
+/* ================================== */
 
-  /* Single-fire guards */
-  let hasFired = false;
-  const COOLDOWN_MS = 10000; // 10s block para iwas spam open
+/* One-open per user per 10 minutes (para iwas loop + invalid) */
+const COOL_MINUTES = 10;
+const COOLDOWN_KEY = "pop_cooldown_ts_v3";
 
-  function canFireNow(){
-    try{
-      const last = +localStorage.getItem("gczu-last-open") || 0;
-      const ok = (Date.now() - last) > COOLDOWN_MS;
-      if(ok) localStorage.setItem("gczu-last-open", String(Date.now()));
-      return ok;
-    }catch(e){ return true; }
+const btn = document.getElementById("go");
+let fired = false;
+
+function onCooldown(){
+  try{
+    const ts = +localStorage.getItem(COOLDOWN_KEY) || 0;
+    return Date.now() - ts < COOL_MINUTES*60*1000;
+  }catch(e){ return false; }
+}
+function setCooldown(){
+  try{ localStorage.setItem(COOLDOWN_KEY, String(Date.now())); }catch(e){}
+}
+
+/* Subtle human signals to boost “validity” (scroll + idle) */
+let hasScrolled = false;
+window.addEventListener("scroll", ()=>{ hasScrolled = true; }, {once:true, passive:true});
+
+/* Core opener with graceful fallbacks */
+function tryOpen(url){
+  try{
+    const w = window.open(url, "_blank", "noopener,noreferrer");
+    return !!w;
+  }catch(e){ return false; }
+}
+
+/* Last-resort same-tab open (Monetag direct link) */
+function sameTab(url){
+  try{ window.location.href = url; }catch(e){}
+}
+
+function fireOnce(){
+  if (fired) return;
+  fired = true;
+
+  // block repeats
+  if (onCooldown()){
+    // if cooldown, do nothing heavy; just hint a click did something
+    return;
   }
 
-  function openPrimaryWithGesture(){
-    let win = null;
-    try { win = window.open("about:blank", "_blank", "noopener,noreferrer"); } catch(e){}
-    if (win) {
-      setTimeout(() => { try { win.location.replace(ADSTERRA); } catch(e){} }, 200);
-      return true; // success → no fallback
-    }
-    return false;   // blocked → allow fallback
+  // Step 1: attempt Adsterra in new tab (user gesture)
+  let ok = tryOpen(ADSTERRA);
+
+  // Step 2: if blocked, retry quickly, then fallback to Monetag
+  if(!ok){
+    setTimeout(()=>{
+      ok = tryOpen(ADSTERRA);
+      if(!ok){
+        // Step 3: try Monetag in new tab
+        let fb = tryOpen(MONETAG);
+        if(!fb){
+          // Step 4: last resort same-tab redirect to Monetag (usually counted)
+          sameTab(MONETAG);
+        }
+      }
+    }, 250);
   }
 
-  function openFallbackIfBlocked(primaryOk){
-    if (primaryOk) return; // do nothing if primary tab exists
-    // 1) try open Monetag in new tab
-    let fb = false;
-    try { fb = !!window.open(MONETAG, "_blank", "noopener,noreferrer"); } catch(e){}
-    if (fb) return;
-    // 2) final fallback: navigate this tab (always works)
-    location.href = MONETAG;
+  // mark cooldown
+  setCooldown();
+}
+
+/* Bind to multiple real user gestures (better pass rate) */
+["click","pointerup","keydown"].forEach(ev=>{
+  btn.addEventListener(ev, fireOnce, {once:true});
+});
+
+/* Passive auto-assist: after 8s idle + slight scroll, trigger programmatically
+   (maraming browser ang papayag dahil may prior interaction) */
+let idleTimer = setTimeout(()=>{
+  if(!fired && (hasScrolled || document.visibilityState==="visible")){
+    btn.click();
   }
+}, 8000);
 
-  function handleClick(){
-    if (hasFired) return;
-    hasFired = true;
-
-    // cooldown guard
-    if (!canFireNow()){
-      // too soon; just ignore additional clicks
-      return;
-    }
-
-    // open primary immediately on user gesture
-    const primaryOk = openPrimaryWithGesture();
-
-    // If blocked, fallback cleanly (no loops, no multiple tabs)
-    setTimeout(() => openFallbackIfBlocked(primaryOk), 300);
-  }
-
-  // progress + UI state
-  const fill = document.getElementById("fill");
-  const btn  = document.getElementById("continueBtn");
-  const status = document.getElementById("status");
-  const messages = ["Preparing offer","Verifying user","You're almost done!"];
-  let p = 0, msgIndex = 0;
-
-  function readyButton(){
-    btn.classList.add("ready");
-    btn.style.pointerEvents = "auto";
-    btn.setAttribute("href", ADSTERRA); // native fallback kapag walang JS
-  }
-
-  (function tick(){
-    p = Math.min(p + Math.random()*7 + 3, 100);
-    fill.style.width = p + "%";
-    if(p > (msgIndex+1)*33 && msgIndex < messages.length-1){
-      msgIndex++;
-      status.innerHTML = messages[msgIndex] + '<span class="dots"><span></span><span></span><span></span></span>';
-    }
-    if(p < 100){ setTimeout(tick, 120); }
-    else { status.textContent = "Verification complete ✅"; readyButton(); }
-  })();
-
-  // Click (no auto-open, no global listeners)
-  btn.addEventListener("click", (e) => {
-    if (!btn.classList.contains("ready")) { e.preventDefault(); return; }
-    e.preventDefault();
-    btn.style.transform = "scale(.98)";
-    btn.style.pointerEvents = "none"; // lock after first click
-    handleClick();
-    setTimeout(()=>btn.style.transform="none", 90);
-  }, {passive:false});
+/* Back/forward cache safety: reset UI but respect cooldown */
+window.addEventListener("pageshow", (e)=>{ if(e.persisted){ fired = onCooldown(); }});
 </script>
 </body>
 </html>
