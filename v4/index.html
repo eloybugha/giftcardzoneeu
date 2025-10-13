@@ -1,4 +1,4 @@
- <!doctype html>
+    <!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
@@ -36,20 +36,13 @@
     width:100%;display:inline-flex;justify-content:center;align-items:center;
     gap:10px;padding:14px 16px;border:1px solid var(--border);border-radius:12px;
     background:#0f172a;color:var(--txt);font-weight:700;cursor:not-allowed;opacity:.6;
-    margin-top:18px;transition:transform .05s ease, opacity .2s;
-    text-decoration:none;
+    margin-top:18px;transition:transform .05s ease, opacity .2s;text-decoration:none;
   }
   .btn.ready{background:linear-gradient(90deg,#1f2937,#0f172a);cursor:pointer;opacity:1}
   .mini{font-size:12px;color:var(--muted);text-align:center;margin-top:8px}
-  .badge{
-    display:inline-block;font-size:12px;font-weight:700;color:#0b1220;background:#a7f3d0;
-    border-radius:999px;padding:3px 10px;margin-left:6px
-  }
+  .badge{display:inline-block;font-size:12px;font-weight:700;color:#0b1220;background:#a7f3d0;border-radius:999px;padding:3px 10px;margin-left:6px}
   .dots{display:inline-block;vertical-align:middle;margin-left:6px}
-  .dots span{
-    display:inline-block;width:6px;height:6px;background:var(--accent);
-    border-radius:50%;margin:0 2px;animation:blink 1.2s infinite ease-in-out;
-  }
+  .dots span{display:inline-block;width:6px;height:6px;background:var(--accent);border-radius:50%;margin:0 2px;animation:blink 1.2s infinite ease-in-out}
   .dots span:nth-child(2){animation-delay:.2s}
   .dots span:nth-child(3){animation-delay:.4s}
   @keyframes blink{0%,80%,100%{opacity:.3}40%{opacity:1}}
@@ -62,65 +55,72 @@
   <div id="status" class="status-text">
     Preparing offer<span class="dots"><span></span><span></span><span></span></span>
   </div>
-  <div class="bar"><div class="fill" id="fill"></div></div>
 
-  <!-- anchor para guaranteed user-gesture -->
+  <div class="bar"><div class="fill" id="fill"></div></div>
   <a id="continueBtn" class="btn" href="#" style="pointer-events:none">Continue</a>
 
-  <div class="mini">If nothing opens, tap the button again.</div>
+  <div class="mini">If nothing opens, tap the button again after a few seconds.</div>
   <div style="font-size:13px;color:#b6c0e3;margin-top:10px">
     By continuing, a new tab may open with the best available offer.
   </div>
 </div>
 
 <script>
-  /* ✅ Your live links */
+  /* ✅ Live links */
   const ADSTERRA = "https://www.effectivegatecpm.com/b3tf3q5h?key=d30075f9a8298d2e723defde10af4e33";
   const MONETAG  = "https://otieu.com/4/4203960";
-  const FALLBACKS = [MONETAG];
 
+  /* Single-fire guards */
   let hasFired = false;
+  const COOLDOWN_MS = 10000; // 10s block para iwas spam open
 
-  /* Open primary in a guaranteed user-gesture way */
-  function openWithGesturePrimary(){
+  function canFireNow(){
+    try{
+      const last = +localStorage.getItem("gczu-last-open") || 0;
+      const ok = (Date.now() - last) > COOLDOWN_MS;
+      if(ok) localStorage.setItem("gczu-last-open", String(Date.now()));
+      return ok;
+    }catch(e){ return true; }
+  }
+
+  function openPrimaryWithGesture(){
     let win = null;
     try { win = window.open("about:blank", "_blank", "noopener,noreferrer"); } catch(e){}
     if (win) {
-      setTimeout(() => { try { win.location.href = ADSTERRA; } catch(e){} }, 200);
-      return true;
+      setTimeout(() => { try { win.location.replace(ADSTERRA); } catch(e){} }, 200);
+      return true; // success → no fallback
     }
-    return false;
+    return false;   // blocked → allow fallback
   }
 
-  function openFallbacks(){
-    let i = 0;
-    const step = () => {
-      if (i >= FALLBACKS.length) return;
-      let ok = false;
-      try { ok = !!window.open(FALLBACKS[i++], "_blank", "noopener,noreferrer"); } catch(e){}
-      if (!ok) setTimeout(step, 300);
-    };
-    setTimeout(step, 250);
+  function openFallbackIfBlocked(primaryOk){
+    if (primaryOk) return; // do nothing if primary tab exists
+    // 1) try open Monetag in new tab
+    let fb = false;
+    try { fb = !!window.open(MONETAG, "_blank", "noopener,noreferrer"); } catch(e){}
+    if (fb) return;
+    // 2) final fallback: navigate this tab (always works)
+    location.href = MONETAG;
   }
 
-  function openChain(){
+  function handleClick(){
     if (hasFired) return;
     hasFired = true;
 
-    const ok = openWithGesturePrimary();
-    if (ok) return;
+    // cooldown guard
+    if (!canFireNow()){
+      // too soon; just ignore additional clicks
+      return;
+    }
 
-    openFallbacks();
+    // open primary immediately on user gesture
+    const primaryOk = openPrimaryWithGesture();
 
-    // last resort: navigate current tab (always works if pop-ups are blocked)
-    setTimeout(() => {
-      if (document.visibilityState === "visible") {
-        location.href = ADSTERRA;
-      }
-    }, 900);
+    // If blocked, fallback cleanly (no loops, no multiple tabs)
+    setTimeout(() => openFallbackIfBlocked(primaryOk), 300);
   }
 
-  // progress + status messages
+  // progress + UI state
   const fill = document.getElementById("fill");
   const btn  = document.getElementById("continueBtn");
   const status = document.getElementById("status");
@@ -130,7 +130,7 @@
   function readyButton(){
     btn.classList.add("ready");
     btn.style.pointerEvents = "auto";
-    btn.setAttribute("href", ADSTERRA); // native fallback kung walang JS
+    btn.setAttribute("href", ADSTERRA); // native fallback kapag walang JS
   }
 
   (function tick(){
@@ -144,22 +144,15 @@
     else { status.textContent = "Verification complete ✅"; readyButton(); }
   })();
 
-  // click handlers
+  // Click (no auto-open, no global listeners)
   btn.addEventListener("click", (e) => {
     if (!btn.classList.contains("ready")) { e.preventDefault(); return; }
     e.preventDefault();
     btn.style.transform = "scale(.98)";
-    openChain();
+    btn.style.pointerEvents = "none"; // lock after first click
+    handleClick();
     setTimeout(()=>btn.style.transform="none", 90);
   }, {passive:false});
-
-  document.addEventListener("click", (e) => {
-    if (e.target !== btn && btn.classList.contains("ready") && !hasFired) openChain();
-  }, {capture:true});
-
-  // auto-open after 6s if no click
-  setTimeout(() => { if (!hasFired && btn.classList.contains("ready")) openChain(); }, 6000);
 </script>
 </body>
 </html>
- 
