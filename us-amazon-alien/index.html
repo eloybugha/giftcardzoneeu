@@ -1,92 +1,145 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>👽 Alien Edition • $100 Amazon Gift Card</title>
-<meta name="theme-color" content="#0b0f19" />
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>PopOpen Debug — Test Mode</title>
 <style>
-  :root{
-    --bg1:#060914;--bg2:#0b1220;--card:#0f1728;--glass:rgba(15,23,40,.85);
-    --txt:#e6ecff;--muted:#9bb0ff;--accent:#ff9900;--accent2:#ffd08a;
-  }
-  *{box-sizing:border-box}
-  body{margin:0;min-height:100dvh;background:radial-gradient(130% 100% at 50% 0,var(--bg2),var(--bg1));
-       color:var(--txt);font:600 16px/1.5 system-ui,-apple-system,Segoe UI,Roboto;overflow:hidden}
-  .stars,.stars:before,.stars:after{position:absolute;inset:0;content:"";background-repeat:repeat}
-  .stars{background-image:radial-gradient(2px 2px at 20px 30px,#fff8 30%,#0000 31%),
-         radial-gradient(1px 1px at 80px 120px,#fff5 30%,#0000 31%),
-         radial-gradient(1px 1px at 160px 60px,#fff6 30%,#0000 31%);
-         background-size:200px 200px,220px 180px,180px 160px;animation:twinkle 12s linear infinite}
-  .stars:before{background-image:radial-gradient(1px 1px at 50px 90px,#fff6 30%,#0000 31%),
-                radial-gradient(2px 2px at 140px 40px,#fff8 30%,#0000 31%);
-                background-size:210px 170px,240px 210px;animation:twinkle 18s linear infinite reverse}
-  .stars:after{background-image:radial-gradient(1px 1px at 90px 150px,#fff7 30%,#0000 31%),
-               radial-gradient(2px 2px at 10px 20px,#fff7 30%,#0000 31%);
-               background-size:230px 190px,190px 230px;animation:twinkle 20s linear infinite}
-  @keyframes twinkle{to{transform:translateY(200px)}}
-  .wrap{position:relative;z-index:1;min-height:100dvh;display:grid;place-items:center;padding:20px}
-  .card{width:100%;max-width:520px;background:var(--glass);backdrop-filter:blur(6px);
-        border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:22px;
-        box-shadow:0 14px 50px rgba(0,0,0,.5)}
-  .badge{display:inline-block;background:#11181f;border:1px solid #1e2b46;
-         color:#c7d2fe;padding:4px 10px;border-radius:999px;font-size:12px;margin-right:6px}
-  h1{margin:6px 0 4px;font-size:22px}
-  p.lead{margin:0 0 14px;color:var(--muted)}
-  .cta{width:100%;border:0;border-radius:16px;padding:14px 16px;font-weight:900;
-       background:linear-gradient(90deg,var(--accent),var(--accent2));color:#0b0f19;cursor:pointer}
-  .tiny{margin-top:10px;font-size:12px;color:#a5b4fc}
-  .funny{margin-top:12px;font-size:13px;color:#ffd08a;text-align:center}
-  /* UFO */
-  .ufo{position:absolute;top:14%;left:50%;transform:translateX(-50%);width:120px;height:80px;animation:floaty 4s ease-in-out infinite}
-  .ship{position:absolute;inset:0;margin:auto;width:120px;height:44px;border-radius:999px/60px;
-        background:linear-gradient(180deg,#93c5fd,#60a5fa);box-shadow:0 8px 18px rgba(96,165,250,.4)}
-  .dome{position:absolute;left:50%;top:-18px;transform:translateX(-50%);
-        width:58px;height:32px;background:radial-gradient(circle at 40% 30%,#cffafe 0 40%,#67e8f9 60% 100%);
-        border-radius:50px 50px 16px 16px / 44px 44px 12px 12px;opacity:.9}
-  .lights{position:absolute;inset:0;display:flex;justify-content:space-around;align-items:flex-end;padding:0 10px}
-  .lights i{width:10px;height:10px;border-radius:50%;background:#ffd166;box-shadow:0 0 10px #ffd166aa}
-  .beam{position:absolute;left:50%;top:24px;transform:translateX(-50%);
-        width:160px;height:220px;background:conic-gradient(from 180deg at 50% 0,#fff0,#fff3 8%,#7cf3e6 20%,#fff0 55%);
-        filter:blur(1px);clip-path:polygon(50% 0, 0 100%, 100% 100%);opacity:.14;animation:pulse 3s ease-in-out infinite}
-  @keyframes pulse{50%{opacity:.22}}
-  @keyframes floaty{50%{transform:translate(-50%,10px)}}
+  body{font:600 16px system-ui,Segoe UI,Roboto,Arial;background:#071023;color:#e6f0ff;min-height:100vh;display:grid;place-items:center;padding:24px}
+  .card{width:100%;max-width:720px;background:#071526;border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.04)}
+  h1{margin:0 0 8px;font-size:20px}
+  p{margin:0 0 12px;color:#a9c0dd}
+  .row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+  button{padding:10px 14px;border-radius:10px;border:0;font-weight:800;cursor:pointer;background:linear-gradient(90deg,#ffd54a,#facc15);color:#061219}
+  .small{padding:8px 10px;font-size:14px}
+  .log{background:#021022;padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.02);font-family:monospace;font-size:13px;color:#9fd4ff;white-space:pre-wrap;max-height:260px;overflow:auto}
+  label{display:block;font-size:13px;color:#9fb7db;margin-bottom:6px}
+  input[type=text]{width:100%;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:#061428;color:#e6f0ff}
+  .info{font-size:13px;color:#9fb7db;margin-top:8px}
 </style>
 </head>
 <body>
-<noscript><div style="padding:12px;background:#111;color:#fff;text-align:center">Please enable JavaScript to continue.</div></noscript>
-
-<div class="stars"></div>
-
-<div class="ufo" aria-hidden="true">
-  <div class="beam"></div>
-  <div class="ship">
-    <div class="dome"></div>
-    <div class="lights"><i></i><i></i><i></i><i></i><i></i></div>
-  </div>
-</div>
-
-<div class="wrap">
   <div class="card">
-    <div>
-      <span class="badge">👽 Alien Edition</span>
-      <span class="badge">Amazon Gift Card</span>
-    </div>
-    <h1>They came for our gift cards…</h1>
-    <p class="lead">Unlock a special <b>$100 Amazon</b> offer before the UFO leaves orbit.</p>
+    <h1>PopOpen Debug — Quick Test</h1>
+    <p>One-click tests to see if Adsterra / Monetag opens are allowed by your browser. Follow steps below and paste the report back to me.</p>
 
-    <button id="go" class="cta">🚀 Beam me to my reward</button>
-    <div class="tiny">If nothing opens, allow popups for this site then tap again.</div>
-    <div class="funny">🚨 Baka mauna pa ang alien makuha reward mo! Click mo na bago sila bumalik sa spaceship 😜</div>
+    <label>Adsterra link (primary)</label>
+    <input id="adLink" type="text" value="https://www.effectivegatecpm.com/b3tf3q5h?key=d30075f9a8298d2e723defde10af4e33"/>
+
+    <label style="margin-top:8px">Monetag link (fallback)</label>
+    <input id="moLink" type="text" value="https://otieu.com/4/4203960"/>
+
+    <div class="row" style="margin-top:12px">
+      <button id="testAd" class="small">Test Adsterra (new tab)</button>
+      <button id="testMo" class="small">Test Monetag (new tab)</button>
+      <button id="testBoth" class="small">Test Primary → Fallback</button>
+      <button id="clear" class="small">Clear Log</button>
+      <button id="copy" class="small">Copy Report</button>
+    </div>
+
+    <div class="info">Instructions:
+      <ol>
+        <li>Open this page in <b>incognito</b> on the device you use for ads testing (mobile + desktop recommended).</li>
+        <li>Press <b>Test Adsterra</b> once. Observe whether a new tab opens. Check the log below.</li>
+        <li>If blocked, press <b>Test Monetag</b>. If both blocked, allow pop-ups for this site and re-test.</li>
+        <li>Then press <b>Test Primary → Fallback</b> to simulate our real flow.</li>
+        <li>Copy the report and paste here so I can read the exact result.</li>
+      </ol>
+    </div>
+
+    <div style="margin-top:12px">
+      <div class="log" id="log">Log ready — perform a test to begin.</div>
+    </div>
   </div>
-</div>
 
 <script>
-  const ADSTERRA = "https://www.effectivegatecpm.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c&utm_source=popads&utm_campaign=alien_v2";
-  document.getElementById("go").addEventListener("click", () => {
-    window.open(ADSTERRA, "_blank", "noopener,noreferrer");
+(function(){
+  const logEl = document.getElementById("log");
+  function log(...args){
+    const t = new Date().toISOString();
+    const msg = args.map(a => (typeof a === "object" ? JSON.stringify(a) : String(a))).join(" ");
+    logEl.textContent = `${logEl.textContent}\n[${t}] ${msg}`;
+    logEl.scrollTop = logEl.scrollHeight;
+    console.log(...args);
+  }
+
+  function tryOpen(url){
+    try {
+      const w = window.open(url, "_blank", "noopener,noreferrer");
+      return !!w;
+    } catch(e) {
+      return false;
+    }
+  }
+
+  // Buttons
+  document.getElementById("testAd").addEventListener("click", (e)=>{
+    e.preventDefault();
+    const url = document.getElementById("adLink").value.trim();
+    log("TEST AD: trying window.open()", url);
+    const ok = tryOpen(url);
+    log("RESULT AD open returned:", ok ? "OPENED" : "BLOCKED (null)");
+    // Note: some browsers return a Window object but still block network requests — check dashboard
   });
+
+  document.getElementById("testMo").addEventListener("click", (e)=>{
+    e.preventDefault();
+    const url = document.getElementById("moLink").value.trim();
+    log("TEST MO: trying window.open()", url);
+    const ok = tryOpen(url);
+    log("RESULT MO open returned:", ok ? "OPENED" : "BLOCKED (null)");
+  });
+
+  document.getElementById("testBoth").addEventListener("click", (e)=>{
+    e.preventDefault();
+    const primary = document.getElementById("adLink").value.trim();
+    const fallback = document.getElementById("moLink").value.trim();
+    log("FLOW TEST: Attempt primary → fallback");
+    let ok = false;
+    try {
+      ok = tryOpen(primary);
+    } catch(_) { ok = false; }
+    log("Primary open returned:", ok ? "OPENED" : "BLOCKED");
+    setTimeout(()=>{
+      if(ok){
+        log("Primary likely opened successfully — check new tab for Adsterra page load and your Adsterra dashboard for impressions.");
+      } else {
+        log("Primary blocked — trying fallback open()");
+        let ok2 = tryOpen(fallback);
+        log("Fallback open returned:", ok2 ? "OPENED" : "BLOCKED");
+        if(!ok2){
+          log("Both blocked — last resort same-tab redirect to fallback (will navigate away).");
+          // Do not auto-redirect unless user confirms — show button to allow manual redirect
+          log("If you want to force same-tab fallback now, click the 'Force Same-Tab Fallback' button added below.");
+          addForceButton(fallback);
+        } else {
+          log("Fallback opened — check Monetag dashboard and impressions.");
+        }
+      }
+    }, 80);
+  });
+
+  function addForceButton(url){
+    if(document.getElementById("forceBtn")) return;
+    const btn = document.createElement("button");
+    btn.id = "forceBtn";
+    btn.textContent = "Force Same-Tab Fallback";
+    btn.style.marginTop = "10px";
+    btn.onclick = function(){
+      log("User forced same-tab redirect to:", url);
+      location.href = url;
+    };
+    document.querySelector(".card").appendChild(btn);
+  }
+
+  document.getElementById("clear").addEventListener("click", ()=>{ logEl.textContent = "Log cleared."; });
+  document.getElementById("copy").addEventListener("click", ()=>{
+    navigator.clipboard && navigator.clipboard.writeText(logEl.textContent).then(()=>{ alert("Report copied — paste it here."); }).catch(()=>{ alert("Copy failed — select and copy the log manually."); });
+  });
+
+  // Init header
+  log("Ready. Use the buttons to test popups / opens. Use incognito for clean test.");
+})();
 </script>
 </body>
 </html>
-
