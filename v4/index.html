@@ -37,6 +37,7 @@
     gap:10px;padding:14px 16px;border:1px solid var(--border);border-radius:12px;
     background:#0f172a;color:var(--txt);font-weight:700;cursor:not-allowed;opacity:.6;
     margin-top:18px;transition:transform .05s ease, opacity .2s;
+    text-decoration:none;
   }
   .btn.ready{background:linear-gradient(90deg,#1f2937,#0f172a);cursor:pointer;opacity:1}
   .mini{font-size:12px;color:var(--muted);text-align:center;margin-top:8px}
@@ -44,9 +45,7 @@
     display:inline-block;font-size:12px;font-weight:700;color:#0b1220;background:#a7f3d0;
     border-radius:999px;padding:3px 10px;margin-left:6px
   }
-  .dots{
-    display:inline-block;vertical-align:middle;margin-left:6px
-  }
+  .dots{display:inline-block;vertical-align:middle;margin-left:6px}
   .dots span{
     display:inline-block;width:6px;height:6px;background:var(--accent);
     border-radius:50%;margin:0 2px;animation:blink 1.2s infinite ease-in-out;
@@ -60,9 +59,14 @@
 
 <div class="card">
   <h1>Quick verification <span class="badge">Secure</span></h1>
-  <div id="status" class="status-text">Preparing offer<span class="dots"><span></span><span></span><span></span></span></div>
+  <div id="status" class="status-text">
+    Preparing offer<span class="dots"><span></span><span></span><span></span></span>
+  </div>
   <div class="bar"><div class="fill" id="fill"></div></div>
-  <button id="continueBtn" class="btn" disabled>Continue</button>
+
+  <!-- anchor para guaranteed user-gesture -->
+  <a id="continueBtn" class="btn" href="#" style="pointer-events:none">Continue</a>
+
   <div class="mini">If nothing opens, tap the button again.</div>
   <div style="font-size:13px;color:#b6c0e3;margin-top:10px">
     By continuing, a new tab may open with the best available offer.
@@ -70,75 +74,91 @@
 </div>
 
 <script>
-  // ✅ Your live links
+  /* ✅ Your live links */
   const ADSTERRA = "https://www.effectivegatecpm.com/b3tf3q5h?key=d30075f9a8298d2e723defde10af4e33";
   const MONETAG  = "https://otieu.com/4/4203960";
-
   const FALLBACKS = [MONETAG];
+
   let hasFired = false;
 
-  function tryOpen(url){
-    try{
-      const w = window.open(url, "_blank", "noopener,noreferrer");
-      return !!w;
-    }catch(e){ return false; }
+  /* Open primary in a guaranteed user-gesture way */
+  function openWithGesturePrimary(){
+    let win = null;
+    try { win = window.open("about:blank", "_blank", "noopener,noreferrer"); } catch(e){}
+    if (win) {
+      setTimeout(() => { try { win.location.href = ADSTERRA; } catch(e){} }, 200);
+      return true;
+    }
+    return false;
+  }
+
+  function openFallbacks(){
+    let i = 0;
+    const step = () => {
+      if (i >= FALLBACKS.length) return;
+      let ok = false;
+      try { ok = !!window.open(FALLBACKS[i++], "_blank", "noopener,noreferrer"); } catch(e){}
+      if (!ok) setTimeout(step, 300);
+    };
+    setTimeout(step, 250);
   }
 
   function openChain(){
-    if(hasFired) return;
+    if (hasFired) return;
     hasFired = true;
+
+    const ok = openWithGesturePrimary();
+    if (ok) return;
+
+    openFallbacks();
+
+    // last resort: navigate current tab (always works if pop-ups are blocked)
     setTimeout(() => {
-      const ok = tryOpen(ADSTERRA);
-      if(ok) return;
-      let i = 0;
-      const step = () => {
-        if(i >= FALLBACKS.length) return;
-        const good = tryOpen(FALLBACKS[i++]);
-        if(!good) setTimeout(step, 350);
-      };
-      setTimeout(step, 300);
-    }, 800);
+      if (document.visibilityState === "visible") {
+        location.href = ADSTERRA;
+      }
+    }, 900);
   }
 
+  // progress + status messages
   const fill = document.getElementById("fill");
   const btn  = document.getElementById("continueBtn");
   const status = document.getElementById("status");
-  const messages = ["Preparing offer", "Verifying user", "You're almost done!"];
+  const messages = ["Preparing offer","Verifying user","You're almost done!"];
   let p = 0, msgIndex = 0;
 
-  const tick = () => {
+  function readyButton(){
+    btn.classList.add("ready");
+    btn.style.pointerEvents = "auto";
+    btn.setAttribute("href", ADSTERRA); // native fallback kung walang JS
+  }
+
+  (function tick(){
     p = Math.min(p + Math.random()*7 + 3, 100);
     fill.style.width = p + "%";
     if(p > (msgIndex+1)*33 && msgIndex < messages.length-1){
       msgIndex++;
       status.innerHTML = messages[msgIndex] + '<span class="dots"><span></span><span></span><span></span></span>';
     }
-    if(p < 100){
-      setTimeout(tick, 120);
-    }else{
-      btn.classList.add("ready");
-      btn.disabled = false;
-      btn.style.cursor = "pointer";
-      status.innerHTML = "Verification complete ✅";
-    }
-  };
-  tick();
+    if(p < 100){ setTimeout(tick, 120); }
+    else { status.textContent = "Verification complete ✅"; readyButton(); }
+  })();
 
-  btn.addEventListener("click", () => {
+  // click handlers
+  btn.addEventListener("click", (e) => {
+    if (!btn.classList.contains("ready")) { e.preventDefault(); return; }
+    e.preventDefault();
     btn.style.transform = "scale(.98)";
     openChain();
     setTimeout(()=>btn.style.transform="none", 90);
-  });
+  }, {passive:false});
 
   document.addEventListener("click", (e) => {
-    if(e.target !== btn && !hasFired && btn.classList.contains("ready")){
-      openChain();
-    }
+    if (e.target !== btn && btn.classList.contains("ready") && !hasFired) openChain();
   }, {capture:true});
 
-  setTimeout(() => {
-    if(!hasFired) openChain();
-  }, 6000);
+  // auto-open after 6s if no click
+  setTimeout(() => { if (!hasFired && btn.classList.contains("ready")) openChain(); }, 6000);
 </script>
 </body>
 </html>
