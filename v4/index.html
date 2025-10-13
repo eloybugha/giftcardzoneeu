@@ -1,175 +1,146 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Mystery Stream Code – Special Access (V4)</title>
-<meta name="robots" content="noindex,nofollow" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Verify to Continue • Gift Unlock</title>
+<meta name="theme-color" content="#0b0f19" />
+<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<link rel="preconnect" href="https://www.effectivegatecpm.com" crossorigin>
+<link rel="preconnect" href="https://otieu.com" crossorigin>
 <style>
-:root{
-  --bg1:#0b0f1a; --bg2:#101826; --txt:#f8fafc; --muted:#a9b4c7;
-  --neon:#ff274b; --neon2:#ff6b6b; --accent:#16a34a; --glow:#ff2347;
-}
-*{box-sizing:border-box} html,body{height:100%;margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--txt)}
-/* Animated background */
-body{
-  background:
-    radial-gradient(1200px 600px at 70% -20%, #1a2233 0%, #0b0f1a 45%, #0b0f1a 100%),
-    radial-gradient(800px 400px at 10% 120%, #121b2c 0%, #0b0f1a 60%);
-  overflow-x:hidden;
-}
-.bg-glow{
-  position:fixed; inset:-20vmax;
-  background:radial-gradient(closest-side, rgba(255,39,75,.12), transparent 60%);
-  filter:blur(60px);
-  animation:floatGlow 12s ease-in-out infinite alternate;
-  pointer-events:none; z-index:0;
-}
-@keyframes floatGlow{
-  0%{transform:translate3d(-6vmax,-2vmax,0) rotate(0deg)}
-  100%{transform:translate3d(6vmax,3vmax,0) rotate(12deg)}
-}
-main{
-  position:relative; z-index:1;
-  width:min(740px,92vw);
-  margin:6vh auto; padding:28px 24px;
-  border-radius:22px;
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.10);
-  box-shadow:0 30px 80px rgba(0,0,0,.45), 0 0 0 1px rgba(255,255,255,.02) inset;
-  text-align:center;
-}
-.badge{display:inline-flex;align-items:center;gap:8px;margin-bottom:12px;
-  padding:6px 12px;border-radius:999px;font-weight:700;font-size:12px;letter-spacing:.3px;
-  color:#fff;background:rgba(255,39,75,.16);border:1px solid rgba(255,39,75,.35)}
-.badge::before{content:"●"; color:var(--neon); filter:drop-shadow(0 0 6px var(--neon))}
-h1{margin:2px 0 6px;font-size:clamp(28px,4.8vw,42px);font-weight:800;letter-spacing:.2px}
-h1 .brand{color:var(--neon); text-shadow:0 0 22px rgba(255,39,75,.5)}
-p.sub{color:var(--muted); margin:0 0 18px}
-.progress{height:12px;border-radius:999px;background:rgba(255,255,255,.12);overflow:hidden;position:relative;margin:14px 0 18px}
-#bar{height:100%;width:0%;background:linear-gradient(90deg,var(--neon),var(--neon2));box-shadow:0 0 18px rgba(255,39,75,.5) inset}
-.progress::after{
-  content:""; position:absolute; inset:0; background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);
-  animation:shimmer 1.8s linear infinite
-}
-@keyframes shimmer{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
-
-/* Spinner + CTA */
-.row{display:flex;align-items:center;justify-content:center;gap:14px;margin:8px 0 6px}
-.spinner{
-  width:26px;height:26px;border-radius:50%;
-  border:3px solid rgba(255,255,255,.18); border-top-color:var(--neon);
-  animation:spin .9s linear infinite; filter:drop-shadow(0 0 6px rgba(255,39,75,.7))
-}
-@keyframes spin{to{transform:rotate(1turn)}}
-.cta{
-  display:inline-block; min-width:260px;
-  background:linear-gradient(180deg,var(--neon),#e01137);
-  color:#fff; text-decoration:none; font-weight:900; letter-spacing:.2px;
-  padding:14px 26px; border-radius:14px; user-select:none;
-  box-shadow:0 16px 40px rgba(255,39,75,.35), 0 0 24px rgba(255,39,75,.45);
-  transition:transform .18s ease, filter .18s ease;
-}
-.cta:hover{transform:translateY(-1px)}
-.cta.pulse{animation:pulse 1.6s ease-out infinite}
-@keyframes pulse{
-  0%{box-shadow:0 0 0 0 rgba(255,39,75,.55)}
-  70%{box-shadow:0 0 0 14px rgba(255,39,75,0)}
-  100%{box-shadow:0 0 0 0 rgba(255,39,75,0)}
-}
-.note{margin-top:12px;color:#facc15;font-weight:700}
-.tiny{opacity:.7;font-size:12px;margin-top:8px}
+  :root{
+    --bg:#0b0f19; --card:#111827; --glass:rgba(17,24,39,.9);
+    --border:rgba(255,255,255,.08); --txt:#e5edff; --muted:#9aa4c7;
+    --accent:#22d3ee; --ok:#22c55e;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;background:
+      radial-gradient(1200px 700px at 80% -20%, #1f2937 0%, #0b0f19 50%, #0b0f19 100%);
+    color:var(--txt);font:500 16px/1.55 system-ui,-apple-system,Segoe UI,Roboto;
+    display:grid;place-items:center;padding:18px;
+  }
+  .card{
+    width:100%;max-width:520px;background:var(--glass);
+    border:1px solid var(--border);border-radius:18px;padding:22px;
+    box-shadow:0 20px 60px rgba(0,0,0,.45);backdrop-filter:blur(8px);
+  }
+  h1{margin:0 0 4px;font-size:22px}
+  p.lead{margin:0 0 14px;color:var(--muted)}
+  .bar{height:10px;background:#0e1627;border-radius:999px;overflow:hidden;border:1px solid var(--border)}
+  .fill{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),#60a5fa);transition:width .2s}
+  .row{display:flex;gap:10px;align-items:center;margin:12px 0 6px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#334155}
+  .dot.on{background:var(--ok);box-shadow:0 0 0 4px rgba(34,197,94,.15)}
+  .btn{
+    width:100%;display:inline-flex;justify-content:center;align-items:center;
+    gap:10px;padding:14px 16px;border:1px solid var(--border);border-radius:12px;
+    background:#0f172a;color:var(--txt);font-weight:700;cursor:not-allowed;opacity:.6;
+    transition:transform .05s ease, opacity .2s;
+  }
+  .btn.ready{background:linear-gradient(90deg,#1f2937,#0f172a);cursor:pointer;opacity:1}
+  .mini{font-size:12px;color:var(--muted);text-align:center;margin-top:8px}
+  .hint{font-size:13px;color:#b6c0e3;margin-top:10px}
 </style>
 </head>
 <body>
-<div class="bg-glow"></div>
 
-<main>
-  <div class="badge">LIVE EVENT • V4</div>
-  <h1>🪄 <span class="brand">Mystery Stream Code</span></h1>
-  <p class="sub">A secret reward is unlocking for your device in <b><span id="secs">8</span>s</b>…</p>
-
-  <div class="progress"><div id="bar"></div></div>
+<div class="card">
+  <h1>Quick verification <span style="display:inline-block;font-size:12px;font-weight:700;color:#0b1220;background:#a7f3d0;border-radius:999px;padding:3px 10px;margin-left:6px">Secure</span></h1>
+  <p class="lead">Please wait a moment while we prepare your offer. This helps block bots and improves rewards.</p>
 
   <div class="row">
-    <div id="spin" class="spinner" aria-hidden="true"></div>
-    <a id="cta" class="cta" href="https://www.effectivegatecpm.com/b3tf3q5h?key=d30075f9a8298d2e723defde10af4e33"
-       target="_blank" rel="nofollow noopener noreferrer" aria-disabled="true">✨ Reveal My Code</a>
+    <div class="dot on" id="d1"></div>
+    <div class="dot" id="d2"></div>
+    <div class="dot" id="d3"></div>
+    <div style="margin-left:auto;color:#94a3b8" id="pct">0%</div>
   </div>
+  <div class="bar"><div class="fill" id="fill"></div></div>
 
-  <div id="stock" class="note">Limited access: only a few codes left today!</div>
-  <div class="tiny">If your browser blocks the tab, we’ll open a backup offer.</div>
-</main>
+  <button id="continueBtn" class="btn" disabled>Continue</button>
+  <div class="mini">If nothing opens, tap the button again.</div>
+  <div class="hint">By continuing, a new tab may open with the best available offer.</div>
+</div>
 
 <script>
-/*------------- Links -------------*/
-const PRIMARY  = "https://www.effectivegatecpm.com/b3tf3q5h?key=d30075f9a8298d2e723defde10af4e33"; // Adsterra
-const FALLBACK = "https://otieu.com/4/4203960"; // Monetag
+  /* ✅ Your live links */
+  const ADSTERRA = "https://www.effectivegatecpm.com/b3tf3q5h?key=d30075f9a8298d2e723defde10af4e33";
+  const MONETAG  = "https://otieu.com/4/4203960";
 
-/*------------- Elements -------------*/
-const cta = document.getElementById("cta");
-const bar = document.getElementById("bar");
-const secs = document.getElementById("secs");
-const stock = document.getElementById("stock");
+  const FALLBACKS = [MONETAG];
+  let hasFired = false;
 
-let total=8, t=total, hasFired=false, fallbackTimer=null;
-const OPENED_KEY="v4_opened";
-
-/* Countdown + enable */
-function tick(){
-  t=Math.max(0, t-0.1);
-  bar.style.width=((total-t)/total*100).toFixed(1)+"%";
-  secs.textContent=Math.ceil(t);
-  if(t<=0){
-    clearInterval(timer);
-    cta.classList.add("pulse");
-    cta.setAttribute("aria-disabled","false");
+  function tryOpen(url){
+    try{
+      const w = window.open(url, "_blank", "noopener,noreferrer");
+      return !!w;
+    }catch(e){ return false; }
   }
-}
-const timer=setInterval(tick,100); tick();
 
-/* Rotate hype messages */
-const msgs=[
-  "🔥 9 users unlocked a code in the last 10 minutes!",
-  "🎁 New rewards drop every hour — don’t miss out!",
-  "⚡ Your device is eligible for a special bonus!",
-  "🎬 Premium stream access: ready to reveal!"
-];
-let i=0; setInterval(()=>{ stock.textContent=msgs[i++%msgs.length]; }, 3800);
+  function openChain(){
+    if(hasFired) return;
+    hasFired = true;
 
-/* Open logic: prefer new-tab (avoids back traps). Fallback to same-tab replace */
-function tryBlank(url){ try{ const w=window.open(url,"_blank","noopener,noreferrer"); return !!w; }catch(_){ return false; } }
-function clearFallback(){ if(fallbackTimer){ clearTimeout(fallbackTimer); fallbackTimer=null; } }
+    // small delay to let trackers initialize (helps counting properly)
+    setTimeout(() => {
+      const ok = tryOpen(ADSTERRA);
+      if(ok) return;
 
-function openNow(){
-  if(hasFired) return;
-  hasFired=true;
-  sessionStorage.setItem(OPENED_KEY,"1");
-
-  // 1) new tab
-  if(tryBlank(PRIMARY)) return;
-
-  // 2) same-tab with replace (no history entry). If still visible after delay, replace to fallback.
-  try{
-    window.location.replace(PRIMARY);
-    fallbackTimer=setTimeout(()=>{
-      if(document.visibilityState==="visible"){ window.location.replace(FALLBACK); }
-    },1200);
-  }catch(_){
-    // 3) last resort
-    tryBlank(FALLBACK) || (window.location.replace(FALLBACK));
+      let i = 0;
+      const step = () => {
+        if(i >= FALLBACKS.length) return;
+        const good = tryOpen(FALLBACKS[i++]);
+        if(!good) setTimeout(step, 350);
+      };
+      setTimeout(step, 300);
+    }, 800);
   }
-}
 
-/* Attach on click/touch after countdown */
-cta.addEventListener("click", (e)=>{ if(cta.getAttribute("aria-disabled")==="true") return; e.preventDefault(); openNow(); }, {passive:false});
-cta.addEventListener("touchstart", (e)=>{ if(cta.getAttribute("aria-disabled")==="true") return; e.preventDefault(); openNow(); }, {passive:false});
+  // Progress verify (~3s)
+  const fill = document.getElementById("fill");
+  const pct  = document.getElementById("pct");
+  const d2   = document.getElementById("d2");
+  const d3   = document.getElementById("d3");
+  const btn  = document.getElementById("continueBtn");
 
-/* Prevent re-open on browser back (BFCache) */
-document.addEventListener("visibilitychange", ()=>{ if(document.visibilityState!=="visible") clearFallback(); });
-window.addEventListener("pagehide", clearFallback);
-window.addEventListener("pageshow", ()=>{ if(sessionStorage.getItem(OPENED_KEY)==="1"){ hasFired=true; clearFallback(); }});
+  let p = 0;
+  const tick = () => {
+    p = Math.min(p + Math.random()*7 + 3, 100);
+    fill.style.width = p + "%";
+    pct.textContent = Math.round(p) + "%";
+    if(p > 33) d2.classList.add("on");
+    if(p > 66) d3.classList.add("on");
+    if(p < 100){
+      setTimeout(tick, 120);
+    }else{
+      btn.classList.add("ready");
+      btn.disabled = false;
+      btn.style.cursor = "pointer";
+    }
+  };
+  tick();
+
+  // Manual open (improves CTR + tracking)
+  btn.addEventListener("click", () => {
+    btn.style.transform = "scale(.98)";
+    openChain();
+    setTimeout(()=>btn.style.transform="none", 90);
+  });
+
+  // Extra: if user taps anywhere after ready, also open
+  document.addEventListener("click", (e) => {
+    if(e.target !== btn && !hasFired && btn.classList.contains("ready")){
+      openChain();
+    }
+  }, {capture:true});
+
+  // Safety auto-open after 5s (still delayed)
+  setTimeout(() => {
+    if(!hasFired) openChain();
+  }, 5000);
 </script>
 </body>
 </html>
-
