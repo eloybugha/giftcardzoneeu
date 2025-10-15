@@ -1,209 +1,192 @@
 <!doctype html>
-<html lang="en" data-style="fun"><!-- change to: clean | fun | dark -->
+<html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>🎁 Play & Unlock</title>
-<meta name="theme-color" content="#0b0f19" />
+<title>🎁 Claim Your Reward • Fast & Safe</title>
+<meta name="referrer" content="no-referrer" />
 <meta http-equiv="Cache-Control" content="no-store" />
 <style>
-  :root{
-    --bg:#0b0f19; --bg2:#0e1627; --glass:rgba(16,24,39,.88);
-    --border:rgba(255,255,255,.08); --txt:#f8fafc; --muted:#9aa8c7;
-    --accent:#ffd54a; --accent2:#facc15; --ok:#22c55e; --warn:#f59e0b;
-  }
-  *{box-sizing:border-box} html,body{height:100%}
-  body{
-    margin:0; font:500 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto;
-    color:var(--txt);
-    background:
-      radial-gradient(1200px 700px at 70% -20%, #1f2937 0%, #0b0f19 45%, #0b0f19 100%),
-      linear-gradient(180deg, var(--bg), var(--bg2));
-    display:grid; place-items:center; padding:24px;
-  }
-
-  /* ---------- HERO (3 styles) ---------- */
-  .hero{width:100%; max-width:640px; border-radius:24px; padding:20px; margin:0 auto 16px;
-    display:flex; align-items:center; gap:16px; box-shadow:0 14px 60px rgba(0,0,0,.35)}
-  .hero .emoji{font-size:34px}
-  .hero h2{font-size:22px;margin:0 0 4px}
-  .hero p{margin:0; color:var(--muted)}
-  /* A) CLEAN */
-  html[data-style="clean"] .hero{background:linear-gradient(135deg,#fff4bf,#ffe37a); color:#111}
-  html[data-style="clean"] .hero p{color:#2b2b2b}
-  /* B) FUN */
-  html[data-style="fun"] .hero{
-    background:radial-gradient(800px 300px at -10% 10%, #6ea8ff 0%, #5b5bd6 45%, #3a2e6e 100%);
-    border:1px solid rgba(255,255,255,.1)
-  }
-  /* C) DARK PREMIUM */
-  html[data-style="dark"] .hero{
-    background:linear-gradient(135deg,#0b0f19 0%, #131b2e 50%, #0b0f19 100%);
-    border:1px solid rgba(255,255,255,.08);
-    box-shadow:0 18px 80px rgba(0,0,0,.55)
-  }
-  html[data-style="dark"] .hero h2{color:#fff}
-  html[data-style="dark"] .hero .glow{filter:drop-shadow(0 0 18px rgba(250,204,21,.45))}
-
-  /* ---------- CARD / GAME ---------- */
-  .wrap{width:100%; max-width:520px; margin:0 auto}
-  .card{
-    background:var(--glass); border:1px solid var(--border);
-    border-radius:22px; box-shadow:0 14px 60px rgba(0,0,0,.45);
-    padding:22px; text-align:center;
-  }
-  .step{display:none} .step.active{display:block}
-  h1{margin:0 0 6px;font-size:22px}
-  p.lead{margin:0 0 16px;color:var(--muted)}
-  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0 10px}
-  .box{
-    aspect-ratio:1; border:1px dashed var(--border); border-radius:18px;
-    display:grid; place-items:center; font-weight:800; font-size:18px;
-    cursor:pointer; user-select:none; background:#0f172a;
-    transition:transform .12s ease, border-color .12s ease, background .12s ease;
-  }
-  .box:hover{transform:translateY(-2px)}
-  .box.sel{border-color:var(--accent); background:#111c33}
-  .btn{
-    appearance:none; border:0; cursor:pointer; font-weight:800; font-size:16px;
-    padding:14px 22px; border-radius:14px; transition:filter .15s ease;
-    background:linear-gradient(90deg, var(--accent), var(--accent2)); color:#111;
-  }
-  .btn:disabled{opacity:.6; cursor:not-allowed}
-  .hint{color:var(--muted); font-size:13px; margin-top:10px}
-  .pill{display:inline-block; padding:4px 10px; border-radius:999px; font-size:12px;
-    background:rgba(255,255,255,.08); margin-bottom:10px}
-  .ok{color:var(--ok)} .warn{color:var(--warn)}
-  .footer{opacity:.7; font-size:12px; margin-top:14px}
-  noscript{color:#ffb4b4}
+:root{
+  --bg:#0b0f19; --card:#0f1626; --glass:rgba(16,24,39,.86);
+  --border:rgba(255,255,255,.08); --txt:#e6ecff; --muted:#9bb0ff;
+  --accent:#22c55e; --accent2:#60a5fa; --warn:#f59e0b;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; min-height:100dvh; display:grid; place-items:center; padding:22px;
+  background:
+    radial-gradient(1200px 600px at 70% -20%,#1f2937 0%,#0b0f19 48%,#0b0f19 100%);
+  color:var(--txt); font:500 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter;
+}
+.wrap{width:100%; max-width:560px}
+.card{
+  background:var(--glass); border:1px solid var(--border);
+  border-radius:20px; padding:22px; box-shadow:0 12px 30px rgba(0,0,0,.35)
+}
+.badge{display:inline-block; padding:5px 10px; border-radius:999px;
+  background:linear-gradient(90deg,var(--accent),var(--accent2)); color:#00160f;
+  font-weight:800; font-size:12px; letter-spacing:.3px; margin-bottom:10px}
+h1{margin:0 0 8px; font-size:24px}
+.lead{margin:0 0 14px; color:var(--muted)}
+.row{display:flex; gap:12px; margin-top:14px; flex-wrap:wrap}
+button{
+  flex:1 1 200px; padding:14px 18px; border:0; border-radius:12px;
+  background:linear-gradient(180deg,#22c55e,#16a34a); color:#04120a;
+  font-weight:900; font-size:16px; cursor:pointer;
+  box-shadow:0 10px 26px rgba(34,197,94,.35); transition:transform .08s ease
+}
+button.secondary{
+  background:#0f172a; color:#cbd5e1; border:1px solid var(--border);
+  box-shadow:none; font-weight:700
+}
+button:active{transform:translateY(1px)}
+.meta{margin-top:12px; font-size:13px; color:#9bb0ff}
+.timer{font-variant-numeric:tabular-nums; font-weight:800}
+small{opacity:.7}
+hr{border:0; border-top:1px solid var(--border); margin:16px 0}
+a.inline{color:#9ecbff; text-decoration:underline; text-underline-offset:3px}
+noscript{display:block; margin-top:10px; color:#ffdf91}
 </style>
 </head>
 <body>
+  <main class="wrap">
+    <section class="card">
+      <span class="badge">Updated 2025 • Hybrid Funnel</span>
+      <h1>🎉 Claim your best available reward</h1>
+      <p class="lead">Tap <b>Claim Now</b>. If blocked, we’ll auto-retry with safe fallbacks.</p>
 
-<!-- HERO BANNER (auto-looks good for all three styles) -->
-<div class="hero">
-  <div class="emoji glow">🎁</div>
-  <div>
-    <h2 id="heroTitle">Win Your Surprise Gift Card</h2>
-    <p id="heroSub">Pick a box, then unlock your reward. Real play → better counted ads.</p>
-  </div>
-</div>
-
-<div class="wrap">
-  <div class="card" id="card">
-    <div class="pill">Step 1 of 2</div>
-    <div class="step active" id="s1">
-      <h1>🎮 Pick a box</h1>
-      <p class="lead">Choose any box below. Then press <b>Continue</b>.</p>
-      <div class="grid" id="grid">
-        <div class="box" data-i="1">1️⃣</div>
-        <div class="box" data-i="2">2️⃣</div>
-        <div class="box" data-i="3">3️⃣</div>
+      <div class="row">
+        <button id="claimBtn">Claim Now</button>
+        <button id="tryBtn" class="secondary" style="display:none">Try again</button>
+        <button id="shopBtn" class="secondary">Shop Deals</button>
       </div>
-      <button class="btn" id="btn1" disabled>Continue</button>
-      <div class="hint">Tiny game = real interaction → better counted ads.</div>
-    </div>
 
-    <div class="step" id="s2">
-      <div class="pill">Step 2 of 2</div>
-      <h1>🎉 Almost there!</h1>
-      <p class="lead">Press the button once to reveal your reward.</p>
-      <a class="btn" id="claim" href="#" rel="noopener noreferrer">Unlock Reward</a>
-      <div class="hint">If nothing opens, tap again or allow popups for this site.</div>
-      <div class="footer" id="status"></div>
-    </div>
-  </div>
-  <noscript>JavaScript is required for this page to function.</noscript>
-</div>
+      <p class="meta">
+        Status: <b id="status">waiting</b> • Next attempt in <span id="ctd" class="timer">05</span>s
+      </p>
+
+      <hr />
+
+      <p class="lead" style="margin:0 0 8px">Having trouble?</p>
+      <p class="meta" style="margin:0 0 6px">
+        Open directly via: <a id="directA" class="inline" href="#" rel="nofollow noopener noreferrer">Primary</a>
+        · <a id="directB" class="inline" href="#" rel="nofollow noopener noreferrer">Fallback</a>
+      </p>
+      <small>By continuing you agree to our <a class="inline" href="#" onclick="alert('Demo page. Replace with your own policy link.');return false;">Terms</a>.</small>
+
+      <noscript>JavaScript is required. Please enable JS then tap Claim.</noscript>
+    </section>
+  </main>
 
 <script>
-/* ===== CONFIG (PALITAN ITO) ===== */
-const ADSTERRA = "https://www.effectivegatecpm.com/b3tf3q5h?key=d30075f9a8298d2e723defde10af4e33";
-const MONETAG  = "https://otieu.com/4/4203960";
-/* ================================ */
+/* ========= 1) YOUR LINKS — REPLACE THESE ========= */
+const ADSTERRA_LINK = "https://YOUR_ADSTERRA_SMARTLINK_HERE";
+const MONETAG_LINK  = "https://YOUR_MONETAG_SMARTLINK_HERE";
+const AFFILIATE_LINK= "https://YOUR_OPTIONAL_AFFILIATE_OR_DEALS_LINK_HERE"; // AliExpress/Shopee/CPAgrip
+/* ================================================= */
 
-/* Cooldown: one open per 10 min */
-const COOL_MIN = 10, KEY = "v5_cool_ts";
-const now = () => Date.now();
-const onCooldown = () => { try { return now() - (+localStorage.getItem(KEY)||0) < COOL_MIN*60*1000; } catch(_) { return false; } };
-const setCooldown = () => { try { localStorage.setItem(KEY, String(now())); } catch(_) {} };
-
-/* Optional tweak hero text per style */
-(function(){
-  const style = document.documentElement.getAttribute("data-style")||"fun";
-  const t = document.getElementById("heroTitle");
-  const s = document.getElementById("heroSub");
-  if(style==="clean"){ t.textContent="Claim Your Reward Safely"; s.textContent="Quick 2-step verification. Real clicks are counted better."; }
-  if(style==="fun"){ t.textContent="Pick & Win! 🎯"; s.textContent="Play a tiny game then unlock your surprise."; }
-  if(style==="dark"){ t.textContent="Mystery Reward Awaits 💰"; s.textContent="Engage, then reveal — premium experience."; }
-})();
-
-/* Simple GEO by language → can switch primary link */
-function pickPrimary(){
-  const styleGeo = true;
-  if(!styleGeo) return ADSTERRA;
-  try{
-    const lang = (navigator.language||"").toUpperCase();
-    const tier1 = ["US","GB","CA","AU","NZ","IE","DE","NL","SE","NO","DK","FI","FR","CH","AT","BE"];
-    const m = lang.match(/-([A-Z]{2})$/); const r = m? m[1]: "US";
-    return tier1.includes(r) ? ADSTERRA : MONETAG;
-  }catch(_){ return ADSTERRA; }
+// Simple UTM tagging so alam mo source sa dashboards
+function withUTM(url, src="hybrid", camp="bio2025"){
+  if(!url) return "";
+  const u = new URL(url);
+  u.searchParams.set("utm_source", src);
+  u.searchParams.set("utm_campaign", camp);
+  u.searchParams.set("utm_medium", "landing");
+  return u.toString();
 }
 
-const grid = document.getElementById("grid");
-const btn1 = document.getElementById("btn1");
-const s1 = document.getElementById("s1");
-const s2 = document.getElementById("s2");
-const claim = document.getElementById("claim");
-const statusEl = document.getElementById("status");
-let selected = null, fired = false;
+// Rotation: alternates by hour + random seed per session
+const hour = new Date().getUTCHours();
+const seed = (Math.random() + 1).toString(36).slice(2,6);
+const preferAdsterra = (hour % 2 === 0); // even hour → Adsterra first
+let ROTATION = preferAdsterra
+  ? [ADSTERRA_LINK, MONETAG_LINK]
+  : [MONETAG_LINK, ADSTERRA_LINK];
 
-grid.addEventListener("click", e=>{
-  const box = e.target.closest(".box");
-  if(!box) return;
-  [...grid.children].forEach(b=>b.classList.remove("sel"));
-  box.classList.add("sel");
-  selected = box.dataset.i;
-  btn1.disabled = false;
-});
-btn1.addEventListener("click", ()=>{
-  s1.classList.remove("active");
-  s2.classList.add("active");
-  document.querySelector(".pill").textContent = "Final step";
-});
+// If one is empty, clean array
+ROTATION = ROTATION.filter(Boolean);
 
-/* Build real anchors (best for Android Chrome) */
-const aPrimary  = document.createElement("a");
-aPrimary.href   = pickPrimary(); aPrimary.target = "_blank"; aPrimary.rel = "noopener noreferrer";
-const aAst      = document.createElement("a");
-aAst.href       = ADSTERRA; aAst.target = "_blank"; aAst.rel = "noopener noreferrer";
-const aMono     = document.createElement("a");
-aMono.href      = MONETAG;  aMono.target = "_blank"; aMono.rel = "noopener noreferrer";
-document.body.appendChild(aPrimary); document.body.appendChild(aAst); document.body.appendChild(aMono);
+// Final fallback to affiliate (optional)
+if (AFFILIATE_LINK) ROTATION.push(AFFILIATE_LINK);
 
-function updateStatus(txt, cls=""){ statusEl.innerHTML = txt; statusEl.className = cls; }
+// UI refs
+const $ = id => document.getElementById(id);
+const statusEl = $("status");
+const ctdEl    = $("ctd");
+const claimBtn = $("claimBtn");
+const tryBtn   = $("tryBtn");
+const shopBtn  = $("shopBtn");
+const directA  = $("directA");
+const directB  = $("directB");
 
-function openOnce(e){
-  e.preventDefault();
-  if (fired) return; fired = true;
-  if (onCooldown()){ updateStatus("Cooldown active. Try again later.", "warn"); return; }
+// Direct links for users who block popups
+directA.href = withUTM(ROTATION[0] || "#", "directA", "hybrid");
+directB.href = withUTM(ROTATION[1] || ROTATION[0] || "#", "directB", "hybrid");
 
-  updateStatus("Opening…");
-  aPrimary.click(); // 1) True anchor
+// Behaviour knobs
+const GAP_MS = 420;              // delay between attempts
+const FINAL_REDIRECT_MS = 1800;  // last-resort same-tab redirect
+const COUNT_START = 5;           // UI countdown (doesn’t auto-open)
 
-  setTimeout(()=>{
-    let ok = false;
-    try{ ok = !!window.open(aPrimary.href, "_blank", "noopener,noreferrer"); }catch(_){}
-    if(!ok){ try{ ok = !!window.open(ADSTERRA, "_blank", "noopener,noreferrer"); }catch(_){} }
-    if(!ok){ try{ ok = !!window.open(MONETAG, "_blank", "noopener,noreferrer"); }catch(_){} }
-    if(!ok){ location.href = MONETAG; } // last resort same-tab
-    setCooldown();
-    updateStatus("If nothing opened, allow popups or tap again.", "ok");
-  }, 60);
+// Helpers
+function setStatus(txt){ statusEl.textContent = txt; }
+function tryOpen(url){
+  try{ const w = window.open(url, "_blank", "noopener,noreferrer"); return !!w; }
+  catch(e){ return false; }
 }
 
-["click","pointerup","keydown"].forEach(ev=>{ claim.addEventListener(ev, openOnce, {once:true}); });
-window.addEventListener("pageshow", e=>{ if(e.persisted){ fired = onCooldown(); }});
+// Core flow
+let fired=false, step=0;
+function begin(){
+  if(fired) return;
+  fired=true; claimBtn.disabled = true; tryBtn.style.display="inline-block";
+  setStatus("opening… ("+(preferAdsterra?"A→M":"M→A")+", "+seed+")");
+
+  // 1) First attempt
+  if (ROTATION.length && tryOpen(withUTM(ROTATION[0],"rot0","hybrid"))) {
+    setStatus("opened in new tab");
+    return;
+  }
+
+  // 2) Cascading fallbacks
+  step = 1;
+  const tick = () => {
+    if (step < ROTATION.length) {
+      const ok = tryOpen(withUTM(ROTATION[step], "rot"+step, "hybrid"));
+      step++;
+      if(ok){ setStatus("opened via fallback"); return; }
+      setTimeout(tick, GAP_MS);
+    } else {
+      // 3) Same-tab last resort to increase fill
+      setStatus("final redirect…");
+      setTimeout(()=>{ location.href = withUTM(ROTATION[0] || "#","redirect","hybrid"); }, FINAL_REDIRECT_MS);
+    }
+  };
+  setTimeout(tick, GAP_MS);
+}
+
+claimBtn.addEventListener("click", begin);
+tryBtn.addEventListener("click", ()=>{ fired=false; begin(); });
+shopBtn.addEventListener("click", ()=>{
+  const url = withUTM(AFFILIATE_LINK || ROTATION[ROTATION.length-1] || ROTATION[0] || "#", "shop", "hybrid");
+  location.href = url; // same-tab for shopping links
+});
+
+// Soft countdown for UX
+let t = COUNT_START;
+ctdEl.textContent = String(t).padStart(2,"0");
+const iv = setInterval(()=>{
+  t--; ctdEl.textContent = String(Math.max(0,t)).padStart(2,"0");
+  if(t<=0) clearInterval(iv);
+},1000);
+
+// Improve “user gesture” (helps with popup blockers)
+let primed=false;
+function prime(){ if(primed) return; primed=true; setStatus("ready"); }
+window.addEventListener("pointerdown", prime, {once:true});
+window.addEventListener("keydown", prime, {once:true});
 </script>
 </body>
 </html>
