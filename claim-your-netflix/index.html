@@ -1,138 +1,80 @@
-  <!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Netflix Promo – Get 1 Month Free Access (V3)</title>
-<meta name="robots" content="noindex,nofollow" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>🎁 Unlock Rewards</title>
+<meta name="theme-color" content="#0b0f19" />
 <style>
-:root{
-  --bg:#000;
-  --card:#111;
-  --txt:#f8fafc;
-  --muted:#b0b0b0;
-  --accent:#e50914;
-  --accent2:#b0060f;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{
-  height:100%;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  background:radial-gradient(circle at top,#1a1a1a 0%,#000 70%);
-  color:var(--txt);display:grid;place-items:center;
-}
-main{
-  width:min(720px,92vw);text-align:center;
-  background:rgba(255,255,255,.03);
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:20px;
-  padding:28px 24px;
-  box-shadow:0 20px 60px rgba(0,0,0,.5);
-}
-h1{
-  font-size:clamp(28px,5vw,42px);
-  color:var(--accent);
-  font-weight:800;
-  margin-bottom:8px;
-}
-p.sub{color:var(--muted);margin-bottom:18px}
-.bar{height:10px;background:rgba(255,255,255,.1);border-radius:999px;overflow:hidden;margin:10px 0 16px}
-#fill{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .2s linear}
-a.cta{
-  display:inline-block;
-  background:var(--accent);
-  color:#fff;text-decoration:none;
-  padding:14px 26px;border-radius:12px;
-  font-weight:700;font-size:18px;
-  box-shadow:0 8px 24px rgba(229,9,20,.35);
-  transition:.25s;user-select:none;
-}
-a.cta:hover{transform:translateY(-1px);background:var(--accent2)}
-.pulse{animation:pulse 1.6s ease-out infinite}
-@keyframes pulse{
-  0%{box-shadow:0 0 0 0 rgba(229,9,20,.55)}
-  70%{box-shadow:0 0 0 14px rgba(229,9,20,0)}
-  100%{box-shadow:0 0 0 0 rgba(229,9,20,0)}
-}
-.stock{
-  margin-top:14px;
-  color:#facc15;
-  font-weight:600;
-  font-size:15px;
-  animation:fade 2s ease-in-out infinite alternate;
-}
-@keyframes fade{from{opacity:.7}to{opacity:1}}
-.badge{display:inline-block;margin:8px 0 12px;padding:6px 10px;border-radius:999px;background:rgba(229,9,20,.15);border:1px solid rgba(229,9,20,.35);font-weight:600}
-.small{opacity:.7;font-size:12px;margin-top:10px}
+  :root{
+    --bg:#0b0f19;--card:#111827;--txt:#f8fafc;
+    --muted:#94a3b8;--accent:#22d3ee;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;background:var(--bg);color:var(--txt);
+    font:500 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto;
+  }
+  .wrap{min-height:100dvh;display:grid;place-items:center;padding:20px}
+  .card{
+    width:100%;max-width:520px;background:var(--card);
+    border:1px solid rgba(255,255,255,.08);border-radius:18px;
+    padding:22px;text-align:center;
+  }
+  h1{margin:0 0 8px;font-size:22px}
+  p{margin:0 0 18px;color:var(--muted)}
+  .btn{
+    display:inline-block;padding:12px 18px;border-radius:12px;
+    background:var(--accent);color:#001018;text-decoration:none;font-weight:700;
+  }
+  small{display:block;margin-top:10px;color:var(--muted)}
 </style>
 </head>
 <body>
-<main>
-  <div class="badge">V3</div>
-  <h1>🎬 Netflix Promo</h1>
-  <p class="sub">Unlock your 1-Month Free Access in <span id="secs">8</span>s...</p>
-  <div class="bar"><div id="fill"></div></div>
-
-  <a id="cta" class="cta" href="https://www.effectivegatecpm.com/b3tf3q5h?key=d30075f9a8298d2e723defde10af4e33"
-     target="_blank" rel="nofollow noopener noreferrer" aria-disabled="true">👉 Claim Your Netflix Pass</a>
-
-  <div class="stock" id="stockText">Limited promo slots left!</div>
-  <div class="small">If your browser blocks the tab, we’ll auto-open a backup offer.</div>
-</main>
+<div class="wrap">
+  <div class="card">
+    <h1>Tap “Continue” to unlock</h1>
+    <p>Anti-AdBlock enabled. A new tab may open.</p>
+    <a id="cta" class="btn" href="#" rel="nofollow noopener">Continue</a>
+    <small>If nothing opens, allow pop-ups for this site.</small>
+  </div>
+</div>
 
 <script>
-const PRIMARY  = "https://www.effectivegatecpm.com/b3tf3q5h?key=d30075f9a8298d2e723defde10af4e33"; // Adsterra
-const FALLBACK = "https://otieu.com/4/4203960"; // Monetag fallback
+/* ✅ 4 MAINSTREAM (2961351) SMARTLINKS ONLY */
+const SMARTLINKS = [
+  "https://moundconclusive.com/qng7ic9mmn?key=XXXX", // Smartlink_1
+  "https://moundconclusive.com/sje3mqhwk?key=XXXX", // Smartlink_3
+  "https://moundconclusive.com/???????key=XXXX",    // Smartlink_4
+  "https://moundconclusive.com/xhggrkrd?key=XXXX"   // Smartlink_5
+].filter(Boolean);
 
-const cta  = document.getElementById("cta");
-const fill = document.getElementById("fill");
-const secs = document.getElementById("secs");
-let total = 8, t = total, hasFired = false;
+/* Optional Monetag or AliExpress backup */
+const BACKUP = "https://otieu.com/4/4203960";
 
-function tick(){
-  t = Math.max(0, t - 0.1);
-  fill.style.width = ((total - t) / total * 100).toFixed(1) + "%";
-  secs.textContent = Math.ceil(t);
-  if (t <= 0){
-    clearInterval(timer);
-    cta.classList.add("pulse");
-    cta.setAttribute("aria-disabled","false");
-    cta.addEventListener("click", (e)=>{
-      e.preventDefault();
-      if (hasFired) return;
-      hasFired = true;
-      openNow();
-    });
-  }
-}
-const timer = setInterval(tick, 100); tick();
-
-function tryBlank(url){
-  try{ const win = window.open(url, "_blank", "noopener,noreferrer"); return !!win; }
-  catch(_) { return false; }
+function pick(){
+  return SMARTLINKS[Math.floor(Math.random()*SMARTLINKS.length)] || BACKUP;
 }
 
-function openNow(){
-  const ok = tryBlank(PRIMARY);
-  if (ok) return;
+function openAd(url){
   try{
-    window.location.assign(PRIMARY);
-    setTimeout(()=>{
-      if (document.visibilityState === "visible") window.location.assign(FALLBACK);
-    }, 1200);
-  }catch(_){
-    tryBlank(FALLBACK) || (window.location.href = FALLBACK);
-  }
+    const w = window.open(url,"_blank","noopener");
+    if(!w || w.closed){ location.href = url; }
+  }catch(e){ location.href = url; }
 }
 
-// Rotate messages
-const stock = document.getElementById("stockText");
-const msgs = [
-  "🔥 10 users claimed in the last hour!",
-  "🎁 Your Netflix promo code is waiting!",
-  "⚡ Only few free passes left!",
-  "🎬 Unlock your free access now!"
-];
-let i = 0; setInterval(()=>{ stock.textContent = msgs[i++ % msgs.length]; }, 4000);
+/* User click trigger (works with Anti-AdBlock) */
+document.getElementById("cta").addEventListener("click",e=>{
+  e.preventDefault(); openAd(pick());
+},{once:true});
+
+function firstClick(){
+  openAd(pick());
+  window.removeEventListener("click",firstClick);
+  window.removeEventListener("touchstart",firstClick);
+}
+window.addEventListener("click",firstClick,{once:true});
+window.addEventListener("touchstart",firstClick,{once:true});
 </script>
 </body>
 </html>
