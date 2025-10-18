@@ -3,317 +3,124 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>🎡 Spin & Claim — A Lucky Winner Every 10 Spins!</title>
+<title>Viral on TikTok — Watch Now</title>
 <meta name="theme-color" content="#0b0f19" />
 <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0" />
 <style>
 :root{
-  --bg:#0b0f19; --card:#111827; --glass:rgba(17,24,39,.92);
+  --bg:#0b0f19; --card:#111827; --glass:rgba(17,24,39,.9);
   --border:rgba(255,255,255,.08); --txt:#f8fafc; --muted:#94a3b8;
-  --accent:#facc15; --accent2:#fde047; --ok:#22c55e; --warn:#f59e0b;
+  --accent:#22d3ee; --accent2:#60a5fa; --gold:#fde047;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%}
 body{
   background:
     radial-gradient(1200px 600px at 70% -20%,#1f2937 0%,#0b0f19 48%,#0b0f19 100%);
   color:var(--txt); font:600 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;
-  display:flex; align-items:center; justify-content:center; padding:24px;
+  min-height:100dvh; display:flex; align-items:center; justify-content:center; padding:18px;
 }
-.container{max-width:960px; width:100%}
-.hero{
-  display:grid; grid-template-columns:1.1fr .9fr; gap:24px; align-items:center;
-}
-@media (max-width:860px){ .hero{grid-template-columns:1fr; gap:16px} }
+.wrap{max-width:860px; width:100%}
 .card{
-  background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));
-  border:1px solid var(--border); border-radius:24px; padding:20px; position:relative;
-  box-shadow:0 20px 60px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.03);
+  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+  border:1px solid var(--border); border-radius:26px; padding:18px; position:relative;
+  box-shadow:0 18px 64px rgba(0,0,0,.55);
 }
 .badge{
   position:absolute; top:14px; left:14px; font:700 12px/1 var(--font,inherit); letter-spacing:.08em;
-  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  background:linear-gradient(90deg,var(--gold),#fff59f);
   color:#0b0f19; padding:8px 10px; border-radius:999px;
 }
-h1{font-size:clamp(24px,3.6vw,36px); line-height:1.2; margin-bottom:8px}
-.subtitle{color:var(--muted); margin-bottom:14px}
-.kpis{display:flex; gap:12px; flex-wrap:wrap; margin-bottom:12px}
-.kpi{background:rgba(250,204,21,.12); color:var(--accent2); border:1px dashed rgba(250,204,21,.35);
-  padding:8px 12px; border-radius:12px; font-weight:700; }
+.header{display:flex;align-items:center;gap:12px;margin-top:10px}
+.avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(180deg,#fde047,#f59e0b)}
+.meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.username{font-weight:900}
+.pill{font-size:12px;background:#22c55e;color:#06110a;padding:8px 10px;border-radius:999px;font-weight:900}
+.stats{color:#cbd5e1;font-size:13px}
+
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center;margin-top:14px}
+@media (max-width:860px){ .hero{grid-template-columns:1fr} }
+
+.preview{
+  border-radius:18px; overflow:hidden; border:1px solid var(--border);
+  background:#0b0f19; aspect-ratio:9/16; display:flex;align-items:center;justify-content:center;
+}
+.preview img{width:100%;height:100%;object-fit:cover;display:block}
+
+.copy h1{font-size:clamp(22px,3.4vw,34px);line-height:1.18;margin-bottom:8px}
+.copy p{color:var(--muted);margin-bottom:12px}
+.kpis{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 12px}
+.kpi{background:rgba(34,211,238,.12);color:#67e8f9;border:1px dashed rgba(34,211,238,.4);
+  padding:8px 12px;border-radius:12px;font-weight:800}
 .cta{
-  appearance:none; border:0; border-radius:16px; padding:14px 18px; width:100%;
-  background:linear-gradient(90deg,var(--accent),var(--accent2));
-  color:#0b0f19; font-weight:900; letter-spacing:.02em; cursor:pointer;
-  box-shadow:0 12px 30px rgba(250,204,21,.25); transform:translateY(0); transition:transform .12s ease;
+  display:block; text-align:center; width:100%; border:0; border-radius:16px; padding:14px 18px;
+  background:linear-gradient(90deg,var(--accent),var(--accent2)); color:#0b0f19; font-weight:900; cursor:pointer;
+  box-shadow:0 12px 30px rgba(34,211,238,.25); text-decoration:none;
 }
-.cta:hover{transform:translateY(-1px)}
-.cta:active{transform:translateY(1px)}
-.timer{margin-top:10px; color:var(--muted); text-align:center}
-.timer b{color:var(--accent2)}
-
-.wheel-wrap{display:grid; place-items:center; padding:8px}
-.wheel{
-  width:min(420px,86vw); height:min(420px,86vw); border-radius:50%;
-  background:conic-gradient(#fde047 0 36deg,#111827 36deg 72deg,#fde047 72deg 108deg,#111827 108deg 144deg,#fde047 144deg 180deg,#111827 180deg 216deg,#fde047 216deg 252deg,#111827 252deg 288deg,#fde047 288deg 324deg,#111827 324deg 360deg);
-  border:10px solid rgba(255,255,255,.09);
-  box-shadow:inset 0 6px 18px rgba(0,0,0,.55), 0 20px 60px rgba(0,0,0,.45);
-  position:relative; transition:transform 5s cubic-bezier(.17,.67,.14,1.02);
-}
-.wheel::after{
-  content:""; position:absolute; inset:12px; border-radius:50%;
-  background:radial-gradient(circle at 50% 50%, rgba(255,255,255,.12), rgba(255,255,255,0) 50%);
-}
-.pointer{
-  width:0;height:0;border-left:16px solid transparent;border-right:16px solid transparent;border-bottom:24px solid var(--accent2);
-  position:absolute; top:-6px; left:50%; transform:translateX(-50%); filter:drop-shadow(0 6px 6px rgba(0,0,0,.5));
-}
-.hub{
-  position:absolute; inset:calc(50% - 28px) auto auto calc(50% - 28px);
-  width:56px; height:56px; background:linear-gradient(180deg,#fff,#ddd);
-  border-radius:50%; border:6px solid #0b0f19; box-shadow:0 6px 16px rgba(0,0,0,.4);
-}
-.slice-label{
-  position:absolute; width:50%; left:50%; top:50%; height:24px;
-  transform-origin:left center; color:#fff; text-shadow:0 2px 8px rgba(0,0,0,.6);
-  font-weight:900; letter-spacing:.02em; text-align:right; padding-right:12px; font-size:clamp(10px,2.8vw,14px)
-}
-/* positions for 10 slices (36° each) */
-.slice-0{transform:rotate(18deg) translateX(-2%);}
-.slice-1{transform:rotate(54deg) translateX(-2%);}
-.slice-2{transform:rotate(90deg) translateX(-2%);}
-.slice-3{transform:rotate(126deg) translateX(-2%);}
-.slice-4{transform:rotate(162deg) translateX(-2%);}
-.slice-5{transform:rotate(198deg) translateX(-2%);}
-.slice-6{transform:rotate(234deg) translateX(-2%);}
-.slice-7{transform:rotate(270deg) translateX(-2%);}
-.slice-8{transform:rotate(306deg) translateX(-2%);}
-.slice-9{transform:rotate(342deg) translateX(-2%);}
-
-.notice{margin-top:10px; color:var(--muted); font-size:13px}
-.footer{margin-top:14px; color:#64748b; font-size:12px; text-align:center}
-
-/* Winner modal */
-.modal{
-  position:fixed; inset:0; display:none; place-items:center; background:rgba(0,0,0,.6); z-index:50;
-}
-.modal.active{display:grid}
-.modal-card{
-  width:min(520px,92vw); background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
-  border:1px solid var(--border); border-radius:22px; padding:20px; text-align:center;
-  box-shadow:0 24px 80px rgba(0,0,0,.55);
-}
-.modal h2{font-size:clamp(22px,3.6vw,30px); margin-bottom:8px}
-.modal p{color:var(--muted); margin-bottom:14px}
-.modal .cta{margin-top:6px}
-
-/* Confetti canvas */
-#confetti{position:fixed; inset:0; pointer-events:none; z-index:40}
+.note{font-size:12px;color:#94a3b8;margin-top:10px}
+.fallbacks a{color:var(--gold);text-decoration:none}
+.fallbacks{margin-top:8px;text-align:center}
+.footer{margin-top:8px;color:#64748b;font-size:12px;text-align:center}
 </style>
 </head>
 <body>
+  <div class="wrap">
+    <div class="card">
+      <span class="badge">🔥 LIVE • TRENDING</span>
 
-<div class="container">
-  <div class="hero card">
-    <span class="badge">🔥 LIMITED • LIVE</span>
-
-    <div class="wheel-wrap">
-      <div class="pointer"></div>
-      <div id="wheel" class="wheel" aria-label="Spin the wheel">
-        <div class="hub"></div>
-        <!-- 10 labels -->
-        <div class="slice-label slice-0">Almost Win</div>
-        <div class="slice-label slice-1">Try Again</div>
-        <div class="slice-label slice-2">Bonus Spin</div>
-        <div class="slice-label slice-3">Almost Win</div>
-        <div class="slice-label slice-4">WIN $100</div>
-        <div class="slice-label slice-5">Try Again</div>
-        <div class="slice-label slice-6">Small Bonus</div>
-        <div class="slice-label slice-7">Try Again</div>
-        <div class="slice-label slice-8">Almost Win</div>
-        <div class="slice-label slice-9">Try Again</div>
-      </div>
-    </div>
-
-    <div>
-      <h1>🎡 A Lucky Winner Every 10 Spins — Could It Be You?</h1>
-      <p class="subtitle">Open this wheel before the offer expires ⏳</p>
-
-      <div class="kpis">
-        <div class="kpi">500+ Claimed Today</div>
-        <div class="kpi">Avg. Claim: $100</div>
-        <div class="kpi">1-Minute Process</div>
+      <div class="header">
+        <div class="avatar"></div>
+        <div class="meta">
+          <div class="username">@trending.reels</div>
+          <span class="pill">FOLLOW</span>
+          <div class="stats">1.2M followers • 245k likes</div>
+        </div>
       </div>
 
-      <button id="spinBtn" class="cta">🎁 SPIN &amp; CLAIM NOW 🔓</button>
-      <div class="timer">Offer ends in <b id="mm">00</b>:<b id="ss">59</b></div>
-      <p class="notice">Your first spin per device is free. If you win, you’ll be automatically redirected to the claim page.</p>
-      <p class="footer">By continuing, you agree to our Terms. This page is promotional / for entertainment purposes.</p>
+      <div class="hero">
+        <!-- Left: TikTok-style preview (use your PNG here) -->
+        <div class="preview">
+          <img src="./tiktok_prelander_preview.png" alt="TikTok-style preview" />
+        </div>
+
+        <!-- Right: copy + CTA -->
+        <div class="copy">
+          <h1>Viral on TikTok — See Why Everyone’s Talking</h1>
+          <p>Tap the button to watch the full clip. Opens in a new tab.</p>
+
+          <div class="kpis">
+            <div class="kpi">500k+ views</div>
+            <div class="kpi">Safe & quick</div>
+            <div class="kpi">1-minute watch</div>
+          </div>
+
+          <!-- PRIMARY CTA -->
+          <a class="cta" target="_blank" rel="noopener noreferrer" id="btnPrimary">
+            🎬 WATCH FULL VIDEO
+          </a>
+
+          <div class="fallbacks">
+            <p class="note">Having trouble? Try these:</p>
+            <a target="_blank" rel="noopener noreferrer" id="lk1">Fallback Link 1</a> ·
+            <a target="_blank" rel="noopener noreferrer" id="lk2">Fallback Link 2</a>
+          </div>
+
+          <p class="footer">By continuing, you agree to our Terms. This page is for promotional/entertainment purposes only.</p>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-
-<canvas id="confetti"></canvas>
-
-<!-- Winner Modal -->
-<div id="winModal" class="modal" role="dialog" aria-modal="true" aria-label="Winner">
-  <div class="modal-card">
-    <h2>🎉 Congratulations!</h2>
-    <p>You’ve hit “WIN $100”! Claim it before the timer ends.</p>
-    <button id="claimBtn" class="cta">🔓 CLAIM NOW</button>
-    <div class="timer">Redirecting in <b id="countClaim">05</b>s…</div>
-  </div>
-</div>
-
-<noscript>
-  <div style="max-width:720px;margin:16px auto;padding:12px;border:1px solid #444;border-radius:12px;color:#ddd">
-    Enable JavaScript to spin. Or click here:
-    <a href="https://www.effectivegatecpm.com/your-key" style="color:#ffe36e">Claim Link</a>
-  </div>
-</noscript>
 
 <script>
-/* =========================
-   CONFIG — set your links
-   ========================= */
+/* CONFIG: set your links here */
 const LINKS = {
-  primary:  "https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c",
-  fallback: "https://otieu.com/4/4203960",
-  backup:   "https://moundconclusive.com/b3tf3q5h?key=d30075f9a8298d2e723defde10af4e33"
+  primary:  "https://www.effectivegatecpm.com/REPLACE_WITH_YOUR_MONETAG_KEY",
+  fallback: "https://otieu.com/REPLACE_WITH_YOUR_ADSTERRA_SMARTLINK",
+  backup:   "https://s.click.aliexpress.com/REPLACE_WITH_YOUR_AE_AFFILIATE"
 };
-const REDIRECT_DELAY_WIN = 5; // seconds after win modal shows
 
-/* =========================
-   State & helpers
-   ========================= */
-const wheel = document.getElementById('wheel');
-const spinBtn = document.getElementById('spinBtn');
-const winModal = document.getElementById('winModal');
-const claimBtn = document.getElementById('claimBtn');
-const mm = document.getElementById('mm');
-const ss = document.getElementById('ss');
-const countClaim = document.getElementById('countClaim');
-
-let spinning = false;
-let countdownInt = null;
-let claimInt = null;
-
-/* Countdown 00:59 → 00:00 (once per visit) */
-(function startCountdown(){
-  let total = 59;
-  mm.textContent = "00";
-  ss.textContent = String(total).padStart(2,'0');
-  countdownInt = setInterval(()=>{
-    total--;
-    if(total<=0){ clearInterval(countdownInt); ss.textContent = "00"; return; }
-    ss.textContent = String(total).padStart(2,'0');
-  },1000);
-})();
-
-/* Get spin count per device (simple control: 1st = almost, 2nd = win) */
-function getSpinCount(){
-  const n = Number(sessionStorage.getItem('spins')||'0');
-  return n;
-}
-function addSpin(){ sessionStorage.setItem('spins', String(getSpinCount()+1)); }
-
-/* Determine target slice index (0..9), force “almost” then “win” */
-function pickSliceIndex(){
-  const count = getSpinCount();
-  if(count === 0) return 0;       // first spin → "Almost Win" (slice-0)
-  if(count === 1) return 4;       // second spin → "WIN $100" (slice-4)
-  // subsequent spins: ~1/10 chance to win
-  const pool = [1,2,3,5,6,7,8,9,0,4]; // bias: win (4) appears once
-  return pool[Math.floor(Math.random()*pool.length)];
-}
-
-/* Convert slice index to final angle so pointer hits it */
-function angleForSlice(idx){
-  const sliceSize = 36; // degrees
-  const center = (idx*sliceSize) + sliceSize/2;
-  const turns = 5 + Math.floor(Math.random()*3); // 5–7 turns for drama
-  return -(turns*360 + center);
-}
-
-/* Confetti (minimal) */
-const confettiCanvas = document.getElementById('confetti');
-const ctx = confettiCanvas.getContext('2d');
-let confettiPieces = [];
-function resize(){ confettiCanvas.width = innerWidth; confettiCanvas.height = innerHeight; }
-addEventListener('resize', resize); resize();
-function burstConfetti(n=180){
-  confettiPieces = [];
-  for(let i=0;i<n;i++){
-    confettiPieces.push({
-      x: innerWidth/2, y: innerHeight/3,
-      vx: (Math.random()*6-3), vy: (Math.random()*-6 - 2),
-      g: .12 + Math.random()*.12, size: 2+Math.random()*5, life: 120+Math.random()*40
-    });
-  }
-}
-function tickConfetti(){
-  ctx.clearRect(0,0,confettiCanvas.width,confettiCanvas.height);
-  confettiPieces.forEach(p=>{
-    p.x+=p.vx; p.y+=p.vy; p.vy+=p.g; p.life--;
-    ctx.globalAlpha = Math.max(p.life/160,0);
-    ctx.fillRect(p.x,p.y,p.size,p.size);
-  });
-  confettiPieces = confettiPieces.filter(p=>p.life>0 && p.y<innerHeight+20);
-  requestAnimationFrame(tickConfetti);
-}
-tickConfetti();
-
-/* Redirect with fallback chain */
-function goClaim(){
-  location.href = LINKS.primary;                // primary
-  setTimeout(()=>{ try{ window.open(LINKS.fallback,'_self'); }catch(e){} }, 3000); // fallback
-  setTimeout(()=>{ try{ window.open(LINKS.backup,'_self'); }catch(e){} }, 6000);   // backup
-}
-
-/* Spin logic */
-spinBtn.addEventListener('click', ()=>{
-  if(spinning) return;
-  spinning = true;
-  spinBtn.disabled = true;
-
-  const targetIdx = pickSliceIndex();
-  const angle = angleForSlice(targetIdx);
-
-  wheel.style.transition = 'transform 5s cubic-bezier(.17,.67,.14,1.02)';
-  wheel.style.transform = `rotate(${angle}deg)`;
-
-  setTimeout(()=>{
-    addSpin();
-    spinning = false; spinBtn.disabled = false;
-
-    if(targetIdx === 4){ // WIN slice
-      burstConfetti();
-      openWinModal();
-    }else{
-      if(getSpinCount() === 1){
-        spinBtn.textContent = "🎯 ALMOST THERE — SPIN AGAIN";
-      }else{
-        spinBtn.textContent = "🎡 TRY AGAIN";
-      }
-    }
-  }, 5200);
-});
-
-/* Winner modal + auto redirect */
-function openWinModal(){
-  winModal.classList.add('active');
-  let t = REDIRECT_DELAY_WIN;
-  countClaim.textContent = String(t).padStart(2,'0');
-  clearInterval(claimInt);
-  claimInt = setInterval(()=>{
-    t--; countClaim.textContent = String(t).padStart(2,'0');
-    if(t<=0){ clearInterval(claimInt); goClaim(); }
-  },1000);
-}
-claimBtn.addEventListener('click', goClaim);
-winModal.addEventListener('click', (e)=>{ if(e.target===winModal) goClaim(); });
-
-/* Prevent accidental double-spin spam */
-document.addEventListener('visibilitychange', ()=>{ if(document.hidden){ wheel.style.transition='none'; } });
+document.getElementById('btnPrimary').href = LINKS.primary;
+document.getElementById('lk1').href = LINKS.fallback;
+document.getElementById('lk2').href = LINKS.backup;
 </script>
 </body>
 </html>
