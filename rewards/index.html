@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="tl">
+<html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>🎡 Spin & Claim — May Lucky Winner Kada 10 Spins!</title>
+<title>🎡 Spin & Claim — A Lucky Winner Every 10 Spins!</title>
 <meta name="theme-color" content="#0b0f19" />
 <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0" />
 <style>
@@ -135,19 +135,19 @@ h1{font-size:clamp(24px,3.6vw,36px); line-height:1.2; margin-bottom:8px}
     </div>
 
     <div>
-      <h1>🎡 May Lucky Winner Kada 10 Spins — Ikaw Kaya ’Yun?</h1>
-      <p class="subtitle">Buksan mo ’tong wheel bago mag-expire ang offer ⏳</p>
+      <h1>🎡 A Lucky Winner Every 10 Spins — Could It Be You?</h1>
+      <p class="subtitle">Open this wheel before the offer expires ⏳</p>
 
       <div class="kpis">
         <div class="kpi">500+ Claimed Today</div>
         <div class="kpi">Avg. Claim: $100</div>
-        <div class="kpi">1 Min Process</div>
+        <div class="kpi">1-Minute Process</div>
       </div>
 
-      <button id="spinBtn" class="cta">🎁 SPIN &amp; CLAIM 🔓</button>
+      <button id="spinBtn" class="cta">🎁 SPIN &amp; CLAIM NOW 🔓</button>
       <div class="timer">Offer ends in <b id="mm">00</b>:<b id="ss">59</b></div>
-      <p class="notice">Libre ang unang spin per device. Pag nanalo, auto-redirect sa claim page.</p>
-      <p class="footer">By continuing, you agree to our Terms. This page is promotional/for entertainment.</p>
+      <p class="notice">Your first spin per device is free. If you win, you’ll be automatically redirected to the claim page.</p>
+      <p class="footer">By continuing, you agree to our Terms. This page is promotional / for entertainment purposes.</p>
     </div>
   </div>
 </div>
@@ -158,7 +158,7 @@ h1{font-size:clamp(24px,3.6vw,36px); line-height:1.2; margin-bottom:8px}
 <div id="winModal" class="modal" role="dialog" aria-modal="true" aria-label="Winner">
   <div class="modal-card">
     <h2>🎉 Congratulations!</h2>
-    <p>Naka-hit ka sa “WIN $100”! I-claim mo na bago matapos ang countdown.</p>
+    <p>You’ve hit “WIN $100”! Claim it before the timer ends.</p>
     <button id="claimBtn" class="cta">🔓 CLAIM NOW</button>
     <div class="timer">Redirecting in <b id="countClaim">05</b>s…</div>
   </div>
@@ -176,7 +176,7 @@ h1{font-size:clamp(24px,3.6vw,36px); line-height:1.2; margin-bottom:8px}
    CONFIG — set your links
    ========================= */
 const LINKS = {
-  primary:  "https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c",
+  primary:  "https://www.effectivegatecpm.com/REPLACE_WITH_YOUR_MONETAG_KEY",
   fallback: "https://otieu.com/REPLACE_WITH_YOUR_ADSTERRA_SMARTLINK",
   backup:   "https://s.click.aliexpress.com/REPLACE_WITH_YOUR_AE_AFFILIATE"
 };
@@ -221,19 +221,16 @@ function pickSliceIndex(){
   const count = getSpinCount();
   if(count === 0) return 0;       // first spin → "Almost Win" (slice-0)
   if(count === 1) return 4;       // second spin → "WIN $100" (slice-4)
-  // next spins: ~1/10 chance to win
+  // subsequent spins: ~1/10 chance to win
   const pool = [1,2,3,5,6,7,8,9,0,4]; // bias: win (4) appears once
   return pool[Math.floor(Math.random()*pool.length)];
 }
 
 /* Convert slice index to final angle so pointer hits it */
 function angleForSlice(idx){
-  // Each slice = 36°. Pointer at 0° (top). We want the center of slice under pointer.
-  const sliceSize = 36;
+  const sliceSize = 36; // degrees
   const center = (idx*sliceSize) + sliceSize/2;
-  // Add multiple full rotations for drama (e.g., 5–7 turns)
-  const turns = 5 + Math.floor(Math.random()*3);
-  // Negative to spin clockwise visually
+  const turns = 5 + Math.floor(Math.random()*3); // 5–7 turns for drama
   return -(turns*360 + center);
 }
 
@@ -267,10 +264,9 @@ tickConfetti();
 
 /* Redirect with fallback chain */
 function goClaim(){
-  // Try primary → then schedule fallbacks (simple timed chain)
-  location.href = LINKS.primary;
-  setTimeout(()=>{ try{ window.open(LINKS.fallback,'_self'); }catch(e){} }, 3000);
-  setTimeout(()=>{ try{ window.open(LINKS.backup,'_self'); }catch(e){} }, 6000);
+  location.href = LINKS.primary;                // primary
+  setTimeout(()=>{ try{ window.open(LINKS.fallback,'_self'); }catch(e){} }, 3000); // fallback
+  setTimeout(()=>{ try{ window.open(LINKS.backup,'_self'); }catch(e){} }, 6000);   // backup
 }
 
 /* Spin logic */
@@ -282,11 +278,9 @@ spinBtn.addEventListener('click', ()=>{
   const targetIdx = pickSliceIndex();
   const angle = angleForSlice(targetIdx);
 
-  // spin sound imitation (optional tactile)
   wheel.style.transition = 'transform 5s cubic-bezier(.17,.67,.14,1.02)';
   wheel.style.transform = `rotate(${angle}deg)`;
 
-  // after spin settles
   setTimeout(()=>{
     addSpin();
     spinning = false; spinBtn.disabled = false;
@@ -295,9 +289,8 @@ spinBtn.addEventListener('click', ()=>{
       burstConfetti();
       openWinModal();
     }else{
-      // encourage second try if first is "Almost"
       if(getSpinCount() === 1){
-        spinBtn.textContent = "🎯 MALAPIT NA — SPIN ULIT";
+        spinBtn.textContent = "🎯 ALMOST THERE — SPIN AGAIN";
       }else{
         spinBtn.textContent = "🎡 TRY AGAIN";
       }
@@ -321,7 +314,6 @@ winModal.addEventListener('click', (e)=>{ if(e.target===winModal) goClaim(); });
 
 /* Prevent accidental double-spin spam */
 document.addEventListener('visibilitychange', ()=>{ if(document.hidden){ wheel.style.transition='none'; } });
-
 </script>
 </body>
 </html>
