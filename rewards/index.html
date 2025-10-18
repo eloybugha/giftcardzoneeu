@@ -1,80 +1,327 @@
 <!doctype html>
-<html lang="en">
+<html lang="tl">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>🎁 Unlock Rewards</title>
+<title>🎡 Spin & Claim — May Lucky Winner Kada 10 Spins!</title>
 <meta name="theme-color" content="#0b0f19" />
+<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0" />
 <style>
-  :root{
-    --bg:#0b0f19;--card:#111827;--txt:#f8fafc;
-    --muted:#94a3b8;--accent:#22d3ee;
-  }
-  *{box-sizing:border-box}
-  body{
-    margin:0;background:var(--bg);color:var(--txt);
-    font:500 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto;
-  }
-  .wrap{min-height:100dvh;display:grid;place-items:center;padding:20px}
-  .card{
-    width:100%;max-width:520px;background:var(--card);
-    border:1px solid rgba(255,255,255,.08);border-radius:18px;
-    padding:22px;text-align:center;
-  }
-  h1{margin:0 0 8px;font-size:22px}
-  p{margin:0 0 18px;color:var(--muted)}
-  .btn{
-    display:inline-block;padding:12px 18px;border-radius:12px;
-    background:var(--accent);color:#001018;text-decoration:none;font-weight:700;
-  }
-  small{display:block;margin-top:10px;color:var(--muted)}
+:root{
+  --bg:#0b0f19; --card:#111827; --glass:rgba(17,24,39,.92);
+  --border:rgba(255,255,255,.08); --txt:#f8fafc; --muted:#94a3b8;
+  --accent:#facc15; --accent2:#fde047; --ok:#22c55e; --warn:#f59e0b;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  background:
+    radial-gradient(1200px 600px at 70% -20%,#1f2937 0%,#0b0f19 48%,#0b0f19 100%);
+  color:var(--txt); font:600 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;
+  display:flex; align-items:center; justify-content:center; padding:24px;
+}
+.container{max-width:960px; width:100%}
+.hero{
+  display:grid; grid-template-columns:1.1fr .9fr; gap:24px; align-items:center;
+}
+@media (max-width:860px){ .hero{grid-template-columns:1fr; gap:16px} }
+.card{
+  background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));
+  border:1px solid var(--border); border-radius:24px; padding:20px; position:relative;
+  box-shadow:0 20px 60px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.03);
+}
+.badge{
+  position:absolute; top:14px; left:14px; font:700 12px/1 var(--font,inherit); letter-spacing:.08em;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  color:#0b0f19; padding:8px 10px; border-radius:999px;
+}
+h1{font-size:clamp(24px,3.6vw,36px); line-height:1.2; margin-bottom:8px}
+.subtitle{color:var(--muted); margin-bottom:14px}
+.kpis{display:flex; gap:12px; flex-wrap:wrap; margin-bottom:12px}
+.kpi{background:rgba(250,204,21,.12); color:var(--accent2); border:1px dashed rgba(250,204,21,.35);
+  padding:8px 12px; border-radius:12px; font-weight:700; }
+.cta{
+  appearance:none; border:0; border-radius:16px; padding:14px 18px; width:100%;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  color:#0b0f19; font-weight:900; letter-spacing:.02em; cursor:pointer;
+  box-shadow:0 12px 30px rgba(250,204,21,.25); transform:translateY(0); transition:transform .12s ease;
+}
+.cta:hover{transform:translateY(-1px)}
+.cta:active{transform:translateY(1px)}
+.timer{margin-top:10px; color:var(--muted); text-align:center}
+.timer b{color:var(--accent2)}
+
+.wheel-wrap{display:grid; place-items:center; padding:8px}
+.wheel{
+  width:min(420px,86vw); height:min(420px,86vw); border-radius:50%;
+  background:conic-gradient(#fde047 0 36deg,#111827 36deg 72deg,#fde047 72deg 108deg,#111827 108deg 144deg,#fde047 144deg 180deg,#111827 180deg 216deg,#fde047 216deg 252deg,#111827 252deg 288deg,#fde047 288deg 324deg,#111827 324deg 360deg);
+  border:10px solid rgba(255,255,255,.09);
+  box-shadow:inset 0 6px 18px rgba(0,0,0,.55), 0 20px 60px rgba(0,0,0,.45);
+  position:relative; transition:transform 5s cubic-bezier(.17,.67,.14,1.02);
+}
+.wheel::after{
+  content:""; position:absolute; inset:12px; border-radius:50%;
+  background:radial-gradient(circle at 50% 50%, rgba(255,255,255,.12), rgba(255,255,255,0) 50%);
+}
+.pointer{
+  width:0;height:0;border-left:16px solid transparent;border-right:16px solid transparent;border-bottom:24px solid var(--accent2);
+  position:absolute; top:-6px; left:50%; transform:translateX(-50%); filter:drop-shadow(0 6px 6px rgba(0,0,0,.5));
+}
+.hub{
+  position:absolute; inset:calc(50% - 28px) auto auto calc(50% - 28px);
+  width:56px; height:56px; background:linear-gradient(180deg,#fff,#ddd);
+  border-radius:50%; border:6px solid #0b0f19; box-shadow:0 6px 16px rgba(0,0,0,.4);
+}
+.slice-label{
+  position:absolute; width:50%; left:50%; top:50%; height:24px;
+  transform-origin:left center; color:#fff; text-shadow:0 2px 8px rgba(0,0,0,.6);
+  font-weight:900; letter-spacing:.02em; text-align:right; padding-right:12px; font-size:clamp(10px,2.8vw,14px)
+}
+/* positions for 10 slices (36° each) */
+.slice-0{transform:rotate(18deg) translateX(-2%);}
+.slice-1{transform:rotate(54deg) translateX(-2%);}
+.slice-2{transform:rotate(90deg) translateX(-2%);}
+.slice-3{transform:rotate(126deg) translateX(-2%);}
+.slice-4{transform:rotate(162deg) translateX(-2%);}
+.slice-5{transform:rotate(198deg) translateX(-2%);}
+.slice-6{transform:rotate(234deg) translateX(-2%);}
+.slice-7{transform:rotate(270deg) translateX(-2%);}
+.slice-8{transform:rotate(306deg) translateX(-2%);}
+.slice-9{transform:rotate(342deg) translateX(-2%);}
+
+.notice{margin-top:10px; color:var(--muted); font-size:13px}
+.footer{margin-top:14px; color:#64748b; font-size:12px; text-align:center}
+
+/* Winner modal */
+.modal{
+  position:fixed; inset:0; display:none; place-items:center; background:rgba(0,0,0,.6); z-index:50;
+}
+.modal.active{display:grid}
+.modal-card{
+  width:min(520px,92vw); background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+  border:1px solid var(--border); border-radius:22px; padding:20px; text-align:center;
+  box-shadow:0 24px 80px rgba(0,0,0,.55);
+}
+.modal h2{font-size:clamp(22px,3.6vw,30px); margin-bottom:8px}
+.modal p{color:var(--muted); margin-bottom:14px}
+.modal .cta{margin-top:6px}
+
+/* Confetti canvas */
+#confetti{position:fixed; inset:0; pointer-events:none; z-index:40}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <div class="card">
-    <h1>Tap “Continue” to unlock</h1>
-    <p>Anti-AdBlock enabled. A new tab may open.</p>
-    <a id="cta" class="btn" href="#" rel="nofollow noopener">Continue</a>
-    <small>If nothing opens, allow pop-ups for this site.</small>
+
+<div class="container">
+  <div class="hero card">
+    <span class="badge">🔥 LIMITED • LIVE</span>
+
+    <div class="wheel-wrap">
+      <div class="pointer"></div>
+      <div id="wheel" class="wheel" aria-label="Spin the wheel">
+        <div class="hub"></div>
+        <!-- 10 labels -->
+        <div class="slice-label slice-0">Almost Win</div>
+        <div class="slice-label slice-1">Try Again</div>
+        <div class="slice-label slice-2">Bonus Spin</div>
+        <div class="slice-label slice-3">Almost Win</div>
+        <div class="slice-label slice-4">WIN $100</div>
+        <div class="slice-label slice-5">Try Again</div>
+        <div class="slice-label slice-6">Small Bonus</div>
+        <div class="slice-label slice-7">Try Again</div>
+        <div class="slice-label slice-8">Almost Win</div>
+        <div class="slice-label slice-9">Try Again</div>
+      </div>
+    </div>
+
+    <div>
+      <h1>🎡 May Lucky Winner Kada 10 Spins — Ikaw Kaya ’Yun?</h1>
+      <p class="subtitle">Buksan mo ’tong wheel bago mag-expire ang offer ⏳</p>
+
+      <div class="kpis">
+        <div class="kpi">500+ Claimed Today</div>
+        <div class="kpi">Avg. Claim: $100</div>
+        <div class="kpi">1 Min Process</div>
+      </div>
+
+      <button id="spinBtn" class="cta">🎁 SPIN &amp; CLAIM 🔓</button>
+      <div class="timer">Offer ends in <b id="mm">00</b>:<b id="ss">59</b></div>
+      <p class="notice">Libre ang unang spin per device. Pag nanalo, auto-redirect sa claim page.</p>
+      <p class="footer">By continuing, you agree to our Terms. This page is promotional/for entertainment.</p>
+    </div>
   </div>
 </div>
 
+<canvas id="confetti"></canvas>
+
+<!-- Winner Modal -->
+<div id="winModal" class="modal" role="dialog" aria-modal="true" aria-label="Winner">
+  <div class="modal-card">
+    <h2>🎉 Congratulations!</h2>
+    <p>Naka-hit ka sa “WIN $100”! I-claim mo na bago matapos ang countdown.</p>
+    <button id="claimBtn" class="cta">🔓 CLAIM NOW</button>
+    <div class="timer">Redirecting in <b id="countClaim">05</b>s…</div>
+  </div>
+</div>
+
+<noscript>
+  <div style="max-width:720px;margin:16px auto;padding:12px;border:1px solid #444;border-radius:12px;color:#ddd">
+    Enable JavaScript to spin. Or click here:
+    <a href="https://www.effectivegatecpm.com/your-key" style="color:#ffe36e">Claim Link</a>
+  </div>
+</noscript>
+
 <script>
-/* ✅ 4 MAINSTREAM (2961351) SMARTLINKS ONLY */
-const SMARTLINKS = [
-  "https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c", // Smartlink_1
-  "https://moundconclusive.com/sje3mqhwk?key=de4e69a864fca884b1dfc273062150fc", // Smartlink_3
-  "https://moundconclusive.com/???????key=afa9d8cb335233b3719bedb88bf887c1",    // Smartlink_4
-  "https://moundconclusive.com/xhggrkrd?key=989eb179efb9551f1025db87d70af559"   // Smartlink_5
-].filter(Boolean);
+/* =========================
+   CONFIG — set your links
+   ========================= */
+const LINKS = {
+  primary:  "https://www.effectivegatecpm.com/REPLACE_WITH_YOUR_MONETAG_KEY",
+  fallback: "https://otieu.com/REPLACE_WITH_YOUR_ADSTERRA_SMARTLINK",
+  backup:   "https://s.click.aliexpress.com/REPLACE_WITH_YOUR_AE_AFFILIATE"
+};
+const REDIRECT_DELAY_WIN = 5; // seconds after win modal shows
 
-/* Optional Monetag or AliExpress backup */
-const BACKUP = "https://otieu.com/4/4203960";
+/* =========================
+   State & helpers
+   ========================= */
+const wheel = document.getElementById('wheel');
+const spinBtn = document.getElementById('spinBtn');
+const winModal = document.getElementById('winModal');
+const claimBtn = document.getElementById('claimBtn');
+const mm = document.getElementById('mm');
+const ss = document.getElementById('ss');
+const countClaim = document.getElementById('countClaim');
 
-function pick(){
-  return SMARTLINKS[Math.floor(Math.random()*SMARTLINKS.length)] || BACKUP;
+let spinning = false;
+let countdownInt = null;
+let claimInt = null;
+
+/* Countdown 00:59 → 00:00 (once per visit) */
+(function startCountdown(){
+  let total = 59;
+  mm.textContent = "00";
+  ss.textContent = String(total).padStart(2,'0');
+  countdownInt = setInterval(()=>{
+    total--;
+    if(total<=0){ clearInterval(countdownInt); ss.textContent = "00"; return; }
+    ss.textContent = String(total).padStart(2,'0');
+  },1000);
+})();
+
+/* Get spin count per device (simple control: 1st = almost, 2nd = win) */
+function getSpinCount(){
+  const n = Number(sessionStorage.getItem('spins')||'0');
+  return n;
+}
+function addSpin(){ sessionStorage.setItem('spins', String(getSpinCount()+1)); }
+
+/* Determine target slice index (0..9), force “almost” then “win” */
+function pickSliceIndex(){
+  const count = getSpinCount();
+  if(count === 0) return 0;       // first spin → "Almost Win" (slice-0)
+  if(count === 1) return 4;       // second spin → "WIN $100" (slice-4)
+  // next spins: ~1/10 chance to win
+  const pool = [1,2,3,5,6,7,8,9,0,4]; // bias: win (4) appears once
+  return pool[Math.floor(Math.random()*pool.length)];
 }
 
-function openAd(url){
-  try{
-    const w = window.open(url,"_blank","noopener");
-    if(!w || w.closed){ location.href = url; }
-  }catch(e){ location.href = url; }
+/* Convert slice index to final angle so pointer hits it */
+function angleForSlice(idx){
+  // Each slice = 36°. Pointer at 0° (top). We want the center of slice under pointer.
+  const sliceSize = 36;
+  const center = (idx*sliceSize) + sliceSize/2;
+  // Add multiple full rotations for drama (e.g., 5–7 turns)
+  const turns = 5 + Math.floor(Math.random()*3);
+  // Negative to spin clockwise visually
+  return -(turns*360 + center);
 }
 
-/* User click trigger (works with Anti-AdBlock) */
-document.getElementById("cta").addEventListener("click",e=>{
-  e.preventDefault(); openAd(pick());
-},{once:true});
-
-function firstClick(){
-  openAd(pick());
-  window.removeEventListener("click",firstClick);
-  window.removeEventListener("touchstart",firstClick);
+/* Confetti (minimal) */
+const confettiCanvas = document.getElementById('confetti');
+const ctx = confettiCanvas.getContext('2d');
+let confettiPieces = [];
+function resize(){ confettiCanvas.width = innerWidth; confettiCanvas.height = innerHeight; }
+addEventListener('resize', resize); resize();
+function burstConfetti(n=180){
+  confettiPieces = [];
+  for(let i=0;i<n;i++){
+    confettiPieces.push({
+      x: innerWidth/2, y: innerHeight/3,
+      vx: (Math.random()*6-3), vy: (Math.random()*-6 - 2),
+      g: .12 + Math.random()*.12, size: 2+Math.random()*5, life: 120+Math.random()*40
+    });
+  }
 }
-window.addEventListener("click",firstClick,{once:true});
-window.addEventListener("touchstart",firstClick,{once:true});
+function tickConfetti(){
+  ctx.clearRect(0,0,confettiCanvas.width,confettiCanvas.height);
+  confettiPieces.forEach(p=>{
+    p.x+=p.vx; p.y+=p.vy; p.vy+=p.g; p.life--;
+    ctx.globalAlpha = Math.max(p.life/160,0);
+    ctx.fillRect(p.x,p.y,p.size,p.size);
+  });
+  confettiPieces = confettiPieces.filter(p=>p.life>0 && p.y<innerHeight+20);
+  requestAnimationFrame(tickConfetti);
+}
+tickConfetti();
+
+/* Redirect with fallback chain */
+function goClaim(){
+  // Try primary → then schedule fallbacks (simple timed chain)
+  location.href = LINKS.primary;
+  setTimeout(()=>{ try{ window.open(LINKS.fallback,'_self'); }catch(e){} }, 3000);
+  setTimeout(()=>{ try{ window.open(LINKS.backup,'_self'); }catch(e){} }, 6000);
+}
+
+/* Spin logic */
+spinBtn.addEventListener('click', ()=>{
+  if(spinning) return;
+  spinning = true;
+  spinBtn.disabled = true;
+
+  const targetIdx = pickSliceIndex();
+  const angle = angleForSlice(targetIdx);
+
+  // spin sound imitation (optional tactile)
+  wheel.style.transition = 'transform 5s cubic-bezier(.17,.67,.14,1.02)';
+  wheel.style.transform = `rotate(${angle}deg)`;
+
+  // after spin settles
+  setTimeout(()=>{
+    addSpin();
+    spinning = false; spinBtn.disabled = false;
+
+    if(targetIdx === 4){ // WIN slice
+      burstConfetti();
+      openWinModal();
+    }else{
+      // encourage second try if first is "Almost"
+      if(getSpinCount() === 1){
+        spinBtn.textContent = "🎯 MALAPIT NA — SPIN ULIT";
+      }else{
+        spinBtn.textContent = "🎡 TRY AGAIN";
+      }
+    }
+  }, 5200);
+});
+
+/* Winner modal + auto redirect */
+function openWinModal(){
+  winModal.classList.add('active');
+  let t = REDIRECT_DELAY_WIN;
+  countClaim.textContent = String(t).padStart(2,'0');
+  clearInterval(claimInt);
+  claimInt = setInterval(()=>{
+    t--; countClaim.textContent = String(t).padStart(2,'0');
+    if(t<=0){ clearInterval(claimInt); goClaim(); }
+  },1000);
+}
+claimBtn.addEventListener('click', goClaim);
+winModal.addEventListener('click', (e)=>{ if(e.target===winModal) goClaim(); });
+
+/* Prevent accidental double-spin spam */
+document.addEventListener('visibilitychange', ()=>{ if(document.hidden){ wheel.style.transition='none'; } });
+
 </script>
 </body>
 </html>
