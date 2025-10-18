@@ -1,4 +1,4 @@
-           <!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
@@ -18,7 +18,7 @@ body{
   color:var(--txt); font:600 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;
   min-height:100dvh; display:flex; align-items:center; justify-content:center; padding:14px;
 }
-.wrap{ max-width:760px; width:100% }                 /* tighter width */
+.wrap{ max-width:760px; width:100% }                 
 .card{
   background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
   border:1px solid var(--border); border-radius:22px; padding:16px; position:relative;
@@ -39,10 +39,22 @@ body{
 .hero{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:center;margin-top:10px}
 @media (max-width:860px){ .hero{ grid-template-columns:1fr } }
 
+.hook{
+  text-align:center;
+  font-weight:800;
+  font-size:clamp(18px,3vw,26px);
+  margin-bottom:8px;
+  color:#facc15;
+  text-shadow:0 2px 10px rgba(0,0,0,.6);
+  animation:fadeIn 1.4s ease forwards;
+  opacity:0;
+}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
 .preview{
   border-radius:16px; overflow:hidden; border:1px solid var(--border);
   background:#0b0f19; aspect-ratio:9/16;
-  max-height:64vh;                            /* cap so it fits */
+  max-height:64vh;
 }
 .preview img{ width:100%; height:100%; object-fit:cover; display:block }
 
@@ -62,7 +74,7 @@ body{
 .fallbacks{ margin-top:6px; text-align:center }
 .footer{ margin-top:6px; color:#64748b; font-size:11.5px; text-align:center }
 
-/* auto-scale whole card on short screens */
+/* auto-scale on short screens */
 @media (max-height:740px){ .card{ transform:scale(.92); transform-origin: top center } }
 @media (max-height:660px){ .card{ transform:scale(.86); transform-origin: top center } }
 </style>
@@ -82,9 +94,12 @@ body{
       </div>
 
       <div class="hero">
-        <!-- Left: TikTok-style preview (replace IMG_SRC) -->
+        <!-- Hook headline -->
+        <div class="hook">🎬 This 10-second clip shocked 2 million people 😱</div>
+
+        <!-- TikTok-style preview -->
         <div class="preview">
-          <img src="IMG_SRC" alt="TikTok-style preview" />
+          <img src="./tiktok_prelander_preview.png" alt="TikTok-style preview" />
         </div>
 
         <!-- Right: copy + CTA -->
@@ -98,7 +113,7 @@ body{
             <div class="kpi">1-minute watch</div>
           </div>
 
-          <!-- PRIMARY CTA -->
+          <!-- CTA -->
           <a class="cta" target="_blank" rel="noopener noreferrer" id="btnPrimary">
             🎬 WATCH FULL VIDEO
           </a>
@@ -128,13 +143,12 @@ document.getElementById('btnPrimary').href = LINKS.primary;
 document.getElementById('lk1').href = LINKS.fallback;
 document.getElementById('lk2').href = LINKS.backup;
 
-/* OPTIONAL: if image fails, hide the broken icon gracefully */
+/* hide broken image gracefully */
 const img = document.querySelector('.preview img');
 img.addEventListener('error', ()=>{
   img.style.display='none';
-  document.querySelector('.preview').style.background = 'linear-gradient(180deg, #0b1220, #0b0f19)';
+  document.querySelector('.preview').style.background='linear-gradient(180deg,#0b1220,#0b0f19)';
 });
 </script>
 </body>
 </html>
- 
