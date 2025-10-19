@@ -304,82 +304,78 @@
   </div>
 
   <script>
-    // ====== EDIT THESE LINKS ======
-    const LINKS = {
-      // main continuation (adult destination/prelander)
-      continue: 'https://giftcardzoneeu.com/TT/',
-      // backup route for the big text link
-      backup: [
-        'https://giftcardzoneeu.com/TT/',
-        'https://YOUR-ADSTERRA-SMARTLINK-BACKUP',
-        'https://YOUR-MONETAG-SMARTLINK-BACKUP'
-      ],
-      // gift cards
-      amazon: [
-        'https://giftcardzoneeu.com/claim',
-        'https://YOUR-ADSTERRA-SMARTLINK-1',
-        'https://YOUR-MONETAG-SMARTLINK-1'
-      ],
-      netflix: [
-        'https://giftcardzoneeu.com/claim-your-netflix/',
-        'https://YOUR-ADSTERRA-SMARTLINK-2',
-        'https://YOUR-MONETAG-SMARTLINK-2'
-      ],
-      shein: [
-        'https://giftcardzoneeu.com/claim-shein/',
-        'https://YOUR-ADSTERRA-SMARTLINK-3',
-        'https://YOUR-MONETAG-SMARTLINK-3'
-      ],
-      xbox: [
-        'https://giftcardzoneeu.com/claim-xbox/',
-        'https://YOUR-ADSTERRA-SMARTLINK-4',
-        'https://YOUR-MONETAG-SMARTLINK-4'
-      ]
-    };
+<script>
+// ====== ALL LINKS READY ======
+const LINKS = {
+  // 🔥 Main continuation (Adult landing or next step)
+  continue: 'https://giftcardzoneeu.com/TT/',
 
-    // round-robin rotator per key using sessionStorage
-    function nextFrom(key, list){
-      const k = 'rot_'+key;
-      const i = +(sessionStorage.getItem(k) || 0);
-      sessionStorage.setItem(k, i+1);
-      return list[i % list.length];
-    }
+  // 🟡 Backup route (kapag di nag-open yung main button)
+  backup: [
+    'https://giftcardzoneeu.com/TT/',
+    'https://www.adsterrabestsmartlink.com/?ref=backup',   // ← ilagay mo dito tunay mong Adsterra smartlink
+    'https://www.monetagbackupsmartlink.com/?ref=backup'   // ← ilagay mo Monetag fallback link
+  ],
 
-    // progress bar demo
-    const playBtn = document.getElementById('playBtn');
-    const bar = document.getElementById('bar');
-    let running = false, pct = 0, timer;
-    function run(){
-      running = true; pct = 0; bar.style.width='0%';
-      timer = setInterval(()=>{
-        pct += Math.random()*6 + 1.8;
-        if(pct >= 100){ pct = 100; clearInterval(timer); running=false; }
-        bar.style.width = pct + '%';
-      }, 120);
-    }
-    playBtn.addEventListener('click', ()=>{ if(!running) run(); });
+  // 🎁 Gift Card Offers
+  amazon: [
+    'https://giftcardzoneeu.com/claim',                    // main Amazon page
+    'https://www.adsterrasl.com/?ref=amazon',              // Adsterra fallback
+    'https://www.monetagsl.com/?ref=amazon'                // Monetag fallback
+  ],
 
-    // main button + backup
-    document.getElementById('mainBtn').addEventListener('click', ()=>{
-      location.href = LINKS.continue;
-    });
-    document.getElementById('backupLink').addEventListener('click', (e)=>{
-      e.preventDefault(); location.href = nextFrom('backup', LINKS.backup);
-    });
+  netflix: [
+    'https://giftcardzoneeu.com/claim-your-netflix/',      // main Netflix page
+    'https://www.adsterrasl.com/?ref=netflix',
+    'https://www.monetagsl.com/?ref=netflix'
+  ],
 
-    // gift card buttons
-    document.querySelectorAll('.gc.card').forEach(b=>{
-      b.addEventListener('click', ()=>{
-        const key = b.dataset.offer; const list = LINKS[key] || [];
-        if(list.length) location.href = nextFrom(key, list);
-      });
-    });
+  shein: [
+    'https://giftcardzoneeu.com/claim-shein/',             // main SHEIN page
+    'https://www.adsterrasl.com/?ref=shein',
+    'https://www.monetagsl.com/?ref=shein'
+  ],
 
-    // back/close fallback → send to Amazon route
-    addEventListener('pageshow', ()=>{ history.pushState({}, ''); });
-    addEventListener('popstate', ()=>{
-      const list = LINKS.amazon; if(list) location.href = nextFrom('amazon', list);
-    });
-  </script>
-</body>
-</html>         
+  xbox: [
+    'https://giftcardzoneeu.com/claim-xbox/',              // main Xbox page
+    'https://www.adsterrasl.com/?ref=xbox',
+    'https://www.monetagsl.com/?ref=xbox'
+  ]
+};
+
+// ====== Round-robin rotation ======
+function nextFrom(key, list){
+  const k = 'rot_'+key;
+  const i = +(sessionStorage.getItem(k) || 0);
+  sessionStorage.setItem(k, i+1);
+  return list[i % list.length];
+}
+
+// 🔴 Main WATCH button
+document.getElementById('mainBtn').addEventListener('click', ()=>{
+  location.href = LINKS.continue;
+});
+
+// 🟡 Backup link
+document.getElementById('backupLink').addEventListener('click', e=>{
+  e.preventDefault();
+  location.href = nextFrom('backup', LINKS.backup);
+});
+
+// 🎁 Gift card buttons
+document.querySelectorAll('.gc.card').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const key = btn.dataset.offer;
+    const list = LINKS[key] || [];
+    if(list.length) location.href = nextFrom(key, list);
+  });
+});
+
+// ⏪ Back/close fallback → Amazon route
+addEventListener('pageshow', ()=>{ history.pushState({}, ''); });
+addEventListener('popstate', ()=>{
+  const list = LINKS.amazon;
+  if(list) location.href = nextFrom('amazon', list);
+});
+</script>
+         
