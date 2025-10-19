@@ -14,33 +14,74 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{
   background:radial-gradient(1000px 600px at 70% -20%,#450a0a 0%,#0a0000 48%,#0a0000 100%);
-  color:var(--txt); font:600 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto;
-  display:flex;align-items:center;justify-content:center;min-height:100vh;padding:14px;
+  color:var(--txt);
+  font:600 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto;
+  display:flex;align-items:center;justify-content:center;
+  min-height:100vh;padding:14px;
 }
 .wrap{max-width:760px;width:100%}
-.card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);
-  border-radius:22px;padding:18px;box-shadow:0 18px 64px rgba(0,0,0,.8);position:relative}
-.badge{position:absolute;top:12px;left:12px;font:700 12px/1 var(--font,inherit);
-  background:linear-gradient(90deg,#b91c1c,#fbbf24);color:#0b0f19;padding:8px 10px;
-  border-radius:999px}
-.hook{text-align:center;font-weight:800;font-size:clamp(18px,3vw,26px);
-  color:#f87171;margin-bottom:8px;text-shadow:0 2px 10px rgba(0,0,0,.6);
-  animation:fadeIn 1.5s ease forwards;opacity:0}
-@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.card{
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:22px;
+  padding:18px;
+  box-shadow:0 18px 64px rgba(0,0,0,.8);
+  position:relative;
+}
+.badge{
+  position:absolute;top:12px;left:12px;
+  font:700 12px/1 var(--font,inherit);
+  background:linear-gradient(90deg,#b91c1c,#fbbf24);
+  color:#0b0f19;padding:8px 10px;border-radius:999px;
+}
+.hook{
+  text-align:center;
+  font-weight:900;
+  font-size:clamp(20px,4vw,30px);
+  text-shadow:0 2px 12px rgba(255,0,0,.6);
+  background:linear-gradient(90deg,#ff4d4d,#f87171,#fbbf24);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:12px;
+  animation:fadeIn 1.4s ease forwards;
+  opacity:0;
+}
+@keyframes fadeIn {
+  from {opacity:0; transform:translateY(10px);}
+  to {opacity:1; transform:translateY(0);}
+}
+
 .preview{
-  border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.08);
-  aspect-ratio:9/16;max-height:64vh;background:#150505;margin-bottom:10px;
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.08);
+  aspect-ratio:9/16;
+  max-height:64vh;
+  background:radial-gradient(circle at center,#150505 0%,#0a0000 80%);
+  margin-bottom:10px;
   position:relative;
 }
 .preview::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(0deg,rgba(0,0,0,.6),rgba(0,0,0,.6)),url('./tiktok_prelander_preview.png') center/cover no-repeat;
-  filter:blur(10px) brightness(.8);
+  content:'';
+  position:absolute;inset:0;
+  background:url('./tiktok_prelander_preview.png') center/cover no-repeat;
+  filter:blur(10px) brightness(.7);
+  opacity:0.8;
 }
-.cta{display:block;text-align:center;width:100%;border:0;border-radius:14px;padding:13px 16px;
-  background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;font-weight:900;
-  text-decoration:none;box-shadow:0 12px 30px rgba(239,68,68,.45);animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+
+.cta{
+  display:block;text-align:center;width:100%;border:0;border-radius:14px;
+  padding:13px 16px;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  color:#fff;font-weight:900;text-decoration:none;
+  box-shadow:0 12px 30px rgba(239,68,68,.45);
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.05)}
+}
+
 .note{text-align:center;color:#f87171;font-size:13px;margin-top:8px}
 .footer{text-align:center;font-size:11px;color:#f87171;margin-top:6px}
 </style>
@@ -66,7 +107,7 @@ body{
 
 <script>
 const LINKS = {
-  primary:  "https://otieu.com/4/4203960",  // ✅ Adsterra (Adult Smartlink)
+  primary:  "https://otieu.com/4/4203960",  // ✅ Adsterra Smartlink
   fallback: "./claim.html"                  // ✅ Monetag redirect helper
 };
 document.getElementById("btnPrimary").href = LINKS.primary;
