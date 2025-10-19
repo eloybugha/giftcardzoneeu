@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>🔥 18+ Viral Clip — Watch Before It’s Gone</title>
+<title>🔥 18+ Viral TikTok — Watch Before It’s Gone</title>
 <meta name="theme-color" content="#0a0000" />
 <meta name="robots" content="noindex, nofollow" />
 <style>
@@ -69,6 +69,32 @@ body{
   opacity:0.8;
 }
 
+/* ▶️ Play Button Overlay */
+.play-btn {
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:70px;height:70px;
+  background:rgba(255,255,255,0.1);
+  border:3px solid rgba(255,255,255,0.9);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 25px rgba(255,0,0,.3);
+  animation:pulsePlay 2s infinite ease-in-out;
+}
+.play-btn::before {
+  content:'';
+  margin-left:4px;
+  width:0;height:0;
+  border-left:18px solid #fff;
+  border-top:10px solid transparent;
+  border-bottom:10px solid transparent;
+}
+@keyframes pulsePlay {
+  0%,100% { transform:translate(-50%,-50%) scale(1); opacity:1; }
+  50% { transform:translate(-50%,-50%) scale(1.1); opacity:.7; }
+}
+
 .cta{
   display:block;text-align:center;width:100%;border:0;border-radius:14px;
   padding:13px 16px;
@@ -92,7 +118,9 @@ body{
       <span class="badge">🔞 HOT • 18+ VIRAL</span>
       <div class="hook">🚫 This 18+ TikTok video is trending worldwide — Watch before it’s removed!</div>
 
-      <div class="preview"></div>
+      <div class="preview">
+        <div class="play-btn"></div>
+      </div>
 
       <a id="btnPrimary" class="cta" target="_blank" rel="noopener noreferrer nofollow sponsored">
         🔥 WATCH FULL VIDEO
