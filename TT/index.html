@@ -136,31 +136,36 @@
   </div>
 
   <script>
-    /* 🛡️ Auto-kill any full-screen overlay that steals clicks */
-    (function killShields(){
-      try {
-        const vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-        const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-        const nodes = Array.from(document.querySelectorAll('body *'));
-        nodes.forEach(el => {
-          const s = getComputedStyle(el); if (!s) return;
-          const pos = s.position; const z = parseInt(s.zIndex || '0', 10);
-          const rect = el.getBoundingClientRect();
-          const full = rect.width >= vw*0.98 && rect.height >= vh*0.98;
-          const transparent = (s.opacity === '0' || s.visibility === 'hidden' || s.pointerEvents === 'none');
-          if ((pos === 'fixed' || pos === 'absolute') && full && z >= 1 && !transparent) {
-            el.style.pointerEvents = 'none'; // stop stealing clicks
-          }
-        });
-      } catch (e) {}
-    })();
+// 🚨 ULTRA-PRIORITY CLICK HANDLER (beats overlays & ad scripts)
+(function () {
+  function go(e) {
+    const a = e.target && e.target.closest && e.target.closest('a[href]');
+    if (!a) return;
+    try {
+      // block ANY other listeners from stealing the event
+      e.preventDefault();
+      e.stopPropagation();
+      if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+    } catch (_) {}
+    try {
+      // always navigate (same tab)
+      window.location.assign(a.getAttribute('href'));
+    } catch (_) {}
+  }
 
-    /* ✅ Delegation fallback: force navigation even if default is blocked */
-    document.addEventListener('click', function(e){
-      const a = e.target.closest('a[href]');
-      if(!a) return;
-      try { e.preventDefault(); window.location.assign(a.href); } catch(err){}
-    }, true);
-  </script>
-</body>
-</html>
+  // capture-phase, non-passive, higher than normal click
+  ['pointerdown','touchstart','click'].forEach(evt => {
+    document.addEventListener(evt, go, { capture: true, passive: false });
+  });
+
+  // last resort: key activation (Enter/Space)
+  document.addEventListener('keydown', function(e){
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    const a = document.activeElement && document.activeElement.closest && document.activeElement.closest('a[href]');
+    if (!a) return;
+    e.preventDefault();
+    try { window.location.assign(a.getAttribute('href')); } catch (_) {}
+  }, { capture:true });
+})();
+</script>
+
