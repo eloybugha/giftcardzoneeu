@@ -134,22 +134,76 @@
   </div>
 
   <script>
-  // 🚨 Ultra-priority click handler — overrides all overlays
-  (function(){
-    function go(e){
-      var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
-      if(!a) return;
-      try{
-        e.preventDefault();
-        e.stopPropagation();
-        if(e.stopImmediatePropagation) e.stopImmediatePropagation();
-      }catch(_){}
-      try{ window.location.href = a.getAttribute('href'); }catch(_){}
-    }
-    ['pointerdown','touchstart','click'].forEach(function(evt){
-      document.addEventListener(evt, go, { capture:true, passive:false });
-    });
-  })();
-  </script>
-</body>
-</html>
+/* === NUKE OVERLAYS & FORCE CLICKS === */
+
+// 1) Aggressive killer: any full-screen overlay/iframe gets disabled
+(function killOverlays(){
+  function zapOnce(){
+    try{
+      const vw = Math.max(document.documentElement.clientWidth,  window.innerWidth  || 0);
+      const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+
+      // Scan all elements (light filter)
+      const nodes = Array.from(document.querySelectorAll('body *'));
+
+      nodes.forEach(el=>{
+        if (!el || el.closest('.card')) return; // skip our card tree
+
+        const s = getComputedStyle(el); if (!s) return;
+        const pos = s.position;
+        const z   = parseInt(s.zIndex || '0', 10);
+        const r   = el.getBoundingClientRect();
+        const full = r.width >= vw*0.95 && r.height >= vh*0.95;
+
+        // candidates: big fixed/absolute layers or any topmost iframe
+        const isLayer = (pos === 'fixed' || pos === 'absolute') && full && z >= 1;
+        const isFrame = el.tagName === 'IFRAME' && full;
+
+        if (isLayer || isFrame) {
+          // extra heuristics: known ad domains
+          const src = (el.tagName === 'IFRAME' && el.src) ? el.src : '';
+          const looksAd = /adsterra|monetag|adnxs|doubleclick|taboola|outbrain/i.test(src);
+          // disable pointer capture at minimum
+          el.style.pointerEvents = 'none';
+          el.style.touchAction   = 'none';
+          // if obviously an ad frame, hide it completely
+          if (isFrame && (looksAd || z >= 1000 || full)) {
+            el.style.display = 'none';
+            el.removeAttribute('src'); // stop reloading
+          }
+        }
+      });
+    }catch(e){}
+  }
+
+  // initial quick bursts (first 3 seconds)
+  let n=0; const fast = setInterval(()=>{ zapOnce(); if(++n>15) clearInterval(fast); }, 200);
+  // then slower sweep for late injections (30s)
+  const slow = setInterval(zapOnce, 1500);
+  setTimeout(()=>clearInterval(slow), 30000);
+
+  // watch DOM mutations too
+  const mo = new MutationObserver(zapOnce);
+  mo.observe(document.documentElement || document.body, {childList:true,subtree:true});
+  setTimeout(()=>mo.disconnect(), 30000);
+})();
+
+// 2) Ultra-priority click handler: if we still get the event, force nav
+(function () {
+  function go(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    try{
+      e.preventDefault();
+      e.stopPropagation();
+      if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+    }catch(_){}
+    try{ window.location.assign(a.getAttribute('href')); }catch(_){}
+  }
+  ['pointerdown','touchstart','click'].forEach(function(evt){
+    document.addEventListener(evt, go, { capture:true, passive:false });
+  });
+})();
+</script>
+
+
