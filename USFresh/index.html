@@ -1,1 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>🇺🇸 Viral Access — Limited USA Clip</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+:root{
+  --bg:#0b0d17;--card:#111827;--accent:#3b82f6;--accent2:#2563eb;
+  --txt:#f9fafb;--muted:#9ca3af;--border:rgba(255,255,255,.1)
+}
+*{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,Arial}
+body{
+  background:radial-gradient(900px 600px at 70% -20%,#1e3a8a 0%,#0b0d17 60%,#0b0d17 100%);
+  color:var(--txt);display:flex;flex-direction:column;align-items:center;
+  justify-content:center;min-height:100vh;text-align:center;padding:20px
+}
+.card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:20px;max-width:420px;width:100%;padding:28px 24px;
+  box-shadow:0 0 20px rgba(0,0,0,.4)
+}
+h1{font-size:1.5rem;margin-bottom:10px}
+h2{font-size:1rem;font-weight:400;color:var(--muted);margin-bottom:20px}
+
+/* Poster (no external image) */
+.fake-player{
+  width:100%;height:220px;border-radius:12px;overflow:hidden;position:relative;
+  background:
+    radial-gradient(120% 100% at 80% 0%, #1f2937 0%, #0b0d17 60%),
+    linear-gradient(180deg, #0b0d17 0%, #0b0d17 100%);
+  border:1px solid var(--border);
+  margin-bottom:20px
+}
+.poster-text{
+  position:absolute;inset:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:10px
+}
+.poster-text .title{font-weight:700}
+.poster-text .sub{font-size:.9rem;color:var(--muted)}
+.play-btn{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  background:rgba(255,255,255,.12);border:3px solid white;border-radius:50%;
+  width:70px;height:70px;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 18px rgba(0,0,0,.4)
+}
+.play-btn::before{
+  content:'';border-style:solid;border-width:12px 0 12px 18px;
+  border-color:transparent transparent transparent white;margin-left:4px
+}
+
+.countdown{font-size:1.05rem;margin:12px 0;color:var(--accent);font-weight:700}
+.progress{
+  height:8px;background:rgba(255,255,255,.06);border-radius:999px;overflow:hidden;
+  margin:8px 0 2px
+}
+.progress > i{display:block;height:100%;width:0%;
+  background:linear-gradient(90deg,var(--accent),var(--accent2))}
+button{
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  border:none;color:white;padding:14px 0;width:100%;border-radius:12px;
+  font-size:1.07rem;font-weight:700;cursor:pointer;margin-top:8px
+}
+button:disabled{opacity:.7;cursor:not-allowed}
+button:active{transform:scale(.98)}
+.badges{
+  display:flex;justify-content:center;gap:8px;margin-top:16px;flex-wrap:wrap
+}
+.badge{
+  font-size:.72rem;color:#d1d5db;border:1px solid var(--border);
+  padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.04)
+}
+footer{margin-top:24px;font-size:.8rem;color:var(--muted)}
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>Exclusive USA Access</h1>
+    <h2>Watch before it’s taken down!</h2>
+
+    <div class="fake-player">
+      <div class="poster-text">
+        <div class="title">Limited Clip • USA</div>
+        <div class="sub">HD • Age-Verified • Fast Unlock</div>
+      </div>
+      <div class="play-btn" aria-hidden="true"></div>
+    </div>
+
+    <div class="progress"><i id="bar"></i></div>
+    <div class="countdown">Unlocking in <span id="timer">7</span> seconds...</div>
+
+    <button id="ctaBtn" disabled>Preparing Access...</button>
+
+    <div class="badges">
+      <div class="badge">✔ Secure</div>
+      <div class="badge">🔒 SSL</div>
+      <div class="badge">🛡️ Protected</div>
+    </div>
+  </div>
+
+  <footer>©2025 ViralGate | Secure Access Portal</footer>
+
+<script>
+/* ===== Settings you can change ===== */
+const COUNTDOWN_SECONDS = 7; // ← palitan mo kung gusto mo 5/10/15
+const PRIMARY_URL = "https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"; // Adsterra
+/* ================================== */
+
+let t = COUNTDOWN_SECONDS;
+const timer = document.getElementById("timer");
+const btn   = document.getElementById("ctaBtn");
+const bar   = document.getElementById("bar");
+timer.textContent = t;
+
+const tick = setInterval(()=>{
+  t--;
+  timer.textContent = t;
+  const pct = ((COUNTDOWN_SECONDS - t) / COUNTDOWN_SECONDS) * 100;
+  bar.style.width = Math.max(0, Math.min(100, pct)) + "%";
+  if(t<=0){
+    clearInterval(tick);
+    btn.disabled = false;
+    btn.textContent = "👉 Access Now";
+    bar.style.width = "100%";
+  }
+},1000);
+
+btn.addEventListener("click", ()=>{ window.location.href = PRIMARY_URL; });
+</script>
+</body>
+</html>
 
