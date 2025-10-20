@@ -1,0 +1,157 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>USA Access — Universal Pre-Landing</title>
+<meta name="robots" content="noindex,nofollow">
+<style>
+:root{--bg:#0b0d17;--card:#111827;--txt:#f9fafb;--muted:#9ca3af;--border:rgba(255,255,255,.1);--a:#3b82f6;--b:#2563eb}
+*{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,Arial}
+body{background:radial-gradient(900px 600px at 70% -20%,#1e3a8a 0%,#0b0d17 60%,#0b0d17 100%);color:var(--txt);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:20px;max-width:440px;width:100%;padding:26px;box-shadow:0 0 20px rgba(0,0,0,.4);text-align:center}
+h1{font-size:1.35rem;margin-bottom:6px} .sub{color:var(--muted);margin-bottom:16px}
+.hidden{display:none}
+
+/* common */
+.btn{width:100%;padding:14px 0;border:none;border-radius:12px;background:linear-gradient(90deg,var(--a),var(--b));color:#fff;font-weight:800;font-size:1.05rem;margin-top:10px;cursor:pointer}
+.btn:disabled{opacity:.7;cursor:not-allowed}
+.badges{display:flex;justify-content:center;gap:8px;margin-top:14px;flex-wrap:wrap}
+.badge{font-size:.72rem;color:#d1d5db;border:1px solid var(--border);padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.04)}
+
+/* fake player block */
+.fake{width:100%;height:210px;border-radius:12px;position:relative;margin:10px 0 14px;border:1px solid var(--border);
+background:radial-gradient(120% 100% at 80% 0%, #1f2937 0%, #0b0d17 60%)}
+.play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:70px;height:70px;border-radius:50%;border:3px solid #fff;background:rgba(255,255,255,.12);display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,.4)}
+.play:before{content:"";border-style:solid;border-width:12px 0 12px 18px;border-color:transparent transparent transparent #fff;margin-left:4px}
+
+/* countdown */
+.progress{height:8px;background:rgba(255,255,255,.06);border-radius:999px;overflow:hidden;margin:6px 0 2px}
+.progress>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--a),var(--b))}
+.count{color:var(--a);font-weight:800;margin:8px 0}
+
+/* wheel */
+.wrap{position:relative;margin:8px auto 14px;width:280px;height:280px}
+.pointer{position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:12px solid transparent;border-right:12px solid transparent;border-bottom:22px solid #fff;filter:drop-shadow(0 2px 4px rgba(0,0,0,.4))}
+.wheel{width:100%;height:100%;border-radius:50%;border:6px solid #0f172a;background:
+conic-gradient(#1f2937 0 60deg,#334155 60deg 120deg,#1f2937 120deg 180deg,#334155 180deg 240deg,#1f2937 240deg 300deg,#334155 300deg 360deg);
+display:grid;place-items:center;transition:transform 3s cubic-bezier(.18,.77,.26,1)}
+.wheel:after{content:"SPIN";display:grid;place-items:center;width:96px;height:96px;border-radius:50%;background:linear-gradient(90deg,var(--a),var(--b));font-weight:800}
+
+/* quiz */
+.quiz .q{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:14px;padding:14px;margin:8px 0;text-align:left}
+.options{display:grid;gap:8px;margin-top:10px}
+.opt{padding:12px;border:1px solid var(--border);border-radius:10px;background:rgba(255,255,255,.04);cursor:pointer}
+.opt:active{transform:scale(.98)}
+footer{margin-top:18px;color:var(--muted);font-size:.8rem;text-align:center}
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>Exclusive USA Access</h1>
+    <div class="sub">Choose your chance to unlock (auto for visitors).</div>
+
+    <!-- COUNTDOWN MODE -->
+    <section id="mode-countdown" class="hidden">
+      <div class="fake"><div class="play"></div></div>
+      <div class="progress"><i id="bar"></i></div>
+      <div class="count">Unlocking in <span id="t">7</span> seconds…</div>
+      <button id="goCD" class="btn" disabled>Preparing Access...</button>
+    </section>
+
+    <!-- SPIN MODE -->
+    <section id="mode-spin" class="hidden">
+      <div class="wrap"><div class="pointer"></div><div id="wheel" class="wheel"></div></div>
+      <button id="spinBtn" class="btn">🎡 Spin</button>
+      <button id="goSP" class="btn hidden">👉 Claim Access</button>
+      <div class="sub" id="msg">You have <b>2 spins</b>. Good luck!</div>
+    </section>
+
+    <!-- QUIZ MODE -->
+    <section id="mode-quiz" class="hidden quiz">
+      <div class="q" id="q1">
+        <div><b>Do you shop on Amazon?</b></div>
+        <div class="options">
+          <div class="opt" data-next="q2">Yes</div>
+          <div class="opt" data-next="q2">Sometimes</div>
+          <div class="opt" data-next="q2">No</div>
+        </div>
+      </div>
+      <div class="q hidden" id="q2">
+        <div><b>Are you 18+ years old?</b></div>
+        <div class="options">
+          <div class="opt" data-next="q3">Yes</div>
+          <div class="opt" data-next="q3">Prefer not to say</div>
+        </div>
+      </div>
+      <div class="q hidden" id="q3">
+        <div><b>Pick your device:</b></div>
+        <div class="options">
+          <div class="opt" data-finish>iPhone</div>
+          <div class="opt" data-finish>Android</div>
+          <div class="opt" data-finish>Desktop</div>
+        </div>
+      </div>
+      <button id="goQZ" class="btn hidden">👉 Continue</button>
+    </section>
+
+    <div class="badges"><div class="badge">✔ Secure</div><div class="badge">🔒 SSL</div><div class="badge">🛡️ Protected</div></div>
+    <footer>©2025 Universal Portal</footer>
+  </div>
+
+<script>
+/* ====== SETTINGS ====== */
+const PRIMARY_URL  = "https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"; // Adsterra
+const FALLBACK_URL = ""; // (optional) Monetag/CPAgrip backup link here
+const COUNTDOWN_SECONDS = 7;
+/* ====================== */
+
+const qs=new URLSearchParams(location.search);
+const force=qs.get('m'); // countdown | spin | quiz
+const modes=["countdown","spin","quiz"];
+const chosen = modes.includes(force)?force:modes[Math.floor(Math.random()*modes.length)];
+
+document.getElementById("mode-"+chosen).classList.remove("hidden");
+
+/* ---- COUNTDOWN ---- */
+if(chosen==="countdown"){
+  let t=COUNTDOWN_SECONDS; const T=document.getElementById("t");
+  const bar=document.getElementById("bar"); const btn=document.getElementById("goCD");
+  T.textContent=t;
+  const iv=setInterval(()=>{t--; T.textContent=t; bar.style.width=((COUNTDOWN_SECONDS-t)/COUNTDOWN_SECONDS*100)+"%";
+    if(t<=0){clearInterval(iv); btn.disabled=false; btn.textContent="👉 Access Now"; bar.style.width="100%";}},1000);
+  btn.onclick=()=>go();
+}
+
+/* ---- SPIN ---- */
+if(chosen==="spin"){
+  const wheel=document.getElementById('wheel'); const spinBtn=document.getElementById('spinBtn');
+  const goBtn=document.getElementById('goSP'); const msg=document.getElementById('msg'); let spins=0;
+  spinBtn.onclick=()=>{
+    spins++; spinBtn.disabled=true;
+    const angle = spins===1 ? 1440+120 : 1800+10; // 1st: miss, 2nd: win
+    wheel.style.transform=`rotate(${angle}deg)`;
+    setTimeout(()=>{
+      spinBtn.disabled=false;
+      if(spins===1){ msg.innerHTML="So close! You have <b>1 spin</b> left."; }
+      else { msg.innerHTML="🎉 You won access!"; spinBtn.classList.add("hidden"); goBtn.classList.remove("hidden"); }
+    },3000);
+  };
+  goBtn.onclick=()=>go();
+}
+
+/* ---- QUIZ ---- */
+if(chosen==="quiz"){
+  const q1=document.getElementById('q1'), q2=document.getElementById('q2'), q3=document.getElementById('q3'), goQZ=document.getElementById('goQZ');
+  document.querySelectorAll('#q1 .opt').forEach(o=>o.onclick=()=>{q2.classList.remove('hidden'); q1.classList.add('hidden');});
+  document.querySelectorAll('#q2 .opt').forEach(o=>o.onclick=()=>{q3.classList.remove('hidden'); q2.classList.add('hidden');});
+  document.querySelectorAll('#q3 .opt').forEach(o=>o.onclick=()=>{goQZ.classList.remove('hidden'); q3.classList.add('hidden');});
+  goQZ.onclick=()=>go();
+}
+
+/* ---- Redirect with fallback ---- */
+function go(){
+  let navigated=false;
+  const to=PRIMARY_URL||"#";
+  try{ location.href=to; navigated=true; }catch(e){}
+  setTimeout(()=>{ if(!navigated && FALLBACK_URL) location.href=FALLBACK_URL; }, 1200);
+}
+</script>
+</body></html>
