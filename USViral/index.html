@@ -1,90 +1,84 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>🇺🇸 Viral USA Clip — Watch Before It’s Gone</title>
-  <meta name="robots" content="noindex, nofollow">
-  <meta name="theme-color" content="#002244">
-  <meta http-equiv="Cache-Control" content="no-store">
-
-  <style>
-    :root{
-      --bg:#010409; --card:#0d1117; --txt:#f8fafc;
-      --accent:#2563eb; --accent2:#22d3ee;
-      --border:rgba(255,255,255,.08); --muted:#94a3b8;
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{
-      background:radial-gradient(1000px 700px at 50% -20%,#0a192f,#010409);
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;
-      color:var(--txt);
-      min-height:100svh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:18px;
-    }
-    .wrap{width:min(420px,95vw)}
-    .card{
-      background:linear-gradient(180deg,#0d1117,#020617);
-      border:1px solid var(--border);
-      border-radius:18px;
-      padding:20px;
-      box-shadow:0 10px 40px rgba(0,0,0,.55);
-      text-align:center;
-    }
-    .top{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}
-    .pill{padding:6px 10px;border-radius:999px;font-weight:900;font-size:.8rem}
-    .pill.hot{background:#1e40af;color:#fff}
-    .pill.viral{background:#0f172a;color:#38bdf8}
-    h1{font-size:1.3rem;font-weight:800;margin:6px 0 12px;color:var(--accent2)}
-    .teaser{border-radius:14px;border:1px solid var(--border);background:#0a0f1c;padding:18px;margin-bottom:16px}
-    .play{width:84px;height:84px;border-radius:999px;border:3px solid var(--accent);display:grid;place-content:center;margin:0 auto;box-shadow:0 0 30px rgba(37,99,235,.4)}
-    .btn{display:block;text-align:center;font-weight:900;text-decoration:none;color:#fff;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:999px;padding:14px;margin-top:10px;box-shadow:0 8px 24px rgba(37,99,235,.3)}
-    .backup{text-align:center;margin-top:10px;font-size:.85rem}
-    .backup a{color:#fde68a;font-weight:900;text-decoration:none}
-    .note{text-align:center;font-size:.8rem;color:var(--muted);margin-top:12px}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Universal Viral Gateway</title>
+<meta name="robots" content="noindex,nofollow">
+<style>
+:root{--bg:#0b0d17;--card:#111827;--a:#22d3ee;--b:#3b82f6;--txt:#f9fafb;--muted:#9ca3af;--border:rgba(255,255,255,.08)}
+*{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,Arial}
+body{background:radial-gradient(900px 600px at 70% -20%,#1e3a8a 0%,#0b0d17 60%,#0b0d17 100%);color:var(--txt);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;text-align:center}
+.card{background:var(--card);border:1px solid var(--border);border-radius:20px;max-width:420px;width:100%;padding:26px 22px;box-shadow:0 0 20px rgba(0,0,0,.4)}
+.h1{font-size:1.35rem;font-weight:800;margin-bottom:6px}
+.sub{color:var(--muted);margin-bottom:16px}
+.fake{width:100%;height:210px;border-radius:12px;border:1px solid var(--border);margin:10px 0 14px;
+background:radial-gradient(120% 100% at 80% 0%, #1f2937 0%, #0b0d17 60%);position:relative}
+.play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:70px;height:70px;border-radius:50%;border:3px solid #fff;background:rgba(255,255,255,.12);display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,.4)}
+.play:before{content:"";border-style:solid;border-width:12px 0 12px 18px;border-color:transparent transparent transparent #fff;margin-left:4px}
+.progress{height:8px;background:rgba(255,255,255,.06);border-radius:999px;overflow:hidden;margin:8px 0 2px}
+.progress>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--a),var(--b))}
+.btn{width:100%;padding:14px 0;border:none;border-radius:12px;background:linear-gradient(90deg,var(--a),var(--b));color:#fff;font-weight:800;font-size:1.05rem;margin-top:10px;cursor:pointer}
+.btn:disabled{opacity:.7;cursor:not-allowed}
+.note{font-size:.9rem;color:var(--muted);margin-top:10px}
+.note a{color:#facc15;text-decoration:none;font-weight:700}
+footer{margin-top:18px;color:var(--muted);font-size:.8rem}
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="card">
-      <div class="top">
-        <span class="pill hot">USA HOT</span>
-        <span class="pill viral">VIRAL 18+</span>
-      </div>
+  <div class="card">
+    <div id="title" class="h1">Loading…</div>
+    <div id="sub" class="sub"></div>
 
-      <h1>🇺🇸 Trending USA Clip — Watch Before It’s Gone</h1>
+    <div class="fake"><div class="play"></div></div>
 
-      <div class="teaser">
-        <div class="play">
-          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 5v14l11-7-11-7z" fill="#22d3ee"/>
-          </svg>
-        </div>
-        <p style="margin-top:10px;color:#60a5fa;font-weight:700;">Now trending in Los Angeles 🇺🇸</p>
-      </div>
+    <div class="progress"><i id="bar"></i></div>
+    <div class="sub" id="count">Unlocking in <b><span id="t">6</span>s</b>…</div>
 
-      <a class="btn"
-         href="https://giftcardzoneeu.com/claim"
-         target="_blank" rel="nofollow noopener noreferrer">
-        🔥 WATCH FULL VIDEO
-      </a>
-
-      <div class="backup">
-        If it doesn’t open, try again 👇<br>
-        <a href="https://giftcardzoneeu.com/claim"
-           target="_blank" rel="nofollow noopener noreferrer">
-          Backup Link
-        </a>
-      </div>
-
-      <div class="note">
-        By continuing, you confirm you’re 18+. This page is promotional.
-      </div>
-    </div>
+    <button id="go" class="btn" disabled>Preparing…</button>
+    <div class="note">If it doesn’t open, try again 👇<br><a href="#" id="backup">Backup Link</a></div>
   </div>
+  <footer>©2025 Viral Gateway</footer>
+
+<script>
+/* ===== EDIT LINKS HERE ===== */
+const URL_BR = "https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"; // Adsterra (Brazil/Global ok)
+const URL_EN = "https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"; // same or US smartlink
+const BACKUP  = "https://giftcardzoneeu.com/PushOne/";
+const COUNT   = 6;
+/* ========================== */
+
+const qs  = new URLSearchParams(location.search);
+const fgeo = (qs.get("geo")||"").toLowerCase();     // ?geo=br to force Brazil
+const lang = (navigator.language||"").toLowerCase();
+const isBR = fgeo==="br" || lang.startsWith("pt");
+
+const copyBR = {
+  title: "🇧🇷 Vídeo Viral — Assista Antes que Saia do Ar!",
+  sub:   "Em alta agora no Brasil 🇧🇷",
+  btn:   "🔥 ASSISTIR AGORA",
+  target: URL_BR
+};
+const copyEN = {
+  title: "⚡ Trending Clip — Watch Before It’s Gone!",
+  sub:   "Now trending in your area",
+  btn:   "👉 WATCH FULL VIDEO",
+  target: URL_EN
+};
+const ui = isBR ? copyBR : copyEN;
+
+document.getElementById("title").textContent = ui.title;
+document.getElementById("sub").textContent   = ui.sub;
+document.getElementById("go").textContent    = ui.btn;
+
+let t=COUNT; const T=document.getElementById("t"), bar=document.getElementById("bar"), btn=document.getElementById("go");
+T.textContent=t;
+const iv=setInterval(()=>{ t--; T.textContent=t; bar.style.width=((COUNT-t)/COUNT*100)+"%";
+  if(t<=0){clearInterval(iv); btn.disabled=false; btn.textContent=ui.btn; bar.style.width="100%";}
+},1000);
+
+btn.onclick=()=>location.href=ui.target;
+document.getElementById("backup").onclick=(e)=>{e.preventDefault(); location.href=BACKUP;};
+</script>
 </body>
 </html>
-
