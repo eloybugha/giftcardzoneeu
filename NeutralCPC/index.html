@@ -6,63 +6,112 @@
   <title>🎁 Access Your Offer — GiftCardZoneEU</title>
   <meta name="robots" content="noindex,nofollow" />
   <style>
-    body {
-      background: linear-gradient(135deg,#f9fafb,#e2e8f0);
-      font-family: system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;
-      color:#0f172a;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      height:100vh;
-      text-align:center;
-      margin:0;
+    :root{
+      --bg1:#f8fafc; --bg2:#e2e8f0; --txt:#0f172a; --muted:#475569;
+      --btn:#0284c7; --btn2:#0369a1;
     }
-    h1 {font-size:1.8rem;margin-bottom:0.5rem;}
-    p {color:#475569;margin-top:0;margin-bottom:1.5rem;}
-    a.btn {
-      background:#0284c7;
-      color:#fff;
-      text-decoration:none;
-      font-weight:600;
-      padding:14px 28px;
-      border-radius:12px;
-      box-shadow:0 8px 20px rgba(2,132,199,.25);
-      transition:.2s;
-      display:inline-block;
+    html,body{height:100%}
+    body{
+      margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;
+      color:var(--txt);
+      background: radial-gradient(900px 600px at 20% -10%, #bae6fd40, transparent 60%),
+                  radial-gradient(900px 700px at 110% 120%, #bbf7d040, transparent 60%),
+                  linear-gradient(135deg,var(--bg1),var(--bg2));
+      display:flex; align-items:center; justify-content:center; text-align:center;
+      padding:24px;
     }
-    a.btn:hover {background:#0369a1;transform:translateY(-2px);}
-    .countdown {font-weight:700;color:#0f172a;margin-top:10px;}
+    .card{
+      width:min(680px,100%); background:#fff; border-radius:18px;
+      box-shadow:0 18px 40px rgba(2,8,23,.12); padding:28px 22px;
+    }
+    h1{font-size:1.8rem;margin:.2rem 0 .4rem}
+    p{color:var(--muted); margin:.2rem 0 1.2rem}
+    .row{display:flex; gap:12px; align-items:center; justify-content:center; flex-wrap:wrap}
+    .btn{
+      background:var(--btn); color:#fff; text-decoration:none; font-weight:700;
+      padding:14px 22px; border-radius:12px; box-shadow:0 10px 22px rgba(2,132,199,.25);
+      display:inline-flex; align-items:center; gap:10px; transition:.15s;
+    }
+    .btn:hover{transform:translateY(-2px); background:var(--btn2)}
+    .count{font-weight:700; color:var(--txt)}
+    /* spinner */
+    .spinner{
+      width:28px; height:28px; border-radius:999px; border:3px solid #cbd5e1;
+      border-top-color:#0ea5e9; animation:spin 1s linear infinite;
+      margin:0 auto 10px;
+    }
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .note{font-size:.9rem; color:#64748b; margin-top:.8rem}
+    .geo{font-weight:700}
+    .skip{display:inline-block; margin-top:10px; font-size:.9rem}
   </style>
 </head>
 <body>
+  <div class="card" role="region" aria-label="Redirect gateway">
+    <div class="spinner" aria-hidden="true"></div>
+    <h1>Preparing your access link...</h1>
+    <p id="geotxt">Checking availability for your region…</p>
 
-  <h1>Preparing your access link...</h1>
-  <p>You’ll be redirected shortly to the active offer page.</p>
+    <div class="row" style="margin:.6rem 0 0.8rem">
+      <a class="btn" id="continueBtn"
+         href="https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"
+         target="_blank" rel="nofollow noopener" aria-label="Continue to offer">
+        👉 Continue Now
+      </a>
+    </div>
 
-  <a class="btn" id="continueBtn"
-     href="https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"
-     target="_blank" rel="nofollow noopener">
-     👉 Continue Now
-  </a>
-
-  <div class="countdown">Redirecting in <span id="secs">3</span> seconds...</div>
+    <p class="note">
+      <span class="count">Redirecting in <span id="secs">3</span> seconds…</span>
+      <br><a class="skip" href="#" id="skip">Skip timer</a>
+    </p>
+    <noscript><p class="note">JavaScript is required to continue.</p></noscript>
+  </div>
 
   <script>
+    // --------- Append ?src= from current URL -----------
+    (function appendSrc(){
+      try{
+        const params = new URLSearchParams(location.search);
+        const src = params.get('src') || 'direct';
+        const btn = document.getElementById('continueBtn');
+        const u = new URL(btn.href);
+        if(!u.searchParams.get('src')) u.searchParams.set('src', src);
+        btn.href = u.toString();
+      }catch(e){}
+    })();
+
+    // --------- Geo text with flag -----------
+    function toFlag(cc){ // cc = country code like 'PH'
+      if(!cc) return '';
+      return cc.replace(/./g, c => String.fromCodePoint(127397 + c.toUpperCase().charCodeAt(0)));
+    }
+    fetch('https://ipapi.co/json/')
+     .then(r=>r.ok?r.json():Promise.reject())
+     .then(d=>{
+       const name = d && (d.country_name || d.country);
+       const cc = d && d.country;
+       const flag = cc ? toFlag(cc[0])+toFlag(cc[1]) : '';
+       document.getElementById('geotxt').innerHTML =
+         `Offer available in your region <span class="geo">${flag} ${name||''}</span>.`;
+     })
+     .catch(()=>{
+       document.getElementById('geotxt').textContent =
+         'Offer availability may vary by country/device.';
+     });
+
+    // --------- Countdown + redirect -----------
     let counter = 3;
     const span = document.getElementById('secs');
-    const btn = document.getElementById('continueBtn');
+    const btn  = document.getElementById('continueBtn');
+    const skip = document.getElementById('skip');
 
-    const tick = setInterval(()=>{
-      counter--;
-      if(counter <= 0){
-        clearInterval(tick);
-        window.location.href = btn.href;
-      } else {
-        span.textContent = counter;
-      }
+    function go(){ location.href = btn.href; }
+    const t = setInterval(()=>{
+      counter--; span.textContent = counter;
+      if(counter <= 0){ clearInterval(t); go(); }
     },1000);
-  </script>
 
+    skip.addEventListener('click', (e)=>{ e.preventDefault(); clearInterval(t); go(); });
+  </script>
 </body>
 </html>
