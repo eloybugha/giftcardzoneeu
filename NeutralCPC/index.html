@@ -1,69 +1,68 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Continue to Offer</title>
-<meta name="robots" content="noindex,nofollow">
-<!-- speed hints -->
-<link rel="preconnect" href="https://moundconclusive.com" crossorigin>
-<link rel="dns-prefetch" href="//moundconclusive.com">
-<style>
-:root{--bg:#0b0d17;--card:#111827;--txt:#f9fafb;--muted:#9ca3af;--a:#3b82f6;--b:#2563eb;--border:rgba(255,255,255,.1)}
-*{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,Arial}
-body{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;text-align:center;color:var(--txt);
-      background:radial-gradient(900px 600px at 70% -20%,#1e3a8a 0%,#0b0d17 60%,#0b0d17 100%)}
-.card{width:100%;max-width:420px;background:var(--card);border:1px solid var(--border);border-radius:18px;padding:24px 20px;
-      box-shadow:0 0 20px rgba(0,0,0,.4);cursor:pointer;user-select:none}
-h1{font-size:1.25rem;margin-bottom:6px}
-.sub{color:var(--muted);margin-bottom:14px}
-.btn{width:100%;padding:14px 0;border:none;border-radius:12px;background:linear-gradient(90deg,var(--a),var(--b));
-     color:#fff;font-weight:800;font-size:1.05rem;cursor:pointer;transition:transform .1s}
-.btn:active{transform:scale(.96)}
-.note{font-size:.86rem;color:var(--muted);margin-top:10px}
-.note a{color:#facc15;text-decoration:none;font-weight:700}
-footer{margin-top:18px;color:var(--muted);font-size:.8rem}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>🎁 Access Your Offer — GiftCardZoneEU</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <style>
+    body {
+      background: linear-gradient(135deg,#f9fafb,#e2e8f0);
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;
+      color:#0f172a;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      height:100vh;
+      text-align:center;
+      margin:0;
+    }
+    h1 {font-size:1.8rem;margin-bottom:0.5rem;}
+    p {color:#475569;margin-top:0;margin-bottom:1.5rem;}
+    a.btn {
+      background:#0284c7;
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      padding:14px 28px;
+      border-radius:12px;
+      box-shadow:0 8px 20px rgba(2,132,199,.25);
+      transition:.2s;
+      display:inline-block;
+    }
+    a.btn:hover {background:#0369a1;transform:translateY(-2px);}
+    .countdown {font-weight:700;color:#0f172a;margin-top:10px;}
+  </style>
 </head>
 <body>
-  <div id="card" class="card" role="button" aria-label="Continue">
-    <h1 id="title">Continue to the offer</h1>
-    <div class="sub" id="sub">Trusted redirect • Secure access</div>
-    <button id="go" class="btn">👉 Continue</button>
-    <div class="note" id="backupWrap" style="display:none">If it doesn’t open, try again 👇<br>
-      <a href="#" id="backup">Backup Link</a>
-    </div>
-  </div>
-  <footer>©2025 Gateway</footer>
 
-<script>
-/* ===== LINKS (Adsterra-only by default) ===== */
-const PRIMARY_URL = "https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";
-const BACKUP_URL  = ""; // optional: put another URL or leave empty to hide
+  <h1>Preparing your access link...</h1>
+  <p>You’ll be redirected shortly to the active offer page.</p>
 
-/* ===== Minimal geo text (optional) ===== */
-const qs=new URLSearchParams(location.search);
-const cc=(qs.get("cc")||"").toUpperCase();
-if(cc==="NL"){ document.getElementById("title").textContent="Ga verder naar de aanbieding"; document.getElementById("sub").textContent="Beveiligde toegang • Betrouwbare doorverwijzing"; }
+  <a class="btn" id="continueBtn"
+     href="https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"
+     target="_blank" rel="nofollow noopener">
+     👉 Continue Now
+  </a>
 
-/* ===== Instant CPC click: open new tab + same-tab fallback ===== */
-function goOut(){
-  // 1) Counted user click (new tab)
-  const win = window.open(PRIMARY_URL, "_blank", "noopener");
-  // 2) Same-tab fallback (covers blocked pop cases)
-  setTimeout(()=>{ location.href = PRIMARY_URL; }, 400);
-  // 3) Extra safety: if popups blocked entirely, still navigate
-  if(!win){ location.href = PRIMARY_URL; }
-}
-document.getElementById("go").addEventListener("click", goOut);
-document.getElementById("card").addEventListener("click", (e)=>{ if(e.target.id!=="backup") goOut(); });
-document.addEventListener("keydown", (e)=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); goOut(); }});
+  <div class="countdown">Redirecting in <span id="secs">3</span> seconds...</div>
 
-/* Backup link visibility */
-if(BACKUP_URL){
-  const wrap=document.getElementById("backupWrap"); wrap.style.display="block";
-  document.getElementById("backup").addEventListener("click", e=>{ e.preventDefault(); location.href=BACKUP_URL; });
-}
-</script>
+  <script>
+    let counter = 3;
+    const span = document.getElementById('secs');
+    const btn = document.getElementById('continueBtn');
+
+    const tick = setInterval(()=>{
+      counter--;
+      if(counter <= 0){
+        clearInterval(tick);
+        window.location.href = btn.href;
+      } else {
+        span.textContent = counter;
+      }
+    },1000);
+  </script>
+
 </body>
 </html>
