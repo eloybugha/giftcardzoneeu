@@ -39,26 +39,34 @@
     <a id="cta" class="btn" href="https://giftcardzoneeu.com/NeutralCPC/" rel="noopener noreferrer">Continue</a>
   </div>
 
-  <script>
-    const TARGET = "https://giftcardzoneeu.com/NeutralCPC/";
-    const DELAY = 3;
-    document.getElementById("cta").href = TARGET;
-
-    const secs = document.getElementById("secs");
-    let left = DELAY;
-    const timer = setInterval(()=>{
-      left--;
-      secs.textContent = Math.max(left,0);
-      if(left<=0){ clearInterval(timer); redirectNow(); }
-    },1000);
-
-    function redirectNow(){
-      try{ window.location.href = TARGET; }catch(e){}
-      setTimeout(()=>{ try{ window.top.location.href = TARGET; }catch(e){} },300);
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://giftcardzoneeu.com/#org",
+      "name": "GiftCardZoneEU",
+      "url": "https://giftcardzoneeu.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://giftcardzoneeu.com/logo.png"
+      },
+      "sameAs": [
+        "https://www.facebook.com/",
+        "https://www.instagram.com/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://giftcardzoneeu.com/#website",
+      "url": "https://giftcardzoneeu.com/",
+      "name": "GiftCardZoneEU",
+      "publisher": { "@id": "https://giftcardzoneeu.com/#org" },
+      "inLanguage": "en"
     }
+  ]
+}
+</script>
 
-    setTimeout(redirectNow,(DELAY+1)*1000);
-  </script>
-</body>
-</html>
  
