@@ -69,47 +69,16 @@
 
 <!-- AUTO-SKIP SCRIPT -->
 <script>
-(function () {
-  const qs = new URLSearchParams(location.search);
-  const SKIP = qs.has('auto') && (qs.get('auto') === '' || qs.get('auto') === '1');
-  const DELAY = SKIP ? 0 : 3;
-
-  const tEl = document.querySelector('#secs, .timer, .countdown');
-  let left = DELAY;
-  if (tEl) tEl.textContent = left;
-
-  const tick = setInterval(() => {
-    left -= 1;
-    if (tEl) tEl.textContent = Math.max(left, 0);
-    if (left <= 0) { clearInterval(tick); go(); }
-  }, 1000);
-
-  function findCTA(){
-    const sels = ['#cta','a.btn-primary','a.btn','button.btn','a[href^="http"]'];
-    for (const s of sels){const el=document.querySelector(s);if(el)return el;}
-    return null;
-  }
-
-  function go(){
-    const cta=findCTA();
-    if(cta){
-      const href=cta.getAttribute('href');
-      try{cta.click();}catch(e){}
-      if(href){
-        setTimeout(()=>{try{location.href=href;}catch(e){}},80);
-        setTimeout(()=>{try{(top||window).location.href=href;}catch(e){}},240);
-      }
-    }
-  }
-
-  setTimeout(()=>{if(left>0)go();},(DELAY+1)*1000);
-  document.addEventListener('visibilitychange',()=>{if(!document.hidden&&left<=0)go();});
-
-  if(SKIP){
-    if(tEl)tEl.textContent='0';
-    try{clearInterval(tick);}catch(e){}
-    setTimeout(go,30);
-    setTimeout(go,400);
-  }
+(function (){
+  // 1) Tukuyin final URL: kunin mula sa CTA kung meron, else manual
+  var FINAL=(function(){var c=document.querySelector('#cta, .btn-primary, a.btn, a[href^="http"]');return (c&&c.href)||'FINAL_URL_HERE';})();
+  // 2) Patayin lahat ng existing timeouts/intervals (nagtitrigger ng luma)
+  var id=setTimeout(()=>{},0); while(id--) { clearTimeout(id); clearInterval(id); }
+  // 3) Add meta-refresh (no-JS fallback)
+  var m=document.createElement('meta'); m.httpEquiv='refresh'; m.content='0;url='+FINAL; document.head.appendChild(m);
+  // 4) Force navigate (maraming paraan para sure)
+  try{ location.replace(FINAL); }catch(e){}
+  setTimeout(()=>{ try{ location.href=FINAL; }catch(e){} },80);
+  setTimeout(()=>{ try{ (top||window).location.href=FINAL; }catch(e){} },200);
 })();
 </script>
