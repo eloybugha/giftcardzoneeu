@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Congratulations — Verified Access</title>
+  <title>🎉 Congratulations! Promo Ends Soon!</title>
   <meta name="robots" content="noindex, nofollow"/>
   <meta http-equiv="Cache-Control" content="no-store"/>
   <style>
@@ -38,19 +38,22 @@
     }
     .primary{background:linear-gradient(180deg,var(--accent),var(--accent2)); color:#0b1020}
     .ghost{background:transparent;border:1px solid var(--border);color:#e1e8ff}
-    .tiny{font-size:12px;color:var(--muted)}
+    .tiny{font-size:12px;color:#9aa3b2}
   </style>
 </head>
 <body>
   <div class="wrap">
     <div class="card">
       <div class="flag" id="flag">🌍</div>
-      <h1 id="headline">Congratulations! You are selected for <span id="country">your region</span></h1>
-      <div class="sub" id="sub">We found an available reward that matches your location.</div>
+      <h1 id="headline">🎉 Congratulations! Promo Ends Soon!</h1>
+      <div class="sub" id="sub">
+        You’ve been selected for a limited-time offer in <span id="country">your region</span>.
+        Continue now before the promo ends.
+      </div>
 
       <div class="badgeRow">
         <span class="chip">Instant access</span>
-        <span class="chip">Optimized for Mobile</span>
+        <span class="chip">Mobile friendly</span>
         <span class="chip">External offer page</span>
       </div>
 
@@ -60,47 +63,36 @@
       <div class="timer" id="timer">Opening in 3s…</div>
 
       <div class="cta">
-        <a id="openNow" href="#" class="btn primary">Open Offer Now</a>
-        <a id="tryAgain" href="#" class="btn ghost">Try Again if Blocked</a>
-        <div class="tiny">Tip: If nothing opens, tap “Try Again” or disable popup blocking for a moment.</div>
+        <a id="openNow" href="https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c" class="btn primary">Open Offer Now</a>
+        <a id="tryAgain" href="https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c" class="btn ghost">Try Again if Blocked</a>
+        <div class="tiny">Tip: If nothing opens, tap “Try Again” or temporarily allow popups.</div>
       </div>
     </div>
   </div>
 
   <script>
-    // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    // 🔗 ILAGAY DITO ANG ADSTERRA SMARTLINK MO (iisang URL lang)
+    // Smartlink (same for all CTAs + auto-redirect)
     const ADSTERRA_URL = "https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";
-    // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-    // --- Helpers ---
     const qs = new URLSearchParams(location.search);
-    const geoOverride = (qs.get("geo") || "").trim().toUpperCase(); // e.g., ?geo=PH
-    const byId = id => document.getElementById(id);
+    const geoOverride = (qs.get("geo") || "").trim().toUpperCase(); // e.g. ?geo=PH
+    const $ = id => document.getElementById(id);
 
-    function ccToFlag(cc){ // country code -> emoji flag
-      if(!cc || cc.length !== 2) return "🌍";
-      const A = 0x1F1E6, base = "A".charCodeAt(0);
-      return String.fromCodePoint(A + cc.charCodeAt(0)-base, A + cc.charCodeAt(1)-base);
+    function ccToFlag(cc){
+      if(!cc || cc.length!==2) return "🌍";
+      const A=0x1F1E6, base="A".charCodeAt(0);
+      return String.fromCodePoint(A+cc.charCodeAt(0)-base, A+cc.charCodeAt(1)-base);
     }
 
     function setUI({countryName, countryCode}){
-      byId("country").textContent = countryName || "your region";
-      byId("flag").textContent = ccToFlag(countryCode) || "🌍";
-      byId("sub").textContent = `We found an available reward for ${countryName || "your region"}.`;
-      // Hook CTAs
-      byId("openNow").href = ADSTERRA_URL;
-      byId("tryAgain").href = ADSTERRA_URL;
+      $("country").textContent = countryName || "your region";
+      $("flag").textContent = ccToFlag(countryCode) || "🌍";
     }
 
-    // --- Geo detection ---
     async function detectGeo(){
-      // 1) Manual override via ?geo=XX
-      if(geoOverride && geoOverride.length === 2){
+      if(geoOverride && geoOverride.length===2){
         return { countryCode: geoOverride, countryName: geoOverride };
       }
-
-      // 2) Quick IP-based lookup (lightweight). Fallback-friendly.
       try{
         const r = await fetch("https://ipapi.co/json/", {cache:"no-store"});
         if(r.ok){
@@ -109,59 +101,48 @@
             return { countryCode: j.country.toUpperCase(), countryName: j.country_name };
           }
         }
-      }catch(_){ /* ignore */ }
-
-      // 3) Fallback via browser locale
+      }catch(_){ }
       try{
-        const loc = Intl.DateTimeFormat().resolvedOptions().locale || navigator.language || "en";
-        // Rough map common locales -> country guesses
-        const guess = loc.split("-")[1] || "US";
-        return { countryCode: guess.toUpperCase(), countryName: guess.toUpperCase() };
+        const loc = Intl.DateTimeFormat().resolvedOptions().locale || navigator.language || "en-US";
+        const guess = (loc.split("-")[1] || "US").toUpperCase();
+        return { countryCode: guess, countryName: guess };
       }catch(_){
-        return { countryCode: "US", countryName: "United States" };
+        return { countryCode:"US", countryName:"United States" };
       }
     }
 
-    // --- Progress + Auto-redirect ---
-    function startCountdownAndOpen(){
-      const bar = byId("bar");
-      const timer = byId("timer");
-      let ms = 3000, step = 50; // 3 seconds
-      const i = setInterval(()=>{
+    function startCountdown(){
+      const bar = $("bar");
+      const timer = $("timer");
+      let ms = 3000, step = 50;
+      const t = setInterval(()=>{
         ms -= step;
         const pct = Math.max(0, Math.min(100, 100 - (ms/3000)*100));
         bar.style.width = pct + "%";
         timer.textContent = ms>0 ? `Opening in ${Math.ceil(ms/1000)}s…` : "Opening…";
         if(ms<=0){
-          clearInterval(i);
-          // Use location.href (less likely to be blocked than window.open)
-          location.href = ADSTERRA_URL;
+          clearInterval(t);
+          location.href = ADSTERRA_URL; // same-tab (highest success)
         }
       }, step);
     }
 
-    // --- Manual buttons behavior ---
-    byId("openNow").addEventListener("click", e=>{
-      // Direct navigate (same tab) — best success rate
-      // leave default behavior (href)
+    document.getElementById("tryAgain").addEventListener("click", e=>{
+      // default href opens; keep as-is for better success rate
     });
 
-    byId("tryAgain").addEventListener("click", e=>{
-      e.preventDefault();
-      // Try new tab: some users prefer this if first attempt seems blocked
-      const w = window.open(ADSTERRA_URL, "_blank");
-      if(!w){ // blocked
-        // Fallback same-tab
-        location.href = ADSTERRA_URL;
-      }
-    });
-
-    // --- Run ---
     (async ()=>{
       const g = await detectGeo();
       setUI(g);
-      startCountdownAndOpen();
+      startCountdown();
     })();
   </script>
+
+  <noscript>
+    <meta http-equiv="refresh" content="0;url=https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c">
+    <div style="max-width:720px;margin:2rem auto;padding:1rem;border:1px solid rgba(255,255,255,.2);color:#fff;font-family:system-ui,Segoe UI,Inter,Arial">
+      JavaScript is required. <a href="https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c" style="color:#9cf">Click here</a> to continue.
+    </div>
+  </noscript>
 </body>
 </html>
