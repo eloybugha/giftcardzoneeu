@@ -67,51 +67,44 @@
     <noscript><p class="note">JavaScript is required to continue.</p></noscript>
   </div>
 
-  <script>
-    // --------- Append ?src= from current URL -----------
-    (function appendSrc(){
-      try{
-        const params = new URLSearchParams(location.search);
-        const src = params.get('src') || 'direct';
-        const btn = document.getElementById('continueBtn');
-        const u = new URL(btn.href);
-        if(!u.searchParams.get('src')) u.searchParams.set('src', src);
-        btn.href = u.toString();
-      }catch(e){}
-    })();
+<script>
+(function(){
+  const payload = {
+    url: location.href,
+    ref: document.referrer || 'none',
+    ua: navigator.userAgent,
+    lang: navigator.language || '',
+    src: new URLSearchParams(location.search).get('src') || 'none',
+    time: new Date().toISOString(),
+    phase: 'hit'
+  };
 
-    // --------- Geo text with flag -----------
-    function toFlag(cc){ // cc = country code like 'PH'
-      if(!cc) return '';
-      return cc.replace(/./g, c => String.fromCodePoint(127397 + c.toUpperCase().charCodeAt(0)));
-    }
-    fetch('https://ipapi.co/json/')
-     .then(r=>r.ok?r.json():Promise.reject())
-     .then(d=>{
-       const name = d && (d.country_name || d.country);
-       const cc = d && d.country;
-       const flag = cc ? toFlag(cc[0])+toFlag(cc[1]) : '';
-       document.getElementById('geotxt').innerHTML =
-         `Offer available in your region <span class="geo">${flag} ${name||''}</span>.`;
-     })
-     .catch(()=>{
-       document.getElementById('geotxt').textContent =
-         'Offer availability may vary by country/device.';
-     });
+  // initial hit
+  fetch("https://webhook.site/b002df4d-ad13-431a-88c4-19d5db1d75cb", {
+    method:"POST", headers:{"Content-Type":"application/json"},
+    body: JSON.stringify(payload)
+  });
 
-    // --------- Countdown + redirect -----------
-    let counter = 3;
-    const span = document.getElementById('secs');
-    const btn  = document.getElementById('continueBtn');
-    const skip = document.getElementById('skip');
+  // JS-onload after 2s (bot check)
+  setTimeout(()=>{
+    fetch("https://webhook.site/b002df4d-ad13-431a-88c4-19d5db1d75cb", {
+      method:"POST", headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({...payload, phase:"js_onload"})
+    });
+  }, 2000);
 
-    function go(){ location.href = btn.href; }
-    const t = setInterval(()=>{
-      counter--; span.textContent = counter;
-      if(counter <= 0){ clearInterval(t); go(); }
-    },1000);
+  // first interaction (mouse/touch)
+  function sendOnce(e){
+    fetch("https://webhook.site/b002df4d-ad13-431a-88c4-19d5db1d75cb", {
+      method:"POST", headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({...payload, phase:"interaction", ev: e.type})
+    });
+    window.removeEventListener('mousemove', sendOnce);
+    window.removeEventListener('touchstart', sendOnce);
+  }
+  window.addEventListener('mousemove', sendOnce, {once:true});
+  window.addEventListener('touchstart', sendOnce, {once:true});
+})();
+</script>
 
-    skip.addEventListener('click', (e)=>{ e.preventDefault(); clearInterval(t); go(); });
-  </script>
-</body>
 </html>
