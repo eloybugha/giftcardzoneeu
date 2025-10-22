@@ -6,40 +6,38 @@
 <title>Page Not Found | GiftCardZoneEU</title>
 <meta name="description" content="Oops! The page you’re looking for doesn’t exist. Go back to the GiftCardZoneEU homepage and explore our latest offers.">
 <meta name="robots" content="noindex, follow">
+<meta http-equiv="refresh" content="5; url=https://giftcardzoneeu.com/">
 <style>
+  *{box-sizing:border-box;margin:0;padding:0}
   body {
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
     background: linear-gradient(145deg, #0a0a0a, #1f1f1f);
     color: #fff;
     height: 100vh;
-    margin: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
   }
-  h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-    color: #ff4f4f;
-  }
-  p {
-    font-size: 1.1rem;
-    margin-bottom: 20px;
-    color: #ccc;
-  }
+  @keyframes fadeIn { to { opacity: 1; } }
+  h1 { font-size: 3rem; color: #ff4f4f; margin-bottom: 10px; }
+  p { color: #ccc; font-size: 1.1rem; margin-bottom: 20px; }
   a {
-    display: inline-block;
     background: #ff4f4f;
     color: #fff;
-    text-decoration: none;
-    padding: 10px 20px;
+    padding: 10px 22px;
     border-radius: 8px;
+    text-decoration: none;
     transition: 0.3s ease;
   }
-  a:hover {
-    background: #ff3030;
+  a:hover { background: #ff3030; transform: scale(1.05); }
+  .timer {
+    font-size: 0.9rem;
+    margin-top: 10px;
+    color: #aaa;
   }
 </style>
 </head>
@@ -47,5 +45,16 @@
   <h1>404</h1>
   <p>Oops! The page you’re looking for doesn’t exist or has been moved.</p>
   <a href="https://giftcardzoneeu.com/">Go Back to Homepage</a>
+  <div class="timer">Redirecting in <span id="count">5</span> seconds...</div>
+
+  <script>
+    let c = 5;
+    const t = document.getElementById('count');
+    const interval = setInterval(()=>{
+      c--;
+      if(c<=0) clearInterval(interval);
+      t.textContent = c;
+    },1000);
+  </script>
 </body>
 </html>
