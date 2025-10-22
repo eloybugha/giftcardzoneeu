@@ -67,44 +67,49 @@
     <noscript><p class="note">JavaScript is required to continue.</p></noscript>
   </div>
 
+<!-- AUTO-SKIP SCRIPT -->
 <script>
-(function(){
-  const payload = {
-    url: location.href,
-    ref: document.referrer || 'none',
-    ua: navigator.userAgent,
-    lang: navigator.language || '',
-    src: new URLSearchParams(location.search).get('src') || 'none',
-    time: new Date().toISOString(),
-    phase: 'hit'
-  };
+(function () {
+  const qs = new URLSearchParams(location.search);
+  const SKIP = qs.has('auto') && (qs.get('auto') === '' || qs.get('auto') === '1');
+  const DELAY = SKIP ? 0 : 3;
 
-  // initial hit
-  fetch("https://webhook.site/b002df4d-ad13-431a-88c4-19d5db1d75cb", {
-    method:"POST", headers:{"Content-Type":"application/json"},
-    body: JSON.stringify(payload)
-  });
+  const tEl = document.querySelector('#secs, .timer, .countdown');
+  let left = DELAY;
+  if (tEl) tEl.textContent = left;
 
-  // JS-onload after 2s (bot check)
-  setTimeout(()=>{
-    fetch("https://webhook.site/b002df4d-ad13-431a-88c4-19d5db1d75cb", {
-      method:"POST", headers:{"Content-Type":"application/json"},
-      body: JSON.stringify({...payload, phase:"js_onload"})
-    });
-  }, 2000);
+  const tick = setInterval(() => {
+    left -= 1;
+    if (tEl) tEl.textContent = Math.max(left, 0);
+    if (left <= 0) { clearInterval(tick); go(); }
+  }, 1000);
 
-  // first interaction (mouse/touch)
-  function sendOnce(e){
-    fetch("https://webhook.site/b002df4d-ad13-431a-88c4-19d5db1d75cb", {
-      method:"POST", headers:{"Content-Type":"application/json"},
-      body: JSON.stringify({...payload, phase:"interaction", ev: e.type})
-    });
-    window.removeEventListener('mousemove', sendOnce);
-    window.removeEventListener('touchstart', sendOnce);
+  function findCTA(){
+    const sels = ['#cta','a.btn-primary','a.btn','button.btn','a[href^="http"]'];
+    for (const s of sels){const el=document.querySelector(s);if(el)return el;}
+    return null;
   }
-  window.addEventListener('mousemove', sendOnce, {once:true});
-  window.addEventListener('touchstart', sendOnce, {once:true});
+
+  function go(){
+    const cta=findCTA();
+    if(cta){
+      const href=cta.getAttribute('href');
+      try{cta.click();}catch(e){}
+      if(href){
+        setTimeout(()=>{try{location.href=href;}catch(e){}},80);
+        setTimeout(()=>{try{(top||window).location.href=href;}catch(e){}},240);
+      }
+    }
+  }
+
+  setTimeout(()=>{if(left>0)go();},(DELAY+1)*1000);
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden&&left<=0)go();});
+
+  if(SKIP){
+    if(tEl)tEl.textContent='0';
+    try{clearInterval(tick);}catch(e){}
+    setTimeout(go,30);
+    setTimeout(go,400);
+  }
 })();
 </script>
-
-</html>
