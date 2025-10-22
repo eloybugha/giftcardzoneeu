@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>🎉 Congratulations! — GiftCardZoneEU</title>
+<meta name="description" content="You’re almost done! Tap the button to unlock your reward now. Limited-time offer.">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0f14; --card:#0f1822; --txt:#eef6ff; --muted:#a5b4c3;
+    --accent:#28d07b; --accent2:#12b169; --ring:#3ef39b; --glow:0 8px 40px rgba(62,243,155,.35)
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background: radial-gradient(1200px 700px at 70% -10%, #123 0%, var(--bg) 55%, var(--bg) 100%);
+    color:var(--txt); font:600 16px/1.5 Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+    min-height:100svh; display:grid; place-items:center; padding:24px
+  }
+  .wrap{max-width:720px; width:100%}
+  .card{
+    background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:18px; padding:28px; box-shadow: var(--glow); position:relative; overflow:hidden
+  }
+  h1{font-size:clamp(28px,5vw,40px); letter-spacing:.2px; margin-bottom:6px}
+  .sub{color:var(--muted); margin-bottom:18px}
+  .badge{
+    display:inline-flex; gap:8px; align-items:center;
+    background:rgba(62,243,155,.15); color:#bfffe1; border:1px solid rgba(62,243,155,.4);
+    padding:6px 10px; border-radius:999px; font-size:13px; margin-bottom:14px
+  }
+  .cta{
+    display:inline-block; margin-top:10px; font-weight:800; letter-spacing:.2px;
+    background:linear-gradient(90deg,var(--accent),var(--accent2)); color:#00130a;
+    text-decoration:none; padding:14px 20px; border-radius:14px; border:0; cursor:pointer;
+    box-shadow:0 6px 24px rgba(40,208,123,.35); transform:translateY(0); transition:.15s ease;
+  }
+  .cta:hover{transform:translateY(-2px); box-shadow:0 10px 36px rgba(40,208,123,.45)}
+  .grid{display:grid; grid-template-columns:1fr; gap:14px; margin-top:18px}
+  .note{font-size:13px; color:#a9b7c6}
+  .row{display:flex; gap:10px; align-items:center}
+  .flag{width:18px; height:18px; border-radius:4px; object-fit:cover; border:1px solid rgba(255,255,255,.2)}
+  .timer{font-feature-settings:"tnum" 1; font-variant-numeric:tabular-nums}
+  canvas{position:absolute; inset:0; pointer-events:none}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <canvas id="fx"></canvas>
+      <span class="badge">✅ Verified eligibility • <span class="timer" id="t">00:29</span> left</span>
+      <h1>Congratulations! You’re eligible to claim your reward</h1>
+      <p class="sub">Complete the final step below to unlock your offer. Limited-time access applies.</p>
+
+      <!-- 👉 SET YOUR OFFER URL HERE -->
+      <a class="cta" id="go"
+         href="https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"
+         rel="noopener nofollow">Unlock My Reward</a>
+
+      <div class="grid">
+        <div class="row"><img class="flag" id="f" alt="Flag"><span id="loc">Detecting location…</span></div>
+        <div class="note">By continuing, you agree to the promo terms. Availability varies by country and device.</div>
+      </div>
+    </div>
+  </div>
+
+<script>
+/* --- Countdown (30s) + optional auto-open on zero --- */
+let s=29, el=document.getElementById('t');
+const tick=()=>{ el.textContent=`00:${String(s).padStart(2,'0')}`; if(s--<=0){clearInterval(int);/* window.location.href=document.getElementById('go').href; */} };
+const int=setInterval(tick,1000); tick();
+
+/* --- Lightweight confetti --- */
+const c=document.getElementById('fx'), x=c.getContext('2d'); let W,H,parts=[];
+function size(){W=c.width=innerWidth; H=c.height=Math.max(300,innerHeight*0.6)}
+function spawn(n=90){parts=[...Array(n)].map(()=>({x:Math.random()*W,y:-10-Math.random()*H,v:1+Math.random()*2,s:4+Math.random()*5,r:Math.random()*6.2,dr:(Math.random()-.5)*0.06}))}
+function step(){x.clearRect(0,0,W,H); parts.forEach(p=>{p.y+=p.v; p.r+=p.dr; x.save(); x.translate(p.x,p.y); x.rotate(p.r); x.fillStyle=`hsl(${(p.y/4)%360} 90% 60%)`; x.fillRect(-p.s/2,-p.s/2,p.s,p.s); x.restore(); if(p.y>H+20) p.y=-10}); requestAnimationFrame(step)}
+size(); spawn(); step(); addEventListener('resize',()=>{size(); spawn(120)})
+
+/* --- Geo hint (flag + country) --- */
+(async ()=>{
+  try{
+    const r=await fetch('https://ipapi.co/json/');
+    const j=await r.json();
+    document.getElementById('loc').textContent = `Offer optimized for ${j.country_name || 'your region'}`;
+    document.getElementById('f').src = `https://flagcdn.com/24x18/${(j.country_code||'us').toLowerCase()}.png`;
+  }catch(e){
+    document.getElementById('loc').textContent='Offer optimized for your region';
+    document.getElementById('f').style.display='none';
+  }
+})();
+</script>
+
+<noscript>
+  <style>.timer{display:none}</style>
+  You’re eligible to claim your reward. Tap the button above to continue.
+</noscript>
+</body>
+</html>
