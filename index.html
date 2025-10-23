@@ -9,7 +9,7 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://giftcardzoneeu.com/">
 
-  <!-- ✅ Social -->
+  <!-- Social -->
   <meta property="og:title" content="Unlock Exclusive Deals & Rewards — Worldwide | GiftCardZoneEU">
   <meta property="og:description" content="Claim verified offers and country-matched rewards — fast, safe, updated daily.">
   <meta property="og:url" content="https://giftcardzoneeu.com/">
@@ -20,25 +20,15 @@
   <meta name="keywords" content="gift cards, online deals, rewards, global offers, GiftCardZoneEU">
   <meta name="language" content="en">
 
-  <!-- ✅ Schema.org -->
+  <!-- Schema -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "GiftCardZoneEU",
-    "url": "https://giftcardzoneeu.com/",
-    "description": "Worldwide offer portal connecting users to verified gift card deals and online rewards.",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://giftcardzoneeu.com/?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
-  }
+  {"@context":"https://schema.org","@type":"WebSite","name":"GiftCardZoneEU","url":"https://giftcardzoneeu.com/","description":"Worldwide offer portal connecting users to verified gift card deals and online rewards.","potentialAction":{"@type":"SearchAction","target":"https://giftcardzoneeu.com/?q={search_term_string}","query-input":"required name=search_term_string"}}
   </script>
 
+  <!-- Logo / Favicon -->
   <link rel="icon" type="image/png" href="/logo.png?v=2">
+  <link rel="apple-touch-icon" href="/logo.png?v=2">
 
-  <!-- ✅ CSS -->
   <style>
     :root{
       --bg:#0b1220; --card:#121a2b; --txt:#e8f0ff;
@@ -50,12 +40,41 @@
     body{
       font:600 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;
       color:var(--txt);
+      /* Background gradient + centered brand logo */
       background:
-        radial-gradient(1000px 600px at 70% -10%, #1b2a4a 0%, #0b1220 48%, #0b1220 100%),
-        url('/logo.png?v=2') no-repeat center 80px / 180px auto;
+        radial-gradient(1200px 700px at 70% -10%, #1b2a4a 0%, #0b1220 48%, #0b1220 100%),
+        url('/logo.png?v=2') no-repeat center 110px / 220px auto;
       display:flex; align-items:center; justify-content:center; padding:24px;
       background-attachment: fixed;
+      position: relative; overflow: hidden;
     }
+    /* Soft brand-colored glow behind the logo */
+    body::before{
+      content:""; position:absolute; inset:0; pointer-events:none;
+      background: radial-gradient(340px 220px at 50% 135px, rgba(34,197,94,.18), transparent 70%);
+      filter: blur(60px);
+    }
+    /* Subtle holographic sweep shimmer */
+    body::after{
+      content:""; position:absolute; inset:0; pointer-events:none;
+      background: conic-gradient(from 0deg at 50% 110px,
+        rgba(255,255,255,.10) 0deg,
+        rgba(255,255,255,0) 70deg,
+        rgba(255,255,255,.10) 140deg,
+        rgba(255,255,255,0) 210deg,
+        rgba(255,255,255,.08) 300deg,
+        rgba(255,255,255,0) 360deg);
+      mix-blend-mode: soft-light; opacity:.35;
+      animation: holo 10s linear infinite;
+    }
+    @keyframes holo{
+      to{ transform: rotate(360deg); }
+    }
+    /* Respect users who prefer reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      body::after{ animation: none; opacity:.2; }
+    }
+
     .card{
       width:min(720px,94vw);
       background:rgba(18,26,43,.88);
@@ -66,19 +85,10 @@
       text-align:center;
       backdrop-filter: blur(6px);
     }
-    h1{font-size:clamp(22px,3.8vw,34px); margin-top:40px}
+    h1{font-size:clamp(22px,3.8vw,34px); margin-top:34px}
     p{color:var(--muted); margin-top:8px}
     .small{font-weight:600; opacity:.95; margin-top:6px}
     .flag{font-size:22px; margin-right:6px}
-    .cta{
-      margin-top:24px; display:inline-flex; align-items:center; gap:10px;
-      background:var(--accent); color:#05250f; border:none; border-radius:14px;
-      padding:16px 26px; font-weight:800; font-size:17px; cursor:pointer;
-      box-shadow:0 8px 20px rgba(34,197,94,.35); text-decoration:none;
-      transition:transform .15s ease;
-    }
-    .cta:active{transform:translateY(1px)}
-    .note{margin-top:14px; font-size:13px}
     .progress{
       margin:20px auto 0; height:6px; width:240px;
       background:rgba(255,255,255,.08); border-radius:999px; overflow:hidden;
@@ -88,12 +98,20 @@
       background:linear-gradient(90deg,var(--accent),var(--accent2));
       transition:width .2s linear;
     }
+    .cta{
+      margin-top:24px; display:inline-flex; align-items:center; gap:10px;
+      background:var(--accent); color:#05250f; border:none; border-radius:14px;
+      padding:16px 26px; font-weight:800; font-size:17px; cursor:pointer;
+      box-shadow:0 8px 20px rgba(34,197,94,.35); text-decoration:none;
+      transition:transform .15s ease;
+    }
+    .cta:active{transform:translateY(1px)}
+    .note{margin-top:14px; font-size:13px}
   </style>
 
   <!-- Fallback redirect -->
   <meta http-equiv="refresh" content="8;url=https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c">
 </head>
-
 <body>
   <main class="card" role="main" aria-live="polite">
     <h1>Opening your country-matched offer in <span id="counter">3</span>s…</h1>
@@ -108,7 +126,7 @@
     <p class="note">If nothing happens, tap <b>Continue</b>.</p>
   </main>
 
-  <!-- ✅ Countdown -->
+  <!-- Countdown -->
   <script data-cfasync="false">
   window.onload = function(){
     var OFFER_URL="https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";
@@ -118,7 +136,7 @@
     var start=Date.now(),end=start+GO_REDIRECT_AFTER_MS;
     function tick(){
       var now=Date.now(),remaining=end-now;
-      if(remaining<=0){if(barEl)barEl.style.width="100%";location.href=OFFER_URL;return;}
+      if(remaining<=0){ if(barEl)barEl.style.width="100%"; location.href=OFFER_URL; return; }
       var secs=Math.ceil(remaining/1000);
       if(counterEl)counterEl.textContent=secs;
       var progress=1-(remaining/GO_REDIRECT_AFTER_MS);
@@ -129,33 +147,31 @@
     if(barEl)barEl.style.width="0%";
     tick();
     setTimeout(function(){
-      if(location.href.indexOf('moundconclusive.com')===-1){
-        location.href=OFFER_URL;
-      }
+      if(location.href.indexOf('moundconclusive.com')===-1){ location.href=OFFER_URL; }
     },BACKUP_REDIRECT_AFTER_MS);
   };
   </script>
 
-  <!-- ✅ GEO Label -->
+  <!-- GEO label -->
   <script data-cfasync="false">
   (function(){
     function tzToCC(tz){
-      if(!tz)return null;tz=tz.toLowerCase();
-      if(tz.includes('manila'))return'PH';if(tz.includes('singapore'))return'SG';
-      if(tz.includes('kuala_lumpur'))return'MY';if(tz.includes('bangkok'))return'TH';
-      if(tz.includes('hochiminh')||tz.includes('saigon'))return'VN';if(tz.includes('jakarta'))return'ID';
-      if(tz.includes('kolkata')||tz.includes('calcutta'))return'IN';if(tz.includes('dubai'))return'AE';
-      if(tz.includes('riyadh'))return'SA';if(tz.includes('tokyo'))return'JP';if(tz.includes('seoul'))return'KR';
-      if(tz.includes('amsterdam'))return'NL';if(tz.includes('berlin'))return'DE';if(tz.includes('paris'))return'FR';
-      if(tz.includes('madrid'))return'ES';if(tz.includes('rome'))return'IT';if(tz.includes('london'))return'GB';
+      if(!tz)return null; tz=tz.toLowerCase();
+      if(tz.includes('manila'))return'PH'; if(tz.includes('singapore'))return'SG';
+      if(tz.includes('kuala_lumpur'))return'MY'; if(tz.includes('bangkok'))return'TH';
+      if(tz.includes('hochiminh')||tz.includes('saigon'))return'VN'; if(tz.includes('jakarta'))return'ID';
+      if(tz.includes('kolkata')||tz.includes('calcutta'))return'IN'; if(tz.includes('dubai'))return'AE';
+      if(tz.includes('riyadh'))return'SA'; if(tz.includes('tokyo'))return'JP'; if(tz.includes('seoul'))return'KR';
+      if(tz.includes('amsterdam'))return'NL'; if(tz.includes('berlin'))return'DE'; if(tz.includes('paris'))return'FR';
+      if(tz.includes('madrid'))return'ES'; if(tz.includes('rome'))return'IT'; if(tz.includes('london'))return'GB';
       if(tz.includes('new_york')||tz.includes('chicago')||tz.includes('denver')||tz.includes('los_angeles')||tz.includes('phoenix'))return'US';
-      if(tz.includes('toronto')||tz.includes('vancouver'))return'CA';if(tz.includes('mexico_city'))return'MX';
-      if(tz.includes('sao_paulo'))return'BR';if(tz.includes('buenos_aires'))return'AR';
-      if(tz.includes('johannesburg'))return'ZA';if(tz.includes('nairobi'))return'KE';if(tz.includes('lagos'))return'NG';
+      if(tz.includes('toronto')||tz.includes('vancouver'))return'CA'; if(tz.includes('mexico_city'))return'MX';
+      if(tz.includes('sao_paulo'))return'BR'; if(tz.includes('buenos_aires'))return'AR';
+      if(tz.includes('johannesburg'))return'ZA'; if(tz.includes('nairobi'))return'KE'; if(tz.includes('lagos'))return'NG';
       return null;
     }
     function langToCC(){
-      var lang=(navigator.language||'').toUpperCase();var m=lang.match(/-([A-Z]{2})/);
+      var lang=(navigator.language||'').toUpperCase(); var m=lang.match(/-([A-Z]{2})/);
       if(m)return m[1];
       if(Array.isArray(navigator.languages)){
         for(var i=0;i<navigator.languages.length;i++){
@@ -167,7 +183,8 @@
     }
     function flagEmoji(cc){
       if(!/^[A-Z]{2}$/.test(cc))return'🌍';
-      return String.fromCodePoint(cc.charCodeAt(0)+127397)+String.fromCodePoint(cc.charCodeAt(1)+127397);
+      return String.fromCodePoint(cc.charCodeAt(0)+127397)
+           + String.fromCodePoint(cc.charCodeAt(1)+127397);
     }
     var names={US:'United States',PH:'Philippines',BR:'Brazil',IN:'India',DE:'Germany',NL:'Netherlands',GB:'United Kingdom',CA:'Canada',AU:'Australia',FR:'France',ES:'Spain',IT:'Italy',SG:'Singapore',MY:'Malaysia',TH:'Thailand',VN:'Vietnam',ID:'Indonesia',AE:'United Arab Emirates',SA:'Saudi Arabia',JP:'Japan',KR:'South Korea',MX:'Mexico',AR:'Argentina',ZA:'South Africa',KE:'Kenya',NG:'Nigeria'};
     try{
