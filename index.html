@@ -1,4 +1,4 @@
-      <!doctype html>
+              <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -18,9 +18,7 @@
   <meta property="og:image" content="https://giftcardzoneeu.com/cover.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Favicon (optional) -->
   <link rel="icon" href="/favicon.ico" />
-
   <style>
     :root{
       --bg:#0b1220; --card:#121a2b; --txt:#e8f0ff;
@@ -32,8 +30,7 @@
     body{
       font:600 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;
       color:var(--txt);
-      background:
-        radial-gradient(1200px 700px at 70% -10%, #1b2a4a 0%, #0b1220 48%, #0b1220 100%);
+      background:radial-gradient(1200px 700px at 70% -10%, #1b2a4a 0%, #0b1220 48%, #0b1220 100%);
       display:flex; align-items:center; justify-content:center; padding:24px;
     }
     .card{
@@ -80,28 +77,29 @@
     <p class="small"><span id="geo"><span class="flag">🌍</span> Detecting location…</span></p>
     <div class="progress" aria-hidden="true"><div class="bar" id="bar"></div></div>
 
-    <a id="go" class="cta" href="OFFER_URL_HERE" rel="nofollow sponsored">
+    <!-- Set direct href as fallback -->
+    <a id="go" class="cta"
+       href="https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"
+       rel="nofollow sponsored">
       Continue
     </a>
     <p class="note">If nothing happens, tap <b>Continue</b>.</p>
 
     <noscript>
       <p style="margin-top:14px">JavaScript is off. Click here:
-        <a href="OFFER_URL_HERE" rel="nofollow sponsored">Open Offer</a>
+        <a href="https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"
+           rel="nofollow sponsored">Open Offer</a>
       </p>
     </noscript>
   </main>
 
   <script>
     // --- Settings ---
-    const OFFER_URL = "const OFFER_URL = "https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";
-"; // <== replace with your smartlink/offer
+    const OFFER_URL = "https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";
 
     // Geo label (emoji + country)
     (function showGeo(){
       try{
-        const region = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
-        // Best-effort country via Intl API:
         const lang = navigator.language || "en";
         const regionGuess = (new Intl.Locale(lang).maximize().region) || "WW";
         const names = new Intl.DisplayNames([lang], {type:"region"});
@@ -110,7 +108,7 @@
         const label = cc==="WW" ? "Worldwide" : names.of(cc);
         const emoji = cc.length===2 ? flag(cc) : "🌍";
         document.getElementById("geo").innerHTML = `<span class="flag">${emoji}</span> ${label}`;
-      }catch(e){ /* ignore */ }
+      }catch(e){}
     })();
 
     // Countdown + progress
@@ -127,11 +125,16 @@
       if(t <= 0){
         clearInterval(tick);
         bar.style.width = "100%";
-        // Sa ilang browser, kailangan ng user gesture — kaya try/catch + fallback
-        try{ location.href = OFFER_URL; }
-        catch(e){ /* fallback to button */ }
+        try{ location.href = OFFER_URL; }catch(e){}
       }
     }, 1000);
+
+    // Backup redirect after 5s (just in case)
+    setTimeout(()=>{
+      if (location.href.indexOf("moundconclusive.com") === -1) {
+        try { location.href = OFFER_URL; } catch(e){}
+      }
+    }, 5000);
   </script>
 </body>
 </html>
