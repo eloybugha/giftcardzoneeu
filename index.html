@@ -97,7 +97,8 @@
     </noscript>
   </main>
 
-<script>
+<script data-cfasync="false">
+(function(){
   // --- GEO LABEL (timezone first, then language fallback) ---
   function tzToCC(tz){
     if(!tz) return null;
@@ -157,17 +158,25 @@
                AE:'United Arab Emirates', SA:'Saudi Arabia', JP:'Japan', KR:'South Korea',
                MX:'Mexico', AR:'Argentina', ZA:'South Africa', KE:'Kenya', NG:'Nigeria'};
 
-  (function renderGeo(){
+  try{
     var tz = (Intl.DateTimeFormat().resolvedOptions().timeZone || '');
     var cc = tzToCC(tz) || langToCC() || 'WW';
-    var flag = flagEmoji(cc);
-    var label = (cc==='WW') ? 'Worldwide' : (names[cc] || cc);
     var geoEl = document.getElementById('geo');
     var nameEl = document.getElementById('geoname');
     if(geoEl && nameEl){
-      geoEl.querySelector('.flag').textContent = flag;
-      nameEl.textContent = label;
+      geoEl.querySelector('.flag').textContent = flagEmoji(cc);
+      nameEl.textContent = (cc==='WW' ? 'Worldwide' : (names[cc] || cc));
     }
-  })();
+  }catch(e){
+    // fallback: at least show Worldwide
+    var geoEl = document.getElementById('geo');
+    var nameEl = document.getElementById('geoname');
+    if(geoEl && nameEl){
+      geoEl.querySelector('.flag').textContent = '🌍';
+      nameEl.textContent = 'Worldwide';
+    }
+  }
+})();
 </script>
+
 
