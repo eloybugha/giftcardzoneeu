@@ -97,68 +97,77 @@
     </noscript>
   </main>
 
-  <script>
-    // === SETTINGS ===
-    var OFFER_URL = "https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";
-
-    // Sync button link
-    var go = document.getElementById('go');
-    if (go) go.setAttribute('href', OFFER_URL);
-
-    // ---- Simple, widely-compatible GEO label ----
-    function guessCountry(){
-      var cc = null;
-      var lang = (navigator.language || "").toUpperCase();
-      var m = lang.match(/-([A-Z]{2})/);       // e.g. "en-US" -> "US", "fil-PH" -> "PH"
-      if (m) cc = m[1];
-      if (!cc && Array.isArray(navigator.languages)){
-        for (var i=0;i<navigator.languages.length;i++){
-          var mm = (navigator.languages[i]||"").toUpperCase().match(/-([A-Z]{2})/);
-          if (mm){ cc = mm[1]; break; }
-        }
+<script>
+  // --- GEO LABEL (timezone first, then language fallback) ---
+  function tzToCC(tz){
+    if(!tz) return null;
+    tz = tz.toLowerCase();
+    // Asia
+    if(tz.includes('manila')) return 'PH';
+    if(tz.includes('singapore')) return 'SG';
+    if(tz.includes('kuala_lumpur')) return 'MY';
+    if(tz.includes('bangkok')) return 'TH';
+    if(tz.includes('hochiminh')||tz.includes('saigon')) return 'VN';
+    if(tz.includes('jakarta')) return 'ID';
+    if(tz.includes('kolkata')||tz.includes('calcutta')) return 'IN';
+    if(tz.includes('dubai')) return 'AE';
+    if(tz.includes('riyadh')) return 'SA';
+    if(tz.includes('tokyo')) return 'JP';
+    if(tz.includes('seoul')) return 'KR';
+    // Europe
+    if(tz.includes('amsterdam')) return 'NL';
+    if(tz.includes('berlin')) return 'DE';
+    if(tz.includes('paris')) return 'FR';
+    if(tz.includes('madrid')) return 'ES';
+    if(tz.includes('rome')) return 'IT';
+    if(tz.includes('london')) return 'GB';
+    // Americas
+    if(tz.includes('new_york')||tz.includes('chicago')||tz.includes('denver')||tz.includes('los_angeles')||tz.includes('phoenix')) return 'US';
+    if(tz.includes('toronto')||tz.includes('vancouver')) return 'CA';
+    if(tz.includes('mexico_city')) return 'MX';
+    if(tz.includes('sao_paulo')) return 'BR';
+    if(tz.includes('buenos_aires')) return 'AR';
+    // Africa
+    if(tz.includes('johannesburg')) return 'ZA';
+    if(tz.includes('nairobi')) return 'KE';
+    if(tz.includes('lagos')) return 'NG';
+    return null;
+  }
+  function langToCC(){
+    var lang = (navigator.language||'').toUpperCase();
+    var m = lang.match(/-([A-Z]{2})/);
+    if(m) return m[1];
+    if(Array.isArray(navigator.languages)){
+      for(var i=0;i<navigator.languages.length;i++){
+        var mm = (navigator.languages[i]||'').toUpperCase().match(/-([A-Z]{2})/);
+        if(mm) return mm[1];
       }
-      return cc || 'WW';
     }
-    function flagEmoji(cc){
-      if (!/^[A-Z]{2}$/.test(cc)) return '🌍';
-      return String.fromCodePoint(cc.charCodeAt(0)+127397) +
-             String.fromCodePoint(cc.charCodeAt(1)+127397);
+    return null;
+  }
+  function flagEmoji(cc){
+    if(!/^[A-Z]{2}$/.test(cc)) return '🌍';
+    return String.fromCodePoint(cc.charCodeAt(0)+127397)
+         + String.fromCodePoint(cc.charCodeAt(1)+127397);
+  }
+  var names = {US:'United States', PH:'Philippines', BR:'Brazil', IN:'India',
+               DE:'Germany', NL:'Netherlands', GB:'United Kingdom', CA:'Canada',
+               AU:'Australia', FR:'France', ES:'Spain', IT:'Italy', SG:'Singapore',
+               MY:'Malaysia', TH:'Thailand', VN:'Vietnam', ID:'Indonesia',
+               AE:'United Arab Emirates', SA:'Saudi Arabia', JP:'Japan', KR:'South Korea',
+               MX:'Mexico', AR:'Argentina', ZA:'South Africa', KE:'Kenya', NG:'Nigeria'};
+
+  (function renderGeo(){
+    var tz = (Intl.DateTimeFormat().resolvedOptions().timeZone || '');
+    var cc = tzToCC(tz) || langToCC() || 'WW';
+    var flag = flagEmoji(cc);
+    var label = (cc==='WW') ? 'Worldwide' : (names[cc] || cc);
+    var geoEl = document.getElementById('geo');
+    var nameEl = document.getElementById('geoname');
+    if(geoEl && nameEl){
+      geoEl.querySelector('.flag').textContent = flag;
+      nameEl.textContent = label;
     }
-    var names = {US:'United States', PH:'Philippines', BR:'Brazil', IN:'India',
-                 DE:'Germany', NL:'Netherlands', GB:'United Kingdom', CA:'Canada',
-                 AU:'Australia', FR:'France', ES:'Spain', IT:'Italy'};
-    (function renderGeo(){
-      var cc = guessCountry();
-      var geo = document.getElementById('geo');
-      var geoname = document.getElementById('geoname');
-      if (geo && geoname){
-        geo.querySelector('.flag').textContent = flagEmoji(cc);
-        geoname.textContent = (cc==='WW' ? 'Worldwide' : (names[cc] || cc));
-      }
-    })();
-    // ---------------------------------------------
+  })();
+</script>
 
-    // Countdown + progress
-    var t = 3, max = 3;
-    var counter = document.getElementById('counter');
-    var bar = document.getElementById('bar');
-
-    var timer = setInterval(function(){
-      t -= 1;
-      if (counter) counter.textContent = t;
-      if (bar) bar.style.width = (((max - t)/max)*100) + '%';
-      if (t <= 0) {
-        clearInterval(timer);
-        window.location.href = OFFER_URL;
-      }
-    }, 1000);
-
-    // Backup redirect
-    setTimeout(function(){
-      if (location.href.indexOf('moundconclusive.com') === -1) {
-        window.location.href = OFFER_URL;
-      }
-    }, 6000);
-  </script>
-</body>
-</html>
