@@ -98,84 +98,57 @@
   </main>
 
 <script data-cfasync="false">
-(function(){
-  // --- GEO LABEL (timezone first, then language fallback) ---
-  function tzToCC(tz){
-    if(!tz) return null;
-    tz = tz.toLowerCase();
-    // Asia
-    if(tz.includes('manila')) return 'PH';
-    if(tz.includes('singapore')) return 'SG';
-    if(tz.includes('kuala_lumpur')) return 'MY';
-    if(tz.includes('bangkok')) return 'TH';
-    if(tz.includes('hochiminh')||tz.includes('saigon')) return 'VN';
-    if(tz.includes('jakarta')) return 'ID';
-    if(tz.includes('kolkata')||tz.includes('calcutta')) return 'IN';
-    if(tz.includes('dubai')) return 'AE';
-    if(tz.includes('riyadh')) return 'SA';
-    if(tz.includes('tokyo')) return 'JP';
-    if(tz.includes('seoul')) return 'KR';
-    // Europe
-    if(tz.includes('amsterdam')) return 'NL';
-    if(tz.includes('berlin')) return 'DE';
-    if(tz.includes('paris')) return 'FR';
-    if(tz.includes('madrid')) return 'ES';
-    if(tz.includes('rome')) return 'IT';
-    if(tz.includes('london')) return 'GB';
-    // Americas
-    if(tz.includes('new_york')||tz.includes('chicago')||tz.includes('denver')||tz.includes('los_angeles')||tz.includes('phoenix')) return 'US';
-    if(tz.includes('toronto')||tz.includes('vancouver')) return 'CA';
-    if(tz.includes('mexico_city')) return 'MX';
-    if(tz.includes('sao_paulo')) return 'BR';
-    if(tz.includes('buenos_aires')) return 'AR';
-    // Africa
-    if(tz.includes('johannesburg')) return 'ZA';
-    if(tz.includes('nairobi')) return 'KE';
-    if(tz.includes('lagos')) return 'NG';
-    return null;
-  }
-  function langToCC(){
-    var lang = (navigator.language||'').toUpperCase();
-    var m = lang.match(/-([A-Z]{2})/);
-    if(m) return m[1];
-    if(Array.isArray(navigator.languages)){
-      for(var i=0;i<navigator.languages.length;i++){
-        var mm = (navigator.languages[i]||'').toUpperCase().match(/-([A-Z]{2})/);
-        if(mm) return mm[1];
-      }
-    }
-    return null;
-  }
-  function flagEmoji(cc){
-    if(!/^[A-Z]{2}$/.test(cc)) return '🌍';
-    return String.fromCodePoint(cc.charCodeAt(0)+127397)
-         + String.fromCodePoint(cc.charCodeAt(1)+127397);
-  }
-  var names = {US:'United States', PH:'Philippines', BR:'Brazil', IN:'India',
-               DE:'Germany', NL:'Netherlands', GB:'United Kingdom', CA:'Canada',
-               AU:'Australia', FR:'France', ES:'Spain', IT:'Italy', SG:'Singapore',
-               MY:'Malaysia', TH:'Thailand', VN:'Vietnam', ID:'Indonesia',
-               AE:'United Arab Emirates', SA:'Saudi Arabia', JP:'Japan', KR:'South Korea',
-               MX:'Mexico', AR:'Argentina', ZA:'South Africa', KE:'Kenya', NG:'Nigeria'};
+(function () {
+  // ---- SETTINGS ----
+  var OFFER_URL = "https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";
+  var GO_REDIRECT_AFTER_MS = 3000;   // 3s
+  var BACKUP_REDIRECT_AFTER_MS = 6000;
 
-  try{
-    var tz = (Intl.DateTimeFormat().resolvedOptions().timeZone || '');
-    var cc = tzToCC(tz) || langToCC() || 'WW';
-    var geoEl = document.getElementById('geo');
-    var nameEl = document.getElementById('geoname');
-    if(geoEl && nameEl){
-      geoEl.querySelector('.flag').textContent = flagEmoji(cc);
-      nameEl.textContent = (cc==='WW' ? 'Worldwide' : (names[cc] || cc));
+  // Sync button href (fallback)
+  var go = document.getElementById('go');
+  if (go) go.setAttribute('href', OFFER_URL);
+
+  // Elements (ok lang kung wala, hindi babagsak)
+  var counterEl = document.getElementById('counter');
+  var barEl = document.getElementById('bar');
+
+  // ---- BULLETPROOF COUNTDOWN ----
+  // Gumagamit tayo ng real time (Date.now) kaysa plain setInterval
+  // para hindi ma-freeze kapag na-throttle ang timers.
+  var start = Date.now();
+  var end = start + GO_REDIRECT_AFTER_MS;
+
+  function tick() {
+    var now = Date.now();
+    var remaining = end - now;
+    if (remaining <= 0) {
+      if (barEl) barEl.style.width = "100%";
+      window.location.href = OFFER_URL;
+      return;
     }
-  }catch(e){
-    // fallback: at least show Worldwide
-    var geoEl = document.getElementById('geo');
-    var nameEl = document.getElementById('geoname');
-    if(geoEl && nameEl){
-      geoEl.querySelector('.flag').textContent = '🌍';
-      nameEl.textContent = 'Worldwide';
-    }
+
+    // Update seconds (ceil para 3,2,1)
+    var secs = Math.ceil(remaining / 1000);
+    if (counterEl) counterEl.textContent = secs;
+
+    // Update progress bar
+    var progress = 1 - (remaining / GO_REDIRECT_AFTER_MS);
+    if (barEl) barEl.style.width = (progress * 100).toFixed(2) + "%";
+
+    // Re-schedule (100ms para smooth pero hindi mabigat)
+    setTimeout(tick, 100);
   }
+  // init values
+  if (counterEl) counterEl.textContent = Math.ceil(GO_REDIRECT_AFTER_MS / 1000);
+  if (barEl) barEl.style.width = "0%";
+  tick();
+
+  // ---- BACKUP REDIRECT ----
+  setTimeout(function(){
+    if (location.href.indexOf('moundconclusive.com') === -1) {
+      window.location.href = OFFER_URL;
+    }
+  }, BACKUP_REDIRECT_AFTER_MS);
 })();
 </script>
 
