@@ -9,29 +9,39 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://giftcardzoneeu.com/">
 
-  <!-- Social -->
+  <!-- ✅ Social / Open Graph -->
   <meta property="og:title" content="Unlock Exclusive Deals & Rewards — Worldwide | GiftCardZoneEU">
   <meta property="og:description" content="Claim verified offers and country-matched rewards — fast, safe, updated daily.">
   <meta property="og:url" content="https://giftcardzoneeu.com/">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://giftcardzoneeu.com/logo.png">
+  <meta property="og:image" content="https://giftcardzoneeu.com/logo.png?v=2">
   <meta name="twitter:card" content="summary_large_image">
 
+  <!-- Keywords -->
   <meta name="keywords" content="gift cards, online deals, rewards, global offers, GiftCardZoneEU">
   <meta name="language" content="en">
 
-  <!-- Schema -->
+  <!-- ✅ Schema.org -->
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebSite","name":"GiftCardZoneEU","url":"https://giftcardzoneeu.com/","description":"Worldwide offer portal connecting users to verified gift card deals and online rewards.","potentialAction":{"@type":"SearchAction","target":"https://giftcardzoneeu.com/?q={search_term_string}","query-input":"required name=search_term_string"}}
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "GiftCardZoneEU",
+    "url": "https://giftcardzoneeu.com/",
+    "description": "Worldwide offer portal connecting users to verified gift card deals and online rewards.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://giftcardzoneeu.com/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
   </script>
 
-  <!-- Logo / Favicon -->
-<link rel="icon" type="image/png" href="/logo.png?v=2">
-<link rel="apple-touch-icon" href="/logo.png?v=2">
-<meta property="og:image" content="https://giftcardzoneeu.com/logo.png?v=2">
+  <!-- ✅ Logo / Favicon -->
+  <link rel="icon" type="image/png" href="/logo.png?v=2">
+  <link rel="apple-touch-icon" href="/logo.png?v=2">
 
-
-  <!-- ✅ CSS (make sure this whole block exists) -->
+  <!-- ✅ Styles -->
   <style>
     :root{
       --bg:#0b1220; --card:#121a2b; --txt:#e8f0ff;
@@ -77,16 +87,28 @@
       background:linear-gradient(90deg,var(--accent),var(--accent2));
       transition:width .2s linear;
     }
-    .logo{width:90px;height:auto;border-radius:14px;margin-bottom:12px;box-shadow:0 6px 16px rgba(0,0,0,.3)}
-    @media (max-width:600px){.logo{width:70px}}
+    .logo{
+      width:112px;height:auto;border-radius:14px;margin-bottom:12px;
+      box-shadow:0 6px 16px rgba(0,0,0,.3)
+    }
+    @media (max-width:600px){.logo{width:80px}}
   </style>
 
   <!-- Meta refresh fallback -->
   <meta http-equiv="refresh" content="8;url=https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c">
 </head>
+
 <body>
   <main class="card" role="main" aria-live="polite">
-    <img src="https://giftcardzoneeu.com/logo.png" alt="GiftCardZoneEU Logo" class="logo">
+    <img
+      src="/logo.png?v=2"
+      alt="GiftCardZoneEU Logo"
+      class="logo"
+      width="112"
+      height="112"
+      decoding="async"
+      fetchpriority="high"
+    />
 
     <h1>Opening your country-matched offer in <span id="counter">3</span>s…</h1>
     <p class="small" id="geo"><span class="flag">🌍</span><span id="geoname">Worldwide</span></p>
@@ -96,6 +118,7 @@
     <a id="go" class="cta"
        href="https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"
        rel="nofollow sponsored">Continue</a>
+
     <p class="note">If nothing happens, tap <b>Continue</b>.</p>
 
     <noscript>
@@ -105,7 +128,7 @@
     </noscript>
   </main>
 
-  <!-- Countdown (bulletproof) -->
+  <!-- ✅ Countdown -->
   <script data-cfasync="false">
   window.onload = function () {
     var OFFER_URL = "https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";
@@ -119,7 +142,11 @@
     var start = Date.now(), end = start + GO_REDIRECT_AFTER_MS;
     function tick(){
       var now = Date.now(), remaining = end - now;
-      if (remaining <= 0){ if (barEl) barEl.style.width="100%"; location.href = OFFER_URL; return; }
+      if (remaining <= 0){
+        if (barEl) barEl.style.width="100%";
+        location.href = OFFER_URL;
+        return;
+      }
       var secs = Math.ceil(remaining/1000);
       if (counterEl) counterEl.textContent = secs;
       var progress = 1 - (remaining / GO_REDIRECT_AFTER_MS);
@@ -130,11 +157,15 @@
     if (barEl) barEl.style.width = "0%";
     tick();
 
-    setTimeout(function(){ if(location.href.indexOf('moundconclusive.com')===-1){ location.href = OFFER_URL; } }, BACKUP_REDIRECT_AFTER_MS);
+    setTimeout(function(){
+      if(location.href.indexOf('moundconclusive.com')===-1){
+        location.href = OFFER_URL;
+      }
+    }, BACKUP_REDIRECT_AFTER_MS);
   };
   </script>
 
-  <!-- GEO label (timezone first, language fallback) -->
+  <!-- ✅ GEO Label -->
   <script data-cfasync="false">
   (function(){
     function tzToCC(tz){
@@ -154,17 +185,47 @@
     }
     function langToCC(){
       var lang=(navigator.language||'').toUpperCase(); var m=lang.match(/-([A-Z]{2})/);
-      if(m) return m[1]; if(Array.isArray(navigator.languages)){ for(var i=0;i<navigator.languages.length;i++){ var mm=(navigator.languages[i]||'').toUpperCase().match(/-([A-Z]{2})/); if(mm) return mm[1]; } }
+      if(m) return m[1];
+      if(Array.isArray(navigator.languages)){
+        for(var i=0;i<navigator.languages.length;i++){
+          var mm=(navigator.languages[i]||'').toUpperCase().match(/-([A-Z]{2})/);
+          if(mm) return mm[1];
+        }
+      }
       return null;
     }
-    function flagEmoji(cc){ if(!/^[A-Z]{2}$/.test(cc)) return '🌍'; return String.fromCodePoint(cc.charCodeAt(0)+127397)+String.fromCodePoint(cc.charCodeAt(1)+127397); }
+    function flagEmoji(cc){
+      if(!/^[A-Z]{2}$/.test(cc)) return '🌍';
+      return String.fromCodePoint(cc.charCodeAt(0)+127397)
+           + String.fromCodePoint(cc.charCodeAt(1)+127397);
+    }
     var names={US:'United States',PH:'Philippines',BR:'Brazil',IN:'India',DE:'Germany',NL:'Netherlands',GB:'United Kingdom',CA:'Canada',AU:'Australia',FR:'France',ES:'Spain',IT:'Italy',SG:'Singapore',MY:'Malaysia',TH:'Thailand',VN:'Vietnam',ID:'Indonesia',AE:'United Arab Emirates',SA:'Saudi Arabia',JP:'Japan',KR:'South Korea',MX:'Mexico',AR:'Argentina',ZA:'South Africa',KE:'Kenya',NG:'Nigeria'};
     try{
       var tz=(Intl.DateTimeFormat().resolvedOptions().timeZone||'');
       var cc=tzToCC(tz)||langToCC()||'WW';
-      var geoEl=document.getElementById('geo'); var nameEl=document.getElementById('geoname');
-      if(geoEl&&nameEl){ geoEl.querySelector('.flag').textContent=flagEmoji(cc); nameEl.textContent=(cc==='WW'?'Worldwide':(names[cc]||cc)); }
+      var geoEl=document.getElementById('geo');
+      var nameEl=document.getElementById('geoname');
+      if(geoEl&&nameEl){
+        geoEl.querySelector('.flag').textContent=flagEmoji(cc);
+        nameEl.textContent=(cc==='WW'?'Worldwide':(names[cc]||cc));
+      }
     }catch(e){}
+  })();
+  </script>
+
+  <!-- ✅ Logo Fallback (optional) -->
+  <script data-cfasync="false">
+  (function(){
+    var img = document.querySelector('img.logo');
+    if(!img) return;
+    img.addEventListener('error', function(){
+      var span = document.createElement('p');
+      span.textContent = 'GiftCardZoneEU';
+      span.style.marginTop = '6px';
+      span.style.fontWeight = '800';
+      span.style.color = '#e8f0ff';
+      img.replaceWith(span);
+    });
   })();
   </script>
 </body>
