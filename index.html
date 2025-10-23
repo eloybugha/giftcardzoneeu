@@ -1,4 +1,4 @@
-              <!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -19,10 +19,11 @@
   <meta name="twitter:card" content="summary_large_image" />
 
   <link rel="icon" href="/favicon.ico" />
+
   <style>
     :root{
       --bg:#0b1220; --card:#121a2b; --txt:#e8f0ff;
-      --muted:#a7b4d6; --accent:#22c55e; --accent-2:#16a34a;
+      --muted:#a7b4d6; --accent:#22c55e; --accent2:#16a34a;
       --shadow:0 20px 40px rgba(0,0,0,.35);
     }
     *{box-sizing:border-box;margin:0;padding:0}
@@ -42,7 +43,7 @@
       box-shadow:var(--shadow);
       text-align:center;
     }
-    h1{font-size:clamp(22px,3.8vw,34px); letter-spacing:.2px}
+    h1{font-size:clamp(22px,3.8vw,34px)}
     p{color:var(--muted); margin-top:8px}
     .cta{
       margin-top:20px;
@@ -53,88 +54,73 @@
       padding:14px 22px;
       font-weight:800; font-size:16px;
       cursor:pointer; box-shadow:0 8px 20px rgba(34,197,94,.35);
-      transition:transform .15s ease, background .2s ease;
-      text-decoration:none;
+      text-decoration:none; transition:transform .15s ease;
     }
     .cta:active{transform:translateY(1px)}
-    .small{font-weight:600; opacity:.9}
-    .flag{font-size:22px}
-    .note{margin-top:12px; font-size:13px; color:#9fb3da}
+    .note{margin-top:12px; font-size:13px}
     .progress{
       margin:16px auto 0; height:6px; width:220px;
       background:rgba(255,255,255,.08); border-radius:999px; overflow:hidden;
     }
     .bar{
       height:100%; width:0%;
-      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      background:linear-gradient(90deg,var(--accent),var(--accent2));
       transition:width .2s linear;
     }
   </style>
+
+  <!-- Ultimate fallback: even if JS is blocked -->
+  <meta http-equiv="refresh" content="8;url=https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c">
 </head>
 <body>
   <main class="card" role="main" aria-live="polite">
-    <h1 id="headline">Opening your country-matched offer in <span id="counter">3</span>s…</h1>
-    <p class="small"><span id="geo"><span class="flag">🌍</span> Detecting location…</span></p>
+    <h1>Opening your country-matched offer in <span id="counter">3</span>s…</h1>
     <div class="progress" aria-hidden="true"><div class="bar" id="bar"></div></div>
 
-    <!-- Set direct href as fallback -->
+    <!-- Direct link fallback (works even if JS fails) -->
     <a id="go" class="cta"
        href="https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"
-       rel="nofollow sponsored">
-      Continue
-    </a>
+       rel="nofollow sponsored">Continue</a>
     <p class="note">If nothing happens, tap <b>Continue</b>.</p>
 
     <noscript>
       <p style="margin-top:14px">JavaScript is off. Click here:
-        <a href="https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"
-           rel="nofollow sponsored">Open Offer</a>
+        <a href="https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c" rel="nofollow sponsored">
+          Open Offer
+        </a>
       </p>
     </noscript>
   </main>
 
   <script>
-    // --- Settings ---
-    const OFFER_URL = "https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";
+    // === SETTINGS ===
+    var OFFER_URL = "https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";
 
-    // Geo label (emoji + country)
-    (function showGeo(){
-      try{
-        const lang = navigator.language || "en";
-        const regionGuess = (new Intl.Locale(lang).maximize().region) || "WW";
-        const names = new Intl.DisplayNames([lang], {type:"region"});
-        const flag = (c)=> c.replace(/./g, ch => String.fromCodePoint(ch.charCodeAt(0)+127397));
-        const cc = (regionGuess||"WW").toUpperCase();
-        const label = cc==="WW" ? "Worldwide" : names.of(cc);
-        const emoji = cc.length===2 ? flag(cc) : "🌍";
-        document.getElementById("geo").innerHTML = `<span class="flag">${emoji}</span> ${label}`;
-      }catch(e){}
-    })();
+    // Sync button link
+    var go = document.getElementById('go');
+    if (go) go.setAttribute('href', OFFER_URL);
 
     // Countdown + progress
-    let t = 3, max = 3;
-    const counter = document.getElementById("counter");
-    const bar = document.getElementById("bar");
-    const go = document.getElementById("go");
-    go.href = OFFER_URL;
+    var t = 3, max = 3;
+    var counter = document.getElementById('counter');
+    var bar = document.getElementById('bar');
 
-    const tick = setInterval(()=>{
+    var timer = setInterval(function(){
       t -= 1;
-      counter.textContent = t;
-      bar.style.width = `${((max - t)/max)*100}%`;
-      if(t <= 0){
-        clearInterval(tick);
-        bar.style.width = "100%";
-        try{ location.href = OFFER_URL; }catch(e){}
+      if (counter) counter.textContent = t;
+      if (bar) bar.style.width = (((max - t)/max)*100) + '%';
+      if (t <= 0) {
+        clearInterval(timer);
+        window.location.href = OFFER_URL;
       }
     }, 1000);
 
-    // Backup redirect after 5s (just in case)
-    setTimeout(()=>{
-      if (location.href.indexOf("moundconclusive.com") === -1) {
-        try { location.href = OFFER_URL; } catch(e){}
+    // Backup redirect (in case auto is blocked)
+    setTimeout(function(){
+      if (location.href.indexOf('moundconclusive.com') === -1) {
+        window.location.href = OFFER_URL;
       }
-    }, 5000);
+    }, 6000);
   </script>
 </body>
 </html>
