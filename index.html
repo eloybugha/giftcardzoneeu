@@ -10,7 +10,7 @@
   <link rel="canonical" href="https://giftcardzoneeu.com/" />
   <meta name="description" content="Open verified rewards and hot online deals tailored to your country. Fast redirect, safe, and always up-to-date." />
 
-  <!-- Open Graph / Twitter -->
+  <!-- OG/Twitter -->
   <meta property="og:title" content="Unlock Exclusive Deals & Rewards — Worldwide" />
   <meta property="og:description" content="Instant access to country-matched offers from GiftCardZoneEU." />
   <meta property="og:url" content="https://giftcardzoneeu.com/" />
@@ -45,6 +45,8 @@
     }
     h1{font-size:clamp(22px,3.8vw,34px)}
     p{color:var(--muted); margin-top:8px}
+    .small{font-weight:600; opacity:.95; margin-top:6px}
+    .flag{font-size:22px; margin-right:6px}
     .cta{
       margin-top:20px;
       display:inline-flex; align-items:center; gap:10px;
@@ -69,15 +71,18 @@
     }
   </style>
 
-  <!-- Ultimate fallback: even if JS is blocked -->
+  <!-- Meta refresh fallback -->
   <meta http-equiv="refresh" content="8;url=https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c">
 </head>
 <body>
   <main class="card" role="main" aria-live="polite">
     <h1>Opening your country-matched offer in <span id="counter">3</span>s…</h1>
+    <!-- GEO LABEL (flag + name) -->
+    <p class="small" id="geo"><span class="flag">🌍</span><span id="geoname">Worldwide</span></p>
+
     <div class="progress" aria-hidden="true"><div class="bar" id="bar"></div></div>
 
-    <!-- Direct link fallback (works even if JS fails) -->
+    <!-- Direct link fallback -->
     <a id="go" class="cta"
        href="https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c"
        rel="nofollow sponsored">Continue</a>
@@ -100,6 +105,39 @@
     var go = document.getElementById('go');
     if (go) go.setAttribute('href', OFFER_URL);
 
+    // ---- Simple, widely-compatible GEO label ----
+    function guessCountry(){
+      var cc = null;
+      var lang = (navigator.language || "").toUpperCase();
+      var m = lang.match(/-([A-Z]{2})/);       // e.g. "en-US" -> "US", "fil-PH" -> "PH"
+      if (m) cc = m[1];
+      if (!cc && Array.isArray(navigator.languages)){
+        for (var i=0;i<navigator.languages.length;i++){
+          var mm = (navigator.languages[i]||"").toUpperCase().match(/-([A-Z]{2})/);
+          if (mm){ cc = mm[1]; break; }
+        }
+      }
+      return cc || 'WW';
+    }
+    function flagEmoji(cc){
+      if (!/^[A-Z]{2}$/.test(cc)) return '🌍';
+      return String.fromCodePoint(cc.charCodeAt(0)+127397) +
+             String.fromCodePoint(cc.charCodeAt(1)+127397);
+    }
+    var names = {US:'United States', PH:'Philippines', BR:'Brazil', IN:'India',
+                 DE:'Germany', NL:'Netherlands', GB:'United Kingdom', CA:'Canada',
+                 AU:'Australia', FR:'France', ES:'Spain', IT:'Italy'};
+    (function renderGeo(){
+      var cc = guessCountry();
+      var geo = document.getElementById('geo');
+      var geoname = document.getElementById('geoname');
+      if (geo && geoname){
+        geo.querySelector('.flag').textContent = flagEmoji(cc);
+        geoname.textContent = (cc==='WW' ? 'Worldwide' : (names[cc] || cc));
+      }
+    })();
+    // ---------------------------------------------
+
     // Countdown + progress
     var t = 3, max = 3;
     var counter = document.getElementById('counter');
@@ -115,7 +153,7 @@
       }
     }, 1000);
 
-    // Backup redirect (in case auto is blocked)
+    // Backup redirect
     setTimeout(function(){
       if (location.href.indexOf('moundconclusive.com') === -1) {
         window.location.href = OFFER_URL;
