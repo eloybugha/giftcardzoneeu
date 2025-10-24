@@ -3,84 +3,146 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#ffffff" />
 
-  <title>🎁 GiftCardZoneEU – Gift Card Deals & Rewards Worldwide</title>
+  <title>GiftCardZoneEU — Unlock Exclusive Rewards & Online Deals Worldwide</title>
 
-  <!-- ✅ Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎁</text></svg>">
-
-  <!-- ✅ Core SEO -->
-  <meta name="description" content="Discover verified gift card deals, online rewards, and exclusive coupons worldwide.">
-  <meta name="keywords" content="gift cards, rewards, coupons, online deals, free offers, GiftCardZoneEU">
+  <!-- Robots: make sure this page can be indexed -->
   <meta name="robots" content="index, follow">
   <meta name="googlebot" content="index, follow">
-  <meta name="referrer" content="origin-when-cross-origin">
-  <meta name="language" content="en">
-  <meta name="author" content="GiftCardZoneEU">
-  <link rel="canonical" href="https://giftcardzoneeu.com/" />
 
-  <!-- ✅ Open Graph / Facebook -->
-  <meta property="og:site_name" content="GiftCardZoneEU">
-  <meta property="og:locale" content="en_US">
+  <!-- Canonical (update to your final root if different) -->
+  <link rel="canonical" href="https://giftcardzoneeu.com/">
+
+  <!-- Favicons -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎁</text></svg>'">
+  <link rel="apple-touch-icon" href="https://eloybugha.github.io/giftcardzoneeu/c77867b0-ac71-4878-8e23-508c8d0bb88a.png">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="GiftCardZoneEU — Unlock Exclusive Rewards & Online Deals Worldwide">
+  <meta property="og:description" content="Explore geo-smart rewards, coupons, and exclusive deals. No sign-up needed — pick an offer by your country and start saving.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="🎁 GiftCardZoneEU – Gift Card Deals & Rewards Worldwide">
-  <meta property="og:description" content="Claim verified offers and country-matched rewards today.">
   <meta property="og:url" content="https://giftcardzoneeu.com/">
-  <meta property="og:image" content="https://eloybugha.github.io/giftcardzoneeu/c77867b0-ac71-4878-8e23-508c8d0bb88a.png">
-
-  <!-- ✅ Twitter -->
+  <meta property="og:image" content="https://eloybugha.github.io/giftcardzoneeu/cover.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="🎁 GiftCardZoneEU – Gift Card Deals & Rewards Worldwide">
-  <meta name="twitter:description" content="Claim verified offers and country-matched rewards today.">
-  <meta name="twitter:image" content="https://eloybugha.github.io/giftcardzoneeu/c77867b0-ac71-4878-8e23-508c8d0bb88a.png">
 
-  <!-- ✅ Structured Data -->
+  <!-- Performance hints -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{--bg:#0b0f14;--card:#111827;--text:#e5e7eb;--muted:#94a3b8;--accent:#22c55e;}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,#0b0f14,#0e1520 45%,#0b0f14);color:var(--text)}
+    a{color:inherit;text-decoration:none}
+    header{position:sticky;top:0;background:rgba(11,15,20,.7);backdrop-filter:saturate(160%) blur(8px);border-bottom:1px solid #1f2937}
+    .wrap{max-width:1024px;margin:0 auto;padding:14px 16px}
+    .row{display:flex;align-items:center;gap:14px}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:800}
+    .logo-emoji{font-size:26px}
+    .pill{display:inline-flex;align-items:center;gap:8px;background:#0ea5e9; color:white;border-radius:999px;padding:6px 10px;font-size:12px}
+    nav{margin-left:auto;display:flex;gap:16px;font-weight:600}
+    .hero{padding:40px 16px 10px}
+    .hero h1{font-size:clamp(28px,5vw,44px);line-height:1.1;margin:10px 0}
+    .hero p{color:var(--muted);max-width:800px}
+    .cta{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0}
+    .btn{background:var(--accent);color:#062607;font-weight:800;border:none;border-radius:12px;padding:14px 18px;cursor:pointer;transition:.2s;box-shadow:0 8px 16px rgba(34,197,94,.25)}
+    .btn:hover{transform:translateY(-1px)}
+    .btn.outline{background:transparent;border:1px solid #334155;color:var(--text);box-shadow:none}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:20px 0 40px}
+    .card{background:var(--card);border:1px solid #1f2937;border-radius:16px;padding:16px}
+    .card h3{margin:0 0 6px;font-size:18px}
+    .badge{display:inline-block;background:#1d4ed8;color:#dbeafe;font-size:11px;border-radius:8px;padding:4px 8px;margin-left:6px}
+    footer{border-top:1px solid #1f2937;color:#94a3b8}
+    .mini{font-size:12px}
+    .links{display:flex;gap:14px;flex-wrap:wrap}
+  </style>
+
+  <!-- Structured Data (helps eligibility for rich results) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "GiftCardZoneEU",
     "url": "https://giftcardzoneeu.com/",
-    "description": "Discover verified gift card deals and exclusive online rewards worldwide.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "GiftCardZoneEU",
-      "logo": "https://eloybugha.github.io/giftcardzoneeu/c77867b0-ac71-4878-8e23-508c8d0bb88a.png"
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://giftcardzoneeu.com/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
     }
   }
   </script>
-
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #fafafa;
-      color: #222;
-      text-align: center;
-      padding: 60px 20px;
-    }
-    h1 { font-size: 2rem; margin-bottom: 15px; }
-    p  { font-size: 1.1rem; margin-bottom: 20px; }
-    .loading { font-weight: bold; color: #e63946; }
-    a { color: #1a73e8; text-decoration: underline; }
-  </style>
 </head>
-
 <body>
-  <h1>🎁 Welcome to GiftCardZoneEU</h1>
-  <p>Discover verified gift card offers, exclusive deals, and special promos worldwide.</p>
-  <p class="loading">Redirecting you to our best offer… Please wait a moment ⏳</p>
-  <p>If you are not redirected automatically, <a href="https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c">click here</a>.</p>
+  <header>
+    <div class="wrap row">
+      <div class="logo"><span class="logo-emoji">🎁</span> GiftCardZoneEU</div>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/NeutralCPC/">Deals</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </nav>
+    </div>
+  </header>
 
-  <!-- ✅ SEO-friendly delayed redirect -->
-  <script>
-    setTimeout(() => {
-      window.location.href = "https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";
-    }, 8000); // leave time for crawlers to read content
-  </script>
+  <main class="wrap">
+    <section class="hero">
+      <span class="pill">Geo-Smart Offers</span>
+      <h1>Unlock Exclusive Rewards & Online Deals — tailored to your country</h1>
+      <p>We surface rotating promos, coupons, and reward offers that match your location. This page is intentionally <strong>non-redirect</strong> so Google can index it. Users can continue below to view the live offers feed.</p>
 
-  <noscript>
-    <p>JavaScript is required for automatic redirection. Please <a href="https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c">tap here</a>.</p>
-  </noscript>
+      <div class="cta">
+        <!-- ✅ MAIN CTA (no auto-redirect) -->
+        <!-- Replace the href with your current smartlink/destination -->
+        <a class="btn" href="https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c" rel="nofollow noopener">Continue to Live Offers</a>
+        <a class="btn outline" href="/NeutralCPC/">See Country-Matched Deals</a>
+      </div>
+
+      <p class="mini">Note: Clicking “Continue to Live Offers” opens our partner page. Some offers may vary by region and device.</p>
+    </section>
+
+    <!-- Crawlable internal content blocks (helps indexing) -->
+    <section class="grid" aria-label="Popular categories">
+      <article class="card">
+        <h3>Gift Cards & Vouchers <span class="badge">Popular</span></h3>
+        <p class="mini">Rotating selection of e-commerce and gaming credits. Works across multiple regions.</p>
+        <p class="mini"><a href="/NeutralCPC/">Browse deals</a></p>
+      </article>
+      <article class="card">
+        <h3>Apps & Trials</h3>
+        <p class="mini">Discover app trials and sign-up bonuses that may include cashback or rewards.</p>
+        <p class="mini"><a href="/apps/">Explore apps</a></p>
+      </article>
+      <article class="card">
+        <h3>Seasonal Promos</h3>
+        <p class="mini">Special campaigns during holidays and big sale events. Updated frequently.</p>
+        <p class="mini"><a href="/seasonal/">See what’s on</a></p>
+      </article>
+      <article class="card">
+        <h3>How It Works</h3>
+        <p class="mini">We route you to partners that run the promotions. Read our guidelines for safe participation.</p>
+        <p class="mini"><a href="/how-it-works/">Learn more</a></p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap" style="padding:24px 16px;">
+      <div class="links">
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+      <p class="mini" style="margin-top:10px;">© <span id="y"></span> GiftCardZoneEU. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+
+  <!-- ✅ PLACE YOUR AD/ANALYTICS SCRIPTS BELOW (no redirects) -->
+  <!-- Example:
+  <script src="https://example-ad-network.js" defer></script>
+  -->
 </body>
 </html>
