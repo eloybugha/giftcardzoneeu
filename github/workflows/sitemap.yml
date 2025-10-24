@@ -1,1 +1,32 @@
+name: Generate sitemap
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      # Auto-generate sitemap by scanning your repo
+      - name: Generate sitemap.xml
+        uses: cicirello/generate-sitemap@v1
+        with:
+          base-url: https://eloybugha.github.io/giftcardzoneeu
+          # optional excludes (ayaw mong i-index)
+          exclude: |
+            /404.html
+            /congrats/
+          # root ng site mo
+          path-to-root: .
+
+      - name: Commit sitemap.xml
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update sitemap.xml (auto)"
+          file_pattern: sitemap.xml
 
