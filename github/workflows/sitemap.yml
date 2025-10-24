@@ -30,4 +30,10 @@ jobs:
         with:
           commit_message: "chore: update sitemap.xml (auto)"
           file_pattern: sitemap.xml
+      - name: Ping search engines
+        run: |
+          echo "🔄 Pinging Google, Bing, and Yandex..."
+          curl "https://www.google.com/ping?sitemap=https://giftcardzoneeu.com/sitemap.xml"
+          curl "https://www.bing.com/ping?sitemap=https://giftcardzoneeu.com/sitemap.xml"
+          curl "https://yandex.com/ping?sitemap=https://giftcardzoneeu.com/sitemap.xml"
 
