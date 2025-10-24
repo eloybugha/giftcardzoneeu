@@ -1,101 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>🎯 GiftCardZoneEU — SEO Dashboard</title>
-<link rel="icon" href="https://eloybugha.github.io/giftcardzoneeu/c77867b0-ac71-4878-8e23-508c8d0bb88a.png">
+<link rel="icon" href="https://eloybugha.github.io/giftcardzoneeu/c77867b0-ac71-4878-8e23-508c8d0bb88a.png" />
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    background: #f9fafb;
-    color: #111;
-    margin: 0;
-    padding: 20px;
+  :root{
+    --bg:#f7f8fb; --card:#fff; --text:#111; --muted:#475569;
+    --ok:#16a34a; --warn:#ca8a04; --bad:#dc2626; --brand:#e11d48;
+    --shadow:0 6px 18px rgba(0,0,0,.08);
   }
-  h1 {
-    text-align: center;
-    color: #e63946;
-  }
-  .card {
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-    padding: 20px;
-    margin-bottom: 20px;
-  }
-  a { color: #2563eb; text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  .status {
-    font-weight: bold;
-    padding: 5px 10px;
-    border-radius: 8px;
-    display: inline-block;
-  }
-  .ok { background: #dcfce7; color: #166534; }
-  .pending { background: #fef9c3; color: #854d0e; }
+  *{box-sizing:border-box}
+  body{font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:var(--text);margin:0;padding:22px}
+  h1{margin:0 0 18px;font-weight:800;color:#e63946;letter-spacing:.2px}
+  .grid{display:grid;gap:18px}
+  @media(min-width:920px){.grid{grid-template-columns:1fr 1fr}}
+  .card{background:var(--card);border-radius:16px;box-shadow:var(--shadow);padding:18px}
+  .card h2{margin:0 0 12px;font-size:1.15rem}
+  a{color:#2563eb;text-decoration:none} a:hover{text-decoration:underline}
+  .k{display:flex;align-items:center;gap:10px;margin:.35rem 0}
+  .pill{font-weight:700;border-radius:999px;padding:3px 9px;display:inline-block;font-size:.85rem}
+  .ok{background:#dcfce7;color:#166534}
+  .pending{background:#fef9c3;color:#854d0e}
+  .bad{background:#fee2e2;color:#991b1b}
+  .muted{color:var(--muted)}
+
+  /* Google-style snippet */
+  .g-snippet{max-width:720px;border:1px solid #e5e7eb;border-radius:12px;padding:14px;background:#fff}
+  .g-url{color:#006621;font-size:.85rem;margin-bottom:4px}
+  .g-title{color:#1a0dab;font-size:1.1rem;line-height:1.25;margin:0 0 6px}
+  .g-desc{color:#4b5563;font-size:.95rem;margin:0}
+
+  /* Social card preview */
+  .social{display:flex;gap:14px;align-items:flex-start}
+  .social img{width:180px;height:94px;object-fit:cover;border-radius:10px;border:1px solid #e5e7eb;background:#f3f4f6}
+  .checks li{margin:.2rem 0}
+  .oktxt{color:var(--ok)} .warntxt{color:var(--warn)} .badtxt{color:var(--bad)}
+  .footer{margin-top:8px;color:var(--muted);font-size:.85rem}
 </style>
 </head>
 <body>
+  <h1>🎯 GiftCardZoneEU — SEO Dashboard</h1>
 
-<h1>🎯 GiftCardZoneEU — SEO Dashboard</h1>
+  <div class="grid">
+    <div class="card">
+      <h2>🌐 Verification Status</h2>
+      <div class="k">✅ <b>Google:</b>&nbsp;<span>Verified via Search Console</span></div>
+      <div class="k">✅ <b>Bing:</b>&nbsp;<span>(BingSiteAuth.xml)</span></div>
+      <div class="k">✅ <b>Yandex:</b>&nbsp;<span>(yandex_916eae5bf7b1ff06.html)</span></div>
+    </div>
 
-<div class="card">
-  <h2>🌐 Verification Status</h2>
-  <p>✅ <b>Google:</b> Verified via Search Console</p>
-  <p>✅ <b>Bing:</b> Verified (<code>BingSiteAuth.xml</code>)</p>
-  <p>✅ <b>Yandex:</b> Verified (<code>yandex_916eae5bf7b1ff06.html</code>)</p>
-</div>
+    <div class="card">
+      <h2>📄 Sitemap & Robots</h2>
+      <div class="k"><b>Sitemap:</b>&nbsp;<a href="/sitemap.xml" target="_blank">https://giftcardzoneeu.com/sitemap.xml</a></div>
+      <div class="k"><b>robots.txt:</b>&nbsp;<a href="/robots.txt" target="_blank">https://giftcardzoneeu.com/robots.txt</a></div>
+      <div class="k muted">Last update: <span id="last-update"></span></div>
+    </div>
 
-<div class="card">
-  <h2>📄 Sitemap & Robots</h2>
-  <p><b>Sitemap:</b> <a href="https://giftcardzoneeu.com/sitemap.xml" target="_blank">https://giftcardzoneeu.com/sitemap.xml</a></p>
-  <p><b>robots.txt:</b> <a href="https://giftcardzoneeu.com/robots.txt" target="_blank">https://giftcardzoneeu.com/robots.txt</a></p>
-  <p><b>Last update:</b> <span id="last-update"></span></p>
-</div>
+    <div class="card">
+      <h2>📊 Indexing Progress</h2>
+      <div class="k">Google indexed pages: <b>8</b></div>
+      <div class="k">Bing indexed pages: <span class="pill ok">Active</span></div>
+      <div class="k">Yandex indexed pages: <span class="pill pending">Processing</span></div>
+    </div>
 
-<div class="card">
-  <h2>📊 Indexing Progress</h2>
-  <p>Google indexed pages: <b>8</b></p>
-  <p>Bing indexed pages: <b>Active</b></p>
-  <p>Yandex indexed pages: <b>Processing</b></p>
-</div>
+    <div class="card">
+      <h2>🔁 Next Crawl Estimate</h2>
+      <div id="countdown" class="k" style="font-weight:700">Loading…</div>
+      <div class="footer">Tip: any content change + internal link from homepage can speed up discovery.</div>
+    </div>
+  </div>
 
-<div class="card">
-  <h2>🔁 Next Crawl Estimate</h2>
-  <p id="countdown">Loading...</p>
-</div>
+  <!-- NEW: Live Search Preview -->
+  <div class="card" style="margin-top:18px">
+    <h2>🔍 Live Search Preview (from current homepage)</h2>
+    <div id="snippet" class="g-snippet">
+      <div class="g-url">https://giftcardzoneeu.com/</div>
+      <div class="g-title" id="g-title">Loading title…</div>
+      <p class="g-desc" id="g-desc">Loading description…</p>
+    </div>
+    <ul class="checks" id="meta-checks"></ul>
+  </div>
 
-<div class="card">
-  <h2>🔗 Webmaster Consoles</h2>
-  <ul>
-    <li><a href="https://search.google.com/search-console" target="_blank">Google Search Console</a></li>
-    <li><a href="https://www.bing.com/webmasters/" target="_blank">Bing Webmaster Tools</a></li>
-    <li><a href="https://webmaster.yandex.com/" target="_blank">Yandex Webmaster</a></li>
-  </ul>
-</div>
+  <!-- NEW: Social Card Preview -->
+  <div class="card">
+    <h2>🖼 Social Card Preview (OpenGraph / Twitter)</h2>
+    <div class="social">
+      <img id="ogimg" alt="OG preview"/>
+      <div>
+        <div class="k"><b>og:title:</b>&nbsp;<span id="ogtitle" class="muted">—</span></div>
+        <div class="k"><b>og:description:</b>&nbsp;<span id="ogdesc" class="muted">—</span></div>
+        <div class="k"><b>favicon:</b>&nbsp;<span id="fav" class="muted">—</span></div>
+      </div>
+    </div>
+    <ul class="checks" id="og-checks"></ul>
+  </div>
 
 <script>
-  // Display current date/time
-  document.getElementById("last-update").innerText = new Date().toLocaleString();
+  // Timestamp
+  document.getElementById('last-update').textContent = new Date().toLocaleString();
 
-  // Simple crawl countdown (24 hours refresh)
-  const next = new Date();
-  next.setHours(next.getHours() + 24);
-  function updateCountdown() {
-    const diff = next - new Date();
-    if (diff <= 0) {
-      document.getElementById("countdown").innerText = "Next crawl may start anytime now 🔁";
-      return;
+  // Simple 24h crawl countdown
+  const next = new Date(Date.now() + 24*60*60*1000);
+  const $cd = document.getElementById('countdown');
+  setInterval(() => {
+    const d = next - new Date();
+    if (d <= 0) { $cd.textContent = "Next crawl may start anytime now 🔁"; return; }
+    const h = Math.floor(d/3.6e6), m = Math.floor((d%3.6e6)/6e4), s = Math.floor((d%6e4)/1e3);
+    $cd.textContent = `${h}h ${m}m ${s}s`;
+  }, 1000);
+
+  // Fetch homepage HTML and extract meta
+  async function loadMeta(){
+    try{
+      const res = await fetch('/', {cache:'no-store'});
+      const txt = await res.text();
+      const doc = new DOMParser().parseFromString(txt, 'text/html');
+
+      const title = (doc.querySelector('title')||{}).textContent || '';
+      const desc  = (doc.querySelector('meta[name="description"]')||{}).content || '';
+      const ogImg = (doc.querySelector('meta[property="og:image"]')||{}).content || '';
+      const ogTitle = (doc.querySelector('meta[property="og:title"]')||{}).content || '';
+      const ogDesc  = (doc.querySelector('meta[property="og:description"]')||{}).content || '';
+      const favicon = (doc.querySelector('link[rel="icon"], link[rel="shortcut icon"]')||{}).href || '';
+
+      // Render Google-like snippet
+      document.getElementById('g-title').textContent = title || 'No <title> found';
+      document.getElementById('g-desc').textContent  = desc || 'No meta description found. Consider adding one.';
+      // Social block
+      document.getElementById('ogtitle').textContent = ogTitle || '—';
+      document.getElementById('ogdesc').textContent  = ogDesc  || '—';
+      document.getElementById('fav').textContent     = favicon || '—';
+      const imgEl = document.getElementById('ogimg');
+      imgEl.src = ogImg || 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="180" height="94"><rect width="100%" height="100%" fill="%23f3f4f6"/><text x="50%" y="52%" text-anchor="middle" font-family="Arial" font-size="12" fill="%239ca3af">no og:image</text></svg>';
+
+      // Health checks
+      const checks = [];
+      if (!title) checks.push(['No <title> tag found','bad']);
+      else if (title.length < 15) checks.push(['Title quite short (<15 chars)','warn']);
+      else if (title.length > 60) checks.push(['Title a bit long (>60 chars)','warn']);
+      else checks.push(['Title length looks good','ok']);
+
+      if (!desc) checks.push(['No meta description','bad']);
+      else if (desc.length < 50) checks.push(['Description short (<50 chars)','warn']);
+      else if (desc.length > 160) checks.push(['Description long (>160 chars)','warn']);
+      else checks.push(['Description length looks good','ok']);
+
+      if (!ogImg) checks.push(['Missing og:image (social share image)','warn']); else checks.push(['og:image present','ok']);
+
+      // Render meta checks
+      const ul = document.getElementById('meta-checks'); ul.innerHTML='';
+      for (const [msg,level] of checks){
+        const li = document.createElement('li');
+        li.innerHTML = level==='ok' ? `✅ <span class="oktxt">${msg}</span>`
+               : level==='warn' ? `⚠️ <span class="warntxt">${msg}</span>`
+               : `⛔ <span class="badtxt">${msg}</span>`;
+        ul.appendChild(li);
+      }
+
+      // OG checks
+      const ogUl = document.getElementById('og-checks'); ogUl.innerHTML='';
+      ogUl.innerHTML += ogTitle ? `<li>✅ <span class="oktxt">og:title present</span></li>` : `<li>⚠️ <span class="warntxt">Missing og:title</span></li>`;
+      ogUl.innerHTML += ogDesc  ? `<li>✅ <span class="oktxt">og:description present</span></li>` : `<li>⚠️ <span class="warntxt">Missing og:description</span></li>`;
+      ogUl.innerHTML += favicon ? `<li>✅ <span class="oktxt">favicon present</span></li>` : `<li>⚠️ <span class="warntxt">Missing favicon</span></li>`;
+    }catch(e){
+      document.getElementById('g-title').textContent = 'Failed to load homepage';
+      document.getElementById('g-desc').textContent  = String(e);
     }
-    const h = Math.floor(diff / (1000*60*60));
-    const m = Math.floor((diff / (1000*60)) % 60);
-    const s = Math.floor((diff / 1000) % 60);
-    document.getElementById("countdown").innerText = `${h}h ${m}m ${s}s`;
   }
-  setInterval(updateCountdown, 1000);
+  loadMeta();
 </script>
-
 </body>
 </html>
-
