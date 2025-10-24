@@ -16,7 +16,8 @@ jobs:
       - name: Generate sitemap.xml
         uses: cicirello/generate-sitemap@v1
         with:
-          base-url: https://eloybugha.github.io/giftcardzoneeu
+          base-url: https://giftcardzoneeu.com
+
           # optional excludes (ayaw mong i-index)
           exclude: |
             /404.html
