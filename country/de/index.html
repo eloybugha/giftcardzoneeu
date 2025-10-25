@@ -35,5 +35,31 @@
 
     <p style="margin-top:24px;"><a href="/">← Back to Home</a></p>
   </main>
+  <!-- FAQ placeholder -->
+<div id="faq-country"></div>
+
+<!-- Shared FAQ scripts -->
+<script src="/assets/faq.js"></script>
+<script src="/assets/faq-data.js"></script>
+
+<script>
+(function(){
+  const found = (window.GZEU_FAQ_DATA && window.GZEU_FAQ_DATA.getForCurrentPage())
+                || { cc:null, items:null };
+  if (found.items) {
+    const titleMap = {
+      ph: "❓ FAQ (Philippines)",
+      nl: "❓ FAQ (Netherlands)",
+      de: "❓ FAQ (Germany)",
+      us: "❓ FAQ (United States)"
+    };
+    GZEU_FAQ.renderFAQ("faq-country", found.items, { title: titleMap[found.cc] || "❓ FAQ" });
+  } else {
+    const ph = document.getElementById("faq-country");
+    if (ph) ph.remove();
+  }
+})();
+</script>
+
 </body>
 </html>
