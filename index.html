@@ -234,34 +234,41 @@
 
   <!-- 🌐 Geo-redirect to localized country pages (skip bots for SEO) -->
   <script>
-    (function () {
-      try {
-        var ua = (navigator.userAgent || "").toLowerCase();
-        var isBot = /bot|crawl|spider|slurp|bingpreview|facebookexternalhit|linkedinbot|monitor|pingdom|preview|crawler/.test(ua);
-        if (isBot) return; // Keep root indexable.
+/* Geo-redirect to /country/* only (safe & no auto jump) */
+(function () {
+  try {
+    // disable if ?stay=1 is present
+    var q = new URLSearchParams(location.search);
+    if (q.get('stay') === '1') return;
 
-        // If the visitor is already on a /country/ page, do nothing
-        if (location.pathname.startsWith("/country/")) return;
+    var ua = (navigator.userAgent || "").toLowerCase();
+    var isBot = /bot|crawl|spider|slurp|bingpreview|facebookexternalhit|linkedinbot|monitor|pingdom|preview|crawler/.test(ua);
+    if (isBot) return;
 
-        // Fetch IP-based country and redirect smoothly
-        fetch("https://ipapi.co/json/")
-          .then(function(r){ return r.json(); })
-          .then(function(data){
-            var c = (data && data.country_code) || "";
-            var target =
-              c === "NL" ? "/country/nl/" :
-              c === "PH" ? "/country/ph/" :
-              c === "DE" ? "/country/de/" :
-              c === "US" ? "/country/us/" : "";
+    if (location.pathname.startsWith("/country/")) return;
+    if (sessionStorage.getItem("gczeu_geo_done")) return;
 
-            if (target) {
-              // small delay so UI doesn't feel abrupt
-              setTimeout(function(){ window.location.href = target; }, 400);
-            }
-          })
-          .catch(function(){ /* silent fail keeps user on main */ });
-      } catch(e) {}
-    })();
-  </script>
+    setTimeout(function () {
+      fetch("https://ipapi.co/json/")
+        .then(r => r.json())
+        .then(d => {
+          var c = (d && d.country_code) || "";
+          var target =
+            c === "NL" ? "/country/nl/" :
+            c === "PH" ? "/country/ph/" :
+            c === "DE" ? "/country/de/" :
+            c === "US" ? "/country/us/" : "";
+          if (target) {
+            sessionStorage.setItem("gczeu_geo_done", "1");
+            // safer redirect (no auto jump to external)
+            location.href = target;
+          }
+        })
+        .catch(() => {});
+    }, 700); // small delay only for UX
+  } catch(e) {}
+})();
+</script>
+
 </body>
 </html>
