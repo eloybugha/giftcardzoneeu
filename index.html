@@ -1,4 +1,4 @@
-       <!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -18,19 +18,29 @@
   <meta name="theme-color" content="#111827">
   <link rel="manifest" href="/manifest.json">
 
+  <!-- Meta description -->
+  <meta name="description" content="Explore geo-smart rewards, coupons, and exclusive online deals by country. No sign-up needed — pick an offer and start saving on GiftCardZoneEU.">
+
   <!-- OG / Twitter -->
   <meta property="og:title" content="GiftCardZoneEU — Unlock Exclusive Rewards & Online Deals Worldwide">
   <meta property="og:description" content="Explore geo-smart rewards, coupons, and exclusive deals. No sign-up needed — pick an offer by your country and start saving.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://giftcardzoneeu.com/">
   <meta property="og:image" content="https://eloybugha.github.io/giftcardzoneeu/cover.jpg">
+  <meta property="og:image:alt" content="Gift cards, coupons, and country-matched online deals">
+  <meta property="og:site_name" content="GiftCardZoneEU">
+  <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="GiftCardZoneEU — Unlock Exclusive Rewards & Online Deals Worldwide">
+  <meta name="twitter:description" content="Geo-smart rewards, coupons, and online deals by country. No sign-up needed — pick an offer and start saving.">
 
   <!-- Performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="https://eloybugha.github.io/giftcardzoneeu/cover.jpg" imagesrcset="https://eloybugha.github.io/giftcardzoneeu/cover.jpg 1200w" imagesizes="100vw">
+  <style>@font-face{font-family:Inter;font-display:swap;src:local("Inter")}</style>
 
   <style>
     :root{--bg:#0b0f14;--card:#111827;--text:#e5e7eb;--muted:#94a3b8;--accent:#22c55e;}
@@ -42,7 +52,7 @@
     .row{display:flex;align-items:center;gap:14px}
     .logo{display:flex;align-items:center;gap:10px;font-weight:800}
     .logo-emoji{font-size:26px}
-    .pill{display:inline-flex;align-items:center;gap:8px;background:#0ea5e9; color:white;border-radius:999px;padding:6px 10px;font-size:12px}
+    .pill{display:inline-flex;align-items:center;gap:8px;background:#0ea5e9;color:white;border-radius:999px;padding:6px 10px;font-size:12px}
     nav{margin-left:auto;display:flex;gap:16px;font-weight:600}
     .hero{padding:40px 16px 10px}
     .hero h1{font-size:clamp(28px,5vw,44px);line-height:1.1;margin:10px 0}
@@ -58,6 +68,8 @@
     footer{border-top:1px solid #1f2937;color:#94a3b8}
     .mini{font-size:12px}
     .links{display:flex;gap:14px;flex-wrap:wrap}
+    /* Focus styles for accessibility */
+    a:focus-visible, button:focus-visible {outline:2px solid #22c55e; outline-offset:2px; border-radius:8px}
   </style>
 
   <!-- Structured Data (helps eligibility for rich results) -->
@@ -73,19 +85,40 @@
       "query-input": "required name=search_term_string"
     }
   }
-  </script><script type="text/javascript">
+  </script>
+
+  <!-- Organization schema -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"GiftCardZoneEU",
+    "url":"https://giftcardzoneeu.com/",
+    "logo":"https://giftcardzoneeu.com/favicon.png",
+    "sameAs":["https://giftcardzoneeu.com/"]
+  }
+  </script>
+
+  <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "tvr4ogakjb");
-</script>
+  </script>
+
+  <!-- Optional hreflang for localized country pages -->
+  <link rel="alternate" href="https://giftcardzoneeu.com/country/ph/" hreflang="en-PH">
+  <link rel="alternate" href="https://giftcardzoneeu.com/country/nl/" hreflang="nl-NL">
+  <link rel="alternate" href="https://giftcardzoneeu.com/country/de/" hreflang="de-DE">
+  <link rel="alternate" href="https://giftcardzoneeu.com/country/us/" hreflang="en-US">
+  <link rel="alternate" href="https://giftcardzoneeu.com/" hreflang="x-default">
 </head>
 <body>
   <header>
     <div class="wrap row">
       <div class="logo"><span class="logo-emoji">🎁</span> GiftCardZoneEU</div>
-      <nav>
+      <nav aria-label="Primary">
         <a href="/">Home</a>
         <a href="/NeutralCPC/">Deals</a>
         <a href="/privacy.html">Privacy</a>
@@ -101,96 +134,92 @@
       <p>We surface rotating promos, coupons, and reward offers that match your location. This page is intentionally <strong>non-redirect</strong> so Google can index it. Users can continue below to view the live offers feed.</p>
 
       <div class="cta">
-        <a class="btn" href="https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c" rel="nofollow noopener">Continue to Live Offers</a>
+        <a class="btn" href="https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c" rel="nofollow sponsored noopener noreferrer">Continue to Live Offers</a>
         <a class="btn outline" href="/NeutralCPC/">See Country-Matched Deals</a>
       </div>
 
       <p class="mini">Note: Clicking “Continue to Live Offers” opens our partner page. Some offers may vary by region and device.</p>
     </section>
-<section class="card" style="margin-top:16px">
-  <h2 style="margin:0 0 8px">Find Gift Cards, Coupons, and Country-Matched Online Deals</h2>
-  <p class="mini">
-    GiftCardZoneEU curates rotating <strong>gift card</strong> promos, discount <strong>coupons</strong>,
-    and <strong>online deals</strong> that match your <strong>country</strong> and device.
-    No sign-up needed — pick a category, then continue to our verified partners.
-  </p>
-  <p class="mini">
-    Updated frequently with <strong>e-commerce vouchers</strong>, <strong>gaming credits</strong>,
-    <strong>app trials</strong>, and <strong>seasonal promos</strong> for holidays and big sale events.
-  </p>
-</section>
 
-<!-- 🌍 Country Pages Section -->
-<section class="card" style="margin-top:20px;">
-  <h2>🌍 Explore Country Pages</h2>
-  <p class="mini">Find localized deals for your region.</p>
-  <ul style="list-style:none;padding-left:0;">
-    <li><a href="/country/ph/">🇵🇭 Philippines</a></li>
-    <li><a href="/country/nl/">🇳🇱 Netherlands</a></li>
-    <li><a href="/country/de/">🇩🇪 Germany</a></li>
-    <li><a href="/country/us/">🇺🇸 United States</a></li>
-  </ul>
-</section>
+    <section class="card" style="margin-top:16px">
+      <h2 style="margin:0 0 8px">Find Gift Cards, Coupons, and Country-Matched Online Deals</h2>
+      <p class="mini">
+        GiftCardZoneEU curates rotating <strong>gift card</strong> promos, discount <strong>coupons</strong>,
+        and <strong>online deals</strong> that match your <strong>country</strong> and device.
+        No sign-up needed — pick a category, then continue to our verified partners.
+      </p>
+      <p class="mini">
+        Updated frequently with <strong>e-commerce vouchers</strong>, <strong>gaming credits</strong>,
+        <strong>app trials</strong>, and <strong>seasonal promos</strong> for holidays and big sale events.
+      </p>
+    </section>
 
-<!-- ❓ FAQ (visible) -->
-<section class="card" aria-label="FAQ" style="margin-top:20px;">
-  <h2>❓ FAQ</h2>
+    <!-- 🌍 Country Pages Section -->
+    <section class="card" style="margin-top:20px;">
+      <h2>🌍 Explore Country Pages</h2>
+      <p class="mini">Find localized deals for your region.</p>
+      <ul style="list-style:none;padding-left:0;">
+        <li><a href="/country/ph/">🇵🇭 Philippines</a></li>
+        <li><a href="/country/nl/">🇳🇱 Netherlands</a></li>
+        <li><a href="/country/de/">🇩🇪 Germany</a></li>
+        <li><a href="/country/us/">🇺🇸 United States</a></li>
+      </ul>
+    </section>
 
-  <details>
-    <summary>Libre ba gamitin ang GiftCardZoneEU?</summary>
-    <p class="mini">Oo, libre ang pag-browse ng deals. Kapag nag-click ka ng offer, dadalhin ka sa partner page na nagho-host ng promo.</p>
-  </details>
+    <!-- ❓ FAQ (visible) -->
+    <section class="card" aria-label="FAQ" style="margin-top:20px;">
+      <h2>❓ FAQ</h2>
 
-  <details>
-    <summary>Paano pinipili ang deals per country?</summary>
-    <p class="mini">May geo-rules ang partners; ipinapakita namin ang promos na active sa bansa at device mo.</p>
-  </details>
+      <details>
+        <summary>Is GiftCardZoneEU free to use?</summary>
+        <p class="mini">Yes, browsing deals is completely free. When you click an offer, you’ll be redirected to our partner’s promo page.</p>
+      </details>
 
-  <details>
-    <summary>Safe ba ang mga promos?</summary>
-    <p class="mini">Nagli-link lang kami sa vetted partners. Basahin ang terms sa partner site at iwasan ang pag-share ng sensitive info.</p>
-  </details>
+      <details>
+        <summary>How are deals selected per country?</summary>
+        <p class="mini">Our partners use geo-rules, so we display promotions that are active in your country and device.</p>
+      </details>
 
-  <details>
-    <summary>Kailangan ba ng sign-up dito sa site?</summary>
-    <p class="mini">Hindi. Dito ka lang pumipili ng offer; ang anumang sign-up ay ginagawa sa partner page mismo.</p>
-  </details>
-</section>
+      <details>
+        <summary>Are the promotions safe?</summary>
+        <p class="mini">We only link to vetted partners. Always read the partner site’s terms and avoid sharing sensitive information.</p>
+      </details>
 
-<!-- 📦 FAQ Schema (rich results) -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"FAQPage",
-  "mainEntity":[
+      <details>
+        <summary>Do I need to sign up on this site?</summary>
+        <p class="mini">No sign-up is required here. You simply choose an offer; any registration happens on the partner page itself.</p>
+      </details>
+    </section>
+
+    <!-- 📦 FAQ Schema (rich results) -->
+    <script type="application/ld+json">
     {
-      "@type":"Question",
-      "name":"Libre ba gamitin ang GiftCardZoneEU?",
-      "acceptedAnswer":{"@type":"Answer","text":"Oo, libre ang pag-browse ng deals. Kapag nag-click ka ng offer, dadalhin ka sa partner page na nagho-host ng promo."}
-    },
-    {
-      "@type":"Question",
-      "name":"Paano pinipili ang deals per country?",
-      "acceptedAnswer":{"@type":"Answer","text":"May geo-rules ang partners; ipinapakita namin ang promos na active sa bansa at device mo."}
-    },
-    {
-      "@type":"Question",
-      "name":"Safe ba ang mga promos?",
-      "acceptedAnswer":{"@type":"Answer","text":"Nagli-link lang kami sa vetted partners. Basahin ang terms sa partner site at iwasan ang pag-share ng sensitive info."}
-    },
-    {
-      "@type":"Question",
-      "name":"Kailangan ba ng sign-up dito sa site?",
-      "acceptedAnswer":{"@type":"Answer","text":"Hindi. Dito ka lang pumipili ng offer; ang anumang sign-up ay ginagawa sa partner page mismo."}
+      "@context":"https://schema.org",
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type":"Question","name":"Is GiftCardZoneEU free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, browsing deals is completely free. When you click an offer, you’ll be redirected to our partner’s promo page."}},
+        {"@type":"Question","name":"How are deals selected per country?","acceptedAnswer":{"@type":"Answer","text":"Our partners use geo-rules, so we display promotions that are active in your country and device."}},
+        {"@type":"Question","name":"Are the promotions safe?","acceptedAnswer":{"@type":"Answer","text":"We only link to vetted partners. Always read the partner site’s terms and avoid sharing sensitive information."}},
+        {"@type":"Question","name":"Do I need to sign up on this site?","acceptedAnswer":{"@type":"Answer","text":"No sign-up is required here. You simply choose an offer; any registration happens on the partner page itself."}}
+      ]
     }
-  ]
-}
-</script>
+    </script>
 
-</main>
-<footer>
+    <!-- Breadcrumbs (optional) -->
+    <script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":"BreadcrumbList",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Home","item":"https://giftcardzoneeu.com/"},
+        {"@type":"ListItem","position":2,"name":"Country Pages","item":"https://giftcardzoneeu.com/country/"}
+      ]
+    }
+    </script>
 
+  </main>
 
+  <footer>
     <div class="wrap" style="padding:24px 16px;">
       <div class="links">
         <a href="/privacy.html">Privacy</a>
@@ -202,6 +231,37 @@
   </footer>
 
   <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+
+  <!-- 🌐 Geo-redirect to localized country pages (skip bots for SEO) -->
+  <script>
+    (function () {
+      try {
+        var ua = (navigator.userAgent || "").toLowerCase();
+        var isBot = /bot|crawl|spider|slurp|bingpreview|facebookexternalhit|linkedinbot|monitor|pingdom|preview|crawler/.test(ua);
+        if (isBot) return; // Keep root indexable.
+
+        // If the visitor is already on a /country/ page, do nothing
+        if (location.pathname.startsWith("/country/")) return;
+
+        // Fetch IP-based country and redirect smoothly
+        fetch("https://ipapi.co/json/")
+          .then(function(r){ return r.json(); })
+          .then(function(data){
+            var c = (data && data.country_code) || "";
+            var target =
+              c === "NL" ? "/country/nl/" :
+              c === "PH" ? "/country/ph/" :
+              c === "DE" ? "/country/de/" :
+              c === "US" ? "/country/us/" : "";
+
+            if (target) {
+              // small delay so UI doesn't feel abrupt
+              setTimeout(function(){ window.location.href = target; }, 400);
+            }
+          })
+          .catch(function(){ /* silent fail keeps user on main */ });
+      } catch(e) {}
+    })();
+  </script>
 </body>
 </html>
- 
