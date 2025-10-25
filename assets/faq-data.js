@@ -1,6 +1,12 @@
 // GiftCardZoneEU — Centralized FAQ data + auto-detect by URL
 (function () {
   const DATA = {
+    home: [
+      { q: "Is GiftCardZoneEU free to use?", a: "Yes, browsing deals is free. Clicking an offer takes you to the partner’s promo page." },
+      { q: "How do you choose country-specific deals?", a: "Partners apply geo rules; we show promos that are active for your region and device." },
+      { q: "Are the promos safe?", a: "We only link to vetted partners. Always review the partner’s terms and avoid sharing sensitive info." },
+      { q: "Do I need an account on this site?", a: "No. You only choose offers here; any sign-up happens on the partner page." }
+    ],
     ph: [
       { q: "Libre ba gamitin ang GiftCardZoneEU?", a: "Oo, libre mag-browse. Kapag nag-click ka ng offer, dadalhin ka sa partner page." },
       { q: "Paano pinipili ang deals para sa Philippines?", a: "Partners use geo-rules; ipinapakita namin ang active promos sa PH." },
@@ -27,15 +33,18 @@
     ]
   };
 
-  function detectCountry() {
+  // Detect whether homepage or country page
+  function detectCountryOrHome() {
+    if (location.pathname === "/" || location.pathname === "/index.html") return "home";
     const m = location.pathname.match(/\/country\/([a-z]{2})\//i);
     return m ? m[1].toLowerCase() : null;
   }
 
+  // Public data getter
   window.GZEU_FAQ_DATA = {
     getForCurrentPage: function () {
-      const cc = detectCountry();
-      return { cc, items: (cc && DATA[cc]) ? DATA[cc] : null };
+      const cc = detectCountryOrHome();
+      return { cc, items: (cc && DATA[cc]) ? DATA[cc] : DATA["home"] };
     }
   };
 })();
