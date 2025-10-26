@@ -68,7 +68,6 @@
     footer{border-top:1px solid #1f2937;color:#94a3b8}
     .mini{font-size:12px}
     .links{display:flex;gap:14px;flex-wrap:wrap}
-    /* Focus styles for accessibility */
     a:focus-visible, button:focus-visible {outline:2px solid #22c55e; outline-offset:2px; border-radius:8px}
   </style>
 
@@ -113,6 +112,74 @@
   <link rel="alternate" href="https://giftcardzoneeu.com/country/de/" hreflang="de-DE">
   <link rel="alternate" href="https://giftcardzoneeu.com/country/us/" hreflang="en-US">
   <link rel="alternate" href="https://giftcardzoneeu.com/" hreflang="x-default">
+
+  <!-- 🌍 Geo CTA auto-swap (US => /country/us/, others => Adsterra). SEO-safe: no hard redirect. -->
+  <script>
+  (function () {
+    const CPA_US_PAGE = "/country/us/"; 
+    const ADSTERRA = "https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";
+
+    function isBot() {
+      var ua = (navigator.userAgent || "").toLowerCase();
+      return /bot|crawl|spider|slurp|bingpreview|facebookexternalhit|linkedinbot|monitor|pingdom|preview|crawler/.test(ua);
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      // target the primary CTA button in your hero
+      var cta = document.querySelector('.cta .btn:not(.outline)');
+      if (!cta || isBot()) return;
+
+      // default stays as your Adsterra link; swap only for US
+      setTimeout(function () {
+        fetch("https://ipapi.co/json/")
+          .then(r => r.json())
+          .then(d => {
+            var cc = (d && d.country_code) ? d.country_code.toUpperCase() : "";
+            if (cc === "US") {
+              cta.href = CPA_US_PAGE;
+              if (cta.textContent.trim().length < 40) cta.textContent = "See US Offers";
+            } else {
+              cta.href = ADSTERRA;
+              if (cta.textContent.trim().length < 40) cta.textContent = "Continue to Live Offers";
+            }
+          })
+          .catch(function () {
+            cta.href = ADSTERRA; // still monetize if API fails
+          });
+      }, 300);
+    });
+
+    // Optional fast router for campaigns: add ?go=1 to URL
+    (function campaignRouter() {
+      try {
+        var q = new URLSearchParams(location.search);
+        if (q.get("go") !== "1") return;
+        if (isBot()) return;
+
+        document.documentElement.style.visibility = "hidden";
+        var fail = setTimeout(function () {
+          location.replace(ADSTERRA);
+        }, 1400);
+
+        fetch("https://ipapi.co/json/")
+          .then(r => r.json())
+          .then(d => {
+            clearTimeout(fail);
+            var cc = (d && d.country_code) ? d.country_code.toUpperCase() : "XX";
+            if (cc === "US") {
+              location.replace(CPA_US_PAGE);
+            } else {
+              location.replace(ADSTERRA);
+            }
+          })
+          .catch(function () {
+            location.replace(ADSTERRA);
+          });
+      } catch (e) {}
+    })();
+  })();
+  </script>
+
 </head>
 <body>
   <header>
@@ -199,7 +266,7 @@
       "mainEntity":[
         {"@type":"Question","name":"Is GiftCardZoneEU free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, browsing deals is completely free. When you click an offer, you’ll be redirected to our partner’s promo page."}},
         {"@type":"Question","name":"How are deals selected per country?","acceptedAnswer":{"@type":"Answer","text":"Our partners use geo-rules, so we display promotions that are active in your country and device."}},
-        {"@type":"Question","name":"Are the promotions safe?","acceptedAnswer":{"@type":"Answer","text":"We only link to vetted partners. Always read the partner site’s terms and avoid sharing sensitive information."}},
+        {"@type":"Question","name":"Are the promotions safe?"","acceptedAnswer":{"@type":"Answer","text":"We only link to vetted partners. Always read the partner site’s terms and avoid sharing sensitive information."}},
         {"@type":"Question","name":"Do I need to sign up on this site?","acceptedAnswer":{"@type":"Answer","text":"No sign-up is required here. You simply choose an offer; any registration happens on the partner page itself."}}
       ]
     }
