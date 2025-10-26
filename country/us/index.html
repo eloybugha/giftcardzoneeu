@@ -1,41 +1,106 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-US">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>🏈 Spend $100 Towards the NFL Shop — Join Now!</title>
-  <meta name="description" content="Enter now for your chance to spend $100 towards the official NFL Shop! Limited entries available — join today.">
-  <link rel="icon" href="/favicon.png">
+  <title>GiftCardZoneEU — US Exclusive Rewards</title>
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://giftcardzoneeu.com/country/us/">
+
+  <!-- 🛡️ US Desktop-Only Guard: others => Adsterra (with notice) -->
+  <script>
+  (function () {
+    var ADSTERRA = "https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";
+
+    // overlay notice habang nagche-check
+    var msg = document.createElement("div");
+    msg.textContent = "⏳ Ina-redirect ka sa offer na tugma sa iyong device...";
+    msg.style.cssText = "position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#0b0f14;color:#e5e7eb;font-family:Inter,Arial,sans-serif;font-size:16px;z-index:9999;text-align:center;";
+    document.addEventListener("DOMContentLoaded", function(){ document.body.appendChild(msg); });
+
+    function isDesktop(){ return !/android|iphone|ipad|ipod|mobile|tablet/i.test(navigator.userAgent); }
+
+    var timeout = setTimeout(function(){
+      msg.textContent = "🌐 Ina-redirect ka ngayon...";
+      location.replace(ADSTERRA);
+    },1500);
+
+    fetch("https://ipapi.co/json/")
+      .then(r=>r.json())
+      .then(d=>{
+        clearTimeout(timeout);
+        var cc = (d && d.country_code) ? d.country_code.toUpperCase() : "XX";
+        if (cc==="US" && isDesktop()) {
+          msg.remove(); // ✅ US + desktop: ipakita page
+        } else {
+          msg.textContent = "📱 Ina-redirect ka sa tamang offer...";
+          setTimeout(()=>location.replace(ADSTERRA),700); // 🚫 iba: Adsterra
+        }
+      })
+      .catch(()=>{
+        msg.textContent = "🌐 Ina-redirect ka ngayon...";
+        location.replace(ADSTERRA);
+      });
+  })();
+  </script>
+
   <style>
-    body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:linear-gradient(180deg,#0b0f14,#111827);color:#e5e7eb;text-align:center;padding:24px}
-    h1{font-size:1.9rem;margin:14px 0}
-    p{color:#94a3b8;max-width:520px;margin:0 auto 22px}
-    .btn{display:inline-block;background:#22c55e;color:#062607;font-weight:800;padding:14px 20px;border-radius:12px;text-decoration:none;box-shadow:0 8px 16px rgba(34,197,94,.25);transition:.2s}
+    :root{--bg:#0b0f14;--card:#111827;--text:#e5e7eb;--muted:#94a3b8;--accent:#22c55e;}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#0b0f14;color:var(--text)}
+    .wrap{max-width:860px;margin:0 auto;padding:28px 16px}
+    header{border-bottom:1px solid #1f2937;background:#0b0f14cc;backdrop-filter:saturate(160%) blur(8px);position:sticky;top:0}
+    nav a{color:#e5e7eb;text-decoration:none;margin-right:14px}
+    .hero{padding:28px 0}
+    h1{font-size:clamp(26px,4.5vw,40px);margin:8px 0 10px}
+    p.muted{color:var(--muted)}
+    .card{background:var(--card);border:1px solid #1f2937;border-radius:16px;padding:18px;margin-top:18px}
+    .btn{display:inline-block;background:var(--accent);color:#062607;font-weight:800;border-radius:12px;padding:14px 18px;text-decoration:none;box-shadow:0 8px 16px rgba(34,197,94,.25)}
     .btn:hover{transform:translateY(-1px)}
-    .outline{background:transparent;border:1px solid #334155;color:#e5e7eb;box-shadow:none;margin-left:10px}
-    .card{background:#111827;border:1px solid #1f2937;border-radius:16px;padding:18px;display:inline-block;text-align:left;margin-top:26px}
-    ul{margin:0 0 0 18px}
+    .mini{font-size:12px;color:#94a3b8}
   </style>
 </head>
 <body>
-  <span style="display:inline-block;background:#0ea5e9;color:#fff;border-radius:999px;padding:6px 10px;font-size:12px">US • Special Offer</span>
-  <h1>🏈 Claim Your $100 Towards NFL Shop</h1>
-  <p>Grab official NFL gear with this limited reward. No purchase required — confirm your entry on the next page.</p>
+  <header>
+    <div class="wrap">
+      <nav aria-label="Breadcrumb">
+        <a href="/">Home</a> › <strong>United States</strong>
+      </nav>
+    </div>
+  </header>
 
-  <!-- CTA to CPAgrip -->
-  <a class="btn" href="https://singingfiles.com/show.php?l=0&u=2463039&id=69461"
-     rel="nofollow noopener noreferrer">Continue to Offer</a>
-  <a class="btn outline" href="/country/us/">See more US deals</a>
+  <main class="wrap">
+    <section class="hero">
+      <span class="mini">🇺🇸 US Exclusive (Desktop Only)</span>
+      <h1>Unlock Rewards & Deals — United States</h1>
+      <p class="muted">This page is visible only to desktop users in the US. Mobile users are sent to our partner offers.</p>
 
-  <div class="card">
-    <h3 style="margin:0 0 8px">How it works</h3>
-    <ul>
-      <li>Click “Continue to Offer”.</li>
-      <li>Enter your info to confirm participation.</li>
-      <li>Watch for confirmation and instructions.</li>
-    </ul>
-  </div>
+      <!-- 🎯 Main CPAgrip CTA (US desktop offer) -->
+      <p style="margin:18px 0 6px">
+        <a class="btn"
+           href="https://singingfiles.com/show.php?l=0&u=2463039&id=69461"
+           rel="nofollow noopener sponsored">
+          Continue to US Offer
+        </a>
+      </p>
+      <p class="mini">Note: You’ll be redirected to our partner page. Offers may vary by device.</p>
+    </section>
 
-  <p style="margin-top:32px;font-size:12px;color:#64748b">© 2025 GiftCardZoneEU • Partners: CPAgrip</p>
+    <section class="card">
+      <h2 style="margin:0 0 8px;font-size:20px">How this works</h2>
+      <p class="mini">
+        US desktop users see the CPA offer. All other traffic is monetized via CPM to avoid wasted visits.
+      </p>
+    </section>
+  </main>
+
+  <!-- 💸 Adsterra (optional CPM on this page too) -->
+  <!-- Palitan ang SRC sa ibaba ng tunay mong Adsterra codes kung gusto mo -->
+  <!-- <script type="text/javascript" src="//www.highperformancedisplayformat.com/YOUR_POPUNDER_CODE.js"></script> -->
+  <!-- <script type="text/javascript" src="//www.highperformancedisplayformat.com/YOUR_SOCIAL_BAR_CODE.js"></script> -->
+
+  <noscript>
+    <meta http-equiv="refresh" content="0;url=https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c">
+  </noscript>
 </body>
 </html>
