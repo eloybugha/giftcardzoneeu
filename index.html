@@ -3,72 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>GiftCardZoneEU — Redirecting...</title>
-
-  <!-- Redirect after 3 seconds -->
+  <title>Redirecting... | GiftCardZoneEU</title>
+  <meta name="robots" content="noindex, nofollow">
   <meta http-equiv="refresh" content="3; url=https://giftcardzoneeu.com">
 
-  <!-- Noindex for SEO -->
-  <meta name="robots" content="noindex, nofollow">
-
   <style>
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       height: 100vh;
-      background: linear-gradient(135deg, #0b0f14, #111827);
-      color: #e5e7eb;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background: radial-gradient(circle at top, #0b0f14 0%, #111827 80%);
+      color: #e5e7eb;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
       text-align: center;
     }
-    .card {
-      background: #111827;
-      padding: 32px;
-      border-radius: 16px;
-      border: 1px solid #1f2937;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-      max-width: 420px;
-    }
     h1 {
+      color: #22c55e;
       font-size: 22px;
       margin-bottom: 10px;
-      color: #22c55e;
     }
     p {
       color: #94a3b8;
       font-size: 15px;
-      line-height: 1.6;
+    }
+    .loader {
+      margin: 20px auto;
+      border: 4px solid #1f2937;
+      border-top: 4px solid #22c55e;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
     a {
       display: inline-block;
-      margin-top: 14px;
       background: #22c55e;
       color: #062607;
-      font-weight: 700;
+      font-weight: bold;
       text-decoration: none;
-      padding: 12px 20px;
-      border-radius: 12px;
+      padding: 10px 18px;
+      border-radius: 10px;
       transition: 0.2s;
     }
-    a:hover {
-      background: #16a34a;
-    }
+    a:hover { background: #16a34a; }
   </style>
 
   <script>
-    // Fallback JS redirect after 3s
-    setTimeout(function() {
-      window.location.href = "https://giftcardzoneeu.com";
-    }, 3000);
+    setTimeout(() => window.location.href = "https://giftcardzoneeu.com", 3000);
   </script>
 </head>
 <body>
-  <div class="card">
-    <h1>🎁 Redirecting to GiftCardZoneEU...</h1>
-    <p>Discover exclusive deals, coupons, and country-matched rewards.<br>Hang tight — you’ll be redirected shortly.</p>
-    <a href="https://giftcardzoneeu.com">Go Now</a>
-  </div>
+  <h1>🎁 Redirecting to GiftCardZoneEU...</h1>
+  <div class="loader"></div>
+  <p>Discover the best deals, coupons, and country-matched rewards.<br>Hang tight, you’ll be redirected in a few seconds.</p>
+  <a href="https://giftcardzoneeu.com">Go Now</a>
 </body>
 </html>
