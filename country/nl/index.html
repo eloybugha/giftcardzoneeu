@@ -72,11 +72,8 @@
         us: "❓ FAQ (United States)"
       };
       GZEU_FAQ.renderFAQ("faq-country", found.items, { title: titleMap[found.cc] || "❓ FAQ" });
-    } else {
-      const ph = document.getElementById("faq-country");
-      if (ph) ph.remove();
-    }
-  })();
-  </script>
-</body>
-</html>
+
+      /* ✅ JSON-LD for Rich Results */
+      const faqLD = {
+        "@context": "https://schema.org",
+        "
