@@ -109,11 +109,32 @@
 
     // Routes: US desktop -> CPAgrip
     const routes = {
-      NL:{mobile:'/country/nl/', desktop:'/country/nl/'},
-      US:{mobile:'/go/adsterra-us/', desktop:'/go/cpagrip-us/'},
-      PH:{mobile:'/go/adsterra-ph/', desktop:'/country/ph/'},
-      DEFAULT:{mobile:'/country/us/', desktop:'/country/us/'}
-    };
+  NL:{ mobile:'/country/nl/',      desktop:'/country/nl/' },
+  US:{ mobile:'/go/adsterra-us/',  desktop:'/go/cpagrip-us/' }, // US desktop = CPA
+  PH:{ mobile:'/go/adsterra-ph/',  desktop:'/country/ph/' },
+
+  // top geos → Global page muna
+  GB:{ mobile:'/country/global/', desktop:'/country/global/' },
+  CA:{ mobile:'/country/global/', desktop:'/country/global/' },
+  AU:{ mobile:'/country/global/', desktop:'/country/global/' },
+  DE:{ mobile:'/country/global/', desktop:'/country/global/' },
+  FR:{ mobile:'/country/global/', desktop:'/country/global/' },
+  BR:{ mobile:'/country/global/', desktop:'/country/global/' },
+  IN:{ mobile:'/country/global/', desktop:'/country/global/' },
+  ID:{ mobile:'/country/global/', desktop:'/country/global/' },
+  MY:{ mobile:'/country/global/', desktop:'/country/global/' },
+  SG:{ mobile:'/country/global/', desktop:'/country/global/' },
+  MX:{ mobile:'/country/global/', desktop:'/country/global/' },
+  ES:{ mobile:'/country/global/', desktop:'/country/global/' },
+  IT:{ mobile:'/country/global/', desktop:'/country/global/' },
+  JP:{ mobile:'/country/global/', desktop:'/country/global/' },
+  KR:{ mobile:'/country/global/', desktop:'/country/global/' },
+  AE:{ mobile:'/country/global/', desktop:'/country/global/' },
+  SA:{ mobile:'/country/global/', desktop:'/country/global/' },
+
+  DEFAULT:{ mobile:'/country/global/', desktop:'/country/global/' }
+};
+
 
     // ?to= override
     const host = location.host;
