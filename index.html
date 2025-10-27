@@ -5,17 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>GiftCardZoneEU — Taking You In…</title>
 
-  <!-- Speed + SEO -->
-  <meta name="robots" content="index,follow">
+  <!-- Redirect pages shouldn't be indexed -->
+  <meta name="robots" content="noindex,follow">
   <link rel="canonical" href="https://giftcardzoneeu.com/">
-  <!-- Ultimate fallback after 6s -->
-  <meta http-equiv="refresh" content="6;url=https://giftcardzoneeu.com/">
 
   <style>
     :root{
       --bg1:#0b1020; --bg2:#0f263a; --card:#0f1729cc; --ring:#34d399; --txt:#e8f0ff;
-      --muted:#9fb3c8; --glow:#34d39955;
-      --count:5; /* seconds */
+      --muted:#9fb3c8; --glow:#34d39955; --count:5;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
@@ -27,8 +24,6 @@
         linear-gradient(160deg,var(--bg1),var(--bg2));
       overflow:hidden;
     }
-
-    /* soft floating dots */
     .stars{position:fixed; inset:0; pointer-events:none; opacity:.25}
     .stars::before,.stars::after{
       content:""; position:absolute; inset:-50% -50% -50% -50%;
@@ -43,58 +38,46 @@
     .stars::after{animation-duration:60s; opacity:.7; filter:blur(.4px)}
     @keyframes float {to{transform:translate3d(4%, -6%, 0)}}
 
-    main{
-      height:100%; display:grid; place-items:center; padding:24px;
-    }
+    main{height:100%; display:grid; place-items:center; padding:24px;}
     .card{
       width:min(560px, 92vw);
-      background: var(--card);
+      /* solid fallback to avoid white box on some browsers */
+      background:#0f1729;
       border:1px solid #23324a;
       box-shadow: 0 30px 120px #0008, 0 0 40px var(--glow);
       border-radius: 20px; padding:28px; text-align:center;
-      backdrop-filter: blur(8px);
       position:relative; overflow:hidden;
     }
-    .badge{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:8px 12px; border-radius: 999px; color:#0b1b14;
-      background: #d1fae5; font-weight:700; font-size:14px;
-      letter-spacing:.2px;
+    @supports ((backdrop-filter: blur(8px)) or (-webkit-backdrop-filter: blur(8px))){
+      .card{
+        background: var(--card);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+      }
     }
+
+    .badge{display:inline-flex; align-items:center; gap:10px; padding:8px 12px; border-radius:999px; color:#0b1b14;
+      background:#d1fae5; font-weight:700; font-size:14px; letter-spacing:.2px;}
     h1{margin:16px 0 6px; font-weight:800; letter-spacing:.3px}
     p.lead{margin:0 0 14px; color:var(--muted); font-size:15px}
     .geo{color:#d1fbe3; font-weight:600}
 
-    /* progress ring */
     .ring-wrap{display:flex; justify-content:center; margin:16px 0 20px}
     .ring{
-      --p:0deg;
-      width:72px; height:72px; border-radius:50%;
+      --p:0deg; width:72px; height:72px; border-radius:50%;
       background: conic-gradient(var(--ring) var(--p), #1f2a44 0);
       display:grid; place-items:center;
       box-shadow:0 0 0 6px #0d1627, inset 0 0 0 6px #0d1627, 0 0 40px var(--glow);
-      transition:background .2s linear;
-      animation: fill calc(var(--count)*1s) linear forwards;
+      transition:background .2s linear; animation: fill calc(var(--count)*1s) linear forwards;
     }
-    .ring span{
-      display:inline-block; width:54px; height:54px; border-radius:50%;
-      background:#0b1324; display:grid; place-items:center; font-weight:800;
-    }
+    .ring span{display:inline-block; width:54px; height:54px; border-radius:50%; background:#0b1324; display:grid; place-items:center; font-weight:800;}
     @keyframes fill{to{--p:360deg}}
 
     .actions{display:flex; gap:10px; justify-content:center; flex-wrap:wrap}
-    .btn{
-      appearance:none; border:none; cursor:pointer;
-      padding:12px 18px; border-radius:14px; font-weight:800;
-      letter-spacing:.3px; transition:transform .08s ease, box-shadow .2s ease, background .2s;
-    }
-    .primary{
-      background:#10b981; color:#062d22; box-shadow:0 12px 28px #10b98155;
-    }
+    .btn{appearance:none; border:none; cursor:pointer; padding:12px 18px; border-radius:14px; font-weight:800; letter-spacing:.3px; transition:transform .08s ease, box-shadow .2s ease, background .2s;}
+    .primary{background:#10b981; color:#062d22; box-shadow:0 12px 28px #10b98155;}
     .primary:active{transform:translateY(1px)}
-    .ghost{
-      background:#0e1b31; color:#b9c6d8; border:1px solid #243552;
-    }
+    .ghost{background:#0e1b31; color:#b9c6d8; border:1px solid #243552;}
     .hint{margin-top:12px; color:#a7bacf; font-size:13px}
     .kbd{padding:2px 6px; border:1px solid #3a4b6a; border-bottom-width:3px; border-radius:6px; font-family:ui-monospace,Menlo,Consolas,monospace}
 
@@ -117,9 +100,7 @@
     <section class="card" role="region" aria-label="Redirect panel">
       <div class="logo">🎁 GiftCardZoneEU</div>
 
-      <div class="badge" aria-live="polite" id="badge">
-        🚀 Redirecting…
-      </div>
+      <div class="badge" aria-live="polite" id="badge">🚀 Redirecting…</div>
 
       <h1>We’re opening your country-matched rewards<span class="geo" id="geo"></span></h1>
       <p class="lead">Discover the best deals, coupons, and verified promos for your location.</p>
@@ -139,10 +120,9 @@
       </p>
 
       <div class="footer">
-        No movement? <a class="link" id="rawLink" href="https://giftcardzoneeu.com/" rel="nofollow">Open directly</a>.
+        No movement? <a class="link" id="rawLink" href="https://giftcardzoneeu.com/country/nl/" rel="nofollow">Open directly</a>.
       </div>
 
-      <!-- Full-card clickable surface for easy tap -->
       <button class="tap-anywhere" id="overlay" aria-label="Continue"></button>
     </section>
   </main>
@@ -150,14 +130,14 @@
   <noscript>
     <style>main{display:block} .ring{display:none}</style>
     <div style="text-align:center;margin-top:12px">
-      JavaScript is off—please <a href="https://giftcardzoneeu.com/">continue here</a>.
+      JavaScript is off—please <a href="https://giftcardzoneeu.com/country/nl/">continue here</a>.
     </div>
   </noscript>
 
   <script>
     (function(){
       // ===== Config =====
-      const DEFAULT_TARGET = "https://giftcardzoneeu.com/";
+      const DEFAULT_TARGET = "https://giftcardzoneeu.com/country/nl/"; // <-- palitan per GEO kung kailangan
       const allowHost = new URL(DEFAULT_TARGET).host;
 
       // support ?to= URL (only same host or relative)
@@ -175,17 +155,15 @@
         }catch(e){}
       }
 
-      // Update visible raw link + copy
+      // Update visible link
       const rawLink = document.getElementById('rawLink');
       rawLink.href = to;
 
-      // Geo-ish text using language/region
+      // Geo label
       try{
         const lang = navigator.language || 'en';
         const region = (lang.split('-')[1] || '').toUpperCase();
-        if(region){
-          document.getElementById('geo').textContent = ` — ${region}`;
-        }
+        if(region){ document.getElementById('geo').textContent = ` — ${region}`; }
       }catch(e){}
 
       // Countdown + progress
@@ -200,21 +178,16 @@
         if(t<=0){ clearInterval(tick); safeGo(); }
       },1000);
 
-      // Action buttons & keyboard
       const go = () => safeGo(true);
       document.getElementById('goNow').addEventListener('click', go);
       document.getElementById('overlay').addEventListener('click', go);
       document.addEventListener('keydown', e => { if(e.key === 'Enter') go(); });
 
-      // Copy
       document.getElementById('copy').addEventListener('click', async ()=>{
-        try{
-          await navigator.clipboard.writeText(to);
-          flash('Link copied!');
-        }catch{ flash('Copy failed—tap and hold to copy.'); }
+        try{ await navigator.clipboard.writeText(to); flash('Link copied!'); }
+        catch{ flash('Copy failed—tap and hold to copy.'); }
       });
 
-      // Badge flash helper
       function flash(text){
         const el = document.getElementById('badge');
         const old = el.textContent;
@@ -222,27 +195,21 @@
         setTimeout(()=> el.textContent = old, 1500);
       }
 
-      // TikTok/FB in-app quirks: try top-level first, fallback replace/assign
       let redirected = false;
       function safeGo(manual=false){
         if(redirected) return; redirected = true;
         try{
-          // If inside iframe/in-app webview, break out
           if(window.top && window.top !== window) {
             window.top.location = to;
           } else {
-            // Prefer replace to avoid back button loop
             location.replace(to);
-            // As a belt-and-suspenders, assign after a tiny delay
             setTimeout(()=>{ if(document.visibilityState === 'visible') location.assign(to); }, 600);
           }
         }catch(e){
-          // Final fallback: clickable link
           if(manual) window.open(to, "_top");
         }
       }
 
-      // Auto-start a bit earlier for snappier feel
       setTimeout(()=>{ if(!redirected) safeGo(); }, (total*1000)+400);
     })();
   </script>
