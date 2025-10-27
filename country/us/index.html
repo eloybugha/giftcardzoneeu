@@ -68,39 +68,48 @@
       </nav>
     </div>
   </header>
+<script>
+(function () {
+  var ADSTERRA = "https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";
 
-  <main class="wrap">
-    <section class="hero">
-      <span class="mini">🇺🇸 US Exclusive (Desktop Only)</span>
-      <h1>Unlock Rewards & Deals — United States</h1>
-      <p class="muted">This page is visible only to desktop users in the US. Mobile users are sent to our partner offers.</p>
+  function isBot() {
+    var ua = (navigator.userAgent || "").toLowerCase();
+    return /bot|crawl|spider|slurp|bingpreview|facebookexternalhit|linkedinbot|monitor|pingdom|preview|crawler|google page speed/i.test(ua);
+  }
+  function isDesktop(){ return !/android|iphone|ipad|ipod|mobile|tablet/i.test(navigator.userAgent); }
 
-      <!-- 🎯 Main CPAgrip CTA (US desktop offer) -->
-      <p style="margin:18px 0 6px">
-        <a class="btn"
-           href="https://singingfiles.com/show.php?l=0&u=2463039&id=69461"
-           rel="nofollow noopener sponsored">
-          Continue to US Offer
-        </a>
-      </p>
-      <p class="mini">Note: You’ll be redirected to our partner page. Offers may vary by device.</p>
-    </section>
+  // 👉 If bot, do NOTHING (hayaan si Google makita ang page)
+  if (isBot()) return;
 
-    <section class="card">
-      <h2 style="margin:0 0 8px;font-size:20px">How this works</h2>
-      <p class="mini">
-        US desktop users see the CPA offer. All other traffic is monetized via CPM to avoid wasted visits.
-      </p>
-    </section>
-  </main>
+  // overlay notice habang nagche-check
+  var msg = document.createElement("div");
+  msg.textContent = "⏳ Ina-redirect ka sa offer na tugma sa iyong device...";
+  msg.style.cssText = "position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#0b0f14;color:#e5e7eb;font-family:Inter,Arial,sans-serif;font-size:16px;z-index:9999;text-align:center;";
+  document.addEventListener("DOMContentLoaded", function(){ document.body.appendChild(msg); });
 
-  <!-- 💸 Adsterra (optional CPM on this page too) -->
-  <!-- Palitan ang SRC sa ibaba ng tunay mong Adsterra codes kung gusto mo -->
-  <!-- <script type="text/javascript" src="//www.highperformancedisplayformat.com/YOUR_POPUNDER_CODE.js"></script> -->
-  <!-- <script type="text/javascript" src="//www.highperformancedisplayformat.com/YOUR_SOCIAL_BAR_CODE.js"></script> -->
+  var timeout = setTimeout(function(){
+    msg.textContent = "🌐 Ina-redirect ka ngayon...";
+    location.replace(ADSTERRA);
+  },1500);
 
-  <noscript>
-    <meta http-equiv="refresh" content="0;url=https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c">
-  </noscript>
+  fetch("https://ipapi.co/json/")
+    .then(r=>r.json())
+    .then(d=>{
+      clearTimeout(timeout);
+      var cc = (d && d.country_code) ? d.country_code.toUpperCase() : "XX";
+      if (cc==="US" && isDesktop()) {
+        msg.remove(); // ✅ US + desktop: ipakita page
+      } else {
+        msg.textContent = "📱 Ina-redirect ka sa tamang offer...";
+        setTimeout(()=>location.replace(ADSTERRA),700);
+      }
+    })
+    .catch(()=>{
+      msg.textContent = "🌐 Ina-redirect ka ngayon...";
+      location.replace(ADSTERRA);
+    });
+})();
+</script>
+
 </body>
 </html>
