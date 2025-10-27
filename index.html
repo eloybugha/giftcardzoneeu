@@ -3,59 +3,248 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Redirecting… | GiftCardZoneEU</title>
-  <meta name="robots" content="noindex, nofollow" />
+  <title>GiftCardZoneEU — Taking You In…</title>
 
-  <!-- Ultimate fallback -->
-  <meta http-equiv="refresh" content="5; url=https://giftcardzoneeu.com/">
+  <!-- Speed + SEO -->
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://giftcardzoneeu.com/">
+  <!-- Ultimate fallback after 6s -->
+  <meta http-equiv="refresh" content="6;url=https://giftcardzoneeu.com/">
 
   <style>
-    :root { --bg:#0b1220; --fg:#e5f2ff; --green:#22c55e; }
-    * { box-sizing:border-box }
-    html,body { height:100% }
-    body {
-      margin:0; background:radial-gradient(1200px 600px at 50% 40%, #101a2e, #0b1220);
-      color:var(--fg); font:500 16px/1.4 ui-sans-serif,system-ui,Segoe UI,Roboto,Inter;
+    :root{
+      --bg1:#0b1020; --bg2:#0f263a; --card:#0f1729cc; --ring:#34d399; --txt:#e8f0ff;
+      --muted:#9fb3c8; --glow:#34d39955;
+      --count:5; /* seconds */
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; color:var(--txt); font:500 16px/1.5 ui-sans-serif,system-ui,Segoe UI,Roboto;
+      background:
+        radial-gradient(1200px 800px at 20% -10%, #1a2d4a66, transparent 55%),
+        radial-gradient(900px 700px at 120% 110%, #0ea5e966, transparent 55%),
+        linear-gradient(160deg,var(--bg1),var(--bg2));
+      overflow:hidden;
+    }
+
+    /* soft floating dots */
+    .stars{position:fixed; inset:0; pointer-events:none; opacity:.25}
+    .stars::before,.stars::after{
+      content:""; position:absolute; inset:-50% -50% -50% -50%;
+      background:
+        radial-gradient(2px 2px at 20% 30%, #cfe9ff 60%, transparent 61%),
+        radial-gradient(1.5px 1.5px at 70% 60%, #b3d8ff 60%, transparent 61%),
+        radial-gradient(1.2px 1.2px at 40% 80%, #d9f99d 60%, transparent 61%),
+        radial-gradient(1.8px 1.8px at 85% 25%, #99f6e4 60%, transparent 61%);
+      animation: float 40s linear infinite;
+      transform: translate3d(0,0,0);
+    }
+    .stars::after{animation-duration:60s; opacity:.7; filter:blur(.4px)}
+    @keyframes float {to{transform:translate3d(4%, -6%, 0)}}
+
+    main{
+      height:100%; display:grid; place-items:center; padding:24px;
+    }
+    .card{
+      width:min(560px, 92vw);
+      background: var(--card);
+      border:1px solid #23324a;
+      box-shadow: 0 30px 120px #0008, 0 0 40px var(--glow);
+      border-radius: 20px; padding:28px; text-align:center;
+      backdrop-filter: blur(8px);
+      position:relative; overflow:hidden;
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:8px 12px; border-radius: 999px; color:#0b1b14;
+      background: #d1fae5; font-weight:700; font-size:14px;
+      letter-spacing:.2px;
+    }
+    h1{margin:16px 0 6px; font-weight:800; letter-spacing:.3px}
+    p.lead{margin:0 0 14px; color:var(--muted); font-size:15px}
+    .geo{color:#d1fbe3; font-weight:600}
+
+    /* progress ring */
+    .ring-wrap{display:flex; justify-content:center; margin:16px 0 20px}
+    .ring{
+      --p:0deg;
+      width:72px; height:72px; border-radius:50%;
+      background: conic-gradient(var(--ring) var(--p), #1f2a44 0);
       display:grid; place-items:center;
+      box-shadow:0 0 0 6px #0d1627, inset 0 0 0 6px #0d1627, 0 0 40px var(--glow);
+      transition:background .2s linear;
+      animation: fill calc(var(--count)*1s) linear forwards;
     }
-    .wrap { text-align:center; padding:24px; width:min(520px, 92vw); }
-    h1 { font-size:22px; margin:0 0 12px }
-    p { opacity:.85; margin:0 0 20px }
-    .btn {
-      display:inline-flex; align-items:center; justify-content:center;
-      min-width:160px; padding:14px 20px; border-radius:12px;
-      background:var(--green); color:#001a0a; font-weight:700; text-decoration:none;
-      box-shadow:0 6px 20px rgba(34,197,94,.35);
-      position:relative; z-index:5; cursor:pointer; user-select:none;
-      -webkit-tap-highlight-color: transparent;
+    .ring span{
+      display:inline-block; width:54px; height:54px; border-radius:50%;
+      background:#0b1324; display:grid; place-items:center; font-weight:800;
     }
-    .hit { /* makes the whole middle area tappable */
-      position:fixed; inset:0; margin:auto; width:80vw; max-width:500px; height:220px;
-      z-index:4; background:transparent; pointer-events:auto;
+    @keyframes fill{to{--p:360deg}}
+
+    .actions{display:flex; gap:10px; justify-content:center; flex-wrap:wrap}
+    .btn{
+      appearance:none; border:none; cursor:pointer;
+      padding:12px 18px; border-radius:14px; font-weight:800;
+      letter-spacing:.3px; transition:transform .08s ease, box-shadow .2s ease, background .2s;
     }
-    /* ensure nothing is blocking taps */
-    .overlay-killer, .overlay, .ad, [data-overlay], [data-modal] { pointer-events:none !important; }
-    .spinner {
-      width:42px; height:42px; border-radius:50%;
-      border:3px solid rgba(255,255,255,.18); border-top-color:var(--green);
-      margin:18px auto; animation:spin 1s linear infinite;
+    .primary{
+      background:#10b981; color:#062d22; box-shadow:0 12px 28px #10b98155;
     }
-    @keyframes spin { to { transform:rotate(360deg) } }
+    .primary:active{transform:translateY(1px)}
+    .ghost{
+      background:#0e1b31; color:#b9c6d8; border:1px solid #243552;
+    }
+    .hint{margin-top:12px; color:#a7bacf; font-size:13px}
+    .kbd{padding:2px 6px; border:1px solid #3a4b6a; border-bottom-width:3px; border-radius:6px; font-family:ui-monospace,Menlo,Consolas,monospace}
+
+    .tap-anywhere{position:absolute; inset:0; outline:none}
+    .tap-anywhere:focus{box-shadow:inset 0 0 0 2px #22d3ee66}
+    .logo{position:absolute; left:14px; top:14px; opacity:.9; font-weight:900; color:#9ae6b4}
+    .footer{margin-top:14px; color:#6f839b; font-size:12px}
+    a.link{color:#86efac; text-underline-offset:3px}
+
+    @media (prefers-reduced-motion: reduce){
+      .stars{display:none}
+      .ring{animation:none}
+    }
   </style>
 </head>
 <body>
-  <div class="wrap" id="page">
-    <h1>🎁 Redirecting to GiftCardZoneEU…</h1>
-    <div class="spinner" aria-hidden="true"></div>
-    <p>Discover the best deals, coupons, and country-matched rewards.</p>
-    <!-- 1) Real link (same tab = works in TikTok) -->
-    <a id="go"
-       class="btn"
-       href="https://giftcardzoneeu.com/"
-       rel="nofollow"
-       aria-label="Go to GiftCardZoneEU now">
-      Go Now
-    </a>
-  </div>
+  <div class="stars" aria-hidden="true"></div>
 
-  <!-- 2) Big invisible “hit area” so kahit s
+  <main>
+    <section class="card" role="region" aria-label="Redirect panel">
+      <div class="logo">🎁 GiftCardZoneEU</div>
+
+      <div class="badge" aria-live="polite" id="badge">
+        🚀 Redirecting…
+      </div>
+
+      <h1>We’re opening your country-matched rewards<span class="geo" id="geo"></span></h1>
+      <p class="lead">Discover the best deals, coupons, and verified promos for your location.</p>
+
+      <div class="ring-wrap">
+        <div class="ring" id="ring"><span id="count">5</span></div>
+      </div>
+
+      <div class="actions">
+        <button class="btn primary" id="goNow">Go Now</button>
+        <button class="btn ghost" id="copy">Copy Link</button>
+      </div>
+
+      <p class="hint">
+        Tip: Press <span class="kbd">Enter</span> or tap anywhere to continue.
+        In TikTok browser? This will open in the top window.
+      </p>
+
+      <div class="footer">
+        No movement? <a class="link" id="rawLink" href="https://giftcardzoneeu.com/" rel="nofollow">Open directly</a>.
+      </div>
+
+      <!-- Full-card clickable surface for easy tap -->
+      <button class="tap-anywhere" id="overlay" aria-label="Continue"></button>
+    </section>
+  </main>
+
+  <noscript>
+    <style>main{display:block} .ring{display:none}</style>
+    <div style="text-align:center;margin-top:12px">
+      JavaScript is off—please <a href="https://giftcardzoneeu.com/">continue here</a>.
+    </div>
+  </noscript>
+
+  <script>
+    (function(){
+      // ===== Config =====
+      const DEFAULT_TARGET = "https://giftcardzoneeu.com/";
+      const allowHost = new URL(DEFAULT_TARGET).host;
+
+      // support ?to= URL (only same host or relative)
+      const params = new URLSearchParams(location.search);
+      let to = DEFAULT_TARGET;
+      if(params.has('to')){
+        try{
+          const p = params.get('to');
+          if(/^https?:/i.test(p)){
+            const u = new URL(p);
+            if(u.host === allowHost) to = u.href;
+          }else if(p.startsWith('/')){
+            to = `${location.protocol}//${allowHost}${p}`;
+          }
+        }catch(e){}
+      }
+
+      // Update visible raw link + copy
+      const rawLink = document.getElementById('rawLink');
+      rawLink.href = to;
+
+      // Geo-ish text using language/region
+      try{
+        const lang = navigator.language || 'en';
+        const region = (lang.split('-')[1] || '').toUpperCase();
+        if(region){
+          document.getElementById('geo').textContent = ` — ${region}`;
+        }
+      }catch(e){}
+
+      // Countdown + progress
+      const total = Number(getComputedStyle(document.documentElement).getPropertyValue('--count')) || 5;
+      const ring = document.getElementById('ring');
+      const count = document.getElementById('count');
+      let t = total;
+
+      const tick = setInterval(()=>{
+        t -= 1;
+        count.textContent = Math.max(0, t);
+        if(t<=0){ clearInterval(tick); safeGo(); }
+      },1000);
+
+      // Action buttons & keyboard
+      const go = () => safeGo(true);
+      document.getElementById('goNow').addEventListener('click', go);
+      document.getElementById('overlay').addEventListener('click', go);
+      document.addEventListener('keydown', e => { if(e.key === 'Enter') go(); });
+
+      // Copy
+      document.getElementById('copy').addEventListener('click', async ()=>{
+        try{
+          await navigator.clipboard.writeText(to);
+          flash('Link copied!');
+        }catch{ flash('Copy failed—tap and hold to copy.'); }
+      });
+
+      // Badge flash helper
+      function flash(text){
+        const el = document.getElementById('badge');
+        const old = el.textContent;
+        el.textContent = text;
+        setTimeout(()=> el.textContent = old, 1500);
+      }
+
+      // TikTok/FB in-app quirks: try top-level first, fallback replace/assign
+      let redirected = false;
+      function safeGo(manual=false){
+        if(redirected) return; redirected = true;
+        try{
+          // If inside iframe/in-app webview, break out
+          if(window.top && window.top !== window) {
+            window.top.location = to;
+          } else {
+            // Prefer replace to avoid back button loop
+            location.replace(to);
+            // As a belt-and-suspenders, assign after a tiny delay
+            setTimeout(()=>{ if(document.visibilityState === 'visible') location.assign(to); }, 600);
+          }
+        }catch(e){
+          // Final fallback: clickable link
+          if(manual) window.open(to, "_top");
+        }
+      }
+
+      // Auto-start a bit earlier for snappier feel
+      setTimeout(()=>{ if(!redirected) safeGo(); }, (total*1000)+400);
+    })();
+  </script>
+</body>
+</html>
