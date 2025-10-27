@@ -7,18 +7,29 @@
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://giftcardzoneeu.com/country/us/">
 
-  <!-- 🛡️ US Desktop-Only Guard: others => Adsterra (with notice) -->
+  <!-- ✅ Hreflang cluster -->
+  <link rel="alternate" href="https://giftcardzoneeu.com/country/us/" hreflang="en-US">
+  <link rel="alternate" href="https://giftcardzoneeu.com/" hreflang="x-default">
+
+  <!-- ✅ US Desktop-Only Guard (bots safe + SEO friendly) -->
   <script>
   (function () {
     var ADSTERRA = "https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";
+
+    // ✅ Skip bots (para ma-index ni Google)
+    function isBot() {
+      var ua = (navigator.userAgent || "").toLowerCase();
+      return /bot|crawl|spider|slurp|bingpreview|facebookexternalhit|linkedinbot|monitor|pingdom|preview|crawler|google page speed/i.test(ua);
+    }
+    if (isBot()) return;
+
+    function isDesktop(){ return !/android|iphone|ipad|ipod|mobile|tablet/i.test(navigator.userAgent); }
 
     // overlay notice habang nagche-check
     var msg = document.createElement("div");
     msg.textContent = "⏳ Ina-redirect ka sa offer na tugma sa iyong device...";
     msg.style.cssText = "position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#0b0f14;color:#e5e7eb;font-family:Inter,Arial,sans-serif;font-size:16px;z-index:9999;text-align:center;";
     document.addEventListener("DOMContentLoaded", function(){ document.body.appendChild(msg); });
-
-    function isDesktop(){ return !/android|iphone|ipad|ipod|mobile|tablet/i.test(navigator.userAgent); }
 
     var timeout = setTimeout(function(){
       msg.textContent = "🌐 Ina-redirect ka ngayon...";
@@ -34,7 +45,7 @@
           msg.remove(); // ✅ US + desktop: ipakita page
         } else {
           msg.textContent = "📱 Ina-redirect ka sa tamang offer...";
-          setTimeout(()=>location.replace(ADSTERRA),700); // 🚫 iba: Adsterra
+          setTimeout(()=>location.replace(ADSTERRA),700);
         }
       })
       .catch(()=>{
@@ -60,6 +71,7 @@
     .mini{font-size:12px;color:#94a3b8}
   </style>
 </head>
+
 <body>
   <header>
     <div class="wrap">
