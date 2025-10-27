@@ -46,7 +46,8 @@
           msg.remove(); // US + desktop = stay
         } else {
           msg.textContent = "📱 Ina-redirect ka sa tamang offer...";
-          setTimeout(() => location.replace(ADSTERRA), 700);
+          setTimeout(()=>location.replace(ADSTERRA),1500);
+
         }
       })
       .catch(() => {
