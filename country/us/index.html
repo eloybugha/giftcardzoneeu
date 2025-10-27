@@ -3,119 +3,151 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GiftCardZoneEU — US Exclusive Rewards</title>
+
+  <title>US Gift Cards & Hidden Reward Websites — GiftCardZoneEU</title>
+  <meta name="description" content="Find exclusive US gift card deals, hidden reward websites, and superfood hacks for users in the United States. Updated regularly with verified offers." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://giftcardzoneeu.com/country/us/" />
 
-  <!-- ✅ Hreflang cluster -->
+  <!-- Hreflang cluster -->
   <link rel="alternate" href="https://giftcardzoneeu.com/country/us/" hreflang="en-US" />
+  <link rel="alternate" href="https://giftcardzoneeu.com/country/nl/" hreflang="nl-NL" />
   <link rel="alternate" href="https://giftcardzoneeu.com/" hreflang="x-default" />
 
-  <!-- ✅ US Desktop-Only Guard (bots safe + SEO friendly) -->
-  <script>
-  (function () {
-    const ADSTERRA = "https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";
-
-    // Skip bots (para ma-index ni Google)
-    function isBot() {
-      const ua = (navigator.userAgent || "").toLowerCase();
-      return /bot|crawl|spider|slurp|bingpreview|facebookexternalhit|linkedinbot|monitor|pingdom|preview|crawler|google page speed/i.test(ua);
-    }
-    if (isBot()) return;
-
-    const isDesktop = () => !/android|iphone|ipad|ipod|mobile|tablet/i.test(navigator.userAgent);
-
-    // Overlay habang nag-che-check
-    const msg = document.createElement("div");
-    msg.textContent = "⏳ Ina-redirect ka sa offer na tugma sa iyong device...";
-    msg.style.cssText =
-      "position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#0b0f14;color:#e5e7eb;font-family:Inter,Arial,sans-serif;font-size:16px;z-index:9999;text-align:center;";
-    document.addEventListener("DOMContentLoaded", () => document.body.appendChild(msg));
-
-    const timeout = setTimeout(() => {
-      msg.textContent = "🌐 Ina-redirect ka ngayon...";
-      location.replace(ADSTERRA);
-    }, 1500);
-
-    fetch("https://ipapi.co/json/")
-      .then((r) => r.json())
-      .then((d) => {
-        clearTimeout(timeout);
-        const cc = d?.country_code?.toUpperCase() || "XX";
-        if (cc === "US" && isDesktop()) {
-          msg.remove(); // US + desktop = stay
-        } else {
-          msg.textContent = "📱 Ina-redirect ka sa tamang offer...";
-          setTimeout(()=>location.replace(ADSTERRA),1500);
-
-        }
-      })
-      .catch(() => {
-        msg.textContent = "🌐 Ina-redirect ka ngayon...";
-        location.replace(ADSTERRA);
-      });
-  })();
-  </script>
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://giftcardzoneeu.com/country/us/" />
+  <meta property="og:title" content="Hidden Reward Websites for US Users — GiftCardZoneEU" />
+  <meta property="og:description" content="Discover US gift cards, hidden reward websites, and healthy life hacks. Safe, curated links." />
+  <meta property="og:image" content="https://giftcardzoneeu.com/preview.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="US Rewards & Gift Cards — GiftCardZoneEU" />
+  <meta name="twitter:description" content="Hidden websites with US deals, superfoods, and coupons." />
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/preview.jpg" />
 
   <style>
-    :root{--bg:#0b0f14;--card:#111827;--text:#e5e7eb;--muted:#94a3b8;--accent:#22c55e;}
+    :root{--bg:#0b1020;--panel:#0e1529;--text:#e8f0ff;--muted:#9fb3c8;--accent:#10b981}
     *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#0b0f14;color:var(--text)}
-    .wrap{max-width:860px;margin:0 auto;padding:28px 16px}
-    header{border-bottom:1px solid #1f2937;background:#0b0f14cc;backdrop-filter:saturate(160%) blur(8px);position:sticky;top:0}
-    nav a{color:#e5e7eb;text-decoration:none;margin-right:14px}
-    .hero{padding:28px 0}
-    h1{font-size:clamp(26px,4.5vw,40px);margin:8px 0 10px}
-    p.muted{color:var(--muted)}
-    .card{background:var(--card);border:1px solid #1f2937;border-radius:16px;padding:18px;margin-top:18px}
-    .btn{display:inline-block;background:var(--accent);color:#062607;font-weight:800;border-radius:12px;padding:14px 18px;text-decoration:none;box-shadow:0 8px 16px rgba(34,197,94,.25)}
-    .btn:hover{transform:translateY(-1px)}
-    .mini{font-size:12px;color:#94a3b8}
+    html,body{height:100%}
+    body{margin:0;background:linear-gradient(160deg,#0b1020,#0f263a);color:var(--text);font:500 16px/1.6 ui-sans-serif,system-ui,Segoe UI,Roboto}
+    a{color:#86efac}
+    header{padding:28px 16px;max-width:1100px;margin:0 auto}
+    .flag{font-size:28px;margin-right:8px}
+    h1{margin:8px 0 6px;font-weight:900}
+    .sub{color:var(--muted);margin:0 0 8px}
+    main{max-width:1100px;margin:0 auto;padding:0 16px 56px}
+    .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+    .card{background:#0f1729;border:1px solid #23324a;border-radius:18px;padding:18px}
+    .card h2{margin:6px 0 8px}
+    .btn{display:inline-block;background:var(--accent);color:#062d22;padding:12px 16px;border-radius:12px;font-weight:800;text-decoration:none}
+    .ghost{background:#0e1b31;color:#b9c6d8;border:1px solid #243552}
+    .section{margin:26px 0}
+    .faq details{background:#0f1729;border:1px solid #23324a;border-radius:14px;padding:10px 14px}
+    .faq details+details{margin-top:10px}
+    footer{color:#7c90a8;font-size:13px;margin-top:26px}
+    .crumbs{font-size:14px;margin-top:6px}
   </style>
+
+  <!-- JSON-LD: WebPage + FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "name":"GiftCardZoneEU — United States Rewards",
+    "url":"https://giftcardzoneeu.com/country/us/",
+    "description":"Find hidden US reward websites and gift card offers.",
+    "inLanguage":"en-US",
+    "publisher":{"@type":"Organization","name":"GiftCardZoneEU"}
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Is this free to use?",
+       "acceptedAnswer":{"@type":"Answer","text":"Yes. Browsing is free. Some partner offers may require actions like sign-ups or trials."}},
+      {"@type":"Question","name":"Are the offers safe and US-compatible?",
+       "acceptedAnswer":{"@type":"Answer","text":"We list US-ready campaigns only and rotate inactive links out. Always read each offer’s terms."}},
+      {"@type":"Question","name":"How do I claim gift cards?",
+       "acceptedAnswer":{"@type":"Answer","text":"Click a category below, follow the steps on the partner page, and complete the required actions to qualify."}},
+      {"@type":"Question","name":"Can I access this from mobile and desktop?",
+       "acceptedAnswer":{"@type":"Answer","text":"Yes. Mobile users often see mobile-optimized offers; desktop users may get survey or task-based rewards."}}
+    ]
+  }
+  </script>
 </head>
-
 <body>
-  <header>
-    <div class="wrap">
-      <nav aria-label="Breadcrumb">
-        <a href="/">Home</a> › <strong>United States</strong>
-      </nav>
-    </div>
-  </header>
 
-  <main class="wrap">
-    <section class="hero">
-      <span class="mini">🇺🇸 US Exclusive (Desktop Only)</span>
-      <h1>Unlock Rewards & Deals — United States</h1>
-      <p class="muted">
-        This page is visible only to desktop users in the US. Mobile users are sent to our partner offers.
-      </p>
+<header>
+  <div class="crumbs"><a href="/">Home</a> › <strong>United States</strong></div>
+  <h1><span class="flag">🇺🇸</span>Deals for the United States</h1>
+  <p class="sub">Explore active <strong>gift card</strong>, <strong>coupon</strong>, and <strong>reward</strong> offers available in the US. Updated regularly with verified promos.</p>
+</header>
 
-      <!-- 🎯 Main CPAgrip CTA -->
-      <p style="margin:18px 0 6px">
-        <a class="btn"
-           href="https://singingfiles.com/show.php?l=0&u=2463039&id=69461"
-           rel="nofollow noopener sponsored">
-          Continue to US Offer
-        </a>
-      </p>
-      <p class="mini">Note: You’ll be redirected to our partner page. Offers may vary by device.</p>
-    </section>
+<main>
+  <!-- Categories -->
+  <div class="grid">
+    <article class="card">
+      <h2>Gift Cards & Vouchers</h2>
+      <p>Discover rotating e-commerce and gaming gift cards available for US users.</p>
+      <a class="btn" href="/go/cpagrip-us/">View Desktop Offers</a>
+      <a class="btn ghost" href="/go/adsterra-us/" style="margin-left:8px">Mobile Offers</a>
+    </article>
 
-    <section class="card">
-      <h2 style="margin:0 0 8px;font-size:20px">How this works</h2>
-      <p class="mini">
-        US desktop users see the CPA offer. All other traffic is monetized via CPM to avoid wasted visits.
-      </p>
-    </section>
-  </main>
+    <article class="card">
+      <h2>Superfood Hacks</h2>
+      <p>Learn about US-popular superfoods and how to add them to your daily routine for better energy and focus.</p>
+      <a class="btn" href="/country/us/#superfoods">Read Tips</a>
+    </article>
 
-  <noscript>
-    <p>
-      <a href="https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c">
-        Continue to partner offer
-      </a>
-    </p>
-  </noscript>
+    <article class="card">
+      <h2>Life Hacks & Savings</h2>
+      <p>Practical ways to save online — cashback, trial apps, and hidden promo pages compiled for US users.</p>
+      <a class="btn" href="/country/us/#hacks">Explore Hacks</a>
+    </article>
+  </div>
+
+  <!-- SEO content -->
+  <section id="superfoods" class="section">
+    <h2>Top Superfoods in the US</h2>
+    <p class="sub">Quick science-based notes to help you pick wisely.</p>
+    <ul>
+      <li><strong>Blueberries</strong> — antioxidant-rich; pair with yogurt/oats for a balanced snack.</li>
+      <li><strong>Avocado</strong> — healthy fats; great for satiety and heart health.</li>
+      <li><strong>Leafy Greens</strong> (kale, spinach) — fiber + micronutrients for daily meals.</li>
+      <li><strong>Greek Yogurt</strong> — protein source for breakfast or post-workout.</li>
+      <li><strong>Salmon</strong> — omega-3s; 1–2 servings/week recommended.</li>
+    </ul>
+  </section>
+
+  <section id="hacks" class="section">
+    <h2>Hidden Reward Websites (US)</h2>
+    <p>We monitor US-ready campaigns and rotate inactive ones out. For surveys, trials, and voucher drops, start with the buttons above. Mobile users are routed to app-friendly offers; desktop users may see task-based rewards.</p>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq">
+    <h2>FAQ (United States)</h2>
+    <details><summary>Is GiftCardZoneEU free to use?</summary>
+      <p>Yes, browsing is free. Some partners may require actions like sign-ups, app trials, or purchases to qualify.</p>
+    </details>
+    <details><summary>Do offers work in the US?</summary>
+      <p>Yes. This page lists US-compatible campaigns only. If a link is unavailable, try again later — we refresh regularly.</p>
+    </details>
+    <details><summary>How do I avoid scams?</summary>
+      <p>Use our curated links only, read the terms on each partner page, and never share passwords or one-time codes.</p>
+    </details>
+    <details><summary>Can I use this on TikTok’s in-app browser?</summary>
+      <p>Yes, but for best experience open in your default browser (Chrome/Safari) if prompted.</p>
+    </details>
+  </section>
+
+  <footer>
+    Last updated: <time datetime="2025-10-27">Oct 27, 2025</time> ·
+    <a href="/">Back to Home</a>
+  </footer>
+</main>
+
 </body>
 </html>
