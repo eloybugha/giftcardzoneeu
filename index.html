@@ -138,80 +138,100 @@
     </div>
   </noscript>
 
-  <script>
-  (function(){
-    const DEFAULT_TARGET = "https://giftcardzoneeu.com/country/nl/"; // change per GEO if needed
-    const allowHost = new URL(DEFAULT_TARGET).host;
-    const params = new URLSearchParams(location.search);
-    let to = DEFAULT_TARGET;
+<script>
+(function(){
+  // ——— Device + In-App detection ———
+  const UA = navigator.userAgent || "";
+  const isMobile = /Android|iPhone|iPad|iPod/i.test(UA);
+  const inApp = /TikTok|FBAN|FBAV|Instagram/i.test(UA);
 
-    if(params.has('to')){
-      try{
-        const p = params.get('to');
-        if(/^https?:/i.test(p)){
-          const u = new URL(p);
-          if(u.host === allowHost) to = u.href;
-        } else if(p.startsWith('/')) {
-          to = `${location.protocol}//${allowHost}${p}`;
-        }
-      }catch(e){}
-    }
+  // ——— Country guess (client-side) ———
+  let cc = 'US';
+  try {
+    const lang = (navigator.language || 'en-US').toUpperCase();
+    if (lang.includes('-')) cc = lang.split('-')[1];
+    // timezone override for NL
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+    if (tz === 'Europe/Amsterdam') cc = 'NL';
+  } catch(e){}
 
-    document.getElementById('rawLink').href = to;
+  // ——— Routing table (edit mo paths) ———
+  const routes = {
+    NL: { mobile: '/country/nl/', desktop: '/country/nl/' },
+    US: { mobile: '/go/adsterra-us/', desktop: '/go/cpagrip-us/' }, // ← sample
+    PH: { mobile: '/country/ph/', desktop: '/country/ph/' },
+    DEFAULT: { mobile: '/country/us/', desktop: '/country/us/' }
+  };
 
+  // ——— Respect ?to= (same host only) ———
+  const params = new URLSearchParams(location.search);
+  const host = location.host;
+  let to = '';
+  if (params.has('to')) {
+    try {
+      const p = params.get('to');
+      if (/^https?:/i.test(p)) {
+        const u = new URL(p);
+        if (u.host === host) to = u.href;
+      } else if (p.startsWith('/')) {
+        to = `${location.origin}${p}`;
+      }
+    } catch(e){}
+  }
+  if (!to) {
+    const map = routes[cc] || routes.DEFAULT;
+    const path = map[isMobile ? 'mobile' : 'desktop'];
+    to = `${location.origin}${path}`;
+  }
+
+  // ——— UI labels ———
+  document.getElementById('rawLink').href = to;
+  try {
+    const region = cc.toUpperCase();
+    if (region) document.getElementById('geo').textContent = ` — ${region}`;
+  } catch(e){}
+
+  // ——— Fast countdown: in-app browsers go super fast ———
+  const seconds = inApp ? 1 : 3;                // ← “agad” feel
+  document.documentElement.style.setProperty('--count', seconds);
+  const count = document.getElementById('count');
+  let t = seconds;
+
+  const tick = setInterval(()=>{
+    t -= 1; count.textContent = Math.max(0,t);
+    if (t<=0){ clearInterval(tick); go(); }
+  }, 1000);
+
+  // ——— Actions ———
+  const go = (manual=false) => {
     try{
-      const lang = navigator.language || 'en';
-      const region = (lang.split('-')[1] || '').toUpperCase();
-      if(region) document.getElementById('geo').textContent = ` — ${region}`;
-    }catch(e){}
-
-    const total = Number(getComputedStyle(document.documentElement).getPropertyValue('--count')) || 5;
-    const count = document.getElementById('count');
-    let t = total;
-
-    const tick = setInterval(()=>{
-      t -= 1;
-      count.textContent = Math.max(0, t);
-      if(t<=0){clearInterval(tick);safeGo();}
-    },1000);
-
-    const go = ()=>safeGo(true);
-    document.getElementById('goNow').addEventListener('click', go);
-    document.getElementById('overlay').addEventListener('click', go);
-    document.addEventListener('keydown', e=>{if(e.key==='Enter')go();});
-    document.getElementById('copy').addEventListener('click', async ()=>{
-      try{
-        await navigator.clipboard.writeText(to);
-        flash('Link copied!');
-      }catch{
-        flash('Copy failed—tap and hold to copy.');
+      if (window.top && window.top !== window) {
+        window.top.location = to;
+      } else {
+        location.replace(to);
+        setTimeout(()=>{ if (document.visibilityState==='visible') location.assign(to); }, 400);
       }
-    });
+    } catch(e){ if (manual) window.open(to, "_top"); }
+  };
 
-    function flash(text){
-      const el=document.getElementById('badge');
-      const old=el.textContent;
-      el.textContent=text;
-      setTimeout(()=>el.textContent=old,1500);
-    }
+  document.getElementById('goNow').addEventListener('click', ()=>go(true));
+  document.getElementById('overlay').addEventListener('click', ()=>go(true));
+  document.addEventListener('keydown', e=>{ if(e.key==='Enter') go(true); });
 
-    let redirected=false;
-    function safeGo(manual=false){
-      if(redirected)return;redirected=true;
-      try{
-        if(window.top&&window.top!==window){
-          window.top.location=to;
-        }else{
-          location.replace(to);
-          setTimeout(()=>{if(document.visibilityState==='visible')location.assign(to);},600);
-        }
-      }catch(e){
-        if(manual)window.open(to,"_top");
-      }
-    }
+  document.getElementById('copy').addEventListener('click', async ()=>{
+    try{ await navigator.clipboard.writeText(to); flash('Link copied!'); }
+    catch{ flash('Tap and hold to copy.'); }
+  });
 
-    setTimeout(()=>{if(!redirected)safeGo();},(total*1000)+400);
-  })();
-  </script>
+  function flash(text){
+    const el = document.getElementById('badge'), old = el.textContent;
+    el.textContent = text; setTimeout(()=> el.textContent = old, 1500);
+  }
+
+  // hard fail-safe (just in case timers are blocked)
+  setTimeout(()=>go(), (seconds*1000)+500);
+})();
+</script>
+
 </body>
 </html>
