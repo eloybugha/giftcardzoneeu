@@ -5,94 +5,97 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>GiftCardZoneEU — Taking You In…</title>
 
-  <!-- Redirect pages shouldn't be indexed -->
+  <!-- Redirect page: don't index -->
   <meta name="robots" content="noindex,follow">
   <link rel="canonical" href="https://giftcardzoneeu.com/">
 
   <style>
-    :root{
-      --bg1:#0b1020; --bg2:#0f263a; --card:#0f1729cc; --ring:#34d399; --txt:#e8f0ff;
-      --muted:#9fb3c8; --glow:#34d39955; --count:5;
+    :root {
+      --bg1:#0b1020; --bg2:#0f263a; --card:#0f1729cc;
+      --ring:#34d399; --txt:#e8f0ff; --muted:#9fb3c8; --glow:#34d39955;
+      --count:5;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
-      margin:0; color:var(--txt); font:500 16px/1.5 ui-sans-serif,system-ui,Segoe UI,Roboto;
+      margin:0; color:var(--txt);
+      font:500 16px/1.5 ui-sans-serif,system-ui,Segoe UI,Roboto;
       background:
         radial-gradient(1200px 800px at 20% -10%, #1a2d4a66, transparent 55%),
         radial-gradient(900px 700px at 120% 110%, #0ea5e966, transparent 55%),
         linear-gradient(160deg,var(--bg1),var(--bg2));
       overflow:hidden;
     }
-    .stars{position:fixed; inset:0; pointer-events:none; opacity:.25}
+
+    /* subtle background animation */
+    .stars{position:fixed;inset:0;pointer-events:none;opacity:.25}
     .stars::before,.stars::after{
-      content:""; position:absolute; inset:-50% -50% -50% -50%;
+      content:"";position:absolute;inset:-50%;
       background:
         radial-gradient(2px 2px at 20% 30%, #cfe9ff 60%, transparent 61%),
         radial-gradient(1.5px 1.5px at 70% 60%, #b3d8ff 60%, transparent 61%),
         radial-gradient(1.2px 1.2px at 40% 80%, #d9f99d 60%, transparent 61%),
         radial-gradient(1.8px 1.8px at 85% 25%, #99f6e4 60%, transparent 61%);
-      animation: float 40s linear infinite;
-      transform: translate3d(0,0,0);
+      animation:float 40s linear infinite;
     }
-    .stars::after{animation-duration:60s; opacity:.7; filter:blur(.4px)}
-    @keyframes float {to{transform:translate3d(4%, -6%, 0)}}
+    .stars::after{animation-duration:60s;opacity:.7;filter:blur(.4px)}
+    @keyframes float{to{transform:translate3d(4%,-6%,0)}}
 
-    main{height:100%; display:grid; place-items:center; padding:24px;}
+    main{height:100%;display:grid;place-items:center;padding:24px;}
     .card{
-      width:min(560px, 92vw);
-      /* solid fallback to avoid white box on some browsers */
+      width:min(560px,92vw);
       background:#0f1729;
       border:1px solid #23324a;
-      box-shadow: 0 30px 120px #0008, 0 0 40px var(--glow);
-      border-radius: 20px; padding:28px; text-align:center;
-      position:relative; overflow:hidden;
+      box-shadow:0 30px 120px #0008,0 0 40px var(--glow);
+      border-radius:20px;padding:28px;text-align:center;
+      position:relative;overflow:hidden;color:var(--txt);
     }
-    @supports ((backdrop-filter: blur(8px)) or (-webkit-backdrop-filter: blur(8px))){
-      .card{
-        background: var(--card);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-      }
+    @supports(backdrop-filter:blur(8px)){
+      .card{background:var(--card);backdrop-filter:blur(8px);}
     }
 
-    .badge{display:inline-flex; align-items:center; gap:10px; padding:8px 12px; border-radius:999px; color:#0b1b14;
-      background:#d1fae5; font-weight:700; font-size:14px; letter-spacing:.2px;}
-    h1{margin:16px 0 6px; font-weight:800; letter-spacing:.3px}
-    p.lead{margin:0 0 14px; color:var(--muted); font-size:15px}
-    .geo{color:#d1fbe3; font-weight:600}
+    .logo{position:absolute;left:14px;top:14px;opacity:.9;font-weight:900;color:#9ae6b4}
+    .badge{display:inline-flex;align-items:center;gap:10px;padding:8px 12px;border-radius:999px;color:#0b1b14;
+      background:#d1fae5;font-weight:700;font-size:14px;letter-spacing:.2px;}
+    h1{margin:16px 0 6px;font-weight:800;letter-spacing:.3px}
+    p.lead{margin:0 0 14px;color:var(--muted);font-size:15px}
+    .geo{color:#d1fbe3;font-weight:600}
 
-    .ring-wrap{display:flex; justify-content:center; margin:16px 0 20px}
+    /* countdown ring */
+    .ring-wrap{display:flex;justify-content:center;margin:16px 0 20px}
     .ring{
-      --p:0deg; width:72px; height:72px; border-radius:50%;
-      background: conic-gradient(var(--ring) var(--p), #1f2a44 0);
-      display:grid; place-items:center;
-      box-shadow:0 0 0 6px #0d1627, inset 0 0 0 6px #0d1627, 0 0 40px var(--glow);
-      transition:background .2s linear; animation: fill calc(var(--count)*1s) linear forwards;
+      --p:0deg;width:72px;height:72px;border-radius:50%;
+      background:conic-gradient(var(--ring) var(--p),#1f2a44 0);
+      display:grid;place-items:center;
+      box-shadow:0 0 0 6px #0d1627,inset 0 0 0 6px #0d1627,0 0 40px var(--glow);
+      animation:fill calc(var(--count)*1s) linear forwards;
     }
-    .ring span{display:inline-block; width:54px; height:54px; border-radius:50%; background:#0b1324; display:grid; place-items:center; font-weight:800;}
+    .ring span{width:54px;height:54px;border-radius:50%;background:#0b1324;display:grid;place-items:center;font-weight:800}
     @keyframes fill{to{--p:360deg}}
 
-    .actions{display:flex; gap:10px; justify-content:center; flex-wrap:wrap}
-    .btn{appearance:none; border:none; cursor:pointer; padding:12px 18px; border-radius:14px; font-weight:800; letter-spacing:.3px; transition:transform .08s ease, box-shadow .2s ease, background .2s;}
-    .primary{background:#10b981; color:#062d22; box-shadow:0 12px 28px #10b98155;}
+    .actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+    .btn{border:none;cursor:pointer;padding:12px 18px;border-radius:14px;font-weight:800;letter-spacing:.3px;
+      transition:transform .08s ease,box-shadow .2s ease,background .2s;}
+    .primary{background:#10b981;color:#062d22;box-shadow:0 12px 28px #10b98155;}
     .primary:active{transform:translateY(1px)}
-    .ghost{background:#0e1b31; color:#b9c6d8; border:1px solid #243552;}
-    .hint{margin-top:12px; color:#a7bacf; font-size:13px}
-    .kbd{padding:2px 6px; border:1px solid #3a4b6a; border-bottom-width:3px; border-radius:6px; font-family:ui-monospace,Menlo,Consolas,monospace}
+    .ghost{background:#0e1b31;color:#b9c6d8;border:1px solid #243552;}
+    .hint{margin-top:12px;color:#a7bacf;font-size:13px}
+    .kbd{padding:2px 6px;border:1px solid #3a4b6a;border-bottom-width:3px;border-radius:6px;
+      font-family:ui-monospace,Menlo,Consolas,monospace}
+    .footer{margin-top:14px;color:#6f839b;font-size:12px}
+    a.link{color:#86efac;text-underline-offset:3px}
 
-    .tap-anywhere{position:absolute; inset:0; outline:none}
-    .tap-anywhere:focus{box-shadow:inset 0 0 0 2px #22d3ee66}
-    .logo{position:absolute; left:14px; top:14px; opacity:.9; font-weight:900; color:#9ae6b4}
-    .footer{margin-top:14px; color:#6f839b; font-size:12px}
-    a.link{color:#86efac; text-underline-offset:3px}
-
-    @media (prefers-reduced-motion: reduce){
-      .stars{display:none}
-      .ring{animation:none}
+    /* overlay fix */
+    .tap-anywhere{
+      position:absolute;inset:0;background:transparent!important;border:0!important;
+      appearance:none;-webkit-appearance:none;box-shadow:none!important;outline:none;cursor:pointer;
     }
+    .tap-anywhere:focus{box-shadow:inset 0 0 0 2px #22d3ee66}
+
+    @media (prefers-reduced-motion:reduce){.stars{display:none}.ring{animation:none}}
   </style>
 </head>
+
 <body>
   <div class="stars" aria-hidden="true"></div>
 
@@ -100,7 +103,7 @@
     <section class="card" role="region" aria-label="Redirect panel">
       <div class="logo">🎁 GiftCardZoneEU</div>
 
-      <div class="badge" aria-live="polite" id="badge">🚀 Redirecting…</div>
+      <div class="badge" id="badge">🚀 Redirecting…</div>
 
       <h1>We’re opening your country-matched rewards<span class="geo" id="geo"></span></h1>
       <p class="lead">Discover the best deals, coupons, and verified promos for your location.</p>
@@ -115,7 +118,7 @@
       </div>
 
       <p class="hint">
-        Tip: Press <span class="kbd">Enter</span> or tap anywhere to continue.
+        Tip: Press <span class="kbd">Enter</span> or tap anywhere to continue.<br>
         In TikTok browser? This will open in the top window.
       </p>
 
@@ -123,95 +126,92 @@
         No movement? <a class="link" id="rawLink" href="https://giftcardzoneeu.com/country/nl/" rel="nofollow">Open directly</a>.
       </div>
 
-      <button class="tap-anywhere" id="overlay" aria-label="Continue"></button>
+      <!-- overlay -->
+      <div class="tap-anywhere" id="overlay" role="button" aria-label="Continue" tabindex="0"></div>
     </section>
   </main>
 
   <noscript>
-    <style>main{display:block} .ring{display:none}</style>
+    <style>main{display:block}.ring{display:none}</style>
     <div style="text-align:center;margin-top:12px">
-      JavaScript is off—please <a href="https://giftcardzoneeu.com/country/nl/">continue here</a>.
+      JavaScript is off — <a href="https://giftcardzoneeu.com/country/nl/">continue here</a>.
     </div>
   </noscript>
 
   <script>
-    (function(){
-      // ===== Config =====
-      const DEFAULT_TARGET = "https://giftcardzoneeu.com/country/nl/"; // <-- palitan per GEO kung kailangan
-      const allowHost = new URL(DEFAULT_TARGET).host;
+  (function(){
+    const DEFAULT_TARGET = "https://giftcardzoneeu.com/country/nl/"; // change per GEO if needed
+    const allowHost = new URL(DEFAULT_TARGET).host;
+    const params = new URLSearchParams(location.search);
+    let to = DEFAULT_TARGET;
 
-      // support ?to= URL (only same host or relative)
-      const params = new URLSearchParams(location.search);
-      let to = DEFAULT_TARGET;
-      if(params.has('to')){
-        try{
-          const p = params.get('to');
-          if(/^https?:/i.test(p)){
-            const u = new URL(p);
-            if(u.host === allowHost) to = u.href;
-          }else if(p.startsWith('/')){
-            to = `${location.protocol}//${allowHost}${p}`;
-          }
-        }catch(e){}
-      }
-
-      // Update visible link
-      const rawLink = document.getElementById('rawLink');
-      rawLink.href = to;
-
-      // Geo label
+    if(params.has('to')){
       try{
-        const lang = navigator.language || 'en';
-        const region = (lang.split('-')[1] || '').toUpperCase();
-        if(region){ document.getElementById('geo').textContent = ` — ${region}`; }
-      }catch(e){}
-
-      // Countdown + progress
-      const total = Number(getComputedStyle(document.documentElement).getPropertyValue('--count')) || 5;
-      const ring = document.getElementById('ring');
-      const count = document.getElementById('count');
-      let t = total;
-
-      const tick = setInterval(()=>{
-        t -= 1;
-        count.textContent = Math.max(0, t);
-        if(t<=0){ clearInterval(tick); safeGo(); }
-      },1000);
-
-      const go = () => safeGo(true);
-      document.getElementById('goNow').addEventListener('click', go);
-      document.getElementById('overlay').addEventListener('click', go);
-      document.addEventListener('keydown', e => { if(e.key === 'Enter') go(); });
-
-      document.getElementById('copy').addEventListener('click', async ()=>{
-        try{ await navigator.clipboard.writeText(to); flash('Link copied!'); }
-        catch{ flash('Copy failed—tap and hold to copy.'); }
-      });
-
-      function flash(text){
-        const el = document.getElementById('badge');
-        const old = el.textContent;
-        el.textContent = text;
-        setTimeout(()=> el.textContent = old, 1500);
-      }
-
-      let redirected = false;
-      function safeGo(manual=false){
-        if(redirected) return; redirected = true;
-        try{
-          if(window.top && window.top !== window) {
-            window.top.location = to;
-          } else {
-            location.replace(to);
-            setTimeout(()=>{ if(document.visibilityState === 'visible') location.assign(to); }, 600);
-          }
-        }catch(e){
-          if(manual) window.open(to, "_top");
+        const p = params.get('to');
+        if(/^https?:/i.test(p)){
+          const u = new URL(p);
+          if(u.host === allowHost) to = u.href;
+        } else if(p.startsWith('/')) {
+          to = `${location.protocol}//${allowHost}${p}`;
         }
-      }
+      }catch(e){}
+    }
 
-      setTimeout(()=>{ if(!redirected) safeGo(); }, (total*1000)+400);
-    })();
+    document.getElementById('rawLink').href = to;
+
+    try{
+      const lang = navigator.language || 'en';
+      const region = (lang.split('-')[1] || '').toUpperCase();
+      if(region) document.getElementById('geo').textContent = ` — ${region}`;
+    }catch(e){}
+
+    const total = Number(getComputedStyle(document.documentElement).getPropertyValue('--count')) || 5;
+    const count = document.getElementById('count');
+    let t = total;
+
+    const tick = setInterval(()=>{
+      t -= 1;
+      count.textContent = Math.max(0, t);
+      if(t<=0){clearInterval(tick);safeGo();}
+    },1000);
+
+    const go = ()=>safeGo(true);
+    document.getElementById('goNow').addEventListener('click', go);
+    document.getElementById('overlay').addEventListener('click', go);
+    document.addEventListener('keydown', e=>{if(e.key==='Enter')go();});
+    document.getElementById('copy').addEventListener('click', async ()=>{
+      try{
+        await navigator.clipboard.writeText(to);
+        flash('Link copied!');
+      }catch{
+        flash('Copy failed—tap and hold to copy.');
+      }
+    });
+
+    function flash(text){
+      const el=document.getElementById('badge');
+      const old=el.textContent;
+      el.textContent=text;
+      setTimeout(()=>el.textContent=old,1500);
+    }
+
+    let redirected=false;
+    function safeGo(manual=false){
+      if(redirected)return;redirected=true;
+      try{
+        if(window.top&&window.top!==window){
+          window.top.location=to;
+        }else{
+          location.replace(to);
+          setTimeout(()=>{if(document.visibilityState==='visible')location.assign(to);},600);
+        }
+      }catch(e){
+        if(manual)window.open(to,"_top");
+      }
+    }
+
+    setTimeout(()=>{if(!redirected)safeGo();},(total*1000)+400);
+  })();
   </script>
 </body>
 </html>
