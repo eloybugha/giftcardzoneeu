@@ -34,3 +34,67 @@
 </head>
 
 <body>
+  <main>
+    <h1>🇳🇱 Deals for the Netherlands</h1>
+    <p>Explore active <strong>gift card</strong>, <strong>coupon</strong>, and <strong>reward</strong> offers available in the Netherlands. Updated regularly with local promos.</p>
+
+    <section class="card">
+      <h2>🎁 Gift Cards & Vouchers</h2>
+      <p>Discover rotating e-commerce and gaming gift cards available in the Netherlands.</p>
+      <a class="btn" href="https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c" rel="sponsored nofollow noopener">View Offers</a>
+    </section>
+
+    <section class="card">
+      <h2>💸 App Trials & Cashback</h2>
+      <p>Get free trials and sign-up bonuses for apps popular among Dutch users.</p>
+      <a class="btn" href="/apps/">Explore Apps</a>
+    </section>
+
+    <p style="margin-top:24px;"><a href="/">← Back to Home</a></p>
+  </main>
+
+  <!-- ✅ FAQ Section -->
+  <div id="faq-country"></div>
+
+  <!-- Shared FAQ Scripts -->
+  <script src="/assets/faq.js"></script>
+  <script src="/assets/faq-data.js"></script>
+
+  <script>
+  (function(){
+    const found = (window.GZEU_FAQ_DATA && window.GZEU_FAQ_DATA.getForCurrentPage())
+                  || { cc:null, items:null };
+    if (found.items) {
+      const titleMap = {
+        ph: "❓ FAQ (Philippines)",
+        nl: "❓ FAQ (Netherlands)",
+        de: "❓ FAQ (Germany)",
+        us: "❓ FAQ (United States)"
+      };
+      GZEU_FAQ.renderFAQ("faq-country", found.items, { title: titleMap[found.cc] || "❓ FAQ" });
+
+      /* ✅ Structured Data (JSON-LD) for Rich Results */
+      const faqLD = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": found.items.map(item => ({
+          "@type": "Question",
+          "name": item.q,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": item.a
+          }
+        }))
+      };
+      const script = document.createElement("script");
+      script.type = "application/ld+json";
+      script.textContent = JSON.stringify(faqLD, null, 2);
+      document.head.appendChild(script);
+    } else {
+      const ph = document.getElementById("faq-country");
+      if (ph) ph.remove();
+    }
+  })();
+  </script>
+</body>
+</html>
