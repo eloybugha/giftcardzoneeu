@@ -14,41 +14,42 @@
   <!-- ✅ US Desktop-Only Guard (bots safe + SEO friendly) -->
   <script>
   (function () {
-    var ADSTERRA = "https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";
+    const ADSTERRA = "https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";
 
-    // ✅ Skip bots (para ma-index ni Google)
+    // Skip bots (para ma-index ni Google)
     function isBot() {
-      var ua = (navigator.userAgent || "").toLowerCase();
+      const ua = (navigator.userAgent || "").toLowerCase();
       return /bot|crawl|spider|slurp|bingpreview|facebookexternalhit|linkedinbot|monitor|pingdom|preview|crawler|google page speed/i.test(ua);
     }
     if (isBot()) return;
 
-    function isDesktop(){ return !/android|iphone|ipad|ipod|mobile|tablet/i.test(navigator.userAgent); }
+    const isDesktop = () => !/android|iphone|ipad|ipod|mobile|tablet/i.test(navigator.userAgent);
 
-    // overlay notice habang nagche-check
-    var msg = document.createElement("div");
+    // Overlay habang nag-che-check
+    const msg = document.createElement("div");
     msg.textContent = "⏳ Ina-redirect ka sa offer na tugma sa iyong device...";
-    msg.style.cssText = "position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#0b0f14;color:#e5e7eb;font-family:Inter,Arial,sans-serif;font-size:16px;z-index:9999;text-align:center;";
-    document.addEventListener("DOMContentLoaded", function(){ document.body.appendChild(msg); });
+    msg.style.cssText =
+      "position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#0b0f14;color:#e5e7eb;font-family:Inter,Arial,sans-serif;font-size:16px;z-index:9999;text-align:center;";
+    document.addEventListener("DOMContentLoaded", () => document.body.appendChild(msg));
 
-    var timeout = setTimeout(function(){
+    const timeout = setTimeout(() => {
       msg.textContent = "🌐 Ina-redirect ka ngayon...";
       location.replace(ADSTERRA);
-    },1500);
+    }, 1500);
 
     fetch("https://ipapi.co/json/")
-      .then(r=>r.json())
-      .then(d=>{
+      .then((r) => r.json())
+      .then((d) => {
         clearTimeout(timeout);
-        var cc = (d && d.country_code) ? d.country_code.toUpperCase() : "XX";
-        if (cc==="US" && isDesktop()) {
-          msg.remove(); // ✅ US + desktop: ipakita page
+        const cc = d?.country_code?.toUpperCase() || "XX";
+        if (cc === "US" && isDesktop()) {
+          msg.remove(); // US + desktop = stay
         } else {
           msg.textContent = "📱 Ina-redirect ka sa tamang offer...";
-          setTimeout(()=>location.replace(ADSTERRA),700);
+          setTimeout(() => location.replace(ADSTERRA), 700);
         }
       })
-      .catch(()=>{
+      .catch(() => {
         msg.textContent = "🌐 Ina-redirect ka ngayon...";
         location.replace(ADSTERRA);
       });
@@ -85,9 +86,11 @@
     <section class="hero">
       <span class="mini">🇺🇸 US Exclusive (Desktop Only)</span>
       <h1>Unlock Rewards & Deals — United States</h1>
-      <p class="muted">This page is visible only to desktop users in the US. Mobile users are sent to our partner offers.</p>
+      <p class="muted">
+        This page is visible only to desktop users in the US. Mobile users are sent to our partner offers.
+      </p>
 
-      <!-- 🎯 Main CPAgrip CTA (US desktop offer) -->
+      <!-- 🎯 Main CPAgrip CTA -->
       <p style="margin:18px 0 6px">
         <a class="btn"
            href="https://singingfiles.com/show.php?l=0&u=2463039&id=69461"
@@ -106,13 +109,12 @@
     </section>
   </main>
 
-  <!-- 💸 Adsterra optional -->
-  <!-- <script type="text/javascript" src="//www.highperformancedisplayformat.com/YOUR_POPUNDER_CODE.js"></script> -->
-
   <noscript>
-    <p><a href="https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c">
-      Continue to partner offer
-    </a></p>
+    <p>
+      <a href="https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c">
+        Continue to partner offer
+      </a>
+    </p>
   </noscript>
 </body>
 </html>
