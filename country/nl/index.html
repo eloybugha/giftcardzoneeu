@@ -27,37 +27,55 @@
 
   <!-- ✅ Styles -->
   <style>
-    :root { --bg:#0b0f14; --card:#111827; --line:#1f2937; --text:#e5e7eb; --muted:#9ca3af; --accent:#22c55e; --accent2:#16a34a; }
-    * { box-sizing: border-box; }
     body {
-      margin: 0; background: var(--bg); color: var(--text);
+      margin: 0;
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      line-height: 1.6; padding: 18px;
+      background: #0b0f14;
+      color: #e5e7eb;
+      padding: 18px;
+      line-height: 1.6;
     }
-    h1, h2 { color:#fff; margin: 0 0 8px; }
-    p { margin: 0 0 12px; }
-    a { color: var(--accent); text-decoration: none; }
-
+    h1, h2 {
+      color: #fff;
+    }
     .card {
-      background: var(--card); border: 1px solid var(--line);
-      border-radius: 16px; padding: 16px; margin: 16px 0;
-      box-shadow: 0 2px 6px rgba(0,0,0,.2);
-      position: relative; z-index: 1;
+      background: #111827;
+      border: 1px solid #1f2937;
+      border-radius: 16px;
+      padding: 16px;
+      margin: 16px 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    a {
+      color: #22c55e;
+      text-decoration: none;
     }
     .btn {
-      display: inline-block; background: var(--accent); color:#062607;
-      font-weight: 800; border-radius: 12px; padding: 12px 16px; margin-top: 8px;
-      transition: all .2s ease;
-      /* 🔧 Bulletproof taps */
-      position: relative; z-index: 9999; pointer-events: auto !important;
-      -webkit-tap-highlight-color: transparent; touch-action: manipulation;
+      display: inline-block;
+      background: #22c55e;
+      color: #062607;
+      font-weight: 800;
+      border-radius: 12px;
+      padding: 12px 16px;
+      margin-top: 8px;
+      transition: all 0.2s ease;
     }
-    .btn:hover { transform: translateY(-2px); background: var(--accent2); }
-    footer { text-align: center; margin-top: 40px; font-size: 14px; color: var(--muted); }
-    main { position: relative; z-index: 1; }
+    .btn:hover {
+      transform: translateY(-2px);
+      background: #16a34a;
+    }
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 14px;
+      color: #9ca3af;
+    }
 
-    /* Walang invisible overlay na haharang */
-    .card::before, .card::after, main::before, main::after { pointer-events: none !important; }
+    /* ✅ Fix Clickability on Mobile */
+    .card, .card * { pointer-events: auto !important; }
+    a.btn { position: relative; z-index: 10; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+    .card::before, .card::after { pointer-events: none !important; }
+    #nav-overlay, .overlay, .click-guard, .modal-backdrop { pointer-events: none !important; background: transparent !important; }
   </style>
 </head>
 
@@ -67,18 +85,18 @@
     <p>Explore active <strong>gift card</strong>, <strong>coupon</strong>, and <strong>reward</strong> offers available in the Netherlands. Updated regularly with verified local promos and trials.</p>
 
     <!-- ✅ Section 1 -->
-    <section id="offers" class="card">
+    <section class="card">
       <h2>🎁 Gift Cards & Vouchers</h2>
       <p>Discover rotating e-commerce and gaming gift cards available in the Netherlands.</p>
-      <!-- Move monetized links INSIDE this section as list items if needed -->
-      <a class="btn" href="#offers" rel="noopener">View Offers</a>
+      <a class="btn" href="https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c" rel="sponsored nofollow noopener" target="_blank">View Offers</a>
     </section>
 
     <!-- ✅ Section 2 -->
-    <section id="apps" class="card">
+    <section class="card">
       <h2>💸 App Trials & Cashback</h2>
       <p>Get free trials and sign-up bonuses for apps popular among Dutch users. Includes cashback and limited-time rewards.</p>
-      <a class="btn" href="#apps" rel="noopener">Explore Apps</a>
+      <!-- FIXED LINK (no 404) -->
+      <a class="btn" href="/country/nl/apps.html" rel="noopener">Explore Apps</a>
     </section>
 
     <p style="margin-top:24px;"><a href="/">← Back to Home</a></p>
@@ -92,56 +110,39 @@
   <script src="/assets/faq-data.js"></script>
 
   <script>
-  // Render FAQ + JSON-LD if available
   (function(){
-    const found = (window.GZEU_FAQ_DATA && window.GZEU_FAQ_DATA.getForCurrentPage()) || { cc:null, items:null };
+    const found = (window.GZEU_FAQ_DATA && window.GZEU_FAQ_DATA.getForCurrentPage())
+                  || { cc:null, items:null };
     if (found.items) {
-      const titleMap = { ph:"❓ FAQ (Philippines)", nl:"❓ FAQ (Netherlands)", de:"❓ FAQ (Germany)", us:"❓ FAQ (United States)" };
-      if (window.GZEU_FAQ && typeof GZEU_FAQ.renderFAQ === "function") {
-        GZEU_FAQ.renderFAQ("faq-country", found.items, { title: titleMap[found.cc] || "❓ FAQ" });
-      }
+      const titleMap = {
+        ph: "❓ FAQ (Philippines)",
+        nl: "❓ FAQ (Netherlands)",
+        de: "❓ FAQ (Germany)",
+        us: "❓ FAQ (United States)"
+      };
+      GZEU_FAQ.renderFAQ("faq-country", found.items, { title: titleMap[found.cc] || "❓ FAQ" });
+
+      /* ✅ Structured Data (JSON-LD) for Rich Results */
       const faqLD = {
-        "@context": "https://schema.org", "@type": "FAQPage",
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
         "mainEntity": found.items.map(item => ({
-          "@type": "Question", "name": item.q,
-          "acceptedAnswer": { "@type": "Answer", "text": item.a }
+          "@type": "Question",
+          "name": item.q,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": item.a
+          }
         }))
       };
-      const s = document.createElement("script");
-      s.type = "application/ld+json";
-      s.textContent = JSON.stringify(faqLD);
-      document.head.appendChild(s);
+      const script = document.createElement("script");
+      script.type = "application/ld+json";
+      script.textContent = JSON.stringify(faqLD, null, 2);
+      document.head.appendChild(script);
     } else {
-      document.getElementById("faq-country")?.remove();
+      const ph = document.getElementById("faq-country");
+      if (ph) ph.remove();
     }
-  })();
-
-  // 🔒 Normalize old URLs → anchors (kills 404 from shared/cache)
-  (function normalizePaths(){
-    var path = location.pathname.replace(/\/+$/, '');
-    if (path === "/country/nl/apps")   { location.replace("/country/nl/#apps");   return; }
-    if (path === "/country/nl/offers") { location.replace("/country/nl/#offers"); return; }
-  })();
-
-  // 🖐️ Guaranteed tap/scroll for anchor buttons (mobile & tablet safe)
-  (function bindTapScroll(){
-    function jumpTo(hash){
-      var el = document.querySelector(hash);
-      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-      if (location.hash !== hash) history.replaceState(null, "", hash);
-    }
-    function handler(e){
-      var a = e.target.closest("a.btn,[data-scroll]");
-      if (!a) return;
-      var href = a.getAttribute("href") || a.getAttribute("data-scroll");
-      if (!href) return;
-      if (href.charAt(0) === "#") {
-        e.preventDefault();
-        jumpTo(href);
-      }
-    }
-    document.addEventListener("click", handler, { capture: true, passive: false });
-    document.addEventListener("touchstart", handler, { capture: true, passive: false });
   })();
   </script>
 
