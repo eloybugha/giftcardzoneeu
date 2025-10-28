@@ -1,19 +1,20 @@
 <!doctype html>
-<html lang="en-PH">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Pinoy Superfoods & Hidden Reward Sites — GiftCardZoneEU</title>
   <meta name="description" content="Discover the best Pinoy superfoods, life hacks, and hidden reward websites that offer real deals for users in the Philippines.">
-  <meta name="keywords" content="superfoods Philippines, Pinoy health hacks, hidden reward sites PH, gift cards Philippines, healthy lifestyle, CPA offers, Adsterra deals">
   <meta name="robots" content="index,follow">
-  <link rel="canonical" href="https://giftcardzoneeu.com/country/ph/">
+  <link rel="canonical" href="https://giftcardzoneeu.com/country/ph/" />
 
   <!-- Hreflang cluster -->
-  <link rel="alternate" href="https://giftcardzoneeu.com/country/ph/" hreflang="en-PH" />
-  <link rel="alternate" href="https://giftcardzoneeu.com/country/us/" hreflang="en-US" />
   <link rel="alternate" href="https://giftcardzoneeu.com/" hreflang="x-default" />
+  <link rel="alternate" href="https://giftcardzoneeu.com/country/ph/" hreflang="en-PH" />
+  <link rel="alternate" href="https://giftcardzoneeu.com/country/nl/" hreflang="nl-NL" />
+  <link rel="alternate" href="https://giftcardzoneeu.com/country/us/" hreflang="en-US" />
+  <link rel="alternate" href="https://giftcardzoneeu.com/country/de/" hreflang="en-DE" />
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website">
@@ -38,7 +39,7 @@
     .sub{color:var(--muted);margin:0 0 8px}
     main{max-width:1100px;margin:0 auto;padding:0 16px 56px}
     .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
-    .card{background:#0f1729;border:1px solid #23324a;border-radius:18px;padding:18px}
+    .card{background:#0f1729;border:1px solid #23324a;border-radius:18px;padding:18px;position:relative}
     .card h2{margin:6px 0 8px}
     .btn{display:inline-block;background:var(--accent);color:#062d22;padding:12px 16px;border-radius:12px;font-weight:800;text-decoration:none}
     .ghost{background:#0e1b31;color:#b9c6d8;border:1px solid #243552}
@@ -49,7 +50,7 @@
     .crumbs{font-size:14px;margin-top:6px}
   </style>
 
-  <!-- ✅ JSON-LD Structured Data -->
+  <!-- WebPage JSON-LD -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -61,6 +62,20 @@
     "publisher":{"@type":"Organization","name":"GiftCardZoneEU"}
   }
   </script>
+
+  <!-- Breadcrumb JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://giftcardzoneeu.com/"},
+      {"@type":"ListItem","position":2,"name":"Philippines","item":"https://giftcardzoneeu.com/country/ph/"}
+    ]
+  }
+  </script>
+
+  <!-- FAQPage JSON-LD -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -98,6 +113,7 @@
     <article class="card">
       <h2>Pinoy Reward Websites</h2>
       <p>Tuklasin ang mga legit reward pages at gift card offers na available sa Pilipinas.</p>
+      <!-- Use folder paths (avoid .html); redirect stubs below -->
       <a class="btn" href="/go/cpagrip-ph/">Desktop Offers</a>
       <a class="btn ghost" href="/go/adsterra-ph/" style="margin-left:8px">Mobile Offers</a>
     </article>
@@ -131,7 +147,7 @@
        ✔️ Gamitin ang GiftCardZoneEU para sa hidden reward offers!</p>
   </section>
 
-  <!-- FAQ -->
+  <!-- HTML FAQ (mirrors JSON-LD) -->
   <section class="section faq">
     <h2>FAQ (Philippines)</h2>
     <details><summary>Libre ba gamitin ito?</summary>
@@ -153,6 +169,24 @@
     <a href="/">Back to Home</a>
   </footer>
 </main>
+
+<!-- Open links in top window for in-app browsers -->
+<script>
+  function openTop(ev, url){
+    try{
+      ev && ev.preventDefault();
+      if (window.top && window.top !== window) window.top.location = url;
+      else location.href = url;
+    }catch(e){ location.href = url; }
+  }
+  document.addEventListener('click', (ev) => {
+    const a = ev.target.closest('a.btn');
+    if (!a) return;
+    const url = a.getAttribute('href');
+    if (!url) return;
+    openTop(ev, url);
+  });
+</script>
 
 </body>
 </html>
