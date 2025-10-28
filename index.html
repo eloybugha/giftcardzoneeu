@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Redirecting to Offer…</title>
+  <title>Unlocking your reward…</title>
   <meta name="robots" content="noindex, nofollow" />
   <link rel="icon" href="/favicon.png" />
 
@@ -30,22 +30,23 @@
       box-shadow: 0 2px 8px rgba(0,0,0,.4);
       animation: fadeIn 0.8s ease;
     }
+    h1 { margin-bottom: 12px; font-weight: 700; }
     a { color: #22c55e; text-decoration: none; font-weight: 600; }
-
-    /* 🔄 Spinner animation */
-    .spinner {
-      width: 44px;
-      height: 44px;
-      border: 4px solid #1f2937;
-      border-top-color: #22c55e;
-      border-radius: 50%;
-      margin: 20px auto;
-      animation: spin 1s linear infinite;
+    .progress-container {
+      width: 100%;
+      background: #1f2937;
+      border-radius: 12px;
+      overflow: hidden;
+      height: 16px;
+      margin: 14px 0;
     }
-
-    @keyframes spin {
-      to { transform: rotate(360deg); }
+    .progress-bar {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, #22c55e, #16a34a);
+      transition: width 0.15s linear;
     }
+    #percent { font-size: 14px; color: #9ca3af; margin-top: 4px; }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
@@ -54,21 +55,41 @@
 
   <script>
     (function(){
-      // ✅ Monetag link (your actual campaign)
       const monetagLink = "https://otieu.com/4/4203960";
       const query = window.location.search.replace(/^\?/, "");
       const finalURL = query ? monetagLink + (monetagLink.includes("?") ? "&" : "?") + query : monetagLink;
-      setTimeout(() => { window.location.replace(finalURL); }, 3000); // 1.5s delay for spinner effect
+
+      let progress = 0;
+      const bar = document.addEventListener('DOMContentLoaded', () => {
+        const bar = document.querySelector('.progress-bar');
+        const percentText = document.getElementById('percent');
+        const interval = setInterval(() => {
+          progress += Math.floor(Math.random() * 12) + 5; // random step 5–17%
+          if(progress >= 100){
+            progress = 100;
+            bar.style.width = progress + '%';
+            percentText.textContent = '100%';
+            clearInterval(interval);
+            setTimeout(() => { window.location.replace(finalURL); }, 400);
+          } else {
+            bar.style.width = progress + '%';
+            percentText.textContent = progress + '%';
+          }
+        }, 200);
+      });
     })();
   </script>
 </head>
 
 <body>
   <div class="box">
-    <h1>Loading your offer…</h1>
-    <div class="spinner"></div>
+    <h1>Unlocking your reward…</h1>
+    <div class="progress-container">
+      <div class="progress-bar"></div>
+    </div>
+    <div id="percent">0%</div>
     <p>Please wait — redirecting to Monetag rewards.</p>
-    <p><a href="https://otieu.com/4/4203960">Click here if not redirected automatically</a></p>
+    <p><a href="https://otieu.com/4/4203960">Click here if not redirected</a></p>
   </div>
 </body>
 </html>
