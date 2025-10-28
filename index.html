@@ -44,7 +44,7 @@
       width: 0%;
       height: 100%;
       background: linear-gradient(90deg, #22c55e, #16a34a);
-      transition: width 0.12s linear;
+      transition: width 0.1s linear;
     }
     #percent { font-size: 14px; color: #9ca3af; margin-top: 4px; }
     @keyframes fadeIn {
@@ -59,28 +59,23 @@
       const query = window.location.search.replace(/^\?/, "");
       const finalURL = query ? monetagLink + (monetagLink.includes("?") ? "&" : "?") + query : monetagLink;
 
-      // ✅ Exact ~3s fill, then redirect
       document.addEventListener('DOMContentLoaded', () => {
         const bar = document.querySelector('.progress-bar');
         const percentText = document.getElementById('percent');
 
-        const duration = 3000;          // total ms
-        const tick = 60;                // update every 60ms
-        const steps = Math.ceil(duration / tick);
+        let progress = 0;
+        const duration = 3000;  // total 3s
+        const tick = 60;        // update every 60ms
+        const steps = duration / tick;
         let current = 0;
 
         const timer = setInterval(() => {
           current++;
-          // slight jitter para ‘di sobrang linear ang dating
-          const jitter = Math.random() * 0.6 + 0.4; // 0.4–1.0
-          const progress = Math.min(100, Math.round((current / steps) * 100 * jitter));
-
+          progress = Math.min(100, Math.round((current / steps) * 100));
           bar.style.width = progress + '%';
           percentText.textContent = progress + '%';
 
-          if (current >= steps || progress >= 100) {
-            bar.style.width = '100%';
-            percentText.textContent = '100%';
+          if (progress >= 100) {
             clearInterval(timer);
             setTimeout(() => { window.location.replace(finalURL); }, 300);
           }
@@ -91,15 +86,14 @@
 </head>
 
 <body>
-  <div class="box" role="status" aria-live="polite">
+  <div class="box">
     <h1>Unlocking your reward…</h1>
-    <div class="progress-container" aria-label="Loading progress">
+    <div class="progress-container">
       <div class="progress-bar"></div>
     </div>
     <div id="percent">0%</div>
     <p>Please wait — redirecting to Monetag rewards.</p>
     <p><a href="https://otieu.com/4/4203960">Click here if not redirected</a></p>
-    <noscript><p><a href="https://otieu.com/4/4203960">Continue to offer</a></p></noscript>
   </div>
 </body>
 </html>
