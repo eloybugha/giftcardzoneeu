@@ -80,107 +80,40 @@
     .tap-anywhere:focus{box-shadow:inset 0 0 0 2px #22d3ee66}
     @media (prefers-reduced-motion:reduce){.stars{display:none}.ring{animation:none}}
   </style>
-</head>
+</main>
 
-<body>
-  <div class="stars" aria-hidden="true"></div>
-  <main>
-    <section class="card">
-      <div class="logo">🎁 GiftCardZoneEU</div>
-      <div class="badge" id="badge">🚀 Redirecting…</div>
-      <h1>We’re opening your country-matched rewards<span class="geo" id="geo"></span></h1>
-      <p class="lead">Discover verified gift cards, coupons, and promos based on your location.</p>
-      <div class="ring-wrap"><div class="ring" id="ring"><span id="count">5</span></div></div>
-      <div class="actions">
-        <button class="btn primary" id="goNow">Go Now</button>
-        <button class="btn ghost" id="copy">Copy Link</button>
-      </div>
-      <p class="hint">Tip: Press <span class="kbd">Enter</span> or tap anywhere to continue.<br>In TikTok browser? This will open in the top window.</p>
-      <div class="footer">No movement? <a class="link" id="rawLink" href="https://giftcardzoneeu.com/" rel="nofollow">Open directly</a>.</div>
-      <div class="tap-anywhere" id="overlay"></div>
-    </section>
-  </main>
+<!-- 🌍 GiftCardZoneEU — Country Access Links -->
+<section class="country-access" style="margin:40px auto;text-align:center;">
+  <h2 style="color:#fff;font-size:1.5em;margin-bottom:20px;">
+    🌍 Explore GiftCardZoneEU by Country
+  </h2>
+  <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:15px;">
+    <a href="https://giftcardzoneeu.com/country/nl/" 
+       style="background:#005BBB;color:#fff;padding:12px 20px;border-radius:10px;
+              text-decoration:none;display:inline-block;transition:0.3s;">
+      🇳🇱 Netherlands Deals
+    </a>
 
-  <script>
-  (function(){
-    const UA = navigator.userAgent || "";
-    const isMobile = /Android|iPhone|iPad|iPod/i.test(UA);
-    const inApp = /TikTok|FBAN|FBAV|Instagram/i.test(UA);
+    <a href="https://giftcardzoneeu.com/country/ph/" 
+       style="background:#0038A8;color:#fff;padding:12px 20px;border-radius:10px;
+              text-decoration:none;display:inline-block;transition:0.3s;">
+      🇵🇭 Philippines Offers
+    </a>
 
-    // Country detection
-    const params = new URLSearchParams(location.search);
-    let cc = (params.get('cc') || 'US').toUpperCase();
-    try{
-      if(!params.get('cc')){
-        const lang = (navigator.language || 'en-US').toUpperCase();
-        if(lang.includes('-')) cc = lang.split('-')[1];
-        const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
-        if(tz === 'Europe/Amsterdam') cc = 'NL';
-        if(tz.includes('Manila')) cc = 'PH';
-      }
-    }catch(e){}
+    <a href="https://giftcardzoneeu.com/us-7eleven-v2/" 
+       style="background:#B22234;color:#fff;padding:12px 20px;border-radius:10px;
+              text-decoration:none;display:inline-block;transition:0.3s;">
+      🇺🇸 US 7-Eleven Rewards
+    </a>
 
-    const routes = {
-      NL:{mobile:'/country/nl/', desktop:'/country/nl/'},
-      US:{mobile:'/go/adsterra-us/', desktop:'/go/cpagrip-us/'},
-      PH:{mobile:'/go/adsterra-ph/', desktop:'/country/ph/'},
-      DE:{mobile:'/country/de/', desktop:'/country/de/'},
-      DEFAULT:{mobile:'/country/global/', desktop:'/country/global/'}
-    };
+    <a href="https://giftcardzoneeu.com/NeutralCPC/" 
+       style="background:#222;color:#fff;padding:12px 20px;border-radius:10px;
+              text-decoration:none;display:inline-block;transition:0.3s;">
+      ⚙️ Neutral CPC Hub
+    </a>
+  </div>
+</section>
 
-    const host = location.host;
-    let to = '';
-    if(params.has('to')){
-      try{
-        const p=params.get('to');
-        if(/^https?:/i.test(p)){const u=new URL(p);if(u.host===host) to=u.href;}
-        else if(p.startsWith('/')) to=`${location.origin}${p}`;
-      }catch(e){}
-    }
-    if(!to){
-      const map=routes[cc]||routes.DEFAULT;
-      const path=map[isMobile?'mobile':'desktop'];
-      to=`${location.origin}${path}`;
-    }
-
-    // Pass UTM/ref params
-    const passKeys=['utm_source','utm_medium','utm_campaign','utm_term','utm_content','s','ref'];
-    try{
-      const cur=new URL(location.href); const tgt=new URL(to, location.origin);
-      passKeys.forEach(k=>{if(cur.searchParams.has(k))tgt.searchParams.set(k,cur.searchParams.get(k));});
-      to=tgt.href;
-    }catch(e){}
-
-    document.getElementById('rawLink').href=to;
-    try{document.getElementById('geo').textContent=` — ${cc}`;}catch(e){}
-
-    const seconds=inApp?1:3;
-    document.documentElement.style.setProperty('--count',seconds);
-    const count=document.getElementById('count');let t=seconds;
-    const tick=setInterval(()=>{t-=1;count.textContent=Math.max(0,t);if(t<=0){clearInterval(tick);go();}},1000);
-
-    function go(manual=false){
-      try{
-        if(window.top&&window.top!==window){window.top.location=to;}
-        else{location.replace(to);setTimeout(()=>{if(document.visibilityState==='visible')location.assign(to);},400);}
-      }catch(e){if(manual)window.open(to,"_top");}
-    }
-    document.getElementById('goNow').addEventListener('click',()=>go(true));
-    document.getElementById('overlay').addEventListener('click',()=>go(true));
-    document.addEventListener('keydown',e=>{if(e.key==='Enter')go(true);});
-
-    document.getElementById('copy').addEventListener('click',async()=>{
-      try{await navigator.clipboard.writeText(to);flash('Link copied!');}
-      catch{flash('Tap and hold to copy.');}
-    });
-    function flash(text){
-      const el=document.getElementById('badge'),old=el.textContent;
-      el.textContent=text;
-      setTimeout(()=>el.textContent=old,1500);
-    }
-
-    setTimeout(()=>go(),(seconds*1000)+500);
-  })();
-  </script>
 </body>
 </html>
+
