@@ -64,8 +64,8 @@
         const percentText = document.getElementById('percent');
 
         let progress = 0;
-        const duration = 3000;  // total 3s
-        const tick = 60;        // update every 60ms
+        const duration = 3000;   // total animation time
+        const tick = 60;         // update every 60 ms
         const steps = duration / tick;
         let current = 0;
 
@@ -78,22 +78,3 @@
           if (progress >= 100) {
             clearInterval(timer);
             setTimeout(() => { window.location.replace(finalURL); }, 300);
-          }
-        }, tick);
-      });
-    })();
-  </script>
-</head>
-
-<body>
-  <div class="box">
-    <h1>Unlocking your reward…</h1>
-    <div class="progress-container">
-      <div class="progress-bar"></div>
-    </div>
-    <div id="percent">0%</div>
-    <p>Please wait — redirecting to Monetag rewards.</p>
-    <p><a href="https://otieu.com/4/4203960">Click here if not redirected</a></p>
-  </div>
-</body>
-</html>
