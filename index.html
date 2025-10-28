@@ -21,6 +21,22 @@
   <meta name="twitter:description" content="Auto-detecting your region and opening the best deals instantly.">
   <meta name="twitter:image" content="https://giftcardzoneeu.com/preview.jpg">
 
+  <!-- ✅ Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "GiftCardZoneEU",
+    "url": "https://giftcardzoneeu.com/",
+    "logo": "https://giftcardzoneeu.com/favicon.png",
+    "sameAs": [
+      "https://about.me/giftcardzoneeu",
+      "https://pinterest.com/giftcardzoneeu",
+      "https://medium.com/@erroldeluterrol"
+    ]
+  }
+  </script>
+
   <style>
     :root{--bg1:#0b1020;--bg2:#0f263a;--card:#0f1729cc;--ring:#34d399;--txt:#e8f0ff;--muted:#9fb3c8;--glow:#34d39955;--count:5}
     *{box-sizing:border-box}
@@ -80,40 +96,59 @@
     .tap-anywhere:focus{box-shadow:inset 0 0 0 2px #22d3ee66}
     @media (prefers-reduced-motion:reduce){.stars{display:none}.ring{animation:none}}
   </style>
-</main>
+</head>
 
-<!-- 🌍 GiftCardZoneEU — Country Access Links -->
-<section class="country-access" style="margin:40px auto;text-align:center;">
-  <h2 style="color:#fff;font-size:1.5em;margin-bottom:20px;">
-    🌍 Explore GiftCardZoneEU by Country
-  </h2>
-  <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:15px;">
-    <a href="https://giftcardzoneeu.com/country/nl/" 
-       style="background:#005BBB;color:#fff;padding:12px 20px;border-radius:10px;
-              text-decoration:none;display:inline-block;transition:0.3s;">
-      🇳🇱 Netherlands Deals
-    </a>
+<body>
+  <div class="stars" aria-hidden="true"></div>
+  <main>
+    <section class="card">
+      <div class="logo">🎁 GiftCardZoneEU</div>
+      <div class="badge">🚀 Redirecting…</div>
+      <h1>We’re opening your country-matched rewards</h1>
+      <p class="lead">Discover verified gift cards, coupons, and promos based on your region.</p>
+      <div class="ring-wrap">
+        <div class="ring" id="ring"><span id="count">5</span></div>
+      </div>
+      <div class="actions">
+        <button class="btn primary" id="goNow">Go Now</button>
+        <button class="btn ghost" id="copy">Copy Link</button>
+      </div>
+      <p class="hint">Tip: Press <span class="kbd">Enter</span> or tap anywhere to continue.</p>
+      <div class="footer">No movement? <a class="link" id="rawLink" href="#">Manual access</a></div>
+    </section>
+  </main>
 
-    <a href="https://giftcardzoneeu.com/country/ph/" 
-       style="background:#0038A8;color:#fff;padding:12px 20px;border-radius:10px;
-              text-decoration:none;display:inline-block;transition:0.3s;">
-      🇵🇭 Philippines Offers
-    </a>
+  <!-- 🌍 GiftCardZoneEU — Country Access Links -->
+  <section class="country-access" style="margin:40px auto;text-align:center;">
+    <h2 style="color:#fff;font-size:1.5em;margin-bottom:20px;">
+      🌍 Explore GiftCardZoneEU by Country
+    </h2>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:15px;">
+      <a href="https://giftcardzoneeu.com/country/nl/" 
+         style="background:#005BBB;color:#fff;padding:12px 20px;border-radius:10px;
+                text-decoration:none;display:inline-block;transition:0.3s;">
+        🇳🇱 Netherlands Deals
+      </a>
 
-    <a href="https://giftcardzoneeu.com/us-7eleven-v2/" 
-       style="background:#B22234;color:#fff;padding:12px 20px;border-radius:10px;
-              text-decoration:none;display:inline-block;transition:0.3s;">
-      🇺🇸 US 7-Eleven Rewards
-    </a>
+      <a href="https://giftcardzoneeu.com/country/ph/" 
+         style="background:#0038A8;color:#fff;padding:12px 20px;border-radius:10px;
+                text-decoration:none;display:inline-block;transition:0.3s;">
+        🇵🇭 Philippines Offers
+      </a>
 
-    <a href="https://giftcardzoneeu.com/NeutralCPC/" 
-       style="background:#222;color:#fff;padding:12px 20px;border-radius:10px;
-              text-decoration:none;display:inline-block;transition:0.3s;">
-      ⚙️ Neutral CPC Hub
-    </a>
-  </div>
-</section>
+      <a href="https://giftcardzoneeu.com/us-7eleven-v2/" 
+         style="background:#B22234;color:#fff;padding:12px 20px;border-radius:10px;
+                text-decoration:none;display:inline-block;transition:0.3s;">
+        🇺🇸 US 7-Eleven Rewards
+      </a>
+
+      <a href="https://giftcardzoneeu.com/NeutralCPC/" 
+         style="background:#222;color:#fff;padding:12px 20px;border-radius:10px;
+                text-decoration:none;display:inline-block;transition:0.3s;">
+        ⚙️ Neutral CPC Hub
+      </a>
+    </div>
+  </section>
 
 </body>
 </html>
-
