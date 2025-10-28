@@ -1,72 +1,48 @@
 <!doctype html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Page Not Found | GiftCardZoneEU</title>
-<meta name="robots" content="index, follow">
-<meta name="googlebot" content="index, follow">
-<meta name="bingbot" content="index, follow">
-<meta name="yandex" content="index, follow">
-<meta name="description" content="Claim your free gift card offers worldwide at GiftCardZoneEU — fast, secure, and always up-to-date.">
-<meta property="og:title" content="GiftCardZoneEU — Claim Your Gift Card">
-<meta property="og:description" content="Join now and unlock exclusive offers. GiftCardZoneEU connects you to verified gift card rewards worldwide.">
-<meta property="og:url" content="https://giftcardzoneeu.com">
-<meta property="og:type" content="website">
-<meta property="og:image" content="https://giftcardzoneeu.com/cover.jpg">
-<meta name="twitter:card" content="summary_large_image">
- 
-<meta name="description" content="Oops! The page you’re looking for doesn’t exist. Go back to the GiftCardZoneEU homepage and explore our latest offers.">
-<meta name="robots" content="index, follow">
-<meta http-equiv="refresh" content="5; url=https://giftcardzoneeu.com/">
-<style>
-  *{box-sizing:border-box;margin:0;padding:0}
-  body {
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    background: linear-gradient(145deg, #0a0a0a, #1f1f1f);
-    color: #fff;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    opacity: 0;
-    animation: fadeIn 0.8s ease-out forwards;
-  }
-  @keyframes fadeIn { to { opacity: 1; } }
-  h1 { font-size: 3rem; color: #ff4f4f; margin-bottom: 10px; }
-  p { color: #ccc; font-size: 1.1rem; margin-bottom: 20px; }
-  a {
-    background: #ff4f4f;
-    color: #fff;
-    padding: 10px 22px;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: 0.3s ease;
-  }
-  a:hover { background: #ff3030; transform: scale(1.05); }
-  .timer {
-    font-size: 0.9rem;
-    margin-top: 10px;
-    color: #aaa;
-  }
-</style>
+  <meta charset="utf-8" />
+  <title>Redirecting…</title>
+  <meta name="robots" content="noindex" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script>
+    (function(){
+      var path = location.pathname;
+      var match = path.match(/^\/country\/([a-z]{2})\/apps/i);
+      if(match){
+        // redirect to main global apps page
+        location.replace("/apps.html?cc=" + match[1].toLowerCase());
+        return;
+      }
+    })();
+  </script>
+  <style>
+    body {
+      font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif;
+      background: #0b0f14;
+      color: #e5e7eb;
+      padding: 24px;
+      text-align: center;
+    }
+    .box {
+      background: #111827;
+      border: 1px solid #1f2937;
+      border-radius: 14px;
+      padding: 20px;
+      max-width: 480px;
+      margin: 80px auto;
+    }
+    a {
+      color: #22c55e;
+      text-decoration: none;
+      font-weight: 600;
+    }
+  </style>
 </head>
 <body>
-  <h1>404</h1>
-  <p>Oops! The page you’re looking for doesn’t exist or has been moved.</p>
-  <a href="https://giftcardzoneeu.com/">Go Back to Homepage</a>
-  <div class="timer">Redirecting in <span id="count">5</span> seconds...</div>
-
-  <script>
-    let c = 5;
-    const t = document.getElementById('count');
-    const interval = setInterval(()=>{
-      c--;
-      if(c<=0) clearInterval(interval);
-      t.textContent = c;
-    },1000);
-  </script>
+  <div class="box">
+    <h1>Redirecting…</h1>
+    <p>If not redirected automatically, <a href="/apps.html">click here to open global apps page</a>.</p>
+  </div>
 </body>
 </html>
