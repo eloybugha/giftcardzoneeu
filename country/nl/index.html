@@ -101,20 +101,40 @@
     <p>© 2025 GiftCardZoneEU — Netherlands</p>
   </footer>
 
-  <!-- ✅ Shared FAQ loader (optional, if you have faq.js) -->
-  <div id="faq-country"></div>
-  <script src="/assets/faq.js"></script>
-  <script src="/assets/faq-data.js"></script>
-  <script>
-  (function(){
-    const found = (window.GZEU_FAQ_DATA && window.GZEU_FAQ_DATA.getForCurrentPage()) || {cc:null,items:null};
-    if(found.items){
-      GZEU_FAQ.renderFAQ("faq-country", found.items, {title:"❓ FAQ (Netherlands)"});
-    } else {
-      const ph=document.getElementById("faq-country");
-      if(ph) ph.remove();
-    }
-  })();
-  </script>
+<!-- Existing Main Footer -->
+<footer>
+  <p>© 2025 GiftCardZoneEU – Netherlands</p>
+</footer>
+
+<!-- ✅ Shared FAQ loader (optional, keep if used) -->
+<div id="faq-country"></div>
+
+<!-- 🔗 SEO Footer Links (Netherlands) -->
+<footer style="text-align:center;margin:40px auto 20px;font-size:13px;color:#8fa3b9;">
+  <p>
+    <a href="https://giftcardzoneeu.com/" style="color:#9ae6b4;text-decoration:none;">Home</a> |
+    <a href="https://giftcardzoneeu.com/country/nl/" style="color:#9ae6b4;text-decoration:none;">Netherlands</a> |
+    <a href="https://giftcardzoneeu.com/country/ph/" style="color:#9ae6b4;text-decoration:none;">Philippines</a> |
+    <a href="https://giftcardzoneeu.com/us-7eleven-v2/" style="color:#9ae6b4;text-decoration:none;">United States</a> |
+    <a href="https://giftcardzoneeu.com/NeutralCPC/" style="color:#9ae6b4;text-decoration:none;">Neutral CPC Hub</a> |
+    <a href="https://giftcardzoneeu.com/privacy.html" style="color:#9ae6b4;text-decoration:none;">Privacy</a> |
+    <a href="https://giftcardzoneeu.com/terms.html" style="color:#9ae6b4;text-decoration:none;">Terms</a>
+  </p>
+  <p>© 2025 GiftCardZoneEU — Netherlands Deals & Gift Cards</p>
+</footer>
+
+<!-- ✅ Scripts should always be last for fast page loading -->
+<script src="/assets/faq.js"></script>
+<script src="/assets/faq-data.js"></script>
+<script>
+(function(){
+  const found = (window.GZEU_FAQ_DATA && window.GZEU_FAQ_DATA.getForCurrentPage());
+  if(found && found.items){
+    GZEU_FAQ.renderFAQ("faq-country", found.items, { title: "FAQ (Netherlands)" });
+  }
+})();
+</script>
+
 </body>
 </html>
+
