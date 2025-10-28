@@ -4,50 +4,130 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>💸 App Trials & Cashback — Netherlands | GiftCardZoneEU</title>
-  <meta name="description" content="Discover verified app trials, cashback rewards, and sign-up bonuses for Dutch users. Updated weekly with legit offers." />
+  <meta name="description" content="Grab free app trials, cashback rewards, and sign-up bonuses available in the Netherlands. Smart version optimized for ad traffic & SEO." />
   <meta name="robots" content="index, follow" />
 
-  <!-- Canonical -->
   <link rel="canonical" href="https://giftcardzoneeu.com/country/nl/apps.html" />
   <link rel="icon" href="/favicon.png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
 
   <style>
-    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#0b0f14;color:#e5e7eb;padding:18px;line-height:1.6}
-    h1,h2{color:#fff}
-    .card{background:#111827;border:1px solid #1f2937;border-radius:16px;padding:16px;margin:16px 0;box-shadow:0 2px 6px rgba(0,0,0,.2)}
-    .btn{display:inline-block;background:#22c55e;color:#062607;font-weight:800;border-radius:12px;padding:12px 16px;margin-top:8px;text-decoration:none;transition:.2s}
-    .btn:hover{transform:translateY(-2px);background:#16a34a}
-    a{color:#22c55e;text-decoration:none}
-    footer{margin-top:40px;text-align:center;color:#9ca3af;font-size:14px}
-    .card,.card *{pointer-events:auto!important}
-    a.btn{position:relative;z-index:10;cursor:pointer;-webkit-tap-highlight-color:transparent}
-    .card::before,.card::after{pointer-events:none!important}
+    :root {
+      --bg:#0b0f14;--panel:#111827;--line:#1f2937;
+      --text:#e5e7eb;--muted:#9ca3af;
+      --accent:#22c55e;--accent2:#16a34a;
+    }
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+         background:var(--bg);color:var(--text);padding:18px;line-height:1.6;}
+    h1,h2{color:#fff;margin:0 0 12px}
+    p{margin:0 0 12px}
+    a{color:var(--accent);text-decoration:none}
+    footer{text-align:center;margin:40px 0 12px;color:var(--muted);font-size:14px}
+
+    .panel{background:var(--panel);border:1px solid var(--line);
+           border-radius:16px;padding:16px;margin:16px 0;box-shadow:0 2px 6px rgba(0,0,0,.2);}
+    .btn{display:inline-block;background:var(--accent);color:#062607;
+         font-weight:800;border-radius:12px;padding:12px 16px;margin-top:8px;
+         transition:.2s;text-align:center}
+    .btn:hover{transform:translateY(-2px);background:var(--accent2)}
+
+    /* grid version (for organic visitors) */
+    .grid{display:grid;grid-template-columns:1fr;gap:12px}
+    @media(min-width:640px){.grid{grid-template-columns:1fr 1fr}}
+    @media(min-width:960px){.grid{grid-template-columns:1fr 1fr 1fr}}
+    .card{background:#0f172a;border:1px solid #202a3a;border-radius:14px;
+          padding:14px;display:flex;flex-direction:column;gap:8px}
+    .tag{font-size:12px;border:1px solid #334155;border-radius:999px;
+         padding:2px 8px;color:#cbd5e1;display:inline-block}
+
+    /* click safety */
+    .panel,.panel *{pointer-events:auto!important}
+    .btn{-webkit-tap-highlight-color:transparent;position:relative;z-index:10;cursor:pointer}
   </style>
 </head>
-
 <body>
-  <main>
-    <h1>💸 App Trials & Cashback (Netherlands)</h1>
-    <p>Grab free trials and sign-up bonuses available to users in the Netherlands. Updated regularly with trusted offers.</p>
-
-    <section class="card">
-      <h2>Featured App Deals</h2>
-      <p>Tap a button below to open an offer in a new tab:</p>
-
-      <!-- Example offer link -->
-      <a class="btn" href="https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c" 
-         rel="sponsored nofollow noopener" target="_blank">Open Offer 1</a>
-
-      <!-- You can copy this line and change the URL for more offers -->
-      <!-- <a class="btn" href="YOUR_NEXT_LINK" rel="sponsored nofollow noopener" target="_blank">Open Offer 2</a> -->
-    </section>
-
-    <p style="margin-top:24px;"><a href="/country/nl/">← Back to Netherlands Deals</a></p>
-  </main>
+  <main id="content"></main>
 
   <footer>
     <p>© 2025 GiftCardZoneEU — Apps & Cashback (Netherlands)</p>
   </footer>
+
+  <script>
+    /* Detect if visitor came from ads or organic source */
+    const ref = document.referrer || "";
+    const isAdTraffic = /(tiktok|facebook|popads|propeller|adsterra|short|linktr|bit\.ly|goo\.gl)/i.test(ref);
+
+    const container = document.getElementById("content");
+
+    if (isAdTraffic) {
+      /* 🔹 Plain fast version (ad traffic) */
+      container.innerHTML = `
+        <h1>💸 App Trials & Cashback (NL)</h1>
+        <p>Quick access to verified NL offers. Tap below to open:</p>
+        <section class="panel">
+          <h2>Featured Offer</h2>
+          <a class="btn" href="https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c" 
+             rel="sponsored nofollow noopener" target="_blank">Open Offer</a>
+        </section>
+        <p style="margin-top:24px;"><a href="/country/nl/">← Back to Netherlands Deals</a></p>
+      `;
+    } else {
+      /* 🔹 Full SEO version (organic / normal traffic) */
+      container.innerHTML = `
+        <h1>💸 App Trials & Cashback (Netherlands)</h1>
+        <p>Explore verified free trials, cashback apps, and sign-up bonuses for Dutch users. Updated weekly.</p>
+
+        <section class="panel">
+          <h2>⭐ Featured Offers</h2>
+          <div class="grid">
+            <div class="card">
+              <span class="tag">Popular</span>
+              <strong>Starter Bundle Offer</strong>
+              <p class="muted">Rotating NL-friendly promotion.</p>
+              <a class="btn" href="https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c" target="_blank" rel="sponsored nofollow noopener">Open</a>
+            </div>
+            <div class="card">
+              <span class="tag">Cashback</span>
+              <strong>Install & Earn</strong>
+              <p class="muted">Try an app, earn instantly.</p>
+              <a class="btn" href="https://example.com/offer2" target="_blank" rel="sponsored nofollow noopener">Open</a>
+            </div>
+            <div class="card">
+              <span class="tag">Limited</span>
+              <strong>Sign-Up Bonus</strong>
+              <p class="muted">Get your welcome reward.</p>
+              <a class="btn" href="https://example.com/offer3" target="_blank" rel="sponsored nofollow noopener">Open</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>💶 Cashback Apps</h2>
+          <div class="grid">
+            <div class="card">
+              <span class="tag">Shopping</span>
+              <strong>Cashback App A</strong>
+              <p class="muted">Earn on partner stores (NL supported).</p>
+              <a class="btn" href="https://example.com/offer4" target="_blank" rel="sponsored nofollow noopener">Get Cashback</a>
+            </div>
+            <div class="card">
+              <span class="tag">Groceries</span>
+              <strong>Receipt Rewards</strong>
+              <p class="muted">Upload receipt → earn points.</p>
+              <a class="btn" href="https://example.com/offer5" target="_blank" rel="sponsored nofollow noopener">Start Earning</a>
+            </div>
+            <div class="card">
+              <span class="tag">Gaming</span>
+              <strong>Play-to-Cashback</strong>
+              <p class="muted">Play and earn real bonuses.</p>
+              <a class="btn" href="https://example.com/offer6" target="_blank" rel="sponsored nofollow noopener">Open</a>
+            </div>
+          </div>
+        </section>
+
+        <p style="margin-top:24px;"><a href="/country/nl/">← Back to Netherlands Deals</a></p>
+      `;
+    }
+  </script>
 </body>
 </html>
