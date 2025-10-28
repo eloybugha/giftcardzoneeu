@@ -3,20 +3,22 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Unlocking your reward…</title>
+  <title>Unlocking your reward… (US)</title>
   <meta name="robots" content="noindex, nofollow" />
   <link rel="icon" href="/favicon.png" />
   <style>
     body{margin:0;background:#0b0f14;color:#e5e7eb;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;text-align:center;overflow:hidden}
-    .box{max-width:480px;border:1px solid #1f2937;border-radius:16px;padding:28px;background:#111827;box-shadow:0 2px 8px rgba(0,0,0,.4)}
+    .box{max-width:480px;border:1px solid #1f2937;border-radius:16px;padding:28px;background:#111827;box-shadow:0 2px 8px rgba(0,0,0,.4);animation:fadeIn .8s ease}
     .progress-container{width:100%;background:#1f2937;border-radius:12px;overflow:hidden;height:16px;margin:14px 0}
     .progress-bar{width:0%;height:100%;background:linear-gradient(90deg,#22c55e,#16a34a);transition:width .1s linear}
     #percent{font-size:14px;color:#9ca3af;margin-top:4px}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
   </style>
-  <noscript><meta http-equiv="refresh" content="0;url=REPLACE_ME"></noscript>
+  <!-- Fallback if JS is off -->
+  <noscript><meta http-equiv="refresh" content="0;url=REPLACE_WITH_MONETAG_US"></noscript>
   <script>
     (function(){
-      const monetagLink = "https://otieu.com/4/4203960"; // ← palitan ng PH o US Monetag link
+      const monetagLink = "REPLACE_WITH_MONETAG_US"; // ← US Monetag link
       const query = location.search.replace(/^\?/,"");
       const finalURL = query ? monetagLink + (monetagLink.includes("?") ? "&" : "?") + query : monetagLink;
       document.addEventListener('DOMContentLoaded', () => {
@@ -33,12 +35,11 @@
 </head>
 <body>
   <div class="box">
-    <h1>Unlocking your reward…</h1>
+    <h1>Unlocking your reward… 🇺🇸</h1>
     <div class="progress-container"><div class="progress-bar"></div></div>
     <div id="percent">0%</div>
     <p>Please wait — redirecting to Monetag rewards.</p>
-    <p><a href="REPLACE_ME">Click here if not redirected</a></p>
+    <p><a href="REPLACE_WITH_MONETAG_US">Click here if not redirected</a></p>
   </div>
 </body>
 </html>
-
