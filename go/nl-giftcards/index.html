@@ -1,1 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Redirecting to Offer…</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="/favicon.png" />
+
+  <style>
+    body {
+      margin: 0;
+      background: #0b0f14;
+      color: #e5e7eb;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .box {
+      max-width: 480px;
+      border: 1px solid #1f2937;
+      border-radius: 16px;
+      padding: 24px;
+      background: #111827;
+      box-shadow: 0 2px 8px rgba(0,0,0,.4);
+    }
+    a { color: #22c55e; text-decoration: none; font-weight: 600; }
+  </style>
+
+  <script>
+    (function(){
+      // 👉 Palitan ito ng tunay mong Monetag URL
+      const monetagLink = "https://syndication.exdynsrv.com/some-monetag-offer-link";
+      const query = window.location.search.replace(/^\?/, "");
+      const finalURL = query ? monetagLink + (monetagLink.includes("?") ? "&" : "?") + query : monetagLink;
+      setTimeout(() => { window.location.replace(finalURL); }, 800);
+    })();
+  </script>
+</head>
+<body>
+  <div class="box">
+    <h1>Loading your offer…</h1>
+    <p>Please wait — redirecting to Monetag rewards.</p>
+    <p><a href="https://syndication.exdynsrv.com/some-monetag-offer-link">Click here if not redirected</a></p>
+  </div>
+</body>
+</html>
 
