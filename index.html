@@ -3,11 +3,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GiftCardZone — Taking You In…</title>
+  <title>GiftCardZoneEU — Taking You In…</title>
 
-  <!-- Router page: don't index -->
-  <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="https://giftcardzone.com/">
+  <!-- ✅ SEO + Canonical -->
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://giftcardzoneeu.com/">
+  <meta name="description" content="GiftCardZoneEU — smart global router that auto-detects your country and sends you to verified local gift card & reward offers.">
+
+  <!-- ✅ Open Graph / Social Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://giftcardzoneeu.com/">
+  <meta property="og:title" content="GiftCardZoneEU — Unlock Rewards Worldwide">
+  <meta property="og:description" content="Instantly reach your country’s verified deals, coupons, and reward pages. Safe, geo-smart, and TikTok-ready.">
+  <meta property="og:image" content="https://giftcardzoneeu.com/preview.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="GiftCardZoneEU — Unlock Rewards Worldwide">
+  <meta name="twitter:description" content="Auto-detecting your region and opening the best deals instantly.">
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/preview.jpg">
 
   <style>
     :root{--bg1:#0b1020;--bg2:#0f263a;--card:#0f1729cc;--ring:#34d399;--txt:#e8f0ff;--muted:#9fb3c8;--glow:#34d39955;--count:5}
@@ -69,21 +81,22 @@
     @media (prefers-reduced-motion:reduce){.stars{display:none}.ring{animation:none}}
   </style>
 </head>
+
 <body>
   <div class="stars" aria-hidden="true"></div>
   <main>
     <section class="card">
-      <div class="logo">🎁 GiftCardZone</div>
+      <div class="logo">🎁 GiftCardZoneEU</div>
       <div class="badge" id="badge">🚀 Redirecting…</div>
       <h1>We’re opening your country-matched rewards<span class="geo" id="geo"></span></h1>
-      <p class="lead">Discover the best deals, coupons, and verified promos for your location.</p>
+      <p class="lead">Discover verified gift cards, coupons, and promos based on your location.</p>
       <div class="ring-wrap"><div class="ring" id="ring"><span id="count">5</span></div></div>
       <div class="actions">
         <button class="btn primary" id="goNow">Go Now</button>
         <button class="btn ghost" id="copy">Copy Link</button>
       </div>
       <p class="hint">Tip: Press <span class="kbd">Enter</span> or tap anywhere to continue.<br>In TikTok browser? This will open in the top window.</p>
-      <div class="footer">No movement? <a class="link" id="rawLink" href="https://giftcardzone.com/" rel="nofollow">Open directly</a>.</div>
+      <div class="footer">No movement? <a class="link" id="rawLink" href="https://giftcardzoneeu.com/" rel="nofollow">Open directly</a>.</div>
       <div class="tap-anywhere" id="overlay"></div>
     </section>
   </main>
@@ -94,65 +107,43 @@
     const isMobile = /Android|iPhone|iPad|iPod/i.test(UA);
     const inApp = /TikTok|FBAN|FBAV|Instagram/i.test(UA);
 
-    // Country guess + ?cc override
+    // Country detection
     const params = new URLSearchParams(location.search);
     let cc = (params.get('cc') || 'US').toUpperCase();
     try{
       if(!params.get('cc')){
         const lang = (navigator.language || 'en-US').toUpperCase();
-        if (lang.includes('-')) cc = lang.split('-')[1];
+        if(lang.includes('-')) cc = lang.split('-')[1];
         const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
-        if (tz === 'Europe/Amsterdam') cc = 'NL';
-        if (tz.includes('Manila')) cc = 'PH';
+        if(tz === 'Europe/Amsterdam') cc = 'NL';
+        if(tz.includes('Manila')) cc = 'PH';
       }
     }catch(e){}
 
-    // Routes: US desktop -> CPAgrip
     const routes = {
-  NL:{ mobile:'/country/nl/',      desktop:'/country/nl/' },
-  US:{ mobile:'/go/adsterra-us/',  desktop:'/go/cpagrip-us/' }, // US desktop = CPA
-  PH:{ mobile:'/go/adsterra-ph/',  desktop:'/country/ph/' },
+      NL:{mobile:'/country/nl/', desktop:'/country/nl/'},
+      US:{mobile:'/go/adsterra-us/', desktop:'/go/cpagrip-us/'},
+      PH:{mobile:'/go/adsterra-ph/', desktop:'/country/ph/'},
+      DE:{mobile:'/country/de/', desktop:'/country/de/'},
+      DEFAULT:{mobile:'/country/global/', desktop:'/country/global/'}
+    };
 
-  // top geos → Global page muna
-  GB:{ mobile:'/country/global/', desktop:'/country/global/' },
-  CA:{ mobile:'/country/global/', desktop:'/country/global/' },
-  AU:{ mobile:'/country/global/', desktop:'/country/global/' },
-  DE:{ mobile:'/country/global/', desktop:'/country/global/' },
-  FR:{ mobile:'/country/global/', desktop:'/country/global/' },
-  BR:{ mobile:'/country/global/', desktop:'/country/global/' },
-  IN:{ mobile:'/country/global/', desktop:'/country/global/' },
-  ID:{ mobile:'/country/global/', desktop:'/country/global/' },
-  MY:{ mobile:'/country/global/', desktop:'/country/global/' },
-  SG:{ mobile:'/country/global/', desktop:'/country/global/' },
-  MX:{ mobile:'/country/global/', desktop:'/country/global/' },
-  ES:{ mobile:'/country/global/', desktop:'/country/global/' },
-  IT:{ mobile:'/country/global/', desktop:'/country/global/' },
-  JP:{ mobile:'/country/global/', desktop:'/country/global/' },
-  KR:{ mobile:'/country/global/', desktop:'/country/global/' },
-  AE:{ mobile:'/country/global/', desktop:'/country/global/' },
-  SA:{ mobile:'/country/global/', desktop:'/country/global/' },
-
-  DEFAULT:{ mobile:'/country/global/', desktop:'/country/global/' }
-};
-
-
-    // ?to= override
     const host = location.host;
     let to = '';
     if(params.has('to')){
       try{
-        const p = params.get('to');
-        if(/^https?:/i.test(p)){ const u=new URL(p); if(u.host===host) to=u.href; }
+        const p=params.get('to');
+        if(/^https?:/i.test(p)){const u=new URL(p);if(u.host===host) to=u.href;}
         else if(p.startsWith('/')) to=`${location.origin}${p}`;
       }catch(e){}
     }
     if(!to){
-      const map = routes[cc] || routes.DEFAULT;
-      const path = map[isMobile ? 'mobile' : 'desktop'];
-      to = `${location.origin}${path}`;
+      const map=routes[cc]||routes.DEFAULT;
+      const path=map[isMobile?'mobile':'desktop'];
+      to=`${location.origin}${path}`;
     }
 
-    // pass-through UTM/ref
+    // Pass UTM/ref params
     const passKeys=['utm_source','utm_medium','utm_campaign','utm_term','utm_content','s','ref'];
     try{
       const cur=new URL(location.href); const tgt=new URL(to, location.origin);
@@ -161,7 +152,7 @@
     }catch(e){}
 
     document.getElementById('rawLink').href=to;
-    try{document.getElementById('geo').textContent=` — ${cc.toUpperCase()}`;}catch(e){}
+    try{document.getElementById('geo').textContent=` — ${cc}`;}catch(e){}
 
     const seconds=inApp?1:3;
     document.documentElement.style.setProperty('--count',seconds);
@@ -182,7 +173,11 @@
       try{await navigator.clipboard.writeText(to);flash('Link copied!');}
       catch{flash('Tap and hold to copy.');}
     });
-    function flash(text){const el=document.getElementById('badge'),old=el.textContent;el.textContent=text;setTimeout(()=>el.textContent=old,1500);}
+    function flash(text){
+      const el=document.getElementById('badge'),old=el.textContent;
+      el.textContent=text;
+      setTimeout(()=>el.textContent=old,1500);
+    }
 
     setTimeout(()=>go(),(seconds*1000)+500);
   })();
