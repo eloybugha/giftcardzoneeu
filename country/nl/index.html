@@ -7,20 +7,18 @@
   <meta name="description" content="Find exclusive promos, coupons, and gift card deals available for users in the Netherlands. Updated regularly with verified local offers." />
   <meta name="robots" content="index, follow" />
 
-  <!-- ✅ Canonical + Hreflang -->
+  <!-- ✅ Canonical + Hreflang (only for pages that exist) -->
   <link rel="canonical" href="https://giftcardzoneeu.com/country/nl/" />
   <link rel="alternate" href="https://giftcardzoneeu.com/" hreflang="x-default" />
   <link rel="alternate" href="https://giftcardzoneeu.com/country/nl/" hreflang="nl-NL" />
-  <link rel="alternate" href="https://giftcardzoneeu.com/country/us/" hreflang="en-US" />
   <link rel="alternate" href="https://giftcardzoneeu.com/country/ph/" hreflang="en-PH" />
-  <link rel="alternate" href="https://giftcardzoneeu.com/country/de/" hreflang="en-DE" />
 
-  <!-- ✅ OG / Twitter Meta -->
-  <meta property="og:title" content="GiftCardZoneEU — Netherlands Deals & Gift Cards" />
-  <meta property="og:description" content="Explore active gift card, coupon, and cashback deals for Dutch users." />
+  <!-- ✅ Open Graph / Twitter -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://giftcardzoneeu.com/country/nl/" />
-  <meta property="og:image" content="https://eloybugha.github.io/giftcardzoneeu/cover.jpg" />
+  <meta property="og:title" content="GiftCardZoneEU — Netherlands Deals & Gift Cards" />
+  <meta property="og:description" content="Explore active gift card, coupon, and cashback deals for Dutch users." />
+  <meta property="og:image" content="https://giftcardzoneeu.com/cover.jpg" />
   <meta property="og:site_name" content="GiftCardZoneEU" />
   <meta name="twitter:card" content="summary_large_image" />
 
@@ -28,38 +26,30 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
 
   <style>
-    body {
-      margin:0;
+    :root{--bg:#0b0f14;--card:#111827;--border:#1f2937;--txt:#e5e7eb;--muted:#9ca3af;--brand:#22c55e}
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;background:var(--bg);color:var(--txt);
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background:#0b0f14;
-      color:#e5e7eb;
       padding:18px;
     }
     main{max-width:880px;margin:0 auto}
-    h1{margin:8px 0 6px}
+    h1{margin:8px 0 6px;font-weight:800}
+    h2{margin:0 0 8px}
     p{margin:0 0 12px}
-    .card {
-      background:#111827;
-      border:1px solid #1f2937;
-      border-radius:16px;
-      padding:16px;
-      margin:14px 0;
-      box-shadow:0 2px 8px rgba(0,0,0,.3);
+    .card{
+      background:var(--card);border:1px solid var(--border);
+      border-radius:16px;padding:16px;margin:14px 0;box-shadow:0 2px 8px rgba(0,0,0,.3);
     }
-    .btn {
-      display:inline-block;
-      background:#22c55e;
-      color:#062607;
-      font-weight:800;
-      border-radius:12px;
-      padding:12px 16px;
-      margin-top:8px;
-      text-decoration:none;
-      transition:.2s;
+    .btn{
+      display:inline-block;background:var(--brand);color:#062607;
+      font-weight:800;border-radius:12px;padding:12px 16px;margin-top:8px;
+      text-decoration:none;transition:transform .2s,filter .2s;
     }
-    .btn:hover{transform:translateY(-2px);background:#16a34a}
-    a{color:#22c55e;text-decoration:none}
-    footer{text-align:center;margin:36px 0 12px;font-size:14px;color:#9ca3af}
+    .btn:hover{transform:translateY(-2px);filter:brightness(.95)}
+    a{color:var(--brand);text-decoration:none}
+    footer{text-align:center;margin:36px 0 12px;font-size:14px;color:var(--muted)}
   </style>
 
   <!-- ✅ Breadcrumb JSON-LD -->
@@ -71,6 +61,17 @@
       {"@type":"ListItem","position":1,"name":"Home","item":"https://giftcardzoneeu.com/"},
       {"@type":"ListItem","position":2,"name":"Netherlands","item":"https://giftcardzoneeu.com/country/nl/"}
     ]
+  }
+  </script>
+
+  <!-- ✅ WebPage JSON-LD (optional but recommended) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "name":"GiftCardZoneEU — Netherlands Deals & Gift Cards",
+    "url":"https://giftcardzoneeu.com/country/nl/",
+    "isPartOf":{"@type":"WebSite","name":"GiftCardZoneEU","url":"https://giftcardzoneeu.com/"}
   }
   </script>
 </head>
@@ -97,44 +98,38 @@
     <p style="margin-top:24px;"><a href="/">← Back to Home</a></p>
   </main>
 
+  <!-- ✅ Visual footer -->
   <footer>
     <p>© 2025 GiftCardZoneEU — Netherlands</p>
   </footer>
 
-<!-- Existing Main Footer -->
-<footer>
-  <p>© 2025 GiftCardZoneEU – Netherlands</p>
-</footer>
+  <!-- ✅ FAQ mount point (if using faq.js) -->
+  <div id="faq-country"></div>
 
-<!-- ✅ Shared FAQ loader (optional, keep if used) -->
-<div id="faq-country"></div>
+  <!-- 🔗 SEO Footer Links (Netherlands) -->
+  <footer style="text-align:center;margin:40px auto 20px;font-size:13px;color:#8fa3b9;">
+    <p>
+      <a href="https://giftcardzoneeu.com/" style="color:#9ae6b4;text-decoration:none;">Home</a> |
+      <a href="https://giftcardzoneeu.com/country/nl/" style="color:#9ae6b4;text-decoration:none;">Netherlands</a> |
+      <a href="https://giftcardzoneeu.com/country/ph/" style="color:#9ae6b4;text-decoration:none;">Philippines</a> |
+      <a href="https://giftcardzoneeu.com/us-7eleven-v2/" style="color:#9ae6b4;text-decoration:none;">United States</a> |
+      <a href="https://giftcardzoneeu.com/NeutralCPC/" style="color:#9ae6b4;text-decoration:none;">Neutral CPC Hub</a> |
+      <a href="https://giftcardzoneeu.com/privacy.html" style="color:#9ae6b4;text-decoration:none;">Privacy</a> |
+      <a href="https://giftcardzoneeu.com/terms.html" style="color:#9ae6b4;text-decoration:none;">Terms</a>
+    </p>
+    <p>© 2025 GiftCardZoneEU — Netherlands Deals & Gift Cards</p>
+  </footer>
 
-<!-- 🔗 SEO Footer Links (Netherlands) -->
-<footer style="text-align:center;margin:40px auto 20px;font-size:13px;color:#8fa3b9;">
-  <p>
-    <a href="https://giftcardzoneeu.com/" style="color:#9ae6b4;text-decoration:none;">Home</a> |
-    <a href="https://giftcardzoneeu.com/country/nl/" style="color:#9ae6b4;text-decoration:none;">Netherlands</a> |
-    <a href="https://giftcardzoneeu.com/country/ph/" style="color:#9ae6b4;text-decoration:none;">Philippines</a> |
-    <a href="https://giftcardzoneeu.com/us-7eleven-v2/" style="color:#9ae6b4;text-decoration:none;">United States</a> |
-    <a href="https://giftcardzoneeu.com/NeutralCPC/" style="color:#9ae6b4;text-decoration:none;">Neutral CPC Hub</a> |
-    <a href="https://giftcardzoneeu.com/privacy.html" style="color:#9ae6b4;text-decoration:none;">Privacy</a> |
-    <a href="https://giftcardzoneeu.com/terms.html" style="color:#9ae6b4;text-decoration:none;">Terms</a>
-  </p>
-  <p>© 2025 GiftCardZoneEU — Netherlands Deals & Gift Cards</p>
-</footer>
-
-<!-- ✅ Scripts should always be last for fast page loading -->
-<script src="/assets/faq.js"></script>
-<script src="/assets/faq-data.js"></script>
-<script>
-(function(){
-  const found = (window.GZEU_FAQ_DATA && window.GZEU_FAQ_DATA.getForCurrentPage());
-  if(found && found.items){
-    GZEU_FAQ.renderFAQ("faq-country", found.items, { title: "FAQ (Netherlands)" });
-  }
-})();
-</script>
-
+  <!-- ✅ Scripts last -->
+  <script src="/assets/faq.js"></script>
+  <script src="/assets/faq-data.js"></script>
+  <script>
+  (function(){
+    const found = (window.GZEU_FAQ_DATA && window.GZEU_FAQ_DATA.getForCurrentPage && window.GZEU_FAQ_DATA.getForCurrentPage());
+    if(found && found.items && window.GZEU_FAQ && typeof GZEU_FAQ.renderFAQ === 'function'){
+      GZEU_FAQ.renderFAQ("faq-country", found.items, { title: "FAQ (Netherlands)" });
+    }
+  })();
+  </script>
 </body>
 </html>
-
