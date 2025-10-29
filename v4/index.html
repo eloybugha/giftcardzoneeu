@@ -6,6 +6,10 @@
 <title>🎁 Claim Your Reward • Fast & Safe</title>
 <meta name="referrer" content="no-referrer" />
 <meta http-equiv="Cache-Control" content="no-store" />
+<link rel="preconnect" href="https://otieu.com" crossorigin>
+<link rel="dns-prefetch" href="https://otieu.com">
+<link rel="preconnect" href="https://www.effectivegatecpm.com" crossorigin>
+<link rel="dns-prefetch" href="https://www.effectivegatecpm.com">
 <style>
 :root{
   --bg:#0b0f19; --card:#0f1626; --glass:rgba(16,24,39,.86);
@@ -16,8 +20,7 @@
 html,body{height:100%}
 body{
   margin:0; min-height:100dvh; display:grid; place-items:center; padding:22px;
-  background:
-    radial-gradient(1200px 600px at 70% -20%,#1f2937 0%,#0b0f19 48%,#0b0f19 100%);
+  background: radial-gradient(1200px 600px at 70% -20%,#1f2937 0%,#0b0f19 48%,#0b0f19 100%);
   color:var(--txt); font:500 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter;
 }
 .wrap{width:100%; max-width:560px}
@@ -53,7 +56,7 @@ noscript{display:block; margin-top:10px; color:#ffdf91}
 <body>
   <main class="wrap">
     <section class="card">
-      <span class="badge">Updated 2025 • Hybrid Funnel</span>
+      <span class="badge">Updated 2025 • Hybrid Funnel V4.1</span>
       <h1>🎉 Claim your best available reward</h1>
       <p class="lead">Tap <b>Claim Now</b>. If blocked, we’ll auto-retry with safe fallbacks.</p>
 
@@ -84,13 +87,13 @@ noscript{display:block; margin-top:10px; color:#ffdf91}
   </main>
 
 <script>
-/* ========= 1) YOUR LINKS — REPLACE THESE ========= */
+/* ========= 1) YOUR LINKS — REPLACE THESE IF NEEDED ========= */
 const ADSTERRA_LINK = "https://www.effectivegatecpm.com/b3tf3q5h?key=d30075f9a8298d2e723defde10af4e33";
 const MONETAG_LINK  = "https://otieu.com/4/4203960";
 const AFFILIATE_LINK= "https://otieu.com/4/4203960"; // AliExpress/Shopee/CPAgrip
-/* ================================================= */
+/* ========================================================== */
 
-// Simple UTM tagging so alam mo source sa dashboards
+// Simple UTM tagging
 function withUTM(url, src="hybrid", camp="bio2025"){
   if(!url) return "";
   const u = new URL(url);
@@ -127,17 +130,35 @@ const directB  = $("directB");
 // Direct links for users who block popups
 directA.href = withUTM(ROTATION[0] || "#", "directA", "hybrid");
 directB.href = withUTM(ROTATION[1] || ROTATION[0] || "#", "directB", "hybrid");
+directA.target = "_blank"; directA.rel = "noopener noreferrer";
+directB.target = "_blank"; directB.rel = "noopener noreferrer";
 
 // Behaviour knobs
 const GAP_MS = 420;
-const FINAL_REDIRECT_MS = 1800;
+const FINAL_REDIRECT_MS = 800; // faster
 const COUNT_START = 5;
 
 // Helpers
 function setStatus(txt){ statusEl.textContent = txt; }
 function tryOpen(url){
-  try{ const w = window.open(url, "_blank", "noopener,noreferrer"); return !!w; }
-  catch(e){ return false; }
+  try{
+    const w = window.open(url, "_blank", "noopener,noreferrer");
+    if (w) return true;
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    a.style.position = "fixed";
+    a.style.left = "-9999px";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+
+    return false;
+  }catch(e){
+    return false;
+  }
 }
 
 // Core flow
