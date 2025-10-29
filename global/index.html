@@ -6,17 +6,24 @@
   <title>Opening Global Offer… | GiftCardZoneEU</title>
   <meta name="robots" content="noindex,follow" />
   <link rel="canonical" href="https://giftcardzoneeu.com/go/global-offer/" />
+
+  <!-- 🔒 Hardened CSP -->
   <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; img-src * data:; style-src 'self' 'unsafe-inline';
-                 script-src 'self' 'unsafe-inline'; connect-src 'self'; frame-ancestors *;">
-  <!-- Fast meta refresh -->
+                 script-src 'self' 'unsafe-inline'; connect-src 'self';
+                 frame-ancestors 'none'; base-uri 'none'; form-action 'none'">
+
+  <!-- ⚡ Fast meta refresh fallback -->
   <meta http-equiv="refresh" content="1; url=https://otieu.com/4/4203960" />
+
   <style>
     body{margin:0;background:#0b1020;color:#e9eefc;font-family:system-ui,Segoe UI,Roboto;display:grid;place-items:center;min-height:100dvh}
     .card{background:#0f1a33cc;border:1px solid #1f2d56;border-radius:18px;padding:28px;text-align:center;box-shadow:0 10px 30px #0008}
     a.btn,button.btn{display:inline-block;margin:10px 6px;padding:12px 16px;border-radius:10px;font-weight:700;text-decoration:none}
     .primary{background:#34d399;color:#062d22}
     .ghost{background:#0c1530;color:#cfe3ff;border:1px solid #2a3f75}
+    .links{margin-top:12px;font-size:.9rem}
+    .links a{color:#34d399;text-decoration:none}
   </style>
 </head>
 <body>
@@ -24,21 +31,31 @@
     <h1>Redirecting to offer…</h1>
     <p>If a pop/ad opened, we’ll auto-resume. You can also tap below.</p>
     <div>
-      <a id="goNow" class="btn primary" href="https://otieu.com/4/4203960" rel="nofollow noopener noreferrer">Continue</a>
+      <a id="goNow" class="btn primary" href="https://otieu.com/4/4203960"
+         target="_blank" rel="nofollow noopener noreferrer">Continue</a>
       <button id="copy" class="btn ghost" type="button">Copy link</button>
     </div>
+    <div class="links">
+      <a href="/country/global/">⬅️ Back to Global Hub</a> ·
+      <a href="/partners/survey-sites/apps/">💸 Survey Apps Hub</a>
+    </div>
   </main>
+
+  <noscript>
+    <meta http-equiv="refresh" content="0; url=https://otieu.com/4/4203960">
+    <p><a href="https://otieu.com/4/4203960">Continue to offer</a></p>
+  </noscript>
 
   <script>
     const TARGET = "https://otieu.com/4/4203960";
     ["click","mousedown","mouseup","touchstart","touchend"].forEach(evt=>{
-      window.addEventListener(evt,e=>e.stopImmediatePropagation(),true);
+      addEventListener(evt,e=>e.stopImmediatePropagation(),true);
       document.addEventListener(evt,e=>e.stopImmediatePropagation(),true);
     });
-    function go(){ if(location.href!==TARGET) location.replace(TARGET); }
-    window.addEventListener("load", ()=> setTimeout(go,900));
-    document.addEventListener("visibilitychange", ()=>{ if(!document.hidden) setTimeout(go,200); });
-    window.addEventListener("focus", ()=> setTimeout(go,200));
+    const go=()=>{ if(location.href!==TARGET) location.replace(TARGET); };
+    document.addEventListener("DOMContentLoaded", ()=> setTimeout(go,300));
+    document.addEventListener("visibilitychange", ()=> { if(!document.hidden) setTimeout(go,200); });
+    addEventListener("focus", ()=> setTimeout(go,200));
     document.getElementById("goNow").addEventListener("click", e=>{ e.preventDefault(); go(); });
     document.getElementById("copy").addEventListener("click", async ()=>{
       try{ await navigator.clipboard.writeText(TARGET); copy.textContent="Copied!"; }
