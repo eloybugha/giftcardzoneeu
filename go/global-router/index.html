@@ -1,1 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>🌍 Connecting to Best Global Offer…</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta http-equiv="Cache-Control" content="no-store" />
+  <style>
+    :root{
+      --bg:#0b0f19; --txt:#e6ecff; --muted:#9bb0ff; --accent:#22c55e;
+    }
+    html,body{height:100%;}
+    body{
+      margin:0;display:grid;place-items:center;
+      background:var(--bg);color:var(--txt);
+      font-family:system-ui,Segoe UI,Inter,sans-serif;
+    }
+    .wrap{display:grid;gap:10px;place-items:center;text-align:center}
+    .loader{
+      width:44px;height:44px;
+      border:4px solid #334155;border-top-color:var(--accent);
+      border-radius:50%;animation:spin 1s linear infinite;
+    }
+    @keyframes spin{to{transform:rotate(360deg)}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="loader"></div>
+    <div>Detecting best offer for your country…</div>
+  </div>
+
+  <!-- ✅ Load the geo router logic -->
+  <script src="./router.js?v=8"></script>
+</body>
+</html>
 
