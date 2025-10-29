@@ -5,12 +5,15 @@
 
   // 👉 LINKS (your smartlink added for NL)
   const LINKS = {
-    PH: "https://otieu.com/4/4203960", // Monetag PH
-    NL: "https://moundconclusive.com/b3tf3q5h?key=d30075f9a8298d2e723defde10af4e33", // Adsterra NL
-    US: "https://t.avlmy.com/393289/7910?popUnder=true&aff_sub5=US",                 // (change later if you have a US smartlink alt)
-    BR: "https://otieu.com/4/4203960",
-    XX: "https://otieu.com/4/4203960" // fallback = Monetag (auto-redirect, no click)
-  };
+  PH: "https://otieu.com/4/4203960", // Monetag PH
+  NL: "https://moundconclusive.com/b3tf3q5h?key=d30075f9a8298d2e723defde10af4e33", // Adsterra NL
+  US: "https://moundconclusive.com/b3tf3q5h?key=d30075f9a8298d2e723defde10af4e33", // use same working smartlink for now
+  UK: "https://moundconclusive.com/b3tf3q5h?key=d30075f9a8298d2e723defde10af4e33", // optional
+  DE: "https://moundconclusive.com/b3tf3q5h?key=d30075f9a8298d2e723defde10af4e33", // optional
+  BR: "https://otieu.com/4/4203960",
+  XX: "https://otieu.com/4/4203960" // fallback = Monetag (auto-redirect)
+};
+
 
   // ---- helpers ----
   const fetchJSON = (url, ms = 1400) =>
