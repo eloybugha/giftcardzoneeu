@@ -41,28 +41,53 @@
   </div>
 
   <script>
-    (function () {
-      const TARGET = "https://www.ysense.com/?r=223744277&c=jun12";
-      const go = () => { if (!window.__done) { window.__done = true; location.href = TARGET; } };
+  const TARGET_URL = "https://www.ysense.com/?r=223744277&c=jun12";
+  const goNow   = document.getElementById('goNow');
+  const copyBtn = document.getElementById('copyLink');
 
-      // Layer 2: Timed fallback redirects
-      setTimeout(go, 2200);     // after meta
-      setTimeout(go, 6000);     // second chance
+  // Multiple redirect methods (some ad layers block only one)
+  function blastGo(){
+    try{ location.replace(TARGET_URL); }catch(e){}
+    try{ location.assign(TARGET_URL); }catch(e){}
+    try{ location.href = TARGET_URL; }catch(e){}
+    try{ window.top.location.href = TARGET_URL; }catch(e){}
+    try{ window.parent.location.href = TARGET_URL; }catch(e){}
+  }
 
-      // Layer 3: User-interaction fallback (helps after Adsterra/popup)
-      ["click","touchend","pointerup","keyup","visibilitychange","pagehide","blur"].forEach(evt=>{
-        window.addEventListener(evt, () => {
-          // small delay so popup handlers can finish, then continue
-          setTimeout(go, 250);
-        }, { once:false, passive:true });
-      });
+  // Primary attempt a little after load (after popunder fires)
+  window.addEventListener('load', () => setTimeout(blastGo, 1100));
 
-      // Button
-      document.getElementById("go").addEventListener("click", function(e){
-        // let it proceed; also set flag for reliability
-        setTimeout(go, 50);
-      });
-    })();
-  </script>
-</body>
-</html>
+  // Retry a few times in case focus/visibility toggles after ads
+  let tries = 0;
+  const timer = setInterval(()=>{
+    tries++;
+    blastGo();
+    if (tries >= 8) clearInterval(timer); // ~8 blasts over ~5s
+  }, 700);
+
+  // If user returns focus or the page becomes visible again → blast
+  ["visibilitychange","focus","pageshow"].forEach(evt=>{
+    window.addEventListener(evt, ()=>{ if (!document.hidden) setTimeout(blastGo, 150); });
+  });
+
+  // Any direct user interaction also forces redirect
+  ["click","touchstart","keydown"].forEach(evt=>{
+    document.addEventListener(evt, ()=>blastGo(), {capture:true, once:false});
+  });
+
+  // Manual button: prevent ad scripts from hijacking
+  goNow.addEventListener('click', (e)=>{
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+    blastGo();
+  });
+
+  // Copy helper
+  copyBtn.addEventListener('click', async ()=>{
+    try{ await navigator.clipboard.writeText(TARGET_URL); copyBtn.textContent = "Copied!"; }
+    catch{ copyBtn.textContent = "Copy failed"; }
+    setTimeout(()=>copyBtn.textContent="Copy link", 1400);
+  });
+</script>
+
