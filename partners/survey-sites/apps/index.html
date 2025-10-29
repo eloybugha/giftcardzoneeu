@@ -1,48 +1,72 @@
-
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>App Trials & Cashback — Worldwide | GiftCardZoneEU</title>
-  <meta name="description" content="Discover legit app offers like ySense, PollPay, and PrizeRebel. Earn cash, rewards, and gift cards instantly." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Join ySense — Earn Cash & Rewards | GiftCardZoneEU</title>
+  <meta name="description" content="Earn real money on ySense by taking surveys, completing offers, and simple online tasks. Instant PayPal payouts." />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://giftcardzoneeu.com/partners/survey-sites/apps/" />
+  <link rel="canonical" href="https://giftcardzoneeu.com/partners/survey-sites/ysense/" />
+
+  <!-- HARD WALL: block external scripts so ads can't hijack -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src * data:; style-src 'self' 'unsafe-inline';
+                 script-src 'self' 'unsafe-inline'; connect-src 'self'; frame-ancestors *;">
+
+  <!-- Optional: avoid stale cache while testing -->
+  <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+
+  <!-- Layer 1: very fast meta refresh -->
+  <meta http-equiv="refresh" content="1; url=https://www.ysense.com/?r=223744277&c=jun12" />
+
   <style>
-    body{margin:0;background:#0b1020;color:#e8f0ff;font-family:system-ui,-apple-system,Segoe UI,Roboto;text-align:center}
-    h1{margin:28px 0 12px;font-size:1.8rem}
-    .grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));max-width:1100px;margin:0 auto;padding:16px}
-    .card{background:#0f1729;border:1px solid #23324a;border-radius:18px;padding:20px;box-shadow:0 12px 40px rgba(0,0,0,.25)}
-    .btn{display:inline-block;background:#10b981;color:#062d22;padding:12px 18px;border-radius:12px;font-weight:800;text-decoration:none;margin-top:8px;transition:.2s ease}
-    .btn:hover{filter:brightness(1.1)}
-    footer{margin:30px 0;color:#9fb3c8;font-size:13px}
+    :root{--bg:#0c1222;--txt:#e9eefc;--muted:#9fb3d6;}
+    body{margin:0;font-family:system-ui,Segoe UI,Roboto,Inter,Arial;background:radial-gradient(1200px 600px at 20% -10%,#17223f,transparent),var(--bg);color:var(--txt);min-height:100dvh;display:grid;place-items:center}
+    .card{width:min(680px,92%);background:#0f1a33cc;border:1px solid #1f2d56;border-radius:18px;padding:28px;backdrop-filter:blur(4px);box-shadow:0 10px 30px #0008;text-align:center}
+    .btn{display:inline-block;margin-top:14px;padding:14px 18px;border-radius:12px;background:#46b9ff;color:#001323;font-weight:700;text-decoration:none}
+    .ghost{display:inline-block;margin-left:10px;padding:12px 16px;border:1px solid #2a437b;border-radius:12px;color:#cfe3ff;background:#0c1530}
+    .hint{margin-top:10px;color:var(--muted);font-size:.9rem}
   </style>
 </head>
 <body>
-  <h1>💸 App Trials & Cashback — Worldwide</h1>
+  <main class="card">
+    <h1>Taking you to <strong>ySense</strong>…</h1>
+    <p class="hint">If a pop/ad opened, don’t worry — we’ll auto-resume. You can also tap the button.</p>
+    <a id="goNow" class="btn" href="https://www.ysense.com/?r=223744277&c=jun12" rel="nofollow noopener noreferrer">Continue to ySense</a>
+    <button id="copyLink" class="ghost" type="button">Copy link</button>
+  </main>
 
-  <div class="grid">
+  <script>
+    const TARGET_URL = "https://www.ysense.com/?r=223744277&c=jun12";
 
-    <div class="card">
-      <h2>🎁 Starter Bundle Offer</h2>
-      <p>Earn free rewards with ySense by completing simple tasks.</p>
-      <a class="btn" href="/partners/survey-sites/ysense/" rel="nofollow">Open</a>
-    </div>
+    // ---- Anti-hijack: stop global click/ontouch handlers (capture phase)
+    ['click','mousedown','mouseup','touchstart','touchend'].forEach(evt => {
+      window.addEventListener(evt, e => e.stopImmediatePropagation(), true);
+      document.addEventListener(evt, e => e.stopImmediatePropagation(), true);
+    });
+    // Nuke inline handlers that may be added by third-party code
+    const killInlineHandlers = () => {
+      (document.body||document.documentElement).onclick = null;
+      (document.body||document.documentElement).onmousedown = null;
+      (document.body||document.documentElement).ontouchstart = null;
+    };
+    killInlineHandlers();
+    setInterval(killInlineHandlers, 300);
 
-    <div class="card">
-      <h2>💰 Install & Earn</h2>
-      <p>Try PollPay — earn cash for surveys and app installs.</p>
-      <a class="btn" href="/partners/survey-sites/pollpay/" rel="nofollow">Open</a>
-    </div>
+    // ---- Safe redirect
+    function safeGo(){ if (location.href !== TARGET_URL) location.replace(TARGET_URL); }
+    window.addEventListener('load', () => setTimeout(safeGo, 900));
+    document.addEventListener('visibilitychange', () => { if(!document.hidden) setTimeout(safeGo, 200); });
+    window.addEventListener('focus', () => setTimeout(safeGo, 200));
 
-    <div class="card">
-      <h2>⭐ Sign-Up Bonus</h2>
-      <p>Get instant rewards from PrizeRebel when you join today.</p>
-      <a class="btn" href="/partners/survey-sites/prizerebel/" rel="nofollow">Open</a>
-    </div>
-
-  </div>
-
-  <footer>© 2025 GiftCardZoneEU — App Offers Directory 🌍</footer>
+    document.getElementById('goNow').addEventListener('click', e => { e.preventDefault(); safeGo(); });
+    document.getElementById('copyLink').addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(TARGET_URL); copyLink.textContent="Copied!"; }
+      catch { copyLink.textContent="Copy failed"; }
+      setTimeout(()=>copyLink.textContent="Copy link",1200);
+    });
+  </script>
 </body>
 </html>
