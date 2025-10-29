@@ -8,24 +8,77 @@
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://giftcardzoneeu.com/partners/survey-sites/inboxdollars/" />
 
-  <!-- Redirect (your referral link) -->
-  <meta http-equiv="refresh" content="2; url=https://www.inboxdollars.com?rb=223746229&c=giftcardzoneeu" />
+  <!-- 🔒 Hard wall: block third-party scripts so ads can't hijack -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src * data:; style-src 'self' 'unsafe-inline';
+                 script-src 'self' 'unsafe-inline'; connect-src 'self'; frame-ancestors *;">
+
+  <!-- 🧼 Avoid stale cache while testing -->
+  <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+
+  <!-- Layer 1: very fast meta refresh -->
+  <meta http-equiv="refresh" content="1; url=https://www.inboxdollars.com?rb=223746229&c=giftcardzoneeu" />
 
   <style>
-    body{background:radial-gradient(circle at center,#0f172a,#020617);color:#fff;
-         font-family:'Poppins',sans-serif;text-align:center;padding-top:100px}
-    h1{font-size:2rem;margin-bottom:10px;color:#38bdf8}
-    p{font-size:1rem;color:#cbd5e1}
-    .loader{margin:30px auto;width:40px;height:40px;border:4px solid #38bdf8;
-            border-top:4px solid transparent;border-radius:50%;animation:spin 1s linear infinite}
+    :root{--bg1:#0f172a;--bg2:#020617;--txt:#e5f0ff;--muted:#9fb3d6;--accent:#38bdf8;--ghost:#0b1430}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,Segoe UI,Roboto,Inter,Arial;background:radial-gradient(1000px 600px at 50% -10%,#162447,transparent),linear-gradient(180deg,var(--bg1),var(--bg2));color:var(--txt);min-height:100dvh;display:grid;place-items:center}
+    .card{width:min(680px,92%);background:#0f1a33cc;border:1px solid #1e305a;border-radius:18px;padding:28px;text-align:center;backdrop-filter:blur(4px);box-shadow:0 10px 30px #0008}
+    h1{margin:0 0 10px;font-size:1.6rem}
+    p{margin:6px 0;color:var(--muted)}
+    .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+    .btn{appearance:none;border:none;border-radius:12px;padding:14px 18px;font-weight:700;cursor:pointer;text-decoration:none}
+    .btn-primary{background:var(--accent);color:#001323}
+    .btn-ghost{background:var(--ghost);border:1px solid #2a3f75;color:#cfe3ff}
+    .loader{margin:12px auto;width:38px;height:38px;border:4px solid var(--accent);border-top-color:transparent;border-radius:50%;animation:spin 1s linear infinite}
     @keyframes spin{to{transform:rotate(360deg)}}
+    .small{font-size:.86rem}
   </style>
 </head>
 <body>
-  <h1>Redirecting to InboxDollars…</h1>
-  <p>Take surveys, play games, and earn real cash! 💵</p>
-  <div class="loader"></div>
-  <p><small>Powered by GiftCardZoneEU 🌍</small></p>
+  <main class="card">
+    <h1>Redirecting to <strong>InboxDollars</strong>…</h1>
+    <p class="small">If a pop/ad opened, we'll auto-resume. You can also tap the button.</p>
+    <div class="loader" aria-hidden="true"></div>
+
+    <!-- Layer 2: manual button -->
+    <div class="cta">
+      <a id="goNow" class="btn btn-primary"
+         href="https://www.inboxdollars.com?rb=223746229&c=giftcardzoneeu"
+         rel="nofollow noopener noreferrer">Continue to InboxDollars</a>
+      <button id="copyLink" class="btn btn-ghost" type="button">Copy link</button>
+    </div>
+  </main>
+
+  <!-- Layer 3: JS fallback + anti-hijack -->
+  <script>
+    const TARGET = "https://www.inboxdollars.com?rb=223746229&c=giftcardzoneeu";
+
+    // Stop global click/ontouch hijack (capture phase)
+    ["click","mousedown","mouseup","touchstart","touchend"].forEach(evt=>{
+      window.addEventListener(evt,e=>e.stopImmediatePropagation(),true);
+      document.addEventListener(evt,e=>e.stopImmediatePropagation(),true);
+    });
+    const killInline = () => {
+      (document.body||document.documentElement).onclick = null;
+      (document.body||document.documentElement).onmousedown = null;
+      (document.body||document.documentElement).ontouchstart = null;
+    };
+    killInline(); setInterval(killInline, 300);
+
+    function go(){ if(location.href !== TARGET) location.replace(TARGET); }
+    window.addEventListener("load", ()=> setTimeout(go, 900));
+    document.addEventListener("visibilitychange", ()=> { if(!document.hidden) setTimeout(go,200); });
+    window.addEventListener("focus", ()=> setTimeout(go,200));
+
+    document.getElementById("goNow").addEventListener("click", (e)=>{ e.preventDefault(); go(); });
+    document.getElementById("copyLink").addEventListener("click", async ()=>{
+      try{ await navigator.clipboard.writeText(TARGET); copyLink.textContent="Copied!"; }
+      catch{ copyLink.textContent="Copy failed"; }
+      setTimeout(()=> copyLink.textContent="Copy link", 1200);
+    });
+  </script>
 </body>
 </html>
-
