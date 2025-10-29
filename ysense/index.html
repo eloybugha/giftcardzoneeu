@@ -3,66 +3,66 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Join Ysense — Earn Cash & Rewards | GiftCardZoneEU</title>
-  <meta name="description" content="Earn real money on Ysense by taking surveys, completing offers, and simple online tasks. Trusted by users worldwide with instant PayPal payouts." />
+  <title>Join ySense — Earn Cash & Rewards | GiftCardZoneEU</title>
+  <meta name="description" content="Earn real money on ySense by taking surveys, completing offers, and simple online tasks. Fast PayPal payouts." />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://giftcardzoneeu.com/partners/survey-sites/ysense/" />
-
-  <!-- ✅ Redirect after 2 seconds -->
-  <meta http-equiv="refresh" content="2; url=https://www.ysense.com/?r=223744277&c=jun12" />
+  <link rel="canonical" href="https://giftcardzoneeu.com/partners/survey-sites/ysense/"/>
 
   <!-- OG / Twitter -->
-  <meta property="og:title" content="Earn Cash & Rewards with Ysense" />
-  <meta property="og:description" content="Join Ysense and earn cash by completing surveys and offers. Redeem via PayPal or gift cards." />
-  <meta property="og:url" content="https://giftcardzoneeu.com/partners/survey-sites/ysense/" />
+  <meta property="og:title" content="Join ySense — Earn Cash & Rewards" />
+  <meta property="og:description" content="Complete surveys and offers. Redeem via PayPal & gift cards." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://giftcardzoneeu.com/partners/survey-sites/ysense/" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- ✅ Adsterra Script (replace with your own if needed) -->
-  <script type="text/javascript" src="//plxxxxxxx.highrevenuenetwork.com/xxxxxxxx.js"></script>
+  <!-- Layer 1: Meta refresh (2s) -->
+  <meta http-equiv="refresh" content="2; url=https://www.ysense.com/?r=223744277&c=jun12" />
 
   <style>
-    body {
-      background: radial-gradient(circle at center, #0f172a, #020617);
-      color: #fff;
-      font-family: system-ui, sans-serif;
-      text-align: center;
-      padding-top: 100px;
-      margin: 0;
-    }
-    h1 {
-      font-size: clamp(22px, 4vw, 32px);
-      margin-bottom: 10px;
-      color: #38bdf8;
-    }
-    p {
-      font-size: clamp(14px, 2.2vw, 16px);
-      color: #cbd5e1;
-      margin: 8px 0;
-    }
-    .loader {
-      margin: 30px auto;
-      width: 44px;
-      height: 44px;
-      border: 4px solid #38bdf8;
-      border-top: 4px solid transparent;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-    }
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-    small {
-      display: block;
-      margin-top: 20px;
-      color: #64748b;
-    }
+    :root{--bg:#0b1020;--card:#121a2b;--txt:#e8eefc;--muted:#98a3b8;}
+    *{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),#0e2034);color:var(--txt);min-height:100vh;display:grid;place-items:center}
+    .wrap{max-width:720px;width:100%;padding:32px}
+    .card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:28px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+    h1{margin:0 0 8px;font-size:clamp(22px,3vw,28px)}
+    p{margin:8px 0;color:var(--muted)}
+    .btn{display:inline-block;margin-top:14px;padding:14px 18px;border-radius:12px;background:#2f7df4;color:white;text-decoration:none;font-weight:700}
+    .hint{font-size:12px;opacity:.8;margin-top:10px}
   </style>
 </head>
 <body>
-  <h1>Redirecting to Ysense...</h1>
-  <p>Take surveys, complete offers, and earn real cash! 💵</p>
-  <div class="loader"></div>
-  <small>Powered by GiftCardZoneEU 🌍</small>
+  <div class="wrap">
+    <div class="card">
+      <h1>Taking you to ySense…</h1>
+      <p>If your browser opened a pop or blocked the auto-redirect, tap the button below.</p>
+      <a class="btn" id="go" href="https://www.ysense.com/?r=223744277&c=jun12" rel="nofollow noopener">Continue to ySense</a>
+      <p class="hint">Auto-redirect will run in a moment. If nothing happens, just tap “Continue”.</p>
+      <noscript><p><a class="btn" href="https://www.ysense.com/?r=223744277&c=jun12" rel="nofollow noopener">Continue</a></p></noscript>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const TARGET = "https://www.ysense.com/?r=223744277&c=jun12";
+      const go = () => { if (!window.__done) { window.__done = true; location.href = TARGET; } };
+
+      // Layer 2: Timed fallback redirects
+      setTimeout(go, 2200);     // after meta
+      setTimeout(go, 6000);     // second chance
+
+      // Layer 3: User-interaction fallback (helps after Adsterra/popup)
+      ["click","touchend","pointerup","keyup","visibilitychange","pagehide","blur"].forEach(evt=>{
+        window.addEventListener(evt, () => {
+          // small delay so popup handlers can finish, then continue
+          setTimeout(go, 250);
+        }, { once:false, passive:true });
+      });
+
+      // Button
+      document.getElementById("go").addEventListener("click", function(e){
+        // let it proceed; also set flag for reliability
+        setTimeout(go, 50);
+      });
+    })();
+  </script>
 </body>
 </html>
