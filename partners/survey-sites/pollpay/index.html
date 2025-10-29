@@ -3,70 +3,73 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Open PollPay — Earn by Completing Surveys | GiftCardZoneEU</title>
-  <meta name="description" content="Start earning with PollPay. Complete quick surveys and redeem for PayPal or gift cards." />
-  <meta name="robots" content="index, follow" />
+  <title>Join PollPay — Quick Survey Rewards | GiftCardZoneEU</title>
+  <meta name="description" content="Answer quick surveys and earn PayPal cash or gift cards with PollPay. Simple, fast, and free to join." />
+  <meta name="robots" content="noindex, follow" />
   <link rel="canonical" href="https://giftcardzoneeu.com/partners/survey-sites/pollpay/" />
 
-  <!-- Layer 1: meta-refresh -->
-  <meta http-equiv="refresh" content="2; url=https://www.pollpay.app?rb=223747185" />
+  <!-- 🔒 CSP for safety -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src * data:; style-src 'self' 'unsafe-inline';
+                 script-src 'self' 'unsafe-inline'; connect-src 'self';
+                 frame-ancestors 'none'; base-uri 'none'; form-action 'none'">
 
-  <!-- OG / Twitter -->
-  <meta property="og:title" content="Open PollPay — Start Earning" />
-  <meta property="og:description" content="Quick surveys. Real rewards. Try PollPay now." />
-  <meta property="og:url" content="https://giftcardzoneeu.com/partners/survey-sites/pollpay/" />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
+  <!-- 🚫 Cache control -->
+  <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+
+  <!-- ⚡ Fast redirect -->
+  <meta http-equiv="refresh" content="1; url=https://www.pollpay.app/?rb=223747185" />
 
   <style>
-    :root{--bg:#0c1222;--txt:#e9eefc;--accent:#a0ff8f;--muted:#9fb3d6;}
+    :root{--bg1:#0f172a;--bg2:#020617;--txt:#e5f0ff;--muted:#9fb3d6;--accent:#38bdf8;}
     *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;background:radial-gradient(1200px 600px at 100% -20%,#1a2b2a,transparent),var(--bg);color:var(--txt);min-height:100dvh;display:grid;place-items:center}
-    .card{width:min(680px,92%);background:#0f1a33cc;border:1px solid #244a3a;border-radius:18px;padding:28px;backdrop-filter:blur(4px);box-shadow:0 10px 30px #0008}
-    h1{margin:0 0 10px;font-size:1.6rem}
-    p{margin:8px 0;color:var(--muted);line-height:1.5}
-    .cta{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
-    .btn{appearance:none;border:none;border-radius:12px;padding:14px 18px;font-weight:600;cursor:pointer}
-    .btn-primary{background:linear-gradient(135deg,#7bff7b,#d6ffd6);color:#001a0d}
-    .btn-ghost{background:#0c1530;border:1px solid #2b4b3c;color:#d7ffe0}
-    .hint{font-size:.85rem;color:#9fb3d6;margin-top:12px}
-    .badge{display:inline-block;background:#0f2a24;border:1px solid #2b5f4a;color:#c6ffe2;padding:4px 10px;border-radius:999px;font-size:.78rem;margin-top:10px}
-    .small{font-size:.8rem}
+    body{margin:0;font-family:system-ui,Segoe UI,Roboto,Inter,Arial;
+      background:linear-gradient(180deg,var(--bg1),var(--bg2));
+      color:var(--txt);display:grid;place-items:center;min-height:100dvh;text-align:center;padding:40px}
+    .card{background:#0f1a33cc;border:1px solid #1e305a;border-radius:16px;padding:28px;width:min(680px,92%);backdrop-filter:blur(4px);box-shadow:0 10px 30px #0008}
+    .btn{display:inline-block;margin-top:14px;padding:14px 18px;border-radius:12px;background:var(--accent);color:#001323;font-weight:700;text-decoration:none}
+    .ghost{display:inline-block;margin-left:10px;padding:12px 16px;border:1px solid #2a3f75;border-radius:12px;color:#cfe3ff;background:#0c1530}
+    .hint{margin-top:10px;color:var(--muted);font-size:.9rem}
   </style>
 </head>
 <body>
   <main class="card">
     <h1>Redirecting to <strong>PollPay</strong>…</h1>
-    <p>Kung may pop/ad na bumukas, auto-resume pa rin. Click the button if you want to go now.</p>
-    <div class="badge">Auto redirect in ~2 seconds</div>
-
-    <!-- Layer 2: manual button -->
-    <div class="cta">
-      <a class="btn btn-primary" id="goNow" href="https://www.pollpay.app?rb=223747185" rel="noopener">Continue to PollPay</a>
-      <button class="btn btn-ghost" id="copyLink" type="button">Copy link</button>
-    </div>
-    <p class="hint small">If nothing opens, tap the button.</p>
-    <noscript><p class="hint small">JavaScript is off. Please click the button above.</p></noscript>
+    <p class="hint">If not redirected automatically, tap below to continue.</p>
+    <a id="goNow" class="btn" href="https://www.pollpay.app/?rb=223747185"
+       target="_blank" rel="nofollow noopener noreferrer">Continue to PollPay</a>
+    <button id="copyLink" class="ghost" type="button">Copy link</button>
   </main>
 
-  <!-- Layer 3: JS fallbacks -->
+  <noscript>
+    <meta http-equiv="refresh" content="0; url=https://www.pollpay.app/?rb=223747185">
+    <p><a href="https://www.pollpay.app/?rb=223747185">Continue to PollPay</a></p>
+  </noscript>
+
   <script>
-    const TARGET_URL = "https://www.pollpay.app?rb=223747185";
-    const goNow = document.getElementById('goNow');
-    const copyBtn = document.getElementById('copyLink');
+    const TARGET_URL = "https://www.pollpay.app/?rb=223747185";
+    const go = () => { if (location.href !== TARGET_URL) location.replace(TARGET_URL); };
 
-    function safeGo(){ if (location.href !== TARGET_URL) location.replace(TARGET_URL); }
+    ['click','mousedown','mouseup','touchstart','touchend'].forEach(evt=>{
+      addEventListener(evt,e=>e.stopImmediatePropagation(),true);
+      document.addEventListener(evt,e=>e.stopImmediatePropagation(),true);
+    });
 
-    window.addEventListener('load', () => setTimeout(safeGo, 2400));
-    document.addEventListener('visibilitychange', () => { if(!document.hidden) setTimeout(safeGo, 400); });
-    window.addEventListener('focus', () => setTimeout(safeGo, 400));
+    document.addEventListener('DOMContentLoaded', ()=> setTimeout(go,200));
+    document.addEventListener('visibilitychange', ()=> { if(!document.hidden) setTimeout(go,150); });
+    addEventListener('focus', ()=> setTimeout(go,150));
 
-    goNow.addEventListener('click', (e)=>{ e.preventDefault(); safeGo(); });
-
-    copyBtn.addEventListener('click', async () => {
-      try { await navigator.clipboard.writeText(TARGET_URL); copyBtn.textContent = "Copied!"; }
-      catch { copyBtn.textContent = "Copy failed"; }
-      setTimeout(()=>copyBtn.textContent="Copy link",1500);
+    addEventListener('load', ()=>{
+      const btn=document.getElementById('goNow');
+      const copy=document.getElementById('copyLink');
+      btn.addEventListener('click', e=>{ e.preventDefault(); go(); });
+      copy.addEventListener('click', async ()=>{
+        try{ await navigator.clipboard.writeText(TARGET_URL); copy.textContent='Copied!'; }
+        catch{ copy.textContent='Copy failed'; }
+        setTimeout(()=>copy.textContent='Copy link',1200);
+      });
     });
   </script>
 </body>
