@@ -1,26 +1,54 @@
-// Geo Router v2 — fast providers + timeout + debug
+// Geo Router v3 — faster + more providers + solid fallback
 (function () {
   const qs = new URLSearchParams(location.search);
   const DEBUG = qs.get("debug") === "1";
 
+  // 👉 Set your links here (fallback XX now goes to Monetag para auto-redirect, no click)
   const LINKS = {
-    PH: "https://otieu.com/4/4203960",
-    NL: "https://t.avlmy.com/393289/7910?popUnder=true&aff_sub5=NL",
-    US: "https://t.avlmy.com/393289/7910?popUnder=true&aff_sub5=US",
+    PH: "https://otieu.com/4/4203960", // Monetag PH
+    NL: "https://t.avlmy.com/393289/7910?popUnder=true&aff_sub5=NL", // Adsterra NL
+    US: "https://t.avlmy.com/393289/7910?popUnder=true&aff_sub5=US", // Adsterra US
     BR: "https://otieu.com/4/4203960",
-    XX: "https://giftcardzoneeu.com/NeutralCPC/"
+    XX: "https://otieu.com/4/4203960" // ← fallback now Monetag (no-click)
+    // If you still want apps page as backup, change to: "https://giftcardzoneeu.com/NeutralCPC/"
   };
 
-  const fetchWithTimeout = (url, ms=1500) =>
+  const fetchJSON = (url, ms = 1400) =>
     Promise.race([
       fetch(url, { cache: "no-store" }),
       new Promise((_, r) => setTimeout(() => r(new Error("timeout")), ms))
-    ]);
+    ]).then(r => (r && r.ok ? r.json() : Promise.reject("bad")));
 
+  const fetchText = (url, ms = 1200) =>
+    Promise.race([
+      fetch(url, { cache: "no-store" }),
+      new Promise((_, r) => setTimeout(() => r(new Error("timeout")), ms))
+    ]).then(r => (r && r.ok ? r.text() : Promise.reject("bad")));
+
+  // 🔎 Multiple providers (any that responds first wins)
   const providers = [
-    { name: "country.is", url: "https://api.country.is", pick: j => j && j.country },
-    { name: "ipapi.co",   url: "https://ipapi.co/json/", pick: j => j && j.country },
-    { name: "ipwho.is",   url: "https://ipwho.is/",      pick: j => j && j.country_code }
+    // Very permissive CORS, fast
+    {
+      name: "geojs",
+      run: () => fetchJSON("https://get.geojs.io/v1/ip/country.json")
+                   .then(j => j && j.country)
+    },
+    // Simple text country code
+    {
+      name: "ipapi-txt",
+      run: () => fetchText("https://ipapi.co/country/") // returns "PH\n"
+                   .then(t => (t || "").trim())
+    },
+    {
+      name: "ipapi.co",
+      run: () => fetchJSON("https://ipapi.co/json/")
+                   .then(j => j && j.country)
+    },
+    {
+      name: "ipwho.is",
+      run: () => fetchJSON("https://ipwho.is/")
+                   .then(j => j && j.country_code)
+    }
   ];
 
   const redirect = (cc, source, raw) => {
@@ -55,13 +83,11 @@
   (async () => {
     for (const p of providers) {
       try {
-        const r = await fetchWithTimeout(p.url, 1600);
-        if (!r || !r.ok) continue;
-        const j = await r.json();
-        const cc = p.pick(j);
-        if (cc) return redirect(cc, p.name, j);
+        const cc = await p.run();
+        if (cc && /^[A-Z]{2}$/i.test(cc)) return redirect(cc, p.name, { cc });
       } catch (_) {}
     }
+    // If all fail, still auto-redirect via fallback ad (no click)
     redirect("XX", "fallback", null);
   })();
 })();
