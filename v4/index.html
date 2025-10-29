@@ -6,10 +6,13 @@
 <title>🎁 Claim Your Reward • Fast & Safe</title>
 <meta name="referrer" content="no-referrer" />
 <meta http-equiv="Cache-Control" content="no-store" />
+
+<!-- Speed hints -->
 <link rel="preconnect" href="https://otieu.com" crossorigin>
 <link rel="dns-prefetch" href="https://otieu.com">
 <link rel="preconnect" href="https://www.effectivegatecpm.com" crossorigin>
 <link rel="dns-prefetch" href="https://www.effectivegatecpm.com">
+
 <style>
 :root{
   --bg:#0b0f19; --card:#0f1626; --glass:rgba(16,24,39,.86);
@@ -20,7 +23,7 @@
 html,body{height:100%}
 body{
   margin:0; min-height:100dvh; display:grid; place-items:center; padding:22px;
-  background: radial-gradient(1200px 600px at 70% -20%,#1f2937 0%,#0b0f19 48%,#0b0f19 100%);
+  background:radial-gradient(1200px 600px at 70% -20%,#1f2937 0%,#0b0f19 48%,#0b0f19 100%);
   color:var(--txt); font:500 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter;
 }
 .wrap{width:100%; max-width:560px}
@@ -56,9 +59,9 @@ noscript{display:block; margin-top:10px; color:#ffdf91}
 <body>
   <main class="wrap">
     <section class="card">
-      <span class="badge">Updated 2025 • Hybrid Funnel V4.1</span>
+      <span class="badge">Updated 2025 • Hybrid Funnel V4.2 (Single-Tab Guard)</span>
       <h1>🎉 Claim your best available reward</h1>
-      <p class="lead">Tap <b>Claim Now</b>. If blocked, we’ll auto-retry with safe fallbacks.</p>
+      <p class="lead">Tap <b>Claim Now</b>. If popups are blocked, we’ll switch to a safe same-tab redirect.</p>
 
       <div class="row">
         <button id="claimBtn">Claim Now</button>
@@ -88,9 +91,9 @@ noscript{display:block; margin-top:10px; color:#ffdf91}
 
 <script>
 /* ========= 1) YOUR LINKS — REPLACE THESE IF NEEDED ========= */
-const ADSTERRA_LINK = "https://www.effectivegatecpm.com/b3tf3q5h?key=d30075f9a8298d2e723defde10af4e33";
-const MONETAG_LINK  = "https://otieu.com/4/4203960";
-const AFFILIATE_LINK= "https://otieu.com/4/4203960"; // AliExpress/Shopee/CPAgrip
+const ADSTERRA_LINK  = "https://www.effectivegatecpm.com/b3tf3q5h?key=d30075f9a8298d2e723defde10af4e33";
+const MONETAG_LINK   = "https://otieu.com/4/4203960";
+const AFFILIATE_LINK = "https://otieu.com/4/4203960"; // AliExpress/Shopee/CPAgrip
 /* ========================================================== */
 
 // Simple UTM tagging
@@ -103,18 +106,11 @@ function withUTM(url, src="hybrid", camp="bio2025"){
   return u.toString();
 }
 
-// Rotation: alternates by hour + random seed per session
+// Rotation: alternates by hour (even→Adsterra first)
 const hour = new Date().getUTCHours();
-const seed = (Math.random() + 1).toString(36).slice(2,6);
-const preferAdsterra = (hour % 2 === 0); // even hour → Adsterra first
-let ROTATION = preferAdsterra
-  ? [ADSTERRA_LINK, MONETAG_LINK]
-  : [MONETAG_LINK, ADSTERRA_LINK];
-
-// If one is empty, clean array
+const preferAdsterra = (hour % 2 === 0);
+let ROTATION = preferAdsterra ? [ADSTERRA_LINK, MONETAG_LINK] : [MONETAG_LINK, ADSTERRA_LINK];
 ROTATION = ROTATION.filter(Boolean);
-
-// Final fallback to affiliate (optional)
 if (AFFILIATE_LINK) ROTATION.push(AFFILIATE_LINK);
 
 // UI refs
@@ -127,78 +123,89 @@ const shopBtn  = $("shopBtn");
 const directA  = $("directA");
 const directB  = $("directB");
 
-// Direct links for users who block popups
+// Direct links (manual users) → open in new tab
 directA.href = withUTM(ROTATION[0] || "#", "directA", "hybrid");
 directB.href = withUTM(ROTATION[1] || ROTATION[0] || "#", "directB", "hybrid");
 directA.target = "_blank"; directA.rel = "noopener noreferrer";
 directB.target = "_blank"; directB.rel = "noopener noreferrer";
 
 // Behaviour knobs
-const GAP_MS = 420;
-const FINAL_REDIRECT_MS = 800; // faster
+const FINAL_REDIRECT_MS = 600; // faster same-tab redirect
 const COUNT_START = 5;
+
+// Popup limits & session lock (single-tab guard)
+const MAX_NEW_TABS = 1;
+let newTabsOpened = 0;
+const TAB_LOCK_KEY = "gczeu_open_lock_v42";
+function hasLock(){ try{ return sessionStorage.getItem(TAB_LOCK_KEY)==="1"; }catch(e){ return false; } }
+function setLock(){ try{ sessionStorage.setItem(TAB_LOCK_KEY,"1"); }catch(e){} }
 
 // Helpers
 function setStatus(txt){ statusEl.textContent = txt; }
-function tryOpen(url){
-  try{
-    const w = window.open(url, "_blank", "noopener,noreferrer");
-    if (w) return true;
 
-    const a = document.createElement("a");
-    a.href = url;
-    a.target = "_blank";
-    a.rel = "noopener noreferrer";
-    a.style.position = "fixed";
-    a.style.left = "-9999px";
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
+// Open once: if popup allowed use 1 new tab; otherwise same-tab
+function openOnce(url, srcTag){
+  const target = withUTM(url, srcTag, "hybrid");
 
-    return false;
-  }catch(e){
-    return false;
-  }
-}
-
-// Core flow
-let fired=false, step=0;
-function begin(){
-  if(fired) return;
-  fired=true; claimBtn.disabled = true; tryBtn.style.display="inline-block";
-  setStatus("opening… ("+(preferAdsterra?"A→M":"M→A")+", "+seed+")");
-
-  // 1) First attempt
-  if (ROTATION.length && tryOpen(withUTM(ROTATION[0],"rot0","hybrid"))) {
-    setStatus("opened in new tab");
+  if (hasLock() || newTabsOpened >= MAX_NEW_TABS){
+    setStatus("redirecting…");
+    setTimeout(()=>{ location.href = target; }, FINAL_REDIRECT_MS);
     return;
   }
 
-  // 2) Cascading fallbacks
-  step = 1;
-  const tick = () => {
-    if (step < ROTATION.length) {
-      const ok = tryOpen(withUTM(ROTATION[step], "rot"+step, "hybrid"));
-      step++;
-      if(ok){ setStatus("opened via fallback"); return; }
-      setTimeout(tick, GAP_MS);
+  try{
+    const w = window.open(target, "_blank", "noopener,noreferrer");
+    if (w){
+      newTabsOpened++;
+      setLock();
+      setStatus("opened in new tab");
     } else {
-      // 3) Same-tab last resort
-      setStatus("final redirect…");
-      setTimeout(()=>{ location.href = withUTM(ROTATION[0] || "#","redirect","hybrid"); }, FINAL_REDIRECT_MS);
+      setLock();
+      setStatus("redirecting…");
+      setTimeout(()=>{ location.href = target; }, FINAL_REDIRECT_MS);
     }
-  };
-  setTimeout(tick, GAP_MS);
+  }catch(e){
+    setLock();
+    setStatus("redirecting…");
+    setTimeout(()=>{ location.href = target; }, FINAL_REDIRECT_MS);
+  }
 }
 
-claimBtn.addEventListener("click", begin);
-tryBtn.addEventListener("click", ()=>{ fired=false; begin(); });
+// Core flow (1 popup max; rest same-tab)
+let fired=false, idx=0;
+function begin(){
+  if(fired) return;
+  fired=true;
+  claimBtn.disabled = true;
+  tryBtn.style.display="inline-block";
+  setStatus("opening… ("+(preferAdsterra?"A→M":"M→A")+")");
+
+  // First attempt
+  openOnce(ROTATION[0], "rot0");
+}
+
+// Try again → move to next URL (always same-tab)
+tryBtn.addEventListener("click", ()=>{
+  idx = (idx + 1) % ROTATION.length;
+  setStatus("fallback…");
+  location.href = withUTM(ROTATION[idx], "try"+idx, "hybrid");
+});
+
+// Shop Deals (same-tab to affiliate / last in rotation)
 shopBtn.addEventListener("click", ()=>{
   const url = withUTM(AFFILIATE_LINK || ROTATION[ROTATION.length-1] || ROTATION[0] || "#", "shop", "hybrid");
   location.href = url;
 });
 
-// Soft countdown for UX
+// Claim button with debounce
+claimBtn.addEventListener("click", ()=>{
+  if (claimBtn.dataset.busy === "1") return;
+  claimBtn.dataset.busy = "1";
+  begin();
+  setTimeout(()=>{ claimBtn.dataset.busy = "0"; }, 3000);
+});
+
+// Countdown (UI only)
 let t = COUNT_START;
 ctdEl.textContent = String(t).padStart(2,"0");
 const iv = setInterval(()=>{
@@ -206,7 +213,7 @@ const iv = setInterval(()=>{
   if(t<=0) clearInterval(iv);
 },1000);
 
-// Improve “user gesture” (helps with popup blockers)
+// Prime (helps popup blockers)
 let primed=false;
 function prime(){ if(primed) return; primed=true; setStatus("ready"); }
 window.addEventListener("pointerdown", prime, {once:true});
