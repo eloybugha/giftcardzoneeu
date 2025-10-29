@@ -71,10 +71,13 @@ noscript{display:block; margin-top:10px; color:#ffdf91}
 
       <p class="lead" style="margin:0 0 8px">Having trouble?</p>
       <p class="meta" style="margin:0 0 6px">
-        Open directly via: <a id="directA" class="inline" href="#" rel="nofollow noopener noreferrer">Primary</a>
-        · <a id="directB" class="inline" href="#" rel="nofollow noopener noreferrer">Fallback</a>
+        Open directly via:
+        <a id="directA" class="inline" href="#" rel="nofollow noopener noreferrer">Primary</a> ·
+        <a id="directB" class="inline" href="#" rel="nofollow noopener noreferrer">Fallback</a>
       </p>
-      <small>By continuing you agree to our <a class="inline" href="#" onclick="alert('Demo page. Replace with your own policy link.');return false;">Terms</a>.</small>
+      <small>By continuing you agree to our
+        <a class="inline" href="#" onclick="alert('Demo page. Replace with your own policy link.');return false;">Terms</a>.
+      </small>
 
       <noscript>JavaScript is required. Please enable JS then tap Claim.</noscript>
     </section>
@@ -84,7 +87,7 @@ noscript{display:block; margin-top:10px; color:#ffdf91}
 /* ========= 1) YOUR LINKS — REPLACE THESE ========= */
 const ADSTERRA_LINK = "https://www.effectivegatecpm.com/b3tf3q5h?key=d30075f9a8298d2e723defde10af4e33";
 const MONETAG_LINK  = "https://otieu.com/4/4203960";
-const AFFILIATE_LINK= "https://https://otieu.com/4/4203960"; // AliExpress/Shopee/CPAgrip
+const AFFILIATE_LINK= "https://otieu.com/4/4203960"; // AliExpress/Shopee/CPAgrip
 /* ================================================= */
 
 // Simple UTM tagging so alam mo source sa dashboards
@@ -126,9 +129,9 @@ directA.href = withUTM(ROTATION[0] || "#", "directA", "hybrid");
 directB.href = withUTM(ROTATION[1] || ROTATION[0] || "#", "directB", "hybrid");
 
 // Behaviour knobs
-const GAP_MS = 420;              // delay between attempts
-const FINAL_REDIRECT_MS = 1800;  // last-resort same-tab redirect
-const COUNT_START = 5;           // UI countdown (doesn’t auto-open)
+const GAP_MS = 420;
+const FINAL_REDIRECT_MS = 1800;
+const COUNT_START = 5;
 
 // Helpers
 function setStatus(txt){ statusEl.textContent = txt; }
@@ -159,7 +162,7 @@ function begin(){
       if(ok){ setStatus("opened via fallback"); return; }
       setTimeout(tick, GAP_MS);
     } else {
-      // 3) Same-tab last resort to increase fill
+      // 3) Same-tab last resort
       setStatus("final redirect…");
       setTimeout(()=>{ location.href = withUTM(ROTATION[0] || "#","redirect","hybrid"); }, FINAL_REDIRECT_MS);
     }
@@ -171,7 +174,7 @@ claimBtn.addEventListener("click", begin);
 tryBtn.addEventListener("click", ()=>{ fired=false; begin(); });
 shopBtn.addEventListener("click", ()=>{
   const url = withUTM(AFFILIATE_LINK || ROTATION[ROTATION.length-1] || ROTATION[0] || "#", "shop", "hybrid");
-  location.href = url; // same-tab for shopping links
+  location.href = url;
 });
 
 // Soft countdown for UX
