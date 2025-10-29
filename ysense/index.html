@@ -4,90 +4,59 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Join ySense — Earn Cash & Rewards | GiftCardZoneEU</title>
-  <meta name="description" content="Earn real money on ySense by taking surveys, completing offers, and simple online tasks. Fast PayPal payouts." />
+  <meta name="description" content="Earn real money on ySense by taking surveys, completing offers, and simple online tasks. Instant PayPal payouts." />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://giftcardzoneeu.com/partners/survey-sites/ysense/"/>
+  <link rel="canonical" href="https://giftcardzoneeu.com/partners/survey-sites/ysense/" />
+
+  <!-- Auto redirect in 1 second -->
+  <meta http-equiv="refresh" content="1; url=https://www.ysense.com/?r=223744277&c=jun12" />
 
   <!-- OG / Twitter -->
   <meta property="og:title" content="Join ySense — Earn Cash & Rewards" />
-  <meta property="og:description" content="Complete surveys and offers. Redeem via PayPal & gift cards." />
-  <meta property="og:type" content="website" />
+  <meta property="og:description" content="Complete surveys & offers. Redeem via PayPal and gift cards." />
   <meta property="og:url" content="https://giftcardzoneeu.com/partners/survey-sites/ysense/" />
+  <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Layer 1: Meta refresh (2s) -->
-  <meta http-equiv="refresh" content="2; url=https://www.ysense.com/?r=223744277&c=jun12" />
-
   <style>
-    :root{--bg:#0b1020;--card:#121a2b;--txt:#e8eefc;--muted:#98a3b8;}
-    *{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),#0e2034);color:var(--txt);min-height:100vh;display:grid;place-items:center}
-    .wrap{max-width:720px;width:100%;padding:32px}
-    .card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:28px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
-    h1{margin:0 0 8px;font-size:clamp(22px,3vw,28px)}
-    p{margin:8px 0;color:var(--muted)}
-    .btn{display:inline-block;margin-top:14px;padding:14px 18px;border-radius:12px;background:#2f7df4;color:white;text-decoration:none;font-weight:700}
-    .hint{font-size:12px;opacity:.8;margin-top:10px}
+    :root{--bg:#0b1020;--txt:#e9eefc;--accent:#46b9ff;--muted:#9fb3d6;}
+    body{margin:0;font-family:system-ui,Arial;background:radial-gradient(900px 500px at 20% -10%,#14223a,transparent),var(--bg);color:var(--txt);display:grid;place-items:center;min-height:100vh}
+    main{background:#0f1a33cc;border:1px solid #1e305a;padding:30px;border-radius:18px;max-width:600px;width:90%;text-align:center;box-shadow:0 10px 30px #0008}
+    h1{margin:0 0 10px}
+    p{color:var(--muted)}
+    .btn{background:var(--accent);color:#001323;padding:14px 20px;border-radius:10px;text-decoration:none;display:inline-block;font-weight:600;margin-top:12px}
+    .btn2{background:transparent;color:var(--txt);border:1px solid #2f4b78;padding:12px 18px;border-radius:10px;margin-top:12px}
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="card">
-      <h1>Taking you to ySense…</h1>
-      <p>If your browser opened a pop or blocked the auto-redirect, tap the button below.</p>
-      <a class="btn" id="go" href="https://www.ysense.com/?r=223744277&c=jun12" rel="nofollow noopener">Continue to ySense</a>
-      <p class="hint">Auto-redirect will run in a moment. If nothing happens, just tap “Continue”.</p>
-      <noscript><p><a class="btn" href="https://www.ysense.com/?r=223744277&c=jun12" rel="nofollow noopener">Continue</a></p></noscript>
-    </div>
-  </div>
+  <main>
+    <h1>Redirecting to <strong>ySense</strong>…</h1>
+    <p>Kung may pop/ad na bumukas, don’t worry — auto-continue ito. You can also tap below.</p>
+    <a class="btn" href="https://www.ysense.com/?r=223744277&c=jun12" id="goNow">Continue to ySense</a><br>
+    <button class="btn2" id="copyLink">Copy Link</button>
+  </main>
 
   <script>
-  const TARGET_URL = "https://www.ysense.com/?r=223744277&c=jun12";
-  const goNow   = document.getElementById('goNow');
-  const copyBtn = document.getElementById('copyLink');
+    const TARGET = "https://www.ysense.com/?r=223744277&c=jun12";
 
-  // Multiple redirect methods (some ad layers block only one)
-  function blastGo(){
-    try{ location.replace(TARGET_URL); }catch(e){}
-    try{ location.assign(TARGET_URL); }catch(e){}
-    try{ location.href = TARGET_URL; }catch(e){}
-    try{ window.top.location.href = TARGET_URL; }catch(e){}
-    try{ window.parent.location.href = TARGET_URL; }catch(e){}
-  }
+    function go() {
+      if (document.visibilityState === "visible") location.replace(TARGET);
+    }
 
-  // Primary attempt a little after load (after popunder fires)
-  window.addEventListener('load', () => setTimeout(blastGo, 1100));
+    window.addEventListener("load", () => setTimeout(go, 1200));
+    document.addEventListener("visibilitychange", go);
+    window.addEventListener("focus", go);
 
-  // Retry a few times in case focus/visibility toggles after ads
-  let tries = 0;
-  const timer = setInterval(()=>{
-    tries++;
-    blastGo();
-    if (tries >= 8) clearInterval(timer); // ~8 blasts over ~5s
-  }, 700);
+    document.getElementById("goNow").addEventListener("click", (e) => {
+      e.preventDefault(); go();
+    });
 
-  // If user returns focus or the page becomes visible again → blast
-  ["visibilitychange","focus","pageshow"].forEach(evt=>{
-    window.addEventListener(evt, ()=>{ if (!document.hidden) setTimeout(blastGo, 150); });
-  });
-
-  // Any direct user interaction also forces redirect
-  ["click","touchstart","keydown"].forEach(evt=>{
-    document.addEventListener(evt, ()=>blastGo(), {capture:true, once:false});
-  });
-
-  // Manual button: prevent ad scripts from hijacking
-  goNow.addEventListener('click', (e)=>{
-    e.preventDefault();
-    e.stopPropagation();
-    e.stopImmediatePropagation();
-    blastGo();
-  });
-
-  // Copy helper
-  copyBtn.addEventListener('click', async ()=>{
-    try{ await navigator.clipboard.writeText(TARGET_URL); copyBtn.textContent = "Copied!"; }
-    catch{ copyBtn.textContent = "Copy failed"; }
-    setTimeout(()=>copyBtn.textContent="Copy link", 1400);
-  });
-</script>
-
+    document.getElementById("copyLink").addEventListener("click", async () => {
+      try { await navigator.clipboard.writeText(TARGET);
+        document.getElementById("copyLink").textContent = "Copied!";
+      } catch { document.getElementById("copyLink").textContent = "Failed"; }
+      setTimeout(()=>document.getElementById("copyLink").textContent="Copy Link",1500);
+    });
+  </script>
+</body>
+</html>
