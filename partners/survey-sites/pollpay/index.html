@@ -3,61 +3,71 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Join Poll Pay — Earn Cash from Surveys | GiftCardZoneEU</title>
-  <meta name="description" content="Take surveys and earn money with Poll Pay. Available across Europe. Redeem for PayPal or gift cards. Quick payouts." />
+  <title>Open PollPay — Earn by Completing Surveys | GiftCardZoneEU</title>
+  <meta name="description" content="Start earning with PollPay. Complete quick surveys and redeem for PayPal or gift cards." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://giftcardzoneeu.com/partners/survey-sites/pollpay/" />
 
-  <!-- Redirect after 2 seconds -->
+  <!-- Layer 1: meta-refresh -->
   <meta http-equiv="refresh" content="2; url=https://www.pollpay.app?rb=223747185" />
 
-  <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Join Poll Pay — Earn Cash from Surveys" />
-  <meta property="og:description" content="Complete surveys on Poll Pay and redeem earnings via PayPal or gift cards." />
+  <!-- OG / Twitter -->
+  <meta property="og:title" content="Open PollPay — Start Earning" />
+  <meta property="og:description" content="Quick surveys. Real rewards. Try PollPay now." />
   <meta property="og:url" content="https://giftcardzoneeu.com/partners/survey-sites/pollpay/" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <style>
-    :root { --accent:#38bdf8; --muted:#cbd5e1; }
-    * { box-sizing: border-box; }
-    body{
-      background: radial-gradient(circle at center,#0f172a,#020617);
-      color:#fff; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, sans-serif;
-      text-align:center; margin:0; min-height:100dvh; display:grid; place-items:center; padding:24px;
-    }
-    .wrap{ max-width:640px; width:100%; }
-    h1{ font-size:clamp(22px,4vw,32px); margin:0 0 8px; color:var(--accent); }
-    p{ font-size:clamp(14px,2.2vw,16px); color:var(--muted); margin:8px 0; }
-    .loader{
-      margin:26px auto; width:44px; height:44px;
-      border:4px solid var(--accent); border-top-color:transparent; border-radius:50%;
-      animation:spin 1s linear infinite;
-    }
-    @keyframes spin{ to{ transform:rotate(360deg); } }
-    .cta{
-      display:inline-block; margin-top:12px; padding:12px 16px; border-radius:10px;
-      background:var(--accent); color:#0b1220; font-weight:800; text-decoration:none;
-    }
-    small{ display:block; margin-top:16px; color:#64748b; }
+    :root{--bg:#0c1222;--txt:#e9eefc;--accent:#a0ff8f;--muted:#9fb3d6;}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;background:radial-gradient(1200px 600px at 100% -20%,#1a2b2a,transparent),var(--bg);color:var(--txt);min-height:100dvh;display:grid;place-items:center}
+    .card{width:min(680px,92%);background:#0f1a33cc;border:1px solid #244a3a;border-radius:18px;padding:28px;backdrop-filter:blur(4px);box-shadow:0 10px 30px #0008}
+    h1{margin:0 0 10px;font-size:1.6rem}
+    p{margin:8px 0;color:var(--muted);line-height:1.5}
+    .cta{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
+    .btn{appearance:none;border:none;border-radius:12px;padding:14px 18px;font-weight:600;cursor:pointer}
+    .btn-primary{background:linear-gradient(135deg,#7bff7b,#d6ffd6);color:#001a0d}
+    .btn-ghost{background:#0c1530;border:1px solid #2b4b3c;color:#d7ffe0}
+    .hint{font-size:.85rem;color:#9fb3d6;margin-top:12px}
+    .badge{display:inline-block;background:#0f2a24;border:1px solid #2b5f4a;color:#c6ffe2;padding:4px 10px;border-radius:999px;font-size:.78rem;margin-top:10px}
+    .small{font-size:.8rem}
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <h1>Redirecting to Poll Pay…</h1>
-    <p>Complete surveys and earn real cash — Europe friendly! 💶</p>
-    <div class="loader" aria-hidden="true"></div>
+  <main class="card">
+    <h1>Redirecting to <strong>PollPay</strong>…</h1>
+    <p>Kung may pop/ad na bumukas, auto-resume pa rin. Click the button if you want to go now.</p>
+    <div class="badge">Auto redirect in ~2 seconds</div>
 
-    <!-- Manual fallback / SEO-friendly link -->
-    <a class="cta" href="https://www.pollpay.app?rb=223747185" rel="nofollow sponsored">
-      Continue to Poll Pay
-    </a>
+    <!-- Layer 2: manual button -->
+    <div class="cta">
+      <a class="btn btn-primary" id="goNow" href="https://www.pollpay.app?rb=223747185" rel="noopener">Continue to PollPay</a>
+      <button class="btn btn-ghost" id="copyLink" type="button">Copy link</button>
+    </div>
+    <p class="hint small">If nothing opens, tap the button.</p>
+    <noscript><p class="hint small">JavaScript is off. Please click the button above.</p></noscript>
+  </main>
 
-    <small>© GiftCardZoneEU — This page may contain affiliate/referral links. Read our <a href="/privacy" style="color:#38bdf8;">Privacy</a>.</small>
+  <!-- Layer 3: JS fallbacks -->
+  <script>
+    const TARGET_URL = "https://www.pollpay.app?rb=223747185";
+    const goNow = document.getElementById('goNow');
+    const copyBtn = document.getElementById('copyLink');
 
-    <noscript>
-      <p>JavaScript is disabled. Please click the button above to continue.</p>
-    </noscript>
-  </div>
+    function safeGo(){ if (location.href !== TARGET_URL) location.replace(TARGET_URL); }
+
+    window.addEventListener('load', () => setTimeout(safeGo, 2400));
+    document.addEventListener('visibilitychange', () => { if(!document.hidden) setTimeout(safeGo, 400); });
+    window.addEventListener('focus', () => setTimeout(safeGo, 400));
+
+    goNow.addEventListener('click', (e)=>{ e.preventDefault(); safeGo(); });
+
+    copyBtn.addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(TARGET_URL); copyBtn.textContent = "Copied!"; }
+      catch { copyBtn.textContent = "Copy failed"; }
+      setTimeout(()=>copyBtn.textContent="Copy link",1500);
+    });
+  </script>
 </body>
 </html>
