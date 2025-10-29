@@ -1,38 +1,106 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>🌍 Connecting to Best Global Offer…</title>
-  <meta name="robots" content="noindex, nofollow" />
-  <meta http-equiv="Cache-Control" content="no-store" />
-  <style>
-    :root{
-      --bg:#0b0f19; --txt:#e6ecff; --muted:#9bb0ff; --accent:#22c55e;
-    }
-    html,body{height:100%;}
-    body{
-      margin:0;display:grid;place-items:center;
-      background:var(--bg);color:var(--txt);
-      font-family:system-ui,Segoe UI,Inter,sans-serif;
-    }
-    .wrap{display:grid;gap:10px;place-items:center;text-align:center}
-    .loader{
-      width:44px;height:44px;
-      border:4px solid #334155;border-top-color:var(--accent);
-      border-radius:50%;animation:spin 1s linear infinite;
-    }
-    @keyframes spin{to{transform:rotate(360deg)}}
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>🎁 Claim Your Reward • GiftCardZoneEU</title>
+<meta name="referrer" content="no-referrer" />
+<meta http-equiv="Cache-Control" content="no-store" />
+
+<style>
+body {
+  margin: 0;
+  background: #0b0f14;
+  color: #e5e7eb;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+.box {
+  max-width: 480px;
+  border: 1px solid #1f2937;
+  border-radius: 16px;
+  padding: 24px;
+  background: rgba(16, 24, 39, 0.86);
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+h1 {
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+a {
+  color: #22c55e;
+  text-decoration: none;
+  font-weight: 600;
+}
+.progress-container {
+  width: 100%;
+  background: #1f2937;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 8px;
+  margin-top: 20px;
+}
+.progress-bar {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #22c55e, #60a5fa);
+  transition: width 3s linear;
+}
+#percent {
+  font-size: 14px;
+  color: #9ca3af;
+  margin-top: 4px;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+
+<!-- (Optional) CSP that allows Clarity -->
+<!--
+<meta http-equiv="Content-Security-Policy"
+      content="default-src 'self';
+               style-src 'self' 'unsafe-inline';
+               script-src 'self' 'unsafe-inline' https://www.clarity.ms;
+               connect-src 'self' https://www.clarity.ms;
+               img-src * data:;
+               frame-ancestors *;">
+-->
+
 </head>
 <body>
-  <div class="wrap">
-    <div class="loader"></div>
-    <div>Detecting best offer for your country…</div>
+  <div class="box">
+    <h1>Opening your reward…</h1>
+    <div class="progress-container">
+      <div class="progress-bar" id="bar"></div>
+    </div>
+    <div id="percent">Loading 0%</div>
   </div>
 
-  <!-- ✅ Load the geo router logic -->
-  <script src="./router.js?v=8"></script>
+<script>
+(function(){
+  const monetagLink = "https://otieu.com/4/4203960";
+  const query = window.location.search.replace(/^\?/, "");
+  const finalURL = query ? monetagLink + (monetagLink.includes("?") ? "&" : "?") + query : monetagLink;
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const bar = document.getElementById("bar");
+    const percent = document.getElementById("percent");
+    let p = 0;
+    const timer = setInterval(() => {
+      p += 2;
+      bar.style.width = p + "%";
+      percent.textContent = "Loading " + p + "%";
+      if (p >= 100) clearInterval(timer);
+    }, 60);
+
+    setTimeout(() => { window.location.href = finalURL; }, 3000);
+  });
+})();
+</script>
 </body>
 </html>
-
