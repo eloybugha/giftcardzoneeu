@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Creator Hub — Fiverr + Canva | GiftCardZoneEU</title>
+<meta name="referrer" content="no-referrer" />
+<meta http-equiv="Cache-Control" content="no-store" />
+
+<!-- (Optional) Microsoft Clarity for this page too -->
+<script>
+(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window,document,"clarity","script","tvr4ogakjb");
+</script>
+
+<style>
+:root{
+  --bg:#0b0f14; --card:#0f1626; --txt:#e6eaf5; --muted:#9aa6bd;
+  --accent:#22c55e; --accent2:#60a5fa; --border:#1f2937;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; min-height:100dvh; background:radial-gradient(1200px 600px at 70% -20%,#1f2433 0%,#0b0f14 48%,#0b0f14 100%);
+  color:var(--txt); font-family:system-ui,-apple-system,"Segoe UI",Roboto,Inter,sans-serif;
+  display:grid; place-items:center; padding:18px;
+}
+.container{
+  width:100%; max-width:780px; background:color-mix(in oklab, var(--card) 92%, transparent);
+  border:1px solid var(--border); border-radius:18px; padding:22px; box-shadow:0 20px 50px rgba(0,0,0,.35);
+  animation:fadeIn .8s ease both;
+}
+h1{margin:0 0 8px; font-weight:800; letter-spacing:.2px}
+.lead{color:var(--muted); margin:0 0 18px; font-size:15px}
+.grid{display:grid; gap:14px}
+@media(min-width:680px){.grid{grid-template-columns:1fr 1fr}}
+
+.card{
+  border:1px solid var(--border); border-radius:16px; padding:16px; background:rgba(16,24,39,.86);
+  display:flex; flex-direction:column; gap:12px; min-height:220px
+}
+.badge{display:inline-flex; gap:8px; align-items:center; font-weight:700; font-size:12px; letter-spacing:.3px}
+.badge.fiv{color:#22c55e}
+.badge.can{color:#60a5fa}
+ul{margin:0; padding-left:18px; color:var(--muted); font-size:14px}
+.btn{
+  appearance:none; border:1px solid var(--border); background:linear-gradient(90deg,var(--accent),var(--accent2));
+  color:#061018; font-weight:800; border-radius:12px; padding:12px 14px; text-align:center; text-decoration:none;
+}
+.btn.alt{
+  background:transparent; color:var(--txt); border:1px solid #2b3953;
+}
+.footer{margin-top:14px; color:#7f8aa5; font-size:12px; text-align:center}
+@keyframes fadeIn{from{opacity:0; transform:translateY(6px)} to{opacity:1; transform:translateY(0)}}
+</style>
+</head>
+<body>
+  <main class="container">
+    <h1>Creator Hub</h1>
+    <p class="lead">Two ways to get pro results fast — design it yourself with Canva, or hire a pro in minutes on Fiverr.</p>
+
+    <section class="grid">
+      <!-- Fiverr -->
+      <article class="card">
+        <div class="badge fiv">🧰 Fiverr • Hire pros fast</div>
+        <h2 style="margin:0">Need a designer, editor, or developer today?</h2>
+        <ul>
+          <li>Hire vetted freelancers worldwide</li>
+          <li>Clear pricing & delivery time</li>
+          <li>Perfect for logos, video edits, websites</li>
+        </ul>
+        <a id="fiverrBtn" class="btn" href="#">Explore Fiverr →</a>
+      </article>
+
+      <!-- Canva -->
+      <article class="card">
+        <div class="badge can">🎨 Canva • Design it yourself</div>
+        <h2 style="margin:0">Create stunning designs in minutes</h2>
+        <ul>
+          <li>Free templates for posts, logos, flyers</li>
+          <li>Drag-and-drop editor (no skills needed)</li>
+          <li>Upgrade to Pro for premium assets</li>
+        </ul>
+        <a id="canvaBtn" class="btn alt" href="#">Try Canva Free →</a>
+      </article>
+    </section>
+
+    <p class="footer">⚡ Fast, safe redirects • No sign-in required • GiftCardZoneEU</p>
+  </main>
+
+<script>
+/* 🔗 Affiliate links (replace Canva once you have it) */
+const FIVERR = "https://www.fiverr.com/pe/WEKNLwd";
+const CANVA  = "YOUR_CANVA_AFFILIATE_LINK_HERE";
+
+/* 🧩 Pass through any query (?src=tt&c=us) to help tracking */
+const q = location.search;
+document.getElementById("fiverrBtn").href = FIVERR + (q ? (FIVERR.includes("?")?"&":"?") + q.slice(1) : "");
+document.getElementById("canvaBtn").href  = (CANVA.includes("YOUR_CANVA") ? "#" : (CANVA + (q ? (CANVA.includes("?")?"&":"?") + q.slice(1) : "")));
+
+/* Disable Canva button until you add real link */
+if(document.getElementById("canvaBtn").href.endsWith("#")){
+  document.getElementById("canvaBtn").textContent = "Add Canva link soon →";
+  document.getElementById("canvaBtn").style.opacity = .6;
+  document.getElementById("canvaBtn").style.pointerEvents = "none";
+}
+</script>
+</body>
+</html>
