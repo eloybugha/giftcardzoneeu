@@ -53,36 +53,56 @@
     }
   </style>
 
-  <script>
-    (function(){
-      const monetagLink = "https://otieu.com/4/4203960";
-      const query = window.location.search.replace(/^\?/, "");
-      const finalURL = query ? monetagLink + (monetagLink.includes("?") ? "&" : "?") + query : monetagLink;
+  <!-- 🎉 Confetti Celebration for F6S Badge -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Create a small canvas
+  const confettiCanvas = document.createElement("canvas");
+  confettiCanvas.style.position = "fixed";
+  confettiCanvas.style.top = "0";
+  confettiCanvas.style.left = "0";
+  confettiCanvas.style.pointerEvents = "none";
+  confettiCanvas.style.width = "100%";
+  confettiCanvas.style.height = "100%";
+  document.body.appendChild(confettiCanvas);
 
-      document.addEventListener('DOMContentLoaded', () => {
-        const bar = document.querySelector('.progress-bar');
-        const percentText = document.getElementById('percent');
+  const ctx = confettiCanvas.getContext("2d");
+  const confettis = Array.from({ length: 50 }).map(() => ({
+    x: Math.random() * window.innerWidth,
+    y: Math.random() * window.innerHeight - window.innerHeight,
+    r: Math.random() * 6 + 2,
+    d: Math.random() * 0.5 + 0.5,
+    color: `hsl(${Math.random() * 360}, 70%, 60%)`
+  }));
 
-        let progress = 0;
-        const duration = 3000;  // 3 seconds
-        const tick = 60;        // update every 60ms
-        const steps = duration / tick;
-        let current = 0;
+  function draw() {
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    confettis.forEach(c => {
+      ctx.beginPath();
+      ctx.arc(c.x, c.y, c.r, 0, Math.PI * 2, false);
+      ctx.fillStyle = c.color;
+      ctx.fill();
+    });
+    update();
+    requestAnimationFrame(draw);
+  }
 
-        const timer = setInterval(() => {
-          current++;
-          progress = Math.min(100, Math.round((current / steps) * 100));
-          bar.style.width = progress + '%';
-          percentText.textContent = progress + '%';
+  function update() {
+    confettis.forEach(c => {
+      c.y += c.d * 4;
+      if (c.y > window.innerHeight) {
+        c.y = -10;
+        c.x = Math.random() * window.innerWidth;
+      }
+    });
+  }
 
-          if (progress >= 100) {
-            clearInterval(timer);
-            setTimeout(() => { window.location.replace(finalURL); }, 300);
-          }
-        }, tick);
-      });
-    })();
-  </script>
+  draw();
+  // Stop confetti after 3 seconds
+  setTimeout(() => confettiCanvas.remove(), 3000);
+});
+</script>
+
 </head>
 
 <body>
@@ -94,6 +114,24 @@
     <div id="percent">0%</div>
     <p>Please wait — redirecting to Monetag rewards.</p>
     <p><a href="https://otieu.com/4/4203960">Click here if not redirected</a></p>
-  </div>
-</body>
-</html>
+    </div>
+
+  <!-- ✅ F6S Official Feature Badge (Animated Glow) -->
+<section style="text-align:center; margin-top:60px; animation:fadeIn 1.2s ease;">
+  <p style="color:#9bb0ff; font-size:15px;">
+    ✅ Featured on 
+    <a href="https://www.f6s.com/giftcardzoneeu" target="_blank"
+       style="color:#60a5fa; text-decoration:none; font-weight:600;">
+       F6S Startup Directory
+    </a>
+  </p>
+  <a href="https://www.f6s.com/giftcardzoneeu" target="_blank"
+     style="display:inline-block; padding:10px 18px; background:#22c55e;
+            color:#fff; border-radius:8px; font-weight:600;
+            text-decoration:none; box-shadow:0 0 12px #22c55e;
+            transition:all .3s;">
+     🎁 Claim our Official F6S Deal
+  </a>
+</section>
+
+
