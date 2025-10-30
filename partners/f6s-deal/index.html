@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🎁 Official F6S Deal | GiftCardZoneEU</title>
+  <meta name="description" content="GiftCardZoneEU is now officially featured on F6S! Claim your free global rewards deal and explore trusted gift card platforms worldwide." />
+  <link rel="icon" href="/favicon.png" />
+  <style>
+    body {
+      background:#0b0f19; color:#e6ecff; font-family:system-ui, sans-serif;
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      height:100vh; text-align:center; margin:0;
+    }
+    h1 { color:#22c55e; font-size:28px; margin-bottom:10px; }
+    p { color:#9bb0ff; font-size:16px; max-width:480px; }
+    a.btn {
+      display:inline-block; margin-top:20px; background:#22c55e; color:#fff;
+      padding:12px 22px; border-radius:8px; font-weight:600;
+      text-decoration:none; box-shadow:0 0 12px #22c55e; transition:0.3s;
+    }
+    a.btn:hover { background:#16a34a; box-shadow:0 0 18px #22c55e; }
+  </style>
+</head>
+<body>
+  <h1>🎉 Official F6S Deal</h1>
+  <p>GiftCardZoneEU is now officially listed on 
+     <a href="https://www.f6s.com/giftcardzoneeu" target="_blank" style="color:#60a5fa;">F6S Startup Directory</a>!  
+     Claim your free access and explore verified global reward sites.</p>
+  <a href="https://www.f6s.com/giftcardzoneeu" class="btn" target="_blank">🎁 Claim on F6S</a>
+
+  <!-- 🎊 Light Confetti -->
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const c = document.createElement("canvas");
+    c.style.position = "fixed";
+    c.style.top = "0"; c.style.left = "0";
+    c.style.pointerEvents = "none";
+    c.style.width = "100%"; c.style.height = "100%";
+    c.style.transition = "opacity 1.5s ease";
+    document.body.appendChild(c);
+    const ctx = c.getContext("2d");
+    const bits = Array.from({length:40}).map(()=>({
+      x:Math.random()*innerWidth, y:Math.random()*innerHeight-innerHeight,
+      r:Math.random()*6+2, d:Math.random()*0.5+0.5,
+      color:`hsl(${Math.random()*360},70%,60%)`
+    }));
+    function draw(){
+      ctx.clearRect(0,0,innerWidth,innerHeight);
+      bits.forEach(b=>{
+        ctx.beginPath();ctx.arc(b.x,b.y,b.r,0,Math.PI*2);
+        ctx.fillStyle=b.color;ctx.fill();
+      });
+      bits.forEach(b=>{
+        b.y+=b.d*4;
+        if(b.y>innerHeight){b.y=-10;b.x=Math.random()*innerWidth;}
+      });
+      requestAnimationFrame(draw);
+    }
+    draw();
+    setTimeout(()=>{c.style.opacity="0";setTimeout(()=>c.remove(),1500)},3000);
+  });
+  </script>
+</body>
+</html>
