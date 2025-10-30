@@ -54,9 +54,9 @@
   </style>
 
   <!-- 🎉 Confetti Celebration for F6S Badge -->
+<!-- 🎉 Confetti Celebration for F6S Badge (with Fade-out) -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  // Create a small canvas
   const confettiCanvas = document.createElement("canvas");
   confettiCanvas.style.position = "fixed";
   confettiCanvas.style.top = "0";
@@ -64,6 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
   confettiCanvas.style.pointerEvents = "none";
   confettiCanvas.style.width = "100%";
   confettiCanvas.style.height = "100%";
+  confettiCanvas.style.transition = "opacity 1.5s ease";
   document.body.appendChild(confettiCanvas);
 
   const ctx = confettiCanvas.getContext("2d");
@@ -79,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
     confettis.forEach(c => {
       ctx.beginPath();
-      ctx.arc(c.x, c.y, c.r, 0, Math.PI * 2, false);
+      ctx.arc(c.x, c.y, c.r, 0, Math.PI * 2);
       ctx.fillStyle = c.color;
       ctx.fill();
     });
@@ -98,10 +99,15 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   draw();
-  // Stop confetti after 3 seconds
-  setTimeout(() => confettiCanvas.remove(), 3000);
+
+  // Fade out gradually after 3s, remove after 4.5s
+  setTimeout(() => {
+    confettiCanvas.style.opacity = "0";
+    setTimeout(() => confettiCanvas.remove(), 1500);
+  }, 3000);
 });
 </script>
+
 
 </head>
 
