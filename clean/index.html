@@ -1,64 +1,85 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Redirecting…</title>
-<link rel="canonical" href="https://giftcardzoneeu.com/clean/">
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Redirecting…</title>
+  <link rel="canonical" href="https://giftcardzoneeu.com/clean/" />
 
-<!-- GA4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KCKEVDK6RY"></script>
-<script>
-  window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
-  gtag('js', new Date()); gtag('config','G-KCKEVDK6RY');
-  // track outbound
-  addEventListener('click',e=>{const a=e.target.closest('a[href]');if(!a)return;
-    const u=new URL(a.href,location.href); if(u.origin!==location.origin){
-      gtag('event','click_outbound',{event_category:'engagement',event_label:a.dataset.offer||u.hostname,transport_type:'beacon'});
-    }} ,{capture:true});
-</script>
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KCKEVDK6RY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config','G-KCKEVDK6RY');
+    // Track outbound
+    addEventListener('click', e => {
+      const a = e.target.closest('a[href]');
+      if (!a) return;
+      const u = new URL(a.href, location.href);
+      if (u.origin !== location.origin) {
+        gtag('event','click_outbound',{
+          event_category:'engagement',
+          event_label: a.dataset.offer || u.hostname,
+          transport_type:'beacon'
+        });
+      }
+    }, {capture:true});
+  </script>
 
-<meta http-equiv="refresh" content="0; url=TARGET_URL_HERE">
-<style>
-  :root{color-scheme:dark}
-  body{margin:0;display:grid;place-items:center;height:100dvh;background:#0b0f14;color:#e5e7eb;font-family:system-ui}
-  /* Anti-CLS: reserve space even for this tiny page */
-  p{min-height:24px}
-</style>
-</head><body>
+  <!-- Instant redirect -->
+  <meta http-equiv="refresh" content="0; url=TARGET_URL_HERE" />
+
+  <style>
+    :root { color-scheme: dark; }
+    body {
+      margin:0; display:grid; place-items:center; height:100dvh;
+      background:#0b0f14; color:#e5e7eb; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif
+    }
+    p { min-height:24px } /* anti-CLS for this tiny page */
+  </style>
+</head>
+<body>
   <p>Redirecting… <a href="TARGET_URL_HERE" rel="nofollow" data-offer="Clean Router">click here</a></p>
-  <script>location.replace("TARGET_URL_HERE")</script>
-</body></html>
+  <script>location.replace("TARGET_URL_HERE");</script>
 
-  <div class="wrap">
-    <div class="card">
-      <h1>GiftCardZoneEU — Transparency & Safety</h1>
-      <p>This is a clean informational page for social sharing and platform review. Our site curates <strong>legit rewards and survey programs</strong>. We do <strong>not</strong> host adult content, malware, or deceptive claims. No auto-redirects or pop-ups on this page.</p>
+  <!-- ✅ Full content kept but won't render unless JS is disabled -->
+  <noscript>
+    <div class="wrap">
+      <div class="card" style="max-width:720px;margin:24px auto;padding:24px;border:1px solid #1f2937;border-radius:12px;background:#111827">
+        <h1>GiftCardZoneEU — Transparency &amp; Safety</h1>
+        <p>This is a clean informational page for social sharing and platform review. Our site curates <strong>legit rewards and survey programs</strong>. We do <strong>not</strong> host adult content, malware, or deceptive claims. No auto-redirects or pop-ups on this page.</p>
 
-      <div class="grid">
-        <div>
-          <h3>What we do</h3>
-          <ul>
-            <li>Explain how reward/survey platforms work</li>
-            <li>Link to official signup pages</li>
-            <li>Share tips for safe participation</li>
-          </ul>
+        <div class="grid" style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <div>
+            <h3>What we do</h3>
+            <ul>
+              <li>Explain how reward/survey platforms work</li>
+              <li>Link to official signup pages</li>
+              <li>Share tips for safe participation</li>
+            </ul>
+          </div>
+          <div>
+            <h3>What we don’t do</h3>
+            <ul>
+              <li>No adult or harmful content</li>
+              <li>No misleading “instant win” claims</li>
+              <li>No forced downloads or auto pop-ups</li>
+            </ul>
+          </div>
         </div>
-        <div>
-          <h3>What we don’t do</h3>
-          <ul>
-            <li>No adult or harmful content</li>
-            <li>No misleading “instant win” claims</li>
-            <li>No forced downloads or auto pop-ups</li>
-          </ul>
-        </div>
+
+        <p class="pill">Need help? Contact us at
+          <a href="mailto:hello@giftcardzoneeu.com">hello@giftcardzoneeu.com</a>
+        </p>
+        <p class="footer">
+          <a href="https://giftcardzoneeu.com/privacy/">Privacy Policy</a> •
+          <a href="https://giftcardzoneeu.com/contact/">Contact</a> •
+          <a href="https://giftcardzoneeu.com/">Home</a>
+        </p>
       </div>
-
-      <p class="pill">Need help? Contact us at <a href="mailto:hello@giftcardzoneeu.com">hello@giftcardzoneeu.com</a></p>
-      <p class="footer">
-        <a href="https://giftcardzoneeu.com/privacy/">Privacy Policy</a> • 
-        <a href="https://giftcardzoneeu.com/contact/">Contact</a> • 
-        <a href="https://giftcardzoneeu.com/">Home</a>
-      </p>
     </div>
-  </div>
+  </noscript>
 </body>
 </html>
-
