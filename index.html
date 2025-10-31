@@ -9,57 +9,80 @@
   <title>GiftCardZoneEU — Global Rewards & Affiliate Hub</title>
   <meta name="description" content="Discover verified survey sites, cashback programs, and gift card platforms by country. Earn safely via partners like AliExpress, Ysense, PrizeRebel, Monetag, and Adsterra.">
   <link rel="canonical" href="https://giftcardzoneeu.com/" />
-<link rel="canonical" href="https://giftcardzoneeu.com/" />
 
-<!-- OG / Twitter -->
-<meta property="og:title" content="GiftCardZoneEU — Global Rewards & Affiliate Hub">
-<meta property="og:description" content="Explore global survey & rewards platforms by country and earn smarter, anywhere.">
-<meta property="og:url" content="https://giftcardzoneeu.com/">
-<meta property="og:type" content="website">
-<meta property="og:image" content="https://giftcardzoneeu.com/favicon.png">
-<meta name="twitter:card" content="summary_large_image">
+  <!-- OG / Twitter -->
+  <meta property="og:title" content="GiftCardZoneEU — Global Rewards & Affiliate Hub">
+  <meta property="og:description" content="Explore global survey & rewards platforms by country and earn smarter, anywhere.">
+  <meta property="og:url" content="https://giftcardzoneeu.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://giftcardzoneeu.com/favicon.png">
+  <meta name="twitter:card" content="summary_large_image">
 
-<!-- JSON-LD Schema -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://giftcardzoneeu.com/#org",
-      "name": "GiftCardZoneEU",
-      "url": "https://giftcardzoneeu.com/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://giftcardzoneeu.com/favicon.png",
-        "width": 512,
-        "height": 512
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://giftcardzoneeu.com/#org",
+        "name": "GiftCardZoneEU",
+        "url": "https://giftcardzoneeu.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://giftcardzoneeu.com/favicon.png",
+          "width": 512,
+          "height": 512
+        },
+        "sameAs": [
+          "https://www.f6s.com/giftcardzoneeu",
+          "https://producthunt.com/@giftcardzoneeu"
+        ]
       },
-      "sameAs": [
-        "https://www.f6s.com/giftcardzoneeu",
-        "https://producthunt.com/@giftcardzoneeu"
-      ]
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://giftcardzoneeu.com/#website",
-      "url": "https://giftcardzoneeu.com/",
-      "name": "GiftCardZoneEU — Global Rewards & Affiliate Hub",
-      "publisher": { "@id": "https://giftcardzoneeu.com/#org" },
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://giftcardzoneeu.com/?q={search_term_string}",
-        "query-input": "required name=search_term_string"
+      {
+        "@type": "WebSite",
+        "@id": "https://giftcardzoneeu.com/#website",
+        "url": "https://giftcardzoneeu.com/",
+        "name": "GiftCardZoneEU — Global Rewards & Affiliate Hub",
+        "publisher": { "@id": "https://giftcardzoneeu.com/#org" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://giftcardzoneeu.com/?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
       }
-    }
-  ]
-}
-</script>
-<!-- 🔼 End of SEO block -->
+    ]
+  }
+  </script>
+  <!-- 🔼 End of SEO block -->
 
-<style>
+  <!-- ✅ Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KCKEVDK6RY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-KCKEVDK6RY');
+
+    // Track outbound/affiliate clicks (reads data-offer or hostname)
+    document.addEventListener('click', (e) => {
+      const a = e.target.closest('a[href]');
+      if (!a) return;
+      const url = new URL(a.href, location.href);
+      const isOutbound = url.origin !== location.origin;
+      if (isOutbound) {
+        const offer = a.dataset.offer || url.hostname;
+        gtag('event', 'click_outbound', {
+          event_category: 'engagement',
+          event_label: offer,
+          transport_type: 'beacon'
+        });
+      }
+    }, { capture: true });
+  </script>
 
   <style>
+    :root { color-scheme: dark; }
     body {
       margin: 0;
       background: #0b0f14;
@@ -69,20 +92,21 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      min-height: 100vh;
       text-align: center;
-      overflow: hidden;
+      overflow-x: hidden;
     }
     .box {
-      max-width: 480px;
+      max-width: 520px;
       border: 1px solid #1f2937;
       border-radius: 16px;
       padding: 28px;
       background: #111827;
       box-shadow: 0 2px 8px rgba(0,0,0,.4);
-      animation: fadeIn 0.8s ease;
+      animation: fadeIn .8s ease;
+      margin: 24px 16px;
     }
-    h1 { margin-bottom: 12px; font-weight: 700; }
+    h1 { margin: 0 0 12px; font-weight: 700; }
     a { color: #22c55e; text-decoration: none; font-weight: 600; }
     .progress-container {
       width: 100%;
@@ -96,100 +120,96 @@
       width: 0%;
       height: 100%;
       background: linear-gradient(90deg, #22c55e, #16a34a);
-      transition: width 0.1s linear;
+      transition: width .1s linear;
     }
     #percent { font-size: 14px; color: #9ca3af; margin-top: 4px; }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    .badge-wrap { text-align:center; margin: 16px 0 0; animation: fadeIn 1.2s ease; }
+    .badge-btn {
+      display:inline-block; padding:10px 18px; background:#22c55e;
+      color:#fff; border-radius:8px; font-weight:600; text-decoration:none;
+      box-shadow:0 0 12px #22c55e; transition: transform .15s;
+    }
+    .badge-btn:hover { transform: translateY(-1px); }
   </style>
 
-  <!-- 🎉 Confetti Celebration for F6S Badge -->
-<!-- 🎉 Confetti Celebration for F6S Badge (with Fade-out) -->
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const confettiCanvas = document.createElement("canvas");
-  confettiCanvas.style.position = "fixed";
-  confettiCanvas.style.top = "0";
-  confettiCanvas.style.left = "0";
-  confettiCanvas.style.pointerEvents = "none";
-  confettiCanvas.style.width = "100%";
-  confettiCanvas.style.height = "100%";
-  confettiCanvas.style.transition = "opacity 1.5s ease";
-  document.body.appendChild(confettiCanvas);
-
-  const ctx = confettiCanvas.getContext("2d");
-  const confettis = Array.from({ length: 50 }).map(() => ({
-    x: Math.random() * window.innerWidth,
-    y: Math.random() * window.innerHeight - window.innerHeight,
-    r: Math.random() * 6 + 2,
-    d: Math.random() * 0.5 + 0.5,
-    color: `hsl(${Math.random() * 360}, 70%, 60%)`
-  }));
-
-  function draw() {
-    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-    confettis.forEach(c => {
-      ctx.beginPath();
-      ctx.arc(c.x, c.y, c.r, 0, Math.PI * 2);
-      ctx.fillStyle = c.color;
-      ctx.fill();
+  <!-- 🎉 Confetti Celebration for F6S Badge (auto fade) -->
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const c = document.createElement("canvas");
+    Object.assign(c.style, {
+      position:"fixed", inset:"0", pointerEvents:"none", width:"100%", height:"100%",
+      transition:"opacity 1.5s ease", zIndex: 9999
     });
-    update();
-    requestAnimationFrame(draw);
-  }
+    document.body.appendChild(c);
+    const ctx = c.getContext("2d");
+    const W = () => c.width = innerWidth, H = () => c.height = innerHeight; W(); H();
+    addEventListener('resize', () => { W(); H(); });
 
-  function update() {
-    confettis.forEach(c => {
-      c.y += c.d * 4;
-      if (c.y > window.innerHeight) {
-        c.y = -10;
-        c.x = Math.random() * window.innerWidth;
+    const dots = Array.from({length:50}).map(() => ({
+      x: Math.random()*c.width,
+      y: -Math.random()*c.height,
+      r: Math.random()*6+2,
+      d: Math.random()*0.5+0.5,
+      color: `hsl(${Math.random()*360},70%,60%)`
+    }));
+
+    const draw = () => {
+      ctx.clearRect(0,0,c.width,c.height);
+      for (const p of dots) {
+        ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+        ctx.fillStyle = p.color; ctx.fill();
+        p.y += p.d*4; if (p.y>c.height) { p.y=-10; p.x=Math.random()*c.width; }
       }
-    });
-  }
+      requestAnimationFrame(draw);
+    };
+    draw();
 
-  draw();
-
-  // Fade out gradually after 3s, remove after 4.5s
-  setTimeout(() => {
-    confettiCanvas.style.opacity = "0";
-    setTimeout(() => confettiCanvas.remove(), 1500);
-  }, 3000);
-});
-</script>
-
-
+    setTimeout(() => { c.style.opacity="0"; setTimeout(()=>c.remove(),1500); }, 3000);
+  });
+  </script>
 </head>
 
 <body>
   <div class="box">
     <h1>Unlocking your reward…</h1>
-    <div class="progress-container">
-      <div class="progress-bar"></div>
-    </div>
+    <div class="progress-container"><div class="progress-bar" id="bar"></div></div>
     <div id="percent">0%</div>
     <p>Please wait — redirecting to Monetag rewards.</p>
-    <p><a href="https://otieu.com/4/4203960">Click here if not redirected</a></p>
-    </div>
+    <p>
+      <a href="https://otieu.com/4/4203960" data-offer="Monetag Redirect" rel="noopener nofollow">Click here if not redirected</a>
+    </p>
+  </div>
 
-  <!-- ✅ F6S Official Feature Badge (Animated Glow) -->
-<section style="text-align:center; margin-top:60px; animation:fadeIn 1.2s ease;">
-  <p style="color:#9bb0ff; font-size:15px;">
-    ✅ Featured on 
-    <a href="https://www.f6s.com/giftcardzoneeu" target="_blank"
-       style="color:#60a5fa; text-decoration:none; font-weight:600;">
-       F6S Startup Directory
+  <!-- ✅ F6S Official Feature Badge -->
+  <section class="badge-wrap">
+    <p style="color:#9bb0ff; font-size:15px;">
+      ✅ Featured on
+      <a href="https://www.f6s.com/giftcardzoneeu" target="_blank" rel="noopener"
+         style="color:#60a5fa; text-decoration:none; font-weight:600;">
+         F6S Startup Directory
+      </a>
+    </p>
+    <a class="badge-btn" href="https://www.f6s.com/giftcardzoneeu" target="_blank" rel="noopener" data-offer="F6S Badge">
+      🎁 Claim our Official F6S Deal
     </a>
-  </p>
-  <a href="https://www.f6s.com/giftcardzoneeu" target="_blank"
-     style="display:inline-block; padding:10px 18px; background:#22c55e;
-            color:#fff; border-radius:8px; font-weight:600;
-            text-decoration:none; box-shadow:0 0 12px #22c55e;
-            transition:all .3s;">
-     🎁 Claim our Official F6S Deal
-  </a>
-</section>
+  </section>
 
-
+  <!-- ⏱️ Progress + timed redirect -->
+  <script>
+    const url = "https://otieu.com/4/4203960";   // Monetag target
+    const bar = document.getElementById('bar');
+    const pct = document.getElementById('percent');
+    let p = 0;
+    const tick = setInterval(() => {
+      p = Math.min(100, p + 2);
+      bar.style.width = p + '%';
+      pct.textContent = p + '%';
+      if (p >= 100) { clearInterval(tick); location.href = url; }
+    }, 100); // ~5s total
+  </script>
+</body>
+</html>
