@@ -1,1 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Social Pinger | GiftCardZoneEU</title>
+<meta name="robots" content="noindex,nofollow" />
+<style>
+body {
+  background: #0b0f14;
+  color: #e5e7eb;
+  font-family: system-ui, sans-serif;
+  text-align: center;
+  padding: 40px;
+}
+h2 { font-size: 1.5rem; margin-bottom: 12px; }
+p { color: #9ca3af; }
+</style>
+</head>
+<body>
+<h2>📢 Social Signal Amplifier Activated...</h2>
+<p>Sending crawl signals to social networks...</p>
+
+<script>
+const urls = [
+  "https://giftcardzoneeu.com/",
+  "https://giftcardzoneeu.com/country/ph/",
+  "https://giftcardzoneeu.com/country/nl/",
+  "https://giftcardzoneeu.com/country/us/",
+  "https://giftcardzoneeu.com/country/de/",
+  "https://giftcardzoneeu.com/country/global/"
+];
+
+urls.forEach(u=>{
+  [
+    "https://www.facebook.com/sharer/sharer.php?u=",
+    "https://twitter.com/intent/tweet?url=",
+    "https://www.linkedin.com/sharing/share-offsite/?url=",
+    "https://pinterest.com/pin/create/button/?url=",
+    "https://reddit.com/submit?url="
+  ].forEach(network=>{
+    fetch(network + encodeURIComponent(u));
+  });
+});
+
+document.body.insertAdjacentHTML(
+  "beforeend",
+  "<p>✅ Social signals sent to Facebook, X, LinkedIn, Pinterest & Reddit!</p>"
+);
+</script>
+</body>
+</html>
 
