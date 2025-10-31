@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Home -->
   <url>
     <loc>https://giftcardzoneeu.com/</loc>
     <lastmod>2025-10-31</lastmod>
@@ -40,4 +42,5 @@
     <loc>https://giftcardzoneeu.com/country/global/</loc>
     <lastmod>2025-10-31</lastmod>
   </url>
+
 </urlset>
