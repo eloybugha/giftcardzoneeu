@@ -1,46 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <!-- Home -->
-  <url>
-    <loc>https://giftcardzoneeu.com/</loc>
-    <lastmod>2025-10-31</lastmod>
-  </url>
+  <url><loc>https://giftcardzoneeu.com/</loc><lastmod>2025-10-31</lastmod></url>
 
   <!-- Utility pages -->
-  <url>
-    <loc>https://giftcardzoneeu.com/privacy.html</loc>
-    <lastmod>2025-10-31</lastmod>
-  </url>
-  <url>
-    <loc>https://giftcardzoneeu.com/terms.html</loc>
-    <lastmod>2025-10-31</lastmod>
-  </url>
+  <url><loc>https://giftcardzoneeu.com/privacy.html</loc><lastmod>2025-10-31</lastmod></url>
+  <url><loc>https://giftcardzoneeu.com/terms.html</loc><lastmod>2025-10-31</lastmod></url>
 
   <!-- Country pages -->
-  <url>
-    <loc>https://giftcardzoneeu.com/country/nl/</loc>
-    <lastmod>2025-10-31</lastmod>
-  </url>
-  <url>
-    <loc>https://giftcardzoneeu.com/country/nl/apps/</loc>
-    <lastmod>2025-10-31</lastmod>
-  </url>
-  <url>
-    <loc>https://giftcardzoneeu.com/country/ph/</loc>
-    <lastmod>2025-10-31</lastmod>
-  </url>
-  <url>
-    <loc>https://giftcardzoneeu.com/country/us/</loc>
-    <lastmod>2025-10-31</lastmod>
-  </url>
-  <url>
-    <loc>https://giftcardzoneeu.com/country/de/</loc>
-    <lastmod>2025-10-31</lastmod>
-  </url>
-  <url>
-    <loc>https://giftcardzoneeu.com/country/global/</loc>
-    <lastmod>2025-10-31</lastmod>
-  </url>
-
+  <url><loc>https://giftcardzoneeu.com/country/nl/</loc><lastmod>2025-10-31</lastmod></url>
+  <url><loc>https://giftcardzoneeu.com/country/nl/apps/</loc><lastmod>2025-10-31</lastmod></url>
+  <url><loc>https://giftcardzoneeu.com/country/ph/</loc><lastmod>2025-10-31</lastmod></url>
+  <url><loc>https://giftcardzoneeu.com/country/us/</loc><lastmod>2025-10-31</lastmod></url>
+  <url><loc>https://giftcardzoneeu.com/country/de/</loc><lastmod>2025-10-31</lastmod></url>
+  <url><loc>https://giftcardzoneeu.com/country/global/</loc><lastmod>2025-10-31</lastmod></url>
 </urlset>
