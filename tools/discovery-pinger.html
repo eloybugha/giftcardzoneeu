@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Discovery Pinger | GiftCardZoneEU</title>
+<meta name="robots" content="noindex,nofollow">
+<style>
+body {
+  background:#0b0f14; 
+  color:#e5e7eb;
+  font-family:system-ui, sans-serif;
+  text-align:center; 
+  padding:40px;
+}
+h2 {
+  font-size:1.5rem;
+  margin-bottom:12px;
+}
+p {
+  color:#9ca3af;
+}
+</style>
+</head>
+<body>
+<h2>🌐 Discovery Ping Activated...</h2>
+<p>Pinging search engines & directories...</p>
+
+<script>
+const urls = [
+  "https://giftcardzoneeu.com/",
+  "https://giftcardzoneeu.com/sitemap.xml",
+  "https://giftcardzoneeu.com/country/ph/",
+  "https://giftcardzoneeu.com/country/nl/",
+  "https://giftcardzoneeu.com/country/us/",
+  "https://giftcardzoneeu.com/country/de/",
+  "https://giftcardzoneeu.com/country/global/"
+];
+
+urls.forEach(u=>{
+  [
+    "https://www.google.com/ping?sitemap=",
+    "https://www.bing.com/ping?sitemap=",
+    "https://search.yahoo.com/ping?sitemap=",
+    "https://yandex.com/ping?sitemap=",
+    "https://duckduckgo.com/ping?sitemap=",
+  ].forEach(engine=>{
+    fetch(engine + encodeURIComponent(u));
+  });
+});
+document.body.insertAdjacentHTML(
+  "beforeend",
+  "<p>✅ Pings sent to Google, Bing, Yahoo, Yandex, DuckDuckGo</p>"
+);
+</script>
+</body>
+</html>
