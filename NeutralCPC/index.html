@@ -6,21 +6,35 @@
 <!-- GA4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-KCKEVDK6RY"></script>
 <script>
-  window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
-  gtag('js', new Date()); gtag('config','G-KCKEVDK6RY');
-  addEventListener('click',e=>{const a=e.target.closest('a[href]');if(!a)return;
-    const u=new URL(a.href,location.href); if(u.origin!==location.origin){
-      gtag('event','click_outbound',{event_category:'engagement',event_label:a.dataset.offer||u.hostname,transport_type:'beacon'});
-    }} ,{capture:true});
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config','G-KCKEVDK6RY');
+
+  // outbound event tracking
+  addEventListener('click', e => {
+    const a = e.target.closest('a[href]');
+    if (!a) return;
+    const u = new URL(a.href, location.href);
+    if (u.origin !== location.origin) {
+      gtag('event','click_outbound',{
+        event_category:'engagement',
+        event_label:a.dataset.offer || u.hostname,
+        transport_type:'beacon'
+      });
+    }
+  }, {capture:true});
 </script>
 
-<meta http-equiv="refresh" content="0; url=TARGET_URL_HERE">
+<!-- Instant redirect -->
+<meta http-equiv="refresh" content="0; url=https://otieu.com/4/4203960">
 <style>
-  :root{color-scheme:dark}
-  body{margin:0;display:grid;place-items:center;height:100dvh;background:#0b0f14;color:#e5e7eb;font-family:system-ui}
-  p{min-height:24px}
+  :root { color-scheme: dark; }
+  body { margin:0; display:grid; place-items:center; height:100dvh;
+         background:#0b0f14; color:#e5e7eb; font-family:system-ui; }
+  p { min-height:24px }
 </style>
 </head><body>
-  <p>Redirecting… <a href="TARGET_URL_HERE" rel="nofollow" data-offer="NeutralCPC Router">click here</a></p>
-  <script>location.replace("TARGET_URL_HERE")</script>
+  <p>Redirecting… <a href="https://otieu.com/4/4203960" rel="nofollow" data-offer="NeutralCPC Router">click here</a></p>
+  <script>location.replace("https://otieu.com/4/4203960")</script>
 </body></html>
