@@ -1,27 +1,33 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Redirecting…</title>
-<link rel="canonical" href="https://giftcardzoneeu.com/USFresh/">
+<link rel="canonical" href="https://giftcardzoneeu.com/NeutralCPC/">
 
 <!-- GA4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-KCKEVDK6RY"></script>
 <script>
-  window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
-  gtag('js', new Date()); gtag('config','G-KCKEVDK6RY');
-  addEventListener('click',e=>{const a=e.target.closest('a[href]');if(!a)return;
-    const u=new URL(a.href,location.href); if(u.origin!==location.origin){
-      gtag('event','click_outbound',{event_category:'engagement',event_label:a.dataset.offer||u.hostname,transport_type:'beacon'});
-    }} ,{capture:true});
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
+gtag('js',new Date()); gtag('config','G-KCKEVDK6RY');
+addEventListener('click',e=>{const a=e.target.closest('a[href]');if(!a)return;
+const u=new URL(a.href,location.href); if(u.origin!==location.origin){
+gtag('event','click_outbound',{event_category:'engagement',event_label:a.href})}}, {capture:true});
 </script>
 
-<meta http-equiv="refresh" content="0; url=TARGET_URL_HERE">
+<!-- ✅ Adsterra link here -->
+<script>const LINK="PASTE_YOUR_ADSTERRA_URL_HERE";</script>
+
+<meta http-equiv="refresh" content="0; url=about:blank">
 <style>
-  :root{color-scheme:dark}
-  body{margin:0;display:grid;place-items:center;height:100dvh;background:#0b0f14;color:#e5e7eb;font-family:system-ui}
-  p{min-height:24px}
+:root{color-scheme:dark}
+body{margin:0;display:grid;place-items:center;height:100dvh;background:#0b0f14;color:#e5e7eb;
+font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;text-align:center}
+p{min-height:24px}
 </style>
 </head><body>
-  <p>Redirecting… <a href="TARGET_URL_HERE" rel="nofollow" data-offer="USFresh Router">click here</a></p>
-  <script>location.replace("TARGET_URL_HERE")</script>
+<p>Redirecting… <a id="go" href="#" rel="nofollow">click here</a></p>
+<script>
+document.getElementById("go").href=LINK;
+location.replace(LINK);
+document.querySelector('meta[http-equiv="refresh"]').setAttribute('content',`0; url=${LINK}`);
+</script>
 </body></html>
-
