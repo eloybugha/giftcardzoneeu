@@ -5,13 +5,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>GiftCardZoneEU • Quick Check</title>
   <meta name="description" content="We’ll send you to the best live Mobidea offer for your location. No pop-ups. No extra ads." />
-
-  <!-- Optional: don't let this index in Google (usually paid-traffic only) -->
   <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://giftcardzoneeu.com/go/smartlink-prelander/" />
 
-  <link rel="canonical" href="https://giftcardzoneeu.com/prelander/">
-
-  <!-- Strict CSP: only self -->
+  <!-- Strict CSP: no inline JS; app.js only -->
   <meta http-equiv="Content-Security-Policy"
         content="default-src 'self';
                  script-src 'self';
@@ -89,22 +86,7 @@
       content="0; url=https://www.posicaodominate.wiki/?sl=6021755-548da">
   </noscript>
 
-  <script>
-  // Build destination the same way
-  const take = (k)=>{const v=new URLSearchParams(location.search).get(k);return v?[k,v]:null};
-  const keys=['click_id','cid','pub_click_id','sub','subid','sub_id','site','pub_sub_id','s1','s2','s3','s4','s5','aff_sub','aff_sub2','aff_sub3','aff_sub4','aff_sub5','source','utm_source','utm_medium','utm_campaign','utm_term','utm_content'];
-  const found=keys.map(take).filter(Boolean);
-  const qs=new URLSearchParams(found).toString();
-  const SMARTLINK_BASE="https://www.posicaodominate.wiki/?sl=6021755-548da";
-  const DEST=qs?`${SMARTLINK_BASE}&${qs}`:SMARTLINK_BASE;
-
-  const btn=document.getElementById('continueBtn');
-  const a=document.getElementById('fallbackLink');
-  a.href=DEST;
-
-  btn.addEventListener('click',()=>{ location.href=DEST; });
-
-  document.getElementById('yr').textContent=new Date().getFullYear();
-</script>
-
-
+  <!-- External script only (CSP-safe) -->
+  <script src="./app.js" defer></script>
+</body>
+</html>
