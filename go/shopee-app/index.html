@@ -1,1 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Open Shopee App • Daily Hot Deals</title>
+  <meta name="description" content="Tap to open the Shopee app and browse today’s hot deals. Random pick button sends you to a best-selling item.">
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://giftcardzoneeu.com/go/shopee-app/">
+
+  <!-- CSP: local-only JS so clicks always work -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self';
+    connect-src 'self';
+    img-src 'self' data:;
+    style-src 'self' 'unsafe-inline';
+    font-src 'self';
+    frame-src 'self';
+    base-uri 'self';
+    form-action 'self';
+    upgrade-insecure-requests">
+
+  <link rel="icon" href="/favicon.png" />
+  <style>
+    :root{
+      --bg:#0b1220;--card:#0f1629;--ink:#eaf1ff;--muted:#9fb0d3;
+      --accent:#ff5722;--accent-ink:#1a0b08;--border:#1f2a44;--ok:#25d366;
+    }
+    *{box-sizing:border-box} html,body{height:100%}
+    body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial}
+    .wrap{min-height:100%;display:grid;place-items:center;padding:28px}
+    .card{width:min(720px,94vw);background:var(--card);border:1px solid var(--border);
+          border-radius:22px;box-shadow:0 14px 50px rgba(0,0,0,.35);padding:26px}
+    .badge{display:inline-block;padding:6px 10px;border:1px solid var(--border);
+           border-radius:999px;font-size:12px;color:var(--muted);letter-spacing:.2px}
+    h1{margin:.5em 0 .2em;font-size:28px;line-height:1.2}
+    p{margin:.55em 0;color:#cfe0ff}
+    .cta{display:block;margin-top:14px;text-align:center;text-decoration:none;
+         background:var(--accent);color:var(--accent-ink);font-weight:800;
+         padding:16px 18px;border-radius:14px;font-size:18px}
+    .cta.secondary{background:#25d366;color:#042313}
+    .grid{display:grid;grid-template-columns:1fr;gap:10px;margin-top:14px}
+    @media(min-width:560px){.grid{grid-template-columns:1fr 1fr}}
+    .foot{margin-top:16px;font-size:12px;color:var(--muted);text-align:center}
+    .tips{font-size:13px;color:#cfe0ff;opacity:.9}
+    .muted{color:var(--muted);font-size:12px}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="card">
+      <span class="badge">Shopee PH • Affiliate</span>
+      <h1>Open Shopee App • Daily Hot Deals</h1>
+      <p class="tips">Tap “Open Shopee App” to browse. Or use “Random Hot Pick” para dalhin ka diretso sa isang <em>best-selling</em> item.</p>
+
+      <!-- MAIN CTA: your Shopee affiliate deeplink -->
+      <a class="cta" id="open-app" href="https://s.shopee.ph/3LIheU27Dn" rel="noopener">Open Shopee App</a>
+
+      <!-- RANDOM PICK: target is set by rotate.js -->
+      <a class="cta secondary" id="random-cta" href="#" rel="noopener">Random Hot Pick</a>
+
+      <!-- OPTIONAL QUICK PICKS (palitan mo kapag ready ka) -->
+      <div class="grid">
+        <a class="cta" href="https://s.shopee.ph/3LIheU27Dn" rel="noopener">🔥 Hot Picks Today</a>
+        <a class="cta" href="https://s.shopee.ph/3LIheU27Dn" rel="noopener">₱199 & Below Deals</a>
+        <a class="cta" href="https://s.shopee.ph/3LIheU27Dn" rel="noopener">Flash Sale</a>
+        <a class="cta" href="https://s.shopee.ph/3LIheU27Dn" rel="noopener">Free Shipping Finds</a>
+      </div>
+
+      <p class="foot">© 2025 GiftCardZoneEU • Affiliate Disclosure: We may earn a commission from qualifying purchases.</p>
+      <p class="muted">Note: This page is not affiliated with Shopee. All trademarks belong to their respective owners.</p>
+    </section>
+  </main>
+
+  <script src="./rotate.js"></script>
+  <noscript><div style="text-align:center;color:#cfe0ff">If the random button didn’t work, please enable JavaScript.</div></noscript>
+</body>
+</html>
 
