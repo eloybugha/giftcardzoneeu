@@ -90,20 +90,7 @@
   </noscript>
 
   <script>
-  // === existing vars ===
-  const ALLOW_HOSTS = new Set([location.host]);
-  const sweep = () => {
-    for (const s of [...document.scripts]) {
-      try { const h = s.src ? new URL(s.src, location.href).host : location.host; if(!ALLOW_HOSTS.has(h)) s.remove(); } catch(e){}
-    }
-    for (const f of [...document.querySelectorAll('iframe')]) {
-      try { const h = f.src ? new URL(f.src, location.href).host : location.host; if(!ALLOW_HOSTS.has(h)) f.remove(); } catch(e){}
-    }
-  };
-  document.addEventListener('DOMContentLoaded', sweep);
-  setInterval(sweep, 700);
-
-  // === build DEST (as you already have) ===
+  // Build destination the same way
   const take = (k)=>{const v=new URLSearchParams(location.search).get(k);return v?[k,v]:null};
   const keys=['click_id','cid','pub_click_id','sub','subid','sub_id','site','pub_sub_id','s1','s2','s3','s4','s5','aff_sub','aff_sub2','aff_sub3','aff_sub4','aff_sub5','source','utm_source','utm_medium','utm_campaign','utm_term','utm_content'];
   const found=keys.map(take).filter(Boolean);
@@ -111,52 +98,13 @@
   const SMARTLINK_BASE="https://www.posicaodominate.wiki/?sl=6021755-548da";
   const DEST=qs?`${SMARTLINK_BASE}&${qs}`:SMARTLINK_BASE;
 
-  // === Anti-accidental / anti-bot click logic ===
-  const btn = document.getElementById('continueBtn');
-  const a   = document.getElementById('fallbackLink');
-  a.href = DEST;
+  const btn=document.getElementById('continueBtn');
+  const a=document.getElementById('fallbackLink');
+  a.href=DEST;
 
-  const sp = new URLSearchParams(location.search);
-  const LOCK_MODE = sp.get('lock') === '1'; // QA: disable CTA
-  const SAFE_MODE = sp.get('safe') === '1'; // force press & hold
+  btn.addEventListener('click',()=>{ location.href=DEST; });
 
-  let enabled = false, holdTimer=null, holding=false;
-
-  // disable first
-  btn.setAttribute('disabled','disabled');
-
-  const enableCTA = () => {
-    if (LOCK_MODE) return; // stay disabled
-    enabled = true;
-    btn.removeAttribute('disabled');
-  };
-
-  // Delay: 2s unless SAFE_MODE (still allowed)
-  setTimeout(enableCTA, 2000);
-
-  // Press & hold (~800ms) to proceed
-  const startHold = () => {
-    if (!enabled || LOCK_MODE) return;
-    holding = true; document.body.classList.add('holding');
-    holdTimer = setTimeout(()=>{
-      // only once
-      if (btn.dataset.fired === '1') return;
-      btn.dataset.fired = '1';
-      btn.setAttribute('disabled','disabled');
-      location.href = DEST;
-    }, SAFE_MODE ? 800 : 800); // can tweak if needed
-  };
-  const cancelHold = () => {
-    holding = false; document.body.classList.remove('holding');
-    clearTimeout(holdTimer);
-  };
-
-  // Support mouse + touch
-  btn.addEventListener('mousedown', startHold);
-  btn.addEventListener('touchstart', startHold, {passive:true});
-  ['mouseup','mouseleave','touchend','touchcancel'].forEach(ev=>btn.addEventListener(ev, cancelHold));
-
-  // Fallback link still works (manual tap-here)
-  document.getElementById('yr').textContent = new Date().getFullYear();
+  document.getElementById('yr').textContent=new Date().getFullYear();
 </script>
+
 
