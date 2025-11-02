@@ -8,7 +8,7 @@
   <meta name="robots" content="noindex, nofollow" />
   <link rel="canonical" href="https://giftcardzoneeu.com/go/smartlink-prelander/" />
 
-  <!-- Strict CSP: no inline JS; app.js only -->
+  <!-- CSP: strict, no inline JS -->
   <meta http-equiv="Content-Security-Policy"
         content="default-src 'self';
                  script-src 'self';
@@ -37,13 +37,14 @@
     .row{display:flex;align-items:center;gap:12px;margin-bottom:14px}
     .dot{width:10px;height:10px;border-radius:999px;background:#22c55e;box-shadow:0 0 0 3px rgba(34,197,94,.15)}
     .muted{color:var(--muted);font-size:14px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:14px 18px;border-radius:14px;border:0;background:var(--blue);color:#fff;font-weight:600;font-size:16px;cursor:pointer;transition:transform .04s ease,box-shadow .2s ease,background .2s ease;box-shadow:0 10px 20px rgba(10,102,255,.25)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:14px 18px;border-radius:14px;border:0;background:var(--blue);color:#fff;font-weight:600;font-size:16px;cursor:pointer;transition:transform .04s ease,box-shadow .2s ease,background .2s ease;box-shadow:0 10px 20px rgba(10,102,255,.25); text-decoration:none}
     .btn:active{transform:translateY(1px)} .btn:hover{background:#0959e0}
     .cta-sub{margin-top:10px} .tiny{font-size:12px;color:var(--muted)}
     .divider{height:1px;background:#f1f5f9;margin:18px 0}
     .kudos{display:flex;gap:12px;flex-wrap:wrap}
     .kudos span{font-size:12px;background:#f8fafc;border:1px solid #e5e7eb;padding:6px 10px;border-radius:999px}
     @media (max-width:960px){.wrap{grid-template-columns:1fr}.left{padding:36px;min-height:38vh}h1{font-size:34px}}
+    .debug{font-size:12px;color:#64748b;margin-top:8px;word-break:break-all}
   </style>
 </head>
 <body>
@@ -66,13 +67,21 @@
         <div class="divider"></div>
         <p class="muted">Tap continue to proceed to the secure page.</p>
 
-        <button id="continueBtn" class="btn" aria-label="Continue to offer">
+        <!-- IMPORTANT: Default href works even if JS fails -->
+        <a id="continueLink"
+           class="btn"
+           rel="nofollow noopener noreferrer"
+           href="https://www.posicaodominate.wiki/?sl=6021755-548da"
+           aria-label="Continue to offer">
           Continue
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-        </button>
-        <div class="cta-sub tiny">If nothing happens, <a id="fallbackLink" href="#" rel="nofollow noopener noreferrer">tap here</a>.</div>
+        </a>
+
+        <div class="cta-sub tiny">If nothing happens, <a id="fallbackLink" href="https://www.posicaodominate.wiki/?sl=6021755-548da" rel="nofollow noopener noreferrer">tap here</a>.</div>
+
+        <div id="dbg" class="debug" hidden></div>
 
         <div class="divider"></div>
         <div class="kudos"><span>No pop-ups</span><span>No redirect loops</span><span>Fast load</span><span>Secure</span></div>
@@ -87,6 +96,6 @@
   </noscript>
 
   <!-- External script only (CSP-safe) -->
-  <script src="./app.js" defer></script>
+  <script src="/go/smartlink-prelander/app.js" defer></script>
 </body>
 </html>
