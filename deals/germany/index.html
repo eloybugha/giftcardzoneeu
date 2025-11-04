@@ -3,183 +3,229 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>🔥 Top 10 Germany Deals • Fast Shipping 🇩🇪</title>
-  <meta name="description" content="Top trending AliExpress products shipped from Germany. Get fast delivery and big savings on earbuds, humidifiers, smartwatches, and more. Limited stocks!">
-  <link rel="canonical" href="https://giftcardzoneeu.com/deals/germany/">
+  <title>Image Gallery • Fast, Responsive, Lazy-Load</title>
+  <meta name="description" content="A fast, responsive image gallery with lazy-loading and a built-in lightbox." />
+
+  <!-- Basic SEO (safe defaults) -->
+  <link rel="canonical" href="https://giftcardzoneeu.com/" />
+  <meta property="og:title" content="Image Gallery" />
+  <meta property="og:description" content="Fast, responsive, lazy-loaded gallery with lightbox." />
+  <meta property="og:type" content="website" />
 
   <style>
-    :root {
-      --bg: #f7f7f7;
-      --card: #ffffff;
-      --accent: #007bff;
-      --text: #333;
-      --muted: #666;
+    :root{
+      --bg:#0b0e14; --card:#111623; --text:#e8eefc; --muted:#9fb0d1; --ring:#2b5cff;
+      --gap:14px; --radius:16px; --shadow: 0 6px 24px rgba(0,0,0,.25);
     }
-    body {
-      background: var(--bg);
-      font-family: Arial, sans-serif;
-      color: var(--text);
-      margin: 0;
-      padding: 0;
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial,Apple Color Emoji,Segoe UI Emoji;
+      background:linear-gradient(180deg,#0b0e14, #0f1320);
+      color:var(--text);
     }
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
+    .wrap{max-width:1100px;margin:32px auto;padding:0 16px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+    h1{font-size:22px;margin:0}
+    .muted{color:var(--muted);font-size:14px}
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:var(--gap);
     }
-    h1 {
-      text-align: center;
-      font-size: 28px;
-      margin-bottom: 10px;
+    @media(min-width:680px){ .grid{grid-template-columns:repeat(3,minmax(0,1fr));} }
+    @media(min-width:980px){ .grid{grid-template-columns:repeat(4,minmax(0,1fr));} }
+
+    .card{
+      background:var(--card); border-radius:var(--radius); overflow:hidden; position:relative;
+      box-shadow:var(--shadow); cursor:zoom-in;
+      transition:transform .18s ease, box-shadow .18s ease;
     }
-    .subtitle {
-      text-align: center;
-      font-size: 16px;
-      color: var(--muted);
-      margin-bottom: 30px;
+    .card:focus-visible{outline:2px solid var(--ring); outline-offset:2px}
+    .card:hover{transform:translateY(-2px)}
+    .thumb{
+      width:100%; aspect-ratio: 4/5; object-fit:cover; display:block;
+      background:linear-gradient(90deg,#101725,#0d1320,#101725); background-size:200% 100%;
+      animation:shimmer 1.6s infinite linear;
     }
-    .product {
-      background: var(--card);
-      border-radius: 12px;
-      padding: 16px;
-      margin-bottom: 25px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+    .badge{
+      position:absolute; left:10px; bottom:10px; padding:6px 10px; border-radius:999px;
+      background:rgba(0,0,0,.55); backdrop-filter:blur(4px); font-size:12px
     }
-    .product img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 12px;
+
+    /* Lightbox (dialog) */
+    dialog{ border:none; padding:0; width:100%; max-width:none; height:100%; background:rgba(0,0,0,.92)}
+    dialog::backdrop{ background:rgba(0,0,0,.6) }
+    .viewer{ height:100%; display:grid; grid-template-rows:auto 1fr auto }
+    .viewer header, .viewer footer{ display:flex; align-items:center; gap:10px; padding:12px 16px}
+    .viewer header{justify-content:space-between}
+    .viewer footer{justify-content:center}
+    .btn{
+      appearance:none; border:1px solid rgba(255,255,255,.15); background:rgba(255,255,255,.06);
+      padding:8px 12px; color:#fff; border-radius:12px; cursor:pointer
     }
-    .product h2 {
-      font-size: 20px;
-      margin: 10px 0;
-    }
-    .product p {
-      font-size: 14px;
-      margin: 6px 0;
-      color: var(--muted);
-    }
-    .product a {
-      display: inline-block;
-      background: var(--accent);
-      color: white;
-      text-decoration: none;
-      padding: 10px 14px;
-      border-radius: 6px;
-      font-weight: bold;
-      margin-top: 10px;
-    }
-    .product a:hover {
-      background: #0056b3;
-    }
-    footer {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 14px;
-      color: var(--muted);
-    }
+    .btn:hover{background:rgba(255,255,255,.12)}
+    .stage{display:flex; align-items:center; justify-content:center; overflow:hidden}
+    .full{max-width:min(96vw,1400px); max-height:84vh; width:auto; height:auto; object-fit:contain}
+    .close{position:absolute; top:14px; right:14px}
+    .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
   </style>
 </head>
-
 <body>
-  <div class="container">
-    <h1>🔥 Top 10 Deals in Germany 🇩🇪</h1>
-    <p class="subtitle">Fast Delivery ❘ No Customs ❘ Limited Stock. Click to Buy:</p>
+  <div class="wrap">
+    <header>
+      <h1>Gallery</h1>
+      <div class="muted" id="counter">0 items</div>
+    </header>
 
-    <!-- Product 1 -->
-    <div class="product">
-      <h2>QCY MeloBuds N70 – Adaptive ANC Wireless Earbuds</h2>
-      <img src="https://via.placeholder.com/600x400?text=QCY+MeloBuds+N70" alt="QCY MeloBuds N70">
-      <p><strong>Price:</strong> €58.39</p>
-      <p><strong>Ships From:</strong> Germany 🇩🇪</p>
-      <a href="https://s.click.aliexpress.com/e/_c2IUQMKF" target="_blank">💸 Buy Now</a>
-    </div>
-
-    <!-- Product 2 -->
-    <div class="product">
-      <h2>USB Room Photo Atmosphere Light</h2>
-      <img src="https://via.placeholder.com/600x400?text=Atmosphere+Light" alt="USB Atmosphere Light">
-      <p><strong>Price:</strong> €0.99</p>
-      <p><strong>Ships From:</strong> Germany 🇩🇪</p>
-      <a href="https://s.click.aliexpress.com/e/_c3eznUIr" target="_blank">💡 Shop Now</a>
-    </div>
-
-    <!-- Product 3 -->
-    <div class="product">
-      <h2>Kinscoter Flame Aroma Diffuser Mini</h2>
-      <img src="https://via.placeholder.com/600x400?text=Flame+Humidifier" alt="Kinscoter Aroma Diffuser">
-      <p><strong>Price:</strong> €0.99</p>
-      <p><strong>Ships From:</strong> Germany 🇩🇪</p>
-      <a href="https://s.click.aliexpress.com/e/_cPLZLwWF" target="_blank">🕯️ Buy Now</a>
-    </div>
-
-    <!-- Product 4 -->
-    <div class="product">
-      <h2>180ML Mini USB Humidifier</h2>
-      <img src="https://via.placeholder.com/600x400?text=Mini+Humidifier" alt="Mini Humidifier">
-      <p><strong>Price:</strong> €0.99</p>
-      <p><strong>Ships From:</strong> Germany 🇩🇪</p>
-      <a href="https://s.click.aliexpress.com/e/_cT4SMehF" target="_blank">💨 Order Now</a>
-    </div>
-
-    <!-- Product 5 -->
-    <div class="product">
-      <h2>Fitness Smart Watch – Sleep & Heart Monitor</h2>
-      <img src="https://via.placeholder.com/600x400?text=Smart+Watch" alt="Smart Watch">
-      <p><strong>Price:</strong> €0.99</p>
-      <p><strong>Ships From:</strong> Germany 🇩🇪</p>
-      <a href="https://s.click.aliexpress.com/e/_ctahO6PF" target="_blank">⌚ Buy Now</a>
-    </div>
-
-    <!-- Product 6 -->
-    <div class="product">
-      <h2>2025 Portable HD Monocular Telescope</h2>
-      <img src="https://via.placeholder.com/600x400?text=Monocular+Telescope" alt="Monocular Telescope">
-      <p><strong>Price:</strong> €0.99</p>
-      <p><strong>Ships From:</strong> Germany 🇩🇪</p>
-      <a href="https://s.click.aliexpress.com/e/_cIkZGLYx" target="_blank">🔭 Check Deal</a>
-    </div>
-
-    <!-- Product 7 -->
-    <div class="product">
-      <h2>Mini Heat Bag Sealer</h2>
-      <img src="https://via.placeholder.com/600x400?text=Bag+Sealer" alt="Bag Sealer">
-      <p><strong>Price:</strong> €0.99</p>
-      <p><strong>Ships From:</strong> Germany 🇩🇪</p>
-      <a href="https://s.click.aliexpress.com/e/_cIbh6sSF" target="_blank">🔥 Heat & Seal</a>
-    </div>
-
-    <!-- Product 8 -->
-    <div class="product">
-      <h2>Men’s Waterproof Crossbody Fanny Pack</h2>
-      <img src="https://via.placeholder.com/600x400?text=Fanny+Pack" alt="Fanny Pack Germany">
-      <p><strong>Price:</strong> €0.99</p>
-      <p><strong>Ships From:</strong> Germany 🇩🇪</p>
-      <a href="https://s.click.aliexpress.com/e/_cJMjMTwx" target="_blank">🎒 Order Now</a>
-    </div>
-
-    <!-- Product 9 -->
-    <div class="product">
-      <h2>Baseus Bowie MA10 Pro – ANC Earbuds</h2>
-      <img src="https://via.placeholder.com/600x400?text=Baseus+MA10+Pro" alt="Baseus MA10 Pro">
-      <p><strong>Price:</strong> €35.99</p>
-      <p><strong>Ships From:</strong> Germany 🇩🇪</p>
-      <a href="https://s.click.aliexpress.com/e/_c6NdgTeL" target="_blank">🎧 Buy Deal</a>
-    </div>
-
-    <!-- Product 10 -->
-    <div class="product">
-      <h2>QCY H3 ANC Over-Ear Headphones</h2>
-      <img src="https://via.placeholder.com/600x400?text=QCY+H3" alt="QCY H3 Over-ear Headphones">
-      <p><strong>Price:</strong> €21.39</p>
-      <p><strong>Ships From:</strong> Germany 🇩🇪</p>
-      <a href="https://s.click.aliexpress.com/e/_c2BOxV81" target="_blank">🎶 Try Now</a>
-    </div>
-
-    <footer>
-      <p>© 2025 GiftCardZoneEU – Affiliate links used. Thanks for supporting us 🙌</p>
-    </footer>
+    <div id="gallery" class="grid" aria-live="polite"></div>
   </div>
+
+  <!-- Lightbox -->
+  <dialog id="lightbox" aria-label="Image viewer">
+    <div class="viewer">
+      <header>
+        <div class="muted" id="lbTitle">Image</div>
+        <div>
+          <button class="btn" id="prevBtn" aria-label="Previous">◀</button>
+          <button class="btn" id="nextBtn" aria-label="Next">▶</button>
+          <button class="btn" id="closeBtn" aria-label="Close">✕</button>
+        </div>
+      </header>
+      <div class="stage">
+        <img id="fullImg" class="full" alt="">
+      </div>
+      <footer class="muted" id="lbMeta"></footer>
+    </div>
+  </dialog>
+
+  <script>
+    /**
+     * QUICK SETUP
+     * 1) Put your images here:  /assets/gallery/   (change basePath if needed)
+     * 2) EITHER list files in IMAGES[] OR enable NUMERIC_MODE to auto-generate names (img-001.jpg …)
+     */
+
+    const basePath = "/assets/gallery/"; // e.g., "/assets/ali-de/" or "assets/"
+    const IMAGES = [
+      // List exact filenames (keep or replace):
+      "sample-01.jpg",
+      "sample-02.jpg",
+      "sample-03.jpg",
+      "sample-04.jpg"
+    ];
+
+    // --- OPTIONAL NUMERIC MODE ---
+    // If your files follow a pattern like img-001.jpg ... img-032.jpg, enable this:
+    const NUMERIC_MODE = {
+      enabled: false,      // set to true to auto-generate list
+      prefix: "img-",      // filename prefix
+      start: 1,            // starting number
+      count: 24,           // how many files
+      pad: 3,              // zero padding (3 => 001)
+      ext: ".jpg"          // extension
+    };
+
+    // ---------- RENDER ----------
+    const gallery = document.getElementById("gallery");
+    const counter = document.getElementById("counter");
+    const lb = document.getElementById("lightbox");
+    const fullImg = document.getElementById("fullImg");
+    const lbTitle = document.getElementById("lbTitle");
+    const lbMeta = document.getElementById("lbMeta");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const closeBtn = document.getElementById("closeBtn");
+
+    // Build list from numeric mode if enabled
+    function buildNumericList(cfg){
+      const list = [];
+      for(let i=0;i<cfg.count;i++){
+        const n = (cfg.start + i).toString().padStart(cfg.pad, "0");
+        list.push(`${cfg.prefix}${n}${cfg.ext}`);
+      }
+      return list;
+    }
+    const files = (NUMERIC_MODE.enabled ? buildNumericList(NUMERIC_MODE) : IMAGES).filter(Boolean);
+
+    // Lazy loader
+    const io = ("IntersectionObserver" in window) ? new IntersectionObserver((entries,obs)=>{
+      for(const e of entries){
+        if(e.isIntersecting){
+          const img = e.target;
+          img.src = img.dataset.src;
+          obs.unobserve(img);
+        }
+      }
+    }, {rootMargin:"200px"}) : null;
+
+    const items = []; // keep refs
+    files.forEach((name, idx)=>{
+      const card = document.createElement("button");
+      card.className = "card";
+      card.type = "button";
+      card.setAttribute("aria-label", `Open image ${idx+1}`);
+      card.addEventListener("click", ()=> openLightbox(idx));
+
+      const img = document.createElement("img");
+      img.className = "thumb";
+      img.loading = "lazy";
+      img.alt = name;
+      img.dataset.src = basePath + name;
+      img.onerror = ()=> img.style.opacity = .25;
+
+      if(io) io.observe(img); else img.src = img.dataset.src;
+
+      const badge = document.createElement("span");
+      badge.className = "badge";
+      badge.textContent = `#${idx+1}`;
+
+      card.appendChild(img);
+      card.appendChild(badge);
+      gallery.appendChild(card);
+      items.push({name, el:card});
+    });
+
+    counter.textContent = `${items.length} item${items.length!==1?'s':''}`;
+
+    // ---------- Lightbox ----------
+    let current = 0;
+    function openLightbox(i){
+      current = i;
+      const file = files[i];
+      fullImg.src = basePath + file;
+      fullImg.alt = file;
+      lbTitle.textContent = file;
+      lbMeta.textContent = `Item ${i+1} of ${files.length}`;
+      if(typeof lb.showModal === "function") lb.showModal(); else lb.setAttribute("open","true");
+      fullImg.focus();
+    }
+    function closeLightbox(){
+      if(typeof lb.close === "function") lb.close(); else lb.removeAttribute("open");
+    }
+    function nav(delta){
+      current = (current + delta + files.length) % files.length;
+      openLightbox(current);
+    }
+    prevBtn.addEventListener("click", ()=>nav(-1));
+    nextBtn.addEventListener("click", ()=>nav(+1));
+    closeBtn.addEventListener("click", closeLightbox);
+    lb.addEventListener("click", (e)=>{ if(e.target === lb) closeLightbox(); });
+    document.addEventListener("keydown", (e)=>{
+      if(!lb.open) return;
+      if(e.key==="Escape") closeLightbox();
+      if(e.key==="ArrowLeft") nav(-1);
+      if(e.key==="ArrowRight") nav(+1);
+    });
+
+    // Small safety: warn if 404s are likely (dev helper)
+    window.addEventListener("load", ()=>{
+      if(items.length === 0){
+        console.warn("Gallery has no items. Fill IMAGES[] or enable NUMERIC_MODE.");
+      }
+    });
+  </script>
 </body>
 </html>
-
