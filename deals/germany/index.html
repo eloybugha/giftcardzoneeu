@@ -22,6 +22,7 @@
     .btn.alt{background:#192034;color:#d9e3ff;border:1px solid #26304b}
     .grid{display:grid;grid-template-columns:repeat(auto-fill,var(--grid));gap:var(--gap)}
     .card{background:var(--card);border:1px solid #1a2132;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;min-height:260px;display:flex;flex-direction:column;justify-content:space-between}
+    .card a.imgwrap{display:block;line-height:0}
     .card img{width:100%;height:220px;object-fit:cover;display:block;background:#0e1220}
     .row{display:flex;align-items:center;justify-content:space-between;padding:12px 12px 14px}
     .meta{color:var(--muted);font-size:12px}
@@ -52,7 +53,7 @@
     <div class="grid" id="grid" aria-live="polite"></div>
 
     <div class="footer">
-      Auto-scans from <code>/assets/deals/germany/</code>. Per-item links from <code>links.json</code>. Refresh with <code>?v=</code>.
+      Auto-scans from <code>/assets/deals/germany/</code>. Per-item links from <code>links.json</code> (optional). If missing, Shop uses default global link.
     </div>
   </div>
 
@@ -66,27 +67,28 @@
     const OWNER = "eloybugha";
     const REPO  = "giftcardzoneeu";
     const PATH  = "assets/deals/germany";
-    const ASSET_BASE = "/assets/deals/germany/";
-    const LINKS_FILE = ASSET_BASE + "links.json"; // filename->url map
+    const ASSET_BASE  = "/assets/deals/germany/";
+    const LINKS_FILE  = ASSET_BASE + "links.json"; // optional
+    const DEFAULT_URL = "https://s.click.aliexpress.com/e/_YOUR_AFF"; // fallback if item not in links.json
 
     const grid = document.querySelector("#grid");
     const box  = document.querySelector("#box");
     const boxImg = document.querySelector("#boxImg");
 
     function cardTemplate(filename, i, url){
-      const src = ASSET_BASE + filename;
+      const src   = ASSET_BASE + filename;
       const title = `Deal #${i+1}`;
-      const href = url || "#";
-      const attrs = url ? `href="${href}" target="_blank" rel="nofollow noopener"` : `href="#" aria-disabled="true"`;
-      const label = url ? "Shop" : "Shop";
+      const href  = url || DEFAULT_URL; // <-- ALWAYS clickable now
       return `
         <article class="card" data-file="${encodeURIComponent(filename)}" data-index="${i}">
-          <img loading="lazy" decoding="async" src="${src}" alt="${title}">
+          <a class="imgwrap" href="${href}" target="_blank" rel="nofollow noopener">
+            <img loading="lazy" decoding="async" src="${src}" alt="${title}">
+          </a>
           <div class="row">
             <div class="meta">${title}</div>
             <div style="display:flex;gap:8px">
               <button class="btn alt preview-btn" data-file="${encodeURIComponent(filename)}" aria-label="Preview ${title}">Preview</button>
-              <a class="btn shop-btn" ${attrs}>${label}</a>
+              <a class="btn shop-btn" href="${href}" target="_blank" rel="nofollow noopener">Shop</a>
             </div>
           </div>
         </article>
@@ -97,6 +99,7 @@
       grid.addEventListener("click",(e)=>{
         const btn = e.target.closest(".preview-btn");
         if(!btn) return;
+        e.preventDefault();
         const file = decodeURIComponent(btn.dataset.file || "");
         if(!file) return;
         boxImg.src = ASSET_BASE + file;
@@ -119,7 +122,13 @@
       try{
         const r = await fetch(LINKS_FILE, {cache:"no-store"});
         if(!r.ok) return {};
-        return await r.json();
+        const data = await r.json();
+        // allow simple string or {url:"..."} format
+        const map = {};
+        for(const [k,v] of Object.entries(data)){
+          map[k] = typeof v === "string" ? v : (v && v.url ? v.url : undefined);
+        }
+        return map;
       }catch{ return {}; }
     }
 
