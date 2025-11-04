@@ -1,224 +1,108 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Germany Deals • Pure Affiliate Gallery</title>
-  <meta name="description" content="Clean, fast gallery of Germany deals. Pure affiliate — no popups, no redirects." />
-
-  <link rel="canonical" href="https://giftcardzoneeu.com/deals/germany/" />
-  <meta property="og:title" content="Germany Deals" />
-  <meta property="og:description" content="Auto-scan images • Lazy-loaded grid • Pure affiliate buttons." />
-  <meta property="og:type" content="website" />
-
-  <style>
-    :root{
-      --bg:#0b0e14; --card:#111623; --text:#e8eefc; --muted:#9fb0d1; --ring:#2b5cff;
-      --gap:14px; --radius:16px; --shadow:0 6px 24px rgba(0,0,0,.25);
-      --cta:#2b5cff; --cta-t:#fff;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; font-family:ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial,Apple Color Emoji,Segoe UI Emoji;
-      background:linear-gradient(180deg,#0b0e14,#0f1320); color:var(--text);
-    }
-    .wrap{max-width:1100px;margin:32px auto;padding:0 16px}
-    header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
-    h1{font-size:22px;margin:0}
-    .muted{color:var(--muted);font-size:14px}
-
-    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap)}
-    @media(min-width:680px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-    @media(min-width:980px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
-
-    .card{
-      position:relative; display:block; background:var(--card); border-radius:16px; overflow:hidden;
-      box-shadow:var(--shadow); text-decoration:none; color:inherit; transition:transform .18s ease;
-      min-height:100px;
-    }
-    .card:focus-visible{outline:2px solid var(--ring); outline-offset:2px}
-    .card:hover{transform:translateY(-2px)}
-    .thumb{
-      width:100%; aspect-ratio:4/5; object-fit:cover; display:block;
-      background:linear-gradient(90deg,#101725,#0d1320,#101725); background-size:200% 100%;
-      animation:shimmer 1.6s infinite linear;
-    }
-    @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
-
-    .brand{
-      position:absolute; left:10px; top:10px; padding:4px 8px; border-radius:8px;
-      background:rgba(0,0,0,.55); font-size:11px;
-    }
-    .badge{
-      position:absolute; left:10px; bottom:10px; padding:6px 10px; border-radius:999px;
-      background:rgba(0,0,0,.55); backdrop-filter:blur(4px); font-size:12px
-    }
-    .cta{
-      position:absolute; right:10px; bottom:10px; padding:6px 10px; border-radius:999px;
-      background:var(--cta); color:var(--cta-t); font-size:12px; font-weight:600;
-    }
-  </style>
-
-  <!-- KILL SWITCH: PURE AFFILIATE MODE -->
-  <script>
-    const ADS_ENABLED = false;
-    if (!ADS_ENABLED) {
-      const blocked = /adsterra|monetag|propeller|clickadu|popunder|push|socialbar|zara/i;
-      const origCreate = document.createElement;
-      document.createElement = function(tag){
-        const el = origCreate.call(document, tag);
-        if (tag && tag.toLowerCase() === 'script') {
-          return new Proxy(el, {
-            set(t, p, v){
-              if (p === 'src' && blocked.test(String(v))) {
-                console.warn('⛔ Blocked ad script:', v);
-                return true;
-              }
-              t[p] = v; return true;
-            }
-          });
-        }
-        return el;
-      };
-      const origAppend = Element.prototype.appendChild;
-      Element.prototype.appendChild = function(el){
-        try {
-          if (el.tagName === 'SCRIPT' && blocked.test(el.src)) {
-            console.warn('⛔ Blocked injected script:', el.src);
-            return el;
-          }
-        } catch(e){}
-        return origAppend.call(this, el);
-      };
-    }
-  </script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Germany Deals • Simple Store (Affiliate)</title>
+<meta name="description" content="Simple, fast, and clickable Germany deals — pure affiliate links." />
+<link rel="canonical" href="https://giftcardzoneeu.com/deals/germany/" />
+<style>
+  :root{--bg:#0b0e14;--card:#111623;--text:#e8eefc;--muted:#9fb0d1;--gap:14px;--radius:16px;--shadow:0 8px 28px rgba(0,0,0,.25);--accent:#2b5cff}
+  *{box-sizing:border-box} body{margin:0;font-family:system-ui,Segoe UI,Roboto,Arial;background:linear-gradient(180deg,#0b0e14,#0f1320);color:var(--text)}
+  .wrap{max-width:1100px;margin:24px auto;padding:0 16px}
+  h1{margin:0 0 12px;font-size:22px}
+  .muted{color:var(--muted);font-size:13px;margin-bottom:12px}
+  .grid{display:grid;gap:var(--gap);grid-template-columns:repeat(2,minmax(0,1fr))}
+  @media(min-width:720px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  @media(min-width:1024px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+  .card{display:block;background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);text-decoration:none;color:inherit}
+  .thumb{width:100%;aspect-ratio:4/5;object-fit:cover;background:#0d1220}
+  .pad{padding:10px}
+  .title{font-weight:700;font-size:14px;line-height:1.25;margin:6px 0 8px}
+  .row{display:flex;justify-content:space-between;align-items:center;gap:8px}
+  .price{font-weight:800}
+  .btn{display:inline-block;margin-top:8px;padding:10px 12px;border-radius:10px;background:var(--accent);color:#fff;font-weight:700;text-align:center;width:100%}
+  .badge{position:absolute;left:10px;top:10px;background:rgba(0,0,0,.55);padding:4px 8px;border-radius:999px;font-size:11px}
+  .card-wrap{position:relative}
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <h1>Germany Deals</h1>
-      <div class="muted" id="counter">Loading…</div>
-    </header>
+<div class="wrap">
+  <h1>Germany Deals</h1>
+  <div class="muted">Pure affiliate • No pop-ups • Click any card to open in AliExpress</div>
 
-    <div id="gallery" class="grid" aria-live="polite"></div>
+  <div class="grid">
+
+    <!-- ITEM #1 -->
+    <a class="card" href="https://s.click.aliexpress.com/e/_EXAMPLE1" target="_blank" rel="nofollow sponsored noopener">
+      <div class="card-wrap">
+        <div class="badge">#1</div>
+        <img class="thumb" src="/assets/germany/1.jpg" alt="Deal #1">
+      </div>
+      <div class="pad">
+        <div class="title">Deal #1</div>
+        <div class="row">
+          <div class="price">Best price</div>
+          <div class="muted">AliExpress</div>
+        </div>
+        <div class="btn">View on AliExpress</div>
+      </div>
+    </a>
+
+    <!-- ITEM #2 -->
+    <a class="card" href="https://s.click.aliexpress.com/e/_EXAMPLE2" target="_blank" rel="nofollow sponsored noopener">
+      <div class="card-wrap">
+        <div class="badge">#2</div>
+        <img class="thumb" src="/assets/germany/2.jpg" alt="Deal #2">
+      </div>
+      <div class="pad">
+        <div class="title">Deal #2</div>
+        <div class="row"><div class="price">Best price</div><div class="muted">AliExpress</div></div>
+        <div class="btn">View on AliExpress</div>
+      </div>
+    </a>
+
+    <!-- ITEM #3 -->
+    <a class="card" href="https://s.click.aliexpress.com/e/_EXAMPLE3" target="_blank" rel="nofollow sponsored noopener">
+      <div class="card-wrap"><div class="badge">#3</div><img class="thumb" src="/assets/germany/3.jpg" alt="Deal #3"></div>
+      <div class="pad"><div class="title">Deal #3</div><div class="row"><div class="price">Best price</div><div class="muted">AliExpress</div></div><div class="btn">View on AliExpress</div></div>
+    </a>
+
+    <!-- ITEM #4 -->
+    <a class="card" href="https://s.click.aliexpress.com/e/_EXAMPLE4" target="_blank" rel="nofollow sponsored noopener">
+      <div class="card-wrap"><div class="badge">#4</div><img class="thumb" src="/assets/germany/4.jpg" alt="Deal #4"></div>
+      <div class="pad"><div class="title">Deal #4</div><div class="row"><div class="price">Best price</div><div class="muted">AliExpress</div></div><div class="btn">View on AliExpress</div></div>
+    </a>
+
+    <!-- ITEM #5 -->
+    <a class="card" href="https://s.click.aliexpress.com/e/_EXAMPLE5" target="_blank" rel="nofollow sponsored noopener">
+      <div class="card-wrap"><div class="badge">#5</div><img class="thumb" src="/assets/germany/5.jpg" alt="Deal #5"></div>
+      <div class="pad"><div class="title">Deal #5</div><div class="row"><div class="price">Best price</div><div class="muted">AliExpress</div></div><div class="btn">View on AliExpress</div></div>
+    </a>
+
+    <!-- ITEM #6 -->
+    <a class="card" href="https://s.click.aliexpress.com/e/_EXAMPLE6" target="_blank" rel="nofollow sponsored noopener">
+      <div class="card-wrap"><div class="badge">#6</div><img class="thumb" src="/assets/germany/6.jpg" alt="Deal #6"></div>
+      <div class="pad"><div class="title">Deal #6</div><div class="row"><div class="price">Best price</div><div class="muted">AliExpress</div></div><div class="btn">View on AliExpress</div></div>
+    </a>
+
+    <!-- ITEM #7 -->
+    <a class="card" href="https://s.click.aliexpress.com/e/_EXAMPLE7" target="_blank" rel="nofollow sponsored noopener">
+      <div class="card-wrap"><div class="badge">#7</div><img class="thumb" src="/assets/germany/7.jpg" alt="Deal #7"></div>
+      <div class="pad"><div class="title">Deal #7</div><div class="row"><div class="price">Best price</div><div class="muted">AliExpress</div></div><div class="btn">View on AliExpress</div></div>
+    </a>
+
+    <!-- ITEM #8 -->
+    <a class="card" href="https://s.click.aliexpress.com/e/_EXAMPLE8" target="_blank" rel="nofollow sponsored noopener">
+      <div class="card-wrap"><div class="badge">#8</div><img class="thumb" src="/assets/germany/8.jpg" alt="Deal #8"></div>
+      <div class="pad"><div class="title">Deal #8</div><div class="row"><div class="price">Best price</div><div class="muted">AliExpress</div></div><div class="btn">View on AliExpress</div></div>
+    </a>
+
+    <!-- 👉 DUPLICATE mo lang ang block sa itaas para #9…#22 (palitan ang href at src). -->
+
   </div>
 
-  <script>
-/*<script>
-/* =========================
-   CONFIG
-========================= */
-// Ilagay dito ang AE links mo (sunod sa #1..#22). Empty string = gagamit ng FALLBACK.
-const AFFILIATE_LINKS = [
-  "https://s.click.aliexpress.com/e/_EXAMPLE1",  // #1
-  "", "", "", "", "", "", "", "", "",           // #2-#10
-  "", "", "", "", "", "", "", "", "", "",       // #11-#20
-  "", ""                                        // #21-#22
-];
-
-// Ilan ang images mo sa /assets/germany/ (1..TOTAL)
-const TOTAL = 22;
-
-// Subukan na extensions na i-lo-load per index
-const EXT_ORDER = ["webp","jpg","png","jpeg"];
-
-// Fallback kapag walang per-item link
-const FALLBACK = "https://www.aliexpress.com/w/wholesale.html?SearchText=gadgets";
-
-// Optional tracking
-const TRACK = {
-  pub_click_id: (crypto?.randomUUID?.() || Date.now().toString()),
-  site: "deals_germany",
-  sub: "grid"
-};
-
-/* =========================
-   RENDERER
-========================= */
-const $ = (q,root=document)=>root.querySelector(q);
-const gallery = $("#gallery");
-const counter = $("#counter");
-
-function buildUrl(base, i){
-  try{
-    const u = new URL(base, location.origin);
-    if (TRACK.pub_click_id) u.searchParams.set("pub_click_id", TRACK.pub_click_id);
-    if (TRACK.site)         u.searchParams.set("site", TRACK.site);
-    if (TRACK.sub)          u.searchParams.set("sub", String(i));
-    return u.toString();
-  }catch{ return base; }
-}
-
-function pickLink(i){
-  const link = AFFILIATE_LINKS[i-1] || FALLBACK;
-  return buildUrl(link, i);
-}
-
-function tryExtensions(idx, onFound, k=0){
-  if (k >= EXT_ORDER.length) return onFound(null);
-  const ext = EXT_ORDER[k];
-  const src = `/assets/germany/${idx}.${ext}`;
-  const img = new Image();
-  img.loading = "lazy";
-  img.onload = ()=> onFound(src);
-  img.onerror = ()=> tryExtensions(idx, onFound, k+1);
-  img.src = src;
-}
-
-function makeCard(idx, src){
-  const a = document.createElement("a");
-  a.href   = pickLink(idx);
-  a.target = "_blank";
-  a.rel    = "nofollow sponsored noopener";
-  a.className = "card";
-
-  const img = document.createElement("img");
-  img.className = "thumb";
-  img.alt = `Germany deal #${idx}`;
-  img.src = src;
-
-  const brand = document.createElement("div");
-  brand.className = "brand";
-  brand.textContent = "AliExpress";
-
-  const badge = document.createElement("div");
-  badge.className = "badge";
-  badge.textContent = `#${idx}`;
-
-  const cta = document.createElement("div");
-  cta.className = "cta";
-  cta.textContent = "Open";
-
-  a.append(img, brand, badge, cta);
-  return a;
-}
-
-(async function render(){
-  counter.textContent = "Loading…";
-  let loaded = 0;
-
-  for (let i=1;i<=TOTAL;i++){
-    await new Promise(res=>{
-      tryExtensions(i, (src)=>{
-        if (src){
-          gallery.appendChild(makeCard(i, src));
-          loaded++;
-          counter.textContent = `${loaded} item${loaded>1?'s':''}`;
-        }
-        res();
-      });
-    });
-  }
-
-  if (loaded === 0){
-    counter.textContent = "No items found";
-    const p = document.createElement("p");
-    p.className = "muted";
-    p.textContent = "Walang nahanap na images. Siguraduhin meron kang /assets/germany/1.webp|jpg|png …";
-    gallery.appendChild(p);
-  }
-})();
-</script>
+  <p class="muted" style="margin-top:10px">Tip: Kung PNG/JPG/WEBP ang halo-halo, siguraduhing tugma ang extension sa file mo. Path ng images: <code>/assets/germany/</code>.</p>
+</div>
 </body>
 </html>
