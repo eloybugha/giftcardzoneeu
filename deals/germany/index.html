@@ -4,39 +4,28 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Germany Deals • Pure Affiliate Gallery</title>
-  <meta name="description" content="Clean, fast gallery of Germany deals. Pure affiliate — no popups, no redirects." />
+  <meta name="description" content="Auto-scan gallery with per-item affiliate links. No popups, no forced redirects." />
   <link rel="canonical" href="https://giftcardzoneeu.com/deals/germany/"/>
-
   <meta property="og:title" content="Germany Deals" />
-  <meta property="og:description" content="Auto-scan images • Lazy-loaded grid • Lightbox preview." />
+  <meta property="og:description" content="Auto-scan images • Per-item links • Lightbox preview." />
   <meta property="og:type" content="website" />
-
   <style>
-    :root{
-      --bg:#0b0e14; --card:#111623; --text:#e8eefc; --muted:#9fb0d1;
-      --gap:14px; --radius:16px; --shadow:0 6px 24px rgba(0,0,0,.25);
-      --cta:#2b5cff; --cta-t:#fff; --grid:minmax(220px,1fr);
-    }
-    *{box-sizing:border-box} html,body{margin:0;height:100%;background:var(--bg);color:var(--text);font:500 15px/1.5 system-ui,Segoe UI,Roboto,Arial}
+    :root{--bg:#0b0e14;--card:#111623;--text:#e8eefc;--muted:#9fb0d1;--gap:14px;--radius:16px;--shadow:0 6px 24px rgba(0,0,0,.25);--cta:#2b5cff;--cta-t:#fff;--grid:minmax(220px,1fr)}
+    *{box-sizing:border-box}html,body{margin:0;height:100%;background:var(--bg);color:var(--text);font:500 15px/1.5 system-ui,Segoe UI,Roboto,Arial}
     a{color:inherit;text-decoration:none}
     .wrap{max-width:1200px;margin:0 auto;padding:24px}
     header{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:16px}
     .title{font-size:20px;font-weight:800;letter-spacing:.2px}
     .hint{color:var(--muted);font-size:13px}
-
     .bar{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 18px}
     .btn{background:var(--cta);color:var(--cta-t);padding:10px 14px;border-radius:12px;font-weight:700;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.06);cursor:pointer}
     .btn.alt{background:#192034;color:#d9e3ff;border:1px solid #26304b}
-
     .grid{display:grid;grid-template-columns:repeat(auto-fill,var(--grid));gap:var(--gap)}
     .card{background:var(--card);border:1px solid #1a2132;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;min-height:260px;display:flex;flex-direction:column;justify-content:space-between}
     .card img{width:100%;height:220px;object-fit:cover;display:block;background:#0e1220}
     .row{display:flex;align-items:center;justify-content:space-between;padding:12px 12px 14px}
     .meta{color:var(--muted);font-size:12px}
-
     .footer{margin:28px 0 10px;color:var(--muted);font-size:12px}
-
-    /* Lightbox */
     .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.86);display:none;align-items:center;justify-content:center;padding:24px;z-index:9999}
     .lightbox.open{display:flex}
     .lightbox img{max-width:96vw;max-height:90vh;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,.6)}
@@ -49,12 +38,12 @@
     <header>
       <div>
         <div class="title">Germany Deals</div>
-        <div class="hint">Pure affiliate gallery · no popups, no forced redirects</div>
+        <div class="hint">Pure affiliate gallery · per-item links</div>
       </div>
       <a class="btn alt" href="/">Home</a>
     </header>
 
-    <div class="bar" id="brandBar">
+    <div class="bar">
       <a class="btn" href="https://s.click.aliexpress.com/e/_YOUR_AFF" rel="nofollow noopener">AliExpress Germany</a>
       <a class="btn" href="https://amzn.to/YOUR_TAG" rel="nofollow noopener">Amazon Germany</a>
       <a class="btn alt" href="https://giftcardzoneeu.com/go/global-router/">Open Global Apps</a>
@@ -63,32 +52,33 @@
     <div class="grid" id="grid" aria-live="polite"></div>
 
     <div class="footer">
-      Images auto-scan from <code>/assets/deals/germany/</code>. Upload and refresh with <code>?v=</code> to bypass cache.
+      Auto-scans from <code>/assets/deals/germany/</code>. Per-item links from <code>links.json</code>. Refresh with <code>?v=</code>.
     </div>
   </div>
 
-  <!-- lightbox -->
   <div class="lightbox" id="box" role="dialog" aria-modal="true">
     <button class="x" id="xBtn" aria-label="Close">Close ✕</button>
     <img alt="Preview" id="boxImg" />
   </div>
 
   <script>
-    // CONFIG
+    // Repo + paths
     const OWNER = "eloybugha";
     const REPO  = "giftcardzoneeu";
-    const PATH  = "assets/deals/germany"; // repo path
+    const PATH  = "assets/deals/germany";
     const ASSET_BASE = "/assets/deals/germany/";
-    const AFF_URL = "https://s.click.aliexpress.com/e/_YOUR_AFF";
+    const LINKS_FILE = ASSET_BASE + "links.json"; // filename->url map
 
     const grid = document.querySelector("#grid");
     const box  = document.querySelector("#box");
     const boxImg = document.querySelector("#boxImg");
 
-    // Build a single card
-    function cardTemplate(filename, i){
+    function cardTemplate(filename, i, url){
       const src = ASSET_BASE + filename;
       const title = `Deal #${i+1}`;
+      const href = url || "#";
+      const attrs = url ? `href="${href}" target="_blank" rel="nofollow noopener"` : `href="#" aria-disabled="true"`;
+      const label = url ? "Shop" : "Shop";
       return `
         <article class="card" data-file="${encodeURIComponent(filename)}" data-index="${i}">
           <img loading="lazy" decoding="async" src="${src}" alt="${title}">
@@ -96,7 +86,7 @@
             <div class="meta">${title}</div>
             <div style="display:flex;gap:8px">
               <button class="btn alt preview-btn" data-file="${encodeURIComponent(filename)}" aria-label="Preview ${title}">Preview</button>
-              <a class="btn" href="${AFF_URL}" rel="nofollow noopener">Shop</a>
+              <a class="btn shop-btn" ${attrs}>${label}</a>
             </div>
           </div>
         </article>
@@ -117,34 +107,33 @@
       document.addEventListener("keydown",(e)=>{ if(e.key==="Escape"){ box.classList.remove("open"); boxImg.src=""; }});
     }
 
-    async function fetchFileList(){
+    async function fetchImages(){
       const api = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${PATH}`;
       const r = await fetch(api, {cache:"no-store"});
-      if(!r.ok) throw new Error("GitHub API error");
+      if(!r.ok) throw new Error("GitHub API error (images)");
       const data = await r.json();
-      // keep only images
-      return data
-        .filter(x => x.type === "file" && /\.(jpe?g|png|webp|gif)$/i.test(x.name))
-        .map(x => x.name);
+      return data.filter(x => x.type==="file" && /\.(jpe?g|png|webp|gif)$/i.test(x.name)).map(x=>x.name);
+    }
+
+    async function fetchLinks(){
+      try{
+        const r = await fetch(LINKS_FILE, {cache:"no-store"});
+        if(!r.ok) return {};
+        return await r.json();
+      }catch{ return {}; }
     }
 
     async function main(){
       bindLightbox();
       try{
-        const files = await fetchFileList();
-        if(!files.length){
-          grid.innerHTML = `<div class="hint">No images found in /${PATH}/</div>`;
-          return;
-        }
-        // optional: stable sort by name
+        const [files, map] = await Promise.all([fetchImages(), fetchLinks()]);
         files.sort((a,b)=> a.localeCompare(b, undefined, {numeric:true}));
-        grid.innerHTML = files.map((f,i)=> cardTemplate(f,i)).join("");
+        grid.innerHTML = files.map((f,i)=> cardTemplate(f,i, map[f])).join("");
       }catch(e){
         console.warn(e);
-        grid.innerHTML = `<div class="hint">Could not auto-scan images. Check connection or rate limit.</div>`;
+        grid.innerHTML = `<div class="hint">Could not load gallery. Try again with ?v=${Date.now().toString().slice(-4)}</div>`;
       }
     }
-
     main();
   </script>
 </body>
