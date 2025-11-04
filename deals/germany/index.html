@@ -3,25 +3,24 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Image Gallery • Fast, Responsive, Lazy-Load</title>
-  <meta name="description" content="A fast, responsive image gallery with lazy-loading and a built-in lightbox." />
+  <title>Germany Deals • Fast, Responsive, Lazy-Load</title>
+  <meta name="description" content="Mixed AliExpress + Germany shop deals with a fast, lazy-loaded gallery and lightbox." />
 
-  <!-- Basic SEO (safe defaults) -->
-  <link rel="canonical" href="https://giftcardzoneeu.com/" />
-  <meta property="og:title" content="Image Gallery" />
-  <meta property="og:description" content="Fast, responsive, lazy-loaded gallery with lightbox." />
+  <link rel="canonical" href="https://giftcardzoneeu.com/deals/germany/" />
+  <meta property="og:title" content="Germany Deals" />
+  <meta property="og:description" content="AliExpress + Germany shop deals." />
   <meta property="og:type" content="website" />
 
   <style>
     :root{
       --bg:#0b0e14; --card:#111623; --text:#e8eefc; --muted:#9fb0d1; --ring:#2b5cff;
-      --gap:14px; --radius:16px; --shadow: 0 6px 24px rgba(0,0,0,.25);
+      --gap:14px; --radius:16px; --shadow:0 6px 24px rgba(0,0,0,.25);
     }
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
-      margin:0; font-family: ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial,Apple Color Emoji,Segoe UI Emoji;
-      background:linear-gradient(180deg,#0b0e14, #0f1320);
+      margin:0; font-family:ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial,Apple Color Emoji,Segoe UI Emoji;
+      background:linear-gradient(180deg,#0b0e14,#0f1320);
       color:var(--text);
     }
     .wrap{max-width:1100px;margin:32px auto;padding:0 16px}
@@ -29,130 +28,38 @@
     h1{font-size:22px;margin:0}
     .muted{color:var(--muted);font-size:14px}
 
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:var(--gap);
-    }
-    @media(min-width:680px){ .grid{grid-template-columns:repeat(3,minmax(0,1fr));} }
-    @media(min-width:980px){ .grid{grid-template-columns:repeat(4,minmax(0,1fr));} }
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap)}
+    @media(min-width:680px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    @media(min-width:980px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
 
     .card{
-      background:var(--card); border-radius:var(--radius); overflow:hidden; position:relative;
-      box-shadow:var(--shadow); cursor:zoom-in;
-      transition:transform .18s ease, box-shadow .18s ease;
+      background:var(--card);border-radius:var(--radius);overflow:hidden;position:relative;
+      box-shadow:var(--shadow);cursor:zoom-in;transition:transform .18s ease,box-shadow .18s ease;
     }
-    .card:focus-visible{outline:2px solid var(--ring); outline-offset:2px}
+    .card:focus-visible{outline:2px solid var(--ring);outline-offset:2px}
     .card:hover{transform:translateY(-2px)}
     .thumb{
-      width:100%; aspect-ratio: 4/5; object-fit:cover; display:block;
-      background:linear-gradient(90deg,#101725,#0d1320,#101725); background-size:200% 100%;
+      width:100%;aspect-ratio:4/5;object-fit:cover;display:block;
+      background:linear-gradient(90deg,#101725,#0d1320,#101725);background-size:200% 100%;
       animation:shimmer 1.6s infinite linear;
     }
     @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
     .badge{
-      position:absolute; left:10px; bottom:10px; padding:6px 10px; border-radius:999px;
-      background:rgba(0,0,0,.55); backdrop-filter:blur(4px); font-size:12px
+      position:absolute;left:10px;bottom:10px;padding:6px 10px;border-radius:999px;
+      background:rgba(0,0,0,.55);backdrop-filter:blur(4px);font-size:12px
     }
 
-    /* Lightbox (dialog) */
-    dialog{ border:none; padding:0; width:100%; max-width:none; height:100%; background:rgba(0,0,0,.92)}
-    dialog::backdrop{ background:rgba(0,0,0,.6) }
-    .viewer{ height:100%; display:grid; grid-template-rows:auto 1fr auto }
-    .viewer header, .viewer footer{ display:flex; align-items:center; gap:10px; padding:12px 16px}
+    dialog{border:none;padding:0;width:100%;max-width:none;height:100%;background:rgba(0,0,0,.92)}
+    dialog::backdrop{background:rgba(0,0,0,.6)}
+    .viewer{height:100%;display:grid;grid-template-rows:auto 1fr auto}
+    .viewer header,.viewer footer{display:flex;align-items:center;gap:10px;padding:12px 16px}
     .viewer header{justify-content:space-between}
     .viewer footer{justify-content:center}
-    .btn{
-      appearance:none; border:1px solid rgba(255,255,255,.15); background:rgba(255,255,255,.06);
-      padding:8px 12px; color:#fff; border-radius:12px; cursor:pointer
-    }
+    .btn{appearance:none;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.06);
+      padding:8px 12px;color:#fff;border-radius:12px;cursor:pointer}
     .btn:hover{background:rgba(255,255,255,.12)}
-    .stage{display:flex; align-items:center; justify-content:center; overflow:hidden}
-    .full{max-width:min(96vw,1400px); max-height:84vh; width:auto; height:auto; object-fit:contain}
-    .close{position:absolute; top:14px; right:14px}
-    .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <header>
-      <h1>Gallery</h1>
-      <div class="muted" id="counter">0 items</div>
-    </header>
-
-    <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Image Gallery • Fast, Responsive, Lazy-Load</title>
-  <meta name="description" content="A fast, responsive image gallery with lazy-loading and a built-in lightbox." />
-
-  <!-- Basic SEO (safe defaults) -->
-  <link rel="canonical" href="https://giftcardzoneeu.com/" />
-  <meta property="og:title" content="Image Gallery" />
-  <meta property="og:description" content="Fast, responsive, lazy-loaded gallery with lightbox." />
-  <meta property="og:type" content="website" />
-
-  <style>
-    :root{
-      --bg:#0b0e14; --card:#111623; --text:#e8eefc; --muted:#9fb0d1; --ring:#2b5cff;
-      --gap:14px; --radius:16px; --shadow: 0 6px 24px rgba(0,0,0,.25);
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; font-family: ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial,Apple Color Emoji,Segoe UI Emoji;
-      background:linear-gradient(180deg,#0b0e14, #0f1320);
-      color:var(--text);
-    }
-    .wrap{max-width:1100px;margin:32px auto;padding:0 16px}
-    header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
-    h1{font-size:22px;margin:0}
-    .muted{color:var(--muted);font-size:14px}
-
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:var(--gap);
-    }
-    @media(min-width:680px){ .grid{grid-template-columns:repeat(3,minmax(0,1fr));} }
-    @media(min-width:980px){ .grid{grid-template-columns:repeat(4,minmax(0,1fr));} }
-
-    .card{
-      background:var(--card); border-radius:var(--radius); overflow:hidden; position:relative;
-      box-shadow:var(--shadow); cursor:zoom-in;
-      transition:transform .18s ease, box-shadow .18s ease;
-    }
-    .card:focus-visible{outline:2px solid var(--ring); outline-offset:2px}
-    .card:hover{transform:translateY(-2px)}
-    .thumb{
-      width:100%; aspect-ratio: 4/5; object-fit:cover; display:block;
-      background:linear-gradient(90deg,#101725,#0d1320,#101725); background-size:200% 100%;
-      animation:shimmer 1.6s infinite linear;
-    }
-    @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
-    .badge{
-      position:absolute; left:10px; bottom:10px; padding:6px 10px; border-radius:999px;
-      background:rgba(0,0,0,.55); backdrop-filter:blur(4px); font-size:12px
-    }
-
-    /* Lightbox (dialog) */
-    dialog{ border:none; padding:0; width:100%; max-width:none; height:100%; background:rgba(0,0,0,.92)}
-    dialog::backdrop{ background:rgba(0,0,0,.6) }
-    .viewer{ height:100%; display:grid; grid-template-rows:auto 1fr auto }
-    .viewer header, .viewer footer{ display:flex; align-items:center; gap:10px; padding:12px 16px}
-    .viewer header{justify-content:space-between}
-    .viewer footer{justify-content:center}
-    .btn{
-      appearance:none; border:1px solid rgba(255,255,255,.15); background:rgba(255,255,255,.06);
-      padding:8px 12px; color:#fff; border-radius:12px; cursor:pointer
-    }
-    .btn:hover{background:rgba(255,255,255,.12)}
-    .stage{display:flex; align-items:center; justify-content:center; overflow:hidden}
-    .full{max-width:min(96vw,1400px); max-height:84vh; width:auto; height:auto; object-fit:contain}
-    .close{position:absolute; top:14px; right:14px}
-    .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+    .stage{display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .full{max-width:min(96vw,1400px);max-height:84vh;width:auto;height:auto;object-fit:contain}
   </style>
 </head>
 <body>
@@ -176,41 +83,34 @@
           <button class="btn" id="closeBtn" aria-label="Close">✕</button>
         </div>
       </header>
-      <div class="stage">
-        <img id="fullImg" class="full" alt="">
-      </div>
+      <div class="stage"><img id="fullImg" class="full" alt=""></div>
       <footer class="muted" id="lbMeta"></footer>
     </div>
   </dialog>
 
   <script>
-    /**
-     * QUICK SETUP
-     * 1) Put your images here:  /assets/gallery/   (change basePath if needed)
-     * 2) EITHER list files in IMAGES[] OR enable NUMERIC_MODE to auto-generate names (img-001.jpg …)
-     */
+    // ===== CONFIG =====
+    // Path ng images mo (confirmed nasa /assets/deals/germany/)
+    const basePath = "/assets/deals/germany/";
 
-    const basePath = "/assets/gallery/"; // e.g., "/assets/ali-de/" or "assets/"
+    // Palitan ang list na 'to para tumugma sa ACTUAL filenames mo.
+    // (Case-sensitive!)
     const IMAGES = [
-      // List exact filenames (keep or replace):
-      "sample-01.jpg",
-      "sample-02.jpg",
-      "sample-03.jpg",
-      "sample-04.jpg"
+      "aliexpress-flash.jpg",
+      "aliexpress-coupons.jpg",
+      "aliexpress-gadgets.jpg",
+      "aliexpress-freeship.jpg",
+      "aliexpress-under20.jpg",
+      "aliexpress-topbrands.jpg",
+      "amazon-50.jpg",
+      "zalando-25.jpg",
+      "mediamarkt-100.jpg",
+      "ebay-50.jpg",
+      "ikea-25.jpg",
+      "adidas-30.jpg"
     ];
+    // ===== /CONFIG =====
 
-    // --- OPTIONAL NUMERIC MODE ---
-    // If your files follow a pattern like img-001.jpg ... img-032.jpg, enable this:
-    const NUMERIC_MODE = {
-      enabled: false,      // set to true to auto-generate list
-      prefix: "img-",      // filename prefix
-      start: 1,            // starting number
-      count: 24,           // how many files
-      pad: 3,              // zero padding (3 => 001)
-      ext: ".jpg"          // extension
-    };
-
-    // ---------- RENDER ----------
     const gallery = document.getElementById("gallery");
     const counter = document.getElementById("counter");
     const lb = document.getElementById("lightbox");
@@ -220,17 +120,6 @@
     const prevBtn = document.getElementById("prevBtn");
     const nextBtn = document.getElementById("nextBtn");
     const closeBtn = document.getElementById("closeBtn");
-
-    // Build list from numeric mode if enabled
-    function buildNumericList(cfg){
-      const list = [];
-      for(let i=0;i<cfg.count;i++){
-        const n = (cfg.start + i).toString().padStart(cfg.pad, "0");
-        list.push(`${cfg.prefix}${n}${cfg.ext}`);
-      }
-      return list;
-    }
-    const files = (NUMERIC_MODE.enabled ? buildNumericList(NUMERIC_MODE) : IMAGES).filter(Boolean);
 
     // Lazy loader
     const io = ("IntersectionObserver" in window) ? new IntersectionObserver((entries,obs)=>{
@@ -243,7 +132,9 @@
       }
     }, {rootMargin:"200px"}) : null;
 
-    const items = []; // keep refs
+    const files = IMAGES.filter(Boolean);
+    const items = [];
+
     files.forEach((name, idx)=>{
       const card = document.createElement("button");
       card.className = "card";
@@ -272,7 +163,7 @@
 
     counter.textContent = `${items.length} item${items.length!==1?'s':''}`;
 
-    // ---------- Lightbox ----------
+    // Lightbox
     let current = 0;
     function openLightbox(i){
       current = i;
@@ -282,181 +173,15 @@
       lbTitle.textContent = file;
       lbMeta.textContent = `Item ${i+1} of ${files.length}`;
       if(typeof lb.showModal === "function") lb.showModal(); else lb.setAttribute("open","true");
-      fullImg.focus();
     }
-    function closeLightbox(){
-      if(typeof lb.close === "function") lb.close(); else lb.removeAttribute("open");
-    }
-    function nav(delta){
-      current = (current + delta + files.length) % files.length;
-      openLightbox(current);
-    }
+    function closeLightbox(){ if(typeof lb.close==="function") lb.close(); else lb.removeAttribute("open"); }
+    function nav(d){ current = (current + d + files.length) % files.length; openLightbox(current); }
+
     prevBtn.addEventListener("click", ()=>nav(-1));
     nextBtn.addEventListener("click", ()=>nav(+1));
     closeBtn.addEventListener("click", closeLightbox);
     lb.addEventListener("click", (e)=>{ if(e.target === lb) closeLightbox(); });
-    document.addEventListener("keydown", (e)=>{
-      if(!lb.open) return;
-      if(e.key==="Escape") closeLightbox();
-      if(e.key==="ArrowLeft") nav(-1);
-      if(e.key==="ArrowRight") nav(+1);
-    });
-
-    // Small safety: warn if 404s are likely (dev helper)
-    window.addEventListener("load", ()=>{
-      if(items.length === 0){
-        console.warn("Gallery has no items. Fill IMAGES[] or enable NUMERIC_MODE.");
-      }
-    });
-  </script>
-</body>
-</html>
-
-  </div>
-
-  <!-- Lightbox -->
-  <dialog id="lightbox" aria-label="Image viewer">
-    <div class="viewer">
-      <header>
-        <div class="muted" id="lbTitle">Image</div>
-        <div>
-          <button class="btn" id="prevBtn" aria-label="Previous">◀</button>
-          <button class="btn" id="nextBtn" aria-label="Next">▶</button>
-          <button class="btn" id="closeBtn" aria-label="Close">✕</button>
-        </div>
-      </header>
-      <div class="stage">
-        <img id="fullImg" class="full" alt="">
-      </div>
-      <footer class="muted" id="lbMeta"></footer>
-    </div>
-  </dialog>
-
-  <script>
-    /**
-     * QUICK SETUP
-     * 1) Put your images here:  /assets/gallery/   (change basePath if needed)
-     * 2) EITHER list files in IMAGES[] OR enable NUMERIC_MODE to auto-generate names (img-001.jpg …)
-     */
-
-    const basePath = "/assets/gallery/"; // e.g., "/assets/ali-de/" or "assets/"
-    const IMAGES = [
-      // List exact filenames (keep or replace):
-      "sample-01.jpg",
-      "sample-02.jpg",
-      "sample-03.jpg",
-      "sample-04.jpg"
-    ];
-
-    // --- OPTIONAL NUMERIC MODE ---
-    // If your files follow a pattern like img-001.jpg ... img-032.jpg, enable this:
-    const NUMERIC_MODE = {
-      enabled: false,      // set to true to auto-generate list
-      prefix: "img-",      // filename prefix
-      start: 1,            // starting number
-      count: 24,           // how many files
-      pad: 3,              // zero padding (3 => 001)
-      ext: ".jpg"          // extension
-    };
-
-    // ---------- RENDER ----------
-    const gallery = document.getElementById("gallery");
-    const counter = document.getElementById("counter");
-    const lb = document.getElementById("lightbox");
-    const fullImg = document.getElementById("fullImg");
-    const lbTitle = document.getElementById("lbTitle");
-    const lbMeta = document.getElementById("lbMeta");
-    const prevBtn = document.getElementById("prevBtn");
-    const nextBtn = document.getElementById("nextBtn");
-    const closeBtn = document.getElementById("closeBtn");
-
-    // Build list from numeric mode if enabled
-    function buildNumericList(cfg){
-      const list = [];
-      for(let i=0;i<cfg.count;i++){
-        const n = (cfg.start + i).toString().padStart(cfg.pad, "0");
-        list.push(`${cfg.prefix}${n}${cfg.ext}`);
-      }
-      return list;
-    }
-    const files = (NUMERIC_MODE.enabled ? buildNumericList(NUMERIC_MODE) : IMAGES).filter(Boolean);
-
-    // Lazy loader
-    const io = ("IntersectionObserver" in window) ? new IntersectionObserver((entries,obs)=>{
-      for(const e of entries){
-        if(e.isIntersecting){
-          const img = e.target;
-          img.src = img.dataset.src;
-          obs.unobserve(img);
-        }
-      }
-    }, {rootMargin:"200px"}) : null;
-
-    const items = []; // keep refs
-    files.forEach((name, idx)=>{
-      const card = document.createElement("button");
-      card.className = "card";
-      card.type = "button";
-      card.setAttribute("aria-label", `Open image ${idx+1}`);
-      card.addEventListener("click", ()=> openLightbox(idx));
-
-      const img = document.createElement("img");
-      img.className = "thumb";
-      img.loading = "lazy";
-      img.alt = name;
-      img.dataset.src = basePath + name;
-      img.onerror = ()=> img.style.opacity = .25;
-
-      if(io) io.observe(img); else img.src = img.dataset.src;
-
-      const badge = document.createElement("span");
-      badge.className = "badge";
-      badge.textContent = `#${idx+1}`;
-
-      card.appendChild(img);
-      card.appendChild(badge);
-      gallery.appendChild(card);
-      items.push({name, el:card});
-    });
-
-    counter.textContent = `${items.length} item${items.length!==1?'s':''}`;
-
-    // ---------- Lightbox ----------
-    let current = 0;
-    function openLightbox(i){
-      current = i;
-      const file = files[i];
-      fullImg.src = basePath + file;
-      fullImg.alt = file;
-      lbTitle.textContent = file;
-      lbMeta.textContent = `Item ${i+1} of ${files.length}`;
-      if(typeof lb.showModal === "function") lb.showModal(); else lb.setAttribute("open","true");
-      fullImg.focus();
-    }
-    function closeLightbox(){
-      if(typeof lb.close === "function") lb.close(); else lb.removeAttribute("open");
-    }
-    function nav(delta){
-      current = (current + delta + files.length) % files.length;
-      openLightbox(current);
-    }
-    prevBtn.addEventListener("click", ()=>nav(-1));
-    nextBtn.addEventListener("click", ()=>nav(+1));
-    closeBtn.addEventListener("click", closeLightbox);
-    lb.addEventListener("click", (e)=>{ if(e.target === lb) closeLightbox(); });
-    document.addEventListener("keydown", (e)=>{
-      if(!lb.open) return;
-      if(e.key==="Escape") closeLightbox();
-      if(e.key==="ArrowLeft") nav(-1);
-      if(e.key==="ArrowRight") nav(+1);
-    });
-
-    // Small safety: warn if 404s are likely (dev helper)
-    window.addEventListener("load", ()=>{
-      if(items.length === 0){
-        console.warn("Gallery has no items. Fill IMAGES[] or enable NUMERIC_MODE.");
-      }
-    });
+    document.addEventListener("keydown",(e)=>{ if(!lb.open) return; if(e.key==="Escape") closeLightbox(); if(e.key==="ArrowLeft") nav(-1); if(e.key==="ArrowRight") nav(+1); });
   </script>
 </body>
 </html>
