@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Germany Deals • Auto Redirect</title>
-  <meta name="description" content="Mixed Germany deals with auto-detected brand redirects via router." />
+  <title>Germany Deals • Pure Affiliate Gallery</title>
+  <meta name="description" content="Clean, fast gallery of Germany deals. Pure affiliate — no popups, no redirects." />
 
   <link rel="canonical" href="https://giftcardzoneeu.com/deals/germany/" />
   <meta property="og:title" content="Germany Deals" />
-  <meta property="og:description" content="Auto-scan images • Auto-brand redirect • Lazy-loaded grid." />
+  <meta property="og:description" content="Auto-scan images • Lazy-loaded grid • Pure affiliate buttons." />
   <meta property="og:type" content="website" />
 
   <style>
@@ -35,6 +35,7 @@
     .card{
       position:relative; display:block; background:var(--card); border-radius:16px; overflow:hidden;
       box-shadow:var(--shadow); text-decoration:none; color:inherit; transition:transform .18s ease;
+      min-height:100px;
     }
     .card:focus-visible{outline:2px solid var(--ring); outline-offset:2px}
     .card:hover{transform:translateY(-2px)}
@@ -45,6 +46,10 @@
     }
     @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
 
+    .brand{
+      position:absolute; left:10px; top:10px; padding:4px 8px; border-radius:8px;
+      background:rgba(0,0,0,.55); font-size:11px;
+    }
     .badge{
       position:absolute; left:10px; bottom:10px; padding:6px 10px; border-radius:999px;
       background:rgba(0,0,0,.55); backdrop-filter:blur(4px); font-size:12px
@@ -53,60 +58,137 @@
       position:absolute; right:10px; bottom:10px; padding:6px 10px; border-radius:999px;
       background:var(--cta); color:var(--cta-t); font-size:12px; font-weight:600;
     }
-    .brand{
-      position:absolute; left:10px; top:10px; padding:4px 8px; border-radius:8px;
-      background:rgba(0,0,0,.55); font-size:11px;
-    }
   </style>
+
+  <!-- KILL SWITCH: PURE AFFILIATE MODE -->
+  <script>
+    const ADS_ENABLED = false;
+    if (!ADS_ENABLED) {
+      const blocked = /adsterra|monetag|propeller|clickadu|popunder|push|socialbar|zara/i;
+      const origCreate = document.createElement;
+      document.createElement = function(tag){
+        const el = origCreate.call(document, tag);
+        if (tag && tag.toLowerCase() === 'script') {
+          return new Proxy(el, {
+            set(t, p, v){
+              if (p === 'src' && blocked.test(String(v))) {
+                console.warn('⛔ Blocked ad script:', v);
+                return true;
+              }
+              t[p] = v; return true;
+            }
+          });
+        }
+        return el;
+      };
+      const origAppend = Element.prototype.appendChild;
+      Element.prototype.appendChild = function(el){
+        try {
+          if (el.tagName === 'SCRIPT' && blocked.test(el.src)) {
+            console.warn('⛔ Blocked injected script:', el.src);
+            return el;
+          }
+        } catch(e){}
+        return origAppend.call(this, el);
+      };
+    }
+  </script>
 </head>
 <body>
   <div class="wrap">
     <header>
-      <h1>Gallery</h1>
+      <h1>Germany Deals</h1>
       <div class="muted" id="counter">Loading…</div>
     </header>
 
     <div id="gallery" class="grid" aria-live="polite"></div>
   </div>
 
-<script>
-  // MASTER: PURE AFFILIATE MODE
-  const ADS_ENABLED = false;
-
-  if (!ADS_ENABLED) {
-    const blocked = /adsterra|monetag|propeller|clickadu|popunder|push|socialbar|zara/i;
-
-    // Block injected <script src=...>
-    const origCreate = document.createElement;
-    document.createElement = function(tag){
-      const el = origCreate.call(document, tag);
-      if (tag.toLowerCase() === 'script') {
-        return new Proxy(el, {
-          set(t, p, v){
-            if (p === 'src' && blocked.test(String(v))) {
-              console.warn('⛔ Blocked ad script:', v);
-              return true;
-            }
-            t[p] = v; return true;
-          }
-        });
+  <script>
+    // --- PRODUCTS (sample) ---
+    // TIP: Palitan mo 'url' ng AliExpress affiliate link mo (s.click.aliexpress.com/…)
+    // TIP: Palitan mo 'img' ng product image (pwede AliExpress CDN o sariling /assets).
+    const products = [
+      {
+        title: "Mini USB LED Light Strip",
+        brand: "AliExpress",
+        img: "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='1000'%3E%3Crect width='100%25' height='100%25' fill='%23111623'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%239fb0d1' font-family='Arial' font-size='28'%3EReplace with product image%3C/text%3E%3C/svg%3E",
+        url: "https://s.click.aliexpress.com/e/YOUR_AFF_LINK_1"
+      },
+      {
+        title: "MagSafe Power Bank 10000mAh",
+        brand: "AliExpress",
+        img: "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='1000'%3E%3Crect width='100%25' height='100%25' fill='%23111623'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%239fb0d1' font-family='Arial' font-size='28'%3EReplace with product image%3C/text%3E%3C/svg%3E",
+        url: "https://s.click.aliexpress.com/e/YOUR_AFF_LINK_2"
+      },
+      {
+        title: "Wireless Earbuds BT 5.3",
+        brand: "AliExpress",
+        img: "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='1000'%3E%3Crect width='100%25' height='100%25' fill='%23111623'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%239fb0d1' font-family='Arial' font-size='28'%3EReplace with product image%3C/text%3E%3C/svg%3E",
+        url: "https://s.click.aliexpress.com/e/YOUR_AFF_LINK_3"
+      },
+      {
+        title: "RGB Gaming Mouse Pad XL",
+        brand: "AliExpress",
+        img: "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='1000'%3E%3Crect width='100%25' height='100%25' fill='%23111623'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%239fb0d1' font-family='Arial' font-size='28'%3EReplace with product image%3C/text%3E%3C/svg%3E",
+        url: "https://s.click.aliexpress.com/e/YOUR_AFF_LINK_4"
+      },
+      {
+        title: "Smartwatch AMOLED",
+        brand: "AliExpress",
+        img: "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='1000'%3E%3Crect width='100%25' height='100%25' fill='%23111623'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%239fb0d1' font-family='Arial' font-size='28'%3EReplace with product image%3C/text%3E%3C/svg%3E",
+        url: "https://s.click.aliexpress.com/e/YOUR_AFF_LINK_5"
+      },
+      {
+        title: "Type-C Fast Charger 65W",
+        brand: "AliExpress",
+        img: "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='1000'%3E%3Crect width='100%25' height='100%25' fill='%23111623'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%239fb0d1' font-family='Arial' font-size='28'%3EReplace with product image%3C/text%3E%3C/svg%3E",
+        url: "https://s.click.aliexpress.com/e/YOUR_AFF_LINK_6"
       }
-      return el;
-    };
+    ];
 
-    // Block late appends
-    const origAppend = Element.prototype.appendChild;
-    Element.prototype.appendChild = function(el){
-      try {
-        if (el.tagName === 'SCRIPT' && blocked.test(el.src)) {
-          console.warn('⛔ Blocked injected script:', el.src);
-          return el;
-        }
-      } catch(e){}
-      return origAppend.call(this, el);
-    };
-  }
-</script>
+    // --- RENDERER ---
+    const gallery = document.getElementById('gallery');
+    const counter = document.getElementById('counter');
 
+    function render(){
+      gallery.innerHTML = '';
+      products.forEach((p, i)=>{
+        const a = document.createElement('a');
+        a.href = p.url;
+        a.target = "_blank";
+        a.rel = "nofollow noopener";
+        a.className = "card";
+        a.setAttribute('aria-label', p.title);
+
+        const img = document.createElement('img');
+        img.loading = 'lazy';
+        img.alt = p.title;
+        img.src = p.img;
+        img.className = 'thumb';
+
+        const brand = document.createElement('div');
+        brand.className = 'brand';
+        brand.textContent = p.brand || 'Deal';
+
+        const badge = document.createElement('div');
+        badge.className = 'badge';
+        badge.textContent = p.title;
+
+        const cta = document.createElement('div');
+        cta.className = 'cta';
+        cta.textContent = 'Shop →';
+
+        a.appendChild(img);
+        a.appendChild(brand);
+        a.appendChild(badge);
+        a.appendChild(cta);
+        gallery.appendChild(a);
+      });
+      counter.textContent = `${products.length} deals • pure affiliate mode`;
+    }
+
+    render();
+  </script>
 </body>
 </html>
