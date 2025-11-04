@@ -29,7 +29,7 @@
     .btn.alt{background:#192034;color:#d9e3ff;border:1px solid #26304b}
 
     .grid{display:grid;grid-template-columns:repeat(auto-fill,var(--grid));gap:var(--gap)}
-    .card{background:var(--card);border:1px solid #1a2132;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+    .card{background:var(--card);border:1px solid #1a2132;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;min-height:260px;display:flex;flex-direction:column;justify-content:space-between}
     .card img{width:100%;height:220px;object-fit:cover;display:block;background:#0e1220}
     .row{display:flex;align-items:center;justify-content:space-between;padding:12px 12px 14px}
     .meta{color:var(--muted);font-size:12px}
@@ -37,10 +37,11 @@
     .footer{margin:28px 0 10px;color:var(--muted);font-size:12px}
 
     /* Lightbox */
-    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.86);display:none;align-items:center;justify-content:center;padding:24px}
+    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.86);display:none;align-items:center;justify-content:center;padding:24px;z-index:9999}
     .lightbox.open{display:flex}
-    .lightbox img{max-width:96vw;max-height:90vh;border-radius:12px}
-    .x{position:fixed;top:14px;right:14px;background:#101523;border:1px solid #223050;color:#dfe7ff;padding:8px 10px;border-radius:10px}
+    .lightbox img{max-width:96vw;max-height:90vh;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,.6)}
+    .x{position:fixed;top:14px;right:14px;background:#101523;border:1px solid #223050;color:#dfe7ff;padding:8px 10px;border-radius:10px;z-index:10000}
+    @media (max-width:600px){ .card img{height:180px} }
   </style>
 </head>
 <body>
@@ -96,37 +97,26 @@
     ];
 
     const grid = document.querySelector("#grid");
+    const box = document.querySelector("#box");
+    const boxImg = document.querySelector("#boxImg");
 
-    function cardTemplate(src,i){
+    // build single card HTML with a data-index on preview button
+    function cardTemplate(src, i){
       const title = `Deal #${i+1}`;
       return `
-        <article class="card">
+        <article class="card" data-index="${i}">
           <img loading="lazy" decoding="async" src="${src}" alt="${title}" />
           <div class="row">
             <div class="meta">${title}</div>
             <div style="display:flex;gap:8px">
-              <a class="btn alt" href="#" data-open="${src}">Preview</a>
+              <button class="btn alt preview-btn" data-index="${i}" aria-label="Preview ${title}">Preview</button>
               <a class="btn" href="${AFF_URL}" rel="nofollow noopener">Shop</a>
             </div>
           </div>
         </article>`;
     }
 
-    function bindLightbox(){
-      const box = document.querySelector("#box");
-      const img = document.querySelector("#boxImg");
-      grid.addEventListener("click",(e)=>{
-        const a = e.target.closest("[data-open]");
-        if(!a) return;
-        e.preventDefault();
-        img.src = a.dataset.open;
-        box.classList.add("open");
-      });
-      document.querySelector("#xBtn").onclick = ()=> box.classList.remove("open");
-      box.addEventListener("click",(e)=>{ if(e.target===box) box.classList.remove("open"); });
-      document.addEventListener("keydown",(e)=>{ if(e.key==="Escape") box.classList.remove("open"); });
-    }
-
+    // render images grid
     function render(images){
       grid.innerHTML = images.map((name,i)=>{
         const src = name.startsWith("/") ? name : (ASSET_BASE + name);
@@ -134,9 +124,32 @@
       }).join("");
     }
 
+    // lightbox binder: uses data-index to find correct image
+    function bindLightbox(){
+      grid.addEventListener("click", (e) => {
+        const btn = e.target.closest(".preview-btn");
+        if(!btn) return;
+        const idx = Number(btn.dataset.index);
+        if(Number.isNaN(idx)) return;
+        const filename = IMAGES[idx];
+        const src = filename.startsWith("/") ? filename : (ASSET_BASE + filename);
+        // set image and open
+        boxImg.src = src;
+        box.classList.add("open");
+      });
+
+      document.querySelector("#xBtn").onclick = () => {
+        box.classList.remove("open");
+        // remove src to stop audio/video or free memory
+        boxImg.src = "";
+      };
+      box.addEventListener("click", (e) => { if(e.target === box) box.classList.remove("open"); });
+      document.addEventListener("keydown", (e) => { if(e.key === "Escape") box.classList.remove("open"); });
+    }
+
     // init
-    bindLightbox();
     render(IMAGES);
+    bindLightbox();
   </script>
 </body>
 </html>
