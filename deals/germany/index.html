@@ -5,17 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Germany Deals • Pure Affiliate Gallery</title>
   <meta name="description" content="Clean, fast gallery of Germany deals. Pure affiliate — no popups, no redirects." />
+  <link rel="canonical" href="https://giftcardzoneeu.com/deals/germany/"/>
 
-  <link rel="canonical" href="https://giftcardzoneeu.com/deals/germany/" />
   <meta property="og:title" content="Germany Deals" />
-  <meta property="og:description" content="Auto-scan via manifest • Lazy-loaded grid • Pure affiliate buttons." />
+  <meta property="og:description" content="Lazy-loaded grid • Lightbox preview • Pure affiliate buttons." />
   <meta property="og:type" content="website" />
 
   <style>
     :root{
       --bg:#0b0e14; --card:#111623; --text:#e8eefc; --muted:#9fb0d1;
       --ring:#2b5cff; --gap:14px; --radius:16px; --shadow:0 6px 24px rgba(0,0,0,.25);
-      --cta:#2b5cff; --cta-t:#fff; --grid: minmax(220px,1fr);
+      --cta:#2b5cff; --cta-t:#fff; --grid:minmax(220px,1fr);
     }
     *{box-sizing:border-box} html,body{margin:0;height:100%;background:var(--bg);color:var(--text);font:500 15px/1.5 system-ui,Segoe UI,Roboto,Arial}
     a{color:inherit;text-decoration:none}
@@ -31,9 +31,8 @@
     .grid{display:grid;grid-template-columns:repeat(auto-fill,var(--grid));gap:var(--gap)}
     .card{background:var(--card);border:1px solid #1a2132;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
     .card img{width:100%;height:220px;object-fit:cover;display:block;background:#0e1220}
-    .card .row{display:flex;align-items:center;justify-content:space-between;padding:12px 12px 14px}
-    .card .row .meta{color:var(--muted);font-size:12px}
-    .ghost{opacity:.6;filter:grayscale(80%)}
+    .row{display:flex;align-items:center;justify-content:space-between;padding:12px 12px 14px}
+    .meta{color:var(--muted);font-size:12px}
 
     .footer{margin:28px 0 10px;color:var(--muted);font-size:12px}
 
@@ -55,12 +54,14 @@
     </header>
 
     <div class="bar" id="brandBar">
-      <!-- Buttons injected from manifest.json -->
+      <a class="btn" href="https://s.click.aliexpress.com/e/_YOUR_AFF" rel="nofollow noopener">AliExpress Germany</a>
+      <a class="btn" href="https://amzn.to/YOUR_TAG" rel="nofollow noopener">Amazon Germany</a>
+      <a class="btn alt" href="https://giftcardzoneeu.com/go/global-router/">Open Global Apps</a>
     </div>
 
     <div class="grid" id="grid" aria-live="polite"></div>
 
-    <div class="footer">Images load from <code>/assets/germany/</code>. Add/remove files via <code>manifest.json</code>.</div>
+    <div class="footer">Images load from <code>/assets/deals/germany/</code>. Upload more and they’ll appear after edit.</div>
   </div>
 
   <!-- lightbox -->
@@ -70,48 +71,45 @@
   </div>
 
   <script>
-    const ASSET_BASE = "/assets/germany/";
-    const MANIFEST = ASSET_BASE + "manifest.json";
+    // CONFIG
+    const ASSET_BASE = "/assets/deals/germany/";
+    const AFF_URL = "https://s.click.aliexpress.com/e/_YOUR_AFF"; // change if needed
+
+    // Exact filenames in your /assets/deals/germany/ folder
+    const IMAGES = [
+      "IMG_20251103_204226.jpg",
+      "S110db4df6d3a4cd6892ede56bf6e07e2.jpg",
+      "S2b2368ee39104173806f1405d94d9d08.jpg",
+      "S4062e7fa17e94ffbe55c62f646a97b45.jpg",
+      "S524e226db37842f8962583e6c6b0e6d4.jpg",
+      "S56b9067baf485c8ba4aad6f3c1ec6b44.jpg",
+      "S5a2f061a72335451c976b1e47693192d.jpg",
+      "S67047a18c86e40a3bff6ec010fd2361d.jpg",
+      "S7b3301f42369441aa90ac71568c82731.jpg",
+      "S7da91f0b5c64f4beb7e411ce42bd16c3.jpg",
+      "S8348f6c7d4a54710b04be6e3c23fa0c3.jpg",
+      "S83b658e4eb944801bf8d5e7f87fecef1.jpg",
+      "S83b658e4eb944801bf8d5e7f87fecef1-1.jpg",
+      "S900709178e7f47b4929a99d9e18d8c52.jpg",
+      "S9913b5b4924674f35b53bb95816f657e.jpg",
+      "S9913b5b4924674f35b53bb95816f657e-1.jpg"
+    ];
+
     const grid = document.querySelector("#grid");
-    const brandBar = document.querySelector("#brandBar");
-
-    async function loadManifest(){
-      try{
-        const r = await fetch(MANIFEST, {cache:"no-store"});
-        if(!r.ok) throw 0;
-        return await r.json();
-      }catch(e){
-        return null;
-      }
-    }
-
-    function addButtons(buttons=[]){
-      brandBar.innerHTML = "";
-      if(!buttons.length){
-        const a = document.createElement("a");
-        a.href = "https://giftcardzoneeu.com/go/global-router/"; // fallback router if you have one
-        a.className = "btn";
-        a.textContent = "Open Global Apps";
-        brandBar.appendChild(a);
-        return;
-      }
-      for(const b of buttons){
-        const a = document.createElement("a");
-        a.href = b.href; a.textContent = b.label; a.className = "btn";
-        brandBar.appendChild(a);
-      }
-    }
 
     function cardTemplate(src,i){
       const title = `Deal #${i+1}`;
       return `
-      <article class="card">
-        <img loading="lazy" decoding="async" src="${src}" alt="${title}" />
-        <div class="row">
-          <div class="meta">${title}</div>
-          <a class="btn alt" href="#" data-open="${src}">Preview</a>
-        </div>
-      </article>`;
+        <article class="card">
+          <img loading="lazy" decoding="async" src="${src}" alt="${title}" />
+          <div class="row">
+            <div class="meta">${title}</div>
+            <div style="display:flex;gap:8px">
+              <a class="btn alt" href="#" data-open="${src}">Preview</a>
+              <a class="btn" href="${AFF_URL}" rel="nofollow noopener">Shop</a>
+            </div>
+          </div>
+        </article>`;
     }
 
     function bindLightbox(){
@@ -130,28 +128,15 @@
     }
 
     function render(images){
-      grid.innerHTML = images.map((name,i)=> cardTemplate(ASSET_BASE+name,i)).join("");
+      grid.innerHTML = images.map((name,i)=>{
+        const src = name.startsWith("/") ? name : (ASSET_BASE + name);
+        return cardTemplate(src, i);
+      }).join("");
     }
 
-    async function main(){
-      bindLightbox();
-      const m = await loadManifest();
-      if(m){
-        addButtons(m.buttons||[]);
-        render(m.images||[]);
-        return;
-      }
-      // Fallback: manual list here if no manifest.json (edit this array)
-      const fallback = [
-        "deal-1.webp","deal-2.webp","deal-3.webp"
-      ];
-      addButtons([]);
-      render(fallback);
-      // Mark cards as "ghost" to remind you it's fallback
-      document.querySelectorAll(".card").forEach(c=>c.classList.add("ghost"));
-    }
-
-    main();
+    // init
+    bindLightbox();
+    render(IMAGES);
   </script>
 </body>
 </html>
