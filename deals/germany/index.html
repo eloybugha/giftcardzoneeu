@@ -69,113 +69,44 @@
     <div id="gallery" class="grid" aria-live="polite"></div>
   </div>
 
-  <script>
-    // ===== CONFIG =====
-    const OWNER = "eloybugha";
-    const REPO  = "giftcardzoneeu";
-    const DIR   = "assets/deals/germany";    // GitHub path to scan
-    const BASE  = "/assets/deals/germany/";  // public path
-    const ROUTER = "/go/global-router/";     // your redirect page
-    const DEFAULT_BRAND = "aliexpress";
-    const SUBID = "de-grid";                 // tracking tag
+<script>
+  // MASTER: PURE AFFILIATE MODE
+  const ADS_ENABLED = false;
 
-    // Brand detection rules (filename keywords -> brand)
-    const BRAND_RULES = [
-      { brand: "amazon",      keys: ["amazon","amz"] },
-      { brand: "zalando",     keys: ["zalando"] },
-      { brand: "mediamarkt",  keys: ["mediamarkt","media-markt","mmarkt"] },
-      { brand: "ebay",        keys: ["ebay"] },
-      { brand: "ikea",        keys: ["ikea"] },
-      { brand: "adidas",      keys: ["adidas"] },
-      { brand: "hm",          keys: ["hm","h&m"] },
-      { brand: "aliexpress",  keys: ["ali","aliexpress","aexpress","a-e"] }, // keep last so others win first
-    ];
+  if (!ADS_ENABLED) {
+    const blocked = /adsterra|monetag|propeller|clickadu|popunder|push|socialbar|zara/i;
 
-    function detectBrand(filename){
-      const s = filename.toLowerCase();
-      for(const rule of BRAND_RULES){
-        if(rule.keys.some(k => s.includes(k))) return rule.brand;
+    // Block injected <script src=...>
+    const origCreate = document.createElement;
+    document.createElement = function(tag){
+      const el = origCreate.call(document, tag);
+      if (tag.toLowerCase() === 'script') {
+        return new Proxy(el, {
+          set(t, p, v){
+            if (p === 'src' && blocked.test(String(v))) {
+              console.warn('⛔ Blocked ad script:', v);
+              return true;
+            }
+            t[p] = v; return true;
+          }
+        });
       }
-      return DEFAULT_BRAND;
-    }
+      return el;
+    };
 
-    // Lazy loader
-    const io = ("IntersectionObserver" in window) ? new IntersectionObserver((entries,obs)=>{
-      for(const e of entries){
-        if(e.isIntersecting){
-          const img = e.target; img.src = img.dataset.src; obs.unobserve(img);
+    // Block late appends
+    const origAppend = Element.prototype.appendChild;
+    Element.prototype.appendChild = function(el){
+      try {
+        if (el.tagName === 'SCRIPT' && blocked.test(el.src)) {
+          console.warn('⛔ Blocked injected script:', el.src);
+          return el;
         }
-      }
-    }, {rootMargin:"200px"}) : null;
+      } catch(e){}
+      return origAppend.call(this, el);
+    };
+  }
+</script>
 
-    async function loadImagesFromGitHub(){
-      try{
-        const api = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${DIR}`;
-        const res = await fetch(api, {headers:{'Accept':'application/vnd.github+json'}});
-        if(!res.ok) throw new Error("GitHub API error " + res.status);
-        const files = await res.json();
-
-        const exts = [".jpg",".jpeg",".png",".webp",".gif"];
-        const imgs = files
-          .filter(f => f.type === "file" && exts.some(x => f.name.toLowerCase().endsWith(x)))
-          .map(f => f.name)
-          .sort();
-
-        render(imgs);
-      }catch(err){
-        console.error(err);
-        document.getElementById("counter").textContent = "Could not load images.";
-      }
-    }
-
-    function render(files){
-      const gallery = document.getElementById("gallery");
-      const counter = document.getElementById("counter");
-      gallery.innerHTML = "";
-      files.forEach((name, idx)=>{
-        const brand = detectBrand(name);
-        // Build router URL
-        const url = `${ROUTER}?geo=de&brand=${encodeURIComponent(brand)}&img=${encodeURIComponent(name)}&subid=${encodeURIComponent(SUBID)}`;
-
-        const a = document.createElement("a");
-        a.className = "card";
-        a.href = url;
-        a.target = "_blank";
-        a.rel = "nofollow sponsored noopener";
-        a.setAttribute("aria-label", `Open ${brand} deal ${idx+1}`);
-
-        const img = document.createElement("img");
-        img.className = "thumb";
-        img.loading = "lazy";
-        img.alt = name;
-        img.dataset.src = BASE + name;
-        img.onerror = ()=> img.style.opacity = .25;
-
-        if(io) io.observe(img); else img.src = img.dataset.src;
-
-        const brandTag = document.createElement("span");
-        brandTag.className = "brand";
-        brandTag.textContent = brand;
-
-        const badge = document.createElement("span");
-        badge.className = "badge";
-        badge.textContent = `#${idx+1}`;
-
-        const cta = document.createElement("span");
-        cta.className = "cta";
-        cta.textContent = "Shop →";
-
-        a.appendChild(img);
-        a.appendChild(brandTag);
-        a.appendChild(badge);
-        a.appendChild(cta);
-        gallery.appendChild(a);
-      });
-
-      counter.textContent = `${files.length} item${files.length!==1?'s':''}`;
-    }
-
-    loadImagesFromGitHub();
-  </script>
 </body>
 </html>
