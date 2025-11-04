@@ -105,90 +105,94 @@
   </div>
 
   <script>
-    // --- PRODUCTS (sample) ---
-    // TIP: Palitan mo 'url' ng AliExpress affiliate link mo (s.click.aliexpress.com/…)
-    // TIP: Palitan mo 'img' ng product image (pwede AliExpress CDN o sariling /assets).
-    const products = [
-      {
-        title: "Mini USB LED Light Strip",
-        brand: "AliExpress",
-        img: "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='1000'%3E%3Crect width='100%25' height='100%25' fill='%23111623'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%239fb0d1' font-family='Arial' font-size='28'%3EReplace with product image%3C/text%3E%3C/svg%3E",
-        url: "https://s.click.aliexpress.com/e/YOUR_AFF_LINK_1"
-      },
-      {
-        title: "MagSafe Power Bank 10000mAh",
-        brand: "AliExpress",
-        img: "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='1000'%3E%3Crect width='100%25' height='100%25' fill='%23111623'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%239fb0d1' font-family='Arial' font-size='28'%3EReplace with product image%3C/text%3E%3C/svg%3E",
-        url: "https://s.click.aliexpress.com/e/YOUR_AFF_LINK_2"
-      },
-      {
-        title: "Wireless Earbuds BT 5.3",
-        brand: "AliExpress",
-        img: "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='1000'%3E%3Crect width='100%25' height='100%25' fill='%23111623'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%239fb0d1' font-family='Arial' font-size='28'%3EReplace with product image%3C/text%3E%3C/svg%3E",
-        url: "https://s.click.aliexpress.com/e/YOUR_AFF_LINK_3"
-      },
-      {
-        title: "RGB Gaming Mouse Pad XL",
-        brand: "AliExpress",
-        img: "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='1000'%3E%3Crect width='100%25' height='100%25' fill='%23111623'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%239fb0d1' font-family='Arial' font-size='28'%3EReplace with product image%3C/text%3E%3C/svg%3E",
-        url: "https://s.click.aliexpress.com/e/YOUR_AFF_LINK_4"
-      },
-      {
-        title: "Smartwatch AMOLED",
-        brand: "AliExpress",
-        img: "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='1000'%3E%3Crect width='100%25' height='100%25' fill='%23111623'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%239fb0d1' font-family='Arial' font-size='28'%3EReplace with product image%3C/text%3E%3C/svg%3E",
-        url: "https://s.click.aliexpress.com/e/YOUR_AFF_LINK_5"
-      },
-      {
-        title: "Type-C Fast Charger 65W",
-        brand: "AliExpress",
-        img: "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='1000'%3E%3Crect width='100%25' height='100%25' fill='%23111623'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%239fb0d1' font-family='Arial' font-size='28'%3EReplace with product image%3C/text%3E%3C/svg%3E",
-        url: "https://s.click.aliexpress.com/e/YOUR_AFF_LINK_6"
+/* 1) ILAGAY DITO ANG MGA AFFILIATE LINKS MO PER ITEM (sunod sa pagkakasunod sa grid)
+   TIP: Kung wala pa yung iba, iwanan mo muna as "" at gagamitin ang fallback. */
+const AFFILIATE_LINKS = [
+  "https://s.click.aliexpress.com/e/_EXAMPLE1", // #1
+  "https://s.click.aliexpress.com/e/_EXAMPLE2", // #2
+  "https://s.click.aliexpress.com/e/_EXAMPLE3", // #3
+  "https://s.click.aliexpress.com/e/_EXAMPLE4", // #4
+  "https://s.click.aliexpress.com/e/_EXAMPLE5", // #5
+  "https://s.click.aliexpress.com/e/_EXAMPLE6", // #6
+  "https://s.click.aliexpress.com/e/_EXAMPLE7", // #7
+  "https://s.click.aliexpress.com/e/_EXAMPLE8", // #8
+  "https://s.click.aliexpress.com/e/_EXAMPLE9", // #9
+  "https://s.click.aliexpress.com/e/_EXAMPLE10", // #10
+  "https://s.click.aliexpress.com/e/_EXAMPLE11", // #11
+  "https://s.click.aliexpress.com/e/_EXAMPLE12", // #12
+  "https://s.click.aliexpress.com/e/_EXAMPLE13", // #13
+  "https://s.click.aliexpress.com/e/_EXAMPLE14", // #14
+  "https://s.click.aliexpress.com/e/_EXAMPLE15", // #15
+  "https://s.click.aliexpress.com/e/_EXAMPLE16", // #16
+  "https://s.click.aliexpress.com/e/_EXAMPLE17", // #17
+  "https://s.click.aliexpress.com/e/_EXAMPLE18", // #18
+  "https://s.click.aliexpress.com/e/_EXAMPLE19", // #19
+  "https://s.click.aliexpress.com/e/_EXAMPLE20", // #20
+  "https://s.click.aliexpress.com/e/_EXAMPLE21", // #21
+  "https://s.click.aliexpress.com/e/_EXAMPLE22"  // #22
+];
+
+/* 2) Optional tracking params (palitan mo kung gusto mo) */
+const TRACK = {
+  pub_click_id: (crypto?.randomUUID?.() || Date.now().toString()),
+  site: "deals_germany",
+  sub: "grid"
+};
+
+/* 3) Fallback kapag walang link: AliExpress search page */
+const FALLBACK = "https://www.aliexpress.com/w/wholesale.html?catId=0&SearchText=popular%20gadgets";
+
+/* 4) Auto-wrap bawat card/figure sa <a> at lagyan ng rel+utm */
+(function makeClickable(){
+  // hanapin lahat ng card sa grid — palitan ang selector kung iba sa page mo
+  const cards = document.querySelectorAll('.card, .item, figure, .grid > div');
+  if(!cards.length) return;
+
+  cards.forEach((card, i) => {
+    // kung naka-figure > img ka, ito na usually tama
+    const target = card.closest('a') ? card.closest('a') : card;
+
+    // Huwag mag-double wrap
+    if (target.tagName.toLowerCase() === 'a') {
+      // meron nang <a>, i-update lang href kung wala
+      if (!target.href || target.href.startsWith(window.location.origin)) {
+        target.href = buildOutUrl(AFFILIATE_LINKS[i] || FALLBACK);
       }
-    ];
-
-    // --- RENDERER ---
-    const gallery = document.getElementById('gallery');
-    const counter = document.getElementById('counter');
-
-    function render(){
-      gallery.innerHTML = '';
-      products.forEach((p, i)=>{
-        const a = document.createElement('a');
-        a.href = p.url;
-        a.target = "_blank";
-        a.rel = "nofollow noopener";
-        a.className = "card";
-        a.setAttribute('aria-label', p.title);
-
-        const img = document.createElement('img');
-        img.loading = 'lazy';
-        img.alt = p.title;
-        img.src = p.img;
-        img.className = 'thumb';
-
-        const brand = document.createElement('div');
-        brand.className = 'brand';
-        brand.textContent = p.brand || 'Deal';
-
-        const badge = document.createElement('div');
-        badge.className = 'badge';
-        badge.textContent = p.title;
-
-        const cta = document.createElement('div');
-        cta.className = 'cta';
-        cta.textContent = 'Shop →';
-
-        a.appendChild(img);
-        a.appendChild(brand);
-        a.appendChild(badge);
-        a.appendChild(cta);
-        gallery.appendChild(a);
-      });
-      counter.textContent = `${products.length} deals • pure affiliate mode`;
+      target.setAttribute('target', '_blank');
+      target.setAttribute('rel', 'nofollow sponsored noopener');
+    } else {
+      const a = document.createElement('a');
+      a.href   = buildOutUrl(AFFILIATE_LINKS[i] || FALLBACK);
+      a.target = '_blank';
+      a.rel    = 'nofollow sponsored noopener';
+      a.style.display = 'contents'; // para hindi masira layout ng grid
+      card.replaceWith(a);
+      a.appendChild(card);
     }
 
-    render();
-  </script>
+    // cursor hint
+    card.style.cursor = 'pointer';
+  });
+
+  // counter badge (optional): i-update label #1, #2...
+  document.querySelectorAll('[data-idx], .badge, .idx').forEach((el, i) => {
+    el.textContent = `#${i+1}`;
+  });
+})();
+
+/* Helper: idikit ang tracking params kung AliExpress o anumang URL */
+function buildOutUrl(base){
+  try{
+    const u = new URL(base);
+    // append tracking safely
+    if (TRACK.pub_click_id) u.searchParams.set('pub_click_id', TRACK.pub_click_id);
+    if (TRACK.site)         u.searchParams.set('site', TRACK.site);
+    if (TRACK.sub)          u.searchParams.set('sub', TRACK.sub);
+    return u.toString();
+  }catch(e){
+    return base; // kung hindi valid URL, ibalik na lang
+  }
+}
+</script>
 </body>
 </html>
