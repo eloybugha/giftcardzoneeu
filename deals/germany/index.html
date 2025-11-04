@@ -105,94 +105,121 @@
   </div>
 
   <script>
-/* 1) ILAGAY DITO ANG MGA AFFILIATE LINKS MO PER ITEM (sunod sa pagkakasunod sa grid)
-   TIP: Kung wala pa yung iba, iwanan mo muna as "" at gagamitin ang fallback. */
+/*<script>
+/* =========================
+   CONFIG
+========================= */
+// Ilagay dito ang AE links mo (sunod sa #1..#22). Empty string = gagamit ng FALLBACK.
 const AFFILIATE_LINKS = [
-  "https://s.click.aliexpress.com/e/_EXAMPLE1", // #1
-  "https://s.click.aliexpress.com/e/_EXAMPLE2", // #2
-  "https://s.click.aliexpress.com/e/_EXAMPLE3", // #3
-  "https://s.click.aliexpress.com/e/_EXAMPLE4", // #4
-  "https://s.click.aliexpress.com/e/_EXAMPLE5", // #5
-  "https://s.click.aliexpress.com/e/_EXAMPLE6", // #6
-  "https://s.click.aliexpress.com/e/_EXAMPLE7", // #7
-  "https://s.click.aliexpress.com/e/_EXAMPLE8", // #8
-  "https://s.click.aliexpress.com/e/_EXAMPLE9", // #9
-  "https://s.click.aliexpress.com/e/_EXAMPLE10", // #10
-  "https://s.click.aliexpress.com/e/_EXAMPLE11", // #11
-  "https://s.click.aliexpress.com/e/_EXAMPLE12", // #12
-  "https://s.click.aliexpress.com/e/_EXAMPLE13", // #13
-  "https://s.click.aliexpress.com/e/_EXAMPLE14", // #14
-  "https://s.click.aliexpress.com/e/_EXAMPLE15", // #15
-  "https://s.click.aliexpress.com/e/_EXAMPLE16", // #16
-  "https://s.click.aliexpress.com/e/_EXAMPLE17", // #17
-  "https://s.click.aliexpress.com/e/_EXAMPLE18", // #18
-  "https://s.click.aliexpress.com/e/_EXAMPLE19", // #19
-  "https://s.click.aliexpress.com/e/_EXAMPLE20", // #20
-  "https://s.click.aliexpress.com/e/_EXAMPLE21", // #21
-  "https://s.click.aliexpress.com/e/_EXAMPLE22"  // #22
+  "https://s.click.aliexpress.com/e/_EXAMPLE1",  // #1
+  "", "", "", "", "", "", "", "", "",           // #2-#10
+  "", "", "", "", "", "", "", "", "", "",       // #11-#20
+  "", ""                                        // #21-#22
 ];
 
-/* 2) Optional tracking params (palitan mo kung gusto mo) */
+// Ilan ang images mo sa /assets/germany/ (1..TOTAL)
+const TOTAL = 22;
+
+// Subukan na extensions na i-lo-load per index
+const EXT_ORDER = ["webp","jpg","png","jpeg"];
+
+// Fallback kapag walang per-item link
+const FALLBACK = "https://www.aliexpress.com/w/wholesale.html?SearchText=gadgets";
+
+// Optional tracking
 const TRACK = {
   pub_click_id: (crypto?.randomUUID?.() || Date.now().toString()),
   site: "deals_germany",
   sub: "grid"
 };
 
-/* 3) Fallback kapag walang link: AliExpress search page */
-const FALLBACK = "https://www.aliexpress.com/w/wholesale.html?catId=0&SearchText=popular%20gadgets";
+/* =========================
+   RENDERER
+========================= */
+const $ = (q,root=document)=>root.querySelector(q);
+const gallery = $("#gallery");
+const counter = $("#counter");
 
-/* 4) Auto-wrap bawat card/figure sa <a> at lagyan ng rel+utm */
-(function makeClickable(){
-  // hanapin lahat ng card sa grid — palitan ang selector kung iba sa page mo
-  const cards = document.querySelectorAll('.card, .item, figure, .grid > div');
-  if(!cards.length) return;
-
-  cards.forEach((card, i) => {
-    // kung naka-figure > img ka, ito na usually tama
-    const target = card.closest('a') ? card.closest('a') : card;
-
-    // Huwag mag-double wrap
-    if (target.tagName.toLowerCase() === 'a') {
-      // meron nang <a>, i-update lang href kung wala
-      if (!target.href || target.href.startsWith(window.location.origin)) {
-        target.href = buildOutUrl(AFFILIATE_LINKS[i] || FALLBACK);
-      }
-      target.setAttribute('target', '_blank');
-      target.setAttribute('rel', 'nofollow sponsored noopener');
-    } else {
-      const a = document.createElement('a');
-      a.href   = buildOutUrl(AFFILIATE_LINKS[i] || FALLBACK);
-      a.target = '_blank';
-      a.rel    = 'nofollow sponsored noopener';
-      a.style.display = 'contents'; // para hindi masira layout ng grid
-      card.replaceWith(a);
-      a.appendChild(card);
-    }
-
-    // cursor hint
-    card.style.cursor = 'pointer';
-  });
-
-  // counter badge (optional): i-update label #1, #2...
-  document.querySelectorAll('[data-idx], .badge, .idx').forEach((el, i) => {
-    el.textContent = `#${i+1}`;
-  });
-})();
-
-/* Helper: idikit ang tracking params kung AliExpress o anumang URL */
-function buildOutUrl(base){
+function buildUrl(base, i){
   try{
-    const u = new URL(base);
-    // append tracking safely
-    if (TRACK.pub_click_id) u.searchParams.set('pub_click_id', TRACK.pub_click_id);
-    if (TRACK.site)         u.searchParams.set('site', TRACK.site);
-    if (TRACK.sub)          u.searchParams.set('sub', TRACK.sub);
+    const u = new URL(base, location.origin);
+    if (TRACK.pub_click_id) u.searchParams.set("pub_click_id", TRACK.pub_click_id);
+    if (TRACK.site)         u.searchParams.set("site", TRACK.site);
+    if (TRACK.sub)          u.searchParams.set("sub", String(i));
     return u.toString();
-  }catch(e){
-    return base; // kung hindi valid URL, ibalik na lang
-  }
+  }catch{ return base; }
 }
+
+function pickLink(i){
+  const link = AFFILIATE_LINKS[i-1] || FALLBACK;
+  return buildUrl(link, i);
+}
+
+function tryExtensions(idx, onFound, k=0){
+  if (k >= EXT_ORDER.length) return onFound(null);
+  const ext = EXT_ORDER[k];
+  const src = `/assets/germany/${idx}.${ext}`;
+  const img = new Image();
+  img.loading = "lazy";
+  img.onload = ()=> onFound(src);
+  img.onerror = ()=> tryExtensions(idx, onFound, k+1);
+  img.src = src;
+}
+
+function makeCard(idx, src){
+  const a = document.createElement("a");
+  a.href   = pickLink(idx);
+  a.target = "_blank";
+  a.rel    = "nofollow sponsored noopener";
+  a.className = "card";
+
+  const img = document.createElement("img");
+  img.className = "thumb";
+  img.alt = `Germany deal #${idx}`;
+  img.src = src;
+
+  const brand = document.createElement("div");
+  brand.className = "brand";
+  brand.textContent = "AliExpress";
+
+  const badge = document.createElement("div");
+  badge.className = "badge";
+  badge.textContent = `#${idx}`;
+
+  const cta = document.createElement("div");
+  cta.className = "cta";
+  cta.textContent = "Open";
+
+  a.append(img, brand, badge, cta);
+  return a;
+}
+
+(async function render(){
+  counter.textContent = "Loading…";
+  let loaded = 0;
+
+  for (let i=1;i<=TOTAL;i++){
+    await new Promise(res=>{
+      tryExtensions(i, (src)=>{
+        if (src){
+          gallery.appendChild(makeCard(i, src));
+          loaded++;
+          counter.textContent = `${loaded} item${loaded>1?'s':''}`;
+        }
+        res();
+      });
+    });
+  }
+
+  if (loaded === 0){
+    counter.textContent = "No items found";
+    const p = document.createElement("p");
+    p.className = "muted";
+    p.textContent = "Walang nahanap na images. Siguraduhin meron kang /assets/germany/1.webp|jpg|png …";
+    gallery.appendChild(p);
+  }
+})();
 </script>
+
 </body>
 </html>
