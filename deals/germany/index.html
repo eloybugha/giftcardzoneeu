@@ -8,13 +8,13 @@
   <link rel="canonical" href="https://giftcardzoneeu.com/deals/germany/"/>
 
   <meta property="og:title" content="Germany Deals" />
-  <meta property="og:description" content="Lazy-loaded grid • Lightbox preview • Pure affiliate buttons." />
+  <meta property="og:description" content="Auto-scan images • Lazy-loaded grid • Lightbox preview." />
   <meta property="og:type" content="website" />
 
   <style>
     :root{
       --bg:#0b0e14; --card:#111623; --text:#e8eefc; --muted:#9fb0d1;
-      --ring:#2b5cff; --gap:14px; --radius:16px; --shadow:0 6px 24px rgba(0,0,0,.25);
+      --gap:14px; --radius:16px; --shadow:0 6px 24px rgba(0,0,0,.25);
       --cta:#2b5cff; --cta-t:#fff; --grid:minmax(220px,1fr);
     }
     *{box-sizing:border-box} html,body{margin:0;height:100%;background:var(--bg);color:var(--text);font:500 15px/1.5 system-ui,Segoe UI,Roboto,Arial}
@@ -25,7 +25,7 @@
     .hint{color:var(--muted);font-size:13px}
 
     .bar{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 18px}
-    .btn{background:var(--cta);color:var(--cta-t);padding:10px 14px;border-radius:12px;font-weight:700;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.06)}
+    .btn{background:var(--cta);color:var(--cta-t);padding:10px 14px;border-radius:12px;font-weight:700;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.06);cursor:pointer}
     .btn.alt{background:#192034;color:#d9e3ff;border:1px solid #26304b}
 
     .grid{display:grid;grid-template-columns:repeat(auto-fill,var(--grid));gap:var(--gap)}
@@ -62,7 +62,9 @@
 
     <div class="grid" id="grid" aria-live="polite"></div>
 
-    <div class="footer">Images load from <code>/assets/deals/germany/</code>. Upload more and they’ll appear after edit.</div>
+    <div class="footer">
+      Images auto-scan from <code>/assets/deals/germany/</code>. Upload and refresh with <code>?v=</code> to bypass cache.
+    </div>
   </div>
 
   <!-- lightbox -->
@@ -73,83 +75,77 @@
 
   <script>
     // CONFIG
+    const OWNER = "eloybugha";
+    const REPO  = "giftcardzoneeu";
+    const PATH  = "assets/deals/germany"; // repo path
     const ASSET_BASE = "/assets/deals/germany/";
-    const AFF_URL = "https://s.click.aliexpress.com/e/_YOUR_AFF"; // change if needed
-
-    // Exact filenames in your /assets/deals/germany/ folder
-    const IMAGES = [
-      "IMG_20251103_204226.jpg",
-      "S110db4df6d3a4cd6892ede56bf6e07e2.jpg",
-      "S2b2368ee39104173806f1405d94d9d08.jpg",
-      "S4062e7fa17e94ffbe55c62f646a97b45.jpg",
-      "S524e226db37842f8962583e6c6b0e6d4.jpg",
-      "S56b9067baf485c8ba4aad6f3c1ec6b44.jpg",
-      "S5a2f061a72335451c976b1e47693192d.jpg",
-      "S67047a18c86e40a3bff6ec010fd2361d.jpg",
-      "S7b3301f42369441aa90ac71568c82731.jpg",
-      "S7da91f0b5c64f4beb7e411ce42bd16c3.jpg",
-      "S8348f6c7d4a54710b04be6e3c23fa0c3.jpg",
-      "S83b658e4eb944801bf8d5e7f87fecef1.jpg",
-      "S83b658e4eb944801bf8d5e7f87fecef1-1.jpg",
-      "S900709178e7f47b4929a99d9e18d8c52.jpg",
-      "S9913b5b4924674f35b53bb95816f657e.jpg",
-      "S9913b5b4924674f35b53bb95816f657e-1.jpg"
-    ];
+    const AFF_URL = "https://s.click.aliexpress.com/e/_YOUR_AFF";
 
     const grid = document.querySelector("#grid");
-    const box = document.querySelector("#box");
+    const box  = document.querySelector("#box");
     const boxImg = document.querySelector("#boxImg");
 
-    // build single card HTML with a data-index on preview button
-    function cardTemplate(src, i){
+    // Build a single card
+    function cardTemplate(filename, i){
+      const src = ASSET_BASE + filename;
       const title = `Deal #${i+1}`;
       return `
-        <article class="card" data-index="${i}">
-          <img loading="lazy" decoding="async" src="${src}" alt="${title}" />
+        <article class="card" data-file="${encodeURIComponent(filename)}" data-index="${i}">
+          <img loading="lazy" decoding="async" src="${src}" alt="${title}">
           <div class="row">
             <div class="meta">${title}</div>
             <div style="display:flex;gap:8px">
-              <button class="btn alt preview-btn" data-index="${i}" aria-label="Preview ${title}">Preview</button>
+              <button class="btn alt preview-btn" data-file="${encodeURIComponent(filename)}" aria-label="Preview ${title}">Preview</button>
               <a class="btn" href="${AFF_URL}" rel="nofollow noopener">Shop</a>
             </div>
           </div>
-        </article>`;
+        </article>
+      `;
     }
 
-    // render images grid
-    function render(images){
-      grid.innerHTML = images.map((name,i)=>{
-        const src = name.startsWith("/") ? name : (ASSET_BASE + name);
-        return cardTemplate(src, i);
-      }).join("");
-    }
-
-    // lightbox binder: uses data-index to find correct image
     function bindLightbox(){
-      grid.addEventListener("click", (e) => {
+      grid.addEventListener("click",(e)=>{
         const btn = e.target.closest(".preview-btn");
         if(!btn) return;
-        const idx = Number(btn.dataset.index);
-        if(Number.isNaN(idx)) return;
-        const filename = IMAGES[idx];
-        const src = filename.startsWith("/") ? filename : (ASSET_BASE + filename);
-        // set image and open
-        boxImg.src = src;
+        const file = decodeURIComponent(btn.dataset.file || "");
+        if(!file) return;
+        boxImg.src = ASSET_BASE + file;
         box.classList.add("open");
       });
-
-      document.querySelector("#xBtn").onclick = () => {
-        box.classList.remove("open");
-        // remove src to stop audio/video or free memory
-        boxImg.src = "";
-      };
-      box.addEventListener("click", (e) => { if(e.target === box) box.classList.remove("open"); });
-      document.addEventListener("keydown", (e) => { if(e.key === "Escape") box.classList.remove("open"); });
+      document.querySelector("#xBtn").onclick = ()=>{ box.classList.remove("open"); boxImg.src=""; };
+      box.addEventListener("click",(e)=>{ if(e.target===box){ box.classList.remove("open"); boxImg.src=""; }});
+      document.addEventListener("keydown",(e)=>{ if(e.key==="Escape"){ box.classList.remove("open"); boxImg.src=""; }});
     }
 
-    // init
-    render(IMAGES);
-    bindLightbox();
+    async function fetchFileList(){
+      const api = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${PATH}`;
+      const r = await fetch(api, {cache:"no-store"});
+      if(!r.ok) throw new Error("GitHub API error");
+      const data = await r.json();
+      // keep only images
+      return data
+        .filter(x => x.type === "file" && /\.(jpe?g|png|webp|gif)$/i.test(x.name))
+        .map(x => x.name);
+    }
+
+    async function main(){
+      bindLightbox();
+      try{
+        const files = await fetchFileList();
+        if(!files.length){
+          grid.innerHTML = `<div class="hint">No images found in /${PATH}/</div>`;
+          return;
+        }
+        // optional: stable sort by name
+        files.sort((a,b)=> a.localeCompare(b, undefined, {numeric:true}));
+        grid.innerHTML = files.map((f,i)=> cardTemplate(f,i)).join("");
+      }catch(e){
+        console.warn(e);
+        grid.innerHTML = `<div class="hint">Could not auto-scan images. Check connection or rate limit.</div>`;
+      }
+    }
+
+    main();
   </script>
 </body>
 </html>
