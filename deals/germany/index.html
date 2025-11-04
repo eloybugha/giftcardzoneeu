@@ -1,140 +1,157 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Germany Deals • Auto-scan (Affiliate)</title>
-<meta name="description" content="Auto-scanned Germany deals from /assets/germany with clean, fast, store-like cards. Pure affiliate." />
-<link rel="canonical" href="https://giftcardzoneeu.com/deals/germany/" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Germany Deals • Pure Affiliate Gallery</title>
+  <meta name="description" content="Clean, fast gallery of Germany deals. Pure affiliate — no popups, no redirects." />
 
-<style>
-  :root{
-    --bg:#0b0e14; --surface:#0f1422; --card:#111623; --muted:#9fb0d1; --text:#e8eefc;
-    --ring:#2b5cff; --accent:#2b5cff; --gap:14px; --radius:16px; --shadow:0 8px 28px rgba(0,0,0,.25);
-  }
-  *{box-sizing:border-box}
-  body{margin:0;font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial;background:linear-gradient(180deg,#0b0e14,#0f1320);color:var(--text)}
-  .wrap{max-width:1180px;margin:24px auto;padding:0 16px}
-  header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-  h1{font-size:22px;margin:0}
-  .muted{color:var(--muted);font-size:13px}
-  .grid{display:grid;gap:var(--gap);grid-template-columns:repeat(2,minmax(0,1fr));margin-top:12px}
-  @media(min-width:720px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-  @media(min-width:1080px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
-  .card{position:relative;background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
-  .thumb{width:100%;aspect-ratio:4/5;object-fit:cover;background:#0d1220}
-  .pad{padding:12px}
-  .title{font-weight:700;font-size:14px;line-height:1.25;margin:6px 0 8px}
-  .row{display:flex;justify-content:space-between;align-items:center;gap:8px}
-  .btn{display:inline-block;margin-top:8px;padding:10px 12px;border-radius:10px;background:var(--accent);color:#fff;font-weight:700;text-align:center;width:100%}
-  .badge{position:absolute;left:10px;top:10px;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);padding:4px 8px;border-radius:999px;font-size:11px}
-  .flag{position:absolute;right:10px;top:10px;background:rgba(0,0,0,.55);padding:4px 8px;border-radius:10px;font-size:11px}
-  .empty{color:var(--muted);text-align:center;padding:30px}
-</style>
+  <link rel="canonical" href="https://giftcardzoneeu.com/deals/germany/" />
+  <meta property="og:title" content="Germany Deals" />
+  <meta property="og:description" content="Auto-scan via manifest • Lazy-loaded grid • Pure affiliate buttons." />
+  <meta property="og:type" content="website" />
+
+  <style>
+    :root{
+      --bg:#0b0e14; --card:#111623; --text:#e8eefc; --muted:#9fb0d1;
+      --ring:#2b5cff; --gap:14px; --radius:16px; --shadow:0 6px 24px rgba(0,0,0,.25);
+      --cta:#2b5cff; --cta-t:#fff; --grid: minmax(220px,1fr);
+    }
+    *{box-sizing:border-box} html,body{margin:0;height:100%;background:var(--bg);color:var(--text);font:500 15px/1.5 system-ui,Segoe UI,Roboto,Arial}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1200px;margin:0 auto;padding:24px}
+    header{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:16px}
+    .title{font-size:20px;font-weight:800;letter-spacing:.2px}
+    .hint{color:var(--muted);font-size:13px}
+
+    .bar{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 18px}
+    .btn{background:var(--cta);color:var(--cta-t);padding:10px 14px;border-radius:12px;font-weight:700;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.06)}
+    .btn.alt{background:#192034;color:#d9e3ff;border:1px solid #26304b}
+
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,var(--grid));gap:var(--gap)}
+    .card{background:var(--card);border:1px solid #1a2132;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+    .card img{width:100%;height:220px;object-fit:cover;display:block;background:#0e1220}
+    .card .row{display:flex;align-items:center;justify-content:space-between;padding:12px 12px 14px}
+    .card .row .meta{color:var(--muted);font-size:12px}
+    .ghost{opacity:.6;filter:grayscale(80%)}
+
+    .footer{margin:28px 0 10px;color:var(--muted);font-size:12px}
+
+    /* Lightbox */
+    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.86);display:none;align-items:center;justify-content:center;padding:24px}
+    .lightbox.open{display:flex}
+    .lightbox img{max-width:96vw;max-height:90vh;border-radius:12px}
+    .x{position:fixed;top:14px;right:14px;background:#101523;border:1px solid #223050;color:#dfe7ff;padding:8px 10px;border-radius:10px}
+  </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <h1>Germany Deals</h1>
-    <div class="muted" id="counter">Loading…</div>
-  </header>
+  <div class="wrap">
+    <header>
+      <div>
+        <div class="title">Germany Deals</div>
+        <div class="hint">Pure affiliate gallery · no popups, no forced redirects</div>
+      </div>
+      <a class="btn alt" href="/">Home</a>
+    </header>
 
-  <section id="grid" class="grid" aria-live="polite"></section>
-  <div id="empty" class="empty" hidden>Walang nahanap na images sa <code>/assets/germany/</code>. Siguraduhing may files na <code>1.webp/jpg/png</code> pataas.</div>
-</div>
-
-<script>
-/* =========================
-   CONFIG
-========================= */
-
-// Ilagay dito ang AE affiliate links mo PER INDEX (#1 = unang image na makita).
-// Kung blank (""), gagamit ng FALLBACK_SEARCH.
-const AFFILIATE_LINKS = [
-  // "https://s.click.aliexpress.com/e/_EXAMPLE1", // #1
-  // "https://s.click.aliexpress.com/e/_EXAMPLE2", // #2
-];
-
-// Hanggang ilang index ang i-scan (1..SCAN_MAX)
-const SCAN_MAX = 60;
-
-// Allowed extensions na ite-test per index, sunod-sunod
-const EXT_ORDER = ["webp","jpg","png","jpeg"];
-
-// Fallback kapag walang per-item link
-const FALLBACK_SEARCH = "https://www.aliexpress.com/w/wholesale.html?SearchText=gadgets";
-
-// Optional tracking params auto-append
-const CLICK_ID = (crypto?.randomUUID?.() || Date.now().toString());
-function withTracking(u, idx){
-  try{
-    const x = new URL(u, location.origin);
-    x.searchParams.set("pub_click_id", CLICK_ID);
-    x.searchParams.set("site", "deals_germany");
-    x.searchParams.set("sub", String(idx));
-    return x.toString();
-  }catch{ return u }
-}
-
-/* =========================
-   CORE (auto-scan + render)
-========================= */
-const $ = (q,root=document)=>root.querySelector(q);
-const grid = $("#grid"), counter=$("#counter"), empty=$("#empty");
-
-function probe(path){
-  return new Promise(res=>{
-    const img=new Image();
-    img.onload=()=>res(path);
-    img.onerror=()=>res(null);
-    img.src=path;
-  });
-}
-
-async function findAssetForIndex(i){
-  for(const ext of EXT_ORDER){
-    const url = `/assets/germany/${i}.${ext}`;
-    if(await probe(url)) return url;
-  }
-  return null;
-}
-
-function makeCard(idx, src, href){
-  const a = document.createElement("a");
-  a.className = "card";
-  a.href = href;
-  a.target = "_blank";
-  a.rel = "nofollow sponsored noopener";
-  a.innerHTML = `
-    <div class="badge">#${idx}</div>
-    <div class="flag">DE</div>
-    <img class="thumb" src="${src}" alt="Germany deal #${idx}">
-    <div class="pad">
-      <div class="title">Deal #${idx} (Germany)</div>
-      <div class="row"><span class="muted">AliExpress</span><span class="muted">Pure affiliate</span></div>
-      <div class="btn">View on AliExpress</div>
+    <div class="bar" id="brandBar">
+      <!-- Buttons injected from manifest.json -->
     </div>
-  `;
-  return a;
-}
 
-(async function render(){
-  let found = 0;
-  for (let i=1; i<=SCAN_MAX; i++){
-    const src = await findAssetForIndex(i);
-    if(!src) continue;
+    <div class="grid" id="grid" aria-live="polite"></div>
 
-    const link = withTracking((AFFILIATE_LINKS[i-1] || FALLBACK_SEARCH), i);
-    grid.appendChild(makeCard(i, src, link));
-    found++;
-    counter.textContent = `${found} item${found>1?'s':''}`;
-  }
+    <div class="footer">Images load from <code>/assets/germany/</code>. Add/remove files via <code>manifest.json</code>.</div>
+  </div>
 
-  if(found===0){
-    counter.textContent = "0 items";
-    empty.hidden = false;
-  }
-})();
-</script>
+  <!-- lightbox -->
+  <div class="lightbox" id="box" role="dialog" aria-modal="true">
+    <button class="x" id="xBtn" aria-label="Close">Close ✕</button>
+    <img alt="Preview" id="boxImg" />
+  </div>
+
+  <script>
+    const ASSET_BASE = "/assets/germany/";
+    const MANIFEST = ASSET_BASE + "manifest.json";
+    const grid = document.querySelector("#grid");
+    const brandBar = document.querySelector("#brandBar");
+
+    async function loadManifest(){
+      try{
+        const r = await fetch(MANIFEST, {cache:"no-store"});
+        if(!r.ok) throw 0;
+        return await r.json();
+      }catch(e){
+        return null;
+      }
+    }
+
+    function addButtons(buttons=[]){
+      brandBar.innerHTML = "";
+      if(!buttons.length){
+        const a = document.createElement("a");
+        a.href = "https://giftcardzoneeu.com/go/global-router/"; // fallback router if you have one
+        a.className = "btn";
+        a.textContent = "Open Global Apps";
+        brandBar.appendChild(a);
+        return;
+      }
+      for(const b of buttons){
+        const a = document.createElement("a");
+        a.href = b.href; a.textContent = b.label; a.className = "btn";
+        brandBar.appendChild(a);
+      }
+    }
+
+    function cardTemplate(src,i){
+      const title = `Deal #${i+1}`;
+      return `
+      <article class="card">
+        <img loading="lazy" decoding="async" src="${src}" alt="${title}" />
+        <div class="row">
+          <div class="meta">${title}</div>
+          <a class="btn alt" href="#" data-open="${src}">Preview</a>
+        </div>
+      </article>`;
+    }
+
+    function bindLightbox(){
+      const box = document.querySelector("#box");
+      const img = document.querySelector("#boxImg");
+      grid.addEventListener("click",(e)=>{
+        const a = e.target.closest("[data-open]");
+        if(!a) return;
+        e.preventDefault();
+        img.src = a.dataset.open;
+        box.classList.add("open");
+      });
+      document.querySelector("#xBtn").onclick = ()=> box.classList.remove("open");
+      box.addEventListener("click",(e)=>{ if(e.target===box) box.classList.remove("open"); });
+      document.addEventListener("keydown",(e)=>{ if(e.key==="Escape") box.classList.remove("open"); });
+    }
+
+    function render(images){
+      grid.innerHTML = images.map((name,i)=> cardTemplate(ASSET_BASE+name,i)).join("");
+    }
+
+    async function main(){
+      bindLightbox();
+      const m = await loadManifest();
+      if(m){
+        addButtons(m.buttons||[]);
+        render(m.images||[]);
+        return;
+      }
+      // Fallback: manual list here if no manifest.json (edit this array)
+      const fallback = [
+        "deal-1.webp","deal-2.webp","deal-3.webp"
+      ];
+      addButtons([]);
+      render(fallback);
+      // Mark cards as "ghost" to remind you it's fallback
+      document.querySelectorAll(".card").forEach(c=>c.classList.add("ghost"));
+    }
+
+    main();
+  </script>
 </body>
 </html>
