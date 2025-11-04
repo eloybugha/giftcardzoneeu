@@ -3,106 +3,138 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Germany Deals • Simple Store (Affiliate)</title>
-<meta name="description" content="Simple, fast, and clickable Germany deals — pure affiliate links." />
+<title>Germany Deals • Auto-scan (Affiliate)</title>
+<meta name="description" content="Auto-scanned Germany deals from /assets/germany with clean, fast, store-like cards. Pure affiliate." />
 <link rel="canonical" href="https://giftcardzoneeu.com/deals/germany/" />
+
 <style>
-  :root{--bg:#0b0e14;--card:#111623;--text:#e8eefc;--muted:#9fb0d1;--gap:14px;--radius:16px;--shadow:0 8px 28px rgba(0,0,0,.25);--accent:#2b5cff}
-  *{box-sizing:border-box} body{margin:0;font-family:system-ui,Segoe UI,Roboto,Arial;background:linear-gradient(180deg,#0b0e14,#0f1320);color:var(--text)}
-  .wrap{max-width:1100px;margin:24px auto;padding:0 16px}
-  h1{margin:0 0 12px;font-size:22px}
-  .muted{color:var(--muted);font-size:13px;margin-bottom:12px}
-  .grid{display:grid;gap:var(--gap);grid-template-columns:repeat(2,minmax(0,1fr))}
+  :root{
+    --bg:#0b0e14; --surface:#0f1422; --card:#111623; --muted:#9fb0d1; --text:#e8eefc;
+    --ring:#2b5cff; --accent:#2b5cff; --gap:14px; --radius:16px; --shadow:0 8px 28px rgba(0,0,0,.25);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial;background:linear-gradient(180deg,#0b0e14,#0f1320);color:var(--text)}
+  .wrap{max-width:1180px;margin:24px auto;padding:0 16px}
+  header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+  h1{font-size:22px;margin:0}
+  .muted{color:var(--muted);font-size:13px}
+  .grid{display:grid;gap:var(--gap);grid-template-columns:repeat(2,minmax(0,1fr));margin-top:12px}
   @media(min-width:720px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-  @media(min-width:1024px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
-  .card{display:block;background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);text-decoration:none;color:inherit}
+  @media(min-width:1080px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+  .card{position:relative;background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
   .thumb{width:100%;aspect-ratio:4/5;object-fit:cover;background:#0d1220}
-  .pad{padding:10px}
+  .pad{padding:12px}
   .title{font-weight:700;font-size:14px;line-height:1.25;margin:6px 0 8px}
   .row{display:flex;justify-content:space-between;align-items:center;gap:8px}
-  .price{font-weight:800}
   .btn{display:inline-block;margin-top:8px;padding:10px 12px;border-radius:10px;background:var(--accent);color:#fff;font-weight:700;text-align:center;width:100%}
-  .badge{position:absolute;left:10px;top:10px;background:rgba(0,0,0,.55);padding:4px 8px;border-radius:999px;font-size:11px}
-  .card-wrap{position:relative}
+  .badge{position:absolute;left:10px;top:10px;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);padding:4px 8px;border-radius:999px;font-size:11px}
+  .flag{position:absolute;right:10px;top:10px;background:rgba(0,0,0,.55);padding:4px 8px;border-radius:10px;font-size:11px}
+  .empty{color:var(--muted);text-align:center;padding:30px}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <h1>Germany Deals</h1>
-  <div class="muted">Pure affiliate • No pop-ups • Click any card to open in AliExpress</div>
+  <header>
+    <h1>Germany Deals</h1>
+    <div class="muted" id="counter">Loading…</div>
+  </header>
 
-  <div class="grid">
-
-    <!-- ITEM #1 -->
-    <a class="card" href="https://s.click.aliexpress.com/e/_EXAMPLE1" target="_blank" rel="nofollow sponsored noopener">
-      <div class="card-wrap">
-        <div class="badge">#1</div>
-        <img class="thumb" src="/assets/germany/1.jpg" alt="Deal #1">
-      </div>
-      <div class="pad">
-        <div class="title">Deal #1</div>
-        <div class="row">
-          <div class="price">Best price</div>
-          <div class="muted">AliExpress</div>
-        </div>
-        <div class="btn">View on AliExpress</div>
-      </div>
-    </a>
-
-    <!-- ITEM #2 -->
-    <a class="card" href="https://s.click.aliexpress.com/e/_EXAMPLE2" target="_blank" rel="nofollow sponsored noopener">
-      <div class="card-wrap">
-        <div class="badge">#2</div>
-        <img class="thumb" src="/assets/germany/2.jpg" alt="Deal #2">
-      </div>
-      <div class="pad">
-        <div class="title">Deal #2</div>
-        <div class="row"><div class="price">Best price</div><div class="muted">AliExpress</div></div>
-        <div class="btn">View on AliExpress</div>
-      </div>
-    </a>
-
-    <!-- ITEM #3 -->
-    <a class="card" href="https://s.click.aliexpress.com/e/_EXAMPLE3" target="_blank" rel="nofollow sponsored noopener">
-      <div class="card-wrap"><div class="badge">#3</div><img class="thumb" src="/assets/germany/3.jpg" alt="Deal #3"></div>
-      <div class="pad"><div class="title">Deal #3</div><div class="row"><div class="price">Best price</div><div class="muted">AliExpress</div></div><div class="btn">View on AliExpress</div></div>
-    </a>
-
-    <!-- ITEM #4 -->
-    <a class="card" href="https://s.click.aliexpress.com/e/_EXAMPLE4" target="_blank" rel="nofollow sponsored noopener">
-      <div class="card-wrap"><div class="badge">#4</div><img class="thumb" src="/assets/germany/4.jpg" alt="Deal #4"></div>
-      <div class="pad"><div class="title">Deal #4</div><div class="row"><div class="price">Best price</div><div class="muted">AliExpress</div></div><div class="btn">View on AliExpress</div></div>
-    </a>
-
-    <!-- ITEM #5 -->
-    <a class="card" href="https://s.click.aliexpress.com/e/_EXAMPLE5" target="_blank" rel="nofollow sponsored noopener">
-      <div class="card-wrap"><div class="badge">#5</div><img class="thumb" src="/assets/germany/5.jpg" alt="Deal #5"></div>
-      <div class="pad"><div class="title">Deal #5</div><div class="row"><div class="price">Best price</div><div class="muted">AliExpress</div></div><div class="btn">View on AliExpress</div></div>
-    </a>
-
-    <!-- ITEM #6 -->
-    <a class="card" href="https://s.click.aliexpress.com/e/_EXAMPLE6" target="_blank" rel="nofollow sponsored noopener">
-      <div class="card-wrap"><div class="badge">#6</div><img class="thumb" src="/assets/germany/6.jpg" alt="Deal #6"></div>
-      <div class="pad"><div class="title">Deal #6</div><div class="row"><div class="price">Best price</div><div class="muted">AliExpress</div></div><div class="btn">View on AliExpress</div></div>
-    </a>
-
-    <!-- ITEM #7 -->
-    <a class="card" href="https://s.click.aliexpress.com/e/_EXAMPLE7" target="_blank" rel="nofollow sponsored noopener">
-      <div class="card-wrap"><div class="badge">#7</div><img class="thumb" src="/assets/germany/7.jpg" alt="Deal #7"></div>
-      <div class="pad"><div class="title">Deal #7</div><div class="row"><div class="price">Best price</div><div class="muted">AliExpress</div></div><div class="btn">View on AliExpress</div></div>
-    </a>
-
-    <!-- ITEM #8 -->
-    <a class="card" href="https://s.click.aliexpress.com/e/_EXAMPLE8" target="_blank" rel="nofollow sponsored noopener">
-      <div class="card-wrap"><div class="badge">#8</div><img class="thumb" src="/assets/germany/8.jpg" alt="Deal #8"></div>
-      <div class="pad"><div class="title">Deal #8</div><div class="row"><div class="price">Best price</div><div class="muted">AliExpress</div></div><div class="btn">View on AliExpress</div></div>
-    </a>
-
-    <!-- 👉 DUPLICATE mo lang ang block sa itaas para #9…#22 (palitan ang href at src). -->
-
-  </div>
-
-  <p class="muted" style="margin-top:10px">Tip: Kung PNG/JPG/WEBP ang halo-halo, siguraduhing tugma ang extension sa file mo. Path ng images: <code>/assets/germany/</code>.</p>
+  <section id="grid" class="grid" aria-live="polite"></section>
+  <div id="empty" class="empty" hidden>Walang nahanap na images sa <code>/assets/germany/</code>. Siguraduhing may files na <code>1.webp/jpg/png</code> pataas.</div>
 </div>
+
+<script>
+/* =========================
+   CONFIG
+========================= */
+
+// Ilagay dito ang AE affiliate links mo PER INDEX (#1 = unang image na makita).
+// Kung blank (""), gagamit ng FALLBACK_SEARCH.
+const AFFILIATE_LINKS = [
+  // "https://s.click.aliexpress.com/e/_EXAMPLE1", // #1
+  // "https://s.click.aliexpress.com/e/_EXAMPLE2", // #2
+];
+
+// Hanggang ilang index ang i-scan (1..SCAN_MAX)
+const SCAN_MAX = 60;
+
+// Allowed extensions na ite-test per index, sunod-sunod
+const EXT_ORDER = ["webp","jpg","png","jpeg"];
+
+// Fallback kapag walang per-item link
+const FALLBACK_SEARCH = "https://www.aliexpress.com/w/wholesale.html?SearchText=gadgets";
+
+// Optional tracking params auto-append
+const CLICK_ID = (crypto?.randomUUID?.() || Date.now().toString());
+function withTracking(u, idx){
+  try{
+    const x = new URL(u, location.origin);
+    x.searchParams.set("pub_click_id", CLICK_ID);
+    x.searchParams.set("site", "deals_germany");
+    x.searchParams.set("sub", String(idx));
+    return x.toString();
+  }catch{ return u }
+}
+
+/* =========================
+   CORE (auto-scan + render)
+========================= */
+const $ = (q,root=document)=>root.querySelector(q);
+const grid = $("#grid"), counter=$("#counter"), empty=$("#empty");
+
+function probe(path){
+  return new Promise(res=>{
+    const img=new Image();
+    img.onload=()=>res(path);
+    img.onerror=()=>res(null);
+    img.src=path;
+  });
+}
+
+async function findAssetForIndex(i){
+  for(const ext of EXT_ORDER){
+    const url = `/assets/germany/${i}.${ext}`;
+    if(await probe(url)) return url;
+  }
+  return null;
+}
+
+function makeCard(idx, src, href){
+  const a = document.createElement("a");
+  a.className = "card";
+  a.href = href;
+  a.target = "_blank";
+  a.rel = "nofollow sponsored noopener";
+  a.innerHTML = `
+    <div class="badge">#${idx}</div>
+    <div class="flag">DE</div>
+    <img class="thumb" src="${src}" alt="Germany deal #${idx}">
+    <div class="pad">
+      <div class="title">Deal #${idx} (Germany)</div>
+      <div class="row"><span class="muted">AliExpress</span><span class="muted">Pure affiliate</span></div>
+      <div class="btn">View on AliExpress</div>
+    </div>
+  `;
+  return a;
+}
+
+(async function render(){
+  let found = 0;
+  for (let i=1; i<=SCAN_MAX; i++){
+    const src = await findAssetForIndex(i);
+    if(!src) continue;
+
+    const link = withTracking((AFFILIATE_LINKS[i-1] || FALLBACK_SEARCH), i);
+    grid.appendChild(makeCard(i, src, link));
+    found++;
+    counter.textContent = `${found} item${found>1?'s':''}`;
+  }
+
+  if(found===0){
+    counter.textContent = "0 items";
+    empty.hidden = false;
+  }
+})();
+</script>
 </body>
 </html>
