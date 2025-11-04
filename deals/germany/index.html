@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Germany Deals • Fast, Responsive, Lazy-Load</title>
-  <meta name="description" content="Mixed AliExpress + Germany shop deals with a fast, lazy-loaded gallery and lightbox." />
+  <title>Germany Deals • Auto Gallery</title>
+  <meta name="description" content="AliExpress + Germany shop deals. Auto-detected images with lazy loading and lightbox." />
 
   <link rel="canonical" href="https://giftcardzoneeu.com/deals/germany/" />
   <meta property="og:title" content="Germany Deals" />
-  <meta property="og:description" content="AliExpress + Germany shop deals." />
+  <meta property="og:description" content="Mixed AliExpress + Germany shop deals." />
   <meta property="og:type" content="website" />
 
   <style>
@@ -20,8 +20,7 @@
     html,body{height:100%}
     body{
       margin:0; font-family:ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial,Apple Color Emoji,Segoe UI Emoji;
-      background:linear-gradient(180deg,#0b0e14,#0f1320);
-      color:var(--text);
+      background:linear-gradient(180deg,#0b0e14,#0f1320); color:var(--text);
     }
     .wrap{max-width:1100px;margin:32px auto;padding:0 16px}
     header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
@@ -66,7 +65,7 @@
   <div class="wrap">
     <header>
       <h1>Gallery</h1>
-      <div class="muted" id="counter">0 items</div>
+      <div class="muted" id="counter">Loading…</div>
     </header>
 
     <div id="gallery" class="grid" aria-live="polite"></div>
@@ -90,26 +89,10 @@
 
   <script>
     // ===== CONFIG =====
-    // Path ng images mo (confirmed nasa /assets/deals/germany/)
-    const basePath = "/assets/deals/germany/";
-
-    // Palitan ang list na 'to para tumugma sa ACTUAL filenames mo.
-    // (Case-sensitive!)
-    const IMAGES = [
-      "aliexpress-flash.jpg",
-      "aliexpress-coupons.jpg",
-      "aliexpress-gadgets.jpg",
-      "aliexpress-freeship.jpg",
-      "aliexpress-under20.jpg",
-      "aliexpress-topbrands.jpg",
-      "amazon-50.jpg",
-      "zalando-25.jpg",
-      "mediamarkt-100.jpg",
-      "ebay-50.jpg",
-      "ikea-25.jpg",
-      "adidas-30.jpg"
-    ];
-    // ===== /CONFIG =====
+    const OWNER = "eloybugha";
+    const REPO  = "giftcardzoneeu";
+    const DIR   = "assets/deals/germany"; // GitHub path to scan
+    const BASE  = "/assets/deals/germany/"; // public site path prefix
 
     const gallery = document.getElementById("gallery");
     const counter = document.getElementById("counter");
@@ -125,63 +108,93 @@
     const io = ("IntersectionObserver" in window) ? new IntersectionObserver((entries,obs)=>{
       for(const e of entries){
         if(e.isIntersecting){
-          const img = e.target;
-          img.src = img.dataset.src;
-          obs.unobserve(img);
+          const img = e.target; img.src = img.dataset.src; obs.unobserve(img);
         }
       }
     }, {rootMargin:"200px"}) : null;
 
-    const files = IMAGES.filter(Boolean);
-    const items = [];
+    // Auto-scan the GitHub folder for images
+    async function loadImagesFromGitHub(){
+      try{
+        const api = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${DIR}`;
+        const res = await fetch(api, {headers:{'Accept':'application/vnd.github+json'}});
+        if(!res.ok) throw new Error("GitHub API error " + res.status);
+        const files = await res.json();
 
-    files.forEach((name, idx)=>{
-      const card = document.createElement("button");
-      card.className = "card";
-      card.type = "button";
-      card.setAttribute("aria-label", `Open image ${idx+1}`);
-      card.addEventListener("click", ()=> openLightbox(idx));
+        // Filter image files
+        const exts = [".jpg",".jpeg",".png",".webp",".gif"];
+        const imgs = files
+          .filter(f => f.type === "file" && exts.some(x => f.name.toLowerCase().endsWith(x)))
+          .map(f => f.name)
+          .sort();
 
-      const img = document.createElement("img");
-      img.className = "thumb";
-      img.loading = "lazy";
-      img.alt = name;
-      img.dataset.src = basePath + name;
-      img.onerror = ()=> img.style.opacity = .25;
+        render(imgs);
+      }catch(err){
+        console.error(err);
+        counter.textContent = "Could not load images.";
+      }
+    }
 
-      if(io) io.observe(img); else img.src = img.dataset.src;
+    function render(files){
+      gallery.innerHTML = "";
+      const items = [];
+      files.forEach((name, idx)=>{
+        const card = document.createElement("button");
+        card.className = "card";
+        card.type = "button";
+        card.setAttribute("aria-label", `Open image ${idx+1}`);
+        card.addEventListener("click", ()=> openLightbox(idx, files));
 
-      const badge = document.createElement("span");
-      badge.className = "badge";
-      badge.textContent = `#${idx+1}`;
+        const img = document.createElement("img");
+        img.className = "thumb";
+        img.loading = "lazy";
+        img.alt = name;
+        img.dataset.src = BASE + name;
+        img.onerror = ()=> img.style.opacity = .25;
 
-      card.appendChild(img);
-      card.appendChild(badge);
-      gallery.appendChild(card);
-      items.push({name, el:card});
-    });
+        if(io) io.observe(img); else img.src = img.dataset.src;
 
-    counter.textContent = `${items.length} item${items.length!==1?'s':''}`;
+        const badge = document.createElement("span");
+        badge.className = "badge";
+        badge.textContent = `#${idx+1}`;
 
-    // Lightbox
+        card.appendChild(img);
+        card.appendChild(badge);
+        gallery.appendChild(card);
+        items.push({name, el:card});
+      });
+
+      counter.textContent = `${items.length} item${items.length!==1?'s':''}`;
+      window.__files = files; // keep for lightbox
+    }
+
+    // Lightbox controls
     let current = 0;
-    function openLightbox(i){
+    function openLightbox(i, files = window.__files || []){
+      if(!files.length) return;
       current = i;
       const file = files[i];
-      fullImg.src = basePath + file;
+      fullImg.src = BASE + file;
       fullImg.alt = file;
       lbTitle.textContent = file;
       lbMeta.textContent = `Item ${i+1} of ${files.length}`;
       if(typeof lb.showModal === "function") lb.showModal(); else lb.setAttribute("open","true");
     }
     function closeLightbox(){ if(typeof lb.close==="function") lb.close(); else lb.removeAttribute("open"); }
-    function nav(d){ current = (current + d + files.length) % files.length; openLightbox(current); }
-
+    function nav(d){
+      const files = window.__files || [];
+      if(!files.length) return;
+      current = (current + d + files.length) % files.length;
+      openLightbox(current, files);
+    }
     prevBtn.addEventListener("click", ()=>nav(-1));
     nextBtn.addEventListener("click", ()=>nav(+1));
     closeBtn.addEventListener("click", closeLightbox);
     lb.addEventListener("click", (e)=>{ if(e.target === lb) closeLightbox(); });
     document.addEventListener("keydown",(e)=>{ if(!lb.open) return; if(e.key==="Escape") closeLightbox(); if(e.key==="ArrowLeft") nav(-1); if(e.key==="ArrowRight") nav(+1); });
+
+    // Go!
+    loadImagesFromGitHub();
   </script>
 </body>
 </html>
