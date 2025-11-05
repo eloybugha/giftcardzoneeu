@@ -3,15 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Top On-Sale Product Recommendations</title>
-  <meta name="description" content="Clean, fast gallery of 9 AliExpress deals. Pure affiliate — no popups, no redirects, just quick links." />
+  <title>Germany Deals • Top Picks</title>
+  <meta name="description" content="9 mixed Germany deals. Clean grid • Lazy-loaded images • Direct affiliate links." />
 
-  <!-- Canonical (palitan mo kung ilalagay mo sa subfolder) -->
-  <link rel="canonical" href="https://giftcardzoneeu.com/deals/" />
-
-  <!-- Social -->
-  <meta property="og:title" content="Top On-Sale Product Recommendations" />
-  <meta property="og:description" content="9 hot picks • Fast page • Direct affiliate buttons." />
+  <link rel="canonical" href="https://giftcardzoneeu.com/deals/germany/" />
+  <meta property="og:title" content="Germany Deals • Top Picks" />
+  <meta property="og:description" content="9 hot finds with direct AliExpress links." />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
 
@@ -29,17 +26,11 @@
     .dot{width:8px;height:8px;border-radius:999px;background:var(--ok);box-shadow:0 0 0 6px rgba(46,204,113,.12)}
     h1{font-size:20px;line-height:1.2;margin:0}
     .sub{color:var(--muted);font-size:13px}
-    .grid{
-      display:grid;gap:var(--gap);
-      grid-template-columns:repeat(2,minmax(0,1fr));
-    }
+    .grid{display:grid;gap:var(--gap);grid-template-columns:repeat(2,minmax(0,1fr))}
     @media (min-width:700px){ .grid{grid-template-columns:repeat(3,minmax(0,1fr));} }
     @media (min-width:1024px){ .grid{grid-template-columns:repeat(4,minmax(0,1fr));} }
-    .card{
-      background:var(--card);border-radius:var(--radius);overflow:hidden;
-      box-shadow:var(--shadow);display:flex;flex-direction:column;min-height:100%;
-      border:1px solid rgba(255,255,255,.06)
-    }
+    .card{background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);
+      display:flex;flex-direction:column;min-height:100%;border:1px solid rgba(255,255,255,.06)}
     .thumb{aspect-ratio:1/1;display:block;background:#0a0d18;position:relative;overflow:hidden}
     .thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s ease}
     .card:hover .thumb img{transform:scale(1.03)}
@@ -47,21 +38,15 @@
     .name{font-size:14px;font-weight:600;line-height:1.35;min-height:2.6em}
     .price{font-size:13px;color:var(--muted)}
     .price b{color:var(--text)}
-    .btn{
-      margin-top:auto;display:inline-flex;align-items:center;justify-content:center;
-      gap:8px;height:40px;border-radius:12px;background:var(--cta);color:var(--cta-t);
-      font-weight:700;border:0;cursor:pointer;padding:0 14px
-    }
+    .btn{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:8px;height:40px;
+      border-radius:12px;background:var(--cta);color:var(--cta-t);font-weight:700;border:0;cursor:pointer;padding:0 14px}
     .btn:active{transform:translateY(1px)}
     .badgelist{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
     .badge{font-size:11px;color:#b9c6e6;border:1px solid rgba(255,255,255,.14);padding:4px 8px;border-radius:999px}
     footer{margin-top:22px;color:var(--muted);font-size:12px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
-    .sr{position:absolute;clip:rect(0,0,0,0);clip-path:inset(50%);height:1px;width:1px;overflow:hidden;white-space:nowrap}
-    .skeleton{background:linear-gradient(90deg,#0f1422, #131a2b 50%, #0f1422);background-size:200% 100%;animation:sh 1.2s infinite}
+    .fallback{width:100%;height:100%;display:grid;place-items:center;font-size:12px;color:var(--muted)}
+    .skeleton{background:linear-gradient(90deg,#0f1422,#131a2b 50%,#0f1422);background-size:200% 100%;animation:sh 1.2s infinite}
     @keyframes sh{0%{background-position:200% 0}100%{background-position:-200% 0}}
-    .fallback{
-      width:100%;height:100%;display:grid;place-items:center;font-size:12px;color:var(--muted)
-    }
   </style>
 </head>
 <body>
@@ -83,170 +68,89 @@
   </div>
 
   <script>
-    // ======= EDIT HERE: Your 9 products =======
-    // name: short product title
-    // url:  your AliExpress affiliate link (s.click.aliexpress.com…)
-    // img:  path to your image (e.g., /assets/germany/baseus-ep10.jpg)
-    // price_now / price_old (optional), and tags (optional)
+    const IMG = p => "/assets/germany/" + p;
+
     const items = [
       {
         name: "Baseus EP10 Pro ANC Earbuds (LDAC, 6-Mic, IP55)",
         url: "https://s.click.aliexpress.com/e/_c4VdPvzv",
-        img: "/assets/germany/baseus-ep10-pro.jpg",
-        price_now: "€19.79",
-        price_old: "€43.72",
-        tags: ["55% off","Hi-Res LDAC","ANC"]
+        img: IMG("baseus-ep10.jpg"),
+        price_now: "€19.79", price_old: "€43.72", tags: ["55% off","Hi-Res LDAC","ANC"]
       },
-      {
-        name: "250ML USB Mini Air Humidifier Aroma Diffuser (LED)",
-        url: "PUT_YOUR_AFFILIATE_LINK_HERE",
-        img: "/assets/germany/mini-humidifier-250ml.jpg",
-        price_now: "€0.99",
-        price_old: "€8.13",
-        tags: ["88% off","Aroma","Car/Home"]
-      },
-      {
-        name: "Smart Watch Bluetooth Call Fitness Tracker",
+      { name: "250ML USB Mini Air Humidifier Aroma Diffuser (LED)",
         url: "PUT_LINK_HERE",
-        img: "/assets/germany/smartwatch.jpg",
-        price_now: "€12.49",
-        price_old: "€29.99",
-        tags: ["Hot deal","IP67"]
+        img: IMG("mini-humidifier.jpg"),
+        price_now: "€0.99", price_old: "€8.13", tags: ["88% off","Aroma","Car/Home"]
       },
-      {
-        name: "Portable Mini Vacuum Cleaner (USB Rechargeable)",
+      { name: "Smart Watch Bluetooth Call Fitness Tracker",
         url: "PUT_LINK_HERE",
-        img: "/assets/germany/mini-vacuum.jpg",
-        price_now: "€7.49",
-        price_old: "€18.90",
-        tags: ["Desk","Keyboard"]
+        img: IMG("smartwatch.jpg"),
+        price_now: "€12.49", price_old: "€29.99", tags: ["Hot deal","IP67"]
       },
-      {
-        name: "LED Strip Lights 5M with Remote",
+      { name: "Portable Mini Vacuum Cleaner (USB Rechargeable)",
         url: "PUT_LINK_HERE",
-        img: "/assets/germany/led-strip.jpg",
-        price_now: "€3.39",
-        price_old: "€9.99",
-        tags: ["Decor","DIY"]
+        img: IMG("mini-vacuum.jpg"),
+        price_now: "€7.49", price_old: "€18.90", tags: ["Desk","Keyboard"]
       },
-      {
-        name: "MagSafe-Style Wireless Charger Stand",
+      { name: "LED Strip Lights 5M with Remote",
         url: "PUT_LINK_HERE",
-        img: "/assets/germany/magsafe-stand.jpg",
-        price_now: "€6.59",
-        price_old: "€15.99",
-        tags: ["Fast charge"]
+        img: IMG("led-strip.jpg"),
+        price_now: "€3.39", price_old: "€9.99", tags: ["Decor","DIY"]
       },
-      {
-        name: "TWS Wireless Earbuds (ENC Noise Cancel)",
+      { name: "MagSafe-Style Wireless Charger Stand",
         url: "PUT_LINK_HERE",
-        img: "/assets/germany/tws-enc.jpg",
-        price_now: "€8.29",
-        price_old: "€24.99",
-        tags: ["Budget pick"]
+        img: IMG("magsafe-stand.jpg"),
+        price_now: "€6.59", price_old: "€15.99", tags: ["Fast charge"]
       },
-      {
-        name: "Rechargeable Hair Trimmer Kit",
+      { name: "TWS Wireless Earbuds (ENC Noise Cancel)",
         url: "PUT_LINK_HERE",
-        img: "/assets/germany/hair-trimmer.jpg",
-        price_now: "€9.59",
-        price_old: "€22.90",
-        tags: ["Grooming"]
+        img: IMG("tws-enc.jpg"),
+        price_now: "€8.29", price_old: "€24.99", tags: ["Budget pick"]
       },
-      {
-        name: "USB-C Fast Charging Cable 100W (2-pack)",
+      { name: "Rechargeable Hair Trimmer Kit",
         url: "PUT_LINK_HERE",
-        img: "/assets/germany/usb-c-100w.jpg",
-        price_now: "€2.49",
-        price_old: "€6.99",
-        tags: ["100W","2-pack"]
+        img: IMG("hair-trimmer.jpg"),
+        price_now: "€9.59", price_old: "€22.90", tags: ["Grooming"]
+      },
+      { name: "USB-C Fast Charging Cable 100W (2-pack)",
+        url: "PUT_LINK_HERE",
+        img: IMG("usb-c-100w.jpg"),
+        price_now: "€2.49", price_old: "€6.99", tags: ["100W","2-pack"]
       }
     ];
-    // ======= END EDIT ZONE =======
 
-    // Render
     const $grid = document.getElementById('grid');
-
     items.forEach((it, i) => {
-      const card = document.createElement('article');
-      card.className = 'card';
-      card.setAttribute('data-idx', i);
+      const card = document.createElement('article'); card.className = 'card'; card.dataset.idx = i;
 
-      // Image (with fallback if missing)
-      const aImg = document.createElement('a');
-      aImg.href = it.url || '#';
-      aImg.target = '_blank';
-      aImg.rel = 'nofollow sponsored noopener';
-      aImg.className = 'thumb';
-
-      if (it.img) {
-        const img = document.createElement('img');
-        img.loading = 'lazy';
-        img.decoding = 'async';
-        img.alt = it.name || 'Deal image';
-        img.src = it.img;
-        aImg.appendChild(img);
+      const aImg = document.createElement('a'); aImg.href = it.url || '#'; aImg.target = '_blank';
+      aImg.rel = 'nofollow sponsored noopener'; aImg.className = 'thumb';
+      if (it.img){
+        const img = document.createElement('img'); img.loading = 'lazy'; img.decoding = 'async';
+        img.src = it.img; img.alt = it.name || 'Deal image'; aImg.appendChild(img);
       } else {
-        const fb = document.createElement('div');
-        fb.className = 'fallback skeleton';
-        fb.innerHTML = '<span>No Image</span>';
-        aImg.appendChild(fb);
+        const fb = document.createElement('div'); fb.className = 'fallback skeleton'; fb.textContent = 'No image'; aImg.appendChild(fb);
       }
 
-      // Body
-      const body = document.createElement('div');
-      body.className = 'body';
-      const name = document.createElement('div');
-      name.className = 'name';
-      name.textContent = it.name || 'Untitled Deal';
-
-      const price = document.createElement('div');
-      price.className = 'price';
-      if (it.price_now) {
-        price.innerHTML = `<b>Price Now:</b> ${it.price_now}` +
-          (it.price_old ? ` <span class="old"> (Original: ${it.price_old})</span>` : '');
-      } else {
-        price.textContent = '';
-      }
-
-      const badges = document.createElement('div');
-      badges.className = 'badgelist';
-      (it.tags || []).forEach(t => {
-        const b = document.createElement('span');
-        b.className = 'badge';
-        b.textContent = t;
-        badges.appendChild(b);
-      });
-
-      const btn = document.createElement('a');
-      btn.href = it.url || '#';
-      btn.target = '_blank';
-      btn.rel = 'nofollow sponsored noopener';
-      btn.className = 'btn';
-      btn.setAttribute('data-out','1');
-      btn.ariaLabel = `Open ${it.name}`;
-      btn.innerHTML = '🔗 Click & Buy';
+      const body = document.createElement('div'); body.className = 'body';
+      const name = document.createElement('div'); name.className = 'name'; name.textContent = it.name || 'Untitled';
+      const price = document.createElement('div'); price.className = 'price';
+      price.innerHTML = it.price_now ? `<b>Price Now:</b> ${it.price_now}${it.price_old?` (Original: ${it.price_old})`:''}` : '';
+      const badges = document.createElement('div'); badges.className = 'badgelist';
+      (it.tags||[]).forEach(t=>{ const b=document.createElement('span'); b.className='badge'; b.textContent=t; badges.appendChild(b); });
+      const btn = document.createElement('a'); btn.href = it.url || '#'; btn.target = '_blank'; btn.rel='nofollow sponsored noopener';
+      btn.className = 'btn'; btn.setAttribute('data-out','1'); btn.ariaLabel = `Open ${it.name}`; btn.textContent = '🔗 Click & Buy';
 
       body.append(name, price, badges, btn);
       card.append(aImg, body);
       $grid.appendChild(card);
     });
 
-    // Optional: simple click tracker (keeps page clean, no external calls)
     document.addEventListener('click', (e)=>{
-      const a = e.target.closest('a[data-out]');
-      if(!a) return;
-      try{
-        const idx = a.closest('.card')?.dataset?.idx ?? 'x';
-        console.log('outbound_click', {idx, href:a.href});
-        // If you want, add ?src=deals to your link:
-        // a.href = a.href + (a.href.includes('?') ? '&' : '?') + 'src=deals';
-      }catch(_){}
+      const a = e.target.closest('a[data-out]'); if(!a) return;
+      try{ const idx = a.closest('.card')?.dataset?.idx ?? 'x'; console.log('outbound_click',{idx,href:a.href}); }catch(_){}
     });
-
-    // Timestamp
-    document.getElementById('updated').textContent =
-      'Updated ' + new Date().toLocaleString();
+    document.getElementById('updated').textContent = 'Updated ' + new Date().toLocaleString();
   </script>
 </body>
 </html>
