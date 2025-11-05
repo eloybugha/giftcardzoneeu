@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -60,109 +61,129 @@
   </div>
 
   <script>
-    // --- CONFIG ---
-    const ASSETS = "/assets/germany/";
-    const PLACEHOLDER = "/assets/placeholder.webp"; // optional: upload this file
+  // --- CONFIG ---
+  const ASSETS = "/assets/germany/";
+  const PLACEHOLDER = "/assets/placeholder.webp"; // upload a neutral image here
 
-    // Product list (keep filenames you already uploaded)
-    const items = [
-      { name:"QCY H3 Pro ANC Headphones", img:"qcy-h3-pro.webp",                url:"https://s.click.aliexpress.com/e/_c42MInzZ", price_now:"€38.79", price_old:"€120.73", tags:["Hi-Res","ANC","LDAC"] },
-      { name:"HD Monocular Telescope (Clip-on)", img:"hd-monocular-telescope.webp", url:"https://s.click.aliexpress.com/e/_c4TheEtV", price_now:"€14.99", price_old:"€29.99", tags:["Travel","Zoom"] },
-      { name:"Mini Air Humidifier (Aroma)", img:"mini-air-humidifier-aroma.webp",   url:"https://s.click.aliexpress.com/e/_c4c1ZzGB", price_now:"€0.99", price_old:"€8.13", tags:["88% off","Aroma"] },
-      { name:"Wood-Style Air Diffuser", img:"air-diffuser-wood.webp",              url:"https://s.click.aliexpress.com/e/_c4bByBa3", price_now:"€6.49", price_old:"€15.99", tags:["Home"] },
-      { name:"Air Aroma Humidifier", img:"air-aroma-humidifier.webp",              url:"https://s.click.aliexpress.com/e/_c3ZB3qOX", price_now:"€5.29", price_old:"€12.99", tags:["Home"] },
-      { name:"Mini Heat Bag Sealing Tool", img:"mini-heat-bag-sealing.webp",       url:"https://s.click.aliexpress.com/e/_c406KHZZ", price_now:"€2.19", price_old:"€6.99", tags:["Kitchen"] },
-      { name:"Deodorize Toilet Cleaning Tool", img:"deodorize-toilet-cleaning.webp", url:"https://s.click.aliexpress.com/e/_c4KJIzGf", price_now:"€3.59", price_old:"€9.99", tags:["Bathroom"] }
-    ];
+  // Utility: try a list of candidate filenames (webp→jpg→png) until one loads
+  function loadWithCandidates(imgEl, candidates) {
+    // Expand extensions if only basenames provided
+    const exts = ['.webp','.jpg','.png','.jpeg'];
+    const expanded = [];
+    candidates.forEach(base=>{
+      if (/\.(webp|jpe?g|png)$/i.test(base)) expanded.push(base);
+      else exts.forEach(ext=>expanded.push(base+ext));
+    });
 
-    // Try .webp → .jpg → .png → placeholder
-    function addSmartFallback(imgEl) {
-      const tried = new Set();
-      function next() {
-        const src = imgEl.getAttribute('src');
-        tried.add(src);
-        let alt;
-        if (src.endsWith('.webp')) alt = src.replace('.webp', '.jpg');
-        else if (src.endsWith('.jpg')) alt = src.replace('.jpg', '.png');
-        else if (src.endsWith('.jpeg')) alt = src.replace('.jpeg', '.png');
-        else alt = PLACEHOLDER;
-
-        if (!tried.has(alt)) imgEl.src = alt;
-        else imgEl.src = PLACEHOLDER;
-      }
-      imgEl.addEventListener('error', () => next(), { once:false });
+    let i = 0;
+    function tryNext() {
+      if (i >= expanded.length) { imgEl.src = PLACEHOLDER; return; }
+      const src = ASSETS + expanded[i++];
+      const test = new Image();
+      test.onload = ()=>{ imgEl.src = src; };
+      test.onerror = tryNext;
+      test.src = src;
     }
+    tryNext();
+  }
 
-    const $grid = document.getElementById('grid');
+  // Items — note: for the 3 problematic ones, I listed multiple filename guesses
+  const items = [
+    { name:"QCY H3 Pro ANC Headphones",
+      candidates:["qcy-h3-pro","qcy-h3-pro-anc"],  // any of these will work
+      url:"https://s.click.aliexpress.com/e/_c42MInzZ",
+      price_now:"€38.79", price_old:"€120.73", tags:["Hi-Res","ANC","LDAC"]
+    },
+    { name:"HD Monocular Telescope (Clip-on)",
+      candidates:["hd-monocular-telescope","monocular-clip"],
+      url:"https://s.click.aliexpress.com/e/_c4TheEtV",
+      price_now:"€14.99", price_old:"€29.99", tags:["Travel","Zoom"]
+    },
 
-    items.forEach((it, i) => {
-      const card = document.createElement('article');
-      card.className = 'card';
-      card.dataset.idx = i;
+    /* ---- 3 nagba-black: provide many likely names ---- */
+    { name:"Mini Air Humidifier (Aroma)",
+      candidates:[
+        "mini-air-humidifier-aroma",
+        "mini-air-humidifier",
+        "mini-humidifier-aroma",
+        "air-humidifier-mini"
+      ],
+      url:"https://s.click.aliexpress.com/e/_c4c1ZzGB",
+      price_now:"€0.99", price_old:"€8.13", tags:["88% off","Aroma"]
+    },
+    { name:"Wood-Style Air Diffuser",
+      candidates:[
+        "air-diffuser-wood",
+        "wood-style-air-diffuser",
+        "wood-diffuser",
+        "wood-aroma-diffuser"
+      ],
+      url:"https://s.click.aliexpress.com/e/_c4bByBa3",
+      price_now:"€6.49", price_old:"€15.99", tags:["Home"]
+    },
+    { name:"Air Aroma Humidifier",
+      candidates:["air-aroma-humidifier","aroma-humidifier"],
+      url:"https://s.click.aliexpress.com/e/_c3ZB3qOX",
+      price_now:"€5.29", price_old:"€12.99", tags:["Home"]
+    },
+    { name:"Mini Heat Bag Sealing Tool",
+      candidates:[
+        "mini-heat-bag-sealing",
+        "mini-heat-sealer",
+        "bag-sealer-mini",
+        "heat-bag-sealer"
+      ],
+      url:"https://s.click.aliexpress.com/e/_c406KHZZ",
+      price_now:"€2.19", price_old:"€6.99", tags:["Kitchen"]
+    },
+    { name:"Deodorize Toilet Cleaning Tool",
+      candidates:["deodorize-toilet-cleaning","toilet-cleaning-sheets","toilet-deodorize"],
+      url:"https://s.click.aliexpress.com/e/_c4KJIzGf",
+      price_now:"€3.59", price_old:"€9.99", tags:["Bathroom"]
+    }
+  ];
 
-      // Clickable image (goes to affiliate)
-      const aImg = document.createElement('a');
-      aImg.href = it.url || '#';
-      aImg.target = '_blank';
-      aImg.rel = 'nofollow sponsored noopener';
-      aImg.className = 'thumb';
+  // Build grid
+  const $grid = document.getElementById('grid');
 
-      const img = document.createElement('img');
-      img.loading = 'lazy';
-      img.decoding = 'async';
-      img.src = ASSETS + it.img;     // initial src
-      img.alt = it.name || 'Deal image';
-      addSmartFallback(img);         // enable fallback
-      aImg.appendChild(img);
+  items.forEach((it, i) => {
+    const card = document.createElement('article');
+    card.className = 'card'; card.dataset.idx = i;
 
-      // Body
-      const body = document.createElement('div');
-      body.className = 'body';
+    const aImg = document.createElement('a');
+    aImg.href = it.url || '#';
+    aImg.target = '_blank';
+    aImg.rel = 'nofollow sponsored noopener';
+    aImg.className = 'thumb';
 
-      const name = document.createElement('div');
-      name.className = 'name';
-      name.textContent = it.name || 'Untitled';
+    const img = document.createElement('img');
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    img.alt = it.name || 'Deal image';
+    // start with placeholder then load candidates (prevents “nginig”)
+    img.src = PLACEHOLDER;
+    aImg.appendChild(img);
+    loadWithCandidates(img, it.candidates || [it.img?.replace(/\.(webp|jpe?g|png)$/i,'') || 'missing']);
 
-      const price = document.createElement('div');
-      price.className = 'price';
-      price.innerHTML = it.price_now
-        ? `<b>Price Now:</b> ${it.price_now}${it.price_old?` (Original: ${it.price_old})`:''}`
-        : '';
+    const body = document.createElement('div'); body.className = 'body';
+    const name = document.createElement('div'); name.className = 'name'; name.textContent = it.name || 'Untitled';
+    const price = document.createElement('div'); price.className = 'price';
+    price.innerHTML = it.price_now ? `<b>Price Now:</b> ${it.price_now}${it.price_old?` (Original: ${it.price_old})`:''}` : '';
+    const badges = document.createElement('div'); badges.className = 'badgelist';
+    (it.tags||[]).forEach(t=>{ const b=document.createElement('span'); b.className='badge'; b.textContent=t; badges.appendChild(b); });
+    const btn = document.createElement('a'); btn.href = it.url || '#'; btn.target='_blank'; btn.rel='nofollow sponsored noopener';
+    btn.className = 'btn'; btn.setAttribute('data-out','1'); btn.setAttribute('aria-label', `Open ${it.name}`); btn.textContent = '🔗 Click & Buy';
 
-      const badges = document.createElement('div');
-      badges.className = 'badgelist';
-      (it.tags||[]).forEach(t=>{
-        const b=document.createElement('span');
-        b.className='badge';
-        b.textContent=t;
-        badges.appendChild(b);
-      });
+    body.append(name, price, badges, btn);
+    card.append(aImg, body);
+    $grid.appendChild(card);
+  });
 
-      const btn = document.createElement('a');
-      btn.href = it.url || '#';
-      btn.target = '_blank';
-      btn.rel = 'nofollow sponsored noopener';
-      btn.className = 'btn';
-      btn.setAttribute('data-out','1');
-      btn.setAttribute('aria-label', `Open ${it.name}`);
-      btn.textContent = '🔗 Click & Buy';
-
-      body.append(name, price, badges, btn);
-      card.append(aImg, body);
-      $grid.appendChild(card);
-    });
-
-    document.addEventListener('click', (e)=>{
-      const a = e.target.closest('a[data-out]');
-      if(!a) return;
-      try{
-        const idx = a.closest('.card')?.dataset?.idx ?? 'x';
-        console.log('outbound_click',{idx,href:a.href});
-      }catch(_){}
-    });
-
-    document.getElementById('updated').textContent =
-      'Updated ' + new Date().toLocaleString();
-  </script>
+  document.addEventListener('click', (e)=>{
+    const a = e.target.closest('a[data-out]'); if(!a) return;
+    try{ const idx = a.closest('.card')?.dataset?.idx ?? 'x'; console.log('outbound_click',{idx,href:a.href}); }catch(_){}
+  });
+  document.getElementById('updated').textContent = 'Updated ' + new Date().toLocaleString();
+</script>
 </body>
 </html>
