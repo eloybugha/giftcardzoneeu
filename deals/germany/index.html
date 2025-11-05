@@ -11,14 +11,19 @@
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
   <style>
-    :root{--bg:#0b0e14;--card:#111623;--text:#e8eefc;--muted:#9fb0d1;--ring:#2b5cff;
-      --gap:14px;--radius:16px;--shadow:0 6px 24px rgba(0,0,0,.25);--cta:#2b5cff;--cta-t:#fff;--ok:#2ecc71;}
-    *{box-sizing:border-box} html,body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
+    :root{
+      --bg:#0b0e14;--card:#111623;--text:#e8eefc;--muted:#9fb0d1;--ring:#2b5cff;
+      --gap:14px;--radius:16px;--shadow:0 6px 24px rgba(0,0,0,.25);
+      --cta:#2b5cff;--cta-t:#fff;--ok:#2ecc71
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
     a{color:inherit;text-decoration:none}
     .wrap{max-width:1120px;margin:auto;padding:22px}
     header{display:flex;align-items:center;gap:12px;margin-bottom:18px;flex-wrap:wrap}
     .dot{width:8px;height:8px;border-radius:999px;background:var(--ok);box-shadow:0 0 0 6px rgba(46,204,113,.12)}
-    h1{font-size:20px;line-height:1.2;margin:0}.sub{color:var(--muted);font-size:13px}
+    h1{font-size:20px;line-height:1.2;margin:0}
+    .sub{color:var(--muted);font-size:13px}
     .grid{display:grid;gap:var(--gap);grid-template-columns:repeat(2,minmax(0,1fr))}
     @media (min-width:700px){.grid{grid-template-columns:repeat(3,minmax(0,1fr));}}
     @media (min-width:1024px){.grid{grid-template-columns:repeat(4,minmax(0,1fr));}}
@@ -55,37 +60,92 @@
   </div>
 
   <script>
-    const IMG = p => "/assets/germany/" + p;
+    // --- CONFIG ---
+    const ASSETS = "/assets/germany/";
+    const PLACEHOLDER = "/assets/placeholder.webp"; // optional: upload this file
 
-    // TODO: Palitan ang url: "" ng mga affiliate links mo.
+    // Product list (keep filenames you already uploaded)
     const items = [
-      { name:"QCY H3 Pro ANC Headphones", img: IMG("qcy-h3-pro.webp"), url:"https://s.click.aliexpress.com/e/_c42MInzZ", price_now:"€38.79", price_old:"€120.73", tags:["Hi-Res","ANC","LDAC"] },
-      { name:"HD Monocular Telescope (Clip-on)", img: IMG("hd-monocular-telescope.webp"), url:"https://s.click.aliexpress.com/e/_c4TheEtV", price_now:"€14.99", price_old:"€29.99", tags:["Travel","Zoom"] },
-      { name:"Mini Air Humidifier (Aroma)", img: IMG("mini-air-humidifier-aroma.webp"), url:"https://s.click.aliexpress.com/e/_c4c1ZzGB", price_now:"€0.99", price_old:"€8.13", tags:["88% off","Aroma"] },
-      { name:"Wood-Style Air Diffuser", img: IMG("air-diffuser-wood.webp"), url:"https://s.click.aliexpress.com/e/_c4bByBa3", price_now:"€6.49", price_old:"€15.99", tags:["Home"] },
-      { name:"Air Aroma Humidifier", img: IMG("air-aroma-humidifier.webp"), url:"https://s.click.aliexpress.com/e/_c3ZB3qOX", price_now:"€5.29", price_old:"€12.99", tags:["Home"] },
-      { name:"Mini Heat Bag Sealing Tool", img: IMG("mini-heat-bag-sealing.webp"), url:"https://s.click.aliexpress.com/e/_c406KHZZ", price_now:"€2.19", price_old:"€6.99", tags:["Kitchen"] },
-      { name:"Deodorize Toilet Cleaning Tool", img: IMG("deodorize-toilet-cleaning.webp"), url:"https://s.click.aliexpress.com/e/_c4KJIzGf", price_now:"€3.59", price_old:"€9.99", tags:["Bathroom"] }
-      // Pwede mong magdagdag pa dito kapag may bago kang image
+      { name:"QCY H3 Pro ANC Headphones", img:"qcy-h3-pro.webp",                url:"https://s.click.aliexpress.com/e/_c42MInzZ", price_now:"€38.79", price_old:"€120.73", tags:["Hi-Res","ANC","LDAC"] },
+      { name:"HD Monocular Telescope (Clip-on)", img:"hd-monocular-telescope.webp", url:"https://s.click.aliexpress.com/e/_c4TheEtV", price_now:"€14.99", price_old:"€29.99", tags:["Travel","Zoom"] },
+      { name:"Mini Air Humidifier (Aroma)", img:"mini-air-humidifier-aroma.webp",   url:"https://s.click.aliexpress.com/e/_c4c1ZzGB", price_now:"€0.99", price_old:"€8.13", tags:["88% off","Aroma"] },
+      { name:"Wood-Style Air Diffuser", img:"air-diffuser-wood.webp",              url:"https://s.click.aliexpress.com/e/_c4bByBa3", price_now:"€6.49", price_old:"€15.99", tags:["Home"] },
+      { name:"Air Aroma Humidifier", img:"air-aroma-humidifier.webp",              url:"https://s.click.aliexpress.com/e/_c3ZB3qOX", price_now:"€5.29", price_old:"€12.99", tags:["Home"] },
+      { name:"Mini Heat Bag Sealing Tool", img:"mini-heat-bag-sealing.webp",       url:"https://s.click.aliexpress.com/e/_c406KHZZ", price_now:"€2.19", price_old:"€6.99", tags:["Kitchen"] },
+      { name:"Deodorize Toilet Cleaning Tool", img:"deodorize-toilet-cleaning.webp", url:"https://s.click.aliexpress.com/e/_c4KJIzGf", price_now:"€3.59", price_old:"€9.99", tags:["Bathroom"] }
     ];
 
+    // Try .webp → .jpg → .png → placeholder
+    function addSmartFallback(imgEl) {
+      const tried = new Set();
+      function next() {
+        const src = imgEl.getAttribute('src');
+        tried.add(src);
+        let alt;
+        if (src.endsWith('.webp')) alt = src.replace('.webp', '.jpg');
+        else if (src.endsWith('.jpg')) alt = src.replace('.jpg', '.png');
+        else if (src.endsWith('.jpeg')) alt = src.replace('.jpeg', '.png');
+        else alt = PLACEHOLDER;
+
+        if (!tried.has(alt)) imgEl.src = alt;
+        else imgEl.src = PLACEHOLDER;
+      }
+      imgEl.addEventListener('error', () => next(), { once:false });
+    }
+
     const $grid = document.getElementById('grid');
+
     items.forEach((it, i) => {
-      const card = document.createElement('article'); card.className = 'card'; card.dataset.idx = i;
+      const card = document.createElement('article');
+      card.className = 'card';
+      card.dataset.idx = i;
 
-      const aImg = document.createElement('a'); aImg.href = it.url || '#'; aImg.target = '_blank';
-      aImg.rel = 'nofollow sponsored noopener'; aImg.className = 'thumb';
-      const img = document.createElement('img'); img.loading='lazy'; img.decoding='async';
-      img.src = it.img; img.alt = it.name || 'Deal image'; aImg.appendChild(img);
+      // Clickable image (goes to affiliate)
+      const aImg = document.createElement('a');
+      aImg.href = it.url || '#';
+      aImg.target = '_blank';
+      aImg.rel = 'nofollow sponsored noopener';
+      aImg.className = 'thumb';
 
-      const body = document.createElement('div'); body.className = 'body';
-      const name = document.createElement('div'); name.className = 'name'; name.textContent = it.name || 'Untitled';
-      const price = document.createElement('div'); price.className = 'price';
-      price.innerHTML = it.price_now ? `<b>Price Now:</b> ${it.price_now}${it.price_old?` (Original: ${it.price_old})`:''}` : '';
-      const badges = document.createElement('div'); badges.className = 'badgelist';
-      (it.tags||[]).forEach(t=>{ const b=document.createElement('span'); b.className='badge'; b.textContent=t; badges.appendChild(b); });
-      const btn = document.createElement('a'); btn.href = it.url || '#'; btn.target='_blank'; btn.rel='nofollow sponsored noopener';
-      btn.className = 'btn'; btn.setAttribute('data-out','1'); btn.ariaLabel = `Open ${it.name}`; btn.textContent = '🔗 Click & Buy';
+      const img = document.createElement('img');
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      img.src = ASSETS + it.img;     // initial src
+      img.alt = it.name || 'Deal image';
+      addSmartFallback(img);         // enable fallback
+      aImg.appendChild(img);
+
+      // Body
+      const body = document.createElement('div');
+      body.className = 'body';
+
+      const name = document.createElement('div');
+      name.className = 'name';
+      name.textContent = it.name || 'Untitled';
+
+      const price = document.createElement('div');
+      price.className = 'price';
+      price.innerHTML = it.price_now
+        ? `<b>Price Now:</b> ${it.price_now}${it.price_old?` (Original: ${it.price_old})`:''}`
+        : '';
+
+      const badges = document.createElement('div');
+      badges.className = 'badgelist';
+      (it.tags||[]).forEach(t=>{
+        const b=document.createElement('span');
+        b.className='badge';
+        b.textContent=t;
+        badges.appendChild(b);
+      });
+
+      const btn = document.createElement('a');
+      btn.href = it.url || '#';
+      btn.target = '_blank';
+      btn.rel = 'nofollow sponsored noopener';
+      btn.className = 'btn';
+      btn.setAttribute('data-out','1');
+      btn.setAttribute('aria-label', `Open ${it.name}`);
+      btn.textContent = '🔗 Click & Buy';
 
       body.append(name, price, badges, btn);
       card.append(aImg, body);
@@ -93,10 +153,16 @@
     });
 
     document.addEventListener('click', (e)=>{
-      const a = e.target.closest('a[data-out]'); if(!a) return;
-      try{ const idx = a.closest('.card')?.dataset?.idx ?? 'x'; console.log('outbound_click',{idx,href:a.href}); }catch(_){}
+      const a = e.target.closest('a[data-out]');
+      if(!a) return;
+      try{
+        const idx = a.closest('.card')?.dataset?.idx ?? 'x';
+        console.log('outbound_click',{idx,href:a.href});
+      }catch(_){}
     });
-    document.getElementById('updated').textContent = 'Updated ' + new Date().toLocaleString();
+
+    document.getElementById('updated').textContent =
+      'Updated ' + new Date().toLocaleString();
   </script>
 </body>
 </html>
