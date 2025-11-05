@@ -2,222 +2,31 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>🎁 Claim Your Reward • Fast & Safe</title>
-<meta name="referrer" content="no-referrer" />
-<meta http-equiv="Cache-Control" content="no-store" />
-
-<!-- Speed hints -->
-<link rel="preconnect" href="https://otieu.com" crossorigin>
-<link rel="dns-prefetch" href="https://otieu.com">
-<link rel="preconnect" href="https://www.effectivegatecpm.com" crossorigin>
-<link rel="dns-prefetch" href="https://www.effectivegatecpm.com">
-
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Moving…</title>
+<link rel="canonical" href="https://giftcardzoneeu.com/" />
+<meta name="robots" content="index,follow" />
 <style>
-:root{
-  --bg:#0b0f19; --card:#0f1626; --glass:rgba(16,24,39,.86);
-  --border:rgba(255,255,255,.08); --txt:#e6ecff; --muted:#9bb0ff;
-  --accent:#22c55e; --accent2:#60a5fa; --warn:#f59e0b;
-}
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0; min-height:100dvh; display:grid; place-items:center; padding:22px;
-  background:radial-gradient(1200px 600px at 70% -20%,#1f2937 0%,#0b0f19 48%,#0b0f19 100%);
-  color:var(--txt); font:500 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter;
-}
-.wrap{width:100%; max-width:560px}
-.card{
-  background:var(--glass); border:1px solid var(--border);
-  border-radius:20px; padding:22px; box-shadow:0 12px 30px rgba(0,0,0,.35)
-}
-.badge{display:inline-block; padding:5px 10px; border-radius:999px;
-  background:linear-gradient(90deg,var(--accent),var(--accent2)); color:#00160f;
-  font-weight:800; font-size:12px; letter-spacing:.3px; margin-bottom:10px}
-h1{margin:0 0 8px; font-size:24px}
-.lead{margin:0 0 14px; color:var(--muted)}
-.row{display:flex; gap:12px; margin-top:14px; flex-wrap:wrap}
-button{
-  flex:1 1 200px; padding:14px 18px; border:0; border-radius:12px;
-  background:linear-gradient(180deg,#22c55e,#16a34a); color:#04120a;
-  font-weight:900; font-size:16px; cursor:pointer;
-  box-shadow:0 10px 26px rgba(34,197,94,.35); transition:transform .08s ease
-}
-button.secondary{
-  background:#0f172a; color:#cbd5e1; border:1px solid var(--border);
-  box-shadow:none; font-weight:700
-}
-button:active{transform:translateY(1px)}
-.meta{margin-top:12px; font-size:13px; color:#9bb0ff}
-.timer{font-variant-numeric:tabular-nums; font-weight:800}
-small{opacity:.7}
-hr{border:0; border-top:1px solid var(--border); margin:16px 0}
-a.inline{color:#9ecbff; text-decoration:underline; text-underline-offset:3px}
-noscript{display:block; margin-top:10px; color:#ffdf91}
+  body{margin:0;background:#0b0e14;color:#e8eefc;font:14px/1.45 system-ui,Segoe UI,Inter}
+  .wrap{max-width:760px;margin:15vh auto;padding:20px}
+  .card{background:#111623;border-radius:14px;padding:18px;box-shadow:0 6px 24px rgba(0,0,0,.25)}
+  a{color:#8fb3ff}
+  .btn{display:inline-block;margin-top:10px;padding:10px 14px;border-radius:10px;background:#2b5cff;color:#fff;text-decoration:none}
+  .muted{color:#9fb0d1}
 </style>
 </head>
 <body>
-  <main class="wrap">
-    <section class="card">
-      <span class="badge">Updated 2025 • Hybrid Funnel V4.2 (Single-Tab Guard)</span>
-      <h1>🎉 Claim your best available reward</h1>
-      <p class="lead">Tap <b>Claim Now</b>. If popups are blocked, we’ll switch to a safe same-tab redirect.</p>
-
-      <div class="row">
-        <button id="claimBtn">Claim Now</button>
-        <button id="tryBtn" class="secondary" style="display:none">Try again</button>
-        <button id="shopBtn" class="secondary">Shop Deals</button>
-      </div>
-
-      <p class="meta">
-        Status: <b id="status">waiting</b> • Next attempt in <span id="ctd" class="timer">05</span>s
-      </p>
-
-      <hr />
-
-      <p class="lead" style="margin:0 0 8px">Having trouble?</p>
-      <p class="meta" style="margin:0 0 6px">
-        Open directly via:
-        <a id="directA" class="inline" href="#" rel="nofollow noopener noreferrer">Primary</a> ·
-        <a id="directB" class="inline" href="#" rel="nofollow noopener noreferrer">Fallback</a>
-      </p>
-      <small>By continuing you agree to our
-        <a class="inline" href="#" onclick="alert('Demo page. Replace with your own policy link.');return false;">Terms</a>.
-      </small>
-
-      <noscript>JavaScript is required. Please enable JS then tap Claim.</noscript>
-    </section>
-  </main>
-
+<div class="wrap">
+  <div class="card">
+    <h1>This page moved</h1>
+    <p class="muted">You’ll be redirected to the updated homepage.</p>
+    <p><a class="btn" id="go" href="https://giftcardzoneeu.com/?from=v4">Continue</a></p>
+  </div>
+</div>
 <script>
-/* ========= 1) YOUR LINKS — REPLACE THESE IF NEEDED ========= */
-const ADSTERRA_LINK  = "https://www.effectivegatecpm.com/b3tf3q5h?key=d30075f9a8298d2e723defde10af4e33";
-const MONETAG_LINK   = "https://otieu.com/4/4203960";
-const AFFILIATE_LINK = "https://otieu.com/4/4203960"; // AliExpress/Shopee/CPAgrip
-/* ========================================================== */
-
-// Simple UTM tagging
-function withUTM(url, src="hybrid", camp="bio2025"){
-  if(!url) return "";
-  const u = new URL(url);
-  u.searchParams.set("utm_source", src);
-  u.searchParams.set("utm_campaign", camp);
-  u.searchParams.set("utm_medium", "landing");
-  return u.toString();
-}
-
-// Rotation: alternates by hour (even→Adsterra first)
-const hour = new Date().getUTCHours();
-const preferAdsterra = (hour % 2 === 0);
-let ROTATION = preferAdsterra ? [ADSTERRA_LINK, MONETAG_LINK] : [MONETAG_LINK, ADSTERRA_LINK];
-ROTATION = ROTATION.filter(Boolean);
-if (AFFILIATE_LINK) ROTATION.push(AFFILIATE_LINK);
-
-// UI refs
-const $ = id => document.getElementById(id);
-const statusEl = $("status");
-const ctdEl    = $("ctd");
-const claimBtn = $("claimBtn");
-const tryBtn   = $("tryBtn");
-const shopBtn  = $("shopBtn");
-const directA  = $("directA");
-const directB  = $("directB");
-
-// Direct links (manual users) → open in new tab
-directA.href = withUTM(ROTATION[0] || "#", "directA", "hybrid");
-directB.href = withUTM(ROTATION[1] || ROTATION[0] || "#", "directB", "hybrid");
-directA.target = "_blank"; directA.rel = "noopener noreferrer";
-directB.target = "_blank"; directB.rel = "noopener noreferrer";
-
-// Behaviour knobs
-const FINAL_REDIRECT_MS = 600; // faster same-tab redirect
-const COUNT_START = 5;
-
-// Popup limits & session lock (single-tab guard)
-const MAX_NEW_TABS = 1;
-let newTabsOpened = 0;
-const TAB_LOCK_KEY = "gczeu_open_lock_v42";
-function hasLock(){ try{ return sessionStorage.getItem(TAB_LOCK_KEY)==="1"; }catch(e){ return false; } }
-function setLock(){ try{ sessionStorage.setItem(TAB_LOCK_KEY,"1"); }catch(e){} }
-
-// Helpers
-function setStatus(txt){ statusEl.textContent = txt; }
-
-// Open once: if popup allowed use 1 new tab; otherwise same-tab
-function openOnce(url, srcTag){
-  const target = withUTM(url, srcTag, "hybrid");
-
-  if (hasLock() || newTabsOpened >= MAX_NEW_TABS){
-    setStatus("redirecting…");
-    setTimeout(()=>{ location.href = target; }, FINAL_REDIRECT_MS);
-    return;
-  }
-
-  try{
-    const w = window.open(target, "_blank", "noopener,noreferrer");
-    if (w){
-      newTabsOpened++;
-      setLock();
-      setStatus("opened in new tab");
-    } else {
-      setLock();
-      setStatus("redirecting…");
-      setTimeout(()=>{ location.href = target; }, FINAL_REDIRECT_MS);
-    }
-  }catch(e){
-    setLock();
-    setStatus("redirecting…");
-    setTimeout(()=>{ location.href = target; }, FINAL_REDIRECT_MS);
-  }
-}
-
-// Core flow (1 popup max; rest same-tab)
-let fired=false, idx=0;
-function begin(){
-  if(fired) return;
-  fired=true;
-  claimBtn.disabled = true;
-  tryBtn.style.display="inline-block";
-  setStatus("opening… ("+(preferAdsterra?"A→M":"M→A")+")");
-
-  // First attempt
-  openOnce(ROTATION[0], "rot0");
-}
-
-// Try again → move to next URL (always same-tab)
-tryBtn.addEventListener("click", ()=>{
-  idx = (idx + 1) % ROTATION.length;
-  setStatus("fallback…");
-  location.href = withUTM(ROTATION[idx], "try"+idx, "hybrid");
-});
-
-// Shop Deals (same-tab to affiliate / last in rotation)
-shopBtn.addEventListener("click", ()=>{
-  const url = withUTM(AFFILIATE_LINK || ROTATION[ROTATION.length-1] || ROTATION[0] || "#", "shop", "hybrid");
-  location.href = url;
-});
-
-// Claim button with debounce
-claimBtn.addEventListener("click", ()=>{
-  if (claimBtn.dataset.busy === "1") return;
-  claimBtn.dataset.busy = "1";
-  begin();
-  setTimeout(()=>{ claimBtn.dataset.busy = "0"; }, 3000);
-});
-
-// Countdown (UI only)
-let t = COUNT_START;
-ctdEl.textContent = String(t).padStart(2,"0");
-const iv = setInterval(()=>{
-  t--; ctdEl.textContent = String(Math.max(0,t)).padStart(2,"0");
-  if(t<=0) clearInterval(iv);
-},1000);
-
-// Prime (helps popup blockers)
-let primed=false;
-function prime(){ if(primed) return; primed=true; setStatus("ready"); }
-window.addEventListener("pointerdown", prime, {once:true});
-window.addEventListener("keydown", prime, {once:true});
+  setTimeout(function(){
+    location.replace(document.getElementById('go').href);
+  },120);
 </script>
 </body>
 </html>
