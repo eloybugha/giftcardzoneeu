@@ -1,4 +1,4 @@
-
+why
 <!doctype html>
 <html lang="en">
 <head>
@@ -142,28 +142,68 @@
       price_now:"€3.59", price_old:"€9.99", tags:["Bathroom"]
     }
   ];
+<script>
+  const ASSETS = "/assets/germany/";
+  const PLACEHOLDER = "/assets/placeholder.webp"; // optional
 
-  // Build grid
+  // Try candidates OFF-SCREEN; only show once a file loads (no flicker)
+  function resolveImage(candidates, done){
+    const exts = ['.webp','.jpg','.png','.jpeg'];
+    const expanded = [];
+    candidates.forEach(base=>{
+      if (/\.(webp|jpe?g|png)$/i.test(base)) expanded.push(base);
+      else exts.forEach(ext=>expanded.push(base+ext));
+    });
+    let i=0;
+    function next(){
+      if(i>=expanded.length){
+        done(PLACEHOLDER); return;
+      }
+      const src = ASSETS + expanded[i++];
+      const test = new Image();
+      test.onload = ()=>done(src);
+      test.onerror = next;
+      test.src = src;
+    }
+    next();
+  }
+
+  const items = [
+    { name:"QCY H3 Pro ANC Headphones",            cand:["qcy-h3-pro","qcy-h3-pro-anc"], url:"https://s.click.aliexpress.com/e/_c42MInzZ", price_now:"€38.79", price_old:"€120.73", tags:["Hi-Res","ANC","LDAC"] },
+    { name:"HD Monocular Telescope (Clip-on)",     cand:["hd-monocular-telescope","monocular-clip"], url:"https://s.click.aliexpress.com/e/_c4TheEtV", price_now:"€14.99", price_old:"€29.99", tags:["Travel","Zoom"] },
+
+    /* 3 nagba-black dati — multiple guesses */
+    { name:"Mini Air Humidifier (Aroma)",          cand:["mini-air-humidifier-aroma","mini-air-humidifier","mini-humidifier-aroma","air-humidifier-mini"], url:"https://s.click.aliexpress.com/e/_c4c1ZzGB", price_now:"€0.99", price_old:"€8.13", tags:["88% off","Aroma"] },
+    { name:"Wood-Style Air Diffuser",              cand:["air-diffuser-wood","wood-style-air-diffuser","wood-diffuser","wood-aroma-diffuser"], url:"https://s.click.aliexpress.com/e/_c4bByBa3", price_now:"€6.49", price_old:"€15.99", tags:["Home"] },
+    { name:"Air Aroma Humidifier",                 cand:["air-aroma-humidifier","aroma-humidifier"], url:"https://s.click.aliexpress.com/e/_c3ZB3qOX", price_now:"€5.29", price_old:"€12.99", tags:["Home"] },
+    { name:"Mini Heat Bag Sealing Tool",           cand:["mini-heat-bag-sealing","mini-heat-sealer","bag-sealer-mini","heat-bag-sealer"], url:"https://s.click.aliexpress.com/e/_c406KHZZ", price_now:"€2.19", price_old:"€6.99", tags:["Kitchen"] },
+    { name:"Deodorize Toilet Cleaning Tool",       cand:["deodorize-toilet-cleaning","toilet-cleaning-sheets","toilet-deodorize"], url:"https://s.click.aliexpress.com/e/_c4KJIzGf", price_now:"€3.59", price_old:"€9.99", tags:["Bathroom"] }
+  ];
+
   const $grid = document.getElementById('grid');
 
   items.forEach((it, i) => {
     const card = document.createElement('article');
     card.className = 'card'; card.dataset.idx = i;
 
+    // Clickable image wrapper
     const aImg = document.createElement('a');
     aImg.href = it.url || '#';
     aImg.target = '_blank';
     aImg.rel = 'nofollow sponsored noopener';
     aImg.className = 'thumb';
 
+    // Create img WITHOUT src (so nothing flashes)
     const img = document.createElement('img');
-    img.loading = 'lazy';
-    img.decoding = 'async';
     img.alt = it.name || 'Deal image';
-    // start with placeholder then load candidates (prevents “nginig”)
-    img.src = PLACEHOLDER;
+    img.decoding = 'async'; img.loading = 'lazy';
     aImg.appendChild(img);
-    loadWithCandidates(img, it.candidates || [it.img?.replace(/\.(webp|jpe?g|png)$/i,'') || 'missing']);
+
+    // Preload → then reveal
+    resolveImage(it.cand, (src)=>{
+      img.src = src || PLACEHOLDER;
+      img.classList.add('ready');
+    });
 
     const body = document.createElement('div'); body.className = 'body';
     const name = document.createElement('div'); name.className = 'name'; name.textContent = it.name || 'Untitled';
@@ -183,7 +223,9 @@
     const a = e.target.closest('a[data-out]'); if(!a) return;
     try{ const idx = a.closest('.card')?.dataset?.idx ?? 'x'; console.log('outbound_click',{idx,href:a.href}); }catch(_){}
   });
-  document.getElementById('updated').textContent = 'Updated ' + new Date().toLocaleString();
+
+  document.getElementById('updated').textContent =
+    'Updated ' + new Date().toLocaleString();
 </script>
 </body>
 </html>
