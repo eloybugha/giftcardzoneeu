@@ -1,171 +1,168 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Germany Deals • Top Picks</title>
-<meta name="description" content="Curated Germany deals. Clean grid • Lazy-loaded images • Direct affiliate links." />
-<link rel="canonical" href="https://giftcardzoneeu.com/deals/germany/" />
-<meta property="og:title" content="Germany Deals • Top Picks" />
-<meta property="og:description" content="Hot finds with direct AliExpress links." />
-<meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary_large_image" />
-<style>
-  :root{--bg:#0b0e14;--card:#111623;--text:#e8eefc;--muted:#9fb0d1;--gap:14px;--radius:16px;--shadow:0 6px 24px rgba(0,0,0,.25);--cta:#2b5cff;--cta-t:#fff;--ok:#2ecc71}
-  *{box-sizing:border-box}
-  html,body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
-  a{color:inherit;text-decoration:none}
-  .wrap{max-width:1120px;margin:auto;padding:22px}
-  header{display:flex;align-items:center;gap:12px;margin-bottom:18px;flex-wrap:wrap}
-  .dot{width:8px;height:8px;border-radius:999px;background:var(--ok);box-shadow:0 0 0 6px rgba(46,204,113,.12)}
-  h1{font-size:20px;line-height:1.2;margin:0}.sub{color:var(--muted);font-size:13px}
-  .grid{display:grid;gap:var(--gap);grid-template-columns:repeat(2,minmax(0,1fr))}
-  @media (min-width:700px){.grid{grid-template-columns:repeat(3,minmax(0,1fr));}}
-  @media (min-width:1024px){.grid{grid-template-columns:repeat(4,minmax(0,1fr));}}
-  .card{background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;border:1px solid rgba(255,255,255,.06)}
-  .thumb{aspect-ratio:1/1;background:#0a0d18;overflow:hidden}
-  .thumb img{width:100%;height:100%;object-fit:cover;display:block}
-  .body{padding:12px 12px 14px;display:flex;flex-direction:column;gap:8px}
-  .name{font-size:14px;font-weight:600;line-height:1.35;min-height:2.6em}
-  .price{font-size:13px;color:var(--muted)} .price b{color:var(--text)}
-  .badgelist{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
-  .badge{font-size:11px;color:#b9c6e6;border:1px solid rgba(255,255,255,.14);padding:4px 8px;border-radius:999px}
-  .btn{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:8px;height:40px;border-radius:12px;background:var(--cta);color:var(--cta-t);font-weight:700;border:0;cursor:pointer;padding:0 14px}
-  footer{margin-top:22px;color:var(--muted);font-size:12px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Germany Deals • Top Picks</title>
+  <meta name="description" content="Curated Germany deals. Clean grid • Lazy-loaded images • Direct affiliate links." />
+  <link rel="canonical" href="https://giftcardzoneeu.com/deals/germany/" />
+  <meta property="og:title" content="Germany Deals • Top Picks" />
+  <meta property="og:description" content="Hot finds with direct AliExpress links." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <style>
+    :root{
+      --bg:#0b0e14; --card:#111623; --text:#e8eefc; --muted:#9fb0d1;
+      --ring:#2b5cff; --cta:#2b5cff; --cta-t:#fff;
+      --gap:14px; --radius:16px; --shadow:0 6px 24px rgba(0,0,0,.25);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);font:500 16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial}
+    .wrap{max-width:1150px;margin:28px auto;padding:0 14px}
+    .topbar{
+      display:flex;align-items:center;gap:10px;margin:0 0 16px;
+      padding:12px 14px;border:1px solid #1b2234;background:#0e1422;border-radius:12px
+    }
+    .topbar .dot{width:10px;height:10px;border-radius:50%;background:#3ddc84}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
+    @media (max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:640px){.grid{grid-template-columns:1fr}}
+
+    .card{
+      display:flex;flex-direction:column;gap:12px;
+      background:var(--card);border:1px solid #182033;border-radius:var(--radius);
+      box-shadow:var(--shadow);padding:12px;min-height:100%;
+    }
+    .card img{
+      width:100%;aspect-ratio:1.4/1;object-fit:cover;border-radius:12px;border:1px solid #1a2234;
+      background:#0b1120
+    }
+    .title{font-weight:700;margin:2px 0 0}
+    .price{font-size:14px;color:var(--muted);margin:0}
+    .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+    .tag{font-size:12px;color:#cfe1ff;background:#0f1730;border:1px solid #1f2e5b;border-radius:999px;padding:3px 8px}
+    .btn{
+      display:flex;align-items:center;justify-content:center;gap:8px;
+      background:var(--cta);color:var(--cta-t);text-decoration:none;font-weight:700;
+      padding:12px;border-radius:12px;border:1px solid #254ae6;transition:.15s;
+      margin-top:10px
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .muted{color:var(--muted)}
+    .foot{opacity:.75;font-size:13px;text-align:center;margin:18px 0 0}
+  </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <span class="dot" aria-hidden="true"></span>
-    <div>
-      <h1>Top On-Sale Product Recommendations</h1>
-      <div class="sub">Direct AliExpress links • No popups • Images lazy-loaded</div>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="dot"></div>
+      <strong>Top On-Sale Product Recommendations!</strong>
+      <span class="muted">Direct AliExpress links • No popups • Images lazy-loaded</span>
     </div>
-  </header>
 
-  <section class="grid">
-    <!-- CARD 1 -->
-    <article class="card">
-      <a class="thumb" href="https://s.click.aliexpress.com/e/_c42MInzZ" target="_blank" rel="nofollow sponsored noopener">
-        <img loading="lazy" decoding="async"
-             src="/assets/germany/qcy-h3-pro.webp"
-             onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221200%22 height=%221200%22%3E%3Crect width=%22100%25%22 height=%22100%25%22 fill=%22%23111623%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%239fb0d1%22 font-family=%22Arial%22 font-size=%2236%22%3EImage unavailable%3C/text%3E%3C/svg%3E';"
-             alt="QCY H3 Pro ANC Headphones">
-      </a>
-      <div class="body">
-        <div class="name">QCY H3 Pro ANC Headphones</div>
-        <div class="price"><b>Price Now:</b> €38.79 (Original: €120.73)</div>
-        <div class="badgelist"><span class="badge">Hi-Res</span><span class="badge">ANC</span><span class="badge">LDAC</span></div>
-        <a class="btn" href="https://s.click.aliexpress.com/e/_c42MInzZ" target="_blank" rel="nofollow sponsored noopener">🔗 Click & Buy</a>
-      </div>
-    </article>
+    <div class="grid">
 
-    <!-- CARD 2 -->
-    <article class="card">
-      <a class="thumb" href="https://s.click.aliexpress.com/e/_c4TheEtV" target="_blank" rel="nofollow sponsored noopener">
-        <img loading="lazy" decoding="async"
-             src="/assets/germany/hd-monocular-telescope.webp"
-             onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221200%22 height=%221200%22%3E%3Crect width=%22100%25%22 height=%22100%25%22 fill=%22%23111623%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%239fb0d1%22 font-family=%22Arial%22 font-size=%2236%22%3EImage unavailable%3C/text%3E%3C/svg%3E';"
-             alt="HD Monocular Telescope (Clip-on)">
-      </a>
-      <div class="body">
-        <div class="name">HD Monocular Telescope (Clip-on)</div>
-        <div class="price"><b>Price Now:</b> €14.99 (Original: €29.99)</div>
-        <div class="badgelist"><span class="badge">Travel</span><span class="badge">Zoom</span></div>
-        <a class="btn" href="https://s.click.aliexpress.com/e/_c4TheEtV" target="_blank" rel="nofollow sponsored noopener">🔗 Click & Buy</a>
-      </div>
-    </article>
+      <!-- 1 -->
+      <article class="card">
+        <img loading="lazy" src="/assets/germany/qcy-h3-pro.webp?v=3" alt="QCY H3 Pro ANC Headphones"
+             onerror="this.onerror=null;this.src='/assets/placeholder.webp'">
+        <h3 class="title">QCY H3 Pro ANC Headphones</h3>
+        <p class="price"><strong>Price Now:</strong> €38.79 <span class="muted">(Original: €120.73)</span></p>
+        <div class="tags"><span class="tag">Hi-Res</span><span class="tag">ANC</span><span class="tag">LDAC</span></div>
+        <a class="btn" href="HREF_HERE_QCY_H3" target="_blank" rel="nofollow noopener">🔗 Click & Buy</a>
+      </article>
 
-    <!-- CARD 3 -->
-    <article class="card">
-      <a class="thumb" href="https://s.click.aliexpress.com/e/_c4c1ZzGB" target="_blank" rel="nofollow sponsored noopener">
-        <img loading="lazy" decoding="async"
-             src="/assets/germany/mini-air-humidifier-aroma.webp"
-             onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221200%22 height=%221200%22%3E%3Crect width=%22100%25%22 height=%22100%25%22 fill=%22%23111623%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%239fb0d1%22 font-family=%22Arial%22 font-size=%2236%22%3EImage unavailable%3C/text%3E%3C/svg%3E';"
-             alt="Mini Air Humidifier (Aroma)">
-      </a>
-      <div class="body">
-        <div class="name">Mini Air Humidifier (Aroma)</div>
-        <div class="price"><b>Price Now:</b> €0.99 (Original: €8.13)</div>
-        <div class="badgelist"><span class="badge">88% off</span><span class="badge">Aroma</span></div>
-        <a class="btn" href="https://s.click.aliexpress.com/e/_c4c1ZzGB" target="_blank" rel="nofollow sponsored noopener">🔗 Click & Buy</a>
-      </div>
-    </article>
+      <!-- 2 -->
+      <article class="card">
+        <img loading="lazy" src="/assets/germany/hd-monocular-telescope.webp?v=3" alt="HD Monocular Telescope (Clip-on)"
+             onerror="this.onerror=null;this.src='/assets/placeholder.webp'">
+        <h3 class="title">HD Monocular Telescope (Clip-on)</h3>
+        <p class="price"><strong>Price Now:</strong> €14.99 <span class="muted">(Original: €29.99)</span></p>
+        <div class="tags"><span class="tag">Travel</span><span class="tag">Zoom</span></div>
+        <a class="btn" href="HREF_HERE_MONOCULAR" target="_blank" rel="nofollow noopener">🔗 Click & Buy</a>
+      </article>
 
-    <!-- CARD 4 -->
-    <article class="card">
-      <a class="thumb" href="https://s.click.aliexpress.com/e/_c4bByBa3" target="_blank" rel="nofollow sponsored noopener">
-        <img loading="lazy" decoding="async"
-             src="/assets/germany/air-diffuser-wood.webp"
-             onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221200%22 height=%221200%22%3E%3Crect width=%22100%25%22 height=%22100%25%22 fill=%22%23111623%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%239fb0d1%22 font-family=%22Arial%22 font-size=%2236%22%3EImage unavailable%3C/text%3E%3C/svg%3E';"
-             alt="Wood-Style Air Diffuser">
-      </a>
-      <div class="body">
-        <div class="name">Wood-Style Air Diffuser</div>
-        <div class="price"><b>Price Now:</b> €6.49 (Original: €15.99)</div>
-        <div class="badgelist"><span class="badge">Home</span></div>
-        <a class="btn" href="https://s.click.aliexpress.com/e/_c4bByBa3" target="_blank" rel="nofollow sponsored noopener">🔗 Click & Buy</a>
-      </div>
-    </article>
+      <!-- 3 -->
+      <article class="card">
+        <img loading="lazy" src="/assets/germany/mini-air-humidifier-aroma.webp?v=3" alt="Mini Air Humidifier (Aroma)"
+             onerror="this.onerror=null;this.src='/assets/placeholder.webp'">
+        <h3 class="title">Mini Air Humidifier (Aroma)</h3>
+        <p class="price"><strong>Price Now:</strong> €0.99 <span class="muted">(Original: €8.13)</span></p>
+        <div class="tags"><span class="tag">88% off</span><span class="tag">Aroma</span></div>
+        <a class="btn" href="HREF_HERE_MINI_AROMA" target="_blank" rel="nofollow noopener">🔗 Click & Buy</a>
+      </article>
 
-    <!-- CARD 5 -->
-    <article class="card">
-      <a class="thumb" href="https://s.click.aliexpress.com/e/_c3ZB3qOX" target="_blank" rel="nofollow sponsored noopener">
-        <img loading="lazy" decoding="async"
-             src="/assets/germany/air-aroma-humidifier.webp"
-             onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221200%22 height=%221200%22%3E%3Crect width=%22100%25%22 height=%22100%25%22 fill=%22%23111623%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%239fb0d1%22 font-family=%22Arial%22 font-size=%2236%22%3EImage unavailable%3C/text%3E%3C/svg%3E';"
-             alt="Air Aroma Humidifier">
-      </a>
-      <div class="body">
-        <div class="name">Air Aroma Humidifier</div>
-        <div class="price"><b>Price Now:</b> €5.29 (Original: €12.99)</div>
-        <div class="badgelist"><span class="badge">Home</span></div>
-        <a class="btn" href="https://s.click.aliexpress.com/e/_c3ZB3qOX" target="_blank" rel="nofollow sponsored noopener">🔗 Click & Buy</a>
-      </div>
-    </article>
+      <!-- 4 -->
+      <article class="card">
+        <img loading="lazy" src="/assets/germany/wood-style-air-diffuser.webp?v=3" alt="Wood-Style Air Diffuser"
+             onerror="this.onerror=null;this.src='/assets/placeholder.webp'">
+        <h3 class="title">Wood-Style Air Diffuser</h3>
+        <p class="price"><strong>Price Now:</strong> €6.49 <span class="muted">(Original: €15.99)</span></p>
+        <div class="tags"><span class="tag">Home</span></div>
+        <a class="btn" href="HREF_HERE_WOOD_DIFFUSER" target="_blank" rel="nofollow noopener">🔗 Click & Buy</a>
+      </article>
 
-    <!-- CARD 6 -->
-    <article class="card">
-      <a class="thumb" href="https://s.click.aliexpress.com/e/_c406KHZZ" target="_blank" rel="nofollow sponsored noopener">
-        <img loading="lazy" decoding="async"
-             src="/assets/germany/mini-heat-bag-sealing.webp"
-             onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221200%22 height=%221200%22%3E%3Crect width=%22100%25%22 height=%22100%25%22 fill=%22%23111623%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%239fb0d1%22 font-family=%22Arial%22 font-size=%2236%22%3EImage unavailable%3C/text%3E%3C/svg%3E';"
-             alt="Mini Heat Bag Sealing Tool">
-      </a>
-      <div class="body">
-        <div class="name">Mini Heat Bag Sealing Tool</div>
-        <div class="price"><b>Price Now:</b> €2.19 (Original: €6.99)</div>
-        <div class="badgelist"><span class="badge">Kitchen</span></div>
-        <a class="btn" href="https://s.click.aliexpress.com/e/_c406KHZZ" target="_blank" rel="nofollow sponsored noopener">🔗 Click & Buy</a>
-      </div>
-    </article>
+      <!-- 5 -->
+      <article class="card">
+        <img loading="lazy" src="/assets/germany/air-aroma-humidifier.webp?v=3" alt="Air Aroma Humidifier"
+             onerror="this.onerror=null;this.src='/assets/placeholder.webp'">
+        <h3 class="title">Air Aroma Humidifier</h3>
+        <p class="price"><strong>Price Now:</strong> €5.29 <span class="muted">(Original: €12.99)</span></p>
+        <div class="tags"><span class="tag">Home</span></div>
+        <a class="btn" href="HREF_HERE_AROMA" target="_blank" rel="nofollow noopener">🔗 Click & Buy</a>
+      </article>
 
-    <!-- CARD 7 -->
-    <article class="card">
-      <a class="thumb" href="https://s.click.aliexpress.com/e/_c4KJIzGf" target="_blank" rel="nofollow sponsored noopener">
-        <img loading="lazy" decoding="async"
-             src="/assets/germany/deodorize-toilet-cleaning.webp"
-             onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221200%22 height=%221200%22%3E%3Crect width=%22100%25%22 height=%22100%25%22 fill=%22%23111623%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%239fb0d1%22 font-family=%22Arial%22 font-size=%2236%22%3EImage unavailable%3C/text%3E%3C/svg%3E';"
-             alt="Deodorize Toilet Cleaning Tool">
-      </a>
-      <div class="body">
-        <div class="name">Deodorize Toilet Cleaning Tool</div>
-        <div class="price"><b>Price Now:</b> €3.59 (Original: €9.99)</div>
-        <div class="badgelist"><span class="badge">Bathroom</span></div>
-        <a class="btn" href="https://s.click.aliexpress.com/e/_c4KJIzGf" target="_blank" rel="nofollow sponsored noopener">🔗 Click & Buy</a>
-      </div>
-    </article>
-  </section>
+      <!-- 6 -->
+      <article class="card">
+        <img loading="lazy" src="/assets/germany/mini-heat-bag-sealing-tool.webp?v=3" alt="Mini Heat Bag Sealing Tool"
+             onerror="this.onerror=null;this.src='/assets/placeholder.webp'">
+        <h3 class="title">Mini Heat Bag Sealing Tool</h3>
+        <p class="price"><strong>Price Now:</strong> €2.19 <span class="muted">(Original: €6.99)</span></p>
+        <div class="tags"><span class="tag">Kitchen</span></div>
+        <a class="btn" href="HREF_HERE_SEALER" target="_blank" rel="nofollow noopener">🔗 Click & Buy</a>
+      </article>
 
-  <footer>
-    <div>✅ Pure affiliate buttons only.</div>
-    <div id="updated">Updated just now.</div>
-  </footer>
-</div>
+      <!-- 7 -->
+      <article class="card">
+        <img loading="lazy" src="/assets/germany/deodorize-toilet-cleaning.webp?v=3" alt="Deodorize Toilet Cleaning Sheets"
+             onerror="this.onerror=null;this.src='/assets/placeholder.webp'">
+        <h3 class="title">Deodorize Toilet Cleaning Sheets</h3>
+        <p class="price"><strong>Price Now:</strong> €0.99 <span class="muted">(Original: €3.99)</span></p>
+        <div class="tags"><span class="tag">Home</span><span class="tag">Clean</span></div>
+        <a class="btn" href="HREF_HERE_TOILET" target="_blank" rel="nofollow noopener">🔗 Click & Buy</a>
+      </article>
 
-<script>
-  document.getElementById('updated').textContent = 'Updated ' + new Date().toLocaleString();
-</script>
+      <!-- 8 -->
+      <article class="card">
+        <img loading="lazy" src="/assets/germany/qcy-melobuds-n70.webp?v=3" alt="QCY Melobuds N70"
+             onerror="this.onerror=null;this.src='/assets/placeholder.webp'">
+        <h3 class="title">QCY Melobuds N70</h3>
+        <p class="price"><strong>Price Now:</strong> €24.99 <span class="muted">(Example price)</span></p>
+        <div class="tags"><span class="tag">TWS</span><span class="tag">Bluetooth</span></div>
+        <a class="btn" href="HREF_HERE_MELOBUDS" target="_blank" rel="nofollow noopener">🔗 Click & Buy</a>
+      </article>
+
+      <!-- 9 (optional spare slot; replace image if you want another item) -->
+      <article class="card">
+        <img loading="lazy" src="/assets/germany/men-women-fashion-sport-led.webp?v=3" alt="LED Sport Watch (Unisex)"
+             onerror="this.onerror=null;this.src='/assets/placeholder.webp'">
+        <h3 class="title">LED Sport Watch (Unisex)</h3>
+        <p class="price"><strong>Price Now:</strong> €3.49 <span class="muted">(Example price)</span></p>
+        <div class="tags"><span class="tag">LED</span><span class="tag">Sport</span></div>
+        <a class="btn" href="HREF_HERE_LED_WATCH" target="_blank" rel="nofollow noopener">🔗 Click & Buy</a>
+      </article>
+
+    </div>
+
+    <p class="foot">🇩🇪 Updated regularly. Prices may change at checkout. Affiliate disclosure: we may earn a commission.</p>
+  </div>
+
+  <script>
+    // Simple outbound tracking ping (optional, no external calls)
+    document.querySelectorAll('a.btn').forEach(a=>{
+      a.addEventListener('click',()=>{ try{ navigator.sendBeacon && navigator.sendBeacon('/go/ping','germany-deal'); }catch(e){} });
+    });
+  </script>
 </body>
 </html>
