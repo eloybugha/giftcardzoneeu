@@ -1,1 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Protect Your Phone • Free Security</title>
+  <meta name="description" content="Public Wi‑Fi isn’t safe. Block hackers now — free, no signup." />
+  <!-- Avoid indexing this router -->
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://giftcardzoneeu.com/go/global-router/v8/" />
+  <style>
+    :root{
+      --bg:#0b0e14;--card:#111623;--text:#e8eefc;--muted:#9fb0d1;--ring:#2b5cff;--ok:#22c55e;
+      --radius:16px;--shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100svh;display:grid;place-items:center;background:radial-gradient(1200px 700px at 50% -10%,#162032 0%,#0b0e14 60%,#05070b 100%);color:var(--text);font:16px/1.45 system-ui,Segoe UI,Roboto,Inter,sans-serif}
+    .card{width:min(680px,92vw);background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px; text-align:center; border:1px solid rgba(255,255,255,.06)}
+    h1{font-size:1.35rem;margin:0 0 8px}
+    p{color:var(--muted);margin:0 0 18px}
+    .cta{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;background:var(--ring);color:#fff;text-decoration:none;font-weight:700;box-shadow:0 8px 24px rgba(43,92,255,.35)}
+    .cta:hover{transform:translateY(-1px)}
+    .timer{margin-top:14px;font-size:.9rem;color:#9fb0d1}
+    .bar{height:6px;background:rgba(255,255,255,.08);border-radius:999px;overflow:hidden;margin-top:8px}
+    .bar>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--ring),#7aa2ff);transition:width .2s ease}
+    .badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+    .badge{font-size:.75rem;color:#cfe0ff;background:#0f1422;border:1px solid rgba(255,255,255,.08);padding:6px 10px;border-radius:999px}
+    .tiny{opacity:.75;font-size:.75rem;margin-top:14px}
+    .split{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);margin:18px 0}
+    noscript{display:block;color:#ffb4b4;background:#2a1111;border:1px solid #f44;border-radius:12px;padding:10px;margin-top:10px}
+  </style>
+</head>
+<body>
+  <main class="card" role="main" aria-live="polite">
+    <h1>🔒 Public Wi‑Fi isn’t safe.</h1>
+    <p>Block hackers now — <strong>free</strong>, no signup.</p>
+
+    <a id="cta" class="cta" href="#" target="_blank" rel="noopener noreferrer" aria-label="Protect my phone now">
+      <span>Secure My Phone</span>
+    </a>
+
+    <div class="timer" id="status">Auto-redirecting in <b id="sec">5</b>s…</div>
+    <div class="bar" aria-hidden="true"><i id="prog"></i></div>
+
+    <div class="badges">
+      <span class="badge">✅ Free install</span>
+      <span class="badge">🛡️ Real-time protection</span>
+      <span class="badge">⚡ 1-minute setup</span>
+    </div>
+
+    <div class="split"></div>
+
+    <p class="tiny">Ads help keep this page free. You’ll be redirected to the security offer shortly.</p>
+
+    <noscript>JavaScript is required for the ad unit and redirect. Please enable JavaScript.</noscript>
+  </main>
+
+  <!-- ==================== AD TAGS (Paste your real tags below) ==================== -->
+  <!-- ADSTERRA POPUNDER (replace KEY + SRC with the exact snippet from your dashboard) -->
+  <script>
+    // Example Adsterra config (PLACEHOLDER). Replace with your real atOptions + invoke.js src.
+    // atOptions = { key: 'YOUR_ADSTERRA_KEY', format: 'popunder', height: 0, width: 0, params: {} };
+    // document.write('<scr'+'ipt src="//www.highperformancedisplayformat.com/YOUR_ADSTERRA_KEY/invoke.js"></scr'+'ipt>');
+  </script>
+
+  <!-- MONETAG POPUNDER (paste your real Monetag tag below) -->
+  <script>
+    // Example Monetag placeholder. Paste the full Monetag popunder tag from your panel.
+    // <script async data-cfasync="false" src="//YOUR_MONETAG_DOMAIN/YOUR_PATH.js"></scr'+'ipt>
+  </script>
+  <!-- ============================================================================ -->
+
+  <script>
+    // ====== CONFIG ======
+    const OFFERS = [
+      // Put your primary + backup offer links here
+      'https://your-primary-vpn-offer.com',
+      'https://your-backup-offer-1.com',
+      'https://your-backup-offer-2.com'
+    ];
+    const VERSION = 'v8';
+    const AUTO_DELAY_MS = 5000; // 5 seconds to let popunder fire
+
+    // Append UTM params for tracking
+    function withUTM(url){
+      try{
+        const u = new URL(url);
+        if(!u.searchParams.has('utm_source')){
+          u.searchParams.set('utm_source','router');
+          u.searchParams.set('utm_medium','pop');
+          u.searchParams.set('utm_campaign', VERSION);
+        }
+        return u.toString();
+      }catch(e){ return url; }
+    }
+
+    // Pick the first working offer (simple)
+    function pickOffer(){
+      return OFFERS[0] || '#';
+    }
+
+    const offer = withUTM(pickOffer());
+
+    // Wire CTA click (open in new tab to preserve ad load)
+    const cta = document.getElementById('cta');
+    cta.href = offer;
+    cta.addEventListener('click', () => {
+      // Optional: analytics ping
+      try{ navigator.sendBeacon?.('/go/global-router/click?ver='+VERSION); }catch(e){}
+    });
+
+    // Simple visual countdown
+    const secEl = document.getElementById('sec');
+    const prog = document.getElementById('prog');
+    let left = AUTO_DELAY_MS, total = AUTO_DELAY_MS;
+    const iv = setInterval(()=>{
+      left -= 200;
+      if(left < 0) left = 0;
+      const s = Math.ceil(left/1000);
+      secEl.textContent = s;
+      prog.style.width = ((total-left)/total*100).toFixed(1)+'%';
+      if(left === 0){
+        clearInterval(iv);
+        // Auto redirect in same tab after delay (ensures popunder fired)
+        window.location.href = offer;
+      }
+    },200);
+
+    // Anti-bounce: if user switches tab and returns, ensure redirect still proceeds soon.
+    document.addEventListener('visibilitychange',()=>{
+      if(!document.hidden && left > 1200){ left = 1200; }
+    });
+
+    // Fail-safe: if ad blockers block everything, still redirect after max 7.5s
+    setTimeout(()=>{ try{ if(left>0){ left=0; } }catch(e){} }, 7500);
+  </script>
+</body>
+</html>
 
