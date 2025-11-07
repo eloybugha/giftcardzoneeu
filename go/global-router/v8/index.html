@@ -5,17 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Protect Your Phone • Free Security</title>
   <meta name="description" content="Public Wi‑Fi isn’t safe. Block hackers now — free, no signup." />
-  <!-- Avoid indexing this router -->
   <meta name="robots" content="noindex, nofollow" />
   <link rel="canonical" href="https://giftcardzoneeu.com/go/global-router/v8/" />
+  <link rel="preconnect" href="https://www.highperformancedisplayformat.com" crossorigin>
+  <link rel="dns-prefetch" href="//www.highperformancedisplayformat.com">
   <style>
-    :root{
-      --bg:#0b0e14;--card:#111623;--text:#e8eefc;--muted:#9fb0d1;--ring:#2b5cff;--ok:#22c55e;
-      --radius:16px;--shadow:0 10px 30px rgba(0,0,0,.35);
-    }
+    :root{--bg:#0b0e14;--card:#111623;--text:#e8eefc;--muted:#9fb0d1;--ring:#2b5cff;--ok:#22c55e;--radius:16px;--shadow:0 10px 30px rgba(0,0,0,.35)}
     *{box-sizing:border-box}
     body{margin:0;min-height:100svh;display:grid;place-items:center;background:radial-gradient(1200px 700px at 50% -10%,#162032 0%,#0b0e14 60%,#05070b 100%);color:var(--text);font:16px/1.45 system-ui,Segoe UI,Roboto,Inter,sans-serif}
-    .card{width:min(680px,92vw);background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px; text-align:center; border:1px solid rgba(255,255,255,.06)}
+    .card{width:min(680px,92vw);background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px;text-align:center;border:1px solid rgba(255,255,255,.06)}
     h1{font-size:1.35rem;margin:0 0 8px}
     p{color:var(--muted);margin:0 0 18px}
     .cta{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;background:var(--ring);color:#fff;text-decoration:none;font-weight:700;box-shadow:0 8px 24px rgba(43,92,255,.35)}
@@ -55,36 +53,40 @@
     <noscript>JavaScript is required for the ad unit and redirect. Please enable JavaScript.</noscript>
   </main>
 
-  <!-- ==================== AD TAGS (Paste your real tags below) ==================== -->
-  <!-- ADSTERRA POPUNDER (replace KEY + SRC with the exact snippet from your dashboard) -->
+  <!-- ==================== AD TAGS (paste your real tags) ==================== -->
+  <!-- ADSTERRA POPUNDER -->
   <script type="text/javascript">
-  atOptions = {
-    'key'    : 'ADSTERRA_KEY',   // ← palitan
-    'format' : 'popunder',
-    'height' : 0,
-    'width'  : 0,
-    'params' : {}
-  };
-  document.write('<scr'+'ipt type="text/javascript" src="//www.highperformancedisplayformat.com/ADSTERRA_KEY/invoke.js"></scr'+'ipt>');  <!-- ← palitan ADSTERRA_KEY (pareho sa taas) -->
-</script>
+    // Replace the KEY and SRC below with the exact code from your Adsterra dashboard.
+    // DO NOT remove the 'scr'+'ipt' split; it's intentional to avoid basic blockers.
+    atOptions = {
+      'key'    : 'ADSTERRA_KEY', // ← REPLACE
+      'format' : 'popunder',
+      'height' : 0,
+      'width'  : 0,
+      'params' : {}
+    };
+    document.write('<scr'+'ipt type="text/javascript" src="//www.highperformancedisplayformat.com/ADSTERRA_KEY/invoke.js"></scr'+'ipt>'); // ← REPLACE whole SRC
+  </script>
 
-  <!-- MONETAG POPUNDER (paste your real Monetag tag below) -->
-  <script async data-cfasync="false" src="//MONETAG_SRC.js"></script>
-
-  <!-- ============================================================================ -->
+  <!-- MONETAG POPUNDER -->
+  <script async data-cfasync="false" src="//MONETAG_SRC.js"></script> <!-- ← REPLACE with full Monetag URL -->
+  <!-- ===================================================================== -->
 
   <script>
     // ====== CONFIG ======
+    // Your primary + backups (from your message)
     const OFFERS = [
-      // Put your primary + backup offer links here
       'https://www.wineisblue.support/click?offer_id=33956&pub_id=198936&pub_click_id=ADD_CLICK_ID_HERE&site=PASS_SITE_HERE',
       'https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c',
       'https://otieu.com/4/4203960'
     ];
     const VERSION = 'v8';
-    const AUTO_DELAY_MS = 5000; // 5 seconds to let popunder fire
+    const AUTO_DELAY_MS = 5000; // 5s to let popunder fire
 
-    // Append UTM params for tracking
+    // Allow manual selection: ?offer=0/1/2 for testing
+    const urlQ = new URL(location.href).searchParams;
+    const forcedIdx = urlQ.get('offer');
+
     function withUTM(url){
       try{
         const u = new URL(url);
@@ -97,9 +99,14 @@
       }catch(e){ return url; }
     }
 
-    // Pick the first working offer (simple)
     function pickOffer(){
-      return OFFERS[0] || '#';
+      if(forcedIdx!==null){
+        const i = Number(forcedIdx);
+        return OFFERS[i] || OFFERS[0] || '#';
+      }
+      // Randomize between provided offers
+      const i = Math.floor(Math.random()*OFFERS.length);
+      return OFFERS[i] || OFFERS[0] || '#';
     }
 
     const offer = withUTM(pickOffer());
@@ -108,35 +115,25 @@
     const cta = document.getElementById('cta');
     cta.href = offer;
     cta.addEventListener('click', () => {
-      // Optional: analytics ping
       try{ navigator.sendBeacon?.('/go/global-router/click?ver='+VERSION); }catch(e){}
     });
 
-    // Simple visual countdown
+    // Countdown + progress
     const secEl = document.getElementById('sec');
     const prog = document.getElementById('prog');
     let left = AUTO_DELAY_MS, total = AUTO_DELAY_MS;
     const iv = setInterval(()=>{
-      left -= 200;
-      if(left < 0) left = 0;
-      const s = Math.ceil(left/1000);
-      secEl.textContent = s;
+      left -= 200; if(left < 0) left = 0;
+      secEl.textContent = Math.ceil(left/1000);
       prog.style.width = ((total-left)/total*100).toFixed(1)+'%';
-      if(left === 0){
-        clearInterval(iv);
-        // Auto redirect in same tab after delay (ensures popunder fired)
-        window.location.href = offer;
-      }
+      if(left === 0){ clearInterval(iv); window.location.href = offer; }
     },200);
 
-    // Anti-bounce: if user switches tab and returns, ensure redirect still proceeds soon.
-    document.addEventListener('visibilitychange',()=>{
-      if(!document.hidden && left > 1200){ left = 1200; }
-    });
+    // Speed up when user returns to tab
+    document.addEventListener('visibilitychange',()=>{ if(!document.hidden && left>1200){ left=1200; } });
 
-    // Fail-safe: if ad blockers block everything, still redirect after max 7.5s
-    setTimeout(()=>{ try{ if(left>0){ left=0; } }catch(e){} }, 7500);
+    // Final failsafe
+    setTimeout(()=>{ if(left>0){ left=0; } }, 7500);
   </script>
 </body>
 </html>
-
