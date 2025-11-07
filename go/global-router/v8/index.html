@@ -57,11 +57,16 @@
 
   <!-- ==================== AD TAGS (Paste your real tags below) ==================== -->
   <!-- ADSTERRA POPUNDER (replace KEY + SRC with the exact snippet from your dashboard) -->
-  <script>
-    // Example Adsterra config (PLACEHOLDER). Replace with your real atOptions + invoke.js src.
-    // atOptions = { key: 'YOUR_ADSTERRA_KEY', format: 'popunder', height: 0, width: 0, params: {} };
-    // document.write('<scr'+'ipt src="//www.highperformancedisplayformat.com/YOUR_ADSTERRA_KEY/invoke.js"></scr'+'ipt>');
-  </script>
+  <script type="text/javascript">
+  atOptions = {
+    'key'    : 'ADSTERRA_KEY',   // ← palitan
+    'format' : 'popunder',
+    'height' : 0,
+    'width'  : 0,
+    'params' : {}
+  };
+  document.write('<scr'+'ipt type="text/javascript" src="//www.highperformancedisplayformat.com/ADSTERRA_KEY/invoke.js"></scr'+'ipt>');  <!-- ← palitan ADSTERRA_KEY (pareho sa taas) -->
+</script>
 
   <!-- MONETAG POPUNDER (paste your real Monetag tag below) -->
   <script>
