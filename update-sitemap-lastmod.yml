@@ -8,117 +8,54 @@ on:
       - "sitemap.xml"
   workflow_dispatch: {}
   schedule:
-    - cron: "17 3 * * *"   # optional daily refresh
+    - cron: "17 3 * * *"   # optional daily refresh (03:17 UTC)
 
 permissions:
   contents: write
 
-env:
-  BASE_URL: https://giftcardzoneeu.com   # <-- domain mo
-
 jobs:
   update-lastmod:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
-          fetch-depth: 2   # para makuha diff vs previous commit
+          fetch-depth: 1
 
-      - name: Set Git identity
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-      - name: Compute changed HTML files
-        id: diff
-        shell: bash
-        run: |
-          set -e
-          # Safe fallback kung walang event.before (manual/schedule)
-          BEFORE_SHA="${{ github.event.before }}"
-          CURRENT_SHA="${{ github.sha }}"
-          if [ -z "$BEFORE_SHA" ] || ! git rev-parse -q --verify "$BEFORE_SHA" >/dev/null; then
-            CHANGED=$(git diff --name-only HEAD^ HEAD || true)
-          else
-            CHANGED=$(git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA" || true)
-          fi
-
-          # Filter only .html
-          CHANGED_HTML=$(printf "%s\n" "$CHANGED" | grep -E '\.html$' || true)
-
-          echo "changed<<EOF" >> $GITHUB_OUTPUT
-          echo "$CHANGED_HTML" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
-
-      - name: Update <lastmod> for affected URLs
-        if: always()
+      - name: Force-update <lastmod> for ALL urls
         run: |
           set -e
           python3 - << 'PY'
-import os, sys, datetime, xml.etree.ElementTree as ET
-base_url = os.environ.get("BASE_URL","").rstrip("/")
+import datetime, os, xml.etree.ElementTree as ET
 sitemap_path = "sitemap.xml"
-
-# Load sitemap
 if not os.path.exists(sitemap_path):
     print("No sitemap.xml found. Skipping.")
-    sys.exit(0)
+    raise SystemExit(0)
 
 tree = ET.parse(sitemap_path)
 root = tree.getroot()
 ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
-for prefix, uri in ns.items():
-    ET.register_namespace(prefix if prefix != "sm" else "", uri)
+ET.register_namespace("", ns["sm"])
 
-# Collect changed HTML files passed from previous step via env file
-changed = os.environ.get("CHANGED_HTML","").strip().splitlines()
-changed = [p.strip() for p in changed if p.strip().endswith(".html")]
-
-def path_to_url(p):
-    p = p.strip().lstrip("./")
-    # index.html rules -> directory URLs
-    if p == "index.html":
-        return f"{base_url}/"
-    if p.endswith("/index.html"):
-        return f"{base_url}/" + p[:-10]  # remove "/index.html"
-    # other html files -> file URL
-    return f"{base_url}/" + p
-
-targets = set(path_to_url(p) for p in changed) if changed else set()
-
-now_iso = datetime.datetime.utcnow().replace(microsecond=0).isoformat() + "Z"
-touched = 0
-
+now_iso = datetime.datetime.utcnow().replace(microsecond=0).isoformat()+"Z"
+count = 0
 for url in root.findall("sm:url", ns):
-    loc = url.find("sm:loc", ns)
-    if loc is None or loc.text is None:
-        continue
-    loc_text = loc.text.strip()
-    if not targets or loc_text in targets:
-        lastmod = url.find("sm:lastmod", ns)
-        if lastmod is None:
-            lastmod = ET.SubElement(url, "{http://www.sitemaps.org/schemas/sitemap/0.9}lastmod")
-        if lastmod.text != now_iso:
-            lastmod.text = now_iso
-            touched += 1
+    lastmod = url.find("sm:lastmod", ns)
+    if lastmod is None:
+        lastmod = ET.SubElement(url, "{http://www.sitemaps.org/schemas/sitemap/0.9}lastmod")
+    lastmod.text = now_iso
+    count += 1
 
-if touched:
-    tree.write(sitemap_path, encoding="utf-8", xml_declaration=True)
-    print(f"Updated lastmod for {touched} url(s).")
-else:
-    print("No matching URLs to update.")
+tree.write(sitemap_path, encoding="utf-8", xml_declaration=True)
+print(f"Updated lastmod for {count} url(s) to {now_iso}.")
 PY
-        env:
-          CHANGED_HTML: ${{ steps.diff.outputs.changed }}
 
-      - name: Commit changes (if any)
-        run: |
-          if git status --porcelain | grep -q "sitemap.xml"; then
-            git add sitemap.xml
-            git commit -m "chore(sitemap): auto-update <lastmod>"
-            git push
-          else
-            echo "No sitemap changes to commit."
-          fi
+      # Create a PR instead of pushing directly (safe with protected main)
+      - name: Create PR for sitemap update
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: 'chore(sitemap): force-update <lastmod>'
+          title: 'chore(sitemap): force-update <lastmod>'
+          body: 'Automated sitemap <lastmod> refresh for all URLs.'
+          branch: ci/sitemap-lastmod
+          delete-branch: true
