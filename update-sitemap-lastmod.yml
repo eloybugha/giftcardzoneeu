@@ -1,4 +1,4 @@
-name: Update sitemap <lastmod>
+name: Update sitemap lastmod
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
       - "sitemap.xml"
   workflow_dispatch: {}
   schedule:
-    - cron: "17 3 * * *"   # optional daily refresh (03:17 UTC)
+    - cron: "17 3 * * *"   # daily 03:17 UTC (optional)
 
 permissions:
   contents: write
@@ -16,128 +16,34 @@ permissions:
 jobs:
   update-lastmod:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 0   # needed for git log
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          python-version: "3.x"
+          node-version: "20"
 
-      - name: Compute changed HTML files
-        id: diff
+      - name: Install dependency
         run: |
-          # Get list of changed files in this push. For manual/scheduled runs, fall back to all HTML files.
-          if git rev-parse HEAD^ >/dev/null 2>&1; then
-            CHANGED=$(git diff --name-only HEAD^ HEAD | tr -d '\r' | grep -E '\.html$' || true)
-          else
-            CHANGED=$(git ls-files "*.html" | tr -d '\r' || true)
-          fi
-          echo "changed<<EOF" >> $GITHUB_OUTPUT
-          echo "$CHANGED" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
-          echo "Changed files:"
-          printf '%s\n' "$CHANGED"
+          npm init -y >/dev/null 2>&1 || true
+          npm install fast-xml-parser@^4 --no-audit --no-fund
 
-      - name: Update sitemap.xml <lastmod> for changed pages
-        id: update
+      - name: Run updater
         env:
           SITE_ORIGIN: https://giftcardzoneeu.com
-        run: |
-          python - << 'PY'
-          import os, sys, re, datetime, xml.etree.ElementTree as ET
-          site = os.environ.get("SITE_ORIGIN","").rstrip("/")
-          changed = os.environ.get("CHANGED","").strip()
-          # GitHub passes multi-line via ${{ steps.diff.outputs.changed }}
-          # We read it from GITHUB_OUTPUT indirect; safer to re-read the step output file
-          # but GitHub already places it into environment only if we export; so we parse from file:
-          # To keep it simple, read it from the workflow output 'changed'
-          # This script expects GitHub to inject CHANGED through the shell, so fallback to scanning file tree:
-          if not changed:
-              try:
-                  with open(os.environ.get('GITHUB_OUTPUT',''), 'r', encoding='utf-8') as f:
-                      pass
-              except:
-                  pass
-          # Fallback: read list from a temp file created in the shell step (not provided), so final fallback:
-          # If nothing detected, update nothing and exit gracefully.
-          # But we *can* read the changed list via an env file created by previous step:
-          # The shell step printed the list to STDOUT; GitHub logs aren't readable here. So:
-          # Instead, recompute: update all HTML files if CHANGED is empty.
-          html_files = []
-          if changed:
-              html_files = [p for p in changed.splitlines() if p.strip().endswith(".html")]
-          else:
-              # Manual / scheduled run without diff — choose to update all HTML pages
-              for root, dirs, files in os.walk("."):
-                  for fn in files:
-                      if fn.lower().endswith(".html"):
-                          html_files.append(os.path.join(root, fn))
+        run: node scripts/update-lastmod.js
 
-          if not os.path.exists("sitemap.xml"):
-              print("No sitemap.xml found. Skipping.")
-              sys.exit(0)
-
-          # Build mapping from HTML path -> URL in sitemap
-          def path_to_url(p):
-              p = p.strip().lstrip("./")
-              # Normalize index.html to directory URL
-              if p.endswith("index.html"):
-                  loc = f"{site}/" + p[:-len("index.html")]
-              else:
-                  loc = f"{site}/" + p
-              # collapse any doubled slashes (except after https:)
-              loc = re.sub(r'(?<!:)/{2,}', '/', loc)
-              return loc
-
-          urls_to_bump = set(path_to_url(p) for p in html_files)
-
-          # Parse sitemap
-          tree = ET.parse("sitemap.xml")
-          root = tree.getroot()
-          ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
-          # Handle both namespaced and non-ns
-          def tag(t): return f"{{http://www.sitemaps.org/schemas/sitemap/0.9}}{t}"
-
-          today = datetime.date.today().isoformat()
-          updated = 0
-
-          for url in root.findall(f".//{tag('url')}"):
-              loc_el = url.find(tag("loc"))
-              if loc_el is None or not loc_el.text:
-                  continue
-              loc_text = loc_el.text.strip().rstrip("/")
-              # Compare relaxed (with or without trailing slash)
-              if loc_text in urls_to_bump or (loc_text + "/") in urls_to_bump or loc_text.rstrip("/") in {u.rstrip("/") for u in urls_to_bump}:
-                  lastmod = url.find(tag("lastmod"))
-                  if lastmod is None:
-                      lastmod = ET.SubElement(url, tag("lastmod"))
-                  if lastmod.text != today:
-                      lastmod.text = today
-                      updated += 1
-
-          if updated:
-              tree.write("sitemap.xml", encoding="utf-8", xml_declaration=True)
-              print(f"Updated <lastmod> for {updated} url(s).")
-          else:
-              print("No matching <loc> found for changed pages or already up to date.")
-
-          PY
-        shell: bash
-        env:
-          CHANGED: ${{ steps.diff.outputs.changed }}
-
-      - name: Commit & push if changed
+      - name: Commit & push if sitemap changed
         run: |
           if [[ -n "$(git status --porcelain sitemap.xml)" ]]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add sitemap.xml
-            git commit -m "chore(sitemap): update <lastmod> for changed pages [skip ci]"
+            git commit -m "chore(sitemap): refresh <lastmod> by git commit date [skip ci]"
             git push
           else
             echo "No sitemap changes to commit."
