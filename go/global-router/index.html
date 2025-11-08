@@ -1,100 +1,231 @@
 <!doctype html>
-<html lang="en">
+<html lang="tl">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>🎁 Claim Your Reward • GiftCardZoneEU</title>
-<meta name="referrer" content="origin-when-cross-origin" />
-<meta http-equiv="Cache-Control" content="no-store" />
-
-<!-- ✅ Microsoft Clarity tracking -->
-<script type="text/javascript">
-(function(c,l,a,r,i,t,y){
-    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-})(window, document, "clarity", "script", "tvr4ogakjb");
-</script>
-
-<style>
-body {
-  margin: 0;
-  background: #0b0f14;
-  color: #e5e7eb;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  display: grid;
-  place-items: center;
-  height: 100vh;
-}
-.box {
-  max-width: 480px;
-  border: 1px solid #1f2937;
-  border-radius: 16px;
-  padding: 24px;
-  background: rgba(16, 24, 39, 0.86);
-  text-align: center;
-  animation: fadeIn 1s ease-in-out;
-}
-h1 {
-  margin-bottom: 12px;
-  font-weight: 700;
-}
-.progress-container {
-  width: 100%;
-  background: #1f2937;
-  border-radius: 12px;
-  overflow: hidden;
-  height: 8px;
-  margin-top: 20px;
-}
-.progress-bar {
-  width: 0%;
-  height: 100%;
-  background: linear-gradient(90deg, #22c55e, #60a5fa);
-  transition: width 3s linear;
-}
-#percent {
-  font-size: 14px;
-  color: #9ca3af;
-  margin-top: 4px;
-}
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Secure Redirect • GiftCardZoneEU</title>
+  <meta name="robots" content="noindex,follow" />
+  <link rel="canonical" href="https://giftcardzoneeu.com/go/global-router/" />
+  <style>
+    :root{--bg:#0b0e14;--card:#111623;--text:#e8eefc;--muted:#9fb0d1;--ring:#2b5cff;--ok:#19c37d;--radius:16px}
+    *{box-sizing:border-box} html,body{height:100%}
+    body{margin:0;background:#0b0e14;color:var(--text);font:16px/1.45 system-ui,Segoe UI,Roboto,Arial;display:grid;place-items:center;padding:24px}
+    .wrap{width:min(720px,100%);background:#0f1423;border:1px solid #223055;border-radius:var(--radius);box-shadow:0 10px 30px rgba(0,0,0,.35);overflow:hidden}
+    header,footer{padding:16px 20px;border-bottom:1px solid #1e2a49}
+    footer{border-top:1px solid #1e2a49;border-bottom:none;color:#9bb0e3;font-size:12px;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+    h1{font-size:18px;margin:0 0 4px} .sub{color:var(--muted);font-size:13px}
+    .body{padding:20px;display:grid;gap:16px}
+    .bar{width:100%;height:8px;background:#0d1322;border-radius:999px;overflow:hidden;border:1px solid #1a2340}
+    .bar>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--ring),#6aa5ff);transition:width .2s}
+    .card{background:#0e1527;border:1px solid #1e2a49;border-radius:12px;padding:14px;display:grid;gap:10px}
+    .pill{display:inline-block;padding:4px 8px;border-radius:999px;border:1px solid #2a3a63;color:#bcd0ff;font-size:12px}
+    .btns{display:flex;flex-wrap:wrap;gap:8px}
+    .btn{appearance:none;border:none;background:var(--ring);color:#fff;padding:10px 14px;border-radius:10px;cursor:pointer;font-weight:600;box-shadow:0 6px 18px rgba(43,92,255,.35)}
+    .btn.secondary{background:#19213a;color:#cfe0ff;border:1px solid #2a3a63;box-shadow:none}
+    a.btn{display:inline-block;text-decoration:none}
+    .hide{display:none}
+    /* setup form */
+    .grid{display:grid;gap:10px}
+    .grid2{display:grid;grid-template-columns:120px 1fr;gap:8px;align-items:center}
+    input[type="url"]{width:100%;padding:10px;border-radius:8px;border:1px solid #2a3a63;background:#0c1324;color:#e8eefc}
+    label{color:#cfe0ff;font-size:13px}
+  </style>
 </head>
 <body>
-  <div class="box">
-    <h1>Opening your reward…</h1>
-    <div class="progress-container">
-      <div class="progress-bar" id="bar"></div>
+  <div class="wrap" role="region" aria-label="Secure redirect / Setup">
+    <header>
+      <h1 id="title">Secure Redirect</h1>
+      <div class="sub" id="subtitle">Auto-redirecting you to the best available offer.</div>
+    </header>
+
+    <div class="body" id="routerView">
+      <div class="bar" aria-label="Progress"><i id="pbar"></i></div>
+      <div class="card">
+        <div><strong>Redirect sa loob ng:</strong> <span id="count">2</span>s</div>
+        <div class="pill">Kung di magpatuloy, gamitin ang mga fallback sa ibaba.</div>
+      </div>
+      <div class="card">
+        <div class="pill">Fallback buttons</div>
+        <div class="btns" id="fallbacks"></div>
+      </div>
+      <div class="btns">
+        <button id="goNow" class="btn">Go now</button>
+        <button id="stop" class="btn secondary">Stay here</button>
+      </div>
     </div>
-    <div id="percent">Loading 0%</div>
+
+    <div class="body hide" id="setupView">
+      <div class="card">
+        <div class="pill">One-time Setup (Save links to this browser)</div>
+        <div class="grid grid2">
+          <label for="monetag">Monetag</label><input id="monetag" type="url" placeholder="https://..." />
+          <label for="adsterra">Adsterra</label><input id="adsterra" type="url" placeholder="https://..." />
+          <label for="ali">AliExpress</label><input id="ali" type="url" placeholder="https://s.click.aliexpress.com/e/..." />
+          <label for="fiverr">Fiverr</label><input id="fiverr" type="url" placeholder="https://www.fiverr.com/s/..." />
+        </div>
+        <div class="btns">
+          <button id="saveLinks" class="btn">Save</button>
+          <a class="btn secondary" href="./">Back to Router</a>
+        </div>
+        <div style="color:#9bb0e3;font-size:12px">Tip: Pwede mo pa ring i-override via URL params kahit naka-save na.</div>
+      </div>
+    </div>
+
+    <footer>
+      <div>Router v8 (Set C)</div>
+      <div><a class="btn secondary" href="?setup=1">Open Setup</a></div>
+    </footer>
   </div>
 
 <script>
-(function(){
-  const monetagLink = "https://otieu.com/4/4203960";
-  const query = window.location.search.replace(/^\?/, "");
-  const finalURL = query ? monetagLink + (monetagLink.includes("?") ? "&" : "?") + query : monetagLink;
+/* ===== Options ===== */
+const COUNTDOWN_SECONDS = 2;   // 2s recommended
+const ADD_UTM = true;
+const UTM_SOURCE = "GZEU";
+const UTM_MEDIUM = "router";
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const bar = document.getElementById("bar");
-    const percent = document.getElementById("percent");
-    let p = 0;
-    const timer = setInterval(() => {
-      p += 2;
-      bar.style.width = p + "%";
-      percent.textContent = "Loading " + p + "%";
-      if (p >= 100) clearInterval(timer);
-    }, 60);
+/* ===== Helpers ===== */
+const $ = s => document.querySelector(s);
+const q = new URLSearchParams(location.search);
+const already = q.get("routed")==="1"; // anti-loop
 
-    setTimeout(() => { window.location.href = finalURL; }, 3000);
-    setTimeout(() => {
-      if (!document.hidden) window.location.replace(finalURL);
-    }, 7000);
+function addUTM(url, campaign){
+  if(!ADD_UTM) return url;
+  try{
+    const u = new URL(url);
+    if(!u.searchParams.has("utm_source")) u.searchParams.set("utm_source", UTM_SOURCE);
+    if(!u.searchParams.has("utm_medium")) u.searchParams.set("utm_medium", UTM_MEDIUM);
+    if(!u.searchParams.has("utm_campaign")) u.searchParams.set("utm_campaign", campaign);
+    return u.toString();
+  }catch(e){
+    const sep = url.includes("?") ? "&" : "?";
+    return url+sep+`utm_source=${encodeURIComponent(UTM_SOURCE)}&utm_medium=${encodeURIComponent(UTM_MEDIUM)}&utm_campaign=${encodeURIComponent(campaign)}`;
+  }
+}
+function withRouted(url){
+  try{ const u=new URL(url); u.searchParams.set("routed","1"); return u.toString(); }
+  catch(e){ return url+(url.includes("?")?"&":"?")+"routed=1"; }
+}
+function safeRedirect(url){ location.replace(url); setTimeout(()=>location.href=url,150); }
+function buildBtn(name,url){
+  const a=document.createElement("a");
+  a.className="btn secondary"; a.textContent=name; a.target="_blank"; a.rel="nofollow noopener";
+  a.href=url; return a;
+}
+
+/* ===== Links Source Priority =====
+   1) URL params (?monetag=...&adsterra=...&ali=...&fiverr=...)
+   2) Saved (localStorage: router_links)
+   3) Defaults (placeholders — palitan sa Setup)
+*/
+const defaults = {
+  monetag:  "https://REPLACE_MONETAG_SMARTLINK",
+  adsterra: "https://REPLACE_ADSTERRA_SMARTLINK",
+  ali:      "https://s.click.aliexpress.com/e/REPLACE",
+  fiverr:   "https://www.fiverr.com/s/REPLACE"
+};
+
+function loadSaved(){
+  try{ return JSON.parse(localStorage.getItem("router_links")||"{}"); }catch{ return {}; }
+}
+function resolveLinks(){
+  const fromParams = {
+    monetag: q.get("monetag") || "",
+    adsterra: q.get("adsterra") || "",
+    ali: q.get("ali") || "",
+    fiverr: q.get("fiverr") || ""
+  };
+  const saved = loadSaved();
+  return {
+    monetag:  fromParams.monetag  || saved.monetag  || defaults.monetag,
+    adsterra: fromParams.adsterra || saved.adsterra || defaults.adsterra,
+    ali:      fromParams.ali      || saved.ali      || defaults.ali,
+    fiverr:   fromParams.fiverr   || saved.fiverr   || defaults.fiverr
+  };
+}
+
+function saveLinks(obj){
+  localStorage.setItem("router_links", JSON.stringify(obj));
+}
+
+/* ===== App ===== */
+const routerView = $("#routerView");
+const setupView  = $("#setupView");
+const titleEl = $("#title");
+const subtitleEl = $("#subtitle");
+const pbar = $("#pbar");
+const countEl = $("#count");
+const goBtn = $("#goNow");
+const stopBtn = $("#stop");
+const fallbacksEl = $("#fallbacks");
+
+function startCountdown(cb){
+  let left = COUNTDOWN_SECONDS, tick=0, total=COUNTDOWN_SECONDS*10;
+  countEl.textContent = left;
+  const iv = setInterval(()=>{
+    tick++; pbar.style.width = Math.round((tick/total)*100)+"%";
+    if(tick%10===0){ left--; countEl.textContent = Math.max(0,left); }
+    if(tick>=total){ clearInterval(iv); cb(); }
+  },100);
+}
+
+function runRouter(){
+  const links = resolveLinks();
+  // Set C priority:
+  const offers = [
+    {name:"Monetag", slug:"monetag", url:links.monetag},
+    {name:"Adsterra", slug:"adsterra", url:links.adsterra},
+    {name:"AliExpress", slug:"aliexpress", url:links.ali},
+    {name:"Fiverr", slug:"fiverr", url:links.fiverr},
+  ];
+  // Fallback buttons:
+  fallbacksEl.innerHTML="";
+  offers.forEach(o=> fallbacksEl.appendChild( buildBtn(o.name, addUTM(o.url,o.slug)) ));
+
+  function proceed(){
+    if(already){
+      subtitleEl.textContent = "Na-stop ang auto-redirect para iwas loop. Piliin ang button sa ibaba.";
+      goBtn.classList.add("hide");
+      return;
+    }
+    const primary = offers[0];
+    let link = addUTM(primary.url, primary.slug);
+    link = withRouted(link);
+    safeRedirect(link);
+  }
+
+  goBtn.onclick = proceed;
+  stopBtn.onclick = ()=> location.href="https://giftcardzoneeu.com/?from=router";
+
+  startCountdown(proceed);
+}
+
+function runSetup(){
+  titleEl.textContent = "Router Setup";
+  subtitleEl.textContent = "I-save mo dito ang actual links mo (one-time).";
+  routerView.classList.add("hide");
+  setupView.classList.remove("hide");
+  const saved = loadSaved();
+  ["monetag","adsterra","ali","fiverr"].forEach(k=>{
+    const el = document.getElementById(k);
+    el.value = saved[k] || "";
   });
+  document.getElementById("saveLinks").onclick = ()=>{
+    const obj = {
+      monetag: document.getElementById("monetag").value.trim(),
+      adsterra: document.getElementById("adsterra").value.trim(),
+      ali: document.getElementById("ali").value.trim(),
+      fiverr: document.getElementById("fiverr").value.trim(),
+    };
+    saveLinks(obj);
+    alert("Saved! Pwede ka nang bumalik sa Router.");
+    location.href = "./";
+  };
+}
+
+(function init(){
+  if(q.get("setup")==="1"){ runSetup(); }
+  else{ runRouter(); }
 })();
 </script>
 </body>
