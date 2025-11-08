@@ -1,56 +1,124 @@
-name: Auto Update Sitemap Lastmod
+name: Update sitemap <lastmod>
 
 on:
   push:
-    branches: ["main"]
+    branches: [ "main" ]
     paths:
       - "**/*.html"
       - "sitemap.xml"
-  workflow_dispatch:
+  workflow_dispatch: {}
   schedule:
-    - cron: "17 3 * * *"  # optional daily run
+    - cron: "17 3 * * *"   # optional daily refresh
 
 permissions:
   contents: write
 
+env:
+  BASE_URL: https://giftcardzoneeu.com   # <-- domain mo
+
 jobs:
   update-lastmod:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 2   # para makuha diff vs previous commit
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-
-      - name: Install dependencies
+      - name: Set Git identity
         run: |
-          npm init -y >/dev/null 2>&1
-          npm i fast-xml-parser@4
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-      - name: Run sitemap updater
+      - name: Compute changed HTML files
+        id: diff
+        shell: bash
         run: |
-          mkdir -p scripts
-          if [ -f scripts/update-lastmod.js ]; then
-            node scripts/update-lastmod.js
+          set -e
+          # Safe fallback kung walang event.before (manual/schedule)
+          BEFORE_SHA="${{ github.event.before }}"
+          CURRENT_SHA="${{ github.sha }}"
+          if [ -z "$BEFORE_SHA" ] || ! git rev-parse -q --verify "$BEFORE_SHA" >/dev/null; then
+            CHANGED=$(git diff --name-only HEAD^ HEAD || true)
           else
-            echo "⚠️ update-lastmod.js not found!"
-            exit 1
+            CHANGED=$(git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA" || true)
           fi
 
-      - name: Commit and push if sitemap changed
+          # Filter only .html
+          CHANGED_HTML=$(printf "%s\n" "$CHANGED" | grep -E '\.html$' || true)
+
+          echo "changed<<EOF" >> $GITHUB_OUTPUT
+          echo "$CHANGED_HTML" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Update <lastmod> for affected URLs
+        if: always()
         run: |
-          git pull --rebase
-          if ! git diff --quiet sitemap.xml; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          set -e
+          python3 - << 'PY'
+import os, sys, datetime, xml.etree.ElementTree as ET
+base_url = os.environ.get("BASE_URL","").rstrip("/")
+sitemap_path = "sitemap.xml"
+
+# Load sitemap
+if not os.path.exists(sitemap_path):
+    print("No sitemap.xml found. Skipping.")
+    sys.exit(0)
+
+tree = ET.parse(sitemap_path)
+root = tree.getroot()
+ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+for prefix, uri in ns.items():
+    ET.register_namespace(prefix if prefix != "sm" else "", uri)
+
+# Collect changed HTML files passed from previous step via env file
+changed = os.environ.get("CHANGED_HTML","").strip().splitlines()
+changed = [p.strip() for p in changed if p.strip().endswith(".html")]
+
+def path_to_url(p):
+    p = p.strip().lstrip("./")
+    # index.html rules -> directory URLs
+    if p == "index.html":
+        return f"{base_url}/"
+    if p.endswith("/index.html"):
+        return f"{base_url}/" + p[:-10]  # remove "/index.html"
+    # other html files -> file URL
+    return f"{base_url}/" + p
+
+targets = set(path_to_url(p) for p in changed) if changed else set()
+
+now_iso = datetime.datetime.utcnow().replace(microsecond=0).isoformat() + "Z"
+touched = 0
+
+for url in root.findall("sm:url", ns):
+    loc = url.find("sm:loc", ns)
+    if loc is None or loc.text is None:
+        continue
+    loc_text = loc.text.strip()
+    if not targets or loc_text in targets:
+        lastmod = url.find("sm:lastmod", ns)
+        if lastmod is None:
+            lastmod = ET.SubElement(url, "{http://www.sitemaps.org/schemas/sitemap/0.9}lastmod")
+        if lastmod.text != now_iso:
+            lastmod.text = now_iso
+            touched += 1
+
+if touched:
+    tree.write(sitemap_path, encoding="utf-8", xml_declaration=True)
+    print(f"Updated lastmod for {touched} url(s).")
+else:
+    print("No matching URLs to update.")
+PY
+        env:
+          CHANGED_HTML: ${{ steps.diff.outputs.changed }}
+
+      - name: Commit changes (if any)
+        run: |
+          if git status --porcelain | grep -q "sitemap.xml"; then
             git add sitemap.xml
-            git commit -m "auto-update <lastmod> in sitemap.xml [skip ci]"
+            git commit -m "chore(sitemap): auto-update <lastmod>"
             git push
           else
-            echo "No changes to commit — sitemap is already up to date."
+            echo "No sitemap changes to commit."
           fi
