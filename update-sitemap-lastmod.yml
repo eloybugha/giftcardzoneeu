@@ -17,6 +17,7 @@ permissions:
 jobs:
   update-lastmod:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -35,16 +36,13 @@ jobs:
             echo "sp=sitemap.xml" >> $GITHUB_OUTPUT
             echo "Using sitemap.xml"
           else
-            echo "No sitemap.xml found at root or docs/. Exiting."
+            echo "No sitemap.xml found at repo root or docs/. Exiting."
             exit 0
 
-      - name: Show pre-update status
+      - name: Show pre-update head
         run: |
-          git status --porcelain || true
-          echo "----- HEAD commit -----"
-          git --no-pager log -1 --oneline || true
-          echo "----- First lines of sitemap -----"
-          head -n 25 "${{ steps.detect.outputs.sp }}" || true
+          echo "----- BEFORE (first 30 lines) -----"
+          head -n 30 "${{ steps.detect.outputs.sp }}" || true
 
       - name: Force-update <lastmod> for ALL urls
         env:
@@ -55,7 +53,7 @@ jobs:
 import os, datetime, xml.etree.ElementTree as ET
 sp = os.environ.get("SP","sitemap.xml")
 if not os.path.exists(sp):
-    print(f"No sitemap file at {sp}. Skipping."); raise SystemExit(0)
+  print(f"No sitemap at {sp}."); raise SystemExit(0)
 
 tree = ET.parse(sp)
 root = tree.getroot()
@@ -65,34 +63,33 @@ ET.register_namespace("", ns["sm"])
 now = datetime.datetime.utcnow().replace(microsecond=0).isoformat()+"Z"
 count = 0
 for url in root.findall("sm:url", ns):
-    last = url.find("sm:lastmod", ns)
-    if last is None:
-        last = ET.SubElement(url, "{http://www.sitemaps.org/schemas/sitemap/0.9}lastmod")
-    last.text = now
-    count += 1
+  last = url.find("sm:lastmod", ns)
+  if last is None:
+    last = ET.SubElement(url, "{http://www.sitemaps.org/schemas/sitemap/0.9}lastmod")
+  last.text = now
+  count += 1
 
 tree.write(sp, encoding="utf-8", xml_declaration=True)
 print(f"Updated lastmod for {count} URL(s) at {sp} to {now}.")
 PY
 
-      - name: Show diff
+      - name: Show post-update head
         run: |
-          echo "----- git status -----"
-          git status --porcelain || true
-          echo "----- git diff (sitemap) -----"
-          git --no-pager diff "${{ steps.detect.outputs.sp }}" || true
+          echo "----- AFTER (first 30 lines) -----"
+          head -n 30 "${{ steps.detect.outputs.sp }}" || true
 
       - name: Commit and push sitemap update
         env:
           SP: ${{ steps.detect.outputs.sp }}
         run: |
           set -e
-          if git status --porcelain | grep -qE "^(M| M|A ) +${SP}$"; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add "$SP"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$SP"
+          # Commit only if there is a staged diff; otherwise skip gracefully
+          if git diff --cached --quiet; then
+            echo "No sitemap changes to commit."
+          else
             git commit -m "chore(sitemap): force-update <lastmod> in $SP"
             git push
-          else
-            echo "No sitemap changes to commit (working tree clean)."
           fi
