@@ -16,6 +16,7 @@ permissions:
 jobs:
   update-lastmod:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -26,36 +27,38 @@ jobs:
         run: |
           set -e
           python3 - << 'PY'
-import datetime, os, xml.etree.ElementTree as ET
-sitemap_path = "sitemap.xml"
-if not os.path.exists(sitemap_path):
-    print("No sitemap.xml found. Skipping.")
-    raise SystemExit(0)
+import os, datetime, xml.etree.ElementTree as ET
+SP = "sitemap.xml"
+if not os.path.exists(SP):
+    print("No sitemap.xml found. Skipping."); raise SystemExit(0)
 
-tree = ET.parse(sitemap_path)
+tree = ET.parse(SP)
 root = tree.getroot()
-ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+ns = {"sm":"http://www.sitemaps.org/schemas/sitemap/0.9"}
 ET.register_namespace("", ns["sm"])
 
-now_iso = datetime.datetime.utcnow().replace(microsecond=0).isoformat()+"Z"
+now = datetime.datetime.utcnow().replace(microsecond=0).isoformat()+"Z"
 count = 0
 for url in root.findall("sm:url", ns):
-    lastmod = url.find("sm:lastmod", ns)
-    if lastmod is None:
-        lastmod = ET.SubElement(url, "{http://www.sitemaps.org/schemas/sitemap/0.9}lastmod")
-    lastmod.text = now_iso
+    last = url.find("sm:lastmod", ns)
+    if last is None:
+        last = ET.SubElement(url, "{http://www.sitemaps.org/schemas/sitemap/0.9}lastmod")
+    last.text = now
     count += 1
 
-tree.write(sitemap_path, encoding="utf-8", xml_declaration=True)
-print(f"Updated lastmod for {count} url(s) to {now_iso}.")
+tree.write(SP, encoding="utf-8", xml_declaration=True)
+print(f"Updated lastmod for {count} URL(s) to {now}.")
 PY
 
-      # Create a PR instead of pushing directly (safe with protected main)
-      - name: Create PR for sitemap update
-        uses: peter-evans/create-pull-request@v6
-        with:
-          commit-message: 'chore(sitemap): force-update <lastmod>'
-          title: 'chore(sitemap): force-update <lastmod>'
-          body: 'Automated sitemap <lastmod> refresh for all URLs.'
-          branch: ci/sitemap-lastmod
-          delete-branch: true
+      - name: Commit and push sitemap update
+        run: |
+          set -e
+          if git status --porcelain | grep -q "sitemap.xml"; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add sitemap.xml
+            git commit -m "chore(sitemap): force-update <lastmod>"
+            git push
+          else
+            echo "No sitemap changes to commit."
+          fi
