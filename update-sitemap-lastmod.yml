@@ -1,14 +1,14 @@
-name: Update sitemap <lastmod>
+name: "Update sitemap <lastmod>"
 
 on:
   push:
-    branches: [ "main" ]   # change if your default branch is not "main"
+    branches: ["main"]
     paths:
       - "**/*.html"
       - "sitemap.xml"
-  workflow_dispatch: {}     # allows manual run from Actions tab
+  workflow_dispatch:
   schedule:
-    - cron: "17 3 * * *"    # runs daily at 03:17 UTC (optional)
+    - cron: "17 3 * * *"   # optional: daily
 
 permissions:
   contents: write
@@ -20,21 +20,20 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0     # required to read git history for timestamps
+          fetch-depth: 0  # need git history for last commit dates
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "20"
 
-      - name: Install required package
+      - name: Install dependency
         run: |
           npm init -y >/dev/null 2>&1
           npm i fast-xml-parser@4
 
       - name: Run lastmod updater
-        run: |
-          node scripts/update-lastmod.js
+        run: node scripts/update-lastmod.js
 
       - name: Commit & push if sitemap changed
         run: |
@@ -47,4 +46,3 @@ jobs:
           else
             echo "No changes to commit, sitemap is current."
           fi
-
