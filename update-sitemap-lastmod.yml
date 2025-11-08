@@ -8,7 +8,7 @@ on:
       - "sitemap.xml"
   workflow_dispatch: {}
   schedule:
-    - cron: "17 3 * * *"   # daily 03:17 UTC (optional)
+    - cron: "17 3 * * *"   # optional daily refresh
 
 permissions:
   contents: write
@@ -35,6 +35,9 @@ jobs:
       - name: Run updater
         env:
           SITE_ORIGIN: https://giftcardzoneeu.com
+          # Turn these ON only when needed:
+          # FORCE_TODAY: "1"   # one-time bump all to today's date
+          # DEBUG_LOG: "1"     # show mapping logs in output
         run: node scripts/update-lastmod.js
 
       - name: Commit & push if sitemap changed
@@ -43,7 +46,7 @@ jobs:
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add sitemap.xml
-            git commit -m "chore(sitemap): refresh <lastmod> by git commit date [skip ci]"
+            git commit -m "chore(sitemap): refresh <lastmod> [skip ci]"
             git push
           else
             echo "No sitemap changes to commit."
