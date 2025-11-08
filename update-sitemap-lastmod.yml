@@ -1,4 +1,4 @@
-name: "Update sitemap <lastmod>"
+name: Auto Update Sitemap Lastmod
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
       - "sitemap.xml"
   workflow_dispatch:
   schedule:
-    - cron: "17 3 * * *"   # optional: daily
+    - cron: "17 3 * * *"  # optional daily run
 
 permissions:
   contents: write
@@ -20,29 +20,37 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # need git history for last commit dates
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "20"
 
-      - name: Install dependency
+      - name: Install dependencies
         run: |
           npm init -y >/dev/null 2>&1
           npm i fast-xml-parser@4
 
-      - name: Run lastmod updater
-        run: node scripts/update-lastmod.js
-
-      - name: Commit & push if sitemap changed
+      - name: Run sitemap updater
         run: |
+          mkdir -p scripts
+          if [ -f scripts/update-lastmod.js ]; then
+            node scripts/update-lastmod.js
+          else
+            echo "⚠️ update-lastmod.js not found!"
+            exit 1
+          fi
+
+      - name: Commit and push if sitemap changed
+        run: |
+          git pull --rebase
           if ! git diff --quiet sitemap.xml; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add sitemap.xml
-            git commit -m "chore: auto-update <lastmod> in sitemap.xml [skip ci]"
+            git commit -m "auto-update <lastmod> in sitemap.xml [skip ci]"
             git push
           else
-            echo "No changes to commit, sitemap is current."
+            echo "No changes to commit — sitemap is already up to date."
           fi
