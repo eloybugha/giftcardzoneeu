@@ -1,9 +1,9 @@
 // Auto-update <lastmod> in sitemap.xml based on each file's latest git commit time.
 // Requires: fast-xml-parser, git history available (checkout fetch-depth: 0)
 
-import fs from "node:fs";
-import { execSync } from "node:child_process";
-import { XMLParser, XMLBuilder } from "fast-xml-parser";
+const fs = require("node:fs");
+const { execSync } = require("node:child_process");
+const { XMLParser, XMLBuilder } = require("fast-xml-parser");
 
 // === CONFIG ===
 const SITEMAP_PATH = "sitemap.xml";
