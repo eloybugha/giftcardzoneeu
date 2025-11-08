@@ -13,11 +13,11 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write   # IMPORTANT for PR mode
 
 jobs:
   update-lastmod:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -36,15 +36,10 @@ jobs:
             echo "sp=sitemap.xml" >> $GITHUB_OUTPUT
             echo "Using sitemap.xml"
           else
-            echo "No sitemap.xml found at repo root or docs/. Exiting."
+            echo "No sitemap.xml found at root or docs/. Exiting."
             exit 0
 
-      - name: Show pre-update head
-        run: |
-          echo "----- BEFORE (first 30 lines) -----"
-          head -n 30 "${{ steps.detect.outputs.sp }}" || true
-
-      - name: Force-update <lastmod> for ALL urls
+      - name: Update <lastmod> for ALL urls
         env:
           SP: ${{ steps.detect.outputs.sp }}
         run: |
@@ -61,35 +56,21 @@ ns = {"sm":"http://www.sitemaps.org/schemas/sitemap/0.9"}
 ET.register_namespace("", ns["sm"])
 
 now = datetime.datetime.utcnow().replace(microsecond=0).isoformat()+"Z"
-count = 0
 for url in root.findall("sm:url", ns):
   last = url.find("sm:lastmod", ns)
   if last is None:
     last = ET.SubElement(url, "{http://www.sitemaps.org/schemas/sitemap/0.9}lastmod")
   last.text = now
-  count += 1
 
 tree.write(sp, encoding="utf-8", xml_declaration=True)
-print(f"Updated lastmod for {count} URL(s) at {sp} to {now}.")
+print(f"Updated {sp} with lastmod = {now}.")
 PY
 
-      - name: Show post-update head
-        run: |
-          echo "----- AFTER (first 30 lines) -----"
-          head -n 30 "${{ steps.detect.outputs.sp }}" || true
-
-      - name: Commit and push sitemap update
-        env:
-          SP: ${{ steps.detect.outputs.sp }}
-        run: |
-          set -e
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "$SP"
-          # Commit only if there is a staged diff; otherwise skip gracefully
-          if git diff --cached --quiet; then
-            echo "No sitemap changes to commit."
-          else
-            git commit -m "chore(sitemap): force-update <lastmod> in $SP"
-            git push
-          fi
+      - name: Create PR for sitemap update
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: 'chore(sitemap): update <lastmod>'
+          title: 'chore(sitemap): update <lastmod>'
+          body: 'Automated sitemap <lastmod> refresh.'
+          branch: ci/sitemap-lastmod
+          delete-branch: true
