@@ -26,12 +26,19 @@ function urlToLocalPath(url) {
 
 function gitLastCommitISO(filePath) {
   try {
+    // 1) Try git history
     const iso = execSync(`git log -1 --format=%cI -- "${filePath}"`, { encoding: "utf8" }).trim();
-    if (!iso) return null;
-    return iso.split("T")[0]; // YYYY-MM-DD
-  } catch {
-    return null;
-  }
+    if (iso) return iso.split("T")[0]; // YYYY-MM-DD
+  } catch (_) {}
+
+  try {
+    // 2) Fallback: filesystem mtime
+    const stat = fs.statSync(filePath);
+    return new Date(stat.mtime).toISOString().split("T")[0];
+  } catch (_) {}
+
+  // 3) Last fallback: today
+  return new Date().toISOString().split("T")[0];
 }
 
 // --- run ---
