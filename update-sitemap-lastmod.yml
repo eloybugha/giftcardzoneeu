@@ -6,6 +6,7 @@ on:
     paths:
       - "**/*.html"
       - "sitemap.xml"
+      - "docs/sitemap.xml"
   workflow_dispatch: {}
   schedule:
     - cron: "17 3 * * *"   # optional daily refresh (03:17 UTC)
@@ -16,23 +17,47 @@ permissions:
 jobs:
   update-lastmod:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
           fetch-depth: 1
 
+      - name: Detect sitemap path
+        id: detect
+        shell: bash
+        run: |
+          set -e
+          if [ -f "docs/sitemap.xml" ]; then
+            echo "sp=docs/sitemap.xml" >> $GITHUB_OUTPUT
+            echo "Using docs/sitemap.xml"
+          elif [ -f "sitemap.xml" ]; then
+            echo "sp=sitemap.xml" >> $GITHUB_OUTPUT
+            echo "Using sitemap.xml"
+          else
+            echo "No sitemap.xml found at root or docs/. Exiting."
+            exit 0
+
+      - name: Show pre-update status
+        run: |
+          git status --porcelain || true
+          echo "----- HEAD commit -----"
+          git --no-pager log -1 --oneline || true
+          echo "----- First lines of sitemap -----"
+          head -n 25 "${{ steps.detect.outputs.sp }}" || true
+
       - name: Force-update <lastmod> for ALL urls
+        env:
+          SP: ${{ steps.detect.outputs.sp }}
         run: |
           set -e
           python3 - << 'PY'
 import os, datetime, xml.etree.ElementTree as ET
-SP = "sitemap.xml"
-if not os.path.exists(SP):
-    print("No sitemap.xml found. Skipping."); raise SystemExit(0)
+sp = os.environ.get("SP","sitemap.xml")
+if not os.path.exists(sp):
+    print(f"No sitemap file at {sp}. Skipping."); raise SystemExit(0)
 
-tree = ET.parse(SP)
+tree = ET.parse(sp)
 root = tree.getroot()
 ns = {"sm":"http://www.sitemaps.org/schemas/sitemap/0.9"}
 ET.register_namespace("", ns["sm"])
@@ -46,19 +71,28 @@ for url in root.findall("sm:url", ns):
     last.text = now
     count += 1
 
-tree.write(SP, encoding="utf-8", xml_declaration=True)
-print(f"Updated lastmod for {count} URL(s) to {now}.")
+tree.write(sp, encoding="utf-8", xml_declaration=True)
+print(f"Updated lastmod for {count} URL(s) at {sp} to {now}.")
 PY
 
+      - name: Show diff
+        run: |
+          echo "----- git status -----"
+          git status --porcelain || true
+          echo "----- git diff (sitemap) -----"
+          git --no-pager diff "${{ steps.detect.outputs.sp }}" || true
+
       - name: Commit and push sitemap update
+        env:
+          SP: ${{ steps.detect.outputs.sp }}
         run: |
           set -e
-          if git status --porcelain | grep -q "sitemap.xml"; then
+          if git status --porcelain | grep -qE "^(M| M|A ) +${SP}$"; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add sitemap.xml
-            git commit -m "chore(sitemap): force-update <lastmod>"
+            git add "$SP"
+            git commit -m "chore(sitemap): force-update <lastmod> in $SP"
             git push
           else
-            echo "No sitemap changes to commit."
+            echo "No sitemap changes to commit (working tree clean)."
           fi
