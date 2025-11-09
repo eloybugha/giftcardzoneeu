@@ -1,27 +1,87 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Redirecting...</title>
-  <meta name="description" content="Please wait while we connect you to the best verified offer.">
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="Please wait while we connect you to the best offer for your region." />
   <style>
-    body{background:#0b0e14;color:#e8eefc;font-family:system-ui;text-align:center;padding:80px 20px;}
-    .card{background:#111623;padding:40px;border-radius:20px;max-width:420px;margin:auto;box-shadow:0 8px 28px rgba(0,0,0,.3);}
-    h1{font-size:1.6rem;margin-bottom:16px;}
-    p{color:#9fb0d1;margin-bottom:24px;}
-    .loading{font-size:0.9rem;color:#6fa8ff;}
+    body{margin:0;background:#0b0e14;color:#e8eefc;font:500 16px/1.5 system-ui,Segoe UI,Roboto,Arial}
+    .wrap{min-height:100vh;display:grid;place-items:center;padding:24px}
+    .card{max-width:520px;background:#111623;border:1px solid rgba(255,255,255,.08);
+          border-radius:20px;padding:28px;text-align:center}
+    h1{margin:0 0 10px;font-size:1.25rem}
+    p{margin:0 0 14px;color:#9fb0d1}
+    .bar{height:10px;background:rgba(255,255,255,.08);border-radius:999px;overflow:hidden}
+    .bar>i{display:block;height:100%;width:0;background:linear-gradient(90deg,#2b5cff,#1fdc8b)}
+    .txt{font-size:.9rem;color:#6fa8ff;margin-top:10px}
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Redirecting You to a Verified Offer 💸</h1>
-    <p>Please wait 3 seconds while we connect you to the best deal in your region.<br>
-    <span class="loading">Connecting securely...</span></p>
+  <div class="wrap">
+    <div class="card">
+      <h1>Redirecting you to a verified offer 💸</h1>
+      <p>Please wait ~3 seconds while we connect you to the best deal for your region.</p>
+      <div class="bar" aria-label="Loading"><i id="prog"></i></div>
+      <div class="txt" id="notice">Connecting securely…</div>
+    </div>
   </div>
 
   <script>
-    setTimeout(()=>{window.location.href="https://your-affiliate-link.com";},3000);
+  (function(){
+    // 1) Edit your targets here (keep internal paths to avoid 404)
+    const TARGETS = {
+      NL: "/country/nl/",
+      DE: "/deals/germany/",
+      PH: "/country/ph/",
+      GLOBAL: "/go/best-offers/"
+    };
+
+    // 2) Light country guess (override via ?country=nl|de|ph|global)
+    const qs = new URLSearchParams(location.search);
+    function country(){
+      const o=(qs.get("country")||"").toLowerCase();
+      if (["nl","de","ph","global"].includes(o)) return o.toUpperCase();
+      const lang=(navigator.language||"en").toLowerCase();
+      if (lang.startsWith("nl")) return "NL";
+      if (lang.startsWith("de")) return "DE";
+      if (lang.startsWith("fil")||lang.startsWith("tl")||lang.startsWith("en-ph")) return "PH";
+      return "GLOBAL";
+    }
+
+    // 3) Carry UTM/click IDs
+    function carryParams(url){
+      try{
+        const u = new URL(url, location.origin);
+        for (const [k,v] of qs.entries()){
+          if (/^(utm_|gclid|fbclid|ttclid|yclid|ref|source|campaign|adset|adgroup|kw|cf_debug)$/i.test(k)){
+            u.searchParams.set(k,v);
+          }
+        }
+        return u.toString();
+      }catch(e){ return url; }
+    }
+
+    // 4) Choose target
+    const cc = country();
+    const base = TARGETS[cc] || TARGETS.GLOBAL;
+    const target = carryParams(base);
+
+    // 5) Progress + redirect (≈3s)
+    const bar = document.getElementById("prog");
+    const note = document.getElementById("notice");
+    let pct=0;
+    const t = setInterval(()=> {
+      pct += 6; // ~3s
+      bar.style.width = Math.min(pct,100)+"%";
+      if (pct >= 100){
+        clearInterval(t);
+        location.href = target;
+      }
+    }, 170);
+    note.textContent = `Detected: ${cc} • Next: ${base}`;
+  })();
   </script>
 </body>
 </html>
