@@ -3,137 +3,122 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Protect Your Phone • Free Security</title>
-  <meta name="description" content="Public Wi‑Fi isn’t safe. Block hackers now — free, no signup." />
+  <title>Router v8 (Deprecated) • Redirecting…</title>
+
+  <!-- Do NOT index this old page -->
   <meta name="robots" content="noindex, nofollow" />
-  <link rel="canonical" href="https://giftcardzoneeu.com/go/global-router/">
-  <link rel="preconnect" href="https://www.highperformancedisplayformat.com" crossorigin>
-  <link rel="dns-prefetch" href="//www.highperformancedisplayformat.com">
+  <!-- Point all previews/search to the main router -->
+  <link rel="canonical" href="https://giftcardzoneeu.com/go/global-router/" />
+
   <style>
-    :root{--bg:#0b0e14;--card:#111623;--text:#e8eefc;--muted:#9fb0d1;--ring:#2b5cff;--ok:#22c55e;--radius:16px;--shadow:0 10px 30px rgba(0,0,0,.35)}
-    *{box-sizing:border-box}
-    body{margin:0;min-height:100svh;display:grid;place-items:center;background:radial-gradient(1200px 700px at 50% -10%,#162032 0%,#0b0e14 60%,#05070b 100%);color:var(--text);font:16px/1.45 system-ui,Segoe UI,Roboto,Inter,sans-serif}
-    .card{width:min(680px,92vw);background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px;text-align:center;border:1px solid rgba(255,255,255,.06)}
-    h1{font-size:1.35rem;margin:0 0 8px}
-    p{color:var(--muted);margin:0 0 18px}
-    .cta{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;background:var(--ring);color:#fff;text-decoration:none;font-weight:700;box-shadow:0 8px 24px rgba(43,92,255,.35)}
-    .cta:hover{transform:translateY(-1px)}
-    .timer{margin-top:14px;font-size:.9rem;color:#9fb0d1}
-    .bar{height:6px;background:rgba(255,255,255,.08);border-radius:999px;overflow:hidden;margin-top:8px}
-    .bar>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--ring),#7aa2ff);transition:width .2s ease}
-    .badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px}
-    .badge{font-size:.75rem;color:#cfe0ff;background:#0f1422;border:1px solid rgba(255,255,255,.08);padding:6px 10px;border-radius:999px}
-    .tiny{opacity:.75;font-size:.75rem;margin-top:14px}
-    .split{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);margin:18px 0}
-    noscript{display:block;color:#ffb4b4;background:#2a1111;border:1px solid #f44;border-radius:12px;padding:10px;margin-top:10px}
+    :root{
+      --bg:#0b0e14; --card:#111623; --text:#e8eefc; --muted:#9fb0d1; --ring:#2b5cff;
+    }
+    html,body{height:100%}
+    body{margin:0;background:var(--bg);color:var(--text);font:500 16px/1.5 system-ui,Segoe UI,Roboto,Arial}
+    .wrap{min-height:100vh;display:grid;place-items:center;padding:24px}
+    .card{max-width:720px;width:100%;background:var(--card);border:1px solid rgba(255,255,255,.08);
+          border-radius:20px;padding:24px}
+    h1{margin:0 0 8px;font-size:1.25rem}
+    p{margin:0 0 12px;color:var(--muted)}
+    .bar{height:8px;background:rgba(255,255,255,.08);border-radius:999px;overflow:hidden;margin-top:10px}
+    .bar>i{display:block;height:100%;width:0;background:linear-gradient(90deg,#2b5cff,#1fdc8b)}
+    .note{font-size:.9rem;color:#6fa8ff;margin-top:10px}
+    .badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .badge{font-size:.75rem;color:#cfe0ff;background:#0f1422;border:1px solid rgba(255,255,255,.08);
+           border-radius:12px;padding:4px 8px}
+    .hide{display:none}
   </style>
+
+  <!-- Fallback when JS is disabled -->
+  <noscript>
+    <meta http-equiv="refresh" content="0;url=/go/global-router/">
+  </noscript>
 </head>
 <body>
-  <main class="card" role="main" aria-live="polite">
-    <h1>🔒 Public Wi‑Fi isn’t safe.</h1>
-    <p>Block hackers now — <strong>free</strong>, no signup.</p>
 
-    <a id="cta" class="cta" href="#" target="_blank" rel="noopener noreferrer" aria-label="Protect my phone now">
-      <span>Secure My Phone</span>
-    </a>
+<!-- ⚡ EARLY AUTO-REDIRECT (fires before anything else) -->
+<script>
+(function () {
+  // Leave v8 immediately unless explicitly testing with ?stay=v8
+  if (!location.search.includes('stay=v8')) {
+    if (typeof window.stop === 'function') { try { window.stop(); } catch(e){} }
+    location.replace('/go/global-router/');
+  }
+})();
+</script>
 
-    <div class="timer" id="status">Auto-redirecting in <b id="sec">5</b>s…</div>
-    <div class="bar" aria-hidden="true"><i id="prog"></i></div>
+<!-- 🧪 Debug view (visible only when ?stay=v8) -->
+<div id="debug" class="wrap hide" aria-live="polite">
+  <div class="card">
+    <h1>Router v8 (Deprecated)</h1>
+    <p>This old page now auto-redirects to the main router.</p>
+    <p><strong>Debug mode</strong> is active because you loaded with <code>?stay=v8</code>.</p>
+    <div class="bar" aria-label="Loading"><i id="prog"></i></div>
+    <div class="note" id="note">You will NOT be redirected while in debug mode.</div>
 
     <div class="badges">
-      <span class="badge">✅ Free install</span>
-      <span class="badge">🛡️ Real-time protection</span>
-      <span class="badge">⚡ 1-minute setup</span>
+      <span class="badge">noindex</span>
+      <span class="badge">canonical → /go/global-router/</span>
+      <span class="badge">early redirect enabled</span>
+      <span class="badge">safe debug mode</span>
     </div>
 
-    <div class="split"></div>
+    <p class="note">
+      To exit debug, remove <code>?stay=v8</code> from the URL.
+    </p>
+  </div>
+</div>
 
-    <p class="tiny">Ads help keep this page free. You’ll be redirected to the security offer shortly.</p>
+<script>
+(function(){
+  const qs = new URLSearchParams(location.search);
+  const isDebug = location.search.includes('stay=v8');
+  const box = document.getElementById('debug');
+  const bar = document.getElementById('prog');
 
-    <noscript>JavaScript is required for the ad unit and redirect. Please enable JavaScript.</noscript>
-  </main>
+  if (isDebug && box){
+    box.classList.remove('hide');
 
-  <!-- ==================== AD TAGS (paste your real tags) ==================== -->
-  <!-- ADSTERRA POPUNDER -->
-  <script type="text/javascript">
-    // Replace the KEY and SRC below with the exact code from your Adsterra dashboard.
-    // DO NOT remove the 'scr'+'ipt' split; it's intentional to avoid basic blockers.
-    atOptions = {
-      'key'    : 'ADSTERRA_KEY', // ← REPLACE
-      'format' : 'popunder',
-      'height' : 0,
-      'width'  : 0,
-      'params' : {}
-    };
-    document.write('<scr'+'ipt type="text/javascript" src="//www.highperformancedisplayformat.com/ADSTERRA_KEY/invoke.js"></scr'+'ipt>'); // ← REPLACE whole SRC
-  </script>
+    // simple progress animation (just for looks)
+    let w = 0;
+    const t = setInterval(() => {
+      w = Math.min(100, w + 3);
+      if (bar) bar.style.width = w + '%';
+      if (w >= 100) clearInterval(t);
+    }, 120);
 
-  <!-- MONETAG POPUNDER -->
-  <script async data-cfasync="false" src="//MONETAG_SRC.js"></script> <!-- ← REPLACE with full Monetag URL -->
-  <!-- ===================================================================== -->
+    // OPTIONAL: If you still want to load your old v8 scripts while debugging,
+    // you can dynamically append them here. Replace placeholders then un-comment.
 
-  <script>
-    // ====== CONFIG ======
-    // Your primary + backups (from your message)
-    const OFFERS = [
-      'https://www.wineisblue.support/click?offer_id=33956&pub_id=198936&pub_click_id=ADD_CLICK_ID_HERE&site=PASS_SITE_HERE',
-      'https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c',
-      'https://otieu.com/4/4203960'
-    ];
-    const VERSION = 'v8';
-    const AUTO_DELAY_MS = 5000; // 5s to let popunder fire
+    /*
+    // === ADSTERRA (debug only) ===
+    (function(){
+      window.atOptions = {
+        'key'    : 'ADSTERRA_KEY',   // ← replace
+        'format' : 'popunder',
+        'height' : 0,
+        'width'  : 0,
+        'params' : {}
+      };
+      var s = document.createElement('script');
+      s.type = 'text/javascript';
+      s.src  = '//www.highperformanceformat.com/REPLACE_ME.js'; // ← replace
+      document.body.appendChild(s);
+    })();
 
-    // Allow manual selection: ?offer=0/1/2 for testing
-    const urlQ = new URL(location.href).searchParams;
-    const forcedIdx = urlQ.get('offer');
+    // === MONETAG (debug only) ===
+    (function(){
+      var s = document.createElement('script');
+      s.async = true;
+      s.setAttribute('data-cfasync','false');
+      s.src = '//MONETAG_SRC.js'; // ← replace
+      document.body.appendChild(s);
+    })();
+    */
+  }
+})();
+</script>
 
-    function withUTM(url){
-      try{
-        const u = new URL(url);
-        if(!u.searchParams.has('utm_source')){
-          u.searchParams.set('utm_source','router');
-          u.searchParams.set('utm_medium','pop');
-          u.searchParams.set('utm_campaign', VERSION);
-        }
-        return u.toString();
-      }catch(e){ return url; }
-    }
-
-    function pickOffer(){
-      if(forcedIdx!==null){
-        const i = Number(forcedIdx);
-        return OFFERS[i] || OFFERS[0] || '#';
-      }
-      // Randomize between provided offers
-      const i = Math.floor(Math.random()*OFFERS.length);
-      return OFFERS[i] || OFFERS[0] || '#';
-    }
-
-    const offer = withUTM(pickOffer());
-
-    // Wire CTA click (open in new tab to preserve ad load)
-    const cta = document.getElementById('cta');
-    cta.href = offer;
-    cta.addEventListener('click', () => {
-      try{ navigator.sendBeacon?.('/go/global-router/click?ver='+VERSION); }catch(e){}
-    });
-
-    // Countdown + progress
-    const secEl = document.getElementById('sec');
-    const prog = document.getElementById('prog');
-    let left = AUTO_DELAY_MS, total = AUTO_DELAY_MS;
-    const iv = setInterval(()=>{
-      left -= 200; if(left < 0) left = 0;
-      secEl.textContent = Math.ceil(left/1000);
-      prog.style.width = ((total-left)/total*100).toFixed(1)+'%';
-      if(left === 0){ clearInterval(iv); window.location.href = offer; }
-    },200);
-
-    // Speed up when user returns to tab
-    document.addEventListener('visibilitychange',()=>{ if(!document.hidden && left>1200){ left=1200; } });
-
-    // Final failsafe
-    setTimeout(()=>{ if(left>0){ left=0; } }, 7500);
-  </script>
 </body>
 </html>
