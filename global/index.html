@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Redirecting...</title>
   <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://giftcardzoneeu.com/go/global-router/">
   <meta name="description" content="Please wait while we connect you to the best offer for your region." />
   <style>
     body{margin:0;background:#0b0e14;color:#e8eefc;font:500 16px/1.5 system-ui,Segoe UI,Roboto,Arial}
@@ -19,18 +20,18 @@
   </style>
 </head>
 <body>
-  <div class="wrap">
+  <div class="wrap" id="ui">
     <div class="card">
-      <h1>Redirecting you to a verified offer 💸</h1>
-      <p>Please wait ~3 seconds while we connect you to the best deal for your region.</p>
+      <h1>Preparing your offer based on your region…</h1>
+      <p>This will only take a few seconds.</p>
       <div class="bar" aria-label="Loading"><i id="prog"></i></div>
-      <div class="txt" id="notice">Connecting securely…</div>
+      <div class="txt" id="notice">Connecting…</div>
     </div>
   </div>
 
   <script>
   (function(){
-    // 1) Edit your targets here (keep internal paths to avoid 404)
+    // 1) Destinations (internal paths to avoid 404s)
     const TARGETS = {
       NL: "/country/nl/",
       DE: "/deals/germany/",
@@ -38,9 +39,14 @@
       GLOBAL: "/go/best-offers/"
     };
 
-    // 2) Light country guess (override via ?country=nl|de|ph|global)
+    // 2) Query params helper
     const qs = new URLSearchParams(location.search);
-    function country(){
+
+    // FAST mode: skip UI & delay when ?fast=1 or ?skip_ui=1
+    const FAST = qs.has("fast") || qs.get("skip_ui") === "1";
+
+    // 3) Country detection (override via ?country=nl|de|ph|global)
+    function detectCountry(){
       const o=(qs.get("country")||"").toLowerCase();
       if (["nl","de","ph","global"].includes(o)) return o.toUpperCase();
       const lang=(navigator.language||"en").toLowerCase();
@@ -50,7 +56,7 @@
       return "GLOBAL";
     }
 
-    // 3) Carry UTM/click IDs
+    // 4) Carry UTM / ids
     function carryParams(url){
       try{
         const u = new URL(url, location.origin);
@@ -63,24 +69,31 @@
       }catch(e){ return url; }
     }
 
-    // 4) Choose target
-    const cc = country();
+    // 5) Compute target
+    const cc   = detectCountry();
     const base = TARGETS[cc] || TARGETS.GLOBAL;
     const target = carryParams(base);
 
-    // 5) Progress + redirect (≈3s)
+    // 6) FAST path — instant redirect (no UI)
+    if (FAST) {
+      location.replace(target);
+      return;
+    }
+
+    // 7) Normal UI path — 3s progress
     const bar = document.getElementById("prog");
     const note = document.getElementById("notice");
     let pct=0;
-    const t = setInterval(()=> {
-      pct += 6; // ~3s
-      bar.style.width = Math.min(pct,100)+"%";
+    const iv = setInterval(()=> {
+      pct += 6; // ~3s total
+      if (bar) bar.style.width = Math.min(pct,100)+"%";
       if (pct >= 100){
-        clearInterval(t);
+        clearInterval(iv);
         location.href = target;
       }
     }, 170);
-    note.textContent = `Detected: ${cc} • Next: ${base}`;
+
+    if (note) note.textContent = `Detected: ${cc} • Next: ${base}`;
   })();
   </script>
 </body>
