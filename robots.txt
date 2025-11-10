@@ -1,4 +1,32 @@
-User-agent: *
-Allow: /
+# ============================
+# GiftCardZoneEU Robots Rules
+# ============================
 
+User-agent: *
+# Allow main sections
+Allow: /$
+Allow: /deals/
+Allow: /go/
+Allow: /partners/
+Allow: /country/
+Allow: /assets/
+
+# Block duplicate and useless parameter URLs
+Disallow: /*?q=
+Disallow: /*?ref=
+Disallow: /*?source=
+Disallow: /*?utm_
+Disallow: /*?fbclid=
+Disallow: /*?gclid=
+Disallow: /*?aff_id=
+Disallow: /*?search=
+Disallow: /*?session=
+Disallow: /*?debug=
+
+# Prevent indexing of tag or search pages if ever created
+Disallow: /search
+Disallow: /tag/
+Disallow: /category/
+
+# Sitemap for Google
 Sitemap: https://giftcardzoneeu.com/sitemap.xml
