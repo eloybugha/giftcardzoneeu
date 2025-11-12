@@ -1,1 +1,104 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hotels in Nederland boeken | Agoda Deals</title>
+  <meta name="description" content="Vind tophotels & appartementen in Nederland – Amsterdam, Rotterdam, Den Haag & meer. Powered by Agoda." />
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Arial,sans-serif;color:#111;background:linear-gradient(180deg,#dfe3e8 0%,#f9f9f9 100%)}
+
+    .hero{
+      min-height:85vh;
+      background:url('https://images.unsplash.com/photo-1544989164-31dc3c645987?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; /* Amsterdam canals */
+      display:flex;align-items:center;justify-content:center;
+      padding:80px 16px; position:relative;
+    }
+    .shade{position:absolute;inset:0;background:rgba(0,0,0,.5)}
+    .card{position:relative;z-index:1;width:100%;max-width:880px;border-radius:16px;background:#fff;box-shadow:0 10px 30px rgba(0,0,0,.25);padding:40px}
+
+    .badge{display:inline-block;background:#f97316;color:#fff;padding:6px 10px;border-radius:20px;font-size:12px;margin-bottom:14px}
+    h1{font-size:30px;margin-bottom:10px}
+    .sub{color:#444;margin-bottom:20px}
+
+    .bullets{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:18px 0 26px}
+    .bullets div{background:#f1f5f9;border:1px solid #e2e8f0;border-radius:10px;padding:12px;font-size:14px}
+
+    .ctaRow{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+    .btn{background:#0071c2;color:#fff;text-decoration:none;padding:14px 22px;border-radius:10px;font-weight:700;transition:background .3s}
+    .btn:hover{background:#005c9e}
+    .btn.secondary{background:#0f172a}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+    .chip a{background:#e2e8f0;color:#0f172a;padding:8px 14px;border-radius:999px;text-decoration:none;font-weight:600;font-size:14px}
+    .trust{display:flex;gap:18px;flex-wrap:wrap;margin-top:10px;font-size:13px;color:#334155}
+    .trust span{display:inline-flex;gap:6px;align-items:center}
+
+    .section{max-width:980px;margin:80px auto;padding:0 16px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+    .tile{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:24px}
+    .tile h3{font-size:18px;margin-bottom:8px}
+    .tile p{color:#444;font-size:15px;line-height:1.5}
+    .foot{text-align:center;color:#475569;font-size:13px;margin-top:28px}
+    @media(max-width:768px){.card{padding:26px}}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="shade"></div>
+    <div class="card">
+      <span class="badge">🇳🇱 Netherlands Travel Deals</span>
+      <h1>Book Hotels in the Netherlands – Save more with Agoda</h1>
+      <p class="sub">Top stays in Amsterdam, Rotterdam, Den Haag & meer. App-perks, flexible cancellation, secure payments.</p>
+
+      <div class="bullets">
+        <div>✅ Up to <b>10% App-Only</b> welcome offer</div>
+        <div>🔒 <b>Free Cancellation*</b> on many properties</div>
+        <div>💳 <b>No Hidden Fees</b> — pay at hotel for select stays</div>
+      </div>
+
+      <div class="ctaRow">
+        <a class="btn" href="https://www.agoda.com/de-de/partners/partnersearch.aspx" target="_blank">Search Hotels →</a>
+        <a class="btn secondary" href="https://www.agoda.com/de-de/partners/partnersearch.aspx" target="_blank">Get App Perks</a>
+      </div>
+
+      <div class="chips">
+        <span class="chip"><a href="https://www.agoda.com/de-de/partners/partnersearch.aspx" target="_blank">Amsterdam</a></span>
+        <span class="chip"><a href="https://www.agoda.com/de-de/partners/partnersearch.aspx" target="_blank">Rotterdam</a></span>
+        <span class="chip"><a href="https://www.agoda.com/de-de/partners/partnersearch.aspx" target="_blank">Den Haag</a></span>
+        <span class="chip"><a href="https://www.agoda.com/de-de/partners/partnersearch.aspx" target="_blank">Utrecht</a></span>
+        <span class="chip"><a href="https://www.agoda.com/de-de/partners/partnersearch.aspx" target="_blank">Eindhoven</a></span>
+      </div>
+
+      <div class="trust">
+        <span>🏆 Trusted global brand</span>
+        <span>🛎 2M+ properties</span>
+        <span>📱 VIP Platinum trial</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="grid">
+      <div class="tile">
+        <h3>1) Pick your city</h3>
+        <p>Amsterdam, Rotterdam, Den Haag, Utrecht — choose your dates.</p>
+      </div>
+      <div class="tile">
+        <h3>2) Compare deals</h3>
+        <p>Filter by price, rating, free cancellation, breakfast, or apartments.</p>
+      </div>
+      <div class="tile">
+        <h3>3) Book & save</h3>
+        <p>Unlock app-only perks and flexible booking options on Agoda.</p>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:50px;">
+      <a class="btn" href="https://www.agoda.com/de-de/partners/partnersearch.aspx" target="_blank">Find Your Stay in the Netherlands</a>
+      <p class="foot">*Free cancellation depends on property & dates. Check policy on Agoda before booking.</p>
+    </div>
+  </section>
+</body>
+</html>
 
