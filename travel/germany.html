@@ -1,25 +1,57 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Book Hotels in Germany | Agoda Travel Deals</title>
-  <meta name="description" content="Find top hotels and apartments across Germany with Agoda. Discover Berlin, Munich, Hamburg, and more travel deals." />
+  <meta name="description" content="Find top hotels and apartments across Germany with Agoda — from Berlin to Munich!" />
   <style>
-    body { font-family: Arial, sans-serif; background: #f9f9f9; margin: 0; padding: 0; }
-    .travel-section { text-align: center; padding: 60px 20px; }
-    .travel-section h2 { font-size: 30px; color: #222; }
-    .travel-section p { font-size: 18px; color: #555; max-width: 600px; margin: 0 auto 30px; }
-    .btn { background: #0071c2; color: white; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: bold; }
-    .btn:hover { background: #005c9e; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: Arial, sans-serif;
+      background: url('https://images.unsplash.com/photo-1526483360412-f4dbaf036963?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .overlay {
+      background: rgba(0, 0, 0, 0.55);
+      padding: 60px 25px;
+      text-align: center;
+      color: #fff;
+      border-radius: 15px;
+      max-width: 700px;
+      backdrop-filter: blur(3px);
+    }
+    h2 {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+    .btn {
+      background: #0071c2;
+      color: white;
+      padding: 14px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #005c9e;
+    }
   </style>
 </head>
 <body>
-  <section class="travel-section">
+  <div class="overlay">
     <h2>🇩🇪 Book Hotels in Germany</h2>
-    <p>Discover Germany's best hotels, apartments, and vacation stays — from Berlin to Munich! Powered by Agoda.</p>
+    <p>Discover Germany's top hotels, apartments, and vacation stays — from Berlin to Munich. Powered by Agoda.</p>
     <a class="btn" href="https://www.agoda.com/de-de/partners/partnersearch.aspx" target="_blank">Book Now on Agoda</a>
-  </section>
+  </div>
 </body>
 </html>
