@@ -1,57 +1,114 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Book Hotels in Germany | Agoda Travel Deals</title>
-  <meta name="description" content="Find top hotels and apartments across Germany with Agoda — from Berlin to Munich!" />
+  <title>Hotels in Deutschland buchen | Agoda Deals</title>
+  <meta name="description" content="Finde top Hotels & Apartments in Deutschland – Berlin, München, Hamburg & mehr. Powered by Agoda." />
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
       font-family: Arial, sans-serif;
-      background: url('https://images.unsplash.com/photo-1526483360412-f4dbaf036963?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      color:#111; background:#f6f7fb;
     }
-    .overlay {
-      background: rgba(0, 0, 0, 0.55);
-      padding: 60px 25px;
-      text-align: center;
-      color: #fff;
-      border-radius: 15px;
-      max-width: 700px;
-      backdrop-filter: blur(3px);
+    .hero{
+      min-height:70vh;
+      background:url('https://images.unsplash.com/photo-1526483360412-f4dbaf036963?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      display:flex; align-items:center; justify-content:center;
+      padding:48px 16px; position:relative;
     }
-    h2 {
-      font-size: 36px;
-      margin-bottom: 15px;
+    .shade{position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.35));}
+    .card{
+      position:relative; z-index:1;
+      width:100%; max-width:860px; border-radius:16px;
+      background:#fff; box-shadow:0 12px 32px rgba(0,0,0,.25);
+      padding:28px;
     }
-    p {
-      font-size: 18px;
-      line-height: 1.6;
-      margin-bottom: 30px;
+    .badge{display:inline-block; background:#0ea5e9; color:#fff; padding:6px 10px; border-radius:20px; font-size:12px; margin-bottom:10px}
+    h1{font-size:28px; margin-bottom:8px}
+    .sub{color:#444; margin-bottom:14px}
+    .bullets{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:12px 0 18px}
+    .bullets div{background:#f1f5f9; border:1px solid #e2e8f0; border-radius:10px; padding:10px; font-size:14px}
+    .ctaRow{display:flex; gap:10px; flex-wrap:wrap}
+    .btn{
+      appearance:none; border:0; cursor:pointer; text-decoration:none;
+      background:#0071c2; color:#fff; padding:12px 18px; border-radius:10px; font-weight:700;
     }
-    .btn {
-      background: #0071c2;
-      color: white;
-      padding: 14px 28px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-    .btn:hover {
-      background: #005c9e;
+    .btn.secondary{background:#0f172a}
+    .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
+    .chip a{display:inline-block; background:#e2e8f0; color:#0f172a; padding:8px 12px; border-radius:999px; text-decoration:none; font-weight:600; font-size:14px}
+    .trust{display:flex; gap:16px; flex-wrap:wrap; margin-top:14px; font-size:13px; color:#334155}
+    .trust span{display:inline-flex; gap:6px; align-items:center}
+    .section{max-width:980px; margin:28px auto; padding:0 16px}
+    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+    .tile{background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:16px}
+    .tile h3{font-size:18px; margin-bottom:6px}
+    .foot{padding:28px 16px; text-align:center; color:#475569; font-size:13px}
+    @media (max-width:820px){
+      .bullets{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
     }
   </style>
 </head>
 <body>
-  <div class="overlay">
-    <h2>🇩🇪 Book Hotels in Germany</h2>
-    <p>Discover Germany's top hotels, apartments, and vacation stays — from Berlin to Munich. Powered by Agoda.</p>
-    <a class="btn" href="https://www.agoda.com/de-de/partners/partnersearch.aspx" target="_blank">Book Now on Agoda</a>
-  </div>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="shade"></div>
+    <div class="card">
+      <span class="badge">🇩🇪 Germany Travel Deals</span>
+      <h1>Book Hotels in Germany – Save more with Agoda</h1>
+      <p class="sub">Top-rated stays in Berlin, München, Hamburg & mehr. App-Perks, flexible cancellation, sichere Bezahlung.</p>
+
+      <div class="bullets">
+        <div>✅ Up to <b>10% App-Only</b> welcome offer</div>
+        <div>🔒 <b>Free Cancellation*</b> on many properties</div>
+        <div>💳 <b>No Hidden Fees</b> — pay at hotel for select stays</div>
+      </div>
+
+      <div class="ctaRow">
+        <a class="btn" href="https://www.agoda.com/de-de/partners/partnersearch.aspx" target="_blank">Search Hotels →</a>
+        <a class="btn secondary" href="https://www.agoda.com/de-de/partners/partnersearch.aspx" target="_blank">Get App Perks</a>
+      </div>
+
+      <div class="chips">
+        <!-- city quick-links (all go to your affiliate root; user chooses city on Agoda) -->
+        <span class="chip"><a href="https://www.agoda.com/de-de/partners/partnersearch.aspx" target="_blank">Berlin</a></span>
+        <span class="chip"><a href="https://www.agoda.com/de-de/partners/partnersearch.aspx" target="_blank">München</a></span>
+        <span class="chip"><a href="https://www.agoda.com/de-de/partners/partnersearch.aspx" target="_blank">Hamburg</a></span>
+        <span class="chip"><a href="https://www.agoda.com/de-de/partners/partnersearch.aspx" target="_blank">Frankfurt</a></span>
+        <span class="chip"><a href="https://www.agoda.com/de-de/partners/partnersearch.aspx" target="_blank">Köln</a></span>
+      </div>
+
+      <div class="trust">
+        <span>🏆 Trusted global brand</span>
+        <span>🛎 2M+ properties</span>
+        <span>📱 VIP Platinum trial</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- HOW IT WORKS -->
+  <section class="section">
+    <div class="grid">
+      <div class="tile">
+        <h3>1) Pick your city</h3>
+        <p>Berlin, München, Hamburg, Cologne, Frankfurt — choose your dates.</p>
+      </div>
+      <div class="tile">
+        <h3>2) Compare deals</h3>
+        <p>Filter by price, rating, free cancellation, breakfast, or apartment stays.</p>
+      </div>
+      <div class="tile">
+        <h3>3) Book & save</h3>
+        <p>Unlock app-only perks and flexible booking options on Agoda.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECONDARY CTA -->
+  <section class="section" style="text-align:center;">
+    <a class="btn" href="https://www.agoda.com/de-de/partners/partnersearch.aspx" target="_blank">Find Your Stay in Germany</a>
+    <p class="foot">*Free cancellation depends on property & dates. Check policy on Agoda before booking.</p>
+  </section>
 </body>
 </html>
