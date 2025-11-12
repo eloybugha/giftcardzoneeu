@@ -1,1 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Explore Travel Deals | Agoda Partners</title>
+  <meta name="description" content="Find and compare hotel deals in top destinations like Germany, Netherlands, France, and more. Powered by Agoda." />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 40px 20px;
+      color: #222;
+    }
+    h1 {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 40px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .card:hover { transform: translateY(-5px); }
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .card h3 { margin: 16px 0 8px; }
+    .btn {
+      display: inline-block;
+      background: #0071c2;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      margin: 10px 0 20px;
+      text-decoration: none;
+    }
+    .btn:hover { background: #005c9e; }
+  </style>
+</head>
+<body>
+  <h1>🌍 Explore Top Travel Deals</h1>
+  <div class="grid">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1526483360412-f4dbaf036963?auto=format&fit=crop&w=800&q=80" alt="Germany">
+      <h3>Germany</h3>
+      <a class="btn" href="/travel/germany.html">View Deals</a>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1562680118-7e53d7cf2a9d?auto=format&fit=crop&w=800&q=80" alt="Netherlands">
+      <h3>Netherlands</h3>
+      <a class="btn" href="/travel/netherlands.html">View Deals</a>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80" alt="France">
+      <h3>France</h3>
+      <a class="btn" href="#">Coming Soon</a>
+    </div>
+  </div>
+</body>
+</html>
 
