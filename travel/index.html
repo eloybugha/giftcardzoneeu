@@ -10,6 +10,89 @@
   <meta property="og:image" content="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1200&q=80" />
   <meta name="keywords" content="Agoda travel deals, book hotels in Europe, Germany hotels, Netherlands hotels, France hotels, Agoda affiliate" />
   <style>
+.country-section {
+  max-width: 1100px;
+  margin: 0 auto 3rem;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+
+.country-section h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.country-section p {
+  font-size: 0.95rem;
+  color: #4b5563;
+}
+
+.country-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.7rem;
+  margin-top: 1.5rem;
+}
+
+.country-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 1.4rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+}
+
+.country-card img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 0.75rem;
+}
+
+.country-card h3 {
+  margin: 0.4rem 0 0.3rem;
+  font-size: 1.1rem;
+}
+
+.country-card p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin-bottom: 0.9rem;
+}
+
+.btn-primary,
+.btn-disabled {
+  display: inline-block;
+  padding: 0.6rem 1.1rem;
+  border-radius: 999px;
+  border: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: #2563eb;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  opacity: 0.92;
+}
+
+.btn-disabled {
+  background: #e5e7eb;
+  color: #6b7280;
+  cursor: not-allowed;
+}
+
+.country-card.coming-soon {
+  opacity: 0.95;
+}
+</style>
+
     body {
       font-family: Arial, sans-serif;
       background: linear-gradient(180deg, #f9fafc 0%, #eef1f4 100%);
