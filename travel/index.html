@@ -71,67 +71,50 @@ body {
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1.7rem;
       margin-top: 1.5rem;
-    }
+<style>
+  .overlay {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.65), rgba(0,0,0,0.25));
+    padding: 3rem 1.5rem 2rem;
+    border-radius: 18px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 
-    .country-card {
-      background: #ffffff;
-      border-radius: 14px;
-      padding: 1.4rem;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: left;
-    }
+  body {
+    background-image: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
 
-    .country-card img {
-      width: 100%;
-      border-radius: 12px;
-      margin-bottom: 0.75rem;
-    }
+  h1 {
+    text-align: center;
+    font-size: 38px;
+    color: #ffffff;
+    margin-bottom: 10px;
+    text-shadow: 0 6px 16px rgba(0,0,0,0.75);
+  }
 
-    .country-card h3 {
-      margin: 0.4rem 0 0.3rem;
-      font-size: 1.1rem;
-    }
+  h2 {
+    text-align: center;
+    font-size: 22px;
+    color: #e2e8f0;
+    font-weight: 400;
+    margin-bottom: 8px;
+    text-shadow: 0 3px 10px rgba(0,0,0,0.7);
+  }
 
-    .country-card p {
-      font-size: 0.9rem;
-      line-height: 1.4;
-      margin-bottom: 0.9rem;
-    }
-
-    .btn-primary,
-    .btn-disabled {
-      display: inline-block;
-      padding: 0.6rem 1.1rem;
-      border-radius: 999px;
-      border: none;
-      font-size: 0.9rem;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: #2563eb;
-      color: #ffffff;
-      text-decoration: none;
-    }
-
-    .btn-primary:hover {
-      opacity: 0.92;
-    }
-
-    .btn-disabled {
-      background: #e5e7eb;
-      color: #6b7280;
-      cursor: not-allowed;
-    }
-
-    .country-card.coming-soon {
-      opacity: 0.95;
-    }
-
-  </style>
+  .hero-subtitle {
+    text-align: center;
+    font-size: 16px;
+    color: #e5e7eb;
+    max-width: 720px;
+    margin: 0 auto 1.5rem;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+  }
+</style>
 </head>
 
 <body>
