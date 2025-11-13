@@ -3,441 +3,182 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Explore Travel Deals | Agoda Partners</title>
-  <meta name="description" content="Find and compare hotel deals in top destinations like Germany, Netherlands, France, Italy, UK, USA and more. Powered by Agoda." />
-  <meta property="og:title" content="Top Hotel Deals in Europe & Worldwide | Agoda Partners" />
-  <meta property="og:description" content="Compare the best Agoda hotel deals worldwide. Save on hotels in Germany, France, UK, Italy, USA and more." />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1200&q=80" />
+  <meta name="description" content="Find and compare hotel deals in top destinations like Germany, France, Netherlands, Italy, UK, USA and more.">
+  <meta property="og:title" content="Top Hotel Deals in Europe & Worldwide">
+  <meta property="og:description" content="Compare the best Agoda hotel deals worldwide — Germany, France, Italy, UK, USA and more.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1600&q=90">
 
-    <style>
-      .overlay {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(5px);
-  padding: 2rem;
-  border-radius: 18px;
-  max-width: 1200px;
-  margin: auto;
-}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Explore Travel Deals | Agoda Partners</title>
-  <meta name="description" content="Find and compare hotel deals in top destinations like Germany, Netherlands, France, Italy, UK, USA and more. Powered by Agoda." />
-  <meta property="og:title" content="Top Hotel Deals in Europe & Worldwide | Agoda Partners" />
-  <meta property="og:description" content="Compare the best Agoda hotel deals worldwide. Save on hotels in Germany, France, UK, Italy, USA and more." />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1200&q=80" />
-
-    <style>
-      .overlay {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(5px);
-  padding: 2rem;
-  border-radius: 18px;
-  max-width: 1200px;
-  margin: auto;
-}
-body {
-  background-image: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1600&q=80');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-}
-   h1 {
-      text-align: center;
-      font-size: 34px;
-      margin-bottom: 10px;
+  <style>
+    /* BACKGROUND */
+    body {
+      background-image: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1600&q=90');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
-    h2 {
+    /* HERO OVERLAY */
+    .overlay {
+      max-width: 1100px;
+      margin: 0 auto 2rem;
+      padding: 2.5rem 1.5rem 2rem;
+      border-radius: 18px;
+      background: rgba(0,0,0,0.70);
+      backdrop-filter: blur(4px);
       text-align: center;
-      color: #555;
-      font-weight: normal;
-      margin-bottom: 20px;
-      font-size: 18px;
     }
 
-    p {
-      max-width: 700px;
-      margin: 0 auto 40px;
-      text-align: center;
-      color: #444;
-      font-size: 16px;
-      line-height: 1.6;
+    .overlay h1, 
+    .overlay h2,
+    .overlay p {
+      color: #ffffff;
+      text-shadow: 0 4px 14px rgba(0,0,0,1);
     }
 
-    /* GRID SECTION */
+    /* SECTION TITLES */
+    .section-heading,
+    .section-subtitle {
+      text-align: center;
+      color: #fff;
+      text-shadow: 0 4px 13px rgba(0,0,0,1);
+      margin-bottom: 1rem;
+    }
+
+    /* COUNTRY GRID */
     .country-section {
       max-width: 1100px;
       margin: 0 auto 3rem;
       padding: 0 1.5rem;
-      text-align: center;
-    }
-
-    .country-section h2 {
-      font-size: 1.6rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .country-section p {
-      font-size: 0.95rem;
-      color: #4b5563;
-    }
-
-    .country-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.7rem;
-      margin-top: 1.5rem;
-<style>
-  .overlay {
-    background: linear-gradient(to bottom, rgba(0,0,0,0.65), rgba(0,0,0,0.25));
-    padding: 3rem 1.5rem 2rem;
-    border-radius: 18px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
 
-  body {
-    background-image: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1600&q=80');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  }
+    /* CARD */
+    .country-card {
+      background: rgba(255,255,255,0.97);
+      border-radius: 18px;
+      padding: 1.5rem 1.3rem;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.20);
+    }
 
-  h1 {
-    text-align: center;
-    font-size: 38px;
-    color: #ffffff;
-    margin-bottom: 10px;
-    text-shadow: 0 6px 16px rgba(0,0,0,0.75);
-  }
+    .country-card h3 {
+      margin-bottom: 0.4rem;
+      color: #111827;
+    }
 
-  h2 {
-    text-align: center;
-    font-size: 22px;
-    color: #e2e8f0;
-    font-weight: 400;
-    margin-bottom: 8px;
-    text-shadow: 0 3px 10px rgba(0,0,0,0.7);
-  }
+    .country-card p {
+      margin-bottom: 1rem;
+      color: #374151;
+    }
 
-  .hero-subtitle {
-    text-align: center;
-    font-size: 16px;
-    color: #e5e7eb;
-    max-width: 720px;
-    margin: 0 auto 1.5rem;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.7);
-  }
-</style>
+    .coming-soon {
+      background: #e5e7eb;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      display: inline-block;
+      font-size: 0.85rem;
+    }
+
+    /* BUTTON */
+    .btn {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      background: #2563eb;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      transition: 0.2s;
+    }
+
+    .btn:hover {
+      background: #1e3fa8;
+    }
+
+    /* COUNTRY IMAGE */
+    .country-image {
+      width: 58px;
+      height: 58px;
+      border-radius: 999px;
+      object-fit: cover;
+      margin: 0 auto 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      display: block;
+    }
+  </style>
 </head>
 
 <body>
 
-  <h1>🌍 Explore Top Travel Deals</h1>
-  <h2>Compare hotels, find deals & travel smarter with Agoda.</h2>
+  <!-- HERO -->
+  <div class="overlay">
+    <h1>🌍 Explore Top Travel Deals</h1>
+    <h2>Compare hotels, find deals & travel smarter with Agoda.</h2>
+    <p>Discover hotel deals worldwide — Germany, France, Italy, UK, Netherlands, USA and more.</p>
+  </div>
 
-  <p>
-    Discover hotel deals worldwide — Germany, France, Italy, UK, Netherlands, USA and more.
-    Compare prices, read reviews, and book smarter for your next adventure.
-  </p>
+  <h2 class="section-heading">Top Hotel Deals by Country</h2>
+  <p class="section-subtitle">Some destinations are ready, others are coming soon.</p>
 
-<section class="country-section">
-  <h2>Top Hotel Deals by Country</h2>
-  <p>Some destinations are ready, others are coming soon while we finish your full travel hub.</p>
+  <!-- GRID -->
+  <div class="country-section">
 
-  <div class="country-grid">
-
-    <!-- 🇩🇪 Germany -->
-    <article class="country-card">
-      <img src="assets/travel/germany.jpg" alt="Germany">
+    <!-- Germany -->
+    <div class="country-card">
+      <img class="country-image" src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=400&q=80">
       <h3>Germany Hotel Deals</h3>
-      <p>Berlin, Munich, Frankfurt and more top cities.</p>
-      <a href="https://www.agoda.com/de-de/partners/partnersearch.aspx" class="btn-primary" target="_blank">View Germany Deals</a>
-    </article>
+      <p>Berlin, Munich, Frankfurt and more.</p>
+      <a class="btn" href="#">View Germany Deals</a>
+    </div>
 
-    <!-- 🇳🇱 Netherlands -->
-    <article class="country-card">
-      <img src="assets/travel/netherlands.jpg" alt="Netherlands">
+    <!-- Netherlands -->
+    <div class="country-card">
+      <img class="country-image" src="https://images.unsplash.com/photo-1526476148966-98bd039463ea?auto=format&fit=crop&w=400&q=80">
       <h3>Netherlands Hotel Deals</h3>
-      <p>Amsterdam, Rotterdam, The Hague and more.</p>
-      <a href="https://www.agoda.com/de-de/partners/partnersearch.aspx" class="btn-primary" target="_blank">View Netherlands Deals</a>
-    </article>
+      <p>Amsterdam, Rotterdam, The Hague.</p>
+      <a class="btn" href="#">View Netherlands Deals</a>
+    </div>
 
-    <!-- 🇫🇷 France -->
-    <article class="country-card coming-soon">
-      <img src="assets/travel/france.jpg" alt="France">
+    <!-- France -->
+    <div class="country-card">
+      <img class="country-image" src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=400&q=80">
       <h3>France Hotel Deals</h3>
-      <p>Coming soon: Paris, Nice, Lyon deals.</p>
-      <button class="btn-disabled">Coming Soon</button>
-    </article>
+      <p>Coming soon: Paris, Nice, Lyon.</p>
+      <span class="coming-soon">Coming Soon</span>
+    </div>
 
-    <!-- 🇮🇹 Italy -->
-    <article class="country-card">
-      <img src="assets/travel/italy.jpg" alt="Italy">
+    <!-- Italy -->
+    <div class="country-card">
+      <img class="country-image" src="https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=400&q=80">
       <h3>Italy Hotel Deals</h3>
       <p>Rome, Milan, Florence & more.</p>
-      <a href="https://www.agoda.com/de-de/partners/partnersearch.aspx" class="btn-primary" target="_blank">View Italy Deals</a>
-    </article>
+      <a class="btn" href="#">View Italy Deals</a>
+    </div>
 
-    <!-- 🇪🇸 Spain -->
-    <article class="country-card coming-soon">
-      <img src="assets/travel/spain.jpg" alt="Spain">
+    <!-- Spain -->
+    <div class="country-card">
+      <img class="country-image" src="https://images.unsplash.com/photo-1508867743401-21ad68d105b2?auto=format&fit=crop&w=400&q=80">
       <h3>Spain Hotel Deals</h3>
-      <p>Barcelona, Madrid & beach cities.</p>
-      <button class="btn-disabled">Coming Soon</button>
-    </article>
+      <p>Barcelona, Madrid.</p>
+      <span class="coming-soon">Coming Soon</span>
+    </div>
 
-    <!-- 🇬🇧 UK -->
-    <article class="country-card">
-      <img src="assets/travel/uk.jpg" alt="UK">
+    <!-- UK -->
+    <div class="country-card">
+      <img class="country-image" src="https://images.unsplash.com/photo-1473951574080-01fe45ec8643?auto=format&fit=crop&w=400&q=80">
       <h3>United Kingdom Hotel Deals</h3>
-      <p>London, Manchester, Edinburgh and more.</p>
-      <a href="https://www.agoda.com/de-de/partners/partnersearch.aspx" class="btn-primary" target="_blank">View UK Deals</a>
-    </article>
-
-    <!-- 🇨🇭 Switzerland -->
-    <article class="country-card coming-soon">
-      <img src="assets/travel/switzerland.jpg" alt="Switzerland">
-      <h3>Switzerland Hotel Deals</h3>
-      <p>Coming soon: Alps & lake hotels.</p>
-      <button class="btn-disabled">Coming Soon</button>
-    </article>
-
-    <!-- 🇦🇹 Austria -->
-    <article class="country-card coming-soon">
-      <img src="assets/travel/austria.jpg" alt="Austria">
-      <h3>Austria Hotel Deals</h3>
-      <p>Vienna, Salzburg — coming soon.</p>
-      <button class="btn-disabled">Coming Soon</button>
-    </article>
-
-    <!-- 🇯🇵 Japan -->
-    <article class="country-card coming-soon">
-      <img src="assets/travel/japan.jpg" alt="Japan">
-      <h3>Japan Hotel Deals</h3>
-      <p>Tokyo, Osaka, Kyoto — coming soon.</p>
-      <button class="btn-disabled">Coming Soon</button>
-    </article>
-
-    <!-- 🇰🇷 Korea -->
-    <article class="country-card coming-soon">
-      <img src="assets/travel/korea.jpg" alt="Korea">
-      <h3>South Korea Hotel Deals</h3>
-      <p>Seoul & Busan — coming soon.</p>
-      <button class="btn-disabled">Coming Soon</button>
-    </article>
-
-    <!-- 🇺🇸 USA -->
-    <article class="country-card">
-      <img src="assets/travel/usa.jpg" alt="USA">
-      <h3>United States Hotel Deals</h3>
-      <p>New York, Los Angeles, Las Vegas & more.</p>
-      <a href="https://www.agoda.com/de-de/partners/partnersearch.aspx" class="btn-primary" target="_blank">View USA Deals</a>
-    </article>
-
-    <!-- 🇦🇺 Australia -->
-    <article class="country-card coming-soon">
-      <img src="assets/travel/australia.jpg" alt="Australia">
-      <h3>Australia Hotel Deals</h3>
-      <p>Sydney, Melbourne — coming soon.</p>
-      <button class="btn-disabled">Coming Soon</button>
-    </article>
+      <p>London, Manchester, Edinburgh.</p>
+      <span class="coming-soon">Coming Soon</span>
+    </div>
 
   </div>
-</section>
-
-</body>
-</html>
-
-    /* GRID SECTION */
-    .country-section {
-      max-width: 1100px;
-      margin: 0 auto 3rem;
-      padding: 0 1.5rem;
-      text-align: center;
-    }
-
-    .country-section h2 {
-      font-size: 1.6rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .country-section p {
-      font-size: 0.95rem;
-      color: #4b5563;
-    }
-
-    .country-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.7rem;
-      margin-top: 1.5rem;
-<style>
-  .overlay {
-    background: linear-gradient(to bottom, rgba(0,0,0,0.65), rgba(0,0,0,0.25));
-    padding: 3rem 1.5rem 2rem;
-    border-radius: 18px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  body {
-    background-image: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1600&q=80');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  }
-
-  h1 {
-    text-align: center;
-    font-size: 38px;
-    color: #ffffff;
-    margin-bottom: 10px;
-    text-shadow: 0 6px 16px rgba(0,0,0,0.75);
-  }
-
-  h2 {
-    text-align: center;
-    font-size: 22px;
-    color: #e2e8f0;
-    font-weight: 400;
-    margin-bottom: 8px;
-    text-shadow: 0 3px 10px rgba(0,0,0,0.7);
-  }
-
-  .hero-subtitle {
-    text-align: center;
-    font-size: 16px;
-    color: #e5e7eb;
-    max-width: 720px;
-    margin: 0 auto 1.5rem;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.7);
-  }
-</style>
-</head>
-
-<body>
-
-  <h1>🌍 Explore Top Travel Deals</h1>
-  <h2>Compare hotels, find deals & travel smarter with Agoda.</h2>
-
-  <p>
-    Discover hotel deals worldwide — Germany, France, Italy, UK, Netherlands, USA and more.
-    Compare prices, read reviews, and book smarter for your next adventure.
-  </p>
-
-<section class="country-section">
-  <h2>Top Hotel Deals by Country</h2>
-  <p>Some destinations are ready, others are coming soon while we finish your full travel hub.</p>
-
-  <div class="country-grid">
-
-    <!-- 🇩🇪 Germany -->
-    <article class="country-card">
-      <img src="assets/travel/germany.jpg" alt="Germany">
-      <h3>Germany Hotel Deals</h3>
-      <p>Berlin, Munich, Frankfurt and more top cities.</p>
-      <a href="https://www.agoda.com/de-de/partners/partnersearch.aspx" class="btn-primary" target="_blank">View Germany Deals</a>
-    </article>
-
-    <!-- 🇳🇱 Netherlands -->
-    <article class="country-card">
-      <img src="assets/travel/netherlands.jpg" alt="Netherlands">
-      <h3>Netherlands Hotel Deals</h3>
-      <p>Amsterdam, Rotterdam, The Hague and more.</p>
-      <a href="https://www.agoda.com/de-de/partners/partnersearch.aspx" class="btn-primary" target="_blank">View Netherlands Deals</a>
-    </article>
-
-    <!-- 🇫🇷 France -->
-    <article class="country-card coming-soon">
-      <img src="assets/travel/france.jpg" alt="France">
-      <h3>France Hotel Deals</h3>
-      <p>Coming soon: Paris, Nice, Lyon deals.</p>
-      <button class="btn-disabled">Coming Soon</button>
-    </article>
-
-    <!-- 🇮🇹 Italy -->
-    <article class="country-card">
-      <img src="assets/travel/italy.jpg" alt="Italy">
-      <h3>Italy Hotel Deals</h3>
-      <p>Rome, Milan, Florence & more.</p>
-      <a href="https://www.agoda.com/de-de/partners/partnersearch.aspx" class="btn-primary" target="_blank">View Italy Deals</a>
-    </article>
-
-    <!-- 🇪🇸 Spain -->
-    <article class="country-card coming-soon">
-      <img src="assets/travel/spain.jpg" alt="Spain">
-      <h3>Spain Hotel Deals</h3>
-      <p>Barcelona, Madrid & beach cities.</p>
-      <button class="btn-disabled">Coming Soon</button>
-    </article>
-
-    <!-- 🇬🇧 UK -->
-    <article class="country-card">
-      <img src="assets/travel/uk.jpg" alt="UK">
-      <h3>United Kingdom Hotel Deals</h3>
-      <p>London, Manchester, Edinburgh and more.</p>
-      <a href="https://www.agoda.com/de-de/partners/partnersearch.aspx" class="btn-primary" target="_blank">View UK Deals</a>
-    </article>
-
-    <!-- 🇨🇭 Switzerland -->
-    <article class="country-card coming-soon">
-      <img src="assets/travel/switzerland.jpg" alt="Switzerland">
-      <h3>Switzerland Hotel Deals</h3>
-      <p>Coming soon: Alps & lake hotels.</p>
-      <button class="btn-disabled">Coming Soon</button>
-    </article>
-
-    <!-- 🇦🇹 Austria -->
-    <article class="country-card coming-soon">
-      <img src="assets/travel/austria.jpg" alt="Austria">
-      <h3>Austria Hotel Deals</h3>
-      <p>Vienna, Salzburg — coming soon.</p>
-      <button class="btn-disabled">Coming Soon</button>
-    </article>
-
-    <!-- 🇯🇵 Japan -->
-    <article class="country-card coming-soon">
-      <img src="assets/travel/japan.jpg" alt="Japan">
-      <h3>Japan Hotel Deals</h3>
-      <p>Tokyo, Osaka, Kyoto — coming soon.</p>
-      <button class="btn-disabled">Coming Soon</button>
-    </article>
-
-    <!-- 🇰🇷 Korea -->
-    <article class="country-card coming-soon">
-      <img src="assets/travel/korea.jpg" alt="Korea">
-      <h3>South Korea Hotel Deals</h3>
-      <p>Seoul & Busan — coming soon.</p>
-      <button class="btn-disabled">Coming Soon</button>
-    </article>
-
-    <!-- 🇺🇸 USA -->
-    <article class="country-card">
-      <img src="assets/travel/usa.jpg" alt="USA">
-      <h3>United States Hotel Deals</h3>
-      <p>New York, Los Angeles, Las Vegas & more.</p>
-      <a href="https://www.agoda.com/de-de/partners/partnersearch.aspx" class="btn-primary" target="_blank">View USA Deals</a>
-    </article>
-
-    <!-- 🇦🇺 Australia -->
-    <article class="country-card coming-soon">
-      <img src="assets/travel/australia.jpg" alt="Australia">
-      <h3>Australia Hotel Deals</h3>
-      <p>Sydney, Melbourne — coming soon.</p>
-      <button class="btn-disabled">Coming Soon</button>
-    </article>
-
-  </div>
-</section>
 
 </body>
 </html>
