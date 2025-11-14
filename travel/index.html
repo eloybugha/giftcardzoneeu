@@ -5,223 +5,454 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Explore Travel Deals | Agoda Partners</title>
-  <meta name="description" content="Find and compare hotel deals in top destinations like Germany, France, Netherlands, Italy, UK, USA and more.">
-  <meta property="og:title" content="Top Hotel Deals in Europe & Worldwide">
-  <meta property="og:description" content="Compare the best Agoda hotel deals worldwide — Germany, France, Italy, UK, USA and more.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1600&q=90">
+  <meta name="description" content="Compare top hotel deals in Germany, Netherlands, France, Italy, Spain and the UK. Powered by Agoda partners.">
+  <meta name="keywords" content="hotel deals, agoda partner, germany hotels, netherlands hotels, france hotels, italy hotels, uk hotels, spain hotels">
+  <meta property="og:title" content="Explore Top Travel & Hotel Deals Worldwide" />
+  <meta property="og:description" content="Find hotel deals in Germany, Netherlands, France, Italy, Spain and the UK. Compare prices and travel smarter with Agoda." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1600&q=90" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://giftcardzoneeu.com/travel/" />
 
   <style>
-    /* FOOTER */
-.footer {
-  max-width: 1100px;
-  margin: 0 auto 2rem;
-  padding: 0 1.5rem;
-  text-align: center;
-  font-size: 0.8rem;
-  color: #e5e7eb;
-  text-shadow: 0 3px 10px rgba(0,0,0,0.9);
-}
-
-.footer a {
-  color: #bfdbfe;
-  text-decoration: none;
-}
-
-.footer a:hover {
-  text-decoration: underline;
-}
-
-    /* BACKGROUND */
-    body {
-      background-image: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1600&q=90');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      background-repeat: no-repeat;
+    * {
+      box-sizing: border-box;
       margin: 0;
+      padding: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
-    /* HERO OVERLAY */
-    .overlay {
-      max-width: 1100px;
-      margin: 0 auto 2rem;
-      padding: 2.5rem 1.5rem 2rem;
-      border-radius: 18px;
-      background: rgba(0,0,0,0.70);
-      backdrop-filter: blur(4px);
+    body {
+      background: #050816;
+      color: #f9fafb;
+      line-height: 1.6;
+    }
+
+    .page-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      position: relative;
+      padding: 4rem 1.5rem 3rem;
       text-align: center;
+      overflow: hidden;
     }
 
-    .overlay h1, 
-    .overlay h2,
-    .overlay p {
-      color: #ffffff;
-      text-shadow: 0 4px 14px rgba(0,0,0,1);
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1600&q=90");
+      background-size: cover;
+      background-position: center;
+      opacity: 0.25;
+      filter: blur(1px);
+      z-index: -2;
     }
 
-    /* SECTION TITLES */
-    .section-heading,
-    .section-subtitle {
-      text-align: center;
-      color: #fff;
-      text-shadow: 0 4px 13px rgba(0,0,0,1);
-      margin-bottom: 1rem;
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top, rgba(59,130,246,0.5), transparent 55%),
+                  radial-gradient(circle at bottom, rgba(16,185,129,0.5), transparent 55%);
+      opacity: 0.9;
+      mix-blend-mode: screen;
+      z-index: -1;
     }
 
-    /* COUNTRY GRID */
-    .country-section {
-      max-width: 1100px;
-      margin: 0 auto 3rem;
-      padding: 0 1.5rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
+    .hero-inner {
+      max-width: 900px;
+      margin: 0 auto;
     }
 
-    /* CARD */
-    .country-card {
-      background: rgba(255,255,255,0.97);
-      border-radius: 18px;
-      padding: 1.5rem 1.3rem;
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.20);
-    }
-
-    .country-card h3 {
-      margin-bottom: 0.4rem;
-      color: #111827;
-    }
-
-    .country-card p {
-      margin-bottom: 1rem;
-      color: #374151;
-    }
-
-    .coming-soon {
-      background: #e5e7eb;
-      padding: 0.5rem 1rem;
-      border-radius: 999px;
-      display: inline-block;
-      font-size: 0.85rem;
-    }
-
-    /* BUTTON */
-    .btn {
-      display: inline-block;
-      padding: 0.6rem 1.2rem;
-      background: #2563eb;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 8px;
+    .eyebrow {
       font-size: 0.9rem;
-      transition: 0.2s;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #a5b4fc;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      text-shadow: 0 10px 40px rgba(15,23,42,0.9);
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      max-width: 620px;
+      margin: 0.5rem auto 1.5rem;
+      color: #e5e7eb;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.4);
+      font-size: 0.8rem;
+      color: #e5e7eb;
+    }
+
+    .hero-badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 12px rgba(34,197,94,0.9);
+    }
+
+    /* CONTENT WRAPPER */
+    .content {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem 3.5rem;
+      flex: 1;
+    }
+
+    .section-heading {
+      margin-bottom: 1rem;
+    }
+
+    .section-heading h2 {
+      font-size: 1.3rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .section-heading p {
+      font-size: 0.95rem;
+      color: #9ca3af;
+    }
+
+    /* GRID OF CARDS */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    @media (min-width: 640px) {
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .card {
+      background: radial-gradient(circle at top left, rgba(59,130,246,0.25), rgba(15,23,42,0.95));
+      border-radius: 1.25rem;
+      border: 1px solid rgba(148,163,184,0.4);
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      box-shadow: 0 18px 40px rgba(15,23,42,0.85);
+    }
+
+    .card.coming-soon {
+      opacity: 0.7;
+      border-style: dashed;
+      border-color: rgba(148,163,184,0.7);
+    }
+
+    .card-image {
+      overflow: hidden;
+      border-radius: 0.9rem;
+      max-height: 160px;
+    }
+
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transform: scale(1.01);
+    }
+
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-top: 0.1rem;
+    }
+
+    .card-sub {
+      font-size: 0.9rem;
+      color: #e5e7eb;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.25rem;
+    }
+
+    .chip {
+      font-size: 0.75rem;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.55);
+      color: #e5e7eb;
+      background: rgba(15,23,42,0.9);
+    }
+
+    .card-footer {
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.55rem 0.9rem;
+      border-radius: 999px;
+      border: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, #38bdf8, #6366f1);
+      color: #f9fafb;
+      box-shadow: 0 12px 30px rgba(37,99,235,0.75);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
+      white-space: nowrap;
+    }
+
+    .btn span {
+      margin-left: 0.4rem;
+      font-size: 0.95em;
     }
 
     .btn:hover {
-      background: #1e3fa8;
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(79,70,229,0.85);
+      opacity: 0.98;
     }
 
-    /* COUNTRY IMAGE */
-    .country-image {
-      width: 58px;
-      height: 58px;
-      border-radius: 999px;
-      object-fit: cover;
-      margin: 0 auto 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-      display: block;
+    .btn:active {
+      transform: translateY(0);
+      box-shadow: 0 10px 24px rgba(30,64,175,0.9);
+    }
+
+    .btn.disabled {
+      cursor: not-allowed;
+      background: rgba(55,65,81,0.9);
+      box-shadow: none;
+      opacity: 0.7;
+    }
+
+    .coming-label {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #f97316;
+    }
+
+    /* FOOTER */
+    .footer {
+      font-size: 0.8rem;
+      color: #9ca3af;
+      padding: 1.5rem 1.5rem 2.5rem;
+      text-align: center;
+      border-top: 1px solid rgba(31,41,55,0.9);
+      background: radial-gradient(circle at top, rgba(37,99,235,0.15), rgba(15,23,42,1));
+    }
+
+    .footer a {
+      color: #a5b4fc;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
-
 <body>
+  <div class="page-wrapper">
+    <!-- HERO -->
+    <header class="hero">
+      <div class="hero-inner">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Agoda Partner • GiftCardZoneEU Travel Network
+        </div>
+        <h1 class="hero-title">Explore Top Travel & Hotel Deals</h1>
+        <p class="hero-subtitle">
+          Compare hotel prices in the most popular destinations worldwide — Germany, Netherlands, France, Italy, Spain and the United Kingdom.
+          Book smarter, save more, and keep your travel budget happy.
+        </p>
+      </div>
+    </header>
 
-  <!-- HERO -->
-  <div class="overlay">
-    <h1>🌍 Explore Top Travel Deals</h1>
-    <h2>Compare hotels, find deals & travel smarter with Agoda.</h2>
-    <p>Discover hotel deals worldwide — Germany, France, Italy, UK, Netherlands, USA and more.</p>
+    <!-- MAIN CONTENT -->
+    <main class="content">
+      <section class="section-heading">
+        <h2>Top Hotel Deals by Country</h2>
+        <p>Some destinations are ready, others are coming soon. Start with what’s live now, and we’ll add more cities & partners over time.</p>
+      </section>
+
+      <section class="grid">
+        <!-- GERMANY -->
+        <article class="card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=900&q=80" alt="Germany hotel deals - Berlin skyline">
+          </div>
+          <h3 class="card-title">Germany Hotel Deals</h3>
+          <p class="card-sub">Berlin, Munich, Frankfurt and more – compare hotel prices and find smart deals for your next trip.</p>
+          <div class="chip-row">
+            <span class="chip">Germany</span>
+            <span class="chip">City breaks</span>
+            <span class="chip">Business & leisure</span>
+          </div>
+          <div class="card-footer">
+            <span>Live now</span>
+            <a
+              class="btn"
+              href="PAKIPALIT-BES-GERMANY-AGODA-LINK-MO"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Germany Deals <span>↗</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- NETHERLANDS -->
+        <article class="card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=80" alt="Netherlands hotel deals - Amsterdam canal">
+          </div>
+          <h3 class="card-title">Netherlands Hotel Deals</h3>
+          <p class="card-sub">Amsterdam, Rotterdam, The Hague – stay close to canals, culture, and coffee shops.</p>
+          <div class="chip-row">
+            <span class="chip">Netherlands</span>
+            <span class="chip">Canals & cities</span>
+            <span class="chip">Short stays</span>
+          </div>
+          <div class="card-footer">
+            <span>Live now</span>
+            <a
+              class="btn"
+              href="PAKIPALIT-BES-NETHERLANDS-AGODA-LINK-MO"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Netherlands Deals <span>↗</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- FRANCE -->
+        <article class="card coming-soon">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=900&q=80" alt="France hotel deals - Eiffel Tower">
+          </div>
+          <h3 class="card-title">France Hotel Deals</h3>
+          <p class="card-sub">Paris, Nice, Lyon – romantic escapes and city breaks all in one place.</p>
+          <div class="chip-row">
+            <span class="chip">France</span>
+            <span class="chip">Romantic trips</span>
+            <span class="chip">City lights</span>
+          </div>
+          <div class="card-footer">
+            <span class="coming-label">Coming soon</span>
+            <button class="btn disabled" type="button">
+              Not ready yet
+            </button>
+          </div>
+        </article>
+
+        <!-- ITALY -->
+        <article class="card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1526481280695-3c687fd543c0?auto=format&fit=crop&w=900&q=80" alt="Italy hotel deals - Colosseum Rome">
+          </div>
+          <h3 class="card-title">Italy Hotel Deals</h3>
+          <p class="card-sub">Rome, Milan, Florence and more – hotels close to food, fashion and history.</p>
+          <div class="chip-row">
+            <span class="chip">Italy</span>
+            <span class="chip">Food & culture</span>
+            <span class="chip">City trips</span>
+          </div>
+          <div class="card-footer">
+            <span>Live now</span>
+            <a
+              class="btn"
+              href="PAKIPALIT-BES-ITALY-AGODA-LINK-MO"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Italy Deals <span>↗</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- SPAIN -->
+        <article class="card coming-soon">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=900&q=80" alt="Spain hotel deals - Barcelona view">
+          </div>
+          <h3 class="card-title">Spain Hotel Deals</h3>
+          <p class="card-sub">Barcelona, Madrid and more – coming soon for sun, food and city vibes.</p>
+          <div class="chip-row">
+            <span class="chip">Spain</span>
+            <span class="chip">Sun & city</span>
+          </div>
+          <div class="card-footer">
+            <span class="coming-label">Coming soon</span>
+            <button class="btn disabled" type="button">
+              Not ready yet
+            </button>
+          </div>
+        </article>
+
+        <!-- UNITED KINGDOM -->
+        <article class="card coming-soon">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=900&q=80" alt="United Kingdom hotel deals - London bridge">
+          </div>
+          <h3 class="card-title">United Kingdom Hotel Deals</h3>
+          <p class="card-sub">London, Manchester, Edinburgh – more UK destinations coming soon.</p>
+          <div class="chip-row">
+            <span class="chip">United Kingdom</span>
+            <span class="chip">City breaks</span>
+          </div>
+          <div class="card-footer">
+            <span class="coming-label">Coming soon</span>
+            <button class="btn disabled" type="button">
+              Not ready yet
+            </button>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      Part of <a href="https://giftcardzoneeu.com/">GiftCardZoneEU.com</a> travel &amp; deals network.
+      Agoda partner page – links may contain affiliate tracking.
+    </footer>
   </div>
-
-  <h2 class="section-heading">Top Hotel Deals by Country</h2>
-  <p class="section-subtitle">Some destinations are ready, others are coming soon.</p>
-
-  <!-- GRID -->
-  <div class="country-section">
-
-    <!-- Germany -->
-    <div class="country-card">
-      <img class="country-image" src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=400&q=80">
-      <h3>Germany Hotel Deals</h3>
-      <p>Berlin, Munich, Frankfurt and more.</p>
-      <a class="btn" 
-   href="https://www.agoda.com/de-de/partners/partnersearch.aspx" 
-   target="_blank" 
-   rel="noopener noreferrer">
-  View Germany Deals
-</a>
-
-    </div>
-
-    <!-- Netherlands -->
-    <div class="country-card">
-      <img class="country-image" src="https://images.unsplash.com/photo-1526476148966-98bd039463ea?auto=format&fit=crop&w=400&q=80">
-      <h3>Netherlands Hotel Deals</h3>
-      <p>Amsterdam, Rotterdam, The Hague.</p>
-      <a class="btn" 
-   href="https://www.agoda.com/de-de/partners/partnersearch.aspx" 
-   target="_blank" 
-   rel="noopener noreferrer">
-  View Germany Deals
-</a>
-
-    </div>
-
-    <!-- France -->
-    <div class="country-card">
-      <img class="country-image" src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=400&q=80">
-      <h3>France Hotel Deals</h3>
-      <p>Coming soon: Paris, Nice, Lyon.</p>
-      <span class="coming-soon">Coming Soon</span>
-    </div>
-
-    <!-- Italy -->
-    <div class="country-card">
-      <img class="country-image" src="https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=400&q=80">
-      <h3>Italy Hotel Deals</h3>
-      <p>Rome, Milan, Florence & more.</p>
-      <a class="btn" 
-   href="https://www.agoda.com/de-de/partners/partnersearch.aspx" 
-   target="_blank" 
-   rel="noopener noreferrer">
-  View Germany Deals
-</a>
-    </div>
-
-    <!-- Spain -->
-    <div class="country-card">
-      <img class="country-image" src="https://images.unsplash.com/photo-1508867743401-21ad68d105b2?auto=format&fit=crop&w=400&q=80">
-      <h3>Spain Hotel Deals</h3>
-      <p>Barcelona, Madrid.</p>
-      <span class="coming-soon">Coming Soon</span>
-    </div>
-
-    <!-- UK -->
-    <div class="country-card">
-      <img class="country-image" src="https://images.unsplash.com/photo-1473951574080-01fe45ec8643?auto=format&fit=crop&w=400&q=80">
-      <h3>United Kingdom Hotel Deals</h3>
-      <p>London, Manchester, Edinburgh.</p>
-      <span class="coming-soon">Coming Soon</span>
-    </div>
- </div>  <!-- last country card -->
-
-<div class="footer">
-  Part of <a href="https://giftcardzoneeu.com">GiftCardZoneEU.com</a> travel & deals network.
-  Agoda partner page – links may contain affiliate tracking.
-</div>
-
 </body>
 </html>
-
-
