@@ -1,1 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Explore Asia Travel Deals | Agoda Partners</title>
+  <meta name="description" content="Compare hotel deals across Asia — Japan, Singapore, Thailand, and more. Powered by Agoda partners." />
+  <meta property="og:title" content="Top Hotel Deals in Asia" />
+  <meta property="og:description" content="Find great hotel deals in Japan, Singapore, Thailand and more. Discover Asia’s best destinations." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1549692520-acc6669e2f0c?auto=format&fit=crop&w=1600&q=90" />
+
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:system-ui, sans-serif; }
+    body { background:#050816; color:#f9fafb; line-height:1.6; }
+
+    .page-wrapper { min-height:100vh; display:flex; flex-direction:column; }
+
+    /* ASIA HERO */
+    .hero {
+      position:relative;
+      padding:4rem 1.5rem 3rem;
+      text-align:center;
+      overflow:hidden;
+    }
+    .hero::before {
+      content:"";
+      position:absolute;
+      inset:0;
+      background-image:url("https://images.unsplash.com/photo-1549692520-acc6669e2f0c?auto=format&fit=crop&w=1600&q=90");
+      background-size:cover;
+      background-position:center;
+      opacity:0.25;
+      filter:blur(1px);
+      z-index:-2;
+    }
+    .hero::after {
+      content:"";
+      position:absolute;
+      inset:0;
+      background:radial-gradient(circle at top, rgba(255,105,180,0.5), transparent 60%),
+                 radial-gradient(circle at bottom, rgba(59,130,246,0.5), transparent 60%);
+      opacity:0.9;
+      mix-blend-mode:screen;
+      z-index:-1;
+    }
+
+    .hero-inner { max-width:900px; margin:0 auto; }
+    .hero-badge {
+      display:inline-flex; align-items:center; gap:.4rem;
+      padding:.35rem .9rem; border-radius:999px;
+      background:rgba(15,23,42,0.9); border:1px solid rgba(148,163,184,0.4);
+      font-size:.8rem; color:#e5e7eb;
+    }
+    .hero-badge-dot {
+      width:8px; height:8px; border-radius:999px; background:#22c55e;
+      box-shadow:0 0 12px rgba(34,197,94,0.9);
+    }
+    .hero-title { font-size:clamp(2rem,4vw,2.8rem); font-weight:700; margin:.8rem 0; }
+    .hero-subtitle { max-width:620px; margin:0.5rem auto 1.5rem; color:#e5e7eb; }
+
+    /* CONTENT */
+    .content { max-width:1100px; margin:0 auto; padding:0 1.5rem 3.5rem; flex:1; }
+    .section-heading { margin-bottom:1rem; }
+    .section-heading h2 { font-size:1.3rem; margin-bottom:0.3rem; }
+    .section-heading p { font-size:.95rem; color:#9ca3af; }
+
+    /* GRID */
+    .grid {
+      display:grid; grid-template-columns:repeat(1,1fr);
+      gap:1.5rem; margin-top:1.5rem;
+    }
+    @media(min-width:640px){ .grid{ grid-template-columns:repeat(2,1fr);} }
+    @media(min-width:1024px){ .grid{ grid-template-columns:repeat(3,1fr);} }
+
+    .card {
+      background:radial-gradient(circle at top left, rgba(255,105,180,0.25), rgba(15,23,42,0.95));
+      border-radius:1.25rem;
+      border:1px solid rgba(148,163,184,0.4);
+      padding:1rem;
+      display:flex;
+      flex-direction:column;
+      gap:.75rem;
+      box-shadow:0 18px 40px rgba(15,23,42,0.85);
+    }
+
+    .card-image { overflow:hidden; border-radius:.9rem; max-height:160px; }
+    .card-image img { width:100%; height:100%; object-fit:cover; }
+
+    .card-title { font-size:1.05rem; font-weight:600; }
+    .card-sub { font-size:.9rem; color:#e5e7eb; }
+
+    .chip-row { display:flex; flex-wrap:wrap; gap:.4rem; }
+    .chip {
+      font-size:.75rem; padding:.15rem .55rem; border-radius:999px;
+      border:1px solid rgba(148,163,184,0.55); color:#e5e7eb; background:rgba(15,23,42,0.9);
+    }
+
+    .card-footer { margin-top:auto; display:flex; justify-content:space-between; align-items:center; font-size:.8rem; color:#9ca3af; }
+
+    .btn {
+      padding:.55rem .9rem; border-radius:999px; border:none;
+      display:inline-flex; align-items:center; justify-content:center;
+      background:linear-gradient(135deg,#fb7185,#8b5cf6);
+      color:#fff; font-size:.85rem; font-weight:500;
+      text-decoration:none; box-shadow:0 12px 30px rgba(236,72,153,0.5);
+      transition:.15s;
+    }
+    .btn:hover { transform:translateY(-1px); }
+  </style>
+
+</head>
+<body>
+  <div class="page-wrapper">
+
+    <!-- HERO -->
+    <header class="hero">
+      <div class="hero-inner">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Agoda Partner • GiftCardZoneEU Asia Network
+        </div>
+        <h1 class="hero-title">Explore Top Asia Travel & Hotel Deals</h1>
+        <p class="hero-subtitle">
+          Discover the best hotel deals across Asia — Japan, Singapore, Thailand and more.
+          Book smarter and explore the beauty of Asia.
+        </p>
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="content">
+      <section class="section-heading">
+        <h2>Top Hotel Deals in Asia</h2>
+        <p>Start exploring top Asian destinations — more countries coming soon.</p>
+      </section>
+
+      <section class="grid">
+
+        <!-- JAPAN -->
+        <article class="card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1554797589-7241bb691973?auto=format&fit=crop&w=900&q=80">
+          </div>
+          <h3 class="card-title">Japan Hotel Deals</h3>
+          <p class="card-sub">Tokyo, Kyoto, Osaka — culture, technology and unforgettable travel experiences.</p>
+          <div class="chip-row">
+            <span class="chip">Japan</span>
+            <span class="chip">City & culture</span>
+            <span class="chip">Food trips</span>
+          </div>
+          <div class="card-footer">
+            <span>Live now</span>
+            <a class="btn" href="http://www.agoda.com/partners/partnersearch.aspx" target="_blank">View Japan Deals ↗</a>
+          </div>
+        </article>
+
+        <!-- SINGAPORE -->
+        <article class="card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1504439904031-93ded9f93e4f?auto=format&fit=crop&w=900&q=80">
+          </div>
+          <h3 class="card-title">Singapore Hotel Deals</h3>
+          <p class="card-sub">Modern, clean, fast — discover hotels in Singapore’s top districts.</p>
+          <div class="chip-row">
+            <span class="chip">Singapore</span>
+            <span class="chip">City trips</span>
+            <span class="chip">Luxury & budget</span>
+          </div>
+          <div class="card-footer">
+            <span>Live now</span>
+            <a class="btn" href="http://www.agoda.com/partners/partnersearch.aspx" target="_blank">View Singapore Deals ↗</a>
+          </div>
+        </article>
+
+        <!-- THAILAND -->
+        <article class="card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=900&q=80">
+          </div>
+          <h3 class="card-title">Thailand Hotel Deals</h3>
+          <p class="card-sub">Bangkok, Phuket, Chiang Mai — islands, nightlife and nature escapes.</p>
+          <div class="chip-row">
+            <span class="chip">Thailand</span>
+            <span class="chip">Beaches</span>
+            <span class="chip">Nightlife</span>
+          </div>
+          <div class="card-footer">
+            <span>Live now</span>
+            <a class="btn" href="http://www.agoda.com/partners/partnersearch.aspx" target="_blank">View Thailand Deals ↗</a>
+          </div>
+        </article>
+
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer" style="text-align:center; padding:1.5rem; font-size:.85rem; color:#9ca3af;">
+      Part of <a href="https://giftcardzoneeu.com" style="color:#a5b4fc;">GiftCardZoneEU.com</a> Travel Network. Affiliate links may apply.
+    </footer>
+
+  </div>
+</body>
+</html>
 
