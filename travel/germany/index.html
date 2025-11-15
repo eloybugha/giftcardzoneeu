@@ -1,478 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Germany Hotel Deals | GiftCardZoneEU Travel</title>
-  <meta name="description" content="Find and compare hotel deals across Germany — Berlin, Munich, Hamburg, Frankfurt and more. Powered by Agoda and our travel partners.">
-  <meta name="keywords" content="Germany hotel deals, Berlin hotels, Munich hotels, Hamburg hotels, Frankfurt hotels, Agoda partner, GiftCardZoneEU Travel">
-
-  <meta property="og:title" content="Germany Hotel Deals | GiftCardZoneEU Travel">
-  <meta property="og:description" content="Compare top hotel deals in Germany from trusted partners like Agoda, Booking.com and more.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1512314889357-e157c22f938d?auto=format&fit=crop&w=1600&q=80">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://giftcardzoneeu.com/travel/germany.html">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Hotels in Germany | Agoda Partner | GiftCardZoneEU</title>
 
   <style>
-    :root {
-      --bg-main: #020617;
-      --bg-card: #020617;
-      --accent: #38bdf8;
-      --accent-soft: rgba(56, 189, 248, 0.12);
-      --text-main: #f9fafb;
-      --text-muted: #9ca3af;
-      --border-subtle: rgba(148, 163, 184, 0.25);
-      --radius-lg: 18px;
-      --radius-xl: 24px;
-      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.6);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
-      min-height: 100vh;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top left, #0f172a 0, #020617 45%, #000000 100%);
-      color: var(--text-main);
-      -webkit-font-smoothing: antialiased;
+      background: #f1f5f9;
     }
 
-    .page-shell {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 1.25rem 1rem 3rem;
-    }
-
-    @media (min-width: 768px) {
-      .page-shell {
-        padding: 1.5rem 1.5rem 3.5rem;
-      }
-    }
-
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.75rem;
-      padding: 0.5rem 0 0.75rem;
-    }
-
-    .brand {
-      display: flex;
-      flex-direction: column;
-      gap: 0.15rem;
-    }
-
-    .brand-title {
-      font-size: 1.15rem;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-    }
-
-    .brand-sub {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    .header-link {
-      font-size: 0.9rem;
-      text-decoration: none;
-      color: var(--accent);
-      padding: 0.4rem 0.85rem;
-      border-radius: 999px;
-      border: 1px solid rgba(56, 189, 248, 0.4);
-      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent);
-    }
-
-    .header-link:hover {
-      background: rgba(15, 23, 42, 0.9);
-    }
-
-    /* HERO */
-
-    .hero {
-      margin-top: 1.2rem;
-      border-radius: var(--radius-xl);
-      overflow: hidden;
-      position: relative;
-      height: 260px;
-      background-image: url('https://images.unsplash.com/photo-1512314889357-e157c22f938d?auto=format&fit=crop&w=1600&q=80');
+    .hero-bg {
+      width: 100%;
+      height: 360px;
+      background-image: url("https://images.unsplash.com/photo-1512314889357-e157c22f938d?auto=format&fit=crop&w=1600&q=80");
       background-size: cover;
       background-position: center;
-      box-shadow: var(--shadow-soft);
-      display: flex;
-      align-items: flex-end;
-      padding: 1.75rem 1.5rem;
-      isolation: isolate;
+      filter: brightness(0.55);
     }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        160deg,
-        rgba(15, 23, 42, 0.05),
-        rgba(15, 23, 42, 0.6) 40%,
-        rgba(15, 23, 42, 0.98) 100%
-      );
-      z-index: 0;
+    .container {
+      max-width: 900px;
+      margin: -140px auto 0;
+      background: white;
+      padding: 2rem;
+      border-radius: 22px;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.2);
     }
 
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 420px;
-    }
-
-    .hero-pill {
+    .badge {
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      padding: 0.25rem 0.75rem;
+      gap: 8px;
+      background: #e0f2fe;
+      color: #0284c7;
+      font-size: 0.85rem;
+      padding: 6px 12px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.82);
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      margin-bottom: 0.7rem;
-    }
-
-    .hero-pill span {
-      color: var(--accent);
       font-weight: 600;
+      margin-bottom: 1rem;
     }
 
-    .hero h1 {
-      margin: 0 0 0.4rem;
+    h1 {
       font-size: 1.8rem;
-      letter-spacing: 0.01em;
+      margin: 0 0 0.5rem;
+      font-weight: 700;
     }
 
-    .hero p {
-      margin: 0 0 0.85rem;
-      font-size: 0.9rem;
-      color: var(--text-muted);
+    .subtitle {
+      margin: 0 0 1rem;
+      color: #475569;
     }
 
-    .hero-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.6rem 1.25rem;
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      background: linear-gradient(to right, #38bdf8, #06b6d4);
-      color: #0b1120;
-      font-size: 0.9rem;
-      font-weight: 600;
-      text-decoration: none;
-      box-shadow: 0 10px 25px rgba(8, 47, 73, 0.6);
-    }
-
-    .hero-cta:hover {
-      filter: brightness(1.05);
-      transform: translateY(-1px);
-    }
-
-    .hero-note {
-      margin-top: 0.45rem;
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      opacity: 0.9;
-    }
-
-    /* QUICK CITIES */
-
-    .cities {
-      margin-top: 2.1rem;
+    .feature-boxes {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.55rem;
+      gap: 0.8rem;
+      margin-top: 1rem;
     }
 
-    .city-pill {
-      padding: 0.35rem 0.9rem;
+    .feature {
+      background: #f8fafc;
+      padding: 0.75rem 1rem;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      border: 1px solid #e2e8f0;
+      flex: 1;
+      min-width: 180px;
+    }
+
+    .cta-row {
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .btn-primary {
+      background: #0ea5e9;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 1rem;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-secondary {
+      background: #1e293b;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .city-pills {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .pill {
+      padding: 6px 14px;
+      background: #f1f5f9;
       border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      background: rgba(15, 23, 42, 0.9);
-    }
-
-    .city-pill.primary {
-      border-color: rgba(56, 189, 248, 0.6);
-      background: var(--accent-soft);
-      color: var(--accent);
+      font-size: 0.85rem;
+      border: 1px solid #e2e8f0;
       font-weight: 500;
     }
 
-    /* GRID */
-
-    .section-title {
-      margin-top: 2.4rem;
-      margin-bottom: 0.75rem;
-      font-size: 1.15rem;
-      font-weight: 600;
-    }
-
-    .section-sub {
-      margin: 0;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    .partner-grid {
-      margin-top: 1.6rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.4rem;
-    }
-
-    .partner-card {
-      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), #020617);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-subtle);
-      padding: 1rem 1.1rem 1.1rem;
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.55);
+    .stats-row {
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 0.4rem;
+      align-items: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+      font-size: 0.85rem;
+      color: #475569;
     }
 
-    .partner-name {
+    .steps {
+      max-width: 900px;
+      margin: 2.5rem auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    .step {
+      background: white;
+      padding: 1.2rem;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
+
+    .blue-cta-center {
+      text-align: center;
+    }
+
+    .cta-main {
+      background: #0284c7;
+      color: white;
+      padding: 0.85rem 2rem;
+      border-radius: 12px;
       font-size: 1rem;
       font-weight: 600;
-    }
-
-    .partner-tag {
-      font-size: 0.75rem;
-      color: var(--accent);
-      margin-bottom: 0.3rem;
-    }
-
-    .partner-desc {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      margin: 0 0 0.7rem;
-    }
-
-    .partner-cta {
-      margin-top: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 0.65rem;
-    }
-
-    .partner-cta a {
-      flex: 1;
-      text-align: center;
+      display: inline-block;
       text-decoration: none;
-      font-size: 0.84rem;
-      font-weight: 500;
-      padding: 0.55rem 0.75rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      color: var(--text-main);
-      background: rgba(15, 23, 42, 0.85);
-    }
-
-    .partner-cta a.primary {
-      border-color: transparent;
-      background: linear-gradient(to right, #38bdf8, #0ea5e9);
-      color: #0b1120;
-      box-shadow: 0 8px 22px rgba(8, 47, 73, 0.7);
-    }
-
-    .partner-cta a:hover {
-      filter: brightness(1.07);
-      transform: translateY(-0.5px);
-    }
-
-    /* NOTE + FOOTER */
-
-    .disclaimer {
-      margin-top: 2.1rem;
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      opacity: 0.85;
+      margin-top: 1rem;
     }
 
     footer {
-      margin-top: 3rem;
-      padding-top: 1.6rem;
-      border-top: 1px solid rgba(31, 41, 55, 0.75);
-      font-size: 0.78rem;
-      color: var(--text-muted);
       text-align: center;
-    }
-
-    footer span {
-      color: var(--accent);
-      font-weight: 500;
+      font-size: 0.8rem;
+      color: #64748b;
+      margin: 2rem 0 1rem;
     }
   </style>
 </head>
+
 <body>
-  <div class="page-shell">
 
-    <header>
-      <div class="brand">
-        <div class="brand-title">GiftCardZoneEU Travel</div>
-        <div class="brand-sub">Germany hotel deals & partners</div>
-      </div>
+  <div class="hero-bg"></div>
 
-      <a href="/travel/" class="header-link">← Back to Travel Home</a>
-    </header>
+  <div class="container">
+    <div class="badge">🇩🇪 Germany Travel Deals</div>
 
-    <section class="hero">
-      <div class="hero-content">
-        <div class="hero-pill">
-          Germany · <span>Hotels & Stays</span>
-        </div>
-        <h1>Discover hotel deals across Germany.</h1>
-        <p>Compare prices for Berlin, Munich, Hamburg, Frankfurt and more — using our trusted Agoda partner search.</p>
-        <a class="hero-cta" href="https://www.agoda.com/de-de/partners/partnersearch.aspx" target="_blank" rel="nofollow noopener">
-          Open Germany hotel search
-        </a>
-        <div class="hero-note">
-          Powered by Agoda Partners · Prices and availability updated in real time by Agoda.
-        </div>
-      </div>
-    </section>
+    <h1>Book Hotels in Germany – Save more with Agoda</h1>
+    <p class="subtitle">Top-rated stays in Berlin, München, Hamburg & mehr. Flexible cancellation, secure payment, App-Perks.</p>
 
-    <section class="cities">
-      <div class="city-pill primary">Berlin</div>
-      <div class="city-pill">Munich</div>
-      <div class="city-pill">Hamburg</div>
-      <div class="city-pill">Frankfurt</div>
-      <div class="city-pill">Cologne</div>
-      <div class="city-pill">Stuttgart</div>
-      <div class="city-pill">Düsseldorf</div>
-      <div class="city-pill">Leipzig</div>
-    </section>
+    <div class="feature-boxes">
+      <div class="feature">✅ Up to 10% App-Only welcome offer</div>
+      <div class="feature">🔓 Free Cancellation*</div>
+      <div class="feature">💳 No Hidden Fees – pay at hotel</div>
+    </div>
 
-    <section>
-      <h2 class="section-title">Top partners for Germany stays</h2>
-      <p class="section-sub">Use any of these platforms to compare hotels, apartments and budget stays across Germany.</p>
+    <div class="cta-row">
+      <a href="https://www.agoda.com/de-de/partners/partnersearch.aspx"
+         target="_blank"
+         class="btn-primary">
+        Search Hotels →
+      </a>
 
-      <div class="partner-grid">
-        <!-- Agoda -->
-        <article class="partner-card">
-          <div>
-            <div class="partner-name">Agoda Germany</div>
-            <div class="partner-tag">Official Agoda partner search</div>
-            <p class="partner-desc">
-              Explore thousands of stays across Germany with flexible dates, smart filters and frequent promo deals.
-            </p>
-          </div>
-          <div class="partner-cta">
-            <a class="primary" href="https://www.agoda.com/de-de/partners/partnersearch.aspx" target="_blank" rel="nofollow noopener">
-              Open Agoda Germany
-            </a>
-          </div>
-        </article>
+      <a href="https://www.agoda.com"
+         target="_blank"
+         class="btn-secondary">
+        Get App Perks
+      </a>
+    </div>
 
-        <!-- Booking.com (replace with your CJ link if you have one) -->
-        <article class="partner-card">
-          <div>
-            <div class="partner-name">Booking.com</div>
-            <div class="partner-tag">Hotels, apartments & more</div>
-            <p class="partner-desc">
-              Find hotels, hostels and long-stay apartments in German cities — ideal for both quick trips and longer stays.
-            </p>
-          </div>
-          <div class="partner-cta">
-            <a href="https://www.booking.com/" target="_blank" rel="nofollow noopener">
-              Open Booking.com
-            </a>
-          </div>
-        </article>
+    <div class="city-pills">
+      <div class="pill">Berlin</div>
+      <div class="pill">München</div>
+      <div class="pill">Hamburg</div>
+      <div class="pill">Frankfurt</div>
+      <div class="pill">Köln</div>
+    </div>
 
-        <!-- Trip.com -->
-        <article class="partner-card">
-          <div>
-            <div class="partner-name">Trip.com</div>
-            <div class="partner-tag">Extra deals & packages</div>
-            <p class="partner-desc">
-              Compare alternative rates, package deals and occasional flash discounts for Germany and nearby countries.
-            </p>
-          </div>
-          <div class="partner-cta">
-            <a href="https://www.trip.com/index?locale=en_us" target="_blank" rel="nofollow noopener">
-              Open Trip.com
-            </a>
-          </div>
-        </article>
-
-        <!-- Hotels.com -->
-        <article class="partner-card">
-          <div>
-            <div class="partner-name">Hotels.com</div>
-            <div class="partner-tag">Reward nights & chains</div>
-            <p class="partner-desc">
-              Earn reward nights while booking popular hotel chains and boutique stays across major German cities.
-            </p>
-          </div>
-          <div class="partner-cta">
-            <a href="https://www.hoteles.com" target="_blank" rel="nofollow noopener">
-              Open Hotels.com
-            </a>
-          </div>
-        </article>
-
-        <!-- Accor -->
-        <article class="partner-card">
-          <div>
-            <div class="partner-name">Accor Hotels</div>
-            <div class="partner-tag">Ibis, Novotel & more</div>
-            <p class="partner-desc">
-              Perfect if you prefer Accor brands like Ibis, Novotel and Mercure when staying in Germany and Europe.
-            </p>
-          </div>
-          <div class="partner-cta">
-            <a href="https://all.accor.com/usa/index.en.shtml.go?&merchantid=RT-IE000010-&sourceid=1-12560616-&utm_medium=partenariats&utm_source=Commission%20Junction%20US&utm_campaign=HP&utm_content=US-EN-ALL-ALL&utm_term=1"
-               target="_blank" rel="nofollow noopener">
-              Open Accor
-            </a>
-          </div>
-        </article>
-
-        <!-- Motel 6 or budget alt -->
-        <article class="partner-card">
-          <div>
-            <div class="partner-name">Budget & roadside stays</div>
-            <div class="partner-tag">For road trips & layovers</div>
-            <p class="partner-desc">
-              Ideal for drivers and quick overnight stops. Use our partner search to find budget-friendly options.
-            </p>
-          </div>
-          <div class="partner-cta">
-            <a href="https://www.motel6.com/en/home.html" target="_blank" rel="nofollow noopener">
-              Open Budget Stays
-            </a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <p class="disclaimer">
-      Always check final prices, fees and cancellation rules on the partner website before you confirm your booking.
-      GiftCardZoneEU does not handle payments or reservations.
-    </p>
-
-    <footer>
-      <div>Part of the <span>GiftCardZoneEU.com</span> network of smart deal routers.</div>
-      <div>Travel smarter · Compare first · Then book on the official partner site.</div>
-    </footer>
-
+    <div class="stats-row">
+      <span>🏆 Trusted global brand</span>
+      <span>🏨 2M+ properties</span>
+      <span>📱 VIP Platinum trial</span>
+    </div>
   </div>
+
+  <div class="steps">
+    <div class="step">
+      <h3>1) Pick your city</h3>
+      <p>Berlin, München, Hamburg, Cologne, Frankfurt — choose your dates.</p>
+    </div>
+    <div class="step">
+      <h3>2) Compare deals</h3>
+      <p>Filter by price, rating, cancellation, breakfast, or apartment stays.</p>
+    </div>
+    <div class="step">
+      <h3>3) Book & save</h3>
+      <p>Unlock app-only perks and flexible options on Agoda.</p>
+    </div>
+  </div>
+
+  <div class="blue-cta-center">
+    <a href="https://www.agoda.com/de-de/partners/partnersearch.aspx"
+       class="cta-main"
+       target="_blank">
+      Find Your Stay in Germany
+    </a>
+  </div>
+
+  <footer>
+    *Free cancellation depends on property & dates. Check policy on Agoda before booking.<br>
+    Powered by GiftCardZoneEU.com · Agoda Official Partner Search.
+  </footer>
+
 </body>
 </html>
