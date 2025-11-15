@@ -4,707 +4,242 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>USA Hotel Deals | GiftCardZone Travel x Agoda</title>
-  <meta name="description" content="Discover top hotel deals in the United States. Find great prices on hotels in New York, Los Angeles, Las Vegas, Miami, and more via Agoda Partners." />
-  <meta name="keywords" content="USA hotel deals, book hotels USA, Agoda USA, New York hotels, Las Vegas hotels, Los Angeles hotels, Miami hotels" />
+  <title>USA Hotel Deals | GiftCardZone Travel × Agoda</title>
+  <meta name="description"
+        content="Discover top hotel deals in the USA — from New York to Los Angeles, Miami, Las Vegas, and more via Agoda partners." />
+  <meta name="keywords"
+        content="USA hotel deals, Agoda USA, New York hotels, Las Vegas hotels, Los Angeles hotels, Miami hotels, Chicago hotels" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Top Hotel Deals in the USA | GiftCardZone Travel" />
-  <meta property="og:description" content="Compare and book hotel deals across the United States with Agoda Partners. New York, Los Angeles, Las Vegas, Miami and more." />
+  <meta property="og:title" content="USA Hotel Deals | GiftCardZone Travel × Agoda" />
+  <meta property="og:description" content="Explore hotel deals in top USA destinations. Book smarter with Agoda partners." />
+  <meta property="og:image"
+        content="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1600&q=80" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://giftcardzoneeu.com/usa" />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80" />
 
   <style>
-    :root {
-      --bg: #050816;
-      --card-bg: #0b1020;
-      --accent: #3b82f6;
-      --accent-soft: rgba(59, 130, 246, 0.1);
-      --text: #f9fafb;
-      --muted: #9ca3af;
-      --border: #1f2937;
-      --radius-xl: 18px;
-      --radius-2xl: 26px;
-      --shadow-soft: 0 24px 60px rgba(15, 23, 42, 0.7);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
-      background: radial-gradient(circle at top, #111827 0, #020617 45%, #000 100%);
-      color: var(--text);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .page {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 1.5rem 1.25rem 3rem;
-    }
-
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-
-    .logo-mark {
-      width: 32px;
-      height: 32px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 20%, #f97316, #e11d48);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.85rem;
-      font-weight: 700;
-      box-shadow: 0 0 25px rgba(248, 113, 113, 0.6);
-    }
-
-    .logo-text-main {
-      font-weight: 650;
-      font-size: 1rem;
-      letter-spacing: 0.04em;
-    }
-
-    .logo-text-sub {
-      font-size: 0.78rem;
-      color: var(--muted);
-    }
-
-    .back-link {
-      font-size: 0.85rem;
-      padding: 0.4rem 0.9rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      color: var(--muted);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      background: rgba(15, 23, 42, 0.8);
-      backdrop-filter: blur(16px);
-    }
-
-    .back-link span {
-      font-size: 1.1rem;
-      line-height: 1;
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f3f4f6;
+      color: #1f2937;
+      line-height: 1.6;
     }
 
     /* HERO */
     .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
-      gap: 2rem;
-      align-items: stretch;
-      margin-bottom: 2.5rem;
-    }
-
-    @media (max-width: 840px) {
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .hero-text {
-      padding: 1.5rem 1.25rem 1.75rem;
-      border-radius: var(--radius-2xl);
-      border: 1px solid var(--border);
-      background:
-        radial-gradient(circle at top left, rgba(56, 189, 248, 0.15), transparent 60%),
-        radial-gradient(circle at bottom right, rgba(244, 114, 182, 0.18), transparent 55%),
-        rgba(15, 23, 42, 0.96);
-      box-shadow: var(--shadow-soft);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-pill {
-      display: inline-flex;
+      background-image: url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      height: 260px;
+      display: flex;
       align-items: center;
-      gap: 0.4rem;
-      padding: 0.25rem 0.7rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      font-size: 0.76rem;
-      color: var(--muted);
-      margin-bottom: 0.7rem;
-    }
-
-    .hero-pill-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 10px rgba(34, 197, 94, 0.9);
+      justify-content: center;
+      color: white;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      border-bottom-left-radius: 28px;
+      border-bottom-right-radius: 28px;
     }
 
     .hero h1 {
-      font-size: 1.9rem;
-      line-height: 1.2;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 800;
       margin-bottom: 0.5rem;
     }
 
-    .hero h1 span {
-      background: linear-gradient(120deg, #38bdf8, #a855f7, #f97316);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .hero-sub {
-      font-size: 0.95rem;
-      color: var(--muted);
-      margin-bottom: 1.1rem;
-    }
-
-    .hero-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1.4rem;
-    }
-
-    .hero-badge {
-      font-size: 0.78rem;
-      padding: 0.25rem 0.6rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(52, 211, 153, 0.4);
-      color: #a7f3d0;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.7rem;
-      align-items: center;
-    }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.4rem;
-      padding: 0.65rem 1.3rem;
-      border-radius: 999px;
-      border: none;
-      outline: none;
-      cursor: pointer;
-      font-size: 0.9rem;
-      font-weight: 600;
-      background: linear-gradient(135deg, #3b82f6, #6366f1);
-      color: white;
-      box-shadow: 0 18px 40px rgba(37, 99, 235, 0.6);
-    }
-
-    .btn-primary span.icon {
-      font-size: 1.1rem;
-    }
-
-    .btn-ghost {
-      font-size: 0.85rem;
-      color: var(--muted);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.45rem 0.9rem;
-      border-radius: 999px;
-      border: 1px dashed rgba(148, 163, 184, 0.6);
-      background: rgba(15, 23, 42, 0.7);
-    }
-
-    .btn-ghost span {
-      font-size: 1.1rem;
-    }
-
-    .hero-meta {
-      margin-top: 1.2rem;
-      font-size: 0.78rem;
-      color: var(--muted);
-    }
-
-    .hero-meta b {
-      color: #e5e7eb;
-      font-weight: 500;
-    }
-
-    /* HERO IMAGE CARD */
-    .hero-media {
-      border-radius: var(--radius-2xl);
-      overflow: hidden;
-      position: relative;
-      min-height: 230px;
-      background: radial-gradient(circle at top, #1f2937, #020617);
-      border: 1px solid rgba(31, 41, 55, 0.9);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .hero-media-img {
-      position: absolute;
-      inset: 0;
-      background-image: url("https://images.unsplash.com/photo-1534448311378-1e193fb2570e?auto=format&fit=crop&w=1400&q=80");
-      background-size: cover;
-      background-position: center;
-      filter: saturate(1.1);
-      transform: scale(1.03);
-    }
-
-    .hero-media-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.1));
-    }
-
-    .hero-media-inner {
-      position: relative;
-      height: 100%;
-      padding: 1.3rem 1.3rem 1.4rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      gap: 0.6rem;
-    }
-
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.25rem 0.65rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.85);
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      font-size: 0.75rem;
-      color: #e5e7eb;
-      align-self: flex-start;
-    }
-
-    .hero-tag-flag {
-      width: 18px;
-      height: 18px;
-      border-radius: 999px;
-      overflow: hidden;
-    }
-
-    .hero-tag-flag img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .hero-city {
-      font-size: 1.1rem;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-    }
-
-    .hero-caption {
-      font-size: 0.82rem;
+    .hero p {
+      font-size: 1rem;
+      max-width: 600px;
+      margin: 0 auto;
       color: #e5e7eb;
     }
 
-    .hero-chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 0.3rem;
-      font-size: 0.75rem;
-    }
-
-    .hero-chip {
-      padding: 0.18rem 0.5rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      color: #e5e7eb;
-    }
-
-    /* CITY GRID */
-    .section {
-      margin-bottom: 2.6rem;
-    }
-
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1rem;
     }
 
     .section-title {
-      font-size: 1.05rem;
-      font-weight: 600;
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
     }
 
-    .section-sub {
-      font-size: 0.8rem;
-      color: var(--muted);
+    .section-desc {
+      color: #6b7280;
+      margin-bottom: 1.6rem;
+      max-width: 500px;
+      font-size: 0.96rem;
     }
 
+    /* GRID */
     .city-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-    }
-
-    @media (max-width: 900px) {
-      .city-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 640px) {
-      .city-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
     }
 
     .city-card {
-      border-radius: var(--radius-xl);
-      background: radial-gradient(circle at top, rgba(55, 65, 81, 0.65), #020617);
-      border: 1px solid rgba(31, 41, 55, 0.95);
-      padding: 0.95rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      min-height: 120px;
-      position: relative;
+      background: white;
+      border-radius: 16px;
       overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .city-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .city-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .city-card-body {
+      padding: 1rem 1.2rem;
     }
 
     .city-name {
-      font-size: 0.98rem;
-      font-weight: 600;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
     }
 
-    .city-meta {
-      font-size: 0.8rem;
-      color: var(--muted);
+    .city-desc {
+      color: #6b7280;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
     }
 
-    .city-tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-      margin: 0.2rem 0 0.3rem;
-    }
-
-    .city-tag {
-      font-size: 0.72rem;
-      padding: 0.2rem 0.45rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.85);
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      color: #e5e7eb;
-    }
-
-    .city-cta {
-      margin-top: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .city-btn {
-      font-size: 0.78rem;
-      padding: 0.4rem 0.8rem;
-      border-radius: 999px;
-      border: none;
-      background: linear-gradient(135deg, #3b82f6, #0ea5e9);
+    .btn {
+      display: inline-block;
+      padding: 0.55rem 1rem;
+      background: #2563eb;
       color: white;
-      font-weight: 500;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.25rem;
-      box-shadow: 0 14px 30px rgba(37, 99, 235, 0.55);
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background 0.2s ease;
     }
 
-    .city-btn span.icon {
-      font-size: 1rem;
+    .btn:hover {
+      background: #1e40af;
     }
 
-    .city-note {
-      font-size: 0.7rem;
-      color: var(--muted);
+    .footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: #6b7280;
+      font-size: 0.85rem;
     }
 
-    /* FOOTER */
-    footer {
-      border-top: 1px solid rgba(31, 41, 55, 0.9);
-      padding-top: 1.3rem;
-      margin-top: auto;
-    }
-
-    .footer-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 1.25rem 1.5rem;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 0.7rem;
-      font-size: 0.75rem;
-      color: var(--muted);
-    }
-
-    .footer-brand {
-      font-weight: 500;
-      color: #e5e7eb;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-    }
-
-    .footer-links a {
-      text-decoration: underline;
-      text-decoration-style: dotted;
-      text-underline-offset: 3px;
+    .footer a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 600;
     }
   </style>
 </head>
+
 <body>
-  <div class="page">
-    <header>
-      <div class="logo">
-        <div class="logo-mark">GCZ</div>
-        <div>
-          <div class="logo-text-main">GiftCardZone Travel</div>
-          <div class="logo-text-sub">USA Hotel Deals powered by Agoda Partners</div>
-        </div>
-      </div>
 
-      <a href="/travel" class="back-link">
-        <span>←</span>
-        <span>Back to all destinations</span>
-      </a>
-    </header>
-
-    <main>
-      <!-- HERO -->
-      <section class="hero">
-        <div class="hero-text">
-          <div class="hero-pill">
-            <div class="hero-pill-dot"></div>
-            Live deals from Agoda Partners
-          </div>
-
-          <h1>
-            Book smart in the <span>United States</span>.
-          </h1>
-
-          <p class="hero-sub">
-            From New York to Los Angeles, Las Vegas to Miami – compare hotel deals across the USA
-            with Agoda Partners. One click, thousands of stays to choose from.
-          </p>
-
-          <div class="hero-badges">
-            <div class="hero-badge">Hotels · Apartments · Resorts</div>
-            <div class="hero-badge">USA · City & Beach · Road Trips</div>
-          </div>
-
-          <div class="hero-actions">
-            <a href="https://www.agoda.com/en-us/partners/partnersearch.aspx" class="btn-primary">
-              <span class="icon">🔍</span>
-              <span>Search USA hotel deals</span>
-            </a>
-
-            <a href="https://www.agoda.com/en-us/partners/partnersearch.aspx" class="btn-ghost">
-              <span>⭐</span>
-              <span>Powered by Agoda Partners</span>
-            </a>
-          </div>
-
-          <div class="hero-meta">
-            <b>Tip:</b> Filter by price, rating, and location inside Agoda to find the best match
-            for your US trip.
-          </div>
-        </div>
-
-        <div class="hero-media">
-          <div class="hero-media-img"></div>
-          <div class="hero-media-overlay"></div>
-          <div class="hero-media-inner">
-            <div class="hero-tag">
-              <div class="hero-tag-flag">
-                <img src="https://flagsapi.com/US/flat/64.png" alt="USA Flag" />
-              </div>
-              United States · Popular stays
-            </div>
-
-            <div>
-              <div class="hero-city">New York · Las Vegas · Miami</div>
-              <p class="hero-caption">
-                City lights, casinos, beaches, and family trips – explore stays across the USA
-                in one place.
-              </p>
-              <div class="hero-chip-row">
-                <div class="hero-chip">City breaks</div>
-                <div class="hero-chip">Theme parks</div>
-                <div class="hero-chip">Road trip stops</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- POPULAR CITIES -->
-      <section class="section">
-        <div class="section-header">
-          <h2 class="section-title">Popular cities in the USA</h2>
-          <p class="section-sub">Click any city below to start your hotel search with Agoda.</p>
-        </div>
-
-        <div class="city-grid">
-          <!-- New York -->
-          <article class="city-card">
-            <div class="city-name">New York City</div>
-            <div class="city-meta">Skyscrapers, Times Square, Central Park, and endless food spots.</div>
-            <div class="city-tag-row">
-              <span class="city-tag">City lights</span>
-              <span class="city-tag">Shopping</span>
-              <span class="city-tag">Iconic landmarks</span>
-            </div>
-            <div class="city-cta">
-              <a href="https://www.agoda.com/en-us/partners/partnersearch.aspx" class="city-btn">
-                <span class="icon">🔎</span>
-                <span>View NYC deals</span>
-              </a>
-              <span class="city-note">Powered by Agoda</span>
-            </div>
-          </article>
-
-          <!-- Los Angeles -->
-          <article class="city-card">
-            <div class="city-name">Los Angeles</div>
-            <div class="city-meta">Hollywood, beaches, and sunshine on the US West Coast.</div>
-            <div class="city-tag-row">
-              <span class="city-tag">Hollywood</span>
-              <span class="city-tag">Beaches</span>
-              <span class="city-tag">Road trips</span>
-            </div>
-            <div class="city-cta">
-              <a href="https://www.agoda.com/en-us/partners/partnersearch.aspx" class="city-btn">
-                <span class="icon">🎬</span>
-                <span>View LA deals</span>
-              </a>
-              <span class="city-note">Book with Agoda</span>
-            </div>
-          </article>
-
-          <!-- Las Vegas -->
-          <article class="city-card">
-            <div class="city-name">Las Vegas</div>
-            <div class="city-meta">Casinos, shows, parties, and nearby desert adventures.</div>
-            <div class="city-tag-row">
-              <span class="city-tag">Nightlife</span>
-              <span class="city-tag">Casinos</span>
-              <span class="city-tag">Entertainment</span>
-            </div>
-            <div class="city-cta">
-              <a href="https://www.agoda.com/en-us/partners/partnersearch.aspx" class="city-btn">
-                <span class="icon">🎰</span>
-                <span>View Vegas deals</span>
-              </a>
-              <span class="city-note">Agoda partner deals</span>
-            </div>
-          </article>
-
-          <!-- Miami -->
-          <article class="city-card">
-            <div class="city-name">Miami</div>
-            <div class="city-meta">Beaches, nightlife, and warm weather year-round.</div>
-            <div class="city-tag-row">
-              <span class="city-tag">Beaches</span>
-              <span class="city-tag">Nightlife</span>
-              <span class="city-tag">Tropical vibe</span>
-            </div>
-            <div class="city-cta">
-              <a href="https://www.agoda.com/en-us/partners/partnersearch.aspx" class="city-btn">
-                <span class="icon">🏖️</span>
-                <span>View Miami deals</span>
-              </a>
-              <span class="city-note">Search on Agoda</span>
-            </div>
-          </article>
-
-          <!-- San Francisco -->
-          <article class="city-card">
-            <div class="city-name">San Francisco</div>
-            <div class="city-meta">Golden Gate Bridge, cable cars, and cool coastal weather.</div>
-            <div class="city-tag-row">
-              <span class="city-tag">Scenic views</span>
-              <span class="city-tag">Tech & culture</span>
-              <span class="city-tag">Bay area</span>
-            </div>
-            <div class="city-cta">
-              <a href="https://www.agoda.com/en-us/partners/partnersearch.aspx" class="city-btn">
-                <span class="icon">🌉</span>
-                <span>View SF deals</span>
-              </a>
-              <span class="city-note">Live Agoda pricing</span>
-            </div>
-          </article>
-
-          <!-- Orlando -->
-          <article class="city-card">
-            <div class="city-name">Orlando</div>
-            <div class="city-meta">Theme parks, family trips, and resort-style stays.</div>
-            <div class="city-tag-row">
-              <span class="city-tag">Theme parks</span>
-              <span class="city-tag">Family trips</span>
-              <span class="city-tag">Resorts</span>
-            </div>
-            <div class="city-cta">
-              <a href="https://www.agoda.com/en-us/partners/partnersearch.aspx" class="city-btn">
-                <span class="icon">🎡</span>
-                <span>View Orlando deals</span>
-              </a>
-              <span class="city-note">Book on Agoda</span>
-            </div>
-          </article>
-        </div>
-      </section>
-    </main>
-  </div>
-
-  <footer>
-    <div class="footer-inner">
-      <div>
-        <div class="footer-brand">GiftCardZoneEU · Travel</div>
-        <div>Curated hotel deal routes. All bookings are completed securely on Agoda.</div>
-      </div>
-      <div class="footer-links">
-        <a href="/travel">Back to Travel hub</a>
-        <a href="/">GiftCardZoneEU Home</a>
-      </div>
+  <!-- HERO -->
+  <header class="hero">
+    <div>
+      <h1>Top USA Hotel Deals 🇺🇸</h1>
+      <p>New York, Los Angeles, Miami, Las Vegas — compare hotel prices and book smarter with Agoda.</p>
     </div>
+  </header>
+
+  <!-- CONTENT -->
+  <main class="wrap">
+    <h2 class="section-title">Popular Cities in the USA</h2>
+    <p class="section-desc">Click a city below to view live hotel deals and search using Agoda’s partner system.</p>
+
+    <div class="city-grid">
+
+      <!-- NEW YORK -->
+      <div class="city-card">
+        <img src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=900&q=80" alt="New York">
+        <div class="city-card-body">
+          <div class="city-name">New York City</div>
+          <div class="city-desc">Times Square, Central Park, iconic skyline — book stays in the city that never sleeps.</div>
+          <a class="btn" href="https://www.agoda.com/en-us/partners/partnersearch.aspx?city=new-york" target="_blank">
+            View NYC Deals
+          </a>
+        </div>
+      </div>
+
+      <!-- LA -->
+      <div class="city-card">
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="Los Angeles">
+        <div class="city-card-body">
+          <div class="city-name">Los Angeles</div>
+          <div class="city-desc">Hollywood & beaches — explore hotel deals in sunny LA.</div>
+          <a class="btn" href="https://www.agoda.com/en-us/partners/partnersearch.aspx?city=los-angeles" target="_blank">
+            View LA Deals
+          </a>
+        </div>
+      </div>
+
+      <!-- LAS VEGAS -->
+      <div class="city-card">
+        <img src="https://images.unsplash.com/photo-1504274066651-8d31a536b11a?auto=format&fit=crop&w=900&q=80" alt="Las Vegas">
+        <div class="city-card-body">
+          <div class="city-name">Las Vegas</div>
+          <div class="city-desc">Resorts, shows, casinos — find deals along the Vegas Strip.</div>
+          <a class="btn" href="https://www.agoda.com/en-us/partners/partnersearch.aspx?city=las-vegas" target="_blank">
+            View Vegas Deals
+          </a>
+        </div>
+      </div>
+
+      <!-- MIAMI -->
+      <div class="city-card">
+        <img src="https://images.unsplash.com/photo-1502920917128-1aa500764b68?auto=format&fit=crop&w=900&q=80" alt="Miami">
+        <div class="city-card-body">
+          <div class="city-name">Miami</div>
+          <div class="city-desc">Warm beaches and nightlife — explore top Miami stays.</div>
+          <a class="btn" href="https://www.agoda.com/en-us/partners/partnersearch.aspx?city=miami" target="_blank">
+            View Miami Deals
+          </a>
+        </div>
+      </div>
+
+      <!-- SAN FRANCISCO -->
+      <div class="city-card">
+        <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=900&q=80" alt="San Francisco">
+        <div class="city-card-body">
+          <div class="city-name">San Francisco</div>
+          <div class="city-desc">Golden Gate Bridge & bay views — discover SF stays.</div>
+          <a class="btn" href="https://www.agoda.com/en-us/partners/partnersearch.aspx?city=san-francisco" target="_blank">
+            View SF Deals
+          </a>
+        </div>
+      </div>
+
+      <!-- ORLANDO -->
+      <div class="city-card">
+        <img src="https://images.unsplash.com/photo-1588731247530-bc73c9dc9e8f?auto=format&fit=crop&w=900&q=80" alt="Orlando">
+        <div class="city-card-body">
+          <div class="city-name">Orlando</div>
+          <div class="city-desc">Theme parks & family trips — great for vacations.</div>
+          <a class="btn" href="https://www.agoda.com/en-us/partners/partnersearch.aspx?city=orlando" target="_blank">
+            View Orlando Deals
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    Powered by <a href="https://giftcardzoneeu.com" target="_blank">GiftCardZoneEU</a> · USA Hotel Deals via Agoda Partners.
   </footer>
+
 </body>
 </html>
-
