@@ -4,17 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>USA Hotel Deals | GiftCardZone Travel × Agoda</title>
+  <title>Top USA Hotel Deals | GiftCardZone Travel × Agoda</title>
   <meta name="description"
-        content="Discover top hotel deals in the USA — from New York to Los Angeles, Miami, Las Vegas, and more via Agoda partners." />
+        content="Discover top hotel deals in the USA — from New York to Los Angeles, Miami, Las Vegas, Orlando and more via Agoda Partners." />
   <meta name="keywords"
-        content="USA hotel deals, Agoda USA, New York hotels, Las Vegas hotels, Los Angeles hotels, Miami hotels, Chicago hotels" />
+        content="USA hotel deals, Agoda USA, New York hotels, Las Vegas hotels, Los Angeles hotels, Miami hotels, Orlando hotels, San Francisco hotels" />
 
-  <meta property="og:title" content="USA Hotel Deals | GiftCardZone Travel × Agoda" />
-  <meta property="og:description" content="Explore hotel deals in top USA destinations. Book smarter with Agoda partners." />
-  <meta property="og:image"
-        content="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1600&q=80" />
+  <meta property="og:title" content="Top USA Hotel Deals | GiftCardZone Travel × Agoda" />
+  <meta property="og:description"
+        content="Explore hotel deals in New York, Los Angeles, Las Vegas, Miami, San Francisco and Orlando. Book smarter with Agoda partners." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://giftcardzoneeu.com/usa.html" />
+  <meta property="og:image"
+        content="https://images.unsplash.com/photo-1563897539633-0e8d0e51df4a?auto=format&fit=crop&w=1600&q=80" />
 
   <style>
     body {
@@ -27,7 +29,7 @@
 
     /* HERO */
     .hero {
-      background-image: url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1600&q=80');
+      background-image: url("https://images.unsplash.com/photo-1563897539633-0e8d0e51df4a?auto=format&fit=crop&w=1600&q=80");
       background-size: cover;
       background-position: center;
       height: 260px;
@@ -40,23 +42,29 @@
       border-bottom-right-radius: 28px;
     }
 
-    .hero h1 {
-      font-size: clamp(1.8rem, 4vw, 2.4rem);
+    .hero-inner {
+      text-align: center;
+      padding: 0 1.5rem;
+    }
+
+    .hero-title {
+      font-size: clamp(1.9rem, 4vw, 2.4rem);
       font-weight: 800;
       margin-bottom: 0.5rem;
     }
 
-    .hero p {
-      font-size: 1rem;
+    .hero-sub {
+      font-size: 0.98rem;
       max-width: 600px;
       margin: 0 auto;
       color: #e5e7eb;
     }
 
+    /* WRAPPER */
     .wrap {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 2.5rem 1rem;
+      padding: 2.4rem 1rem 2.8rem;
     }
 
     .section-title {
@@ -68,11 +76,11 @@
     .section-desc {
       color: #6b7280;
       margin-bottom: 1.6rem;
-      max-width: 500px;
-      font-size: 0.96rem;
+      max-width: 520px;
+      font-size: 0.95rem;
     }
 
-    /* GRID */
+    /* CITY GRID */
     .city-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -83,13 +91,15 @@
       background: white;
       border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
     }
 
     .city-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.13);
     }
 
     .city-card img {
@@ -98,31 +108,35 @@
       object-fit: cover;
     }
 
-    .city-card-body {
-      padding: 1rem 1.2rem;
+    .city-body {
+      padding: 1rem 1.2rem 1.2rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
     }
 
     .city-name {
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       font-weight: 700;
-      margin-bottom: 0.4rem;
     }
 
     .city-desc {
-      color: #6b7280;
       font-size: 0.9rem;
-      margin-bottom: 1rem;
+      color: #6b7280;
+      margin-bottom: 0.8rem;
     }
 
     .btn {
       display: inline-block;
       padding: 0.55rem 1rem;
+      border-radius: 8px;
       background: #2563eb;
       color: white;
-      border-radius: 8px;
       text-decoration: none;
       font-weight: 600;
       font-size: 0.9rem;
+      align-self: flex-start;
       transition: background 0.2s ease;
     }
 
@@ -144,102 +158,104 @@
     }
   </style>
 </head>
-
 <body>
 
   <!-- HERO -->
   <header class="hero">
-    <div>
-      <h1>Top USA Hotel Deals 🇺🇸</h1>
-      <p>New York, Los Angeles, Miami, Las Vegas — compare hotel prices and book smarter with Agoda.</p>
+    <div class="hero-inner">
+      <h1 class="hero-title">Top USA Hotel Deals 🇺🇸</h1>
+      <p class="hero-sub">
+        New York, Los Angeles, Miami, Las Vegas, Orlando &amp; more — compare hotel prices and book smarter with Agoda.
+      </p>
     </div>
   </header>
 
   <!-- CONTENT -->
   <main class="wrap">
     <h2 class="section-title">Popular Cities in the USA</h2>
-    <p class="section-desc">Click a city below to view live hotel deals and search using Agoda’s partner system.</p>
+    <p class="section-desc">
+      Click a city below to view live hotel deals and search using Agoda’s partner system.
+    </p>
 
-    <div class="city-grid">
+    <section class="city-grid">
 
       <!-- NEW YORK -->
-      <div class="city-card">
-        <img src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=900&q=80" alt="New York">
-        <div class="city-card-body">
-          <div class="city-name">New York City</div>
-          <div class="city-desc">Times Square, Central Park, iconic skyline — book stays in the city that never sleeps.</div>
+      <article class="city-card">
+        <img src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=900&q=80" alt="New York City skyline">
+        <div class="city-body">
+          <h3 class="city-name">New York City</h3>
+          <p class="city-desc">Times Square, Central Park, iconic skyline — book stays in the city that never sleeps.</p>
           <a class="btn" href="https://www.agoda.com/en-us/partners/partnersearch.aspx?city=new-york" target="_blank">
             View NYC Deals
           </a>
         </div>
-      </div>
+      </article>
 
-      <!-- LA -->
-      <div class="city-card">
-        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="Los Angeles">
-        <div class="city-card-body">
-          <div class="city-name">Los Angeles</div>
-          <div class="city-desc">Hollywood & beaches — explore hotel deals in sunny LA.</div>
+      <!-- LOS ANGELES -->
+      <article class="city-card">
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="Los Angeles road and mountains">
+        <div class="city-body">
+          <h3 class="city-name">Los Angeles</h3>
+          <p class="city-desc">Hollywood &amp; beaches — explore hotel deals in sunny Los Angeles.</p>
           <a class="btn" href="https://www.agoda.com/en-us/partners/partnersearch.aspx?city=los-angeles" target="_blank">
             View LA Deals
           </a>
         </div>
-      </div>
+      </article>
 
       <!-- LAS VEGAS -->
-<div class="city-card">
-  <img src="https://images.unsplash.com/photo-1504274066651-8d31a536b11a?auto=format&fit=crop&w=900&q=80" alt="Las Vegas">
-  <div class="city-card-body">
-    <div class="city-name">Las Vegas</div>
-    <div class="city-desc">Resorts, shows, casinos — find deals along the Vegas Strip.</div>
-    <a class="btn" href="https://www.agoda.com/en-us/partners/partnersearch.aspx?city=las-vegas" target="_blank">
-      View Vegas Deals
-    </a>
-  </div>
-</div> 
-      
-  <!-- MIAMI -->
-<div class="city-card">
-  <img src="https://images.unsplash.com/photo-1502920917128-1aa500764b68?auto=format&fit=crop&w=900&q=80" alt="Miami">
-  <div class="city-card-body">
-    <div class="city-name">Miami</div>
-    <div class="city-desc">Warm beaches and nightlife — explore top Miami stays.</div>
-    <a class="btn" href="https://www.agoda.com/en-us/partners/partnersearch.aspx?city=miami" target="_blank">
-      View Miami Deals
-    </a>
-  </div>
-</div>
+      <article class="city-card">
+        <img src="https://images.unsplash.com/photo-1504274066651-8d31a536b11a?auto=format&fit=crop&w=900&q=80" alt="Las Vegas Strip at night">
+        <div class="city-body">
+          <h3 class="city-name">Las Vegas</h3>
+          <p class="city-desc">Resorts, shows, casinos — find hotel deals along the Vegas Strip.</p>
+          <a class="btn" href="https://www.agoda.com/en-us/partners/partnersearch.aspx?city=las-vegas" target="_blank">
+            View Vegas Deals
+          </a>
+        </div>
+      </article>
 
- <!-- SAN FRANCISCO -->
-      <div class="city-card">
-        <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=900&q=80" alt="San Francisco">
-        <div class="city-card-body">
-          <div class="city-name">San Francisco</div>
-          <div class="city-desc">Golden Gate Bridge & bay views — discover SF stays.</div>
+      <!-- MIAMI -->
+      <article class="city-card">
+        <img src="https://images.unsplash.com/photo-1502920917128-1aa500764b68?auto=format&fit=crop&w=900&q=80" alt="Miami beach">
+        <div class="city-body">
+          <h3 class="city-name">Miami</h3>
+          <p class="city-desc">Warm beaches and nightlife — explore top Miami stays.</p>
+          <a class="btn" href="https://www.agoda.com/en-us/partners/partnersearch.aspx?city=miami" target="_blank">
+            View Miami Deals
+          </a>
+        </div>
+      </article>
+
+      <!-- SAN FRANCISCO -->
+      <article class="city-card">
+        <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=900&q=80" alt="Golden Gate Bridge in San Francisco">
+        <div class="city-body">
+          <h3 class="city-name">San Francisco</h3>
+          <p class="city-desc">Golden Gate Bridge &amp; bay views — discover SF stays.</p>
           <a class="btn" href="https://www.agoda.com/en-us/partners/partnersearch.aspx?city=san-francisco" target="_blank">
             View SF Deals
           </a>
         </div>
-      </div>
+      </article>
 
       <!-- ORLANDO -->
-<div class="city-card">
-  <img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?auto=format&fit=crop&w=900&q=80" alt="Orlando">
-  <div class="city-card-body">
-    <div class="city-name">Orlando</div>
-    <div class="city-desc">Theme parks & family trips — great for vacations.</div>
-    <a class="btn" href="https://www.agoda.com/en-us/partners/partnersearch.aspx?city=orlando" target="_blank">
-      View Orlando Deals
-    </a>
-  </div>
-  </div>
+      <article class="city-card">
+        <img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?auto=format&fit=crop&w=900&q=80" alt="Orlando theme park at night">
+        <div class="city-body">
+          <h3 class="city-name">Orlando</h3>
+          <p class="city-desc">Theme parks &amp; family trips — great for vacations.</p>
+          <a class="btn" href="https://www.agoda.com/en-us/partners/partnersearch.aspx?city=orlando" target="_blank">
+            View Orlando Deals
+          </a>
+        </div>
+      </article>
 
-    </div>
+    </section>
   </main>
 
   <footer class="footer">
     Powered by <a href="https://giftcardzoneeu.com" target="_blank">GiftCardZoneEU</a> · USA Hotel Deals via Agoda Partners.
   </footer>
-
 </body>
 </html>
