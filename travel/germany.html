@@ -1,133 +1,284 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Book Hotels in Germany | Agoda Travel Deals</title>
-  <meta name="description" content="Finde top Hotels & Apartments in Deutschland – Berlin, München, Hamburg & mehr. Powered by Agoda." />
-  <style>*{box-sizing:border-box;margin:0;padding:0}
-  body{
-    font-family: Arial, sans-serif;
-    color:#111;
-    background:linear-gradient(180deg,#dfe3e8 0%,#f9f9f9 100%);
-  }
 
-  /* HERO SECTION (with background image) */
-  .hero{
-    min-height:85vh;
-    background:url('https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding-top:80px;
-    padding-bottom:80px;
-    position:relative;
-    }
-    .shade{position:absolute;inset:0;background:rgba(0,0,0,.5);}
-    .card{
-      position:relative;z-index:1;
-      width:100%;max-width:880px;
-      border-radius:16px;
-      background:#fff;
-      box-shadow:0 10px 30px rgba(0,0,0,.25);
-      padding:40px;                          /* ↑ more breathing inside */
+  <title>Germany Hotel Deals | GiftCardZoneEU × Agoda</title>
+  <meta name="description"
+        content="Find cheap hotel deals in Germany — Berlin, Munich, Frankfurt, Hamburg & more. Compare prices and book smarter with Agoda Partners." />
+  <meta name="keywords"
+        content="Germany hotel deals, Berlin hotels, Munich hotels, Frankfurt hotels, cheap hotels Germany, Agoda Germany" />
+
+  <meta property="og:title" content="Top Germany Hotel Deals | GiftCardZone Travel" />
+  <meta property="og:description"
+        content="Book hotels in Berlin, Munich, Frankfurt, Hamburg and more. Compare top deals via Agoda Partners and travel smarter." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://giftcardzoneeu.com/germany.html" />
+  <meta property="og:image"
+        content="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=1600&q=80" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f3f4f6;
+      color: #1f2937;
+      line-height: 1.6;
     }
 
-    .badge{display:inline-block;background:#0ea5e9;color:#fff;padding:6px 10px;border-radius:20px;font-size:12px;margin-bottom:14px}
-    h1{font-size:30px;margin-bottom:10px}
-    .sub{color:#444;margin-bottom:20px}
-
-    .bullets{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:18px 0 26px}
-    .bullets div{background:#f1f5f9;border:1px solid #e2e8f0;border-radius:10px;padding:12px;font-size:14px}
-
-    .ctaRow{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px}
-    .btn{
-      text-decoration:none;
-      background:#0071c2;color:#fff;
-      padding:14px 22px;border-radius:10px;font-weight:700;
-      transition:background .3s;
+    .hero {
+      background-image: url("https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=1600&q=80");
+      background-size: cover;
+      background-position: center;
+      height: 260px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      border-bottom-left-radius: 28px;
+      border-bottom-right-radius: 28px;
     }
-    .btn:hover{background:#005c9e}
-    .btn.secondary{background:#0f172a}
-    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;margin-bottom:8px}
-    .chip a{background:#e2e8f0;color:#0f172a;padding:8px 14px;border-radius:999px;text-decoration:none;font-weight:600;font-size:14px}
-    .trust{display:flex;gap:18px;flex-wrap:wrap;margin-top:14px;font-size:13px;color:#334155}
-    .trust span{display:inline-flex;gap:6px;align-items:center}
 
-    /* HOW IT WORKS SECTION */
-    .section{
-      max-width:980px;
-      margin:80px auto;                      /* ↑ more space between sections */
-      padding:0 16px;
+    .hero-inner {
+      text-align: center;
+      padding: 0 1.5rem;
     }
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
-    .tile{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:24px}
-    .tile h3{font-size:18px;margin-bottom:8px}
-    .tile p{color:#444;font-size:15px;line-height:1.5}
 
-    .foot{text-align:center;color:#475569;font-size:13px;margin-top:28px}
+    .hero-title {
+      font-size: 2rem;
+      font-weight: 700;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.35);
+    }
 
-    @media(max-width:768px){
-      .card{padding:26px}
-      .hero{padding-top:60px;padding-bottom:60px}
+    .hero-subtitle {
+      font-size: 1rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.9);
+      text-shadow: 0 1px 4px rgba(0,0,0,0.25);
+    }
+
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.4rem 1rem 2.8rem;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-desc {
+      color: #6b7280;
+      margin-bottom: 1.6rem;
+      max-width: 520px;
+      font-size: 0.95rem;
+    }
+
+    .city-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .city-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .city-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.13);
+    }
+
+    .city-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .city-body {
+      padding: 1rem 1.2rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .city-name {
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    .city-desc {
+      font-size: 0.9rem;
+      color: #6b7280;
+      margin-bottom: 0.8rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.55rem 1rem;
+      border-radius: 8px;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      align-self: flex-start;
+    }
+
+    .btn:hover {
+      background: #1e40af;
+    }
+
+    .more-links {
+      margin-top: 2rem;
+      background: #e5edff;
+      border: 1px solid #d0e2ff;
+      padding: 1.5rem;
+      border-radius: 16px;
+    }
+
+    .more-links h3 {
+      margin-top: 0;
+      margin-bottom: 0.7rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+
+    .link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 0.4rem 0;
+    }
+
+    .i-link {
+      padding: 0.35rem 0.7rem;
+      background: white;
+      border-radius: 999px;
+      border: 1px solid #c7d2fe;
+      font-size: 0.85rem;
+      text-decoration: none;
+      color: #1d4ed8;
+      font-weight: 500;
+    }
+
+    .footer {
+      margin-top: 2.4rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+
+    .footer a {
+      color: #2563eb;
+      font-weight: 600;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
-  <header class="hero">
-    <div class="shade"></div>
-    <div class="card">
-      <span class="badge">🇩🇪 Germany Travel Deals</span>
-      <h1>Book Hotels in Germany – Save more with Agoda</h1>
-      <p class="sub">Top-rated stays in Berlin, München, Hamburg & mehr. App-Perks, flexible cancellation, sichere Bezahlung.</p>
 
-      <div class="bullets">
-        <div>✅ Up to <b>10% App-Only</b> welcome offer</div>
-        <div>🔒 <b>Free Cancellation*</b> on many properties</div>
-        <div>💳 <b>No Hidden Fees</b> — pay at hotel for select stays</div>
-      </div>
+<header class="hero">
+  <div class="hero-inner">
+    <h1 class="hero-title">Best Germany Hotel Deals 🇩🇪</h1>
+    <p class="hero-subtitle">Berlin, Munich, Frankfurt, Hamburg & more — compare hotel prices and save big.</p>
+  </div>
+</header>
 
-      <div class="ctaRow">
-        <a class="btn" href="https://www.agoda.com/de-de/partners/partnersearch.aspx" target="_blank">Search Hotels →</a>
-        <a class="btn secondary" href="https://www.agoda.com/de-de/partners/partnersearch.aspx" target="_blank">Get App Perks</a>
-      </div>
+<main class="wrap">
 
-      <div class="chips">
-        <span class="chip"><a href="https://www.agoda.com/de-de/partners/partnersearch.aspx" target="_blank">Berlin</a></span>
-        <span class="chip"><a href="https://www.agoda.com/de-de/partners/partnersearch.aspx" target="_blank">München</a></span>
-        <span class="chip"><a href="https://www.agoda.com/de-de/partners/partnersearch.aspx" target="_blank">Hamburg</a></span>
-        <span class="chip"><a href="https://www.agoda.com/de-de/partners/partnersearch.aspx" target="_blank">Frankfurt</a></span>
-        <span class="chip"><a href="https://www.agoda.com/de-de/partners/partnersearch.aspx" target="_blank">Köln</a></span>
-      </div>
+  <h2 class="section-title">Top German Cities</h2>
+  <p class="section-desc">
+    Find cheap hotels in Germany for 2025 — whether you're visiting Berlin for nightlife, Munich for Oktoberfest, or Frankfurt for business trips. Explore budget stays, family-friendly hotels, and central locations near train stations.
+  </p>
 
-      <div class="trust">
-        <span>🏆 Trusted global brand</span>
-        <span>🛎 2M+ properties</span>
-        <span>📱 VIP Platinum trial</span>
+  <section class="city-grid">
+
+    <!-- BERLIN -->
+    <article class="city-card">
+      <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=900&q=80" alt="Berlin Brandenburg Gate">
+      <div class="city-body">
+        <h3 class="city-name">Berlin</h3>
+        <p class="city-desc">Cheap hotels in Berlin near Alexanderplatz & city center.</p>
+        <a class="btn" href="https://www.agoda.com/de-de/partners/partnersearch.aspx?city=berlin" target="_blank">View Berlin Deals</a>
       </div>
+    </article>
+
+    <!-- MUNICH -->
+    <article class="city-card">
+      <img src="https://images.unsplash.com/photo-1526481280695-3c720685208b?auto=format&fit=crop&w=900&q=80" alt="Munich city view">
+      <div class="city-body">
+        <h3 class="city-name">Munich</h3>
+        <p class="city-desc">Hotels near Marienplatz & Oktoberfest grounds.</p>
+        <a class="btn" href="https://www.agoda.com/de-de/partners/partnersearch.aspx?city=munich" target="_blank">View Munich Deals</a>
+      </div>
+    </article>
+
+    <!-- FRANKFURT -->
+    <article class="city-card">
+      <img src="https://images.unsplash.com/photo-1488747279002-c8523379faaa?auto=format&fit=crop&w=900&q=80" alt="Frankfurt skyline">
+      <div class="city-body">
+        <h3 class="city-name">Frankfurt</h3>
+        <p class="city-desc">Business hotels near Frankfurt airport & Messe.</p>
+        <a class="btn" href="https://www.agoda.com/de-de/partners/partnersearch.aspx?city=frankfurt" target="_blank">View Frankfurt Deals</a>
+      </div>
+    </article>
+
+    <!-- HAMBURG -->
+    <article class="city-card">
+      <img src="https://images.unsplash.com/photo-1519671282429-b44660ead0a7?auto=format&fit=crop&w=900&q=80" alt="Hamburg port">
+      <div class="city-body">
+        <h3 class="city-name">Hamburg</h3>
+        <p class="city-desc">Waterfront stays and cheap hotels near Reeperbahn.</p>
+        <a class="btn" href="https://www.agoda.com/de-de/partners/partnersearch.aspx?city=hamburg" target="_blank">View Hamburg Deals</a>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- INTERNAL LINKS -->
+  <section class="more-links">
+    <h3>Looking for more destinations?</h3>
+
+    <div class="link-row">
+      <a class="i-link" href="https://giftcardzoneeu.com/travel">All Travel Deals</a>
     </div>
-  </header>
 
-  <section class="section">
-    <div class="grid">
-      <div class="tile">
-        <h3>1) Pick your city</h3>
-        <p>Berlin, München, Hamburg, Cologne, Frankfurt — choose your dates.</p>
-      </div>
-      <div class="tile">
-        <h3>2) Compare deals</h3>
-        <p>Filter by price, rating, free cancellation, breakfast, or apartment stays.</p>
-      </div>
-      <div class="tile">
-        <h3>3) Book & save</h3>
-        <p>Unlock app-only perks and flexible booking options on Agoda.</p>
-      </div>
+    <div class="link-row">
+      <a class="i-link" href="https://giftcardzoneeu.com/usa.html">USA Hotels 🇺🇸</a>
+      <a class="i-link" href="https://giftcardzoneeu.com/france.html">France Hotels 🇫🇷</a>
+      <a class="i-link" href="https://giftcardzoneeu.com/netherlands.html">Netherlands 🇳🇱</a>
     </div>
 
-    <div style="text-align:center;margin-top:50px;">
-      <a class="btn" href="https://www.agoda.com/de-de/partners/partnersearch.aspx" target="_blank">Find Your Stay in Germany</a>
-      <p class="foot">*Free cancellation depends on property & dates. Check policy on Agoda before booking.</p>
+    <div class="link-row">
+      <a class="i-link" href="https://giftcardzoneeu.com/japan.html">Japan Hotels 🇯🇵</a>
+      <a class="i-link" href="https://giftcardzoneeu.com/thailand.html">Thailand Hotels 🇹🇭</a>
+      <a class="i-link" href="https://giftcardzoneeu.com/philippines.html">Philippines Hotels 🇵🇭</a>
+    </div>
+
+    <p style="margin-top:0.8rem;font-size:0.87rem;">
+      Or check deals, gift cards & survey rewards:
+    </p>
+
+    <div class="link-row">
+      <a class="i-link" href="https://giftcardzoneeu.com">GiftCardZoneEU Home</a>
+      <a class="i-link" href="https://giftcardzoneeu.com/partners/survey-sites">Survey Rewards</a>
+      <a class="i-link" href="https://giftcardzoneeu.com/deals">Global Offers</a>
     </div>
   </section>
+
+</main>
+
+<footer class="footer">
+  Powered by <a href="https://giftcardzoneeu.com">GiftCardZoneEU</a> · Germany Hotels via Agoda Partners
+</footer>
+
 </body>
 </html>
