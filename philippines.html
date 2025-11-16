@@ -1,1 +1,388 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Philippines Hotel Deals | Agoda Partners</title>
+  <meta name="description" content="Find the best hotel deals in the Philippines. Compare stays in Manila, Cebu, Boracay and Palawan via Agoda Partners." />
+
+  <style>
+    :root {
+      --bg: #020617;
+      --card-bg: rgba(15, 23, 42, 0.96);
+      --card-border: rgba(148, 163, 184, 0.4);
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.14);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(56, 189, 248, 0.16), transparent 55%),
+        radial-gradient(circle at bottom, rgba(129, 140, 248, 0.18), transparent 55%),
+        var(--bg);
+      color: var(--text-main);
+      min-height: 100vh;
+    }
+
+    .page-shell {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 3.5rem;
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.18rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      margin-bottom: 0.8rem;
+    }
+
+    .eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.9);
+    }
+
+    .page-title {
+      font-size: clamp(1.7rem, 2.2vw + 1rem, 2.3rem);
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      margin: 0 0 0.5rem;
+    }
+
+    .page-subtitle {
+      max-width: 560px;
+      margin: 0 auto;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .deals-grid {
+      margin-top: 2.3rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.3rem;
+    }
+
+    .deal-card {
+      position: relative;
+      background: var(--card-bg);
+      border-radius: 1rem;
+      padding: 1.2rem 1.15rem 1.15rem;
+      border: 1px solid rgba(15, 23, 42, 0.9);
+      box-shadow:
+        0 18px 45px rgba(15, 23, 42, 0.9),
+        0 0 0 1px rgba(15, 23, 42, 0.9);
+      overflow: hidden;
+      transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .deal-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      opacity: 0;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.24), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(129, 140, 248, 0.2), transparent 55%);
+      transition: opacity 0.25s ease;
+      pointer-events: none;
+    }
+
+    .deal-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--card-border);
+      box-shadow:
+        0 20px 55px rgba(15, 23, 42, 0.95),
+        0 0 0 1px rgba(148, 163, 184, 0.35);
+    }
+
+    .deal-card:hover::before { opacity: 1; }
+
+    .city-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.2rem 0.65rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .city-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .deal-thumb {
+      width: 100%;
+      height: 115px;
+      border-radius: 0.7rem;
+      margin-bottom: 0.85rem;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      border: 1px solid rgba(15, 23, 42, 0.85);
+      box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.9);
+    }
+
+    .deal-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin: 0 0 0.35rem;
+    }
+
+    .deal-text {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin: 0 0 0.9rem;
+    }
+
+    .deal-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.85rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .meta-badge {
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #e0f2fe;
+      font-size: 0.75rem;
+      border: 1px solid rgba(56, 189, 248, 0.45);
+    }
+
+    .deal-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      width: 100%;
+      padding: 0.6rem 0.9rem;
+      border-radius: 999px;
+      border: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, #38bdf8, #4f46e5);
+      color: white;
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.55);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+    }
+
+    .deal-cta span.arrow {
+      font-size: 1.05rem;
+      transform: translateY(0.5px);
+    }
+
+    .deal-card:hover .deal-cta {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 32px rgba(37, 99, 235, 0.75);
+      filter: brightness(1.05);
+    }
+
+    .footer {
+      margin-top: 2.7rem;
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      opacity: 0.9;
+    }
+
+    .footer a {
+      color: #e5e7eb;
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(148, 163, 184, 0.6);
+    }
+
+    .footer a:hover {
+      color: var(--accent);
+      border-color: rgba(56, 189, 248, 0.75);
+    }
+
+    @media (max-width: 640px) {
+      .page-shell { padding-top: 2.1rem; }
+      .deals-grid { margin-top: 2rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page-shell">
+    <header class="page-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        PHILIPPINES · HOTEL DEALS
+        <span>🇵🇭</span>
+      </div>
+      <h1 class="page-title">
+        Explore Top Philippines Hotel Deals
+      </h1>
+      <p class="page-subtitle">
+        Discover stays in Manila, Cebu, Boracay and Palawan. Powered by Agoda Partners so you can find a hotel that fits your budget, family trips, and island escapes.
+      </p>
+    </header>
+
+    <section class="deals-grid" aria-label="Top hotel deals in the Philippines">
+      <!-- MANILA -->
+      <article class="deal-card">
+        <div class="city-pill">
+          <span class="city-dot"></span>
+          Manila · City & Staycation
+        </div>
+        <div
+          class="deal-thumb"
+          style="background-image:url('https://images.weserv.nl/?url=images.unsplash.com/photo-1548964095-fcf1f3a9e1a6');">
+        </div>
+        <h2 class="deal-title">Manila Hotel Deals</h2>
+        <p class="deal-text">
+          Stay close to malls, business districts and bay views. Great for quick staycations, events and layovers.
+        </p>
+        <div class="deal-meta">
+          <span>Good for staycations</span>
+          <span class="meta-badge">Pool & breakfast picks</span>
+        </div>
+        <a
+          class="deal-cta"
+          href="https://www.agoda.com/en-ph/partners/partnersearch.aspx"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span>View Manila hotel deals</span>
+          <span class="arrow">↗</span>
+        </a>
+      </article>
+
+      <!-- CEBU -->
+      <article class="deal-card">
+        <div class="city-pill">
+          <span class="city-dot"></span>
+          Cebu · City & Islands
+        </div>
+        <div
+          class="deal-thumb"
+          style="background-image:url('https://images.weserv.nl/?url=images.unsplash.com/photo-1537996194471-e657df975ab4');">
+        </div>
+        <h2 class="deal-title">Cebu Hotel Deals</h2>
+        <p class="deal-text">
+          Mix of city life and nearby islands. Find hotels near IT Park, Mactan, beaches and diving spots.
+        </p>
+        <div class="deal-meta">
+          <span>Great for long weekends</span>
+          <span class="meta-badge">Island hopping base</span>
+        </div>
+        <a
+          class="deal-cta"
+          href="https://www.agoda.com/en-ph/partners/partnersearch.aspx"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span>View Cebu hotel deals</span>
+          <span class="arrow">↗</span>
+        </a>
+      </article>
+
+      <!-- BORACAY -->
+      <article class="deal-card">
+        <div class="city-pill">
+          <span class="city-dot"></span>
+          Boracay · White Sand Island
+        </div>
+        <div
+          class="deal-thumb"
+          style="background-image:url('https://images.weserv.nl/?url=images.unsplash.com/photo-1500375592092-40eb2168fd21');">
+        </div>
+        <h2 class="deal-title">Boracay Hotel Deals</h2>
+        <p class="deal-text">
+          Famous white-sand beaches, sunsets and nightlife. Compare resorts along Stations 1–3 and beyond.
+        </p>
+        <div class="deal-meta">
+          <span>Perfect for beach trips</span>
+          <span class="meta-badge">Couples & barkada</span>
+        </div>
+        <a
+          class="deal-cta"
+          href="https://www.agoda.com/en-ph/partners/partnersearch.aspx"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span>View Boracay hotel deals</span>
+          <span class="arrow">↗</span>
+        </a>
+      </article>
+
+      <!-- PALAWAN -->
+      <article class="deal-card">
+        <div class="city-pill">
+          <span class="city-dot"></span>
+          Palawan · Island Paradise
+        </div>
+        <div
+          class="deal-thumb"
+          style="background-image:url('https://images.weserv.nl/?url=images.unsplash.com/photo-1543844151-c4a9c5c3cd88');">
+        </div>
+        <h2 class="deal-title">Palawan Hotel Deals</h2>
+        <p class="deal-text">
+          From Puerto Princesa to El Nido and Coron. Find island resorts, lagoons and nature-focused stays.
+        </p>
+        <div class="deal-meta">
+          <span>Scenic & relaxed</span>
+          <span class="meta-badge">Nature & adventure</span>
+        </div>
+        <a
+          class="deal-cta"
+          href="https://www.agoda.com/en-ph/partners/partnersearch.aspx"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span>View Palawan hotel deals</span>
+          <span class="arrow">↗</span>
+        </a>
+      </article>
+    </section>
+
+    <footer class="footer">
+      Part of the
+      <a href="https://giftcardzoneeu.com" target="_blank" rel="noopener noreferrer">
+        GiftCardZoneEU Travel Network
+      </a>.<br />
+      Some links may be affiliate links which can help support this project at no extra cost to you.
+    </footer>
+  </main>
+</body>
+</html>
