@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+            <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -29,18 +29,18 @@
 
     /* HERO */
     .hero {
-  background-image: url("https://images.unsplash.com/photo-1563897539633-0e8d0e51df4a?auto=format&fit=crop&w=1600&q=80");
-  background-size: cover;
-  background-position: center;
-  height: 260px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  text-shadow: none; /* <– para di na blurry lahat */
-  border-bottom-left-radius: 28px;
-  border-bottom-right-radius: 28px;
-}
+      background-image: url("https://images.unsplash.com/photo-1563897539633-0e8d0e51df4a?auto=format&fit=crop&w=1600&q=80");
+      background-size: cover;
+      background-position: center;
+      height: 260px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: none;
+      border-bottom-left-radius: 28px;
+      border-bottom-right-radius: 28px;
+    }
 
     .hero-inner {
       text-align: center;
@@ -48,18 +48,18 @@
     }
 
     .hero-title {
-  font-size: 2rem;
-  font-weight: 700;
-  color: white;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.35);
-}
+      font-size: 2rem;
+      font-weight: 700;
+      color: white;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.35);
+    }
 
-.hero-subtitle {
-  font-size: 1rem;
-  font-weight: 400;
-  color: rgba(255,255,255,0.9);
-  text-shadow: 0 1px 4px rgba(0,0,0,0.25);
-}
+    .hero-subtitle {
+      font-size: 1rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.9);
+      text-shadow: 0 1px 4px rgba(0,0,0,0.25);
+    }
 
     /* WRAPPER */
     .wrap {
@@ -145,6 +145,49 @@
       background: #1e40af;
     }
 
+    /* INTERNAL LINKS BOX */
+    .more-destinations {
+      margin-top: 2.2rem;
+      background: #e5edff;
+      border-radius: 16px;
+      padding: 1.4rem 1.5rem;
+      border: 1px solid #d0e2ff;
+    }
+
+    .more-destinations h3 {
+      margin: 0 0 0.6rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .more-destinations p {
+      margin: 0 0 0.8rem;
+      font-size: 0.9rem;
+      color: #4b5563;
+    }
+
+    .link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .internal-link {
+      font-size: 0.88rem;
+      text-decoration: none;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      background: white;
+      border: 1px solid #c7d2fe;
+      color: #1d4ed8;
+      font-weight: 500;
+    }
+
+    .internal-link:hover {
+      background: #eff6ff;
+    }
+
     .footer {
       text-align: center;
       padding: 2rem 1rem;
@@ -157,6 +200,16 @@
       text-decoration: none;
       font-weight: 600;
     }
+
+    .footer-nav {
+      margin-bottom: 0.6rem;
+    }
+
+    .footer-nav a {
+      margin: 0 0.4rem;
+      font-weight: 500;
+      font-size: 0.86rem;
+    }
   </style>
 </head>
 <body>
@@ -166,8 +219,8 @@
     <div class="hero-inner">
       <h1 class="hero-title">Top USA Hotel Deals 🇺🇸</h1>
       <p class="hero-subtitle">
-  New York, Los Angeles, Miami, Las Vegas, Orlando &amp; more — compare hotel prices and book smarter with Agoda.
-</p>
+        New York, Los Angeles, Miami, Las Vegas, Orlando &amp; more — compare hotel prices and book smarter with Agoda.
+      </p>
     </div>
   </header>
 
@@ -253,9 +306,47 @@
       </article>
 
     </section>
+
+    <!-- INTERNAL LINKS / MORE DESTINATIONS -->
+    <section class="more-destinations">
+      <h3>Explore more hotel deals 🌍</h3>
+      <p>Looking beyond the USA? Discover more GiftCardZone Travel destinations:</p>
+
+      <div class="link-row">
+        <a class="internal-link" href="https://giftcardzoneeu.com/travel">All Travel Deals (Travel Home)</a>
+      </div>
+
+      <div class="link-row">
+        <a class="internal-link" href="https://giftcardzoneeu.com/germany.html">Germany Hotels 🇩🇪</a>
+        <a class="internal-link" href="https://giftcardzoneeu.com/france.html">France Hotels 🇫🇷</a>
+        <a class="internal-link" href="https://giftcardzoneeu.com/netherlands.html">Netherlands Hotels 🇳🇱</a>
+      </div>
+
+      <div class="link-row">
+        <a class="internal-link" href="https://giftcardzoneeu.com/philippines.html">Philippines Hotels 🇵🇭</a>
+        <a class="internal-link" href="https://giftcardzoneeu.com/japan.html">Japan Hotels 🇯🇵</a>
+        <a class="internal-link" href="https://giftcardzoneeu.com/thailand.html">Thailand Hotels 🇹🇭</a>
+      </div>
+
+      <p style="margin-top:0.8rem;font-size:0.86rem;">
+        You can also visit our main site for gift card deals and survey rewards to boost your travel budget.
+      </p>
+      <div class="link-row">
+        <a class="internal-link" href="https://giftcardzoneeu.com">GiftCardZoneEU Home</a>
+        <a class="internal-link" href="https://giftcardzoneeu.com/partners/survey-sites">Survey Rewards</a>
+        <a class="internal-link" href="https://giftcardzoneeu.com/deals">Global Deals</a>
+      </div>
+    </section>
+
   </main>
 
   <footer class="footer">
+    <div class="footer-nav">
+      <a href="https://giftcardzoneeu.com/travel">Travel Deals</a> ·
+      <a href="https://giftcardzoneeu.com">Gift Cards</a> ·
+      <a href="https://giftcardzoneeu.com/partners/survey-sites">Survey Rewards</a> ·
+      <a href="https://giftcardzoneeu.com/deals">Global Offers</a>
+    </div>
     Powered by <a href="https://giftcardzoneeu.com" target="_blank">GiftCardZoneEU</a> · USA Hotel Deals via Agoda Partners.
   </footer>
 </body>
