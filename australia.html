@@ -31,31 +31,53 @@
       min-height: 100vh;
     }
 
-    .page-shell { max-width: 1100px; margin: 0 auto; padding: 2.5rem 1.5rem 3.5rem; }
-    .page-header { text-align: center; margin-bottom: 2.5rem; }
+    .page-shell {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 3.5rem;
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
 
     .eyebrow {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      padding: 0.18rem 0.7rem; border-radius: 999px;
-      font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase;
-      color: var(--accent); background: rgba(15, 23, 42, 0.9);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.18rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(15, 23, 42, 0.9);
       border: 1px solid rgba(56, 189, 248, 0.3);
       margin-bottom: 0.8rem;
     }
 
     .eyebrow-dot {
-      width: 6px; height: 6px; border-radius: 999px;
-      background: var(--accent); box-shadow: 0 0 12px rgba(56, 189, 248, 0.9);
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.9);
     }
 
     .page-title {
       font-size: clamp(1.7rem, 2.2vw + 1rem, 2.3rem);
-      font-weight: 800; letter-spacing: 0.02em; margin: 0 0 0.5rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      margin: 0 0 0.5rem;
     }
 
     .page-subtitle {
-      max-width: 560px; margin: 0 auto;
-      font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;
+      max-width: 560px;
+      margin: 0 auto;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
     }
 
     .deals-grid {
@@ -83,51 +105,96 @@
     }
 
     .city-pill {
-      display: inline-flex; align-items: center; gap: 0.35rem;
-      padding: 0.2rem 0.65rem; border-radius: 999px;
-      background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(148, 163, 184, 0.5);
-      color: var(--text-muted); font-size: 0.78rem; margin-bottom: 0.7rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.2rem 0.65rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      margin-bottom: 0.7rem;
     }
 
     .city-dot {
-      width: 7px; height: 7px; border-radius: 999px; background: var(--accent);
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
     }
 
     .deal-thumb {
-      width: 100%; height: 115px; border-radius: 0.7rem;
+      width: 100%;
+      height: 115px;
+      border-radius: 0.7rem;
       margin-bottom: 0.85rem;
-      background-size: cover; background-position: center; background-repeat: no-repeat;
+      overflow: hidden;
       border: 1px solid rgba(15, 23, 42, 0.85);
     }
 
-    .deal-title { font-size: 1rem; font-weight: 700; margin: 0 0 0.35rem; }
-    .deal-text { font-size: 0.86rem; color: var(--text-muted); margin: 0 0 0.9rem; }
+    .deal-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .deal-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin: 0 0 0.35rem;
+    }
+
+    .deal-text {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      margin: 0 0 0.9rem;
+    }
 
     .deal-meta {
-      display: flex; justify-content: space-between; font-size: 0.78rem;
-      margin-bottom: 0.85rem; color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      margin-bottom: 0.85rem;
+      color: var(--text-muted);
     }
 
     .meta-badge {
-      padding: 0.18rem 0.55rem; border-radius: 999px;
-      background: var(--accent-soft); border: 1px solid rgba(56, 189, 248, 0.45);
-      font-size: 0.75rem; color: #e0f2fe;
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      font-size: 0.75rem;
+      color: #e0f2fe;
     }
 
     .deal-cta {
-      display: inline-flex; justify-content: center; align-items: center; gap: 0.35rem;
-      padding: 0.6rem 0.9rem; width: 100%;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.6rem 0.9rem;
+      width: 100%;
       border-radius: 999px;
       background: linear-gradient(135deg, #38bdf8, #4f46e5);
-      color: white; text-decoration: none; font-weight: 600; font-size: 0.88rem;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.88rem;
     }
 
     .footer {
-      text-align: center; margin-top: 2.7rem;
-      font-size: 0.78rem; color: var(--text-muted);
+      text-align: center;
+      margin-top: 2.7rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
     }
 
-    .footer a { color: #e5e7eb; text-decoration: none; }
+    .footer a {
+      color: #e5e7eb;
+      text-decoration: none;
+    }
   </style>
 </head>
 
@@ -147,120 +214,112 @@
       </p>
     </header>
 
-    <section class="deals-grid">
+    <section class="deals-grid" aria-label="Top hotel deals in Australia">
+      <!-- SYDNEY -->
+      <article class="deal-card">
+        <div class="city-pill">
+          <span class="city-dot"></span>
+          Sydney · Harbour City
+        </div>
+        <div class="deal-thumb">
+          <img src="https://images.unsplash.com/photo-1510747188885-5d38a1a7e9cc?auto=format&fit=crop&w=1200&q=80"
+               alt="Sydney skyline">
+        </div>
+        <h2 class="deal-title">Sydney Hotel Deals</h2>
+        <p class="deal-text">
+          Hotels near Opera House, Harbour Bridge and city highlights.
+        </p>
+        <div class="deal-meta">
+          <span>Popular spot</span>
+          <span class="meta-badge">Budget → Luxury</span>
+        </div>
+        <a class="deal-cta"
+           href="https://www.agoda.com/en-au/city/sydney-au.html"
+           target="_blank" rel="noopener noreferrer">
+          <span>View Sydney Deals →</span>
+        </a>
+      </article>
 
-      <section class="deals-grid" aria-label="Top hotel deals in Australia">
-  <!-- SYDNEY -->
-  <article class="deal-card">
-    <div class="city-pill">
-      <span class="city-dot"></span>
-      Sydney · Harbour City
-    </div>
-    <div
-      class="deal-thumb"
-      style="background-image:url('https://images.unsplash.com/photo-1510747188885-5d38a1a7e9cc?auto=format&fit=crop&w=1200&q=80');">
-    </div>
-    <h2 class="deal-title">Sydney Hotel Deals</h2>
-    <p class="deal-text">
-      Hotels near Opera House, Harbour Bridge and city highlights.
-    </p>
-    <div class="deal-meta">
-      <span>Popular spot</span>
-      <span class="meta-badge">Budget → Luxury</span>
-    </div>
-    <a
-      class="deal-cta"
-      href="https://www.agoda.com/en-au/city/sydney-au.html"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <span>View Sydney Deals →</span>
-    </a>
-  </article>
+      <!-- MELBOURNE -->
+      <article class="deal-card">
+        <div class="city-pill">
+          <span class="city-dot"></span>
+          Melbourne · Culture & Coffee
+        </div>
+        <div class="deal-thumb">
+          <img src="https://images.unsplash.com/photo-1510747188885-5d38a1a7e9cc?auto=format&fit=crop&w=1200&q=80"
+               alt="Melbourne city view">
+        </div>
+        <h2 class="deal-title">Melbourne Hotel Deals</h2>
+        <p class="deal-text">
+          Culture, sports and nightlife – perfect for urban explorers.
+        </p>
+        <div class="deal-meta">
+          <span>Top weekend pick</span>
+          <span class="meta-badge">Flexible dates</span>
+        </div>
+        <a class="deal-cta"
+           href="https://www.agoda.com/en-au/city/melbourne-au.html"
+           target="_blank" rel="noopener noreferrer">
+          <span>View Melbourne Deals →</span>
+        </a>
+      </article>
 
-  <!-- MELBOURNE -->
-  <article class="deal-card">
-    <div class="city-pill">
-      <span class="city-dot"></span>
-      Melbourne · Culture & Coffee
-    </div>
-    <div
-      class="deal-thumb"
-      style="background-image:url('https://images.unsplash.com/photo-1510747188885-5d38a1a7e9cc?auto=format&fit=crop&w=1200&q=80');">
-    </div>
-    <h2 class="deal-title">Melbourne Hotel Deals</h2>
-    <p class="deal-text">
-      Culture, sports and nightlife – perfect for urban explorers.
-    </p>
-    <div class="deal-meta">
-      <span>Top weekend pick</span>
-      <span class="meta-badge">Flexible dates</span>
-    </div>
-    <a
-      class="deal-cta"
-      href="https://www.agoda.com/en-au/city/melbourne-au.html"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <span>View Melbourne Deals →</span>
-    </a>
-  </article>
+      <!-- BRISBANE -->
+      <article class="deal-card">
+        <div class="city-pill">
+          <span class="city-dot"></span>
+          Brisbane · River City
+        </div>
+        <div class="deal-thumb">
+          <img src="https://images.unsplash.com/photo-1510747188885-5d38a1a7e9cc?auto=format&fit=crop&w=1200&q=80"
+               alt="Brisbane view">
+        </div>
+        <h2 class="deal-title">Brisbane Hotel Deals</h2>
+        <p class="deal-text">
+          Find great prices near riverside hotels & entertainment hubs.
+        </p>
+        <div class="deal-meta">
+          <span>Family friendly</span>
+          <span class="meta-badge">Near beaches</span>
+        </div>
+        <a class="deal-cta"
+           href="https://www.agoda.com/en-au/city/brisbane-au.html"
+           target="_blank" rel="noopener noreferrer">
+          <span>View Brisbane Deals →</span>
+        </a>
+      </article>
 
-  <!-- BRISBANE -->
-  <article class="deal-card">
-    <div class="city-pill">
-      <span class="city-dot"></span>
-      Brisbane · River City
-    </div>
-    <div
-      class="deal-thumb"
-      style="background-image:url('https://images.unsplash.com/photo-1510747188885-5d38a1a7e9cc?auto=format&fit=crop&w=1200&q=80');">
-    </div>
-    <h2 class="deal-title">Brisbane Hotel Deals</h2>
-    <p class="deal-text">
-      Find great prices near riverside hotels & entertainment hubs.
-    </p>
-    <div class="deal-meta">
-      <span>Family friendly</span>
-      <span class="meta-badge">Near beaches</span>
-    </div>
-    <a
-      class="deal-cta"
-      href="https://www.agoda.com/en-au/city/brisbane-au.html"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <span>View Brisbane Deals →</span>
-    </a>
-  </article>
+      <!-- PERTH -->
+      <article class="deal-card">
+        <div class="city-pill">
+          <span class="city-dot"></span>
+          Perth · West Coast
+        </div>
+        <div class="deal-thumb">
+          <img src="https://images.unsplash.com/photo-1510747188885-5d38a1a7e9cc?auto=format&fit=crop&w=1200&q=80"
+               alt="Perth skyline">
+        </div>
+        <h2 class="deal-title">Perth Hotel Deals</h2>
+        <p class="deal-text">
+          Relaxed cities, beaches, food & culture – best hotel prices.
+        </p>
+        <div class="deal-meta">
+          <span>Sunny vibes</span>
+          <span class="meta-badge">Long stay friendly</span>
+        </div>
+        <a class="deal-cta"
+           href="https://www.agoda.com/en-au/city/perth-au.html"
+           target="_blank" rel="noopener noreferrer">
+          <span>View Perth Deals →</span>
+        </a>
+      </article>
+    </section>
 
-  <!-- PERTH -->
-  <article class="deal-card">
-    <div class="city-pill">
-      <span class="city-dot"></span>
-      Perth · West Coast
-    </div>
-    <div
-      class="deal-thumb"
-      style="background-image:url('https://images.unsplash.com/photo-1510747188885-5d38a1a7e9cc?auto=format&fit=crop&w=1200&q=80');">
-    </div>
-    <h2 class="deal-title">Perth Hotel Deals</h2>
-    <p class="deal-text">
-      Relaxed cities, beaches, food & culture – best hotel prices.
-    </p>
-    <div class="deal-meta">
-      <span>Sunny vibes</span>
-      <span class="meta-badge">Long stay friendly</span>
-    </div>
-    <a
-      class="deal-cta"
-      href="https://www.agoda.com/en-au/city/perth-au.html"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <span>View Perth Deals →</span>
-    </a>
-  </article>
-</section>
+    <footer class="footer">
+      Part of <a href="https://giftcardzoneeu.com" target="_blank">GiftCardZoneEU.com</a> Travel Network.
+      Links may contain affiliate tracking.
+    </footer>
+  </main>
+</body>
 </html>
-                
