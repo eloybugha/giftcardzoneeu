@@ -14,7 +14,30 @@
   <meta property="og:image" content="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=1600&q=90" />
   <meta property="og:url" content="https://giftcardzoneeu.com/travel/australia/" />
   <meta property="og:type" content="website" />
+<!-- GEO REDIRECT FIX -->
+<script>
+(function () {
+  fetch("https://ipapi.co/json/")
+    .then(r => r.json())
+    .then(data => {
+      const country = data && data.country ? data.country : "";
 
+      // Countries allowed to STAY here
+      const allowed = ["DE", "NL", "US", "AU", "PH", "JP"];
+
+      if (country && !allowed.includes(country)) {
+        if (!window.location.href.includes("/go/global-router")) {
+          window.location.replace("https://giftcardzoneeu.com/go/global-router");
+        }
+      } else {
+        console.log("Stay on Australia page:", country);
+      }
+    })
+    .catch(err => {
+      console.warn("Geo API failed, NOT redirecting.", err);
+    });
+})();
+</script>
   <style>
     body {
       margin:0;
