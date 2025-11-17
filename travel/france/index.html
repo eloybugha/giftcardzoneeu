@@ -3,164 +3,68 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>France Hotel Deals | GiftCardZoneEU x Agoda</title>
-  <meta name="description" content="Find the best hotel deals across France – Paris, Nice, Lyon, Marseille and more via Agoda Partners." />
-  <meta name="keywords" content="France hotel deals, Paris hotels, Nice hotels, Lyon hotels, Marseille hotels, Agoda France" />
-
-  <!-- OG -->
-  <meta property="og:title" content="Top France Hotel Deals | Compare & Book" />
-  <meta property="og:description" content="Discover hotel deals across France. Compare hotel prices in Paris, Nice, Lyon, Marseille and more." />
-  <meta property="og:image" content="https://picsum.photos/seed/france-hero/1600/600" />
-  <meta property="og:url" content="https://giftcardzoneeu.com/travel/france/" />
-  <meta property="og:type" content="website" />
+  <meta name="description" content="Find hotel deals in France: Paris, Nice, Lyon, Marseille & more. Powered by Agoda Travel Partners." />
 
   <style>
-    body {
-      margin:0;
-      background:#050816;
-      color:#f9fafb;
-      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-    }
-    .page {
-      max-width:1100px;
-      margin:auto;
-      padding:2rem 1.5rem;
-    }
-
-    /* Agoda-style light hero banner */
-    .hero {
-      width:100%;
-      max-width:1100px;
-      margin:0 auto 2rem;
-      border-radius:1.2rem;
-      padding:3.5rem 1rem;
-      background:linear-gradient(145deg,#f5f9ff 0%,#eef6ff 100%);
-      text-align:center;
-      border:1px solid rgba(15,23,42,0.08);
-    }
-    .hero h1 {
-      font-size:clamp(2rem,4vw,2.8rem);
-      color:#111827;
-      font-weight:700;
-      margin:0 0 0.4rem;
-    }
-    .hero p {
-      font-size:1rem;
-      color:#4b5563;
-      max-width:520px;
-      margin:0 auto;
-    }
-
-    .grid {
-      display:grid;
-      gap:1.5rem;
-      margin-top:2rem;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    }
-    .card {
-      background:#111827;
-      border-radius:1rem;
-      padding:1rem;
-      border:1px solid rgba(148,163,184,0.35);
-    }
-    .card img {
-      width:100%;
-      border-radius:0.8rem;
-      height:150px;
-      object-fit:cover;
-      display:block;
-      margin-bottom:0.75rem;
-    }
-    .card h3 {
-      margin:0 0 0.5rem;
-      font-size:1.05rem;
-    }
-
-    .btn {
-      display:inline-block;
-      background:linear-gradient(135deg,#36b8fa,#6366f1);
-      padding:0.8rem 1.3rem;
-      border-radius:0.7rem;
-      margin-top:0.7rem;
-      font-weight:600;
-      text-decoration:none;
-      color:white;
-    }
-
-    footer {
-      text-align:center;
-      margin-top:3rem;
-      font-size:0.8rem;
-      opacity:0.7;
-    }
-    footer a {
-      color:#38bdf8;
-      text-decoration:none;
-    }
+    body {margin:0;font-family:system-ui;background:#0f172a;color:#f8fafc;}
+    a {text-decoration:none;color:inherit;}
+    .hero {background:#1e293b;padding:60px 20px;text-align:center;}
+    .hero h1 {font-size:2rem;margin:0;}
+    .container {max-width:900px;margin:auto;padding:30px 20px;}
+    .section-title {font-size:1.4rem;font-weight:700;margin-bottom:8px;text-align:center;}
+    .grid {display:grid;gap:14px;margin-top:20px;}
+    @media(min-width:768px){.grid{grid-template-columns:repeat(2,1fr);}}
+    .city-card {background:#1e293b;padding:18px;border-radius:12px;border:1px solid #334155;}
+    .city-name {font-size:1.2rem;font-weight:600;}
+    .city-desc {font-size:0.9rem;color:#94a3b8;margin:4px 0;}
+    .city-link {margin-top:6px;font-size:0.9rem;color:#38bdf8;}
   </style>
-
 </head>
+
 <body>
 
-<div class="page">
+<header class="hero">
+  <h1>France 🇫🇷</h1>
+  <p>Find hotel deals from Agoda Travel Partners</p>
+</header>
 
-  <!-- Agoda-style hero banner -->
-  <section class="hero">
-    <h1>Explore Top France Hotel Deals 🇫🇷</h1>
-    <p>Compare hotel prices in Paris, Nice, Lyon, Marseille & more with Agoda partners.</p>
-  </section>
+<main class="container">
+
+  <div class="section-title">Top Cities to Stay in France</div>
 
   <div class="grid">
 
-    <!-- PARIS -->
-    <div class="card">
-      <img src="https://picsum.photos/seed/paris-hotel/800/600" alt="Paris city view">
-      <h3>Paris Hotels</h3>
-      <a class="btn" target="_blank"
-         href="https://www.agoda.com/partners/partnersearch.aspx">
-        View Deals
-      </a>
-    </div>
+    <a href="https://www.agoda.com/partners/partnersearch.aspx?city=Paris" class="city-card" target="_blank">
+      <div class="city-name">Paris</div>
+      <div class="city-desc">Eiffel Tower, museums, fashion & romance.</div>
+      <div class="city-link">View Paris deals →</div>
+    </a>
 
-    <!-- NICE -->
-    <div class="card">
-      <img src="https://picsum.photos/seed/nice-france/800/600" alt="Nice France view">
-      <h3>Nice Hotels</h3>
-      <a class="btn" target="_blank"
-         href="https://www.agoda.com/partners/partnersearch.aspx">
-        View Deals
-      </a>
-    </div>
+    <a href="https://www.agoda.com/partners/partnersearch.aspx?city=Nice" class="city-card" target="_blank">
+      <div class="city-name">Nice</div>
+      <div class="city-desc">Sunny beaches, French Riviera lifestyle.</div>
+      <div class="city-link">View Nice deals →</div>
+    </a>
 
-    <!-- LYON -->
-    <div class="card">
-      <img src="https://picsum.photos/seed/lyon-city/800/600" alt="Lyon city view">
-      <h3>Lyon Hotels</h3>
-      <a class="btn" target="_blank"
-         href="https://www.agoda.com/partners/partnersearch.aspx">
-        View Deals
-      </a>
-    </div>
+    <a href="https://www.agoda.com/partners/partnersearch.aspx?city=Lyon" class="city-card" target="_blank">
+      <div class="city-name">Lyon</div>
+      <div class="city-desc">Historic old town & top-tier cuisine.</div>
+      <div class="city-link">View Lyon deals →</div>
+    </a>
 
-    <!-- MARSEILLE -->
-    <div class="card">
-      <img src="https://picsum.photos/seed/marseille-port/800/600" alt="Marseille port view">
-      <h3>Marseille Hotels</h3>
-      <a class="btn" target="_blank"
-         href="https://www.agoda.com/partners/partnersearch.aspx">
-        View Deals
-      </a>
-    </div>
+    <a href="https://www.agoda.com/partners/partnersearch.aspx?city=Marseille" class="city-card" target="_blank">
+      <div class="city-name">Marseille</div>
+      <div class="city-desc">Port city with Mediterranean culture.</div>
+      <div class="city-link">View Marseille deals →</div>
+    </a>
 
   </div>
+</main>
 
-  <footer>
-    Powered by <a href="https://giftcardzoneeu.com/">GiftCardZoneEU</a> × Agoda Partners
-  </footer>
-
-</div>
+<footer style="text-align:center;margin:40px 0;color:#64748b;">
+  © 2025 GiftCardZoneEU · Agoda Travel Partner
+</footer>
 
 </body>
 </html>
-
