@@ -12,18 +12,23 @@
       fetch("https://ipapi.co/json/")
         .then(function (res) { return res.json(); })
         .then(function (data) {
-          var country = data && data.country ? data.country : null;
+          var country = data && data.country ? String(data.country).toUpperCase() : "";
 
           // Countries that STAY on the page (no redirect)
           var allowed = ["DE", "NL", "US", "AU", "PH", "JP"];
 
-          if (!country || !allowed.includes(country)) {
-            window.location.href = "https://giftcardzoneeu.com/go/global-router";
+          // Redirect ONLY if we know the country and it's NOT allowed
+          if (country && !allowed.includes(country)) {
+            if (!window.location.href.includes("/go/global-router")) {
+              window.location.replace("https://giftcardzoneeu.com/go/global-router");
+            }
+          } else {
+            console.log("Stay on page, country:", country || "UNKNOWN");
           }
         })
-        .catch(function () {
-          // kung pumalya API, redirect to router
-          window.location.href = "https://giftcardzoneeu.com/go/global-router";
+        .catch(function (err) {
+          // IMPORTANT: if geo lookup fails, do NOT redirect
+          console.warn("Geo lookup failed, NOT redirecting:", err);
         });
     })();
   </script>
@@ -33,59 +38,4 @@
     a {text-decoration:none;color:inherit;}
     .hero {background:#1e293b;padding:60px 20px;text-align:center;}
     .hero h1 {margin:0;font-size:2rem;}
-    .hero p {margin-top:8px;color:#cbd5f5;font-size:0.95rem;}
-    .container {max-width:900px;margin:0 auto;padding:28px 20px 40px;}
-    .section-title {font-size:1.4rem;font-weight:700;margin-bottom:6px;text-align:center;}
-    .section-sub {font-size:0.95rem;color:#94a3b8;text-align:center;margin-bottom:18px;}
-    .grid {display:grid;gap:14px;margin-top:10px;}
-    @media (min-width:768px){.grid{grid-template-columns:repeat(2,1fr);}}
-    .city-card {background:#1e293b;border-radius:14px;padding:16px 15px;border:1px solid #334155;}
-    .city-name {font-size:1.1rem;font-weight:600;margin-bottom:4px;}
-    .city-desc {font-size:0.9rem;color:#94a3b8;margin-bottom:6px;}
-    .city-link {font-size:0.9rem;color:#38bdf8;}
-    footer {text-align:center;margin:32px 0 20px;font-size:0.8rem;color:#64748b;}
-  </style>
-</head>
-
-<body>
-<header class="hero">
-  <h1>United States 🇺🇸</h1>
-  <p>Find hotel deals in top USA cities via Agoda Travel Partners.</p>
-</header>
-
-<main class="container">
-  <div class="section-title">Popular cities in the USA</div>
-  <div class="section-sub">Select a city to view Agoda hotel deals (opens in a new tab).</div>
-
-  <div class="grid">
-    <a href="https://www.agoda.com/partners/partnersearch.aspx?city=New%20York" target="_blank" class="city-card">
-      <div class="city-name">New York</div>
-      <div class="city-desc">Times Square, Broadway & iconic skyline.</div>
-      <div class="city-link">View New York deals →</div>
-    </a>
-
-    <a href="https://www.agoda.com/partners/partnersearch.aspx?city=Las%20Vegas" target="_blank" class="city-card">
-      <div class="city-name">Las Vegas</div>
-      <div class="city-desc">The Strip, casinos & nightlife.</div>
-      <div class="city-link">View Las Vegas deals →</div>
-    </a>
-
-    <a href="https://www.agoda.com/partners/partnersearch.aspx?city=Los%20Angeles" target="_blank" class="city-card">
-      <div class="city-name">Los Angeles</div>
-      <div class="city-desc">Hollywood, beaches & sunshine.</div>
-      <div class="city-link">View LA deals →</div>
-    </a>
-
-    <a href="https://www.agoda.com/partners/partnersearch.aspx?city=Miami" target="_blank" class="city-card">
-      <div class="city-name">Miami</div>
-      <div class="city-desc">South Beach, nightlife & Latin vibes.</div>
-      <div class="city-link">View Miami deals →</div>
-    </a>
-  </div>
-</main>
-
-<footer>
-  © 2025 GiftCardZoneEU · Agoda Travel Partner
-</footer>
-</body>
-</html>
+    .hero p {margin-top:8px;color:#cbd5f5;f
