@@ -6,6 +6,28 @@
   <title>Australia Hotel Deals | GiftCardZoneEU x Agoda</title>
   <meta name="description" content="Find hotel deals in Australia: Sydney, Melbourne, Brisbane & Perth via Agoda Travel Partners." />
 
+  <!-- GEO REDIRECT: allow DE, NL, US, AU, PH, JP -->
+  <script>
+    (function () {
+      fetch("https://ipapi.co/json/")
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          var country = data && data.country ? data.country : null;
+
+          // Countries that STAY on the page (no redirect)
+          var allowed = ["DE", "NL", "US", "AU", "PH", "JP"];
+
+          if (!country || !allowed.includes(country)) {
+            window.location.href = "https://giftcardzoneeu.com/go/global-router";
+          }
+        })
+        .catch(function () {
+          // kung pumalya API, safe tayo: redirect to router
+          window.location.href = "https://giftcardzoneeu.com/go/global-router";
+        });
+    })();
+  </script>
+
   <style>
     body {margin:0;font-family:system-ui;background:#0f172a;color:#f9fafb;}
     a {text-decoration:none;color:inherit;}
