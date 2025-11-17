@@ -1,577 +1,210 @@
-            <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Explore Travel Deals | Agoda Partners</title>
-  <meta name="description" content="Compare top hotel deals in Germany, Netherlands, France, Italy, Spain and the UK. Powered by Agoda partners.">
-  <meta name="keywords" content="hotel deals, agoda partner, germany hotels, netherlands hotels, france hotels, italy hotels, uk hotels, spain hotels">
-  <meta property="og:title" content="Explore Top Travel & Hotel Deals Worldwide" />
-  <meta property="og:description" content="Find hotel deals in Germany, Netherlands, France, Italy, Spain and the UK. Compare prices and travel smarter with Agoda." />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1600&q=90" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://giftcardzoneeu.com/travel/" />
+  <title>Explore Hotel Deals Worldwide | GiftCardZoneEU x Agoda</title>
+  <meta name="description" content="Compare hotel deals worldwide — Japan, Germany, France, USA, Australia, Netherlands and more via Agoda travel partners." />
+  <link rel="canonical" href="https://giftcardzoneeu.com/travel/" />
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    :root {
+      --bg: #f8fafc;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --accent: #0ea5e9;
+      --accent-strong: #0284c7;
+      --card-bg: #ffffff;
+      --border-light: #e2e8f0;
+      --shadow-soft: 0 14px 28px rgba(15, 23, 42, 0.06);
     }
+
+    * { box-sizing: border-box; }
 
     body {
-      background: #050816;
-      color: #f9fafb;
-      line-height: 1.6;
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
     }
 
-    .page-wrapper {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* HERO SECTION */
+    /* HERO */
     .hero {
       position: relative;
-      padding: 4rem 1.5rem 3rem;
-      text-align: center;
-      overflow: hidden;
+      height: 360px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: url('https://images.unsplash.com/photo-1502920917128-1aa500764b68?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center;
     }
 
     .hero::before {
       content: "";
       position: absolute;
       inset: 0;
-      background-image: url("https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1600&q=90");
-      background-size: cover;
-      background-position: center;
-      opacity: 0.25;
-      filter: blur(1px);
-      z-index: -2;
+      background: linear-gradient(180deg, rgba(0,0,0,0.3), rgba(0,0,0,0.65));
     }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top, rgba(59,130,246,0.5), transparent 55%),
-                  radial-gradient(circle at bottom, rgba(16,185,129,0.5), transparent 55%);
-      opacity: 0.9;
-      mix-blend-mode: screen;
-      z-index: -1;
-    }
-
-    .hero-inner {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .eyebrow {
-      font-size: 0.9rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #a5b4fc;
-      margin-bottom: 0.75rem;
+    .hero-content {
+      position: relative;
+      text-align: center;
+      max-width: 800px;
+      padding: 0 1.5rem;
+      color: #f8fafc;
     }
 
     .hero-title {
-      font-size: clamp(2rem, 4vw, 2.8rem);
-      font-weight: 700;
-      margin-bottom: 0.75rem;
-      text-shadow: 0 10px 40px rgba(15,23,42,0.9);
+      font-size: 2.4rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
     }
 
-    .hero-subtitle {
+    .hero-sub {
       font-size: 1rem;
-      max-width: 620px;
-      margin: 0.5rem auto 1.5rem;
-      color: #e5e7eb;
+      opacity: 0.9;
     }
 
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.35rem 0.9rem;
-      border-radius: 999px;
-      background: rgba(15,23,42,0.9);
-      border: 1px solid rgba(148,163,184,0.4);
-      font-size: 0.8rem;
-      color: #e5e7eb;
-    }
-
-    .hero-badge-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 12px rgba(34,197,94,0.9);
-    }
-
-    /* MAIN CONTENT WRAPPER */
-    .content {
+    /* MAIN WRAPPER */
+    .wrapper {
       max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 1.5rem 3.5rem;
-      flex: 1;
-    }
-
-    .section-heading {
-      margin-bottom: 1rem;
-    }
-
-    .section-heading h2 {
-      font-size: 1.3rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .section-heading p {
-      font-size: 0.95rem;
-      color: #9ca3af;
-    }
-
-    /* GRID OF COUNTRY CARDS */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(1, minmax(0, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-    }
-
-    @media (min-width: 640px) {
-      .grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-    }
-
-    .card {
-      background: radial-gradient(circle at top left, rgba(59,130,246,0.25), rgba(15,23,42,0.95));
-      border-radius: 1.25rem;
-      border: 1px solid rgba(148,163,184,0.4);
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      box-shadow: 0 18px 40px rgba(15,23,42,0.85);
-    }
-
-    .card.coming-soon {
-      opacity: 0.7;
-      border-style: dashed;
-      border-color: rgba(148,163,184,0.7);
-    }
-
-    .card-image {
-      overflow: hidden;
-      border-radius: 0.9rem;
-      max-height: 160px;
-    }
-
-    .card-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transform: scale(1.01);
-    }
-
-    .card-title {
-      font-size: 1.05rem;
-      font-weight: 600;
-      margin-top: 0.1rem;
-    }
-
-    .card-sub {
-      font-size: 0.9rem;
-      color: #e5e7eb;
-    }
-
-    .chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 0.25rem;
-    }
-
-    .chip {
-      font-size: 0.75rem;
-      padding: 0.15rem 0.55rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.55);
-      color: #e5e7eb;
-      background: rgba(15,23,42,0.9);
-    }
-
-    .card-footer {
-      margin-top: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.8rem;
-      color: #9ca3af;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.55rem 0.9rem;
-      border-radius: 999px;
-      border: none;
-      font-size: 0.85rem;
-      font-weight: 500;
-      text-decoration: none;
-      cursor: pointer;
-      background: linear-gradient(135deg, #38bdf8, #6366f1);
-      color: #f9fafb;
-      box-shadow: 0 12px 30px rgba(37,99,235,0.75);
-      transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
-      white-space: nowrap;
-    }
-
-    .btn span {
-      margin-left: 0.4rem;
-      font-size: 0.95em;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 18px 40px rgba(79,70,229,0.85);
-      opacity: 0.98;
-    }
-
-    .btn:active {
-      transform: translateY(0);
-      box-shadow: 0 10px 24px rgba(30,64,175,0.9);
-    }
-
-    .btn.disabled {
-      cursor: not-allowed;
-      background: rgba(55,65,81,0.9);
-      box-shadow: none;
-      opacity: 0.7;
-    }
-
-    .coming-label {
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: #f97316;
-    }
-
-    /* TOP TRAVEL PARTNERS (NOW AT BOTTOM) */
-    .partners-section {
-      max-width: 1100px;
-      margin: 0 auto 3rem;
+      margin: 3rem auto;
       padding: 0 1.5rem;
     }
 
-    .partners-title {
-      font-size: 1.4rem;
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-sub {
+      text-align: center;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .country-card {
+      display: block;
+      padding: 1.2rem 1.2rem;
+      background: white;
+      border: 1px solid var(--border-light);
+      border-radius: 1.3rem;
+      text-decoration: none;
+      box-shadow: var(--shadow-soft);
+      transition: 0.25s ease;
+      color: inherit;
+    }
+
+    .country-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.08);
+    }
+
+    .country-name {
+      font-size: 1.1rem;
       font-weight: 700;
-      margin-bottom: 1.25rem;
-      text-align: center;
+      margin-bottom: 0.3rem;
     }
 
-    .partners-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-    }
-
-    .partner-card {
-      background: #f9fafb;
-      color: #111827;
-      padding: 1.1rem 1rem;
-      border-radius: 0.9rem;
-      box-shadow: 0 8px 24px rgba(15,23,42,0.35);
-      text-align: left;
-      text-decoration: none;
-      transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
-    }
-
-    .partner-card h3 {
-      margin: 0;
-      font-size: 1rem;
-      font-weight: 600;
-    }
-
-    .partner-card p {
-      margin-top: 0.35rem;
+    .country-desc {
       font-size: 0.85rem;
-      color: #4b5563;
+      color: var(--text-muted);
+      line-height: 1.4;
+      margin-bottom: 0.7rem;
     }
 
-    .partner-card:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 14px 32px rgba(15,23,42,0.55);
-      opacity: 0.96;
+    .country-link {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--accent-strong);
     }
 
-    /* FOOTER */
-    .footer {
-      font-size: 0.8rem;
-      color: #9ca3af;
-      padding: 1.5rem 1.5rem 2.5rem;
+    footer {
+      margin-top: 3rem;
+      padding: 2rem 1.5rem;
+      border-top: 1px solid var(--border-light);
       text-align: center;
-      border-top: 1px solid rgba(31,41,55,0.9);
-      background: radial-gradient(circle at top, rgba(37,99,235,0.15), rgba(15,23,42,1));
-    }
-
-    .footer a {
-      color: #a5b4fc;
-      text-decoration: none;
-    }
-
-    .footer a:hover {
-      text-decoration: underline;
+      font-size: 0.8rem;
+      color: var(--text-muted);
     }
   </style>
-
-  <!-- SCHEMA: TRAVEL DESTINATIONS ITEMLIST -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "name": "European Hotel Deals",
-    "description": "Compare hotel deals in Germany, Netherlands, France, Italy, Spain and the United Kingdom via Agoda partners.",
-    "url": "https://giftcardzoneeu.com/travel/",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Germany Hotel Deals", "url": "https://www.agoda.com/de-de/partners/partnersearch.aspx" },
-      { "@type": "ListItem", "position": 2, "name": "Netherlands Hotel Deals", "url": "https://www.agoda.com/partners/partnersearch.aspx" },
-      { "@type": "ListItem", "position": 3, "name": "France Hotel Deals", "url": "https://www.agoda.com/partners/partnersearch.aspx" },
-      { "@type": "ListItem", "position": 4, "name": "Italy Hotel Deals", "url": "https://www.agoda.com/de-de/partners/partnersearch.aspx" },
-      { "@type": "ListItem", "position": 5, "name": "Spain Hotel Deals", "url": "https://www.agoda.com/partners/partnersearch.aspx" },
-      { "@type": "ListItem", "position": 6, "name": "United Kingdom Hotel Deals", "url": "https://www.agoda.com/partners/partnersearch.aspx" }
-    ]
-  }
-  </script>
 </head>
+
 <body>
-  <div class="page-wrapper">
-    <!-- HERO -->
-    <header class="hero">
-      <div class="hero-inner">
-        <div class="hero-badge">
-          <span class="hero-badge-dot"></span>
-          Agoda Partner • GiftCardZoneEU Travel Network
-        </div>
-        <h1 class="hero-title">Explore Top Travel &amp; Hotel Deals</h1>
-        <p class="hero-subtitle">
-          Compare hotel prices in the most popular destinations in Europe — Germany, Netherlands, France, Italy, Spain and the United Kingdom.
-          Find cheap hotel deals for weekend breaks, city trips and longer holidays, all in one place.
-        </p>
-      </div>
-    </header>
 
-    <!-- MAIN CONTENT -->
-    <main class="content">
-      <section class="section-heading">
-        <h2>Top Hotel Deals by Country</h2>
-        <p>Some destinations are ready, others are coming soon. Start with what’s live now, and we’ll add more cities &amp; partners over time.</p>
-      </section>
+  <header class="hero">
+    <div class="hero-content">
+      <div class="hero-title">Explore Worldwide Hotel Deals</div>
+      <div class="hero-sub">Powered by Agoda travel partners · Book smarter, travel better</div>
+    </div>
+  </header>
 
-      <section class="grid">
-        <!-- GERMANY -->
-        <article class="card">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=900&q=80" alt="Germany hotel deals - Berlin skyline">
-          </div>
-          <h3 class="card-title">Germany Hotel Deals</h3>
-          <p class="card-sub">Berlin, Munich, Frankfurt and more – compare hotel prices and find smart deals for your next trip.</p>
-          <div class="chip-row">
-            <span class="chip">Germany</span>
-            <span class="chip">City breaks</span>
-            <span class="chip">Business &amp; leisure</span>
-          </div>
-          <div class="card-footer">
-            <span>Live now</span>
-            <a
-              class="btn"
-              href="https://www.agoda.com/de-de/partners/partnersearch.aspx"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View Germany Deals <span>↗</span>
-            </a>
-          </div>
-        </article>
+  <main class="wrapper">
+    <div class="section-title">Top Travel Destinations</div>
+    <div class="section-sub">Select a country to find hotel deals</div>
 
-        <!-- NETHERLANDS -->
-        <article class="card">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=80" alt="Netherlands hotel deals - Amsterdam canal">
-          </div>
-          <h3 class="card-title">Netherlands Hotel Deals</h3>
-          <p class="card-sub">Amsterdam, Rotterdam, The Hague – stay close to canals, culture, and coffee shops.</p>
-          <div class="chip-row">
-            <span class="chip">Netherlands</span>
-            <span class="chip">Canals &amp; cities</span>
-            <span class="chip">Short stays</span>
-          </div>
-          <div class="card-footer">
-            <span>Live now</span>
-            <a
-              class="btn"
-              href="https://www.agoda.com/de-de/partners/partnersearch.aspx"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View Netherlands Deals <span>↗</span>
-            </a>
-          </div>
-        </article>
+    <div class="grid">
 
-        <!-- FRANCE -->
-        <article class="card">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=900&q=80" alt="France hotel deals - Eiffel Tower">
-          </div>
-          <h3 class="card-title">France Hotel Deals</h3>
-          <p class="card-sub">Paris, Nice, Lyon – romantic escapes and city breaks all in one place.</p>
-          <div class="chip-row">
-            <span class="chip">France</span>
-            <span class="chip">Romantic trips</span>
-            <span class="chip">City lights</span>
-          </div>
-          <div class="card-footer">
-            <span>Live now</span>
-            <a
-              class="btn"
-              href="http://www.agoda.com/partners/partnersearch.aspx"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View France Deals <span>↗</span>
-            </a>
-          </div>
-        </article>
+      <a href="/travel/japan.html" class="country-card">
+        <div class="country-name">Japan 🇯🇵</div>
+        <div class="country-desc">Tokyo, Osaka, Kyoto, Sapporo & more.</div>
+        <div class="country-link">View Japan deals →</div>
+      </a>
 
-        <!-- ITALY -->
-        <article class="card">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1506806732259-39c2d0268443?auto=format&fit=crop&w=900&q=80" alt="Italy hotel deals - Colosseum Rome">
-          </div>
-          <h3 class="card-title">Italy Hotel Deals</h3>
-          <p class="card-sub">Rome, Milan, Florence and more – hotels close to food, fashion and history.</p>
-          <div class="chip-row">
-            <span class="chip">Italy</span>
-            <span class="chip">Food &amp; culture</span>
-            <span class="chip">City trips</span>
-          </div>
-          <div class="card-footer">
-            <span>Live now</span>
-            <a
-              class="btn"
-              href="https://www.agoda.com/de-de/partners/partnersearch.aspx"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View Italy Deals <span>↗</span>
-            </a>
-          </div>
-        </article>
+      <a href="/travel/germany.html" class="country-card">
+        <div class="country-name">Germany 🇩🇪</div>
+        <div class="country-desc">Berlin, Munich, Hamburg & more.</div>
+        <div class="country-link">View Germany deals →</div>
+      </a>
 
-        <!-- SPAIN -->
-        <article class="card">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=900&q=80" alt="Spain hotel deals - Barcelona view">
-          </div>
-          <h3 class="card-title">Spain Hotel Deals</h3>
-          <p class="card-sub">Barcelona, Madrid and more – sun, food and city vibes in one place.</p>
-          <div class="chip-row">
-            <span class="chip">Spain</span>
-            <span class="chip">Sun &amp; city</span>
-          </div>
-          <div class="card-footer">
-            <span>Live now</span>
-            <a
-              class="btn"
-              href="http://www.agoda.com/partners/partnersearch.aspx"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View Spain Deals <span>↗</span>
-            </a>
-          </div>
-        </article>
+      <a href="/travel/france.html" class="country-card">
+        <div class="country-name">France 🇫🇷</div>
+        <div class="country-desc">Paris, Nice, Lyon, Marseille & more.</div>
+        <div class="country-link">View France deals →</div>
+      </a>
 
-        <!-- UNITED KINGDOM -->
-        <article class="card">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=900&q=80" alt="United Kingdom hotel deals - London bridge">
-          </div>
-          <h3 class="card-title">United Kingdom Hotel Deals</h3>
-          <p class="card-sub">London, Manchester, Edinburgh – hotels for city breaks and great escapes.</p>
-          <div class="chip-row">
-            <span class="chip">United Kingdom</span>
-            <span class="chip">City breaks</span>
-          </div>
-          <div class="card-footer">
-            <span>Live now</span>
-            <a
-              class="btn"
-              href="http://www.agoda.com/partners/partnersearch.aspx"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View UK Deals <span>↗</span>
-            </a>
-          </div>
-        </article>
-      </section>
-    </main>
+      <a href="/travel/usa.html" class="country-card">
+        <div class="country-name">United States 🇺🇸</div>
+        <div class="country-desc">New York, Las Vegas, LA & more.</div>
+        <div class="country-link">View USA deals →</div>
+      </a>
 
-    <!-- TOP TRAVEL PARTNERS (MOVED HERE, BOTTOM) -->
-    <section class="partners-section">
-      <h2 class="partners-title">🌍 Top Travel Partners</h2>
+      <a href="/travel/australia.html" class="country-card">
+        <div class="country-name">Australia 🇦🇺</div>
+        <div class="country-desc">Sydney, Melbourne, Brisbane & more.</div>
+        <div class="country-link">View Australia deals →</div>
+      </a>
 
-      <div class="partners-grid">
-        <a href="https://www.booking.com/" target="_blank" class="partner-card">
-          <h3>Booking.com</h3>
-          <p>Hotels, apartments &amp; vacation deals worldwide.</p>
-        </a>
+      <a href="/travel/netherlands.html" class="country-card">
+        <div class="country-name">Netherlands 🇳🇱</div>
+        <div class="country-desc">Amsterdam, Rotterdam, Utrecht & more.</div>
+        <div class="country-link">View Netherlands deals →</div>
+      </a>
 
-        <a href="https://www.trip.com/index?locale=en_us" target="_blank" class="partner-card">
-          <h3>Trip.com</h3>
-          <p>Flights, hotels &amp; travel packages at best prices.</p>
-        </a>
+      <a href="/travel/asia.html" class="country-card">
+        <div class="country-name">Asia 🌏</div>
+        <div class="country-desc">Philippines, Thailand, Singapore & more.</div>
+        <div class="country-link">View Asia deals →</div>
+      </a>
 
-        <a href="https://www.hoteles.com" target="_blank" class="partner-card">
-          <h3>Hoteles.com</h3>
-          <p>Hotel bookings with rewards and discounts.</p>
-        </a>
+    </div>
+  </main>
 
-        <a href="https://all.accor.com/usa/index.en.shtml" target="_blank" class="partner-card">
-          <h3>Accor Hotels</h3>
-          <p>Premium hotels &amp; resorts in 110+ countries.</p>
-        </a>
+  <footer>
+    © 2025 GiftCardZoneEU · Agoda Travel Partner
+  </footer>
 
-        <a href="https://www.motel6.com/en/home.html" target="_blank" class="partner-card">
-          <h3>Motel 6</h3>
-          <p>Budget-friendly stays across the USA.</p>
-        </a>
-      </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-      Part of <a href="https://giftcardzoneeu.com/">GiftCardZoneEU.com</a> travel &amp; deals network.
-      Agoda partner page – links may contain affiliate tracking.
-      <br />
-      Extra links: <a href="https://giftcardzoneeu.com/usa.html">USA Hotels</a> ·
-      <a href="https://giftcardzoneeu.com/germany.html">Germany Hotels</a>
-    </footer>
-  </div>
 </body>
 </html>
