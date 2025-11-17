@@ -1,12 +1,309 @@
-     <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Japan TEST</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Japan Hotel Deals | GiftCardZoneEU x Agoda</title>
+  <meta name="description" content="Book top hotel deals in Japan — compare stays across Tokyo, Osaka, Kyoto, Sapporo, Fukuoka and more with Agoda Partners." />
+  <link rel="canonical" href="https://giftcardzoneeu.com/travel/japan.html" />
+
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --accent: #0ea5e9;
+      --accent-strong: #0284c7;
+      --card-bg: #ffffff;
+      --border-light: #e2e8f0;
+      --shadow-soft: 0 14px 28px rgba(15, 23, 42, 0.06);
+      --shadow-hero: 0 45px 60px rgba(0, 0, 0, 0.28);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+    }
+
+    .hero {
+      position: relative;
+      height: 380px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: url('https://images.unsplash.com/photo-1554797589-7241bb691973?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.7));
+    }
+
+    .hero-content {
+      position: relative;
+      text-align: center;
+      max-width: 800px;
+      padding: 0 1.5rem;
+      color: #f8fafc;
+    }
+
+    .hero-title {
+      font-size: 2.6rem;
+      font-weight: 800;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      opacity: 0.9;
+    }
+
+    .card {
+      max-width: 880px;
+      margin: -70px auto 0;
+      background: var(--card-bg);
+      border-radius: 1.4rem;
+      padding: 1.8rem 1.6rem;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 1rem;
+      gap: 0.5rem;
+    }
+
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    .badge {
+      background: var(--accent);
+      color: white;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+    }
+
+    .fields {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      margin-bottom: 1.2rem;
+    }
+
+    .field {
+      background: white;
+      border: 1px solid var(--border-light);
+      border-radius: 0.9rem;
+      padding: 0.7rem 0.9rem;
+    }
+
+    .field-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 0.15rem;
+      text-transform: uppercase;
+    }
+
+    .field-value {
+      font-weight: 600;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .note {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .btn-search {
+      display: inline-flex;
+      padding: 0.9rem 1.5rem;
+      border-radius: 999px;
+      background: var(--accent-strong);
+      color: white;
+      font-weight: 600;
+      font-size: 0.92rem;
+      text-decoration: none;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 3rem auto 4rem;
+      padding: 0 1.5rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-sub {
+      text-align: center;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .city-card {
+      display: block;
+      background: white;
+      border-radius: 1.2rem;
+      border: 1px solid var(--border-light);
+      padding: 1.2rem 1rem;
+      text-decoration: none;
+      color: inherit;
+      transition: 0.22s ease;
+    }
+
+    .city-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    }
+
+    .city-name {
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .city-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.6rem;
+      line-height: 1.4;
+    }
+
+    .city-link {
+      font-weight: 600;
+      color: var(--accent-strong);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      border-top: 1px solid var(--border-light);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+  </style>
 </head>
-<body style="background:#111827;color:#f9fafb;font-family:system-ui;padding:40px;">
-  <h1>Japan TEST PAGE</h1>
-  <p>Kung nakikita mo ito, ok si japan.html at hosting. HTML lang ang issue kanina.</p>
+
+<body>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-title">Discover Japan</div>
+      <div class="hero-sub">Book hotels across Tokyo, Osaka, Kyoto, Sapporo & more via Agoda Partners</div>
+    </div>
+  </section>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Search for hotels in Japan</div>
+      <div class="badge">GiftCardZoneEU x Agoda</div>
+    </div>
+
+    <div class="fields">
+      <div class="field">
+        <div class="field-label">Destination</div>
+        <div class="field-value">Japan (Tokyo, Osaka, Kyoto…)</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Check-in</div>
+        <div class="field-value">Select date</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Check-out</div>
+        <div class="field-value">Select date</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Guests</div>
+        <div class="field-value">2 adults · 1 room</div>
+      </div>
+    </div>
+
+    <div class="card-footer">
+      <div class="note">Select dates on Agoda · Opens in new tab</div>
+      <a href="https://www.agoda.com/partners/partnersearch.aspx?city=Tokyo" target="_blank" class="btn-search">
+        🔍 Search hotels
+      </a>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="section-title">Top cities to stay in Japan</div>
+    <div class="section-sub">Explore the best deals from Agoda Travel Partners</div>
+
+    <div class="grid">
+      <a href="https://www.agoda.com/partners/partnersearch.aspx?city=Tokyo" class="city-card">
+        <div class="city-name">Tokyo</div>
+        <div class="city-desc">Neon, food, tech, temples & skyscrapers.</div>
+        <div class="city-link">View Tokyo deals →</div>
+      </a>
+
+      <a href="https://www.agoda.com/partners/partnersearch.aspx?city=Osaka" class="city-card">
+        <div class="city-name">Osaka</div>
+        <div class="city-desc">Nightlife, street food & Dotonbori lights.</div>
+        <div class="city-link">View Osaka deals →</div>
+      </a>
+
+      <a href="https://www.agoda.com/partners/partnersearch.aspx?city=Kyoto" class="city-card">
+        <div class="city-name">Kyoto</div>
+        <div class="city-desc">Temples, shrines & traditional Japan.</div>
+        <div class="city-link">View Kyoto deals →</div>
+      </a>
+
+      <a href="https://www.agoda.com/partners/partnersearch.aspx?city=Sapporo" class="city-card">
+        <div class="city-name">Sapporo</div>
+        <div class="city-desc">Snow festivals, skiing & ramen.</div>
+        <div class="city-link">View Sapporo deals →</div>
+      </a>
+
+      <a href="https://www.agoda.com/partners/partnersearch.aspx?city=Fukuoka" class="city-card">
+        <div class="city-name">Fukuoka</div>
+        <div class="city-desc">Coastal city with great food & shopping.</div>
+        <div class="city-link">View Fukuoka deals →</div>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 GiftCardZoneEU · Agoda Travel Partner
+  </footer>
+
 </body>
 </html>
- 
