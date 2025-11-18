@@ -1,153 +1,248 @@
-        <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Australia Hotel Deals | GiftCardZoneEU x Agoda</title>
-  <meta name="description" content="Find the best hotel deals across Australia – Sydney, Melbourne, Brisbane, Perth and more via Agoda Partners." />
-  <meta name="keywords" content="Australia hotel deals, Sydney hotels, Melbourne hotels, Brisbane hotels, Agoda Australia, Perth hotels" />
+  <meta name="description" content="Find hotel deals across Australia – Sydney, Melbourne, Brisbane, Perth and more via Agoda Partners × GiftCardZoneEU Travel." />
+  <link rel="canonical" href="https://giftcardzoneeu.com/travel/australia/" />
 
-  <!-- OG -->
-  <meta property="og:title" content="Top Australia Hotel Deals | Compare & Book" />
-  <meta property="og:description" content="Discover hotel deals across Australia. Compare hotel prices in Sydney, Melbourne, Perth, Brisbane and more." />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=1600&q=90" />
-  <meta property="og:url" content="https://giftcardzoneeu.com/travel/australia/" />
-  <meta property="og:type" content="website" />
-<!-- GEO REDIRECT FIX -->
-<script>
-(function () {
-  fetch("https://ipapi.co/json/")
-    .then(r => r.json())
-    .then(data => {
-      const country = data && data.country ? data.country : "";
-
-      // Countries allowed to STAY here
-      const allowed = ["DE", "NL", "US", "AU", "PH", "JP"];
-
-      if (country && !allowed.includes(country)) {
-        if (!window.location.href.includes("/go/global-router")) {
-          window.location.replace("https://giftcardzoneeu.com/go/global-router");
-        }
-      } else {
-        console.log("Stay on Australia page:", country);
-      }
-    })
-    .catch(err => {
-      console.warn("Geo API failed, NOT redirecting.", err);
-    });
-})();
-</script>
   <style>
-    body {
-      margin:0;
-      background:#050816;
-      color:#f9fafb;
-      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    :root {
+      --bg-start: #020617;
+      --bg-mid: #020617;
+      --bg-end: #000814;
+      --card-bg: rgba(15, 23, 42, 0.96);
+      --card-border: rgba(148, 163, 184, 0.4);
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.2);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
     }
-    .page { max-width:1100px; margin:auto; padding:2rem 1.5rem; }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text-main);
+      background:
+        radial-gradient(circle at top, #0f172a 0, transparent 55%),
+        radial-gradient(circle at bottom, rgba(56,189,248,.16), transparent 60%),
+        linear-gradient(to bottom, var(--bg-start), var(--bg-mid), var(--bg-end));
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      padding: 24px 12px;
+    }
+
+    main.page {
+      width: 100%;
+      max-width: 1120px;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 900px) {
+      body { padding: 18px 12px 28px; }
+      main.page {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    /* HERO / LEFT SIDE */
 
     .hero {
-      text-align:center;
-      padding:4rem 1rem 3rem;
-      background-image:url('https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=1600&q=90');
-      background-size:cover;
-      background-position:center;
-      border-radius:1rem;
-    }
-    .hero h1 {
-      font-size:clamp(2rem,4vw,2.7rem);
-      font-weight:700;
-      text-shadow:0 3px 14px rgba(0,0,0,0.55);
+      position: relative;
+      border-radius: 24px;
+      border: 1px solid var(--card-border);
+      background:
+        radial-gradient(circle at top left, rgba(56,189,248,.23), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(37,99,235,.22), transparent 55%),
+        #020617;
+      padding: 22px 22px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
     }
 
-    .grid {
-      display:grid;
-      gap:1.5rem;
-      margin-top:2rem;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.45);
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
     }
+
+    .hero-title {
+      font-size: clamp(1.8rem, 2.3vw, 2.2rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+
+    .hero-title span {
+      background: linear-gradient(to right, #facc15, #22c55e, #38bdf8);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-text {
+      margin: 0;
+      font-size: 0.92rem;
+      line-height: 1.5;
+      color: var(--text-muted);
+      max-width: 36rem;
+    }
+
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 6px;
+      font-size: 0.85rem;
+    }
+
+    .hero-pill {
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.5);
+    }
+
+    .hero-panel {
+      margin-top: 4px;
+      border-radius: 18px;
+      border: 1px solid rgba(148,163,184,0.4);
+      background: radial-gradient(circle at top, rgba(56,189,248,0.18), transparent 55%),
+                  rgba(15,23,42,0.96);
+      padding: 14px 14px 13px;
+    }
+
+    .hero-panel h2 {
+      margin: 0 0 4px;
+      font-size: 1rem;
+    }
+
+    .hero-panel p {
+      margin: 0;
+      font-size: 0.8rem;
+      color: #cbd5f5;
+    }
+
+    .hero-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-top: 8px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+
+    .hero-trust {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .hero-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34,197,94,0.25);
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* RIGHT SIDE CARDS */
+
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
     .card {
-      background:#111827;
-      border-radius:1rem;
-      padding:1rem;
-      border:1px solid rgba(148,163,184,0.35);
-    }
-    .card img {
-      width:100%;
-      border-radius:0.8rem;
-      height:150px;
-      object-fit:cover;
-      display:block;
+      background: var(--card-bg);
+      border-radius: 20px;
+      border: 1px solid var(--card-border);
+      padding: 14px 15px 13px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
 
-    .btn {
-      display:inline-block;
-      background:linear-gradient(135deg,#36b8fa,#6366f1);
-      padding:0.8rem 1.3rem;
-      border-radius:0.7rem;
-      margin-top:0.7rem;
-      font-weight:600;
-      text-decoration:none;
-      color:white;
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
     }
 
-    footer {
-      text-align:center;
-      margin-top:3rem;
-      font-size:0.8rem;
-      opacity:0.7;
+    .card-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+      margin: 0;
     }
-    footer a { color:#38bdf8; text-decoration:none; }
-  </style>
 
-</head>
-<body>
+    .card-tag {
+      font-size: 0.72rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #e0f2fe;
+      border: 1px solid rgba(56,189,248,0.45);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
 
-<div class="page">
+    .card p {
+      margin: 0;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
 
-  <section class="hero">
-    <h1>Explore Top Australia Hotel Deals 🇦🇺</h1>
-    <p>Compare hotel prices in Sydney, Melbourne, Brisbane, Perth & more.</p>
-  </section>
+    .city-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
 
-  <div class="grid">
+    .city-pill {
+      flex: 1 1 90px;
+      font-size: 0.78rem;
+      padding: 7px 9px;
+      border-radius: 999px;
+      background: #020617;
+      border: 1px solid rgba(148,163,184,0.55);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 6px;
+    }
 
-    <!-- SYDNEY -->
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?auto=format&fit=crop&w=800&q=60" alt="Sydney Harbour at night">
-      <h3>Sydney Hotels</h3>
-      <a class="btn" target="_blank" href="https://www.agoda.com/partners/partnersearch.aspx?cid=2032145&city=4064">View Deals</a>
-    </div>
+    .city-pill span {
+      opacity: 0.9;
+    }
 
-    <!-- MELBOURNE (same image for now) -->
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?auto=format&fit=crop&w=800&q=60" alt="Melbourne Hotels">
-      <h3>Melbourne Hotels</h3>
-      <a class="btn" target="_blank" href="https://www.agoda.com/partners/partnersearch.aspx?cid=2032145&city=2594">View Deals</a>
-    </div>
-
-    <!-- BRISBANE (same image for now) -->
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?auto=format&fit=crop&w=800&q=60" alt="Brisbane Hotels">
-      <h3>Brisbane Hotels</h3>
-      <a class="btn" target="_blank" href="https://www.agoda.com/partners/partnersearch.aspx?cid=2032145&city=784">View Deals</a>
-    </div>
-
-    <!-- PERTH (same image for now) -->
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?auto=format&fit=crop&w=800&q=60" alt="Perth Hotels">
-      <h3>Perth Hotels</h3>
-      <a class="btn" target="_blank" href="https://www.agoda.com/partners/partnersearch.aspx?cid=2032145&city=1815">View Deals</a>
-    </div>
-
-  </div>
-
-  <footer>
-    Powered by <a href="https://giftcardzoneeu.com/">GiftCardZoneEU</a> × Agoda Partners
-  </footer>
-
-</div>
-
-</body>
-</html>
+    .city-pill small {
+      font-size: 0.6
