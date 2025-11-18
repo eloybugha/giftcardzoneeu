@@ -140,51 +140,84 @@
       gap:1.4rem;
     }
 
-    .card{
+    /* NEW DEAL CARD STYLE (UNIFORM FOR ALL CITIES) */
+    .deal-card{
       background:var(--card);
       border-radius:var(--radius);
-      overflow:hidden;
       box-shadow:var(--shadow);
-      display:flex;
-      flex-direction:column;
+      overflow:hidden;
       transition:transform .18s ease,box-shadow .18s ease;
+      display:flex;
     }
-    .card:hover{
+    .deal-card:hover{
       transform:translateY(-4px);
       box-shadow:0 18px 45px rgba(15,23,42,.16);
     }
-    .card img{
+    .deal-card-inner{
+      display:flex;
+      flex-direction:column;
+      height:100%;
       width:100%;
-      height:160px;
+    }
+    .card-image img{
+      width:100%;
+      height:170px;
       object-fit:cover;
       display:block;
     }
-    .card-body{
-      padding:1rem 1.15rem 1.2rem;
+    .card-content{
+      padding:1rem 1.15rem .95rem;
       display:flex;
       flex-direction:column;
-      gap:.35rem;
+      gap:.4rem;
     }
     .card-title{
       font-size:1.05rem;
       font-weight:700;
     }
-    .card-text{
+    .card-description{
       font-size:.88rem;
       color:var(--muted);
-      margin-bottom:.5rem;
+    }
+    .card-chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.4rem;
+      margin-top:.4rem;
+      margin-bottom:.4rem;
+    }
+    .chip{
+      font-size:.75rem;
+      padding:.2rem .55rem;
+      border-radius:999px;
+      background:#eff6ff;
+      color:#1d4ed8;
+      border:1px solid rgba(191,219,254,.8);
+      white-space:nowrap;
+    }
+    .card-footer{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0 1.15rem 1rem;
+      gap:.75rem;
+      margin-top:auto;
+    }
+    .card-status{
+      font-size:.78rem;
+      color:var(--muted);
     }
 
     .btn{
       display:inline-block;
-      padding:.55rem 1.1rem;
+      padding:.5rem 1.1rem;
       border-radius:999px;
       background:var(--accent);
       color:#fff;
       text-decoration:none;
-      font-size:.9rem;
+      font-size:.85rem;
       font-weight:600;
-      align-self:flex-start;
+      white-space:nowrap;
       transition:background .15s ease;
     }
     .btn:hover{background:var(--accent-dark);}
@@ -203,6 +236,10 @@
 
     @media(max-width:640px){
       .hero-content{padding:2.2rem 1.4rem;}
+      .card-footer{
+        flex-direction:column;
+        align-items:flex-start;
+      }
     }
   </style>
 </head>
@@ -241,98 +278,121 @@
 
       <div class="grid">
 
+        <!-- NEW YORK -->
         <article class="deal-card">
-  <div class="deal-card-inner">
-    <div class="card-image">
-      <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1200&q=80"
-           alt="New York City skyline at night">
-    </div>
-    <h3 class="card-title">New York Hotel Deals</h3>
-    <p class="card-description">
-      Times Square, Central Park, Broadway and more — compare hotel prices across
-      New York City and find the stay that fits your trip.
-    </p>
-    <div class="card-chips">
-      <span class="chip">New York</span>
-      <span class="chip">City trips</span>
-      <span class="chip">Nightlife</span>
-    </div>
-    <div class="card-footer">
-      <span class="card-status">Live now</span>
-      <a class="btn"
-         href="AGODA_LINK_FOR_NEW_YORK"
-         target="_blank" rel="noopener noreferrer">
-        View New York Deals ↗
-      </a>
-    </div>
-  </div>
-</article>
+          <div class="deal-card-inner">
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1200&q=80"
+                   alt="New York City skyline at night">
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">New York Hotel Deals</h3>
+              <p class="card-description">
+                Times Square, Central Park, Broadway and more — compare hotel prices across
+                New York City and find the stay that fits your trip.
+              </p>
+              <div class="card-chips">
+                <span class="chip">New York</span>
+                <span class="chip">City trips</span>
+                <span class="chip">Nightlife</span>
+              </div>
+            </div>
+            <div class="card-footer">
+              <span class="card-status">Live now</span>
+              <a class="btn"
+                 href="AGODA_LINK_FOR_NEW_YORK"
+                 target="_blank" rel="noopener noreferrer">
+                View New York deals ↗
+              </a>
+            </div>
+          </div>
+        </article>
 
-               <article class="deal-card">
-  <div class="deal-card-inner">
-    <div class="card-image">
-      <img src="https://images.unsplash.com/photo-1518300670681-9bbd45a4a74b?auto=format&fit=crop&w=1200&q=80"
-           alt="Las Vegas Strip at night">
-    </div>
-    <h3 class="card-title">Las Vegas Hotel Deals</h3>
-    <p class="card-description">
-      Casinos, shows and nightlife on the Strip — compare hotel deals in Las Vegas and
-      get more value for your stay.
-    </p>
-    <div class="card-chips">
-      <span class="chip">Las Vegas</span>
-      <span class="chip">Casinos &amp; shows</span>
-      <span class="chip">Nightlife</span>
-    </div>
-    <div class="card-footer">
-      <span class="card-status">Live now</span>
-      <a class="btn"
-         href="AGODA_LINK_FOR_LAS_VEGAS"
-         target="_blank" rel="noopener noreferrer">
-        View Las Vegas Deals ↗
-      </a>
-    </div>
-  </div>
-</article>
+        <!-- LAS VEGAS -->
+        <article class="deal-card">
+          <div class="deal-card-inner">
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1518300670681-9bbd45a4a74b?auto=format&fit=crop&w=1200&q=80"
+                   alt="Las Vegas Strip at night">
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Las Vegas Hotel Deals</h3>
+              <p class="card-description">
+                Casinos, shows and nightlife on the Strip — compare hotel deals in Las Vegas and
+                get more value for your stay.
+              </p>
+              <div class="card-chips">
+                <span class="chip">Las Vegas</span>
+                <span class="chip">Casinos &amp; shows</span>
+                <span class="chip">Nightlife</span>
+              </div>
+            </div>
+            <div class="card-footer">
+              <span class="card-status">Live now</span>
+              <a class="btn"
+                 href="AGODA_LINK_FOR_LAS_VEGAS"
+                 target="_blank" rel="noopener noreferrer">
+                View Las Vegas deals ↗
+              </a>
+            </div>
+          </div>
+        </article>
 
         <!-- LOS ANGELES -->
         <article class="deal-card">
-  <div class="deal-card-inner">
-    <div class="card-image">
-      <img src="https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=1200&q=80"
-           alt="Los Angeles coastline and city lights">
-    </div>
-    <h3 class="card-title">Los Angeles Hotel Deals</h3>
-    <p class="card-description">
-      From Hollywood to Santa Monica — discover hotel deals across Los Angeles for
-      both beach days and city nights.
-    </p>
-    <div class="card-chips">
-      <span class="chip">Los Angeles</span>
-      <span class="chip">Beaches</span>
-      <span class="chip">City &amp; culture</span>
-    </div>
-    <div class="card-footer">
-      <span class="card-status">Live now</span>
-      <a class="btn"
-         href="AGODA_LINK_FOR_LOS_ANGELES"
-         target="_blank" rel="noopener noreferrer">
-        View Los Angeles Deals ↗
-      </a>
-    </div>
-  </div>
-</article>
+          <div class="deal-card-inner">
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=1200&q=80"
+                   alt="Los Angeles coastline and city lights">
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Los Angeles Hotel Deals</h3>
+              <p class="card-description">
+                From Hollywood to Santa Monica — discover hotel deals across Los Angeles for
+                both beach days and city nights.
+              </p>
+              <div class="card-chips">
+                <span class="chip">Los Angeles</span>
+                <span class="chip">Beaches</span>
+                <span class="chip">City &amp; culture</span>
+              </div>
+            </div>
+            <div class="card-footer">
+              <span class="card-status">Live now</span>
+              <a class="btn"
+                 href="AGODA_LINK_FOR_LOS_ANGELES"
+                 target="_blank" rel="noopener noreferrer">
+                View Los Angeles deals ↗
+              </a>
+            </div>
+          </div>
+        </article>
 
         <!-- MIAMI -->
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1502920917128-1aa500764b68?auto=format&fit=crop&w=900&q=80" alt="Miami beach with palm trees">
-          <div class="card-body">
-            <h3 class="card-title">Miami</h3>
-            <p class="card-text">Warm beaches and nightlife — find stays close to the action.</p>
-            <a class="btn" target="_blank"
-               href="https://www.agoda.com/partners/partnersearch.aspx?cid=2032145&city=630">
-              View Miami deals
-            </a>
+        <article class="deal-card">
+          <div class="deal-card-inner">
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1502920917128-1aa500764b68?auto=format&fit=crop&w=1200&q=80"
+                   alt="Miami beach with palm trees">
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Miami Hotel Deals</h3>
+              <p class="card-description">
+                Warm beaches and nightlife — find stays close to the action in Miami and Miami Beach.
+              </p>
+              <div class="card-chips">
+                <span class="chip">Miami</span>
+                <span class="chip">Beaches</span>
+                <span class="chip">Nightlife</span>
+              </div>
+            </div>
+            <div class="card-footer">
+              <span class="card-status">Live now</span>
+              <a class="btn" target="_blank" rel="noopener noreferrer"
+                 href="https://www.agoda.com/partners/partnersearch.aspx?cid=2032145&city=630">
+                View Miami deals ↗
+              </a>
+            </div>
           </div>
         </article>
 
