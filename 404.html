@@ -1,48 +1,30 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Redirecting…</title>
-  <meta name="robots" content="noindex" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <script>
-    (function(){
-      var path = location.pathname;
-      var match = path.match(/^\/country\/([a-z]{2})\/apps/i);
-      if(match){
-        // redirect to main global apps page
-        location.replace("/apps.html?cc=" + match[1].toLowerCase());
-        return;
-      }
-    })();
-  </script>
+  <meta charset="UTF-8">
+  <title>404 - Page Not Found | GiftCardZoneEU</title>
+  <meta name="robots" content="noindex">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif;
-      background: #0b0f14;
-      color: #e5e7eb;
-      padding: 24px;
-      text-align: center;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:#0f172a;
+      color:#e5e7eb;
+      text-align:center;
+      padding:60px 20px;
     }
-    .box {
-      background: #111827;
-      border: 1px solid #1f2937;
-      border-radius: 14px;
-      padding: 20px;
-      max-width: 480px;
-      margin: 80px auto;
-    }
+    h1 { font-size: 2rem; margin-bottom: 0.75rem; }
+    p { margin: 0.4rem 0; }
     a {
-      color: #22c55e;
-      text-decoration: none;
-      font-weight: 600;
+      color:#38bdf8;
+      text-decoration:none;
+      font-weight:500;
     }
   </style>
 </head>
 <body>
-  <div class="box">
-    <h1>Redirecting…</h1>
-    <p>If not redirected automatically, <a href="/apps.html">click here to open global apps page</a>.</p>
-  </div>
+  <h1>404 – Page Not Found</h1>
+  <p>Oops! The page you're looking for doesn't exist.</p>
+  <p><a href="/">⬅ Back to GiftCardZoneEU Home</a></p>
 </body>
 </html>
