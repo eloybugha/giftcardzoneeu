@@ -1,20 +1,87 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Redirecting to USA Hotel Deals</title>
-  <meta http-equiv="refresh" content="0; url=/usa.html" />
-  <script>
-    window.location.replace("/usa.html");
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>USA Hotel Deals | GiftCardZoneEU x Agoda</title>
+  <meta name="description" content="Find the best hotel deals in the United States – New York, Las Vegas, Los Angeles, Miami & more via Agoda Partners." />
+  <meta name="keywords" content="USA hotel deals, New York hotels, Las Vegas hotels, Los Angeles hotels, Miami hotels, Agoda USA" />
+
+  <!-- OG -->
+  <meta property="og:title" content="Top USA Hotel Deals | GiftCardZoneEU Travel" />
+  <meta property="og:description" content="Compare hotel prices in New York, Los Angeles, Las Vegas, Miami & more." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1600&q=90" />
+  <meta property="og:url" content="https://giftcardzoneeu.com/travel/usa/" />
+  <meta property="og:type" content="website" />
+
+  <style>
+    body {margin:0;background:#050816;color:#f9fafb;font-family:system-ui;}
+    .page {max-width:1100px;margin:auto;padding:2rem 1.5rem;}
+
+    .hero {
+      text-align:center;
+      padding:4rem 1rem 3rem;
+      background-image:url('https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1600&q=80');
+      background-size:cover;
+      background-position:center;
+      border-radius:1rem;
+    }
+    .hero h1 {font-size:clamp(2rem,4vw,2.7rem);font-weight:700;text-shadow:0 3px 14px rgba(0,0,0,0.55);}
+
+    .grid {display:grid;gap:1.5rem;margin-top:2rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+
+    .card {background:#111827;border-radius:1rem;padding:1rem;border:1px solid rgba(148,163,184,0.35);}
+    .card img {width:100%;border-radius:0.8rem;height:150px;object-fit:cover;display:block;}
+
+    .btn {display:inline-block;background:linear-gradient(135deg,#36b8fa,#6366f1);
+      padding:0.8rem 1.3rem;border-radius:0.7rem;margin-top:0.7rem;font-weight:600;color:white;text-decoration:none;}
+
+    footer {text-align:center;margin-top:2rem;font-size:0.8rem;opacity:0.7;}
+    footer a {color:#38bdf8;text-decoration:none;}
+  </style>
+
 </head>
-<body style="margin:0;font-family:system-ui;background:#020617;color:#e5e7eb;display:flex;align-items:center;justify-content:center;height:100vh;">
-  <div>
-    <h1 style="font-size:1.4rem;margin-bottom:0.5rem;">Redirecting…</h1>
-    <p>If not redirected automatically,
-      <a href="/usa.html" style="color:#38bdf8;">click here</a>.
-    </p>
+<body>
+
+<div class="page">
+
+  <section class="hero">
+    <h1>Top USA Hotel Deals 🇺🇸</h1>
+    <p>Compare hotel prices in New York, Las Vegas, Los Angeles, Miami & more.</p>
+  </section>
+
+  <div class="grid">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=60" alt="New York">
+      <h3>New York Hotels</h3>
+      <a class="btn" target="_blank" href="https://www.agoda.com/partners/partnersearch.aspx?cid=2032145&city=318">View Deals</a>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=900&q=60" alt="Las Vegas">
+      <h3>Las Vegas Hotels</h3>
+      <a class="btn" target="_blank" href="https://www.agoda.com/partners/partnersearch.aspx?cid=2032145&city=387">View Deals</a>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=900&q=60" alt="Los Angeles">
+      <h3>Los Angeles Hotels</h3>
+      <a class="btn" target="_blank" href="https://www.agoda.com/partners/partnersearch.aspx?cid=2032145&city=224">View Deals</a>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1558981403-c5f989f7093b?auto=format&fit=crop&w=900&q=60" alt="Miami">
+      <h3>Miami Hotels</h3>
+      <a class="btn" target="_blank" href="https://www.agoda.com/partners/partnersearch.aspx?cid=2032145&city=630">View Deals</a>
+    </div>
+
   </div>
+
+  <footer>Powered by <a href="/">GiftCardZoneEU</a> × Agoda Partners</footer>
+
+</div>
+
 </body>
 </html>
