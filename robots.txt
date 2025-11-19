@@ -3,14 +3,6 @@
 # ============================
 
 User-agent: *
-# Allow main sections
-Allow: /$
-Allow: /deals/
-Allow: /go/
-Allow: /partners/
-Allow: /country/
-Allow: /assets/
-
 # Block duplicate and useless parameter URLs
 Disallow: /*?q=
 Disallow: /*?ref=
@@ -28,5 +20,8 @@ Disallow: /search
 Disallow: /tag/
 Disallow: /category/
 
-# Sitemap for Google
+# Yandex-specific requirement
+Host: giftcardzoneeu.com
+
+# Sitemap (works for all search engines)
 Sitemap: https://giftcardzoneeu.com/sitemap.xml
