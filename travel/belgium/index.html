@@ -1,1 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Belgium Hotel Deals | GiftCardZoneEU × Agoda</title>
+  <meta name="description" content="Find the best hotel deals in Belgium — Brussels, Bruges, Antwerp, Ghent and more via Agoda partners with GiftCardZoneEU Travel." />
+  <link rel="canonical" href="https://giftcardzoneeu.com/travel/belgium/" />
+
+  <meta property="og:title" content="Belgium Hotel Deals | GiftCardZoneEU Travel" />
+  <meta property="og:description" content="Compare hotel prices in Brussels, Bruges, Antwerp, Ghent and more via Agoda travel partners." />
+  <meta property="og:url" content="https://giftcardzoneeu.com/travel/belgium/" />
+  <meta property="og:type" content="website" />
+
+  <style>
+    :root {
+      --bg: #020617;
+      --overlay: rgba(15, 23, 42, 0.90);
+      --card-bg: rgba(15, 23, 42, 0.96);
+      --card-border: rgba(148, 163, 184, 0.35);
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.18);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+    }
+
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: system-ui, sans-serif;
+      color: var(--text-main);
+      background:
+        radial-gradient(circle at top, #0f172a 0, #020617 55%, #020617 100%),
+        url("https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=1600&q=80")
+          center/cover fixed no-repeat;
+      background-attachment: fixed;
+    }
+
+    .backdrop {
+      min-height: 100vh;
+      background: linear-gradient(to bottom,
+        rgba(15, 23, 42, 0.86),
+        rgba(15, 23, 42, 0.94)
+      );
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(15, 23, 42, 0.92);
+      border-bottom: 1px solid rgba(148,163,184,0.45);
+    }
+
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand { display: flex; align-items: center; gap: 0.6rem; }
+    .brand span.logo {
+      width: 32px; height: 32px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(148,163,184,0.6);
+      background: radial-gradient(circle, #38bdf8, #0f172a 60%, #020617);
+      font-size: 0.8rem;
+    }
+
+    .nav-tags { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+    .nav-pill {
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.6);
+      padding: 0.2rem 0.65rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      padding: 0.2rem 0.65rem;
+      border-radius: 999px;
+    }
+
+    .nav-link:hover {
+      color: #fff;
+      background: rgba(15,23,42,0.85);
+      border: 1px solid rgba(148,163,184,0.7);
+    }
+
+    /* Layout */
+    main { flex: 1; }
+
+    .shell {
+      max-width: 1120px;
+      padding: 1.8rem 1.25rem 2.2rem;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 1.4fr;
+      gap: 1.6rem;
+    }
+
+    @media(max-width: 900px) {
+      .shell { grid-template-columns: 1fr; }
+    }
+
+    /* Hero section */
+    .hero {
+      padding: 1.3rem;
+      background: rgba(15,23,42,0.96);
+      border: 1px solid rgba(148,163,184,0.5);
+      border-radius: 1rem;
+    }
+
+    .pill-top {
+      background: rgba(15,23,42,0.92);
+      border: 1px solid rgba(148,163,184,0.6);
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.2rem 0.65rem;
+      font-size: 0.78rem;
+      margin-bottom: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    h1 { font-size: 1.9rem; margin-bottom: 0.4rem; }
+    .hero-sub { color: var(--text-muted); font-size: 0.97rem; margin-bottom: 0.9rem; }
+    .city-line { color: #cbd5e1; font-size: 0.82rem; margin-bottom: 1rem; }
+
+    .trust-main {
+      padding: 0.4rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.7);
+      background: rgba(15,23,42,0.98);
+      display: inline-flex;
+      gap: 0.45rem;
+      font-size: 0.82rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .trust-row { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .trust-pill {
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.92);
+      border: 1px solid rgba(148,163,184,0.45);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .btn-main {
+      display: flex;
+      justify-content: center;
+      padding: 0.55rem 0.8rem;
+      font-weight: 600;
+      background: var(--accent);
+      color: #0f172a;
+      border-radius: 0.6rem;
+      text-decoration: none;
+      margin-top: 0.9rem;
+      font-size: 0.88rem;
+    }
+
+    /* Right grid panel */
+    .grid-panel {
+      background: rgba(15,23,42,0.96);
+      padding: 1.3rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(148,163,184,0.5);
+    }
+
+    .grid-title { font-size: 1rem; font-weight: 600; }
+    .grid-caption { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 1rem; }
+
+    .hotel-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 0.9rem;
+    }
+
+    .card {
+      padding: 0.9rem;
+      border-radius: 0.9rem;
+      border: 1px solid var(--card-border);
+      background: var(--card-bg);
+    }
+
+    .card-label { font-size: 0.72rem; color: var(--text-muted); margin-bottom: 0.35rem; }
+    .card h3 { font-size: 1rem; margin-bottom: 0.3rem; }
+    .card p { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.6rem; }
+
+    .pill-row { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.6rem; }
+    .pill {
+      font-size: 0.72rem;
+      padding: 0.18rem 0.45rem;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.5);
+      color: var(--text-muted);
+    }
+
+    .btn {
+      display: block;
+      text-align: center;
+      padding: 0.5rem 0;
+      background: var(--accent-soft);
+      border-radius: 0.6rem;
+      border: 1px solid var(--accent);
+      text-decoration: none;
+      font-size: 0.82rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .btn:hover { background: var(--accent); color: #0f172a; }
+
+    /* Footer */
+    footer {
+      margin-top: 0.6rem;
+      padding: 1.8rem 1rem;
+      background: rgba(2,6,23,0.75);
+      text-align: center;
+      border-top: 1px solid rgba(148,163,184,0.4);
+      color: #cbd5e1;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #38bdf8;
+      text-decoration: none;
+      margin: 0 0.8rem;
+    }
+  </style>
+</head>
+<body>
+
+<div class="backdrop">
+
+<header>
+  <div class="nav-inner">
+    <div class="brand">
+      <span class="logo">GCZ</span>
+      <div>
+        GiftCardZoneEU Travel
+        <br/><small>Belgium Hotel Deals</small>
+      </div>
+    </div>
+
+    <div class="nav-tags">
+      <div class="nav-pill"><strong>Travel</strong> · Agoda Partners</div>
+      <a href="/travel/" class="nav-link">All Countries</a>
+      <a href="/" class="nav-link">Home</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="shell">
+
+    <!-- LEFT -->
+    <div class="hero">
+      <div class="pill-top">🇧🇪 Live price comparison: Belgium</div>
+
+      <h1>Belgium Hotel Deals</h1>
+      <p class="hero-sub">
+        Compare hotel prices in Brussels, Bruges, Antwerp, Ghent and more.
+      </p>
+      <p class="city-line">
+        Popular areas: Grand Place · Bruges Old Town · Antwerp Centre · Ghent Historic Area
+      </p>
+
+      <div class="trust-main">⭐ Trusted Agoda Partner</div>
+      <div class="trust-row">
+        <div class="trust-pill">✔ Secure Booking</div>
+        <div class="trust-pill">✔ No Hidden Fees</div>
+        <div class="trust-pill">✔ Best Price Finder</div>
+        <div class="trust-pill">✔ Official Agoda Links</div>
+      </div>
+
+      <a class="btn-main"
+         href="https://www.agoda.com/search?country=BE"
+         target="_blank">Open Belgium Hotel Search</a>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="grid-panel">
+      <div class="grid-title">Featured Cities in Belgium</div>
+      <div class="grid-caption">Tap a city to view available hotels powered by Agoda.</div>
+
+      <div class="hotel-grid">
+
+        <article class="card">
+          <div class="card-label">Capital City</div>
+          <h3>Brussels</h3>
+          <p>Hotels near Grand Place, EU District, central museums and parks.</p>
+          <div class="pill-row">
+            <span class="pill">Grand Place</span>
+            <span class="pill">EU District</span>
+            <span class="pill">City Centre</span>
+          </div>
+          <a class="btn" href="https://www.agoda.com/search?city=17269" target="_blank">View Brussels deals →</a>
+        </article>
+
+        <article class="card">
+          <div class="card-label">Historic Town</div>
+          <h3>Bruges</h3>
+          <p>Stay near canals, old town squares and iconic belgian heritage sites.</p>
+          <div class="pill-row">
+            <span class="pill">Old Town</span>
+            <span class="pill">Canals</span>
+            <span class="pill">Squares</span>
+          </div>
+          <a class="btn" href="https://www.agoda.com/search?city=17267" target="_blank">View Bruges deals →</a>
+        </article>
+
+        <article class="card">
+          <div class="card-label">Art & Fashion</div>
+          <h3>Antwerp</h3>
+          <p>Book stays near Antwerp Central Station, shopping areas and museums.</p>
+          <div class="pill-row">
+            <span class="pill">Central Station</span>
+            <span class="pill">Shopping</span>
+            <span class="pill">Museums</span>
+          </div>
+          <a class="btn" href="https://www.agoda.com/search?city=17266" target="_blank">View Antwerp deals →</a>
+        </article>
+
+        <article class="card">
+          <div class="card-label">Canals & Castles</div>
+          <h3>Ghent</h3>
+          <p>Hotels near medieval castles, riverside views and historic town areas.</p>
+          <div class="pill-row">
+            <span class="pill">Historic Centre</span>
+            <span class="pill">Castles</span>
+            <span class="pill">Riverside</span>
+          </div>
+          <a class="btn" href="https://www.agoda.com/search?city=17268" target="_blank">View Ghent deals →</a>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer>
+  <h3>GiftCardZoneEU Travel</h3>
+  <p>
+    GiftCardZoneEU Travel compares hotel prices using official Agoda partner links.
+    All bookings are processed securely on Agoda’s website.
+  </p>
+  <a href="/privacy/">Privacy</a>
+  <a href="/terms/">Terms</a>
+  <a href="/contact/">Contact</a>
+  <p style="margin-top:1rem;opacity:0.8;font-size:0.82rem;">
+    © 2025 GiftCardZoneEU.com — All Rights Reserved.
+  </p>
+</footer>
+
+</div>
+</body>
+</html>
 
