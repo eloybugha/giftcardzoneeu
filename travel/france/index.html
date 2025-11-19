@@ -10,9 +10,6 @@
 
   <style>
     :root {
-      --bg-start: #020617;
-      --bg-mid: #020617;
-      --bg-end: #000814;
       --card-bg: rgba(15, 23, 42, 0.96);
       --card-border: rgba(148, 163, 184, 0.4);
       --accent: #38bdf8;
@@ -23,19 +20,19 @@
 
     * { box-sizing: border-box; }
 
+    /* 🔵 BACKGROUND – FRANCE THEME (palit-palit per country) */
     body {
       margin: 0;
       min-height: 100vh;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text-main);
       background:
-        radial-gradient(circle at top, #0f172a 0, transparent 55%),
-        radial-gradient(circle at bottom, rgba(56,189,248,.16), transparent 60%),
-        linear-gradient(to bottom, var(--bg-start), var(--bg-mid), var(--bg-end));
+        radial-gradient(circle at top left, rgba(56,189,248,0.16), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(129,140,248,0.16), transparent 55%),
+        linear-gradient(to bottom, #020617, #071426, #0b1020);
       display: flex;
-      align-items: stretch;
       justify-content: center;
-      padding: 24px 12px;
+      padding: 24px 12px 32px;
     }
 
     main.page {
@@ -55,7 +52,6 @@
     /* HERO / LEFT */
 
     .hero {
-      position: relative;
       border-radius: 24px;
       border: 1px solid var(--card-border);
       background:
@@ -85,6 +81,7 @@
     .hero-title {
       font-size: clamp(1.8rem, 2.3vw, 2.2rem);
       font-weight: 700;
+      letter-spacing: -0.02em;
       margin: 0;
     }
 
@@ -95,7 +92,7 @@
     }
 
     .hero-text {
-      margin: 0;
+      margin: 6px 0 0;
       font-size: 0.92rem;
       line-height: 1.5;
       color: var(--text-muted);
@@ -106,7 +103,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 6px;
+      margin-top: 8px;
       font-size: 0.85rem;
     }
 
@@ -118,12 +115,15 @@
     }
 
     .hero-panel {
-      margin-top: 4px;
+      margin-top: 6px;
       border-radius: 18px;
       border: 1px solid rgba(148,163,184,0.4);
-      background: radial-gradient(circle at top, rgba(56,189,248,0.14), transparent 55%),
-                  rgba(15,23,42,0.96);
+      background:
+        radial-gradient(circle at top, rgba(56,189,248,0.14), transparent 55%),
+        rgba(15,23,42,0.96);
       padding: 14px;
+      font-size: 0.86rem;
+      line-height: 1.5;
     }
 
     .hero-footer {
@@ -137,7 +137,10 @@
       flex-wrap: wrap;
     }
 
+    .hero-footer span:last-child { opacity: 0.9; }
+
     /* SIDEBAR CARDS */
+
     .sidebar {
       display: flex;
       flex-direction: column;
@@ -154,54 +157,140 @@
       gap: 8px;
     }
 
-    /* PARTNERS SECTION */
+    .card h2 {
+      margin: 0 0 4px;
+      font-size: 0.98rem;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .cta {
+      margin-top: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #0b1120;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 8px 22px rgba(56,189,248,0.35);
+      white-space: nowrap;
+    }
+
+    .cta:hover {
+      filter: brightness(1.05);
+      transform: translateY(-1px);
+    }
+
+    .disclaimer {
+      margin-top: 4px;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    /* TOP TRAVEL PARTNERS – HORIZONTAL FULL WIDTH */
+
     .partners-section {
       max-width: 1100px;
       margin: 3rem auto;
       padding: 0 1.5rem;
     }
 
-    /* FOOTER */
+    .partners-title {
+      text-align: center;
+      margin-bottom: 1.4rem;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #e2e8f0;
+    }
+
+    .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      justify-items: center;
+    }
+
+    .partner-card {
+      background: #f9fafb;
+      color: #111827;
+      padding: 1rem;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      width: 100%;
+      max-width: 180px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    .partner-card span {
+      display: block;
+      margin-top: 0.15rem;
+      font-size: 0.82rem;
+      font-weight: 400;
+    }
+
+    /* TRUST FOOTER */
+
     footer {
       max-width: 1100px;
-      margin: 3rem auto 2rem;
+      margin: 0 auto 2.4rem;
       text-align: center;
       color: #9ca3af;
       font-size: 0.9rem;
       line-height: 1.5;
       padding: 0 1.5rem;
     }
+
+    footer a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
-
 <body>
 
   <main class="page" aria-label="France hotel deals via Agoda partners">
 
-    <!-- LEFT HERO SECTION -->
+    <!-- LEFT HERO -->
     <section class="hero">
-      <div class="hero-badge"><span>France • Agoda Partners</span></div>
+      <div class="hero-badge">FRANCE • AGODA PARTNERS</div>
 
-      <h1 class="hero-title">
-        <span>France Hotel Deals</span> for your next European escape
-      </h1>
-      <p class="hero-text">
-        Compare hotel prices across top French cities in one click. Powered by Agoda Partners × GiftCardZoneEU Travel.
-      </p>
+      <div>
+        <h1 class="hero-title">
+          <span>France Hotel Deals</span> for your next European escape
+        </h1>
+        <p class="hero-text">
+          Compare hotel prices across top French cities in one click. Powered by Agoda Partners × GiftCardZoneEU Travel.
+        </p>
+      </div>
 
       <div class="hero-pills">
         <div class="hero-pill">Paris • Nice • Lyon • Marseille</div>
-        <div class="hero-pill">Agoda secure booking</div>
+        <div class="hero-pill">Secure Agoda booking • external site</div>
       </div>
 
       <div class="hero-panel">
-        <h2>Stay close to sights, cafes and coastlines</h2>
-        <p>From Eiffel Tower views in Paris to the beaches of the Riviera and historic streets of Lyon.</p>
+        Stay close to iconic sights, cafés and coastlines – from Eiffel Tower views in Paris to the beaches of the Riviera
+        and historic streets of Lyon.
       </div>
 
       <div class="hero-footer">
-        <span>🟢 Secure Agoda booking • external site</span>
-        <span>🛏️ Hotels & apartments</span>
+        <span>🟢 Hosted securely on Agoda</span>
+        <span>🛏️ Hotels & apartments • 💳 No extra booking fees</span>
       </div>
     </section>
 
@@ -211,86 +300,97 @@
       <!-- PARIS -->
       <article class="card">
         <h2>Paris & Île-de-France</h2>
-        <p>Explore stays near the Eiffel Tower, Louvre, Montmartre and more.</p>
-        <a class="cta" href="#" target="_blank">Search Paris deals →</a>
+        <p>Explore stays near the Eiffel Tower, Louvre, Montmartre and more – perfect for first-time France trips.</p>
+        <a
+          class="cta"
+          href="https://www.agoda.com/en-gb/city/paris-fr.html?cid=YOUR_AFF_ID"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Search Paris deals on Agoda →
+        </a>
       </article>
 
       <!-- RIVIERA -->
       <article class="card">
         <h2>Nice & French Riviera</h2>
-        <p>Hotels along the Mediterranean coast — beaches, sun & events.</p>
-        <a class="cta" href="#" target="_blank">Search Riviera deals →</a>
+        <p>Find hotels along the Mediterranean coast – ideal for sunshine breaks in Nice, Cannes and nearby towns.</p>
+        <a
+          class="cta"
+          href="https://www.agoda.com/en-gb/city/nice-fr.html?cid=YOUR_AFF_ID"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Search Riviera deals on Agoda →
+        </a>
       </article>
 
-      <!-- LYON -->
+      <!-- LYON & OTHERS -->
       <article class="card">
         <h2>Lyon & Other Cities</h2>
-        <p>Short city breaks across Marseille, Lyon, Toulouse & more.</p>
-        <a class="cta" href="#" target="_blank">Search France city deals →</a>
+        <p>Short city breaks across Lyon, Marseille, Toulouse and more – great for food trips, events and quick getaways.</p>
+        <a
+          class="cta"
+          href="https://www.agoda.com/en-gb/country/france.html?cid=YOUR_AFF_ID"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Search France city deals on Agoda →
+        </a>
+        <p class="disclaimer">
+          Agoda results open in a new tab. Availability, prices and promos are managed directly by Agoda.
+        </p>
       </article>
 
     </aside>
   </main>
 
-  <!-- 🌏 TOP TRAVEL PARTNERS (FULL WIDTH) -->
-<section style="max-width:1100px;margin:3rem auto;padding:0 1.5rem;">
-  <h2 style="text-align:center;margin-bottom:1.4rem;font-size:1.4rem;font-weight:700;color:#e2e8f0;">
-    🌏 Top Travel Partners
-  </h2>
+  <!-- 🌏 TOP TRAVEL PARTNERS – FULL WIDTH HORIZONTAL -->
+  <section class="partners-section">
+    <h2 class="partners-title">🌏 Top Travel Partners</h2>
 
-  <div style="
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(160px, 1fr));
-    gap:1rem;
-    justify-items:center;
-  ">
+    <div class="partners-grid">
+      <a href="https://www.booking.com" target="_blank" rel="noopener noreferrer" class="partner-card">
+        Booking.com
+        <span>Hotels worldwide</span>
+      </a>
 
-    <a href="https://www.booking.com" target="_blank" rel="noopener"
-      style="background:#f9fafb;color:#111827;padding:1rem;border-radius:12px;
-      text-decoration:none;font-weight:600;width:100%;max-width:180px;text-align:center;">
-      Booking.com<br><span style="font-size:0.85rem;font-weight:400;">Hotels worldwide</span>
-    </a>
+      <a href="https://www.trip.com" target="_blank" rel="noopener noreferrer" class="partner-card">
+        Trip.com
+        <span>Flights &amp; hotels</span>
+      </a>
 
-    <a href="https://www.trip.com" target="_blank" rel="noopener"
-      style="background:#f9fafb;color:#111827;padding:1rem;border-radius:12px;
-      text-decoration:none;font-weight:600;width:100%;max-width:180px;text-align:center;">
-      Trip.com<br><span style="font-size:0.85rem;font-weight:400;">Flights & hotels</span>
-    </a>
+      <a href="https://www.hoteles.com" target="_blank" rel="noopener noreferrer" class="partner-card">
+        Hoteles.com
+        <span>Discount stays</span>
+      </a>
 
-    <a href="https://www.hoteles.com" target="_blank" rel="noopener"
-      style="background:#f9fafb;color:#111827;padding:1rem;border-radius:12px;
-      text-decoration:none;font-weight:600;width:100%;max-width:180px;text-align:center;">
-      Hoteles.com<br><span style="font-size:0.85rem;font-weight:400;">Discount stays</span>
-    </a>
+      <a href="https://www.accor.com" target="_blank" rel="noopener noreferrer" class="partner-card">
+        Accor Hotels
+        <span>Premium hotels</span>
+      </a>
 
-    <a href="https://www.accor.com" target="_blank" rel="noopener"
-      style="background:#f9fafb;color:#111827;padding:1rem;border-radius:12px;
-      text-decoration:none;font-weight:600;width:100%;max-width:180px;text-align:center;">
-      Accor Hotels<br><span style="font-size:0.85rem;font-weight:400;">Premium hotels</span>
-    </a>
+      <a href="https://www.motel6.com" target="_blank" rel="noopener noreferrer" class="partner-card">
+        Motel 6
+        <span>Budget stays</span>
+      </a>
+    </div>
+  </section>
 
-    <a href="https://www.motel6.com" target="_blank" rel="noopener"
-      style="background:#f9fafb;color:#111827;padding:1rem;border-radius:12px;
-      text-decoration:none;font-weight:600;width:100%;max-width:180px;text-align:center;">
-      Motel 6<br><span style="font-size:0.85rem;font-weight:400;">Budget stays</span>
-    </a>
-
-  </div>
-</section>
-
-  <!-- 🧾 TRUST FOOTER -->
+  <!-- TRUST FOOTER -->
   <footer>
     <p>
-      Part of <a href="https://giftcardzoneeu.com" style="color:#38bdf8;font-weight:600;text-decoration:none;">
-      GiftCardZoneEU.com</a> travel & deals network.
+      Part of
+      <a href="https://giftcardzoneeu.com">GiftCardZoneEU.com</a>
+      travel &amp; deals network.
     </p>
     <p>Agoda partner page — links may contain affiliate tracking at no extra cost to you.</p>
 
     <div style="margin:1.1rem 0;">
-      <a href="/privacy-policy" style="color:#38bdf8;margin:0 0.8rem;">Privacy Policy</a>
-      <a href="/terms" style="color:#38bdf8;margin:0 0.8rem;">Terms</a>
-      <a href="/about" style="color:#38bdf8;margin:0 0.8rem;">About</a>
-      <a href="/contact" style="color:#38bdf8;margin:0 0.8rem;">Contact</a>
+      <a href="/privacy-policy">Privacy Policy</a>
+      <a href="/terms" style="margin:0 0.8rem;">Terms</a>
+      <a href="/about" style="margin-right:0.8rem;">About</a>
+      <a href="/contact">Contact</a>
     </div>
 
     <p style="font-size:0.85rem;color:#64748b;">
