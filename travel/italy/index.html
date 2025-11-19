@@ -1,1 +1,223 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Italy Hotel Deals | GiftCardZoneEU × Agoda</title>
+  <meta name="description" content="Find the best hotel deals in Italy — Rome, Milan, Venice, Florence and more via Agoda Partners." />
+  <link rel="canonical" href="https://giftcardzoneeu.com/travel/italy/" />
+
+  <style>
+    :root {
+      --bg: #020617;
+      --card-bg: rgba(15, 23, 42, 0.92);
+      --card-border: rgba(148, 163, 184, 0.4);
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.14);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      background-image: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .overlay {
+      background: rgba(2, 6, 23, 0.72);
+      min-height: 100vh;
+      padding: 40px 0;
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 1.4rem;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      font-weight: 800;
+    }
+
+    .sub {
+      text-align: center;
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: 2.2rem;
+    }
+
+    /* Trust Badges */
+    .badges {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      background: var(--card-bg);
+      padding: 0.7rem 1rem;
+      border-radius: 0.7rem;
+      border: 1px solid var(--card-border);
+      font-size: 0.85rem;
+    }
+
+    /* City Cards */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 1.2rem;
+      border-radius: 1rem;
+      border: 1px solid var(--card-border);
+      transition: 0.2s ease;
+    }
+
+    .card:hover {
+      border-color: var(--accent);
+      background: rgba(15, 23, 42, 0.85);
+      transform: translateY(-3px);
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.6rem;
+      font-weight: 700;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+      padding: 0.6rem 0.8rem;
+      border-radius: 0.6rem;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 600;
+      border: 1px solid var(--accent);
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .btn:hover {
+      background: var(--accent);
+      color: #0f172a;
+    }
+
+    /* Top Travel Partners */
+    .partners-title {
+      font-size: 1.4rem;
+      text-align: center;
+      margin-bottom: 1.2rem;
+      font-weight: 700;
+    }
+
+    .partners-grid {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .partner-card {
+      background: #f9fafb;
+      color: #111827;
+      padding: 0.8rem 1.2rem;
+      border-radius: 0.8rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: 1px solid #e5e7eb;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .partner-card:hover {
+      background: #e2e8f0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="overlay">
+    <div class="container">
+
+      <h1>Italy Hotel Deals</h1>
+      <p class="sub">Rome • Milan • Venice • Florence • Naples</p>
+
+      <!-- Trust Badges -->
+      <div class="badges">
+        <div class="badge">✔ Secure Booking</div>
+        <div class="badge">✔ Agoda Travel Partner</div>
+        <div class="badge">✔ Best Price Finder</div>
+        <div class="badge">✔ Fast & Safe</div>
+      </div>
+
+      <!-- Top Travel Partners -->
+      <h2 class="partners-title">🌍 Top Travel Partners</h2>
+      <div class="partners-grid">
+        <a class="partner-card" href="https://www.agoda.com/" target="_blank" rel="noopener noreferrer">Agoda</a>
+        <a class="partner-card" href="https://www.booking.com/" target="_blank" rel="noopener noreferrer">Booking.com</a>
+        <a class="partner-card" href="https://www.trip.com/" target="_blank" rel="noopener noreferrer">Trip.com</a>
+        <a class="partner-card" href="https://www.expedia.com/" target="_blank" rel="noopener noreferrer">Expedia</a>
+        <a class="partner-card" href="https://www.hotels.com/" target="_blank" rel="noopener noreferrer">Hotels.com</a>
+      </div>
+
+      <!-- City Cards -->
+      <div class="grid">
+
+        <div class="card">
+          <h3>Rome</h3>
+          <p>Find hotel deals near the Colosseum, Vatican City, and central Rome.</p>
+          <a class="btn" href="YOUR_AGODA_LINK_FOR_ROME" target="_blank" rel="noopener noreferrer">View Hotels</a>
+        </div>
+
+        <div class="card">
+          <h3>Milan</h3>
+          <p>Stay close to Duomo di Milano, shopping streets, and business districts.</p>
+          <a class="btn" href="YOUR_AGODA_LINK_FOR_MILAN" target="_blank" rel="noopener noreferrer">View Hotels</a>
+        </div>
+
+        <div class="card">
+          <h3>Venice</h3>
+          <p>Book hotels along the canals and near St. Mark's Square.</p>
+          <a class="btn" href="YOUR_AGODA_LINK_FOR_VENICE" target="_blank" rel="noopener noreferrer">View Hotels</a>
+        </div>
+
+        <div class="card">
+          <h3>Florence</h3>
+          <p>Find stays near the Duomo, Ponte Vecchio, and museums.</p>
+          <a class="btn" href="YOUR_AGODA_LINK_FOR_FLORENCE" target="_blank" rel="noopener noreferrer">View Hotels</a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
