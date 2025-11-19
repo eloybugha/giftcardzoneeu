@@ -1,390 +1,281 @@
-<!DOCTYPE html>
+      <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>UK Hotel Deals | GiftCardZoneEU x Agoda</title>
-  <meta name="description" content="Find hotel deals across the United Kingdom – London, Manchester, Edinburgh, Birmingham and more via Agoda Partners × GiftCardZoneEU Travel." />
+  <title>UK Hotel Deals | GiftCardZoneEU × Agoda</title>
+  <meta name="description" content="Find the best hotel deals in the United Kingdom — London, Manchester, Edinburgh, Birmingham and more via Agoda Partners." />
   <link rel="canonical" href="https://giftcardzoneeu.com/travel/uk/" />
 
   <style>
     :root {
-      --bg-start: #020617;
-      --bg-mid: #020617;
-      --bg-end: #000814;
-      --card-bg: rgba(15, 23, 42, 0.96);
+      --bg: #020617;
+      --card-bg: rgba(15, 23, 42, 0.92);
       --card-border: rgba(148, 163, 184, 0.4);
       --accent: #38bdf8;
-      --accent-soft: rgba(56, 189, 248, 0.2);
+      --accent-soft: rgba(56, 189, 248, 0.14);
       --text-main: #e5e7eb;
       --text-muted: #9ca3af;
     }
 
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: system-ui, sans-serif;
+      background: var(--bg);
       color: var(--text-main);
-      background:
-        radial-gradient(circle at top, #0f172a 0, transparent 55%),
-        radial-gradient(circle at bottom, rgba(56,189,248,.16), transparent 60%),
-        linear-gradient(to bottom, var(--bg-start), var(--bg-mid), var(--bg-end));
-      display: flex;
-      align-items: stretch;
-      justify-content: center;
-      padding: 24px 12px;
+      line-height: 1.6;
+      background-image: url('https://images.unsplash.com/photo-1506377295352-e3154d43ea9e?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
     }
 
-    main.page {
-      width: 100%;
-      max-width: 1120px;
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
-      gap: 24px;
-      align-items: flex-start;
+    .overlay {
+      background: rgba(2, 6, 23, 0.72);
+      min-height: 100vh;
+      padding: 40px 0;
     }
 
-    @media (max-width: 900px) {
-      body { padding: 18px 12px 28px; }
-      main.page { grid-template-columns: minmax(0, 1fr); }
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 1.4rem;
     }
 
-    /* HERO LEFT */
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      font-weight: 800;
+    }
 
-    .hero {
-      position: relative;
-      border-radius: 24px;
+    .sub {
+      text-align: center;
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+    }
+
+    /* BRAND TRUST BADGE */
+    .brand-trust {
+      text-align: center;
+      margin-bottom: 1.8rem;
+    }
+
+    .brand-trust span {
+      background: var(--card-bg);
+      padding: 0.55rem 1.1rem;
+      border-radius: 0.7rem;
       border: 1px solid var(--card-border);
-      background:
-        radial-gradient(circle at top left, rgba(248,250,252,.18), transparent 55%),
-        radial-gradient(circle at bottom right, rgba(56,189,248,.22), transparent 55%),
-        #020617;
-      padding: 22px 22px 20px;
+      font-size: 0.9rem;
+      display: inline-block;
+      color: var(--text-main);
+    }
+
+    /* Trust Badges */
+    .badges {
       display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(15,23,42,0.9);
-      border: 1px solid rgba(148,163,184,0.45);
-      font-size: 11px;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-
-    .hero-title {
-      font-size: clamp(1.8rem, 2.3vw, 2.2rem);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin: 0;
-    }
-
-    .hero-title span {
-      background: linear-gradient(to right, #f97316, #22c55e, #38bdf8);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .hero-text {
-      margin: 0;
-      font-size: 0.92rem;
-      line-height: 1.5;
-      color: var(--text-muted);
-      max-width: 36rem;
-    }
-
-    .hero-pills {
-      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2.2rem;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 6px;
+    }
+
+    .badge {
+      background: var(--card-bg);
+      padding: 0.7rem 1rem;
+      border-radius: 0.7rem;
+      border: 1px solid var(--card-border);
       font-size: 0.85rem;
     }
 
-    .hero-pill {
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: rgba(15,23,42,0.9);
-      border: 1px solid rgba(148,163,184,0.5);
+    /* Partners */
+    .partners-title {
+      font-size: 1.4rem;
+      text-align: center;
+      margin-bottom: 1.2rem;
+      font-weight: 700;
     }
 
-    .hero-panel {
-      margin-top: 4px;
-      border-radius: 18px;
-      border: 1px solid rgba(148,163,184,0.4);
-      background: radial-gradient(circle at top, rgba(56,189,248,0.14), transparent 55%),
-                  rgba(15,23,42,0.96);
-      padding: 14px 14px 13px;
-    }
-
-    .hero-panel h2 {
-      margin: 0 0 4px;
-      font-size: 1rem;
-    }
-
-    .hero-panel p {
-      margin: 0;
-      font-size: 0.8rem;
-      color: #cbd5f5;
-    }
-
-    .hero-footer {
+    .partners-grid {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      margin-top: 8px;
-      font-size: 0.78rem;
-      color: var(--text-muted);
+      justify-content: center;
+      gap: 1rem;
       flex-wrap: wrap;
+      margin-bottom: 2.4rem;
     }
 
-    .hero-trust {
-      display: flex;
-      align-items: center;
-      gap: 7px;
+    .partner-card {
+      background: #f9fafb;
+      color: #111827;
+      padding: 0.8rem 1.2rem;
+      border-radius: 0.8rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: 1px solid #e5e7eb;
+      text-decoration: none;
+      transition: 0.2s;
     }
 
-    .hero-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 0 4px rgba(34,197,94,0.25);
+    .partner-card:hover {
+      background: #e2e8f0;
     }
 
-    .hero-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    /* SIDEBAR CARDS */
-
-    .sidebar {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
+    /* City Cards */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 1.2rem !important; /* mas dikit sa footer */
     }
 
     .card {
       background: var(--card-bg);
-      border-radius: 20px;
+      padding: 1.2rem;
+      border-radius: 1rem;
       border: 1px solid var(--card-border);
-      padding: 14px 15px 13px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
+      transition: 0.2s ease;
     }
 
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 8px;
+    .card:hover {
+      border-color: var(--accent);
+      background: rgba(15, 23, 42, 0.85);
+      transform: translateY(-3px);
     }
 
-    .card-title {
-      font-size: 0.98rem;
-      font-weight: 600;
-      margin: 0;
-    }
-
-    .card-tag {
-      font-size: 0.72rem;
-      padding: 3px 8px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: #e0f2fe;
-      border: 1px solid rgba(56,189,248,0.45);
-      text-transform: uppercase;
-      letter-spacing: .08em;
+    .card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.6rem;
+      font-weight: 700;
     }
 
     .card p {
-      margin: 0;
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       color: var(--text-muted);
-      line-height: 1.5;
+      margin-bottom: 1rem;
     }
 
-    .city-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 6px;
-    }
-
-    .city-pill {
-      flex: 1 1 90px;
-      font-size: 0.78rem;
-      padding: 7px 9px;
-      border-radius: 999px;
-      background: #020617;
-      border: 1px solid rgba(148,163,184,0.55);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .city-pill span {
-      opacity: 0.9;
-    }
-
-    .city-pill small {
-      font-size: 0.68rem;
-      color: #a5b4fc;
-    }
-
-    a.cta {
-      margin-top: 9px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      padding: 7px 11px;
-      border-radius: 999px;
-      background: var(--accent);
-      color: #0b1120;
-      text-decoration: none;
-      font-size: 0.8rem;
+    .btn {
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+      padding: 0.6rem 0.8rem;
+      border-radius: 0.6rem;
+      background: var(--accent-soft);
+      color: var(--accent);
       font-weight: 600;
-      box-shadow: 0 8px 22px rgba(56,189,248,0.35);
+      border: 1px solid var(--accent);
+      text-decoration: none;
+      transition: 0.2s;
     }
 
-    a.cta:hover {
-      filter: brightness(1.05);
-      transform: translateY(-1px);
+    .btn:hover {
+      background: var(--accent);
+      color: #0f172a;
     }
 
-    .disclaimer {
-      margin-top: 4px;
-      font-size: 0.7rem;
-      color: var(--text-muted);
+    /* FOOTER */
+    footer {
+      margin-top: 2.2rem;
+      padding: 2.2rem 1rem;
+      text-align: center;
+      background: rgba(2,6,23,0.7);
+      border-top: 1px solid rgba(148,163,184,0.3);
+      color: #cbd5e1;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #38bdf8;
+      margin: 0 0.8rem;
+      text-decoration: none;
     }
   </style>
 </head>
+
 <body>
-  <main class="page" aria-label="United Kingdom hotel deals via Agoda partners">
+<div class="overlay">
+  <div class="container">
 
-    <section class="hero">
-      <div class="hero-badge">
-        <span>United Kingdom • Agoda Partners</span>
+    <h1>UK Hotel Deals</h1>
+    <p class="sub">London • Manchester • Edinburgh • Birmingham • Glasgow</p>
+
+    <!-- BRAND TRUST BADGE -->
+    <div class="brand-trust">
+      <span>⭐ GiftCardZoneEU Travel — Trusted Worldwide Booking Partner</span>
+    </div>
+
+    <!-- Trust Badges -->
+    <div class="badges">
+      <div class="badge">✔ Secure Booking</div>
+      <div class="badge">✔ Agoda Travel Partner</div>
+      <div class="badge">✔ Best Price Finder</div>
+      <div class="badge">✔ Fast & Safe</div>
+    </div>
+
+    <!-- Partners -->
+    <h2 class="partners-title">🌍 Top Travel Partners</h2>
+    <div class="partners-grid">
+      <a class="partner-card" href="https://www.agoda.com/" target="_blank">Agoda</a>
+      <a class="partner-card" href="https://www.booking.com/" target="_blank">Booking.com</a>
+      <a class="partner-card" href="https://www.trip.com/" target="_blank">Trip.com</a>
+      <a class="partner-card" href="https://www.expedia.com/" target="_blank">Expedia</a>
+      <a class="partner-card" href="https://www.hotels.com/" target="_blank">Hotels.com</a>
+    </div>
+
+    <!-- City Cards -->
+    <div class="grid">
+
+      <div class="card">
+        <h3>London</h3>
+        <p>Find hotel deals near Big Ben, London Eye, Tower Bridge and central London.</p>
+        <a class="btn" href="#" target="_blank">View Hotels</a>
       </div>
 
-      <div>
-        <h1 class="hero-title">
-          <span>UK Hotel Deals</span> for your next city break
-        </h1>
-        <p class="hero-text">
-          Compare hotel prices across top UK cities in one click. Powered by Agoda Partners × GiftCardZoneEU Travel.
-        </p>
-        <div class="hero-pills">
-          <div class="hero-pill">London • Manchester • Edinburgh • Birmingham</div>
-          <div class="hero-pill">Flexible dates & filters via Agoda</div>
-        </div>
+      <div class="card">
+        <h3>Manchester</h3>
+        <p>Stay close to stadiums, shopping streets, and business districts.</p>
+        <a class="btn" href="#" target="_blank">View Hotels</a>
       </div>
 
-      <div class="hero-panel">
-        <h2>Stay close to landmarks, stadiums and old streets</h2>
-        <p>From London’s city lights to historic castles in Scotland and coastal towns in England and Wales, find stays that match your budget and style.</p>
+      <div class="card">
+        <h3>Edinburgh</h3>
+        <p>Discover hotels near Edinburgh Castle and the historic old town.</p>
+        <a class="btn" href="#" target="_blank">View Hotels</a>
       </div>
 
-      <div class="hero-footer">
-        <div class="hero-trust">
-          <span class="hero-dot"></span>
-          <span>Secure booking hosted by Agoda • External site</span>
-        </div>
-        <div class="hero-badges">
-          <span>🛏️ Hotels & apartments</span>
-          <span>💳 No extra booking fees</span>
-        </div>
+      <div class="card">
+        <h3>Birmingham</h3>
+        <p>Book hotels in the city centre, near canals and major venues.</p>
+        <a class="btn" href="#" target="_blank">View Hotels</a>
       </div>
-    </section>
 
-    <aside class="sidebar">
-      <article class="card">
-        <div class="card-header">
-          <h2 class="card-title">London & South East</h2>
-          <span class="card-tag">Top Picks</span>
-        </div>
-        <p>Explore stays near major sights like Big Ben, Tower Bridge, West End theatres and key train stations.</p>
-        <div class="city-row">
-          <div class="city-pill">
-            <span>Central London</span><small>City highlights</small>
-          </div>
-          <div class="city-pill">
-            <span>Canary Wharf</span><small>Business area</small>
-          </div>
-          <div class="city-pill">
-            <span>Heathrow / Gatwick</span><small>Airport hotels</small>
-          </div>
-        </div>
-        <a class="cta" href="#" target="_blank" rel="noopener noreferrer">
-          Search London deals on Agoda →
-        </a>
-      </article>
+    </div>
 
-      <article class="card">
-        <div class="card-header">
-          <h2 class="card-title">Manchester & North</h2>
-          <span class="card-tag">City Breaks</span>
-        </div>
-        <p>Find hotels in Manchester, Liverpool, Leeds and nearby cities – ideal for football trips, concerts and weekends away.</p>
-        <div class="city-row">
-          <div class="city-pill">
-            <span>Manchester</span><small>Football & music</small>
-          </div>
-          <div class="city-pill">
-            <span>Liverpool</span><small>Waterfront & docks</small>
-          </div>
-          <div class="city-pill">
-            <span>Leeds</span><small>Shopping & nightlife</small>
-          </div>
-        </div>
-        <a class="cta" href="#" target="_blank" rel="noopener noreferrer">
-          Search North England deals on Agoda →
-        </a>
-      </article>
+  </div>
+</div>
 
-      <article class="card">
-        <div class="card-header">
-          <h2 class="card-title">Scotland & Wales</h2>
-          <span class="card-tag">Scenery</span>
-        </div>
-        <p>Short breaks across Edinburgh, Glasgow, Cardiff and more – perfect for castles, coastlines and countryside views.</p>
-        <div class="city-row">
-          <div class="city-pill">
-            <span>Edinburgh</span><small>Castle & old town</small>
-          </div>
-          <div class="city-pill">
-            <span>Glasgow</span><small>Music & museums</small>
-          </div>
-          <div class="city-pill">
-            <span>Cardiff</span><small>Bay & stadium</small>
-          </div>
-        </div>
-        <a class="cta" href="#" target="_blank" rel="noopener noreferrer">
-          Search Scotland & Wales deals on Agoda →
-        </a>
-        <p class="disclaimer">
-          Agoda results may open in a new tab. Availability, prices and promos are managed directly by Agoda.
-        </p>
-      </article>
-    </aside>
+<!-- FOOTER -->
+<footer>
+  <h3>GiftCardZoneEU Travel</h3>
+  <p style="max-width:600px;margin:0 auto 1.5rem;line-height:1.55;">
+    GiftCardZoneEU Travel compares hotel prices using official Agoda, Booking.com, Trip.com,
+    Expedia and Hotels.com partner links. Bookings are processed securely on the partner website.
+  </p>
 
-  </main>
+  <div>
+    <a href="/privacy/">Privacy Policy</a>
+    <a href="/terms/">Terms</a>
+    <a href="/contact/">Contact</a>
+  </div>
+
+  <p style="font-size:0.85rem;margin-top:1rem;opacity:0.8;">
+    © 2025 GiftCardZoneEU.com — All Rights Reserved.
+  </p>
+</footer>
+
 </body>
 </html>
-
+    
