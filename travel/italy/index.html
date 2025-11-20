@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Italy Hotel Deals | GiftCardZoneEU × Agoda</title>
-  <meta name="description" content="Compare hotel deals in Italy — Rome, Milan, Venice, Florence and Naples via Agoda Partners with GiftCardZoneEU Travel." />
+  <meta name="description" content="Find the best hotel deals in Italy — compare stays in Rome, Milan, Venice, Florence and Naples via Agoda Partners with GiftCardZoneEU Travel." />
   <link rel="canonical" href="https://giftcardzoneeu.com/travel/italy/" />
 
   <!-- Basic SEO -->
@@ -13,56 +13,70 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="Italy Hotel Deals | GiftCardZoneEU × Agoda" />
-  <meta property="og:description" content="Find hotel deals in Italy — compare stays in Rome, Milan, Venice, Florence and Naples via Agoda Partners." />
+  <meta property="og:description" content="Compare hotel deals in Italy — Rome, Milan, Venice, Florence and Naples." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://giftcardzoneeu.com/travel/italy/" />
 
   <style>
     :root {
       --bg: #020617;
-      --pill-border: rgba(148, 163, 184, 0.5);
+      --bg-overlay: rgba(15, 23, 42, 0.92);
+      --card-bg: rgba(15, 23, 42, 0.96);
+      --card-border: rgba(148, 163, 184, 0.4);
       --pill-bg: rgba(15, 23, 42, 0.85);
+      --pill-border: rgba(148, 163, 184, 0.5);
+      --accent: #0ea5e9;
       --text-main: #e5e7eb;
       --text-muted: #9ca3af;
+      --badge-bg: rgba(15, 23, 42, 0.96);
     }
 
     body {
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
       background-color: var(--bg);
       color: var(--text-main);
-      font-family: system-ui, -apple-system, sans-serif;
       margin: 0;
     }
 
     .page {
       min-height: 100vh;
       background-image:
-        linear-gradient(to bottom, rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.98)),
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.15), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.18), transparent 55%),
         url("https://images.pexels.com/photos/460680/pexels-photo-460680.jpeg?auto=compress&cs=tinysrgb&w=1920");
       background-size: cover;
       background-position: center;
       position: relative;
-      z-index: 1;
+      isolation: isolate;
+    }
+
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(15, 23, 42, 0.90), rgba(15, 23, 42, 0.98));
+      z-index: -1;
     }
 
     main {
       max-width: 1120px;
-      margin: auto;
-      padding: 1.5rem 1rem 3rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3.5rem;
     }
+
+    /* NAV PILLS */
 
     .breadcrumbs {
       display: flex;
       gap: 0.5rem;
+      flex-wrap: wrap;
       margin-bottom: 1.5rem;
       position: relative;
-      z-index: 20;
+      z-index: 10;
     }
 
     .pill {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.4rem 0.9rem;
+      padding: 0.4rem 0.95rem;
       border-radius: 999px;
       border: 1px solid var(--pill-border);
       background: var(--pill-bg);
@@ -72,63 +86,84 @@
       cursor: pointer;
     }
 
+    /* HERO TITLE */
+
     .hero-title {
-      font-size: 2.2rem;
+      font-size: clamp(1.8rem, 3vw, 2.3rem);
       font-weight: 700;
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.5rem;
     }
 
     .hero-subtitle {
       color: var(--text-muted);
       max-width: 35rem;
-      line-height: 1.5;
-      font-size: 0.95rem;
+      font-size: 1rem;
+      line-height: 1.6;
     }
+
+    /* CITY GRID */
 
     .grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.2rem;
       margin-top: 2rem;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.25rem;
     }
 
-    @media (max-width: 900px) {
-      .grid { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 960px) {
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
 
-    @media (max-width: 600px) {
-      .grid { grid-template-columns: 1fr; }
+    @media (max-width: 640px) {
+      .grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
     }
 
     .city-card {
-      background: rgba(15, 23, 42, 0.95);
-      padding: 1.3rem;
-      border-radius: 1.2rem;
-      border: 1px solid rgba(148,163,184,0.4);
+      background: var(--card-bg);
+      border-radius: 1.4rem;
+      padding: 1.3rem 1.25rem;
+      border: 1px solid var(--card-border);
       display: flex;
       flex-direction: column;
-      gap: 0.8rem;
+      gap: 0.9rem;
+    }
+
+    .city-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .city-card p {
+      font-size: 0.88rem;
+      line-height: 1.5;
+      color: var(--text-muted);
     }
 
     .btn-primary {
-      background: #38bdf8;
-      color: #0b1120;
-      padding: 0.55rem 1rem;
-      border-radius: 999px;
-      font-weight: 600;
-      text-decoration: none;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.3rem;
+      gap: 0.4rem;
+      padding: 0.55rem 0.9rem;
+      border-radius: 999px;
+      background: #38bdf8;
+      color: #0b1120;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.85rem;
     }
 
     /* TOP TRAVELS 5 */
+
     .small-grid {
-      margin-top: 2.8rem;
+      margin-top: 3rem;
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 0.5rem;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.75rem;
     }
 
     @media (max-width: 900px) {
@@ -146,16 +181,55 @@
       background: rgba(15,23,42,0.95);
       border: 1px solid rgba(148,163,184,0.5);
       font-size: 0.8rem;
-      text-decoration: none;
       color: var(--text-main);
+      text-decoration: none;
     }
+
+    /* TRUST BADGES */
+
+    .trust-badges {
+      margin-top: 3rem;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    @media (max-width: 900px) {
+      .trust-badges { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+      .trust-badges { grid-template-columns: 1fr; }
+    }
+
+    .trust-card {
+      background: var(--badge-bg);
+      border-radius: 1.2rem;
+      padding: 1rem;
+      border: 1px solid rgba(148,163,184,0.5);
+    }
+
+    .trust-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .trust-text {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* FOOTER */
 
     .footer-note {
       text-align: center;
+      margin-top: 2.5rem;
       color: var(--text-muted);
-      font-size: 0.78rem;
-      margin-top: 2rem;
+      font-size: 0.8rem;
     }
+
   </style>
 </head>
 
@@ -163,7 +237,7 @@
 <div class="page">
 <main>
 
-  <!-- NAV PILLS -->
+  <!-- NAV -->
   <div class="breadcrumbs">
     <a class="pill" href="https://giftcardzoneeu.com/travel/">Travel</a>
     <a class="pill" href="https://giftcardzoneeu.com/travel/">Agoda Partners</a>
@@ -173,57 +247,48 @@
 
   <h1 class="hero-title">Italy Hotel Deals</h1>
   <p class="hero-subtitle">
-    Compare stays in <strong>Rome</strong>, <strong>Milan</strong>, <strong>Venice</strong>, <strong>Florence</strong>, and <strong>Naples</strong> via Agoda Partners.
+    Compare stays in <strong>Rome</strong>, <strong>Milan</strong>, <strong>Venice</strong>, 
+    <strong>Florence</strong> and <strong>Naples</strong> via Agoda Partners.
   </p>
 
-  <!-- TOP COUNTRY 5: ITALY CITIES -->
+  <!-- TOP COUNTRY 5 -->
   <div class="grid">
 
     <div class="city-card">
       <h3>Rome</h3>
-      <p>The Eternal City — landmarks, cuisine, and rich history everywhere you turn.</p>
-      <a class="btn-primary" target="_blank" href="https://www.agoda.com/city/rome-it.html?cid=YOUR_CID">
-        View Rome deals ↗
-      </a>
+      <p>The Eternal City — historic landmarks, cuisine, culture, and Vatican City.</p>
+      <a class="btn-primary" href="https://www.agoda.com/city/rome-it.html?cid=1917077" target="_blank">View Rome deals ↗</a>
     </div>
 
     <div class="city-card">
       <h3>Milan</h3>
-      <p>Italy’s fashion capital with luxury shopping and world-class architecture.</p>
-      <a class="btn-primary" target="_blank" href="https://www.agoda.com/city/milan-it.html?cid=YOUR_CID">
-        View Milan deals ↗
-      </a>
+      <p>Italy’s fashion capital with luxury shopping, museums, and iconic sites.</p>
+      <a class="btn-primary" href="https://www.agoda.com/city/milan-it.html?cid=1917077" target="_blank">View Milan deals ↗</a>
     </div>
 
     <div class="city-card">
       <h3>Venice</h3>
-      <p>Explore canals, gondolas, and stunning romantic views in Italy’s water city.</p>
-      <a class="btn-primary" target="_blank" href="https://www.agoda.com/city/venice-it.html?cid=YOUR_CID">
-        View Venice deals ↗
-      </a>
+      <p>Explore romantic canals, gondola rides, architecture and lagoon views.</p>
+      <a class="btn-primary" href="https://www.agoda.com/city/venice-it.html?cid=1917077" target="_blank">View Venice deals ↗</a>
     </div>
 
     <div class="city-card">
       <h3>Florence</h3>
-      <p>Home of Renaissance art — museums, cathedrals, and iconic heritage.</p>
-      <a class="btn-primary" target="_blank" href="https://www.agoda.com/city/florence-it.html?cid=YOUR_CID">
-        View Florence deals ↗
-      </a>
+      <p>Home of Renaissance art — museums, cathedrals, and world heritage sites.</p>
+      <a class="btn-primary" href="https://www.agoda.com/city/florence-it.html?cid=1917077" target="_blank">View Florence deals ↗</a>
     </div>
 
     <div class="city-card">
       <h3>Naples</h3>
-      <p>Birthplace of pizza, close to Pompeii, Amalfi Coast, and coastal beauty.</p>
-      <a class="btn-primary" target="_blank" href="https://www.agoda.com/city/naples-it.html?cid=YOUR_CID">
-        View Naples deals ↗
-      </a>
+      <p>Birthplace of pizza, near Pompeii, Amalfi Coast, Mt. Vesuvius & great beaches.</p>
+      <a class="btn-primary" href="https://www.agoda.com/city/naples-it.html?cid=1917077" target="_blank">View Naples deals ↗</a>
     </div>
 
   </div>
 
-  <!-- TOP TRAVELS 5 (FIXED) -->
+  <!-- TOP TRAVELS 5 -->
   <h2 style="margin-top:3rem;">Top Travel Destinations</h2>
-  <p style="color:#9ca3af; margin-bottom:1rem;">Explore more destinations across the world.</p>
+  <p style="color:#9ca3af; margin-bottom:1rem;">Explore more destinations around the world.</p>
 
   <div class="small-grid">
     <a class="small-pill" href="https://giftcardzoneeu.com/travel/japan/">Japan ↗</a>
@@ -233,10 +298,40 @@
     <a class="small-pill" href="https://giftcardzoneeu.com/travel/france/">France ↗</a>
   </div>
 
-  <p class="footer-note">All bookings are securely processed on Agoda’s website.</p>
+  <!-- TRUST BADGES -->
+  <h2 style="margin-top:3rem;">Why book via GiftCardZoneEU Travel?</h2>
+  <p style="color:#9ca3af;margin-bottom:1rem;">We connect you directly to Agoda’s secure platform.</p>
+
+  <div class="trust-badges">
+
+    <div class="trust-card">
+      <div class="trust-title">Secure Agoda Checkout</div>
+      <p class="trust-text">All reservations are completed on Agoda’s encrypted website for full payment safety.</p>
+    </div>
+
+    <div class="trust-card">
+      <div class="trust-title">Millions of Stays</div>
+      <p class="trust-text">Hotels, apartments, resorts and guest reviews across Italy and worldwide.</p>
+    </div>
+
+    <div class="trust-card">
+      <div class="trust-title">No Extra Mark-ups</div>
+      <p class="trust-text">You see live Agoda prices without hidden charges or added fees.</p>
+    </div>
+
+    <div class="trust-card">
+      <div class="trust-title">Official Travel Partner</div>
+      <p class="trust-text">GiftCardZoneEU uses the official Agoda affiliate program (no extra cost to you).</p>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <p class="footer-note">
+    All bookings are securely processed on Agoda’s website.
+  </p>
 
 </main>
 </div>
 </body>
 </html>
-        
