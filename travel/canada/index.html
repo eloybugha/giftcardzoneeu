@@ -19,20 +19,13 @@
   <style>
     :root {
       --bg: #020617;
-      --bg-soft: #020617;
       --card-bg: #ffffff;
       --card-border: rgba(148, 163, 184, 0.5);
       --text-main: #0f172a;
       --text-muted: #64748b;
       --accent: #0ea5e9;
-      --accent-soft: rgba(56, 189, 248, 0.16);
-      --badge-bg: rgba(15, 23, 42, 0.9);
-      --pill-border: rgba(148, 163, 184, 0.5);
-      --radius-xl: 1.5rem;
-      --radius-2xl: 1.75rem;
       --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.55);
       --shadow-card: 0 16px 30px rgba(15, 23, 42, 0.18);
-      --border-strong: rgba(148, 163, 184, 0.8);
     }
 
     * {
@@ -78,7 +71,6 @@
       isolation: isolate;
     }
 
-    /* Canada background image — change URL if you want a different Canada photo */
     .hero::before {
       content: "";
       position: absolute;
@@ -315,14 +307,14 @@
       color: #e5e7eb;
     }
 
-    /* TRUST SECTION */
+    /* TRUST + TOP PARTNERS */
 
     .trust {
       margin-top: 2.1rem;
       display: grid;
       grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.3fr);
       gap: 1.6rem;
-      align-items: center;
+      align-items: flex-start;
     }
 
     .trust-copy h2 {
@@ -336,6 +328,12 @@
       color: #cbd5f5;
       max-width: 26rem;
       opacity: 0.9;
+    }
+
+    .trust-right {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
     }
 
     .trust-badges {
@@ -352,7 +350,6 @@
       font-size: 0.78rem;
       display: flex;
       align-items: center;
-      justify-content: flex-start;
       gap: 0.4rem;
       color: #e5e7eb;
       white-space: nowrap;
@@ -364,8 +361,43 @@
       font-size: 0.95rem;
     }
 
+    .partners-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #e5e7eb;
+      margin-top: 0.2rem;
+    }
+
+    .partners-list {
+      display: grid;
+      gap: 0.5rem;
+      margin-top: 0.35rem;
+    }
+
+    .partner-card {
+      background: #ffffff;
+      border-radius: 999px;
+      padding: 0.55rem 0.9rem;
+      border: 1px solid var(--card-border);
+      box-shadow: var(--shadow-card);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--text-main);
+    }
+
+    .partner-name {
+      font-weight: 600;
+    }
+
+    .partner-note {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
     .trust-countries {
-      margin-top: 0.55rem;
+      margin-top: 0.4rem;
       font-size: 0.78rem;
       color: #cbd5f5;
       opacity: 0.95;
@@ -636,6 +668,10 @@
       .trust-badges {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
+
+      .partners-list {
+        grid-template-columns: minmax(0, 1fr);
+      }
     }
 
     @media (max-width: 480px) {
@@ -716,7 +752,7 @@
           </aside>
         </div>
 
-        <section class="trust" aria-label="Trust and safety">
+        <section class="trust" aria-label="Trust, partners and booking countries">
           <div class="trust-copy">
             <h2>Trusted, safe & transparent bookings</h2>
             <p>
@@ -724,7 +760,8 @@
               Same great Agoda prices, with extra guidance from GiftCardZoneEU.
             </p>
           </div>
-          <div>
+
+          <div class="trust-right">
             <div class="trust-badges">
               <div class="trust-badge">
                 <span class="icon">🔒</span>
@@ -743,6 +780,33 @@
                 Millions of verified reviews
               </div>
             </div>
+
+            <div>
+              <p class="partners-title">Top travel partners (hotel & travel brands)</p>
+              <div class="partners-list">
+                <div class="partner-card">
+                  <span class="partner-name">Booking.com</span>
+                  <span class="partner-note">Hotels worldwide</span>
+                </div>
+                <div class="partner-card">
+                  <span class="partner-name">Trip.com</span>
+                  <span class="partner-note">Flights &amp; hotels</span>
+                </div>
+                <div class="partner-card">
+                  <span class="partner-name">Hotels.com</span>
+                  <span class="partner-note">Discount stays</span>
+                </div>
+                <div class="partner-card">
+                  <span class="partner-name">Accor Hotels</span>
+                  <span class="partner-note">Premium hotels</span>
+                </div>
+                <div class="partner-card">
+                  <span class="partner-name">Motel 6</span>
+                  <span class="partner-note">Budget stays</span>
+                </div>
+              </div>
+            </div>
+
             <p class="trust-countries">
               <strong>Top booking countries on Agoda Travel:</strong> United States, United Kingdom, Germany, France, Japan.
             </p>
