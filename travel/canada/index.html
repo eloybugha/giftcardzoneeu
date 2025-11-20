@@ -307,7 +307,7 @@
       color: #e5e7eb;
     }
 
-    /* TRUST + TOP PARTNERS */
+    /* TRUST + PARTNERS */
 
     .trust {
       margin-top: 2.1rem;
@@ -366,12 +366,12 @@
       font-weight: 600;
       color: #e5e7eb;
       margin-top: 0.2rem;
+      margin-bottom: 0.25rem;
     }
 
     .partners-list {
       display: grid;
       gap: 0.5rem;
-      margin-top: 0.35rem;
     }
 
     .partner-card {
@@ -384,7 +384,12 @@
       justify-content: space-between;
       align-items: center;
       font-size: 0.8rem;
+      text-decoration: none;
       color: var(--text-main);
+    }
+
+    .partner-card:hover {
+      filter: brightness(1.02);
     }
 
     .partner-name {
@@ -411,7 +416,7 @@
     /* CONTENT AREA */
 
     .content {
-      margin-top: 2.6rem;
+      margin-top: 2.2rem;
       display: grid;
       grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.1fr);
       gap: 2.1rem;
@@ -714,7 +719,7 @@
 
             <div class="hero-cta">
               <!-- TODO: replace # with your main Canada Agoda partner link -->
-              <a class="primary-btn" href="https://www.agoda.com/partners/partnersearch.aspx?cid=XXXX">
+              <a class="primary-btn" href="#" target="_blank" rel="nofollow noopener">
                 <span class="icon">🇨🇦</span>
                 <span>View Canada hotel deals on Agoda</span>
               </a>
@@ -754,7 +759,7 @@
 
         <section class="trust" aria-label="Trust, partners and booking countries">
           <div class="trust-copy">
-            <h2>Trusted, safe & transparent bookings</h2>
+            <h2>Trusted, safe &amp; transparent bookings</h2>
             <p>
               All bookings are processed directly on Agoda’s secure checkout — we never handle your payment details.
               Same great Agoda prices, with extra guidance from GiftCardZoneEU.
@@ -782,28 +787,28 @@
             </div>
 
             <div>
-              <p class="partners-title">Top travel partners (hotel & travel brands)</p>
+              <p class="partners-title">Top travel partners (hotel &amp; travel brands)</p>
               <div class="partners-list">
-                <div class="partner-card">
+                <a class="partner-card" href="https://www.booking.com/" target="_blank" rel="nofollow noopener">
                   <span class="partner-name">Booking.com</span>
                   <span class="partner-note">Hotels worldwide</span>
-                </div>
-                <div class="partner-card">
+                </a>
+                <a class="partner-card" href="https://www.trip.com/" target="_blank" rel="nofollow noopener">
                   <span class="partner-name">Trip.com</span>
                   <span class="partner-note">Flights &amp; hotels</span>
-                </div>
-                <div class="partner-card">
+                </a>
+                <a class="partner-card" href="https://www.hotels.com/" target="_blank" rel="nofollow noopener">
                   <span class="partner-name">Hotels.com</span>
                   <span class="partner-note">Discount stays</span>
-                </div>
-                <div class="partner-card">
+                </a>
+                <a class="partner-card" href="https://all.accor.com/" target="_blank" rel="nofollow noopener">
                   <span class="partner-name">Accor Hotels</span>
                   <span class="partner-note">Premium hotels</span>
-                </div>
-                <div class="partner-card">
+                </a>
+                <a class="partner-card" href="https://www.motel6.com/" target="_blank" rel="nofollow noopener">
                   <span class="partner-name">Motel 6</span>
                   <span class="partner-note">Budget stays</span>
-                </div>
+                </a>
               </div>
             </div>
 
@@ -834,7 +839,7 @@
               <div class="card-footer">
                 <span class="price-hint">Many stays under US$120/night</span>
                 <!-- TODO: replace # with your Toronto Agoda partner link -->
-                <a class="card-link" href="https://www.agoda.com/partners/partnersearch.aspx?cid=XXXX">
+                <a class="card-link" href="#" target="_blank" rel="nofollow noopener">
                   View Toronto deals <span>↗</span>
                 </a>
               </div>
@@ -852,7 +857,7 @@
               <div class="card-footer">
                 <span class="price-hint">Popular dates sell out early</span>
                 <!-- TODO: replace # with your Vancouver Agoda partner link -->
-                <a class="card-link" href="https://www.agoda.com/partners/partnersearch.aspx?cid=XXXX>
+                <a class="card-link" href="#" target="_blank" rel="nofollow noopener">
                   View Vancouver deals <span>↗</span>
                 </a>
               </div>
@@ -870,7 +875,7 @@
               <div class="card-footer">
                 <span class="price-hint">Great off-season discounts</span>
                 <!-- TODO: replace # with your Montreal Agoda partner link -->
-                <a class="card-link" href="https://www.agoda.com/partners/partnersearch.aspx?cid=XXXX">
+                <a class="card-link" href="#" target="_blank" rel="nofollow noopener">
                   View Montreal deals <span>↗</span>
                 </a>
               </div>
@@ -888,7 +893,7 @@
               <div class="card-footer">
                 <span class="price-hint">Ideal for road trips</span>
                 <!-- TODO: replace # with your Calgary Agoda partner link -->
-                <a class="card-link" href="https://www.agoda.com/partners/partnersearch.aspx?cid=XXXX">
+                <a class="card-link" href="#" target="_blank" rel="nofollow noopener">
                   View Calgary deals <span>↗</span>
                 </a>
               </div>
@@ -898,7 +903,7 @@
             <article class="card">
               <div class="card-header">
                 <h3 class="card-title">Quebec City</h3>
-                <span class="card-pill">Fairytale streets & winter charm</span>
+                <span class="card-pill">Fairytale streets &amp; winter charm</span>
               </div>
               <p class="card-body">
                 Sleep inside Old Quebec’s walls or near the St. Lawrence River. Great for Christmas markets and snowy getaways.
@@ -906,7 +911,7 @@
               <div class="card-footer">
                 <span class="price-hint">Book early for holidays</span>
                 <!-- TODO: replace # with your Quebec City Agoda partner link -->
-                <a class="card-link" href="https://www.agoda.com/partners/partnersearch.aspx?cid=XXXX">
+                <a class="card-link" href="#" target="_blank" rel="nofollow noopener">
                   View Quebec City deals <span>↗</span>
                 </a>
               </div>
@@ -934,11 +939,11 @@
             </li>
             <li>
               <span class="icon">💸</span>
-              <span>Watch out for taxes & fees at checkout — Agoda shows the full price before you confirm.</span>
+              <span>Watch out for taxes &amp; fees at checkout — Agoda shows the full price before you confirm.</span>
             </li>
           </ul>
           <div class="aside-footer">
-            <span>Bookings go through <span class="brand">Agoda.com</span></span>
+            <span>Bookings go through <span class="brand">AGODA.COM</span></span>
             <span>GiftCardZoneEU never charges extra fees.</span>
           </div>
         </aside>
