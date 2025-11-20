@@ -5,293 +5,912 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Canada Hotel Deals | GiftCardZoneEU × Agoda</title>
-  <meta name="description" content="Find the best hotel deals in Canada — compare stays in Toronto, Vancouver, Montreal, Calgary and Ottawa using Agoda Partners via GiftCardZoneEU Travel." />
+  <meta name="description" content="Find the best hotel deals in Canada — Toronto, Vancouver, Montreal, Calgary, Quebec City and more via Agoda partners with GiftCardZoneEU Travel." />
+  <meta name="keywords" content="Canada hotel deals, Toronto hotels, Vancouver hotels, Montreal hotels, Calgary hotels, Agoda Canada, GiftCardZoneEU" />
   <link rel="canonical" href="https://giftcardzoneeu.com/travel/canada/" />
 
-  <!-- SEO -->
-  <meta name="keywords" content="Canada hotel deals, Toronto hotels, Vancouver hotels, Montreal hotels, Calgary hotels, Ottawa hotels, Agoda Canada, GiftCardZoneEU travel" />
-
-  <!-- OG -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Canada Hotel Deals | GiftCardZoneEU × Agoda" />
-  <meta property="og:description" content="Compare hotel deals in Canada — Toronto, Vancouver, Montreal, Calgary and Ottawa using Agoda Partners." />
+  <meta property="og:description" content="Compare hotel prices in Toronto, Vancouver, Montreal, Calgary and more. Book Canada stays via Agoda partners with GiftCardZoneEU Travel." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://giftcardzoneeu.com/travel/canada/" />
+  <meta property="og:site_name" content="GiftCardZoneEU Travel" />
 
   <style>
     :root {
       --bg: #020617;
-      --card-bg: rgba(15, 23, 42, 0.96);
-      --card-border: rgba(148, 163, 184, 0.4);
-      --pill-bg: rgba(15,23,42,0.85);
-      --pill-border: rgba(148,163,184,0.5);
-      --text-main: #e5e7eb;
-      --text-muted: #9ca3af;
-      --badge-bg: rgba(15,23,42,0.96);
+      --bg-soft: #020617;
+      --card-bg: #ffffff;
+      --card-border: rgba(148, 163, 184, 0.5);
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --accent: #0ea5e9;
+      --accent-soft: rgba(56, 189, 248, 0.16);
+      --badge-bg: rgba(15, 23, 42, 0.9);
+      --pill-border: rgba(148, 163, 184, 0.5);
+      --radius-xl: 1.5rem;
+      --radius-2xl: 1.75rem;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.55);
+      --shadow-card: 0 16px 30px rgba(15, 23, 42, 0.18);
+      --border-strong: rgba(148, 163, 184, 0.8);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      font-family: system-ui, -apple-system;
-      background-color: var(--bg);
-      color: var(--text-main);
-      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      background: radial-gradient(circle at top, #0b1220 0, #020617 52%, #020617 100%);
+      color: #e5e7eb;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
     }
 
     .page {
       min-height: 100vh;
-      background-image:
-        linear-gradient(to bottom, rgba(15,23,42,0.92), rgba(15,23,42,0.98)),
-        url("https://images.pexels.com/photos/227417/pexels-photo-227417.jpeg?auto=compress&cs=tinysrgb&w=1920");
-      background-size: cover;
-      background-position: center;
-    }
-
-    main {
-      max-width: 1120px;
-      margin: auto;
-      padding: 1.5rem 1rem 3rem;
-    }
-
-    .breadcrumbs {
-      display: flex;
-      gap: .5rem;
-      flex-wrap: wrap;
-      margin-bottom: 1.5rem;
-    }
-
-    .pill {
-      padding: .4rem .95rem;
-      border-radius: 999px;
-      background: var(--pill-bg);
-      border: 1px solid var(--pill-border);
-      font-size: .78rem;
-      color: var(--text-muted);
-      text-decoration: none;
-    }
-
-    .hero-title {
-      font-size: 2.3rem;
-      font-weight: 700;
-      margin-bottom: .4rem;
-    }
-
-    .hero-subtitle {
-      max-width: 36rem;
-      font-size: .97rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    .grid {
-      margin-top: 2rem;
-      display: grid;
-      grid-template-columns: repeat(2,1fr);
-      gap: 1.2rem;
-    }
-
-    @media(max-width: 600px){
-      .grid { grid-template-columns:1fr; }
-    }
-
-    .city-card {
-      background: var(--card-bg);
-      padding: 1.3rem;
-      border-radius: 1.3rem;
-      border: 1px solid var(--card-border);
       display: flex;
       flex-direction: column;
-      gap: .9rem;
     }
 
-    .city-card h3 {
-      font-size: 1.08rem;
-      font-weight: 600;
+    .shell {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 1.75rem 1.25rem 2.5rem;
     }
 
-    .city-card p {
-      font-size: .87rem;
-      color: var(--text-muted);
-      line-height: 1.55;
+    /* HERO */
+
+    .hero {
+      position: relative;
+      border-radius: 2rem;
+      padding: 1.75rem 1.75rem 1.9rem;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.26), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.18), transparent 60%),
+        #020617;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(148, 163, 184, 0.38);
+      isolation: isolate;
     }
 
-    .btn-primary {
-      padding: .55rem .9rem;
-      background:#38bdf8;
-      color:#0b1120;
-      border-radius:999px;
-      font-weight:600;
-      font-size:.85rem;
-      text-decoration:none;
-      text-align:center;
-      display:inline-block;
+    /* Canada background image — change URL if you want a different Canada photo */
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.82), rgba(15, 23, 42, 0.96)),
+        url("https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&cs=tinysrgb&w=1600");
+      background-size: cover;
+      background-position: center;
+      opacity: 0.72;
+      z-index: -1;
     }
 
-    .small-grid {
-      margin-top: 3rem;
+    .hero-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.25rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.86);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      backdrop-filter: blur(16px);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+    }
+
+    .brand-dot {
+      width: 0.55rem;
+      height: 0.55rem;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #38bdf8, #0ea5e9 55%, #0369a1 100%);
+      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.23);
+    }
+
+    .brand span {
+      opacity: 0.9;
+    }
+
+    .trust-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(52, 211, 153, 0.6);
+      color: #bbf7d0;
+      font-size: 0.78rem;
+      white-space: nowrap;
+    }
+
+    .trust-chip span {
+      border-radius: 999px;
+      padding: 0.08rem 0.45rem;
+      background: rgba(21, 128, 61, 0.16);
+      border: 1px solid rgba(74, 222, 128, 0.6);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+    }
+
+    .hero-main {
       display: grid;
-      grid-template-columns: repeat(5,1fr);
-      gap: .7rem;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+      gap: 1.9rem;
+      align-items: flex-end;
     }
 
-    @media(max-width:900px){
-      .small-grid { grid-template-columns:repeat(3,1fr); }
+    .hero-copy h1 {
+      font-size: clamp(1.95rem, 3vw, 2.35rem);
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.75rem;
+      color: #f9fafb;
     }
 
-    @media(max-width:600px){
-      .small-grid { grid-template-columns:repeat(2,1fr); }
+    .hero-copy h1 span {
+      color: #38bdf8;
     }
 
-    .small-pill {
-      padding:.55rem .8rem;
-      border-radius:999px;
-      background:var(--badge-bg);
-      border:1px solid var(--pill-border);
-      text-align:center;
-      color:var(--text-main);
-      font-size:.8rem;
-      text-decoration:none;
+    .hero-copy p {
+      font-size: 0.95rem;
+      color: #e5e7eb;
+      opacity: 0.9;
+      max-width: 34rem;
+    }
+
+    .hero-copy p strong {
+      font-weight: 600;
+      color: #f9fafb;
+    }
+
+    .hero-cta {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.9rem;
+    }
+
+    .hero-cta a.primary-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 1.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(56, 189, 248, 0.7);
+      background: radial-gradient(circle at 10% -10%, #e0f2fe, #0ea5e9 40%, #0369a1 100%);
+      color: #0b1120;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      box-shadow: 0 18px 45px rgba(8, 47, 73, 0.65);
+      transition: transform 0.14s ease, box-shadow 0.14s ease, background 0.14s ease;
+      white-space: nowrap;
+    }
+
+    .hero-cta a.primary-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 22px 50px rgba(8, 47, 73, 0.75);
+    }
+
+    .hero-cta a.primary-btn span.icon {
+      font-size: 1.1rem;
+    }
+
+    .hero-cta small {
+      font-size: 0.8rem;
+      color: #cbd5f5;
+      opacity: 0.9;
+    }
+
+    .hero-side {
+      justify-self: flex-end;
+    }
+
+    .hero-card {
+      background: rgba(15, 23, 42, 0.86);
+      border-radius: 1.35rem;
+      padding: 1.1rem 1rem 1.1rem;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      box-shadow: 0 16px 35px rgba(15, 23, 42, 0.7);
+      max-width: 23rem;
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+      gap: 0.75rem;
+    }
+
+    .hero-card-title {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    .hero-card-pill {
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(148, 163, 184, 0.65);
+      font-size: 0.72rem;
+      color: #cbd5f5;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      white-space: nowrap;
+    }
+
+    .hero-card-pill span.dot {
+      width: 0.35rem;
+      height: 0.35rem;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.35);
+    }
+
+    .hero-card-rows {
+      display: grid;
+      gap: 0.6rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.75rem;
+      font-size: 0.8rem;
+      color: #e5e7eb;
+    }
+
+    .hero-row span.label {
+      opacity: 0.82;
+    }
+
+    .hero-row span.value {
+      font-weight: 600;
+      text-align: right;
+    }
+
+    .hero-row span.value.badge {
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(34, 197, 94, 0.6);
+      font-size: 0.72rem;
+      color: #bbf7d0;
+    }
+
+    .hero-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      color: #9ca3af;
+    }
+
+    .hero-card-footer span.em {
+      color: #e5e7eb;
+    }
+
+    /* TRUST SECTION */
+
+    .trust {
+      margin-top: 2.1rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.3fr);
+      gap: 1.6rem;
+      align-items: center;
+    }
+
+    .trust-copy h2 {
+      font-size: 0.98rem;
+      color: #e5e7eb;
+      margin-bottom: 0.35rem;
+    }
+
+    .trust-copy p {
+      font-size: 0.82rem;
+      color: #cbd5f5;
+      max-width: 26rem;
+      opacity: 0.9;
     }
 
     .trust-badges {
-      margin-top:3rem;
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:1.2rem;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.65rem;
     }
 
-    @media(max-width:900px){
-      .trust-badges { grid-template-columns:repeat(2,1fr); }
+    .trust-badge {
+      background: rgba(15, 23, 42, 0.92);
+      border-radius: 999px;
+      padding: 0.45rem 0.65rem;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      font-size: 0.78rem;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0.4rem;
+      color: #e5e7eb;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    @media(max-width:600px){
-      .trust-badges { grid-template-columns:1fr; }
+    .trust-badge span.icon {
+      font-size: 0.95rem;
     }
 
-    .trust-card {
-      background:var(--badge-bg);
-      padding:1rem;
-      border-radius:1.2rem;
-      border:1px solid rgba(148,163,184,.5);
+    .trust-countries {
+      margin-top: 0.55rem;
+      font-size: 0.78rem;
+      color: #cbd5f5;
+      opacity: 0.95;
     }
 
-    .trust-title {
-      font-size:.95rem;
-      font-weight:600;
-      margin-bottom:.35rem;
+    .trust-countries strong {
+      color: #e5e7eb;
+      font-weight: 600;
     }
 
-    .trust-text {
-      font-size:.82rem;
-      color:var(--text-muted);
-      line-height:1.5;
+    /* CONTENT AREA */
+
+    .content {
+      margin-top: 2.6rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.1fr);
+      gap: 2.1rem;
+      align-items: flex-start;
     }
 
-    .footer-note {
-      text-align:center;
-      margin-top:2.5rem;
-      color:var(--text-muted);
-      font-size:.78rem;
+    .section-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #e5e7eb;
+      margin-bottom: 0.6rem;
     }
 
+    .section-sub {
+      font-size: 0.82rem;
+      color: #cbd5f5;
+      opacity: 0.9;
+      margin-bottom: 1rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.9rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 1.2rem;
+      padding: 0.85rem 0.9rem 0.9rem;
+      border: 1px solid var(--card-border);
+      box-shadow: var(--shadow-card);
+      color: var(--text-main);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.65rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .card-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .card-pill {
+      padding: 0.18rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .card-body {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.65rem;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      gap: 0.5rem;
+    }
+
+    .price-hint {
+      color: #16a34a;
+      font-weight: 600;
+    }
+
+    .card a.card-link {
+      font-size: 0.78rem;
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+      white-space: nowrap;
+    }
+
+    .card a.card-link span {
+      font-size: 0.9rem;
+    }
+
+    .aside {
+      padding: 0.95rem;
+      border-radius: 1.3rem;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.15), transparent 55%), rgba(15, 23, 42, 0.92);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.6);
+    }
+
+    .aside-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #e5e7eb;
+      margin-bottom: 0.3rem;
+    }
+
+    .aside-sub {
+      font-size: 0.8rem;
+      color: #cbd5f5;
+      opacity: 0.9;
+      margin-bottom: 0.8rem;
+    }
+
+    .aside-list {
+      list-style: none;
+      display: grid;
+      gap: 0.6rem;
+      margin-bottom: 0.9rem;
+      font-size: 0.8rem;
+      color: #e5e7eb;
+    }
+
+    .aside-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.4rem;
+    }
+
+    .aside-list span.icon {
+      margin-top: 0.05rem;
+      font-size: 0.9rem;
+    }
+
+    .aside-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      color: #9ca3af;
+      gap: 0.6rem;
+    }
+
+    .aside-footer span.brand {
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    /* TOP TRAVEL DESTINATIONS */
+
+    .top-travel {
+      margin-top: 2.4rem;
+      padding: 1.1rem 0.2rem 0.2rem;
+      border-top: 1px solid rgba(148, 163, 184, 0.45);
+    }
+
+    .top-travel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .top-travel-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    .top-travel-sub {
+      font-size: 0.78rem;
+      color: #cbd5f5;
+      opacity: 0.9;
+    }
+
+    .top-travel-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+
+    .top-chip {
+      padding: 0.4rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.9);
+      font-size: 0.78rem;
+      color: #e5e7eb;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      white-space: nowrap;
+    }
+
+    .top-chip span.icon {
+      font-size: 0.95rem;
+    }
+
+    /* FOOTER NOTE */
+
+    .footnote {
+      margin-top: 1.8rem;
+      font-size: 0.72rem;
+      color: #9ca3af;
+      opacity: 0.9;
+      line-height: 1.5;
+    }
+
+    .footnote strong {
+      color: #e5e7eb;
+      font-weight: 600;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 960px) {
+      .hero {
+        padding: 1.5rem 1.35rem 1.7rem;
+      }
+
+      .hero-main {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-side {
+        justify-self: stretch;
+      }
+
+      .hero-card {
+        max-width: 100%;
+      }
+
+      .trust {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .content {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .shell {
+        padding: 1.25rem 1rem 2.2rem;
+      }
+
+      .hero-top {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .trust-badges {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        border-radius: 1.5rem;
+      }
+
+      .trust-badges {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-cta a.primary-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
   </style>
 </head>
-
 <body>
-<div class="page">
-<main>
+  <div class="page">
+    <main class="shell">
+      <section class="hero">
+        <div class="hero-top">
+          <div class="brand">
+            <span class="brand-dot"></span>
+            <span>GiftCardZoneEU Travel × Agoda</span>
+          </div>
+          <div class="trust-chip">
+            <span>Verified partner</span> Real-time Agoda prices
+          </div>
+        </div>
 
-  <!-- NAV -->
-  <div class="breadcrumbs">
-    <a class="pill" href="https://giftcardzoneeu.com/travel/">Travel</a>
-    <a class="pill" href="https://giftcardzoneeu.com/travel/">Agoda Partners</a>
-    <a class="pill" href="https://giftcardzoneeu.com/travel/">All Countries</a>
-    <a class="pill" href="https://giftcardzoneeu.com/">Home</a>
+        <div class="hero-main">
+          <div class="hero-copy">
+            <h1>Canada hotel deals <span>made simple.</span></h1>
+            <p>
+              Compare stays in <strong>Toronto, Vancouver, Montreal, Calgary, Quebec City</strong> and more.
+              Book with Agoda’s secure platform via <strong>GiftCardZoneEU Travel</strong> — no extra fees, just smart deals.
+            </p>
+
+            <div class="hero-cta">
+              <!-- TODO: replace # with your main Canada Agoda partner link -->
+              <a class="primary-btn" href="#" target="_blank" rel="nofollow noopener">
+                <span class="icon">🇨🇦</span>
+                <span>View Canada hotel deals on Agoda</span>
+              </a>
+              <small>Instant redirect to Agoda · Secure booking · No extra cost to you</small>
+            </div>
+          </div>
+
+          <aside class="hero-side">
+            <div class="hero-card" aria-label="Quick facts for Canada hotel deals">
+              <div class="hero-card-header">
+                <div class="hero-card-title">Why travelers book Canada with Agoda</div>
+                <div class="hero-card-pill">
+                  <span class="dot"></span> Live availability
+                </div>
+              </div>
+              <div class="hero-card-rows">
+                <div class="hero-row">
+                  <span class="label">Popular cities</span>
+                  <span class="value">Toronto · Vancouver · Montreal</span>
+                </div>
+                <div class="hero-row">
+                  <span class="label">Typical savings vs rack rate</span>
+                  <span class="value badge">Up to 35% off</span>
+                </div>
+                <div class="hero-row">
+                  <span class="label">Best for</span>
+                  <span class="value">City breaks · Nature · Road trips</span>
+                </div>
+              </div>
+              <div class="hero-card-footer">
+                <span>Powered by <span class="em">Agoda Partners</span></span>
+                <span>GiftCardZoneEU · Travel hub</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+
+        <section class="trust" aria-label="Trust and safety">
+          <div class="trust-copy">
+            <h2>Trusted, safe & transparent bookings</h2>
+            <p>
+              All bookings are processed directly on Agoda’s secure checkout — we never handle your payment details.
+              Same great Agoda prices, with extra guidance from GiftCardZoneEU.
+            </p>
+          </div>
+          <div>
+            <div class="trust-badges">
+              <div class="trust-badge">
+                <span class="icon">🔒</span>
+                Secure Agoda checkout
+              </div>
+              <div class="trust-badge">
+                <span class="icon">📊</span>
+                Real-time price comparison
+              </div>
+              <div class="trust-badge">
+                <span class="icon">💳</span>
+                No extra booking fees
+              </div>
+              <div class="trust-badge">
+                <span class="icon">🌍</span>
+                Millions of verified reviews
+              </div>
+            </div>
+            <p class="trust-countries">
+              <strong>Top booking countries on Agoda Travel:</strong> United States, United Kingdom, Germany, France, Japan.
+            </p>
+          </div>
+        </section>
+      </section>
+
+      <section class="content" aria-label="Canada city deals and travel tips">
+        <div>
+          <h2 class="section-title">Featured Canada cities</h2>
+          <p class="section-sub">
+            Jump straight into the most searched Canadian cities. Each button opens Agoda in a new tab with deals for that destination.
+          </p>
+
+          <div class="grid">
+            <!-- TORONTO -->
+            <article class="card">
+              <div class="card-header">
+                <h3 class="card-title">Toronto</h3>
+                <span class="card-pill">Best for first-time visitors</span>
+              </div>
+              <p class="card-body">
+                Stay close to CN Tower, Harbourfront and city nightlife. From budget rooms to 5★ hotels in Downtown and Yorkville.
+              </p>
+              <div class="card-footer">
+                <span class="price-hint">Many stays under US$120/night</span>
+                <!-- TODO: replace # with your Toronto Agoda partner link -->
+                <a class="card-link" href="#" target="_blank" rel="nofollow noopener">
+                  View Toronto deals <span>↗</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- VANCOUVER -->
+            <article class="card">
+              <div class="card-header">
+                <h3 class="card-title">Vancouver</h3>
+                <span class="card-pill">Nature + city combo</span>
+              </div>
+              <p class="card-body">
+                Walk Stanley Park, explore Gastown and enjoy mountain views. Great mix of boutique hotels and seafront stays.
+              </p>
+              <div class="card-footer">
+                <span class="price-hint">Popular dates sell out early</span>
+                <!-- TODO: replace # with your Vancouver Agoda partner link -->
+                <a class="card-link" href="#" target="_blank" rel="nofollow noopener">
+                  View Vancouver deals <span>↗</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- MONTREAL -->
+            <article class="card">
+              <div class="card-header">
+                <h3 class="card-title">Montreal</h3>
+                <span class="card-pill">European-style old town</span>
+              </div>
+              <p class="card-body">
+                Stay near Old Montreal, festivals and food spots. Choose from historic buildings, modern stays and cozy apartments.
+              </p>
+              <div class="card-footer">
+                <span class="price-hint">Great off-season discounts</span>
+                <!-- TODO: replace # with your Montreal Agoda partner link -->
+                <a class="card-link" href="#" target="_blank" rel="nofollow noopener">
+                  View Montreal deals <span>↗</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- CALGARY -->
+            <article class="card">
+              <div class="card-header">
+                <h3 class="card-title">Calgary</h3>
+                <span class="card-pill">Gateway to the Rockies</span>
+              </div>
+              <p class="card-body">
+                Perfect base before heading to Banff or Lake Louise. Find hotels near Stampede Park, airport and downtown.
+              </p>
+              <div class="card-footer">
+                <span class="price-hint">Ideal for road trips</span>
+                <!-- TODO: replace # with your Calgary Agoda partner link -->
+                <a class="card-link" href="#" target="_blank" rel="nofollow noopener">
+                  View Calgary deals <span>↗</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- QUEBEC CITY -->
+            <article class="card">
+              <div class="card-header">
+                <h3 class="card-title">Quebec City</h3>
+                <span class="card-pill">Fairytale streets & winter charm</span>
+              </div>
+              <p class="card-body">
+                Sleep inside Old Quebec’s walls or near the St. Lawrence River. Great for Christmas markets and snowy getaways.
+              </p>
+              <div class="card-footer">
+                <span class="price-hint">Book early for holidays</span>
+                <!-- TODO: replace # with your Quebec City Agoda partner link -->
+                <a class="card-link" href="#" target="_blank" rel="nofollow noopener">
+                  View Quebec City deals <span>↗</span>
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <aside class="aside" aria-label="Tips for booking Canada with Agoda">
+          <h2 class="aside-title">Smart tips for Canada hotel deals</h2>
+          <p class="aside-sub">
+            Simple reminders to help you lock in better prices and flexible options when booking via Agoda.
+          </p>
+          <ul class="aside-list">
+            <li>
+              <span class="icon">📅</span>
+              <span>Check 2–3 different dates. Canada rates can drop a lot mid-week compared to weekends and holidays.</span>
+            </li>
+            <li>
+              <span class="icon">✅</span>
+              <span>Use <strong>“Free cancellation”</strong> filters so you can change plans if flights or visas move.</span>
+            </li>
+            <li>
+              <span class="icon">⭐</span>
+              <span>Read recent guest reviews and sort by <strong>“Lowest price first”</strong> or <strong>“Best reviewed”</strong> for quick picks.</span>
+            </li>
+            <li>
+              <span class="icon">💸</span>
+              <span>Watch out for taxes & fees at checkout — Agoda shows the full price before you confirm.</span>
+            </li>
+          </ul>
+          <div class="aside-footer">
+            <span>Bookings go through <span class="brand">Agoda.com</span></span>
+            <span>GiftCardZoneEU never charges extra fees.</span>
+          </div>
+        </aside>
+      </section>
+
+      <section class="top-travel" aria-label="Top travel destinations">
+        <div class="top-travel-header">
+          <h2 class="top-travel-title">Top travel destinations via Agoda</h2>
+          <p class="top-travel-sub">
+            Same layout for every country — just pick where you want to compare hotel deals next.
+          </p>
+        </div>
+        <div class="top-travel-row">
+          <a class="top-chip" href="https://giftcardzoneeu.com/travel/usa/">
+            <span class="icon">🇺🇸</span> USA hotels
+          </a>
+          <a class="top-chip" href="https://giftcardzoneeu.com/travel/japan/">
+            <span class="icon">🇯🇵</span> Japan hotels
+          </a>
+          <a class="top-chip" href="https://giftcardzoneeu.com/travel/germany/">
+            <span class="icon">🇩🇪</span> Germany hotels
+          </a>
+          <a class="top-chip" href="https://giftcardzoneeu.com/travel/france/">
+            <span class="icon">🇫🇷</span> France hotels
+          </a>
+          <a class="top-chip" href="https://giftcardzoneeu.com/travel/australia/">
+            <span class="icon">🇦🇺</span> Australia hotels
+          </a>
+        </div>
+      </section>
+
+      <p class="footnote">
+        <strong>Affiliate notice:</strong> GiftCardZoneEU Travel may earn a small commission when you book through these Agoda links.
+        You pay the same price — sometimes even lower — and you help support our travel projects.
+      </p>
+    </main>
   </div>
-
-  <h1 class="hero-title">Canada Hotel Deals</h1>
-  <p class="hero-subtitle">
-    Compare stays in <strong>Toronto</strong>, <strong>Vancouver</strong>, <strong>Montreal</strong>, <strong>Calgary</strong>, and <strong>Ottawa</strong> via Agoda Partners.
-  </p>
-
-  <!-- TOP 5 BOOKING -->
-  <div class="grid">
-
-    <div class="city-card">
-      <h3>Toronto</h3>
-      <p>Canada’s largest city — CN Tower, museums, food districts & events.</p>
-      <a class="btn-primary" href="https://www.agoda.com/city/toronto-on-ca.html?cid=1917077" target="_blank">View Toronto deals ↗</a>
-    </div>
-
-    <div class="city-card">
-      <h3>Vancouver</h3>
-      <p>Seaside city with nature, mountains, parks & vibrant nightlife.</p>
-      <a class="btn-primary" href="https://www.agoda.com/city/vancouver-bc-ca.html?cid=1917077" target="_blank">View Vancouver deals ↗</a>
-    </div>
-
-    <div class="city-card">
-      <h3>Montreal</h3>
-      <p>European vibe — culture, festivals, heritage & food scene.</p>
-      <a class="btn-primary" href="https://www.agoda.com/city/montreal-qc-ca.html?cid=1917077" target="_blank">View Montreal deals ↗</a>
-    </div>
-
-    <div class="city-card">
-      <h3>Calgary</h3>
-      <p>Gateway to the Rockies — nature parks, events & scenic beauty.</p>
-      <a class="btn-primary" href="https://www.agoda.com/city/calgary-ab-ca.html?cid=1917077" target="_blank">View Calgary deals ↗</a>
-    </div>
-
-    <div class="city-card">
-      <h3>Ottawa</h3>
-      <p>Canada’s capital — landmarks, museums, river views & nature trails.</p>
-      <a class="btn-primary" href="https://www.agoda.com/city/ottawa-on-ca.html?cid=1917077" target="_blank">View Ottawa deals ↗</a>
-    </div>
-
-  </div>
-
-  <!-- TOP 5 COUNTRY -->
-  <h2 style="margin-top:3rem;">Top Countries You Can Also Book</h2>
-  <p style="color:#9ca3af; margin-bottom:.8rem;">Explore more destinations worldwide.</p>
-
-  <div class="small-grid">
-    <a class="small-pill" href="https://giftcardzoneeu.com/travel/japan/">Japan ↗</a>
-    <a class="small-pill" href="https://giftcardzoneeu.com/travel/usa/">USA ↗</a>
-    <a class="small-pill" href="https://giftcardzoneeu.com/travel/australia/">Australia ↗</a>
-    <a class="small-pill" href="https://giftcardzoneeu.com/travel/germany/">Germany ↗</a>
-    <a class="small-pill" href="https://giftcardzoneeu.com/travel/france/">France ↗</a>
-  </div>
-
-  <!-- TRUST BADGES -->
-  <h2 style="margin-top:3rem;">Why book via GiftCardZoneEU Travel?</h2>
-  <p style="color:#9ca3af; margin-bottom:1rem;">We connect you directly to Agoda’s secure platform.</p>
-
-  <div class="trust-badges">
-
-    <div class="trust-card">
-      <div class="trust-title">Secure Agoda Checkout</div>
-      <p class="trust-text">Bookings are processed on Agoda’s encrypted website for safe payments.</p>
-    </div>
-
-    <div class="trust-card">
-      <div class="trust-title">Millions of Stays</div>
-      <p class="trust-text">Hotels, apartments and resorts across Canada and worldwide.</p>
-    </div>
-
-    <div class="trust-card">
-      <div class="trust-title">No Extra Fees</div>
-      <p class="trust-text">Live Agoda prices with no hidden charges or mark-ups.</p>
-    </div>
-
-    <div class="trust-card">
-      <div class="trust-title">Official Partner</div>
-      <p class="trust-text">GiftCardZoneEU uses Agoda’s official affiliate program (no extra cost).</p>
-    </div>
-
-  </div>
-
-  <p class="footer-note">
-    All bookings are securely completed on Agoda’s website.
-  </p>
-
-</main>
-</div>
 </body>
 </html>
