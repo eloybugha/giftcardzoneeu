@@ -3,106 +3,132 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Best Hotel Deals in Belgium | GiftCardZoneEU Travel</title>
-  <meta name="description" content="Find the best hotel deals in Belgium. Compare prices from Agoda, Booking.com, Trip.com, Hotels.com, Accor, and Motel 6. Save more on your stay!">
-  <link rel="canonical" href="https://giftcardzoneeu.com/travel/belgium">
+  <meta name="description" content="Find the best hotel deals in Belgium. Compare Agoda, Booking.com, Trip.com, Hotels.com, Accor, and Motel 6.">
+  <link rel="canonical" href="https://giftcardzoneeu.com/travel/belgium.html" />
 
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      color: #222;
-      text-align: center;
+      background: #f8f8f8;
+      color: #333;
     }
 
-    /* HERO WRAPPER */
     .hero {
+      width: 100%;
+      height: 400px;
+      background: url('belgium.jpg') center/cover no-repeat;
       position: relative;
-      height: 380px;
-      background: url('belgium-hero.jpg') center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
 
-    /* BLUR OVERLAY */
     .hero::after {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
       backdrop-filter: blur(3px);
-      background: rgba(0, 0, 0, 0.25);
     }
 
-    .hero h1 {
-      position: relative;
+    .hero-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       color: white;
-      font-size: 32px;
-      font-weight: bold;
+      text-align: center;
       z-index: 2;
+      font-size: 36px;
+      font-weight: bold;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.6);
     }
 
-    /* BUTTONS */
+    .section {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      text-align: center;
+    }
+
     .partners {
-      padding: 25px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 20px;
     }
 
     .partners a {
       display: block;
       background: white;
-      padding: 15px;
+      padding: 15px 18px;
       border-radius: 10px;
-      margin: 12px auto;
-      max-width: 350px;
       text-decoration: none;
-      color: #222;
-      font-weight: bold;
       font-size: 18px;
-      border: 2px solid #eee;
-      transition: 0.25s;
+      font-weight: bold;
+      border: 1px solid #ddd;
+      transition: 0.2s;
     }
 
     .partners a:hover {
-      transform: scale(1.04);
-      border-color: #ccc;
+      transform: scale(1.03);
+      background: #fafafa;
     }
 
-    /* TRUST BADGE */
-    .trust {
-      margin-top: 35px;
+    .trust-badges {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      opacity: 0.85;
+    }
+
+    .trust-badges img {
+      height: 45px;
+    }
+
+    .footer {
+      margin-top: 40px;
       padding: 20px;
-      font-size: 14px;
+      font-size: 13px;
       color: #777;
+      text-align: center;
     }
-
   </style>
 </head>
+
 <body>
 
-  <!-- HERO -->
   <div class="hero">
-    <h1>Best Hotel Deals in Belgium 🇧🇪</h1>
+    <div class="hero-text">Best Hotel Deals in Belgium</div>
   </div>
 
-  <!-- PARTNERS -->
-  <div class="partners">
-    <a href="YOUR-AGODA" target="_blank">Agoda — Best Prices</a>
-    <a href="YOUR-BOOKING" target="_blank">Booking.com — Belgium Hotels</a>
-    <a href="YOUR-TRIP" target="_blank">Trip.com — Book Now</a>
-    <a href="YOUR-HOTELS" target="_blank">Hotels.com — Top Deals</a>
-    <a href="YOUR-ACCOR" target="_blank">Accor Hotels — Belgium</a>
-    <a href="YOUR-MOTEL6" target="_blank">Motel 6 — Budget Stays</a>
-  </div>
+  <div class="section">
+    <h2>Top Travel Partners</h2>
+    <p>Compare Belgium hotel prices from trusted global booking partners.</p>
 
-  <!-- TRUST BADGE -->
-  <div class="trust">
-    ✔️ Trusted by travelers worldwide.  
-    ✔️ Safe & secure booking via our partner platforms.  
-    ✔️ GiftCardZoneEU Travel © 2025
+    <div class="partners">
+
+      <a href="YOUR-AGODA-AFFILIATE" target="_blank">Agoda Belgium Deals</a>
+      <a href="YOUR-BOOKING-AFFILIATE" target="_blank">Booking.com Belgium</a>
+      <a href="YOUR-TRIP-AFFILIATE" target="_blank">Trip.com Belgium</a>
+      <a href="YOUR-HOTELS-AFFILIATE" target="_blank">Hotels.com Belgium</a>
+      <a href="YOUR-ACCOR-AFFILIATE" target="_blank">Accor Hotels Belgium</a>
+      <a href="YOUR-MOTEL6-AFFILIATE" target="_blank">Motel 6 Belgium</a>
+
+    </div>
+
+    <div class="trust-badges">
+      <img src="/assets/trust/secure-payments.png">
+      <img src="/assets/trust/verified.png">
+      <img src="/assets/trust/encrypted.png">
+    </div>
+
+    <div class="footer">
+      © 2025 GiftCardZoneEU Travel • Affiliate Disclosure: We may earn commissions when you book using our links.
+    </div>
+
   </div>
 
 </body>
