@@ -42,15 +42,16 @@
     }
 
     .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(
-          180deg,
-          rgba(15, 23, 42, 0.15),
-          rgba(15, 23, 42, 0.75)
-        ),
+  ...
+  background:
+    linear-gradient(
+      180deg,
+      rgba(15, 23, 42, 0.15),
+      rgba(15, 23, 42, 0.75)
+    ),
+    url("./spain-hero.jpg") center/cover no-repeat;
+  ...
+}
         /* Spain hero image sa /travel/spain/ */
         url("./IMG_20251122_200016.jpg") center/cover no-repeat;
       filter: blur(3px);
