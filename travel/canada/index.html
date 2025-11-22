@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+   <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -11,10 +11,6 @@
   <style>
     :root {
       --bg: #f5f5f7;
-      --card-bg: #ffffff;
-      --accent: #2563eb;
-      --accent-soft: #e0ecff;
-      --accent-soft-2: #e3f2ff;
       --text-main: #111827;
       --text-muted: #6b7280;
       --radius-lg: 18px;
@@ -38,27 +34,19 @@
       flex-direction: column;
     }
 
+    /* HERO */
     .hero {
       position: relative;
-      padding: 32px 16px 40px; /* mas mababa na */
+      padding: 32px 16px 40px;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       overflow: hidden;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
       background:
-        radial-gradient(circle at top left, rgba(37,99,235,0.35), transparent 55%),
-        radial-gradient(circle at bottom right, rgba(239,68,68,0.28), transparent 55%),
-        url("https://giftcardzoneeu.com/assets/travel/canada-hero.jpg") center/cover no-repeat;
-      filter: blur(3px);
-      transform: scale(1.05);
-      opacity: 0.9;
+        radial-gradient(circle at top left, rgba(37,99,235,0.30), transparent 60%),
+        radial-gradient(circle at bottom right, rgba(239,68,68,0.25), transparent 60%),
+        #0f172a;
     }
 
     .hero-overlay {
@@ -70,7 +58,7 @@
       background: rgba(15, 23, 42, 0.55);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.50);
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.5);
     }
 
     .hero-title {
@@ -94,8 +82,8 @@
     }
 
     .section {
-      margin-top: 20px; /* nilapit sa hero */
-      background: rgba(255,255,255,0.85);
+      margin-top: 20px;
+      background: rgba(255,255,255,0.9);
       border-radius: 24px;
       padding: 18px 18px 20px;
       box-shadow: var(--shadow-soft);
@@ -117,7 +105,7 @@
       color: var(--text-muted);
     }
 
-    /* Top Travel Partners – colored cards */
+    /* TOP TRAVEL PARTNERS – brand colors + click color */
     .partner-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -130,29 +118,104 @@
       text-align: center;
       font-weight: 600;
       font-size: 0.95rem;
-      background: var(--accent-soft);
-      color: #1f2937;
-      box-shadow: 0 4px 15px rgba(148, 163, 184, 0.5);
-      border: 1px solid rgba(37, 99, 235, 0.20);
       cursor: pointer;
       text-decoration: none;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
-    }
-
-    .partner-card:nth-child(2n) {
-      background: var(--accent-soft-2);
+      border: 1px solid transparent;
+      transition:
+        transform 0.16s ease,
+        box-shadow 0.16s ease,
+        background 0.16s ease,
+        color 0.16s ease,
+        border-color 0.16s ease;
     }
 
     .partner-card:hover {
       transform: translateY(-2px);
       box-shadow: 0 10px 25px rgba(15, 23, 42, 0.25);
-      background: #d4e3ff;
     }
 
-    /* Why Travelers Trust Us */
+    /* Agoda – purple */
+    .partner-card:nth-child(1) {
+      background: #f3e8ff;
+      color: #4c1d95;
+      border-color: #e9d5ff;
+    }
+    .partner-card:nth-child(1):active {
+      background: #c4b5fd;
+      color: #1e1b4b;
+      transform: scale(0.96);
+      box-shadow: 0 0 0 rgba(0,0,0,0.2);
+    }
+
+    /* Booking.com – blue */
+    .partner-card:nth-child(2) {
+      background: #dbeafe;
+      color: #1d4ed8;
+      border-color: #bfdbfe;
+    }
+    .partner-card:nth-child(2):active {
+      background: #93c5fd;
+      color: #0b1f5f;
+      transform: scale(0.96);
+      box-shadow: 0 0 0 rgba(0,0,0,0.2);
+    }
+
+    /* Trip.com – teal */
+    .partner-card:nth-child(3) {
+      background: #e0f2fe;
+      color: #0369a1;
+      border-color: #bae6fd;
+    }
+    .partner-card:nth-child(3):active {
+      background: #7dd3fc;
+      color: #0f172a;
+      transform: scale(0.96);
+      box-shadow: 0 0 0 rgba(0,0,0,0.2);
+    }
+
+    /* Hotels.com – red */
+    .partner-card:nth-child(4) {
+      background: #fee2e2;
+      color: #b91c1c;
+      border-color: #fecaca;
+    }
+    .partner-card:nth-child(4):active {
+      background: #fca5a5;
+      color: #7f1d1d;
+      transform: scale(0.96);
+      box-shadow: 0 0 0 rgba(0,0,0,0.2);
+    }
+
+    /* Accor – gold */
+    .partner-card:nth-child(5) {
+      background: #fef3c7;
+      color: #92400e;
+      border-color: #fde68a;
+    }
+    .partner-card:nth-child(5):active {
+      background: #facc15;
+      color: #78350f;
+      transform: scale(0.96);
+      box-shadow: 0 0 0 rgba(0,0,0,0.2);
+    }
+
+    /* Motel 6 – blue/red mix */
+    .partner-card:nth-child(6) {
+      background: #e0ecff;
+      color: #1e3a8a;
+      border-color: #bfdbfe;
+    }
+    .partner-card:nth-child(6):active {
+      background: #60a5fa;
+      color: #0b1120;
+      transform: scale(0.96);
+      box-shadow: 0 0 0 rgba(0,0,0,0.2);
+    }
+
+    /* WHY TRAVELERS TRUST US */
     .trust-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -168,6 +231,12 @@
       flex-direction: column;
       gap: 6px;
       border: 1px solid rgba(209, 213, 219, 0.9);
+      transition: background 0.12s ease, transform 0.12s ease;
+    }
+
+    .trust-card:active {
+      background: #e5edff;
+      transform: scale(0.97);
     }
 
     .trust-label {
@@ -179,7 +248,7 @@
       color: var(--text-muted);
     }
 
-    /* Trusted Partners strip */
+    /* TRUSTED PARTNERS STRIP */
     .trusted-strip {
       display: flex;
       flex-wrap: wrap;
@@ -198,6 +267,12 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
+      transition: background 0.12s ease, transform 0.12s ease;
+    }
+
+    .trusted-pill:active {
+      background: #e5edff;
+      transform: scale(0.97);
     }
 
     .trusted-dot {
@@ -207,7 +282,6 @@
       background: #22c55e;
     }
 
-    /* Footer note */
     .legal {
       margin-top: 16px;
       font-size: 0.78rem;
@@ -232,8 +306,6 @@
 </head>
 <body>
   <div class="page">
-
-    <!-- HERO -->
     <header class="hero">
       <div class="hero-overlay">
         <h1 class="hero-title">
@@ -251,25 +323,13 @@
           Compare hotel prices across our trusted partners and grab the best deal for your Canada trip.
         </p>
         <div class="partner-grid">
-          <!-- TODO: replace each href with your affiliate links -->
-          <a class="partner-card" href="https://www.agoda.com/" target="_blank" rel="nofollow noopener">
-            Agoda
-          </a>
-          <a class="partner-card" href="https://www.booking.com/" target="_blank" rel="nofollow noopener">
-            Booking.com
-          </a>
-          <a class="partner-card" href="https://www.trip.com/" target="_blank" rel="nofollow noopener">
-            Trip.com
-          </a>
-          <a class="partner-card" href="https://www.hotels.com/" target="_blank" rel="nofollow noopener">
-            Hotels.com
-          </a>
-          <a class="partner-card" href="https://all.accor.com/" target="_blank" rel="nofollow noopener">
-            Accor
-          </a>
-          <a class="partner-card" href="https://www.motel6.com/" target="_blank" rel="nofollow noopener">
-            Motel 6
-          </a>
+          <!-- Palitan mo ito lahat ng tunay mong affiliate links -->
+          <a class="partner-card" href="YOUR_AGODA_AFFILIATE_LINK" target="_blank" rel="nofollow noopener">Agoda</a>
+          <a class="partner-card" href="YOUR_BOOKING_AFFILIATE_LINK" target="_blank" rel="nofollow noopener">Booking.com</a>
+          <a class="partner-card" href="YOUR_TRIPCOM_AFFILIATE_LINK" target="_blank" rel="nofollow noopener">Trip.com</a>
+          <a class="partner-card" href="YOUR_HOTELS_AFFILIATE_LINK" target="_blank" rel="nofollow noopener">Hotels.com</a>
+          <a class="partner-card" href="YOUR_ACCOR_AFFILIATE_LINK" target="_blank" rel="nofollow noopener">Accor</a>
+          <a class="partner-card" href="YOUR_MOTEL6_AFFILIATE_LINK" target="_blank" rel="nofollow noopener">Motel 6</a>
         </div>
       </section>
 
@@ -312,24 +372,12 @@
       <section class="section" aria-labelledby="trusted-partners">
         <h2 id="trusted-partners" class="section-title">Trusted Partners</h2>
         <div class="trusted-strip">
-          <div class="trusted-pill">
-            <span class="trusted-dot"></span> Agoda
-          </div>
-          <div class="trusted-pill">
-            <span class="trusted-dot"></span> Booking.com
-          </div>
-          <div class="trusted-pill">
-            <span class="trusted-dot"></span> Trip.com
-          </div>
-          <div class="trusted-pill">
-            <span class="trusted-dot"></span> Hotels.com
-          </div>
-          <div class="trusted-pill">
-            <span class="trusted-dot"></span> Accor
-          </div>
-          <div class="trusted-pill">
-            <span class="trusted-dot"></span> Motel 6
-          </div>
+          <div class="trusted-pill"><span class="trusted-dot"></span>Agoda</div>
+          <div class="trusted-pill"><span class="trusted-dot"></span>Booking.com</div>
+          <div class="trusted-pill"><span class="trusted-dot"></span>Trip.com</div>
+          <div class="trusted-pill"><span class="trusted-dot"></span>Hotels.com</div>
+          <div class="trusted-pill"><span class="trusted-dot"></span>Accor</div>
+          <div class="trusted-pill"><span class="trusted-dot"></span>Motel 6</div>
         </div>
 
         <p class="legal">
@@ -342,3 +390,4 @@
   </div>
 </body>
 </html>
+          
