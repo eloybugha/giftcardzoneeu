@@ -3,102 +3,342 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Canada Hotel Deals | GiftCardZoneEU</title>
-  <meta name="description" content="Find the best hotel deals in Canada — Toronto, Vancouver, Montreal, Calgary and more via our trusted travel partners." />
+
+  <title>Best Hotel Deals in Canada | GiftCardZoneEU Travel Partners</title>
+  <meta name="description" content="Find the best hotel deals in Canada — Toronto, Vancouver, Montreal, Calgary and more via our trusted partners Agoda, Booking.com, Trip.com, Hotels.com, Accor and Motel 6." />
   <link rel="canonical" href="https://giftcardzoneeu.com/travel/canada" />
+
   <style>
+    :root {
+      --bg: #f5f5f7;
+      --card-bg: #ffffff;
+      --accent: #2563eb;
+      --accent-soft: #e0ecff;
+      --accent-soft-2: #e3f2ff;
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --radius-lg: 18px;
+      --shadow-soft: 0 10px 25px rgba(15, 23, 42, 0.09);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
     }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
     .hero {
-      background: url('canada-bg.jpg') center/cover no-repeat;
-      height: 260px;
+      position: relative;
+      padding: 32px 16px 40px; /* mas mababa na */
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.5);
-      font-size: 32px;
-      font-weight: bold;
+      text-align: center;
+      overflow: hidden;
     }
-    .container {
-      width: 90%;
-      max-width: 1100px;
-      margin: 20px auto;
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top left, rgba(37,99,235,0.35), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(239,68,68,0.28), transparent 55%),
+        url("https://giftcardzoneeu.com/assets/travel/canada-hero.jpg") center/cover no-repeat;
+      filter: blur(3px);
+      transform: scale(1.05);
+      opacity: 0.9;
     }
-    .trust-badges, .partners {
+
+    .hero-overlay {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      padding: 18px 20px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.55);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.50);
+    }
+
+    .hero-title {
+      margin: 0;
+      font-size: clamp(1.6rem, 3vw, 2rem);
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      color: #f9fafb;
+      text-shadow: 0 4px 16px rgba(0,0,0,0.55);
+    }
+
+    .hero-flag {
+      margin-left: 8px;
+    }
+
+    main {
+      flex: 1;
+      padding: 10px 16px 40px;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .section {
+      margin-top: 20px; /* nilapit sa hero */
+      background: rgba(255,255,255,0.85);
+      border-radius: 24px;
+      padding: 18px 18px 20px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .section + .section {
+      margin-top: 16px;
+    }
+
+    .section-title {
+      margin: 0 0 14px;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .section-subtitle {
+      margin-top: 4px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Top Travel Partners – colored cards */
+    .partner-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 10px;
+    }
+
+    .partner-card {
+      border-radius: var(--radius-lg);
+      padding: 12px 10px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 0.95rem;
+      background: var(--accent-soft);
+      color: #1f2937;
+      box-shadow: 0 4px 15px rgba(148, 163, 184, 0.5);
+      border: 1px solid rgba(37, 99, 235, 0.20);
+      cursor: pointer;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+
+    .partner-card:nth-child(2n) {
+      background: var(--accent-soft-2);
+    }
+
+    .partner-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.25);
+      background: #d4e3ff;
+    }
+
+    /* Why Travelers Trust Us */
+    .trust-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 15px;
-      margin-top: 20px;
+      gap: 10px;
     }
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      text-align: center;
+
+    .trust-card {
+      background: #f9fafb;
+      border-radius: var(--radius-lg);
+      padding: 10px 12px;
+      font-size: 0.88rem;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      border: 1px solid rgba(209, 213, 219, 0.9);
     }
-    a.cta {
-      display: inline-block;
-      margin-top: 15px;
-      background: #ff4d4d;
-      padding: 12px 20px;
-      border-radius: 6px;
-      color: white;
-      font-weight: bold;
-      text-decoration: none;
+
+    .trust-label {
+      font-weight: 600;
+    }
+
+    .trust-desc {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    /* Trusted Partners strip */
+    .trusted-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+      padding-top: 6px;
+    }
+
+    .trusted-pill {
+      font-size: 0.8rem;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #f3f4f6;
+      border: 1px solid #e5e7eb;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .trusted-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22c55e;
+    }
+
+    /* Footer note */
+    .legal {
+      margin-top: 16px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .legal strong {
+      color: #111827;
+    }
+
+    @media (min-width: 768px) {
+      .hero {
+        padding: 40px 16px 50px;
+      }
+
+      main {
+        padding: 18px 20px 48px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="hero">Best Hotel Deals in Canada 🇨🇦</div>
-  <div class="container">
-    <h2>Top Travel Partners</h2>
-    <div class="partners">
-      <div class="card">Agoda</div>
-      <div class="card">Booking.com</div>
-      <div class="card">Trip.com</div>
-      <div class="card">Hotels.com</div>
-      <div class="card">Accor</div>
-      <div class="card">Motel 6</div>
-    </div>
+  <div class="page">
 
-    <h2 style="margin-top:40px;">Why Travelers Trust Us</h2>
-    <div class="trust-badges">
-      <div class="card">✔ GiftCardZoneEU Partner Verified</div>
-      <div class="card">✔ SSL Secured</div>
-      <div class="card">✔ Trusted Global Partners</div>
-      <div class="card">✔ Safe Payment Redirects</div>
-      <div class="card">✔ 24/7 Booking Support</div>
-      <div class="card">✔ Verified Travel Deals</div>
-      <div class="card">✔ Privacy Protected</div>
-    </div>
-      <div class="card">Trusted Partners</div>
-      <div class="card">Verified Deals</div>
-      <div class="card">24/7 Access</div>
-    </div>
+    <!-- HERO -->
+    <header class="hero">
+      <div class="hero-overlay">
+        <h1 class="hero-title">
+          Best Hotel Deals in Canada
+          <span class="hero-flag">🇨🇦</span>
+        </h1>
+      </div>
+    </header>
 
-    <div style="text-align:center; margin-top:40px;">
-      <a class="cta" href="#">Find the Best Deals</a>
-    </div>
+    <main>
+      <!-- TOP TRAVEL PARTNERS -->
+      <section class="section" aria-labelledby="top-partners">
+        <h2 id="top-partners" class="section-title">Top Travel Partners</h2>
+        <p class="section-subtitle">
+          Compare hotel prices across our trusted partners and grab the best deal for your Canada trip.
+        </p>
+        <div class="partner-grid">
+          <!-- TODO: replace each href with your affiliate links -->
+          <a class="partner-card" href="https://www.agoda.com/" target="_blank" rel="nofollow noopener">
+            Agoda
+          </a>
+          <a class="partner-card" href="https://www.booking.com/" target="_blank" rel="nofollow noopener">
+            Booking.com
+          </a>
+          <a class="partner-card" href="https://www.trip.com/" target="_blank" rel="nofollow noopener">
+            Trip.com
+          </a>
+          <a class="partner-card" href="https://www.hotels.com/" target="_blank" rel="nofollow noopener">
+            Hotels.com
+          </a>
+          <a class="partner-card" href="https://all.accor.com/" target="_blank" rel="nofollow noopener">
+            Accor
+          </a>
+          <a class="partner-card" href="https://www.motel6.com/" target="_blank" rel="nofollow noopener">
+            Motel 6
+          </a>
+        </div>
+      </section>
+
+      <!-- WHY TRAVELERS TRUST US -->
+      <section class="section" aria-labelledby="why-trust">
+        <h2 id="why-trust" class="section-title">Why Travelers Trust Us</h2>
+        <div class="trust-grid">
+          <div class="trust-card">
+            <span class="trust-label">✔ GiftCardZoneEU Partner Verified</span>
+            <span class="trust-desc">We only feature travel brands we personally review and approve.</span>
+          </div>
+          <div class="trust-card">
+            <span class="trust-label">✔ SSL Secured</span>
+            <span class="trust-desc">Your browsing is protected with industry-standard encryption.</span>
+          </div>
+          <div class="trust-card">
+            <span class="trust-label">✔ Trusted Global Partners</span>
+            <span class="trust-desc">Work with some of the world’s largest hotel booking platforms.</span>
+          </div>
+          <div class="trust-card">
+            <span class="trust-label">✔ Safe Payment Redirects</span>
+            <span class="trust-desc">All payments happen directly on the official partner website.</span>
+          </div>
+          <div class="trust-card">
+            <span class="trust-label">✔ 24/7 Booking Support</span>
+            <span class="trust-desc">Customer support is provided by each hotel partner on your booking.</span>
+          </div>
+          <div class="trust-card">
+            <span class="trust-label">✔ Verified Travel Deals</span>
+            <span class="trust-desc">We highlight real discounts, seasonal promos and member-only prices.</span>
+          </div>
+          <div class="trust-card">
+            <span class="trust-label">✔ Privacy Protected</span>
+            <span class="trust-desc">We do not store your payment details; you book directly with partners.</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- TRUSTED PARTNERS STRIP -->
+      <section class="section" aria-labelledby="trusted-partners">
+        <h2 id="trusted-partners" class="section-title">Trusted Partners</h2>
+        <div class="trusted-strip">
+          <div class="trusted-pill">
+            <span class="trusted-dot"></span> Agoda
+          </div>
+          <div class="trusted-pill">
+            <span class="trusted-dot"></span> Booking.com
+          </div>
+          <div class="trusted-pill">
+            <span class="trusted-dot"></span> Trip.com
+          </div>
+          <div class="trusted-pill">
+            <span class="trusted-dot"></span> Hotels.com
+          </div>
+          <div class="trusted-pill">
+            <span class="trusted-dot"></span> Accor
+          </div>
+          <div class="trusted-pill">
+            <span class="trusted-dot"></span> Motel 6
+          </div>
+        </div>
+
+        <p class="legal">
+          <strong>Affiliate Disclosure:</strong> Some links on this page are affiliate links. This means
+          we may earn a small commission when you book a hotel through our partners at no extra cost to you.
+          It helps keep GiftCardZoneEU running while we continue to search for the best travel deals for you.
+        </p>
+      </section>
+    </main>
   </div>
-    <section style="margin-top:60px;">
-      <h2>Top Destinations in Canada</h2>
-      <p>Explore Toronto, Vancouver, Montreal, Calgary, Ottawa and more. Compare hotel rates from all major partners in one place.</p>
-    </section>
-
-    <section style="margin-top:60px;">
-      <h2>How It Works</h2>
-      <ol>
-        <li>Choose your destination in Canada</li>
-        <li>Compare deals from Agoda, Booking.com, Trip.com and more</li>
-        <li>Book securely with trusted partners</li>
-        <li>Enjoy exclusive savings for every stay</li>
-      </ol>
-    </section>
-
 </body>
 </html>
