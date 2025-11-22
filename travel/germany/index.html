@@ -4,195 +4,188 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Best Germany Hotel Deals | GiftCardZoneEU × Agoda</title>
-  <meta name="description"
-        content="Find cheap hotel deals in Germany — Berlin, Munich, Frankfurt, Hamburg & more. Compare hotel prices and book smarter with Agoda Partners." />
-  <meta name="keywords"
-        content="Germany hotel deals, Berlin hotels, Munich hotels, Frankfurt hotels, Hamburg hotels, cheap hotels Germany, Agoda Germany" />
+  <title>Best Hotel Deals in Germany | GiftCardZoneEU</title>
+  <meta name="description" content="Find the best hotel deals in Germany — Berlin, Munich, Frankfurt, Hamburg, Cologne and more via our trusted travel partners." />
 
-  <meta property="og:title" content="Top Germany Hotel Deals | GiftCardZone Travel" />
-  <meta property="og:description"
-        content="Book hotels in Berlin, Munich, Frankfurt and Hamburg. Compare top deals via Agoda Partners and travel smarter." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://giftcardzoneeu.com/travel/germany.html" />
-  <meta property="og:image"
-        content="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=1600&q=80" />
+  <link rel="canonical" href="https://giftcardzoneeu.com/travel/germany" />
 
   <style>
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI";
-      background: #f3f4f6;
-      color: #1f2937;
-      line-height: 1.6;
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      color: #111827;
     }
 
     .hero {
-      background-image: url("https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=1600&q=80");
-      background-size: cover;
-      background-position: center;
-      height: 260px;
+      position: relative;
+      height: 280px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
-      border-bottom-left-radius: 28px;
-      border-bottom-right-radius: 28px;
-    }
-
-    .hero-title {
-      font-size: 2rem;
-      font-weight: 700;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.35);
-    }
-
-    .hero-subtitle {
-      font-size: 1rem;
-      opacity: 0.9;
-    }
-
-    .wrap {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 2.4rem 1rem 2.8rem;
-    }
-
-    .city-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .city-card {
-      background: white;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-      transition: 0.2s ease;
-    }
-
-    .city-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.13);
-    }
-
-    .city-card img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-    }
-
-    .city-body {
-      padding: 1rem 1.2rem 1.2rem;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      background: #2563eb;
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      transition: 0.2s ease;
-    }
-
-    .btn:hover {
-      background: #1e40af;
-    }
-
-    .more-links {
-      margin-top: 2rem;
-      background: #e5edff;
-      padding: 1.4rem;
-      border-radius: 16px;
-    }
-
-    .i-link {
-      padding: 0.3rem 0.7rem;
-      border: 1px solid #c7d2fe;
-      border-radius: 999px;
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: #1d4ed8;
-      background: white;
-    }
-
-    .footer {
-      margin-top: 2rem;
       text-align: center;
-      font-size: 0.85rem;
-      color: #6b7280;
+      padding: 32px 10px 40px;
+      overflow: hidden;
+      background: #020617;
+    }
+
+    /* HERO BACKGROUND (GERMANY IMAGE) */
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(15,23,42,0.35), rgba(15,23,42,0.15)),
+        url("germany-bg.jpg") center/cover no-repeat;
+      filter: blur(0.4px);
+      transform: scale(1.02);
+      opacity: 0.98;
+      z-index: 0;
+    }
+
+    .hero h1 {
+      position: relative;
+      color: white;
+      font-size: 32px;
+      font-weight: bold;
+      z-index: 1;
+      padding: 12px 28px;
+      border-radius: 40px;
+      background: rgba(15,23,42,0.55);
+      backdrop-filter: blur(6px);
+    }
+
+    .wrapper {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Partner buttons (colored per brand) */
+    .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .partner-btn {
+      padding: 14px;
+      text-align: center;
+      border-radius: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+      color: #ffffff;
+      border: none;
+    }
+
+    .partner-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    }
+
+    /* Brand Colors */
+    .partners-grid .partner-btn:nth-child(1) { background: #20a39e; } /* Agoda */
+    .partners-grid .partner-btn:nth-child(2) { background: #003580; } /* Booking */
+    .partners-grid .partner-btn:nth-child(3) { background: #027aff; } /* Trip */
+    .partners-grid .partner-btn:nth-child(4) { background: #d40024; } /* Hotels.com */
+    .partners-grid .partner-btn:nth-child(5) { background: #c1a57b; } /* Accor */
+    .partners-grid .partner-btn:nth-child(6) { background: #0451a5; } /* Motel 6 */
+
+    /* Trust badges */
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .trust-box {
+      background: white;
+      border: 1px solid #e5e7eb;
+      padding: 14px;
+      border-radius: 14px;
+      min-height: 80px;
+    }
+
+    .trusted-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .trusted-pill {
+      background: white;
+      padding: 10px 16px;
+      border-radius: 50px;
+      border: 1px solid #e5e7eb;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    footer {
+      margin-top: 30px;
+      padding: 20px;
+      background: white;
+      border-radius: 16px;
+      border: 1px solid #e5e7eb;
     }
   </style>
 </head>
+
 <body>
 
-<header class="hero">
-  <div>
-    <h1 class="hero-title">Best Germany Hotel Deals 🇩🇪</h1>
-    <p class="hero-subtitle">Berlin, Munich, Frankfurt, Hamburg — book smarter & save.</p>
-  </div>
-</header>
-
-<main class="wrap">
-
-  <h2>Top German Cities</h2>
-  <p>Find cheap hotels in Germany for 2025 — Berlin nightlife, Munich Oktoberfest, Frankfurt business districts, Hamburg waterfront.</p>
-
-  <div class="city-grid">
-
-    <div class="city-card">
-      <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=900&q=80">
-      <div class="city-body">
-        <h3>Berlin</h3>
-        <p>Cheap hotels near Alexanderplatz & city center.</p>
-        <a class="btn" target="_blank" href="https://www.agoda.com/partners/partnersearch.aspx?city=berlin">View Berlin Deals</a>
-      </div>
-    </div>
-
-    <div class="city-card">
-      <img src="https://images.unsplash.com/photo-1526481280695-3c720685208b?auto=format&fit=crop&w=900&q=80">
-      <div class="city-body">
-        <h3>Munich</h3>
-        <p>Hotels near Marienplatz & Oktoberfest.</p>
-        <a class="btn" target="_blank" href="https://www.agoda.com/partners/partnersearch.aspx?city=munich">View Munich Deals</a>
-      </div>
-    </div>
-
-    <div class="city-card">
-      <img src="https://images.unsplash.com/photo-1488747279002-c8523379faaa?auto=format&fit=crop&w=900&q=80">
-      <div class="city-body">
-        <h3>Frankfurt</h3>
-        <p>Business hotels near Frankfurt airport.</p>
-        <a class="btn" target="_blank" href="https://www.agoda.com/partners/partnersearch.aspx?city=frankfurt">View Frankfurt Deals</a>
-      </div>
-    </div>
-
-    <div class="city-card">
-      <img src="https://images.unsplash.com/photo-1519671282429-b44660ead0a7?auto=format&fit=crop&w=900&q=80">
-      <div class="city-body">
-        <h3>Hamburg</h3>
-        <p>Waterfront stays & nightlife hotels.</p>
-        <a class="btn" target="_blank" href="https://www.agoda.com/partners/partnersearch.aspx?city=hamburg">View Hamburg Deals</a>
-      </div>
-    </div>
+  <!-- HERO -->
+  <div class="hero">
+    <h1>Best Hotel Deals in Germany 🇩🇪</h1>
   </div>
 
-  <section class="more-links">
-    <p><b>More Travel Pages:</b></p>
-    <a class="i-link" href="/travel/usa.html">USA</a>
-    <a class="i-link" href="/travel/netherlands.html">Netherlands</a>
-    <a class="i-link" href="/travel">All Travel Deals</a>
-  </section>
+  <div class="wrapper">
 
-</main>
+    <h2>Top Travel Partners</h2>
+    <p>Compare hotel prices across our trusted partners and grab the best deal for your trip to Germany.</p>
 
-<footer class="footer">
-  Part of GiftCardZoneEU Travel Network · Agoda Partner Page
-</footer>
+    <div class="partners-grid">
+      <div class="partner-btn" onclick="window.location.href='YOUR-AGODA-LINK'">Agoda</div>
+      <div class="partner-btn" onclick="window.location.href='YOUR-BOOKING-LINK'">Booking.com</div>
+      <div class="partner-btn" onclick="window.location.href='YOUR-TRIP-LINK'">Trip.com</div>
+      <div class="partner-btn" onclick="window.location.href='YOUR-HOTELS-LINK'">Hotels.com</div>
+      <div class="partner-btn" onclick="window.location.href='YOUR-ACCOR-LINK'">Accor</div>
+      <div class="partner-btn" onclick="window.location.href='YOUR-MOTEL6-LINK'">Motel 6</div>
+    </div>
+
+    <h2 style="margin-top:30px;">Why Travelers Trust Us</h2>
+
+    <div class="trust-grid">
+      <div class="trust-box">✔ GiftCardZoneEU Partner Verified</div>
+      <div class="trust-box">✔ SSL Secured</div>
+      <div class="trust-box">✔ Trusted Global Partners</div>
+      <div class="trust-box">✔ Safe Payment Redirects</div>
+      <div class="trust-box">✔ 24/7 Booking Support</div>
+      <div class="trust-box">✔ Verified Travel Deals</div>
+      <div class="trust-box">✔ Privacy Protected</div>
+    </div>
+
+    <h2 style="margin-top:30px;">Trusted Partners</h2>
+    <div class="trusted-row">
+      <div class="trusted-pill">🟢 Agoda</div>
+      <div class="trusted-pill">🟢 Booking.com</div>
+      <div class="trusted-pill">🟢 Trip.com</div>
+      <div class="trusted-pill">🟢 Hotels.com</div>
+      <div class="trusted-pill">🟢 Accor</div>
+      <div class="trusted-pill">🟢 Motel 6</div>
+    </div>
+
+    <footer>
+      <p><strong>Affiliate Disclosure:</strong> Some links on this page are affiliate links. This means we may earn a small commission when you book a hotel through our partners at no extra cost to you. This helps keep GiftCardZoneEU running while we continue to search for the best travel deals for you.</p>
+    </footer>
+
+  </div>
 
 </body>
 </html>
