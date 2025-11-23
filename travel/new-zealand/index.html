@@ -1,29 +1,29 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>New Zealand Hotel Deals | GiftCardZoneEU × Agoda</title>
-  <meta name="description" content="Find the best hotel deals in New Zealand — Auckland, Wellington, Queenstown and Christchurch via Agoda Partners with GiftCardZoneEU Travel." />
+  <title>Best Hotel Deals in New Zealand | GiftCardZoneEU Travel</title>
+  <meta name="description" content="Compare the best hotel deals in New Zealand — from Auckland and Wellington to Queenstown and Christchurch. Book securely via our trusted travel partners with GiftCardZoneEU Travel." />
   <link rel="canonical" href="https://giftcardzoneeu.com/travel/new-zealand/" />
 
   <style>
     :root {
-      --bg: #f3f4f6;
-      --bg-soft: #e5e7eb;
-      --card-bg: #ffffff;
-      --card-border: rgba(148, 163, 184, 0.35);
-      --text-main: #0f172a;
-      --text-muted: #6b7280;
-      --accent: #2563eb;
-      --accent-soft: rgba(37, 99, 235, 0.08);
-      --accent-border: rgba(37, 99, 235, 0.3);
-      --badge-bg: #eef2ff;
-      --badge-text: #3730a3;
-      --radius-lg: 18px;
-      --radius-xl: 24px;
-      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.08);
+      --bg-page: #020617;
+      --bg-card: rgba(15, 23, 42, 0.9);
+      --bg-soft: rgba(15, 23, 42, 0.7);
+      --border-subtle: rgba(148, 163, 184, 0.4);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --accent-strong: #0ea5e9;
+      --badge-bg: rgba(15, 23, 42, 0.86);
+      --radius-lg: 20px;
+      --radius-xl: 26px;
+      --shadow-soft: 0 22px 60px rgba(15, 23, 42, 0.7);
+      --shadow-card: 0 18px 40px rgba(15, 23, 42, 0.75);
     }
 
     * {
@@ -35,7 +35,7 @@
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
         "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top left, #ffffff 0, #f9fafb 40%, #edf2ff 100%);
+      background: radial-gradient(circle at top, #0f172a 0, #020617 55%, #020617 100%);
       color: var(--text-main);
       min-height: 100vh;
     }
@@ -46,202 +46,373 @@
       padding: 24px 16px 40px;
     }
 
-    header {
-      margin-bottom: 24px;
+    /* HERO WRAPPER */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border-radius: 32px;
+      background: radial-gradient(circle at top left, #0b1120 0, #020617 55%, #020617 100%);
+      padding: 26px 24px 26px;
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 26px;
+      isolation: isolate;
     }
 
-    .breadcrumbs {
-      display: flex;
-      flex-wrap: wrap;
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: -40px;
+      background-image: url("new-zealand-hero.jpg");
+      background-size: cover;
+      background-position: center;
+      opacity: 0.35;
+      filter: blur(6px);
+      transform: scale(1.04);
+      z-index: -2;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.2) 0, rgba(15, 23, 42, 0.92) 55%, #020617 100%);
+      z-index: -1;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.9fr);
+      gap: 20px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
       gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      background: rgba(15, 23, 42, 0.88);
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .eyebrow span.flag {
+      font-size: 15px;
+    }
+
+    .hero-title {
+      font-size: clamp(28px, 4.1vw, 34px);
+      letter-spacing: -0.04em;
+      margin-bottom: 8px;
+    }
+
+    .hero-subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      max-width: 420px;
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+
+    .trust-banner {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: rgba(251, 191, 36, 0.16);
+      border: 1px solid rgba(245, 158, 11, 0.6);
+      color: #facc15;
+      font-size: 12px;
       margin-bottom: 12px;
     }
 
-    .crumb {
-      font-size: 13px;
-      padding: 6px 10px;
+    .trust-banner span.label {
+      color: #fef9c3;
+      font-weight: 500;
+    }
+
+    .trust-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .trust-chip {
+      padding: 6px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(10px);
+      background: var(--badge-bg);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      font-size: 12px;
+      color: var(--text-muted);
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      cursor: pointer;
-      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .trust-chip span.icon {
+      font-size: 13px;
+    }
+
+    .partners-block {
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 24px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      padding: 14px 14px 10px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.8);
+    }
+
+    .partners-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .partners-heading h2 {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
       color: var(--text-muted);
     }
 
-    .crumb span.dot {
+    .partners-heading span.note {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .partner-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .partner-pill {
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: #020617;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      font-size: 12px;
+      color: #e5e7eb;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.12s ease, transform 0.08s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.7);
+    }
+
+    .partner-pill span.dot {
       width: 6px;
       height: 6px;
       border-radius: 999px;
-      background: var(--accent);
+      background: #22c55e;
     }
 
-    h1 {
-      font-size: clamp(28px, 4vw, 34px);
-      line-height: 1.1;
-      margin-bottom: 8px;
-      letter-spacing: -0.03em;
+    .partner-pill:hover {
+      background: var(--accent-soft);
+      border-color: var(--accent-strong);
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(56, 189, 248, 0.4);
     }
 
-    .subtitle {
-      font-size: 15px;
-      color: var(--text-muted);
-      max-width: 560px;
+    /* HERO – CITY CARDS SIDE */
+
+    .city-panel {
+      background: var(--bg-soft);
+      border-radius: 26px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      padding: 14px 14px 12px;
+      box-shadow: var(--shadow-card);
     }
 
-    /* City cards */
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px;
-      margin: 28px 0 32px;
-    }
-
-    .card {
-      background: var(--card-bg);
-      border-radius: var(--radius-xl);
-      border: 1px solid var(--card-border);
-      box-shadow: var(--shadow-soft);
-      padding: 18px 18px 16px;
+    .city-panel-header {
       display: flex;
-      flex-direction: column;
       justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .city-panel-header h2 {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+    }
+
+    .city-panel-header span {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .city-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 10px;
     }
 
-    .card h2 {
-      font-size: 16px;
-      margin-bottom: 4px;
+    .city-card {
+      background: rgba(15, 23, 42, 0.98);
+      border-radius: 18px;
+      padding: 12px 11px 11px;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 6px;
     }
 
-    .card p {
-      font-size: 13px;
+    .city-card h3 {
+      font-size: 14px;
+      margin-bottom: 1px;
+    }
+
+    .city-card p {
+      font-size: 12px;
       color: var(--text-muted);
-      line-height: 1.5;
+      line-height: 1.45;
     }
 
-    .card button,
-    .card a.btn {
+    .city-card a.btn {
       margin-top: 4px;
-      padding: 9px 12px;
+      padding: 8px 10px;
       border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent-strong), #0369a1);
       border: none;
       outline: none;
       cursor: pointer;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 500;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 6px;
-      background: linear-gradient(135deg, #2563eb, #1d4ed8);
-      color: #ffffff;
+      color: #f9fafb;
       text-decoration: none;
-      box-shadow: 0 10px 30px rgba(37, 99, 235, 0.45);
-      transition: transform 0.08s ease, box-shadow 0.08s ease, filter 0.12s ease;
+      box-shadow: 0 14px 32px rgba(8, 47, 73, 0.9);
+      transition: transform 0.08s ease, box-shadow 0.08s ease, filter 0.08s ease;
       white-space: nowrap;
     }
 
-    .card a.btn:hover {
+    .city-card a.btn span.arrow {
+      font-size: 13px;
+    }
+
+    .city-card a.btn:hover {
       transform: translateY(-1px);
-      filter: brightness(1.02);
-      box-shadow: 0 14px 35px rgba(37, 99, 235, 0.5);
+      filter: brightness(1.04);
+      box-shadow: 0 18px 40px rgba(8, 47, 73, 1);
     }
 
-    .card a.btn span.arrow {
-      font-size: 14px;
-    }
+    /* MAIN BODY SECTIONS */
 
-    /* Top travel destinations */
+    main {
+      margin-top: 18px;
+    }
 
     section {
-      margin-bottom: 32px;
+      margin-bottom: 26px;
     }
 
-    section h3 {
-      font-size: 15px;
+    .section-eyebrow {
+      font-size: 13px;
       text-transform: uppercase;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.18em;
       color: var(--text-muted);
       margin-bottom: 6px;
     }
 
-    section h2.section-title {
+    .section-title {
       font-size: 20px;
       margin-bottom: 12px;
+    }
+
+    .section-lede {
+      font-size: 14px;
+      color: var(--text-muted);
+      max-width: 640px;
+      line-height: 1.6;
+      margin-bottom: 16px;
     }
 
     .pill-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 8px;
     }
 
-    .pill {
-      padding: 9px 14px;
+    .country-pill {
+      padding: 7px 13px;
       border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      background: #ffffff;
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
-      font-size: 13px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: #020617;
+      font-size: 12px;
+      color: #e5e7eb;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 6px;
-      cursor: pointer;
       text-decoration: none;
-      color: var(--text-main);
-      transition: background 0.12s ease, transform 0.08s ease,
-        box-shadow 0.12s ease;
+      cursor: pointer;
+      transition: background 0.12s ease, transform 0.08s ease, box-shadow 0.12s ease,
+        border-color 0.12s ease;
     }
 
-    .pill:hover {
+    .country-pill:hover {
       background: var(--accent-soft);
+      border-color: var(--accent-strong);
       transform: translateY(-1px);
-      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.7);
     }
 
-    .pill span.chevron {
-      font-size: 13px;
+    .country-pill span.chevron {
+      font-size: 12px;
       color: var(--text-muted);
     }
 
-    .pill.active {
-      background: var(--accent);
-      color: #ffffff;
-      border-color: var(--accent-border);
+    .country-pill.active {
+      background: var(--accent-strong);
+      border-color: var(--accent-strong);
+      color: #f9fafb;
     }
 
-    .pill.active span.chevron {
-      color: #e5edff;
+    .country-pill.active span.chevron {
+      color: #e0f2fe;
     }
 
-    /* Trust / benefits */
+    /* WHY TRAVELERS TRUST US */
 
     .trust-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
     }
 
     .trust-card {
-      background: var(--card-bg);
-      border-radius: var(--radius-xl);
-      border: 1px solid var(--card-border);
-      box-shadow: var(--shadow-soft);
-      padding: 18px 18px 16px;
+      border-radius: 20px;
+      background: radial-gradient(circle at top left, #020617 0, #020617 40%, #020617 100%);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      padding: 14px 14px 13px;
       font-size: 13px;
+      box-shadow: 0 18px 44px rgba(15, 23, 42, 0.9);
     }
 
     .trust-icon {
       width: 26px;
       height: 26px;
       border-radius: 999px;
-      background: var(--badge-bg);
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.7);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -249,28 +420,85 @@
       font-size: 15px;
     }
 
-    .trust-card h4 {
+    .trust-card h3 {
       font-size: 14px;
       margin-bottom: 4px;
     }
 
     .trust-card p {
       color: var(--text-muted);
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
-    /* Footer */
+    /* TRUSTED PARTNERS ROW */
+
+    .trusted-partners {
+      border-radius: 24px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: radial-gradient(circle at top, #020617 0, #020617 55%, #020617 100%);
+      padding: 14px 14px 12px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+    }
+
+    .trusted-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .trusted-header h3 {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+    }
+
+    .trusted-header span {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .partner-dot-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .partner-dot {
+      padding: 6px 11px;
+      border-radius: 999px;
+      background: #020617;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: #e5e7eb;
+    }
+
+    .partner-dot span.indicator {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.25);
+    }
+
+    /* FOOTER DISCLOSURE */
 
     footer {
-      margin-top: 32px;
-      padding-top: 16px;
-      border-top: 1px solid rgba(148, 163, 184, 0.4);
+      margin-top: 22px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(51, 65, 85, 0.9);
       font-size: 11px;
       color: var(--text-muted);
     }
 
     footer p {
       margin-bottom: 8px;
+      line-height: 1.6;
     }
 
     footer a {
@@ -286,241 +514,274 @@
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 4px;
     }
 
-    /* Responsive */
+    /* RESPONSIVE */
 
     @media (max-width: 960px) {
-      .card-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
       }
-      .trust-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+      .city-panel {
+        order: 2;
       }
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 720px) {
       .page-shell {
-        padding: 20px 14px 32px;
+        padding: 20px 14px 34px;
       }
-      .card-grid {
-        grid-template-columns: 1fr;
+      .hero {
+        padding: 20px 16px 20px;
+        border-radius: 26px;
+      }
+      .partners-heading {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .city-grid {
+        grid-template-columns: minmax(0, 1fr);
       }
       .trust-grid {
-        grid-template-columns: 1fr;
-      }
-      header {
-        margin-bottom: 20px;
+        grid-template-columns: minmax(0, 1fr);
       }
     }
   </style>
 </head>
 <body>
   <div class="page-shell">
-    <header>
-      <div class="breadcrumbs">
-        <a href="/travel/" class="crumb">
-          <span class="dot"></span>
-          Travel
-        </a>
-        <span class="crumb">Agoda Partners</span>
-        <a href="/travel/all-countries/" class="crumb">All Countries</a>
-        <a href="/" class="crumb">Home</a>
+    <header class="hero">
+      <div class="hero-inner">
+        <!-- LEFT SIDE: TEXT + PARTNERS -->
+        <div>
+          <div class="eyebrow">
+            <span class="flag">🇳🇿</span>
+            <span>New Zealand · Auckland · Wellington · Queenstown · Christchurch</span>
+          </div>
+
+          <h1 class="hero-title">New Zealand Hotel Deals</h1>
+          <p class="hero-subtitle">
+            Compare hotel prices in New Zealand — from harbour views in Auckland and creative laneways in Wellington to alpine stays in Queenstown and garden escapes in Christchurch.
+          </p>
+
+          <div class="trust-banner">
+            <span>⭐</span>
+            <span class="label">GiftCardZoneEU Travel</span>
+            <span>Trusted worldwide booking partner connections</span>
+          </div>
+
+          <div class="trust-chips">
+            <div class="trust-chip">
+              <span class="icon">🔐</span>
+              <span>Secure Booking</span>
+            </div>
+            <div class="trust-chip">
+              <span class="icon">⚡</span>
+              <span>Fast Price Compare</span>
+            </div>
+            <div class="trust-chip">
+              <span class="icon">🌍</span>
+              <span>Global Travel Brands</span>
+            </div>
+            <div class="trust-chip">
+              <span class="icon">💳</span>
+              <span>Direct to Official Sites</span>
+            </div>
+          </div>
+
+          <div class="partners-block">
+            <div class="partners-heading">
+              <h2>Top Travel Partners</h2>
+              <span class="note">Choose a trusted partner to compare New Zealand hotel prices.</span>
+            </div>
+            <div class="partner-row">
+              <!-- TODO: Replace "#" with your New Zealand affiliate links -->
+              <a href="#" class="partner-pill" target="_blank" rel="noopener noreferrer">
+                <span class="dot"></span><span>Agoda</span>
+              </a>
+              <a href="#" class="partner-pill" target="_blank" rel="noopener noreferrer">
+                <span class="dot"></span><span>Booking.com</span>
+              </a>
+              <a href="#" class="partner-pill" target="_blank" rel="noopener noreferrer">
+                <span class="dot"></span><span>Trip.com</span>
+              </a>
+              <a href="#" class="partner-pill" target="_blank" rel="noopener noreferrer">
+                <span class="dot"></span><span>Hotels.com</span>
+              </a>
+              <a href="#" class="partner-pill" target="_blank" rel="noopener noreferrer">
+                <span class="dot"></span><span>Accor</span>
+              </a>
+              <a href="#" class="partner-pill" target="_blank" rel="noopener noreferrer">
+                <span class="dot"></span><span>Motel 6</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT SIDE: CITY CARDS -->
+        <aside class="city-panel">
+          <div class="city-panel-header">
+            <h2>Key New Zealand Cities</h2>
+            <span>Pick a city to start browsing hotel deals.</span>
+          </div>
+          <div class="city-grid">
+            <article class="city-card">
+              <div>
+                <h3>Auckland</h3>
+                <p>Stay close to the Sky Tower, Viaduct Harbour, beaches and shopping streets in New Zealand’s biggest city.</p>
+              </div>
+              <a href="#" class="btn" target="_blank" rel="noopener noreferrer">
+                <span>View Auckland hotels</span><span class="arrow">↗</span>
+              </a>
+            </article>
+
+            <article class="city-card">
+              <div>
+                <h3>Wellington</h3>
+                <p>Find hotels near the waterfront, Te Papa Museum, cafés and creative laneways in the capital.</p>
+              </div>
+              <a href="#" class="btn" target="_blank" rel="noopener noreferrer">
+                <span>View Wellington hotels</span><span class="arrow">↗</span>
+              </a>
+            </article>
+
+            <article class="city-card">
+              <div>
+                <h3>Queenstown</h3>
+                <p>Book alpine stays close to ski fields, adventure parks and Lake Wakatipu’s scenic walking trails.</p>
+              </div>
+              <a href="#" class="btn" target="_blank" rel="noopener noreferrer">
+                <span>View Queenstown hotels</span><span class="arrow">↗</span>
+              </a>
+            </article>
+
+            <article class="city-card">
+              <div>
+                <h3>Christchurch</h3>
+                <p>Explore hotels near gardens, riverside walks, museums and rebuilt city streets in the Garden City.</p>
+              </div>
+              <a href="#" class="btn" target="_blank" rel="noopener noreferrer">
+                <span>View Christchurch hotels</span><span class="arrow">↗</span>
+              </a>
+            </article>
+          </div>
+        </aside>
       </div>
-      <h1>New Zealand Hotel Deals</h1>
-      <p class="subtitle">
-        Compare stays in <strong>Auckland</strong>, <strong>Wellington</strong>,
-        <strong>Queenstown</strong> and <strong>Christchurch</strong> via Agoda
-        Partners with GiftCardZoneEU Travel.
-      </p>
     </header>
 
-    <!-- City cards -->
-    <div class="card-grid">
-      <article class="card">
-        <div>
-          <h2>Auckland</h2>
-          <p>
-            Explore hotels near the Sky Tower, Viaduct Harbour, beaches and
-            shopping districts in New Zealand’s largest city.
-          </p>
+    <main>
+      <!-- OTHER DESTINATIONS -->
+      <section>
+        <div class="section-eyebrow">More travel destinations</div>
+        <h2 class="section-title">Explore more hotel deals with GiftCardZoneEU Travel</h2>
+        <p class="section-lede">
+          Browse more countries and compare hotel prices across our trusted travel partners. You’ll always be redirected to official booking pages to complete your reservation securely.
+        </p>
+        <div class="pill-grid">
+          <a href="/travel/japan/" class="country-pill"><span>Japan</span><span class="chevron">↗</span></a>
+          <a href="/travel/germany/" class="country-pill"><span>Germany</span><span class="chevron">↗</span></a>
+          <a href="/travel/italy/" class="country-pill"><span>Italy</span><span class="chevron">↗</span></a>
+          <a href="/travel/spain/" class="country-pill"><span>Spain</span><span class="chevron">↗</span></a>
+          <a href="/travel/united-kingdom/" class="country-pill"><span>United Kingdom</span><span class="chevron">↗</span></a>
+          <a href="/travel/belgium/" class="country-pill"><span>Belgium</span><span class="chevron">↗</span></a>
+          <a href="/travel/canada/" class="country-pill"><span>Canada</span><span class="chevron">↗</span></a>
+          <a href="/travel/usa/" class="country-pill"><span>USA</span><span class="chevron">↗</span></a>
+          <a href="/travel/philippines/" class="country-pill"><span>Philippines</span><span class="chevron">↗</span></a>
+          <span class="country-pill active"><span>New Zealand</span><span class="chevron">●</span></span>
         </div>
-        <a
-          class="btn"
-          href="YOUR_AGODA_AUCKLAND_AFFILIATE_LINK"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span>View Auckland deals</span>
-          <span class="arrow">↗</span>
-        </a>
-      </article>
+      </section>
 
-      <article class="card">
-        <div>
-          <h2>Wellington</h2>
-          <p>
-            Stay close to Te Papa Museum, waterfront cafés and vibrant nightlife
-            spots in the capital city.
-          </p>
+      <!-- WHY TRAVELERS TRUST US -->
+      <section>
+        <div class="section-eyebrow">Why travelers trust us</div>
+        <h2 class="section-title">Book smarter with trusted New Zealand hotel partners</h2>
+        <p class="section-lede">
+          GiftCardZoneEU Travel focuses on simple, transparent hotel pages. You compare prices here, then complete your stay directly on each partner’s secure checkout page.
+        </p>
+
+        <div class="trust-grid">
+          <article class="trust-card">
+            <div class="trust-icon">🔐</div>
+            <h3>Secure redirects only</h3>
+            <p>
+              Every “View hotels” button sends you straight to official partner booking pages using secure HTTPS links.
+            </p>
+          </article>
+          <article class="trust-card">
+            <div class="trust-icon">🌍</div>
+            <h3>Global hotel coverage</h3>
+            <p>
+              From major cities to scenic regional towns, our partners list thousands of stays across New Zealand.
+            </p>
+          </article>
+          <article class="trust-card">
+            <div class="trust-icon">💳</div>
+            <h3>No extra mark-ups</h3>
+            <p>
+              We don’t add hidden fees. You see live prices and promotions directly from Agoda, Booking.com, Trip.com and more.
+            </p>
+          </article>
+          <article class="trust-card">
+            <div class="trust-icon">⭐</div>
+            <h3>Verified partners only</h3>
+            <p>
+              We only feature trusted, long-running travel brands with reviews, secure payment systems and clear policies.
+            </p>
+          </article>
+          <article class="trust-card">
+            <div class="trust-icon">⏱️</div>
+            <h3>Fast hotel comparisons</h3>
+            <p>
+              Quickly scan multiple partners to see where you can find the best deal for your New Zealand dates and cities.
+            </p>
+          </article>
+          <article class="trust-card">
+            <div class="trust-icon">🧾</div>
+            <h3>Simple disclosures</h3>
+            <p>
+              If you book through our affiliate links, we may earn a small commission — helping keep GiftCardZoneEU running.
+            </p>
+          </article>
         </div>
-        <a
-          class="btn"
-          href="YOUR_AGODA_WELLINGTON_AFFILIATE_LINK"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span>View Wellington deals</span>
-          <span class="arrow">↗</span>
-        </a>
-      </article>
+      </section>
 
-      <article class="card">
-        <div>
-          <h2>Queenstown</h2>
-          <p>
-            Find stays near adventure parks, mountain resorts, lake views and
-            outdoor attractions around Lake Wakatipu.
-          </p>
+      <!-- TRUSTED PARTNERS -->
+      <section>
+        <div class="trusted-partners">
+          <div class="trusted-header">
+            <h3>Trusted partners</h3>
+            <span>We compare hotel deals across leading global booking brands.</span>
+          </div>
+          <div class="partner-dot-row">
+            <div class="partner-dot">
+              <span class="indicator"></span><span>Agoda</span>
+            </div>
+            <div class="partner-dot">
+              <span class="indicator"></span><span>Booking.com</span>
+            </div>
+            <div class="partner-dot">
+              <span class="indicator"></span><span>Trip.com</span>
+            </div>
+            <div class="partner-dot">
+              <span class="indicator"></span><span>Hotels.com</span>
+            </div>
+            <div class="partner-dot">
+              <span class="indicator"></span><span>Accor</span>
+            </div>
+            <div class="partner-dot">
+              <span class="indicator"></span><span>Motel 6</span>
+            </div>
+          </div>
         </div>
-        <a
-          class="btn"
-          href="YOUR_AGODA_QUEENSTOWN_AFFILIATE_LINK"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span>View Queenstown deals</span>
-          <span class="arrow">↗</span>
-        </a>
-      </article>
-
-      <article class="card">
-        <div>
-          <h2>Christchurch</h2>
-          <p>
-            Book hotels near parks, art centres, museums and riverside scenic
-            areas in the Garden City of New Zealand.
-          </p>
-        </div>
-        <a
-          class="btn"
-          href="YOUR_AGODA_CHRISTCHURCH_AFFILIATE_LINK"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span>View Christchurch deals</span>
-          <span class="arrow">↗</span>
-        </a>
-      </article>
-    </div>
-
-    <!-- Top Travel Destinations -->
-    <section>
-      <h3>Top Travel Destinations</h3>
-      <h2 class="section-title">Explore more with GiftCardZoneEU × Agoda</h2>
-      <div class="pill-grid">
-        <a href="/travel/japan/" class="pill">
-          <span>Japan</span><span class="chevron">↗</span>
-        </a>
-        <a href="/travel/germany/" class="pill">
-          <span>Germany</span><span class="chevron">↗</span>
-        </a>
-        <a href="/travel/france/" class="pill">
-          <span>France</span><span class="chevron">↗</span>
-        </a>
-        <a href="/travel/usa/" class="pill">
-          <span>USA</span><span class="chevron">↗</span>
-        </a>
-        <a href="/travel/australia/" class="pill">
-          <span>Australia</span><span class="chevron">↗</span>
-        </a>
-        <a href="/travel/netherlands/" class="pill">
-          <span>Netherlands</span><span class="chevron">↗</span>
-        </a>
-        <a href="/travel/spain/" class="pill">
-          <span>Spain</span><span class="chevron">↗</span>
-        </a>
-        <a href="/travel/italy/" class="pill">
-          <span>Italy</span><span class="chevron">↗</span>
-        </a>
-        <a href="/travel/united-kingdom/" class="pill">
-          <span>United Kingdom</span><span class="chevron">↗</span>
-        </a>
-        <a href="/travel/belgium/" class="pill">
-          <span>Belgium</span><span class="chevron">↗</span>
-        </a>
-        <a href="/travel/sweden/" class="pill">
-          <span>Sweden</span><span class="chevron">↗</span>
-        </a>
-        <a href="/travel/switzerland/" class="pill">
-          <span>Switzerland</span><span class="chevron">↗</span>
-        </a>
-        <a href="/travel/portugal/" class="pill">
-          <span>Portugal</span><span class="chevron">↗</span>
-        </a>
-        <span class="pill active">
-          <span>New Zealand</span><span class="chevron">●</span>
-        </span>
-      </div>
-    </section>
-
-    <!-- Why book via GiftCardZoneEU Travel -->
-    <section>
-      <h3>Why book via GiftCardZoneEU Travel?</h3>
-      <h2 class="section-title">
-        We connect you directly to Agoda’s secure booking platform.
-      </h2>
-
-      <div class="trust-grid">
-        <article class="trust-card">
-          <div class="trust-icon">🔐</div>
-          <h4>Secure Agoda Checkout</h4>
-          <p>
-            Every reservation is completed on Agoda’s encrypted website, so your
-            payment details stay safe.
-          </p>
-        </article>
-
-        <article class="trust-card">
-          <div class="trust-icon">🌏</div>
-          <h4>Millions of Stays</h4>
-          <p>
-            Access hotels, apartments and resorts across New Zealand and
-            worldwide with real guest reviews.
-          </p>
-        </article>
-
-        <article class="trust-card">
-          <div class="trust-icon">💳</div>
-          <h4>No Extra Mark-ups</h4>
-          <p>
-            We don’t add hidden fees. You see live Agoda prices and promotions
-            for your dates.
-          </p>
-        </article>
-
-        <article class="trust-card">
-          <div class="trust-icon">⭐</div>
-          <h4>Official Travel Partner</h4>
-          <p>
-            GiftCardZoneEU uses the official Agoda affiliate program to earn a
-            commission at no extra cost to you.
-          </p>
-        </article>
-      </div>
-    </section>
+      </section>
+    </main>
 
     <footer>
       <p>
-        All bookings are securely processed on Agoda’s website. GiftCardZoneEU
-        does not handle your payment or reservation.
+        All hotel bookings are completed on our partners’ official websites. GiftCardZoneEU Travel does not handle your payment or reservation — we simply connect you to trusted booking brands.
       </p>
       <p>
-        © 2025 GiftCardZoneEU Travel. Agoda is a trademark of Agoda Company Pte.
-        Ltd. All hotel bookings are subject to Agoda’s terms and conditions.
-        This page contains affiliate links. If you book a stay, we may earn a
-        small commission at no extra cost to you.
+        This page contains affiliate links. If you book a hotel through these partners, we may earn a small commission at no extra cost to you. This helps keep GiftCardZoneEU online while we continue to search for the best travel deals.
       </p>
       <div class="footer-links">
         <a href="/privacy-policy/">Privacy Policy</a>
