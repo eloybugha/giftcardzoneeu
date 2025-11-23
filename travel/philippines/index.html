@@ -45,12 +45,12 @@
 }
 
     /* 🔥 HERO BACKGROUND – PALITAN MO LANG ANG URL DITO KUNG IBA FILE NAME MO */
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(to bottom, rgba(15,23,42,0.35), rgba(15,23,42,0.25)),
+    .hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.15); /* clean + elegant */
+  z-index: 0;
+}
         url("/travel/philippines/philippines-hero.jpg") center/cover no-repeat;
       filter: blur(0.4px);
       transform: scale(1.02);
