@@ -1,28 +1,21 @@
-      <!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Best Hotel Deals in the Philippines | GiftCardZoneEU</title>
-  <meta name="description" content="Find the best hotel deals in the Philippines. Compare prices from Agoda, Booking.com, Trip.com, Hotels.com, Accor, and Motel 6 through GiftCardZoneEU." />
-  <link rel="canonical" href="https://giftcardzoneeu.com/travel/philippines/" />
+  <title>Best Hotel Deals in the Philippines | GiftCardZoneEU Travel</title>
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
-      font-family: Arial, sans-serif;
-      background: #f5f7fa;
-      color: #111827;
+      margin: 0;
+      background: #f3f4f6;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     }
 
     .page-wrapper {
-      max-width: 1100px;
-      margin: 24px auto 40px;
+      max-width: 900px;
+      margin: 32px auto 40px;
       padding: 0 16px 32px;
     }
 
@@ -36,23 +29,29 @@
       color: #111827;
     }
 
+    /* --- HERO SECTION (Japan V2 Format) --- */
     .hero {
-  position: relative;
-  height: 250px;
-  border-radius: 24px;
-  overflow: hidden;
-  background: url("philippines-hero.jpg") center/cover no-repeat;
-}
-
-    /* 🔥 HERO BACKGROUND – PALITAN MO LANG ANG URL DITO KUNG IBA FILE NAME MO */
-    .hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.15); /* clean + elegant */
-  z-index: 0;
-}
-     .hero-content {
       position: relative;
+      height: 300px;
+      border-radius: 24px;
+      overflow: hidden;
+      background: url("philippines-hero.jpg") center/cover no-repeat;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.15);
+      backdrop-filter: blur(1.5px);
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       z-index: 1;
     }
 
@@ -62,37 +61,38 @@
       gap: 8px;
       padding: 10px 28px;
       border-radius: 999px;
-      background: rgba(15,23,42,0.75);
+      background: rgba(15, 23, 42, 0.75);
       color: #ffffff;
-      font-size: 24px;
+      font-size: 28px;
       font-weight: bold;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     }
 
     .hero-flag {
       font-size: 20px;
     }
 
+    /* --- SECTIONS --- */
     .section {
       background: #ffffff;
       border-radius: 24px;
       padding: 24px 20px 24px;
-      margin-bottom: 24px;
-      box-shadow: 0 10px 25px rgba(15,23,42,0.03);
+      margin-top: 26px;
     }
 
-    .section h2 {
+    h2 {
+      margin: 0 0 10px 0;
       font-size: 20px;
-      margin-bottom: 8px;
+      font-weight: 700;
+      color: #111827;
     }
 
-    .section p {
-      font-size: 14px;
-      color: #4b5563;
-      margin-bottom: 18px;
+    p {
+      margin: 0 0 18px 0;
+      color: #374151;
     }
 
-    /* 🔹 Top Travel Partners Buttons */
+    /* PARTNER BUTTONS */
     .top-partner-buttons {
       display: flex;
       flex-wrap: wrap;
@@ -100,117 +100,46 @@
     }
 
     .partner-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
       padding: 10px 18px;
       border-radius: 999px;
+      color: #fff;
       font-size: 14px;
       font-weight: 600;
       text-decoration: none;
-      color: #ffffff;
-      border: none;
-      cursor: pointer;
-      transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
-      box-shadow: 0 6px 16px rgba(15,23,42,0.18);
+      display: inline-block;
     }
 
-    .partner-btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 10px 24px rgba(15,23,42,0.25);
-      opacity: 0.95;
-    }
+    .agoda { background: #00aaff; }
+    .booking { background: #003580; }
+    .trip { background: #2e8b57; }
+    .hotels { background: #d50000; }
+    .accor { background: #c99b4e; }
+    .motel6 { background: #1b2546; }
 
-    .partner-btn.agoda      { background: #16a34a; } /* green */
-    .partner-btn.booking    { background: #1d4ed8; } /* blue */
-    .partner-btn.trip       { background: #0ea5e9; } /* light blue */
-    .partner-btn.hotels     { background: #dc2626; } /* red */
-    .partner-btn.accor      { background: #b68a55; } /* gold/brown */
-    .partner-btn.motel6     { background: #111827; } /* dark */
-
-    /* 🔹 Why Travelers Trust Us */
+    /* TRUST GRID */
     .trust-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 12px;
     }
 
     .trust-card {
-      padding: 14px 14px;
-      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 18px;
       background: #ffffff;
       border: 1px solid #e5e7eb;
-      font-size: 14px;
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
     }
 
     .trust-check {
-      font-size: 16px;
-    }
-
-    .trust-text {
-      color: #111827;
-    }
-
-    /* 🔹 Trusted Partners Pills */
-    .trusted-partners-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 4px;
-    }
-
-    .partner-pill {
-      display: inline-flex;
-      align-items: center;
-      padding: 7px 14px;
-      border-radius: 999px;
-      background: #f9fafb;
-      border: 1px solid #e5e7eb;
-      font-size: 13px;
-      color: #111827;
-    }
-
-    .partner-pill-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: #22c55e;
-      margin-right: 6px;
-    }
-
-    /* 🔹 Affiliate Disclosure */
-    .affiliate-box {
-      font-size: 13px;
-      color: #4b5563;
-      background: #f9fafb;
-      border-radius: 16px;
-      padding: 14px 16px;
-      border: 1px solid #e5e7eb;
-      line-height: 1.5;
-    }
-
-    .affiliate-box b {
-      color: #111827;
-    }
-
-    @media (max-width: 640px) {
-      .page-wrapper {
-        margin-top: 16px;
-      }
-      .hero {
-        height: 240px;
-        padding: 24px 8px 30px;
-      }
-      .hero-title {
-        font-size: 20px;
-        padding-inline: 20px;
-      }
+      color: #059669;
+      font-weight: bold;
     }
   </style>
 </head>
+
 <body>
   <div class="page-wrapper">
     <header>
@@ -218,15 +147,15 @@
     </header>
 
     <!-- HERO -->
-<div class="hero">
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <h1 class="hero-title">
-      Best Hotel Deals in the Philippines
-      <span class="hero-flag">🇵🇭</span>
-    </h1>
-  </div>
-  </section>
+    <div class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 class="hero-title">
+          Best Hotel Deals in the Philippines
+          <span class="hero-flag">🇵🇭</span>
+        </h1>
+      </div>
+    </div>
 
     <!-- TOP TRAVEL PARTNERS -->
     <section class="section">
@@ -234,7 +163,6 @@
       <p>Compare hotel prices across our trusted partners and grab the best deal for your trip to the Philippines.</p>
 
       <div class="top-partner-buttons">
-        <!-- 👉 Palitan mo href ng totoong affiliate links mo -->
         <a href="#" class="partner-btn agoda">Agoda</a>
         <a href="#" class="partner-btn booking">Booking.com</a>
         <a href="#" class="partner-btn trip">Trip.com</a>
@@ -250,55 +178,53 @@
 
       <div class="trust-grid">
         <div class="trust-card">
-          <span class="trust-check">✔️</span>
-          <span class="trust-text">GiftCardZoneEU Partner Verified</span>
+          <span class="trust-check">✔</span>
+          <span>GiftCardZoneEU Partner Verified</span>
         </div>
         <div class="trust-card">
-          <span class="trust-check">✔️</span>
-          <span class="trust-text">SSL Secured</span>
+          <span class="trust-check">✔</span>
+          <span>SSL Secured</span>
         </div>
         <div class="trust-card">
-          <span class="trust-check">✔️</span>
-          <span class="trust-text">Trusted Global Partners</span>
+          <span class="trust-check">✔</span>
+          <span>Trusted Global Partners</span>
         </div>
         <div class="trust-card">
-          <span class="trust-check">✔️</span>
-          <span class="trust-text">Safe Payment Redirects</span>
+          <span class="trust-check">✔</span>
+          <span>Safe Payment Redirects</span>
         </div>
         <div class="trust-card">
-          <span class="trust-check">✔️</span>
-          <span class="trust-text">24/7 Booking Support</span>
+          <span class="trust-check">✔</span>
+          <span>24/7 Booking Support</span>
         </div>
         <div class="trust-card">
-          <span class="trust-check">✔️</span>
-          <span class="trust-text">Verified Travel Deals</span>
-        </div>
-        <div class="trust-card">
-          <span class="trust-check">✔️</span>
-          <span class="trust-text">Privacy Protected</span>
+          <span class="trust-check">✔</span>
+          <span>Verified Travel Deals</span>
         </div>
       </div>
     </section>
 
-    <!-- TRUSTED PARTNERS -->
+    <!-- PARTNERS -->
     <section class="section">
       <h2>Trusted Partners</h2>
-      <div class="trusted-partners-row">
-        <span class="partner-pill"><span class="partner-pill-dot"></span>Agoda</span>
-        <span class="partner-pill"><span class="partner-pill-dot"></span>Booking.com</span>
-        <span class="partner-pill"><span class="partner-pill-dot"></span>Trip.com</span>
-        <span class="partner-pill"><span class="partner-pill-dot"></span>Hotels.com</span>
-        <span class="partner-pill"><span class="partner-pill-dot"></span>Accor</span>
-        <span class="partner-pill"><span class="partner-pill-dot"></span>Motel 6</span>
+      <div class="top-partner-buttons">
+        <a href="#" class="partner-btn agoda">Agoda</a>
+        <a href="#" class="partner-btn booking">Booking.com</a>
+        <a href="#" class="partner-btn trip">Trip.com</a>
+        <a href="#" class="partner-btn hotels">Hotels.com</a>
+        <a href="#" class="partner-btn accor">Accor</a>
+        <a href="#" class="partner-btn motel6">Motel 6</a>
       </div>
     </section>
 
-    <!-- AFFILIATE DISCLOSURE -->
+    <!-- DISCLOSURE -->
     <section class="section">
-      <div class="affiliate-box">
-        <b>Affiliate Disclosure:</b> Some links on this page are affiliate links. This means we may earn a small commission when you book a hotel through our partners at no extra cost to you. This helps keep GiftCardZoneEU running while we continue to search for the best travel deals for you.
-      </div>
+      <p style="font-size:14px; line-height:1.5; color:#374151;">
+        <strong>Affiliate Disclosure:</strong> Some links on this page are affiliate links. This means we may earn a small commission when you book a hotel through our partners at no extra cost to you. This helps support GiftCardZoneEU while bringing you the best travel deals.
+      </p>
     </section>
+
   </div>
 </body>
 </html>
+          
