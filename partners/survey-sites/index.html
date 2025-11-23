@@ -1,138 +1,655 @@
-<!doctype html>
+     <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Top Legit Survey & Reward Sites (2025) | GiftCardZoneEU</title>
-  <meta name="description" content="Handpicked survey & reward sites with direct, safe links. Works for PH / NL / US." />
-  <link rel="canonical" href="https://giftcardzoneeu.com/partners/survey-sites/" />
-  <meta name="robots" content="index, follow" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- ✅ Block popunder/ads scripts on this page -->
-  <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self';
-                 img-src * data:;
-                 style-src 'self' 'unsafe-inline';
-                 script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com;
-                 connect-src 'self' https://www.google-analytics.com https://stats.g.doubleclick.net;
-                 frame-ancestors *;">
+  <title>Best Survey Sites for Gift Cards & Cash | GiftCardZoneEU</title>
+  <meta name="description" content="Legit, high-paying survey sites where you can earn gift cards and cash: Swagbucks, ySense, PrizeRebel, SurveyTime, InboxDollars, LifePoints and more." />
+  <meta name="robots" content="index,follow" />
 
-  <!-- ✅ GA4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KCKEVDK6RY"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config','G-KCKEVDK6RY');
-  </script>
-
-  <!-- ✅ HARD GUARD: force direct open for our offer links + track outbound -->
-  <script>
-    addEventListener('click', function (e) {
-      const a = e.target.closest('a.safe-link');
-      if (!a) return;
-      e.preventDefault(); e.stopPropagation(); e.stopImmediatePropagation();
-      window.open(a.href, '_blank', 'noopener'); // direct, no hijack
-      try {
-        const u = new URL(a.href, location.href);
-        if (u.origin !== location.origin) {
-          gtag('event','click_outbound', {
-            event_category:'engagement',
-            event_label: a.dataset.offer || u.hostname,
-            transport_type:'beacon'
-          });
-        }
-      } catch(_){}
-    }, true);
-  </script>
+  <link rel="canonical" href="https://giftcardzoneeu.com/surveys/" />
 
   <style>
-    :root{--bg:#0b0f14;--card:#111827;--txt:#e5e7eb;--muted:#9ca3af;--accent:#22c55e;}
-    *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:var(--txt);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
-    .wrap{max-width:1080px;margin:28px auto;padding:0 18px}
-    h1{font-size:clamp(22px,3vw,32px);margin:6px 0 8px}
-    .sub{color:var(--muted);margin:0 0 18px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
-    .card{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:18px;position:relative}
-    .card h3{margin:0 0 4px}
-    .badge{display:inline-block;font-size:12px;padding:2px 8px;border-radius:999px;border:1px solid rgba(255,255,255,.12);color:var(--muted);margin-left:8px}
-    .card p{margin:6px 0 14px;color:var(--muted)}
-    .btn{display:inline-block;text-align:center;padding:12px 14px;border-radius:12px;background:var(--accent);color:#062;text-decoration:none;font-weight:700}
-    .note{font-size:13px;color:var(--muted);margin-top:20px}
-    /* Temporarily disable App Trials buttons to avoid any bad redirects */
-    .disabled, .disabled * { pointer-events:none !important; }
-    .btn.disabled { opacity:.45; filter:grayscale(1); }
+    :root {
+      --bg-body: #050816;
+      --bg-card: #0b1120;
+      --bg-card-soft: #020617;
+      --accent: #22c55e;
+      --accent-soft: rgba(34, 197, 94, 0.12);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border-subtle: rgba(148, 163, 184, 0.3);
+      --radius-xl: 18px;
+      --transition-fast: 0.2s ease-out;
+      --shadow-soft: 0 22px 45px rgba(15, 23, 42, 0.8);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 50%, #000 100%);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page-shell {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .page-inner {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 32px 16px 40px;
+    }
+
+    header.page-header {
+      margin-bottom: 32px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.35);
+    }
+
+    .page-title {
+      font-size: clamp(26px, 4vw, 34px);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin: 0 0 10px;
+    }
+
+    .page-subtitle {
+      margin: 0 auto 18px;
+      max-width: 560px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 16px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .meta-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .meta-pill span.icon {
+      font-size: 13px;
+    }
+
+    .trust-row {
+      margin: 28px 0 10px;
+      padding: 12px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.95);
+      background: linear-gradient(
+        90deg,
+        rgba(15, 23, 42, 0.95),
+        rgba(15, 23, 42, 0.98)
+      );
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px 18px;
+      font-size: 12px;
+    }
+
+    .trust-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-muted);
+    }
+
+    .trust-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      margin-top: 18px;
+      margin-bottom: 12px;
+    }
+
+    @media (min-width: 640px) {
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 960px) {
+      .grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at top left, #111827, #020617);
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      transition: transform var(--transition-fast),
+        box-shadow var(--transition-fast),
+        border-color var(--transition-fast),
+        background var(--transition-fast);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        circle at top,
+        rgba(34, 197, 94, 0.35),
+        transparent 55%
+      );
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-fast);
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 26px 60px rgba(15, 23, 42, 0.95);
+      border-color: rgba(52, 211, 153, 0.8);
+      background: radial-gradient(circle at top left, #020617, #020617);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card-image {
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(31, 41, 55, 0.9);
+    }
+
+    .card-image img {
+      display: block;
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      transform: scale(1.02);
+      transition: transform 0.35s ease-out, filter 0.35s ease-out;
+      filter: saturate(1.05);
+    }
+
+    .card:hover .card-image img {
+      transform: scale(1.06);
+      filter: saturate(1.18);
+    }
+
+    .card-body {
+      padding: 14px 14px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 11px;
+    }
+
+    .badge {
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: rgba(15, 23, 42, 0.95);
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .badge--accent {
+      border-color: rgba(52, 211, 153, 0.9);
+      background: var(--accent-soft);
+      color: #bbf7d0;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin: 4px 0 0;
+    }
+
+    .card-subtext {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .card-footer {
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .earn-meta {
+      font-size: 11px;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .earn-meta strong {
+      color: #e5e7eb;
+      font-weight: 600;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(34, 197, 94, 0.95);
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #022c22;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      white-space: nowrap;
+      box-shadow: 0 10px 25px rgba(16, 185, 129, 0.38);
+      transition: transform 0.12s ease-out, box-shadow 0.12s ease-out,
+        background 0.12s ease-out;
+    }
+
+    .btn-primary span.icon {
+      font-size: 13px;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 40px rgba(16, 185, 129, 0.6);
+      background: linear-gradient(135deg, #4ade80, #22c55e);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.5);
+    }
+
+    footer.page-footer {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      font-size: 11px;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .footer-brand {
+      font-weight: 500;
+      color: #e5e7eb;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .footer-links span {
+      opacity: 0.9;
+    }
+
+    @media (max-width: 480px) {
+      header.page-header {
+        text-align: left;
+      }
+
+      .trust-row {
+        border-radius: 18px;
+        justify-content: flex-start;
+      }
+
+      footer.page-footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
   </style>
 </head>
 <body>
-  <main class="wrap">
-    <h1>Top Legit Survey & Reward Sites (2025)</h1>
-    <p class="sub">Direct, safe links only. Start with the most trusted names below.</p>
+  <div class="page-shell">
+    <div class="page-inner">
+      <header class="page-header">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          <span>Survey Rewards Hub</span>
+        </div>
+        <h1 class="page-title">Legit Survey Sites for Gift Cards &amp; Cash</h1>
+        <p class="page-subtitle">
+          One page, all the trusted survey partners we use in our own GiftCardZoneEU
+          empire. Create a free account, answer surveys, then cash out to your
+          favorite gift cards or PayPal.
+        </p>
 
-    <!-- ===== MAIN SURVEY LIST (DIRECT LINKS) ===== -->
-    <section class="grid">
-      <!-- Swagbucks -->
-      <article class="card">
-        <h3>Swagbucks <span class="badge">Global</span></h3>
-        <p>Earn via surveys, daily polls, cashback, and more. Rewards include PayPal & Amazon gift cards.</p>
-        <a class="btn safe-link" data-offer="Swagbucks"
-           href="https://www.swagbucks.com/p/register?rb=223743499&rp=1"
-           target="_blank" rel="noopener noreferrer">Open Swagbucks</a>
-      </article>
+        <div class="meta-row">
+          <div class="meta-pill">
+            <span class="icon">💳</span>
+            <span>Gift cards &amp; PayPal payouts</span>
+          </div>
+          <div class="meta-pill">
+            <span class="icon">🌍</span>
+            <span>Available in multiple countries</span>
+          </div>
+          <div class="meta-pill">
+            <span class="icon">🕒</span>
+            <span>Earn in your spare time</span>
+          </div>
+        </div>
 
-      <!-- ySense -->
-      <article class="card">
-        <h3>ySense <span class="badge">Global</span></h3>
-        <p>Trusted GPT platform with surveys & tasks. Flexible rewards and frequent promos.</p>
-        <a class="btn safe-link" data-offer="ySense"
-           href="https://www.ysense.com/?rb=223744277"
-           target="_blank" rel="noopener noreferrer">Open ySense</a>
-      </article>
+        <div class="trust-row">
+          <div class="trust-item">
+            <span class="trust-dot"></span>
+            <span>Verified &amp; long-running survey brands</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-dot"></span>
+            <span>No membership fees, free to join</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-dot"></span>
+            <span>Millions of members worldwide</span>
+          </div>
+        </div>
+      </header>
 
-      <!-- SurveyTime (no ref provided, using official) -->
-      <article class="card">
-        <h3>SurveyTime <span class="badge">Instant Payout</span></h3>
-        <p>One survey = instant reward. Availability varies by country.</p>
-        <a class="btn safe-link" data-offer="SurveyTime"
-           href="https://surveytime.io/"
-           target="_blank" rel="noopener noreferrer">Open SurveyTime</a>
-      </article>
+      <main>
+        <section aria-label="Top survey sites">
+          <div class="grid">
+            <!-- Swagbucks -->
+            <article class="card">
+              <div class="card-image">
+                <img src="swagbucks-banner.jpg" alt="Swagbucks survey banner" loading="lazy" />
+              </div>
+              <div class="card-body">
+                <div class="badge-row">
+                  <div class="badge badge--accent">
+                    <span class="badge-dot"></span>
+                    <span>Most popular</span>
+                  </div>
+                  <div class="badge">
+                    🛒 Surveys • Cashback • Games
+                  </div>
+                </div>
+                <h2 class="card-title">Swagbucks</h2>
+                <p class="card-subtext">
+                  Answer surveys, watch videos, play games or shop online to earn SB points.
+                  Convert them to PayPal cash or gift cards from Amazon, Starbucks and more.
+                </p>
+                <div class="card-footer">
+                  <div class="earn-meta">
+                    <span>Average bonus:</span>
+                    <strong>Up to $5 welcome bonus</strong>
+                  </div>
+                  <a class="btn-primary" href="/go/swagbucks/" rel="nofollow noopener">
+                    <span>Join Swagbucks</span>
+                    <span class="icon">↗</span>
+                  </a>
+                </div>
+              </div>
+            </article>
 
-      <!-- PrizeRebel (no ref provided, using official) -->
-      <article class="card">
-        <h3>PrizeRebel <span class="badge">US/EU</span></h3>
-        <p>Classic survey & offerwall site with tiers and bonuses.</p>
-        <a class="btn safe-link" data-offer="PrizeRebel"
-           href="https://www.prizerebel.com/"
-           target="_blank" rel="noopener noreferrer">Open PrizeRebel</a>
-      </article>
-    </section>
+            <!-- ySense -->
+            <article class="card">
+              <div class="card-image">
+                <img src="ysense-banner.jpg" alt="ySense survey banner" loading="lazy" />
+              </div>
+              <div class="card-body">
+                <div class="badge-row">
+                  <div class="badge badge--accent">
+                    <span class="badge-dot"></span>
+                    <span>High-paying surveys</span>
+                  </div>
+                  <div class="badge">
+                    🌎 Global members
+                  </div>
+                </div>
+                <h2 class="card-title">ySense</h2>
+                <p class="card-subtext">
+                  Formerly ClixSense, now focused on surveys with better payouts plus
+                  task offers. Cash out via PayPal, Payoneer or gift cards when you
+                  reach the minimum balance.
+                </p>
+                <div class="card-footer">
+                  <div class="earn-meta">
+                    <span>Good for:</span>
+                    <strong>Survey-heavy earners</strong>
+                  </div>
+                  <a class="btn-primary" href="/go/ysense/" rel="nofollow noopener">
+                    <span>Join ySense</span>
+                    <span class="icon">↗</span>
+                  </a>
+                </div>
+              </div>
+            </article>
 
-    <p class="note">Tip: If a site is country-blocked, try another card above.</p>
+            <!-- PrizeRebel -->
+            <article class="card">
+              <div class="card-image">
+                <img src="prizerebel-banner.jpg" alt="PrizeRebel survey banner" loading="lazy" />
+              </div>
+              <div class="card-body">
+                <div class="badge-row">
+                  <div class="badge badge--accent">
+                    <span class="badge-dot"></span>
+                    <span>Fast cashouts</span>
+                  </div>
+                  <div class="badge">
+                    🎁 Amazon &amp; PayPal rewards
+                  </div>
+                </div>
+                <h2 class="card-title">PrizeRebel</h2>
+                <p class="card-subtext">
+                  Earn points from survey walls and quick offers. Redeem gift cards and
+                  PayPal usually within 24 hours once your account is verified.
+                </p>
+                <div class="card-footer">
+                  <div class="earn-meta">
+                    <span>Minimum cashout:</span>
+                    <strong>Around $5 equivalent</strong>
+                  </div>
+                  <a class="btn-primary" href="/go/prizerebel/" rel="nofollow noopener">
+                    <span>Join PrizeRebel</span>
+                    <span class="icon">↗</span>
+                  </a>
+                </div>
+              </div>
+            </article>
 
-    <!-- ===== APP TRIALS & CASHBACK (KEPT BUT DISABLED FOR NOW) ===== -->
-    <section style="margin-top:26px">
-      <h2 style="font-size:20px;margin:0 0 12px">🌟 App Trials & Cashback — Worldwide</h2>
-      <div class="grid">
-        <article class="card">
-          <h3>Starter Bundle Offer</h3>
-          <p>Rotating promotion</p>
-          <a class="btn disabled" aria-disabled="true">Open</a>
-        </article>
-        <article class="card">
-          <h3>Install & Earn</h3>
-          <p>Try an app, earn instantly</p>
-          <a class="btn disabled" aria-disabled="true">Open</a>
-        </article>
-        <article class="card">
-          <h3>Sign-Up Bonus</h3>
-          <p>Welcome reward for new users</p>
-          <a class="btn disabled" aria-disabled="true">Open</a>
-        </article>
-      </div>
-      <p class="note">These buttons are disabled temporarily until final links are ready (to avoid unrelated ads).</p>
-    </section>
-  </main>
+            <!-- SurveyTime -->
+            <article class="card">
+              <div class="card-image">
+                <img src="surveytime-banner.jpg" alt="SurveyTime banner" loading="lazy" />
+              </div>
+              <div class="card-body">
+                <div class="badge-row">
+                  <div class="badge badge--accent">
+                    <span class="badge-dot"></span>
+                    <span>Instant payout</span>
+                  </div>
+                  <div class="badge">
+                    ⏱ Flat rate per survey
+                  </div>
+                </div>
+                <h2 class="card-title">SurveyTime</h2>
+                <p class="card-subtext">
+                  Simple model: 1 finished survey = instant reward. Choose PayPal or
+                  gift cards depending on your country. Great if gusto mo ng diretso payout.
+                </p>
+                <div class="card-footer">
+                  <div class="earn-meta">
+                    <span>Per survey:</span>
+                    <strong>Fixed reward (varies by country)</strong>
+                  </div>
+                  <a class="btn-primary" href="/go/surveytime/" rel="nofollow noopener">
+                    <span>Join SurveyTime</span>
+                    <span class="icon">↗</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- InboxDollars -->
+            <article class="card">
+              <div class="card-image">
+                <img src="inboxdollars-banner.jpg" alt="InboxDollars survey banner" loading="lazy" />
+              </div>
+              <div class="card-body">
+                <div class="badge-row">
+                  <div class="badge badge--accent">
+                    <span class="badge-dot"></span>
+                    <span>US focused</span>
+                  </div>
+                  <div class="badge">
+                    📺 Surveys • videos • offers
+                  </div>
+                </div>
+                <h2 class="card-title">InboxDollars</h2>
+                <p class="card-subtext">
+                  Very popular in the US. Earn real dollars (hindi points) from surveys,
+                  games, reading emails and more. Cash out via gift cards or other options.
+                </p>
+                <div class="card-footer">
+                  <div class="earn-meta">
+                    <span>Welcome bonus:</span>
+                    <strong>Often up to $5 for new users</strong>
+                  </div>
+                  <a class="btn-primary" href="/go/inboxdollars/" rel="nofollow noopener">
+                    <span>Join InboxDollars</span>
+                    <span class="icon">↗</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- LifePoints -->
+            <article class="card">
+              <div class="card-image">
+                <img src="lifepoints-banner.jpg" alt="LifePoints survey banner" loading="lazy" />
+              </div>
+              <div class="card-body">
+                <div class="badge-row">
+                  <div class="badge badge--accent">
+                    <span class="badge-dot"></span>
+                    <span>Big research panel</span>
+                  </div>
+                  <div class="badge">
+                    📊 Brand opinion surveys
+                  </div>
+                </div>
+                <h2 class="card-title">LifePoints</h2>
+                <p class="card-subtext">
+                  Long-running market research community. Share your opinion with global
+                  brands and exchange LifePoints for digital gift cards and vouchers.
+                </p>
+                <div class="card-footer">
+                  <div class="earn-meta">
+                    <span>Best for:</span>
+                    <strong>Brand & product feedback</strong>
+                  </div>
+                  <a class="btn-primary" href="/go/lifepoints/" rel="nofollow noopener">
+                    <span>Join LifePoints</span>
+                    <span class="icon">↗</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <p class="page-subtitle" style="margin-top: 6px; text-align:left; max-width:720px;">
+            Tip: Hindi kailangan isa lang. Maraming members ang naka-sign up sa
+            3–5 survey sites para mas maraming survey invites per day. Start with
+            Swagbucks + ySense, then add at least 1–2 more from this list.
+          </p>
+        </section>
+      </main>
+
+      <footer class="page-footer">
+        <div class="footer-brand">
+          GiftCardZoneEU · Survey Sites Hub
+        </div>
+        <div class="footer-links">
+          <span>Affiliate disclosure: Some links on this page are affiliate links. When you sign up or earn, we may receive a commission at no extra cost to you.</span>
+        </div>
+      </footer>
+    </div>
+  </div>
 </body>
 </html>
+   
