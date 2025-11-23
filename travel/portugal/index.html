@@ -1,281 +1,1049 @@
-<!DOCTYPE html>
+      <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Portugal Hotel Deals | GiftCardZoneEU × Agoda</title>
-  <meta name="description" content="Find the best hotel deals in Portugal — Lisbon, Porto, Faro, Coimbra and more via Agoda Partners." />
+  <title>Portugal Hotel Deals | GiftCardZoneEU Travel</title>
+  <meta name="description" content="Compare hotel deals in Portugal from trusted partners like Agoda, Booking.com, Trip.com, Hotels.com, Accor, and Motel 6. Find verified, budget-friendly stays across Lisbon, Porto, Algarve, and more." />
   <link rel="canonical" href="https://giftcardzoneeu.com/travel/portugal/" />
+  <meta name="robots" content="index,follow" />
 
   <style>
     :root {
-      --bg: #020617;
-      --card-bg: rgba(15, 23, 42, 0.92);
-      --card-border: rgba(148, 163, 184, 0.4);
-      --accent: #38bdf8;
-      --accent-soft: rgba(56, 189, 248, 0.14);
+      --bg-page: #020617;
+      --bg-card: rgba(15, 23, 42, 0.9);
+      --bg-soft: rgba(15, 23, 42, 0.75);
+      --border-subtle: rgba(148, 163, 184, 0.4);
       --text-main: #e5e7eb;
       --text-muted: #9ca3af;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --accent-strong: #0ea5e9;
+      --badge-bg: rgba(15, 23, 42, 0.86);
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      --shadow-soft: 0 22px 45px rgba(15, 23, 42, 0.88);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
-      font-family: system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text-main);
-      line-height: 1.6;
-      background-image: url('https://images.unsplash.com/photo-1512331343185-64139fba04ca?auto=format&fit=crop&w=1600&q=80');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-    }
-
-    .overlay {
-      background: rgba(2, 6, 23, 0.72);
       min-height: 100vh;
-      padding: 40px 0;
-    }
-
-    .container {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 0 1.4rem;
-    }
-
-    h1 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-      font-weight: 800;
-    }
-
-    .sub {
-      text-align: center;
-      font-size: 1rem;
-      color: var(--text-muted);
-      margin-bottom: 1.2rem;
-    }
-
-    /* BRAND TRUST BADGE */
-    .brand-trust {
-      text-align:center;
-      margin-bottom:1.8rem;
-    }
-
-    .brand-trust span {
-      background: var(--card-bg);
-      padding: 0.55rem 1.1rem;
-      border-radius: 0.7rem;
-      border: 1px solid var(--card-border);
-      font-size: 0.9rem;
-      display: inline-block;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(56, 189, 248, 0.1), transparent 60%),
+        #020617;
       color: var(--text-main);
-    }
-
-    /* Trust Badges */
-    .badges {
       display: flex;
       justify-content: center;
-      gap: 1rem;
-      margin-bottom: 2.5rem;
-      flex-wrap: wrap;
+      padding: 32px 16px;
     }
 
-    .badge {
-      background: var(--card-bg);
-      padding: 0.7rem 1rem;
-      border-radius: 0.7rem;
-      border: 1px solid var(--card-border);
-      font-size: 0.85rem;
+    .page-shell {
+      width: 100%;
+      max-width: 1120px;
     }
 
-    /* Partners */
-    .partners-title {
-      font-size: 1.4rem;
-      text-align: center;
-      margin-bottom: 1.2rem;
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-logo {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #38bdf8, #0f172a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
       font-weight: 700;
+      color: #e5f3ff;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.9);
     }
 
-    .partners-grid {
+    .brand-text-main {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-text-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .header-pill {
+      font-size: 12px;
+      padding: 6px 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.85);
+      color: var(--text-muted);
       display: flex;
-      justify-content: center;
-      gap: 1rem;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .header-pill span.spark {
+      font-size: 14px;
+    }
+
+    main {
+      display: grid;
+      gap: 18px;
+    }
+
+    .hero {
+      position: relative;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      padding: 22px 22px 20px;
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.88), rgba(15, 23, 42, 0.98));
+      box-shadow: var(--shadow-soft);
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(15, 23, 42, 0.88), rgba(15, 23, 42, 0.5)),
+        url("portugal-hero.jpg") center center / cover no-repeat;
+      filter: blur(4px) brightness(0.9);
+      transform: scale(1.04);
+      z-index: -1;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    @media (max-width: 880px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      body {
+        padding: 20px 10px 32px;
+      }
+      .hero {
+        padding: 18px 16px 18px;
+      }
+    }
+
+    .hero-main {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.86);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      font-size: 11px;
+      color: var(--text-muted);
+      width: fit-content;
+    }
+
+    .eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.25);
+    }
+
+    .hero-title {
+      font-size: clamp(24px, 3.1vw, 30px);
+      line-height: 1.12;
+      letter-spacing: 0.01em;
+    }
+
+    .hero-title span.highlight {
+      background: linear-gradient(to right, #38bdf8, #a5b4fc);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      max-width: 520px;
+    }
+
+    .hero-subtitle strong {
+      color: #e5e7eb;
+      font-weight: 600;
+    }
+
+    .hero-partners-row {
+      display: flex;
       flex-wrap: wrap;
-      margin-bottom: 3rem;
+      gap: 6px 14px;
+      align-items: center;
+      margin-top: 4px;
+    }
+
+    .partner-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.86);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: #e5e7eb;
+    }
+
+    .partner-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent-strong);
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .btn-primary {
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: none;
+      background: radial-gradient(circle at 20% 0%, #38bdf8, #0ea5e9);
+      color: #f9fafb;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 16px 30px rgba(8, 47, 73, 0.8);
+      cursor: pointer;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary span.icon {
+      font-size: 15px;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 20px 32px rgba(8, 47, 73, 0.95);
+      filter: brightness(1.04);
+    }
+
+    .btn-ghost {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      background: rgba(15, 23, 42, 0.86);
+      color: var(--text-main);
+      font-size: 12px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: background 0.12s ease, border-color 0.12s ease, transform 0.12s ease;
+      white-space: nowrap;
+    }
+
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 0.96);
+      border-color: rgba(148, 163, 184, 0.85);
+      transform: translateY(-1px);
+    }
+
+    .hero-microtrust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .micro-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(51, 65, 85, 0.8);
+    }
+
+    .micro-item span.icon {
+      font-size: 13px;
+    }
+
+    .hero-side-card {
+      border-radius: var(--radius-lg);
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.9));
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      padding: 14px 14px 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.95);
+    }
+
+    .side-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .side-title {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .side-chip {
+      font-size: 10px;
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: rgba(8, 47, 73, 0.9);
+      border: 1px solid rgba(56, 189, 248, 0.7);
+      color: #e0f2fe;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      white-space: nowrap;
+    }
+
+    .side-chip span.dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    .side-body {
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .side-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .side-metric {
+      padding: 7px 8px;
+      border-radius: 12px;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(51, 65, 85, 0.9);
+      font-size: 11px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .side-metric-label {
+      color: var(--text-muted);
+    }
+
+    .side-metric-value {
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    .side-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 6px;
+      gap: 10px;
+    }
+
+    .side-secure {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 10px;
+      color: var(--text-muted);
+    }
+
+    .side-secure span.icon {
+      font-size: 13px;
+    }
+
+    .side-badge {
+      font-size: 10px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(8, 47, 73, 0.98);
+      color: #e0f2fe;
+      border: 1px solid rgba(56, 189, 248, 0.7);
+      white-space: nowrap;
+    }
+
+    .section {
+      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      padding: 16px 18px 16px;
+      box-shadow: 0 18px 38px rgba(15, 23, 42, 0.96);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      gap: 10px;
+    }
+
+    .section-title {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .section-kicker {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .partner-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    @media (max-width: 880px) {
+      .partner-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .partner-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     .partner-card {
-      background: #f9fafb;
-      color: #111827;
-      padding: 0.8rem 1.2rem;
-      border-radius: 0.8rem;
-      font-size: 0.9rem;
+      border-radius: 14px;
+      background: var(--bg-soft);
+      border: 1px solid rgba(51, 65, 85, 0.95);
+      padding: 10px 10px 9px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .partner-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .partner-name {
+      font-size: 13px;
       font-weight: 600;
-      border: 1px solid #e5e7eb;
-      text-decoration: none;
-      transition: 0.2s;
     }
 
-    .partner-card:hover {
-      background: #e2e8f0;
-    }
-
-    /* City Cards */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 1.8rem; /* mas dikit sa footer */
-    }
-
-    .card {
-      background: var(--card-bg);
-      padding: 1.2rem;
-      border-radius: 1rem;
-      border: 1px solid var(--card-border);
-      transition: 0.2s ease;
-    }
-
-    .card:hover {
-      border-color: var(--accent);
-      background: rgba(15, 23, 42, 0.85);
-      transform: translateY(-3px);
-    }
-
-    .card h3 {
-      font-size: 1.1rem;
-      margin-bottom: 0.6rem;
-      font-weight: 700;
-    }
-
-    .card p {
-      font-size: 0.9rem;
+    .partner-tag {
+      font-size: 10px;
+      padding: 3px 6px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
       color: var(--text-muted);
-      margin-bottom: 1rem;
     }
 
-    .btn {
-      display: inline-block;
-      width: 100%;
-      text-align: center;
-      padding: 0.6rem 0.8rem;
-      border-radius: 0.6rem;
+    .partner-body {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .partner-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 2px;
+      gap: 8px;
+    }
+
+    .partner-price-hint {
+      font-size: 11px;
+      color: #e5e7eb;
+    }
+
+    .partner-btn {
+      font-size: 11px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: none;
       background: var(--accent-soft);
-      color: var(--accent);
-      font-weight: 600;
-      border: 1px solid var(--accent);
+      color: #e0f2fe;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       text-decoration: none;
-      transition: 0.2s;
+      cursor: pointer;
+      white-space: nowrap;
     }
 
-    .btn:hover {
-      background: var(--accent);
-      color: #0f172a;
+    .partner-btn span.icon {
+      font-size: 13px;
     }
 
-    /* FOOTER */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    @media (max-width: 880px) {
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .why-card {
+      border-radius: 14px;
+      border: 1px solid rgba(51, 65, 85, 0.95);
+      background: var(--bg-soft);
+      padding: 10px 11px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .why-title {
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: #e5e7eb;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .why-title span.icon {
+      font-size: 14px;
+    }
+
+    .chips-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .chip {
+      font-size: 10px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(51, 65, 85, 0.95);
+      background: rgba(15, 23, 42, 0.96);
+      color: var(--text-muted);
+    }
+
+    .dest-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    @media (max-width: 880px) {
+      .dest-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .dest-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .dest-card {
+      border-radius: 12px;
+      padding: 8px 9px;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(51, 65, 85, 0.95);
+      font-size: 11px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .dest-name {
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    .dest-hint {
+      color: var(--text-muted);
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    @media (max-width: 880px) {
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .faq-item {
+      border-radius: 12px;
+      padding: 9px 10px;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(51, 65, 85, 0.95);
+      font-size: 11px;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: #e5e7eb;
+    }
+
+    .faq-a {
+      color: var(--text-muted);
+    }
+
     footer {
-      margin-top: 3rem;
-      padding: 2.5rem 1rem;
-      text-align: center;
-      background: rgba(2,6,23,0.65);
-      border-top: 1px solid rgba(148,163,184,0.3);
-      color: #cbd5e1;
-      font-size: 0.9rem;
+      margin-top: 8px;
+      font-size: 10px;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
     footer a {
-      color: #38bdf8;
-      margin: 0 0.8rem;
+      color: #bae6fd;
       text-decoration: none;
+      border-bottom: 1px dotted rgba(125, 211, 252, 0.6);
+    }
+
+    footer a:hover {
+      border-bottom-style: solid;
     }
   </style>
 </head>
-
 <body>
-<div class="overlay">
-  <div class="container">
-
-    <h1>Portugal Hotel Deals</h1>
-    <p class="sub">Lisbon • Porto • Faro • Coimbra • Braga</p>
-
-    <!-- BRAND TRUST BADGE -->
-    <div class="brand-trust">
-      <span>⭐ GiftCardZoneEU Travel — Trusted Worldwide Booking Partner</span>
-    </div>
-
-    <!-- Trust Badges -->
-    <div class="badges">
-      <div class="badge">✔ Secure Booking</div>
-      <div class="badge">✔ Agoda Travel Partner</div>
-      <div class="badge">✔ Best Price Finder</div>
-      <div class="badge">✔ Fast & Safe</div>
-    </div>
-
-    <!-- Partners -->
-    <h2 class="partners-title">🌍 Top Travel Partners</h2>
-    <div class="partners-grid">
-      <a class="partner-card" href="https://www.agoda.com/" target="_blank">Agoda</a>
-      <a class="partner-card" href="https://www.booking.com/" target="_blank">Booking.com</a>
-      <a class="partner-card" href="https://www.trip.com/" target="_blank">Trip.com</a>
-      <a class="partner-card" href="https://www.expedia.com/" target="_blank">Expedia</a>
-      <a class="partner-card" href="https://www.hotels.com/" target="_blank">Hotels.com</a>
-    </div>
-
-    <!-- City Cards -->
-    <div class="grid">
-
-      <div class="card">
-        <h3>Lisbon</h3>
-        <p>Find hotel deals near the city center, Belém, and the waterfront.</p>
-        <a class="btn" href="#" target="_blank">View Hotels</a>
+  <div class="page-shell">
+    <header>
+      <div class="brand">
+        <div class="brand-logo">GZ</div>
+        <div>
+          <div class="brand-text-main">GiftCardZoneEU Travel</div>
+          <div class="brand-text-sub">Curated hotel deals in Portugal</div>
+        </div>
       </div>
-
-      <div class="card">
-        <h3>Porto</h3>
-        <p>Book stays along the Douro River and near historic old town.</p>
-        <a class="btn" href="#" target="_blank">View Hotels</a>
+      <div class="header-pill">
+        <span class="spark">✨</span>
+        <span>Independent deal finder – partners only, no random ads</span>
       </div>
+    </header>
 
-      <div class="card">
-        <h3>Faro</h3>
-        <p>Discover hotels close to Algarve beaches and coastal attractions.</p>
-        <a class="btn" href="#" target="_blank">View Hotels</a>
+    <main>
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-grid">
+          <div class="hero-main">
+            <div class="eyebrow">
+              <span class="eyebrow-dot"></span>
+              Live hotel offers for <strong>Portugal</strong> this week
+            </div>
+
+            <h1 class="hero-title">
+              Smart, secure <span class="highlight">Portugal hotel deals</span> in one place.
+            </h1>
+
+            <p class="hero-subtitle">
+              Compare trusted partners like <strong>Agoda, Booking.com, Trip.com, Hotels.com, Accor,</strong> and <strong>Motel 6</strong> –
+              then book the deal that fits your budget, dates, and vibe in seconds.
+            </p>
+
+            <div class="hero-partners-row">
+              <div class="partner-chip">
+                <span class="partner-dot"></span>
+                Agoda · Booking.com · Trip.com
+              </div>
+              <div class="partner-chip">
+                <span class="partner-dot"></span>
+                Hotels.com · Accor · Motel 6
+              </div>
+            </div>
+
+            <div class="hero-cta-row">
+              <a class="btn-primary" href="#partners">
+                <span class="icon">🔍</span>
+                View top deals in Portugal
+              </a>
+              <a class="btn-ghost" href="#why">
+                <span class="icon">🛡️</span>
+                How we keep your search safe
+              </a>
+            </div>
+
+            <div class="hero-microtrust">
+              <div class="micro-item">
+                <span class="icon">✅</span>
+                No random pop-ups, just direct partner links
+              </div>
+              <div class="micro-item">
+                <span class="icon">🌍</span>
+                Works for Lisbon, Porto, Algarve, Madeira & more
+              </div>
+              <div class="micro-item">
+                <span class="icon">💳</span>
+                You always book on the partner’s secure site
+              </div>
+            </div>
+          </div>
+
+          <aside class="hero-side-card">
+            <div class="side-header">
+              <div class="side-title">Tonight & next-week snapshot</div>
+              <div class="side-chip">
+                <span class="dot"></span>
+                Live price ranges
+              </div>
+            </div>
+
+            <div class="side-body">
+              These are typical starting points – real prices depend on your exact dates, city, and room type.
+            </div>
+
+            <div class="side-grid">
+              <div class="side-metric">
+                <div class="side-metric-label">Lisbon budget stays</div>
+                <div class="side-metric-value">from ~€45/night</div>
+              </div>
+              <div class="side-metric">
+                <div class="side-metric-label">Porto city hotels</div>
+                <div class="side-metric-value">from ~€55/night</div>
+              </div>
+              <div class="side-metric">
+                <div class="side-metric-label">Algarve resorts</div>
+                <div class="side-metric-value">from ~€70/night</div>
+              </div>
+              <div class="side-metric">
+                <div class="side-metric-label">Madeira ocean view</div>
+                <div class="side-metric-value">from ~€80/night</div>
+              </div>
+            </div>
+
+            <div class="side-footer">
+              <div class="side-secure">
+                <span class="icon">🔒</span>
+                <span>We never store card details – you always pay on the hotel partner’s site.</span>
+              </div>
+              <div class="side-badge">
+                EU-friendly · Multi-currency
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- PARTNERS -->
+      <section id="partners" class="section">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Top hotel partners for Portugal</h2>
+            <p class="section-kicker">Mix and match – open 2–3 tabs, compare, then lock in the best deal.</p>
+          </div>
+        </div>
+
+        <div class="partner-grid">
+          <article class="partner-card">
+            <div class="partner-top">
+              <div class="partner-name">Agoda</div>
+              <div class="partner-tag">Good for: price filters</div>
+            </div>
+            <p class="partner-body">
+              Great for quickly sorting Lisbon and Porto stays by price, review score, and “pay later” options.
+            </p>
+            <div class="partner-footer">
+              <div class="partner-price-hint">Often strong discounts on city hotels.</div>
+              <a class="partner-btn" href="https://www.agoda.com" target="_blank" rel="noopener noreferrer">
+                <span class="icon">➡️</span>
+                View on Agoda
+              </a>
+            </div>
+          </article>
+
+          <article class="partner-card">
+            <div class="partner-top">
+              <div class="partner-name">Booking.com</div>
+              <div class="partner-tag">Good for: variety</div>
+            </div>
+            <p class="partner-body">
+              Huge choice of hotels, guest houses, and apartments across the whole of Portugal – with clear reviews.
+            </p>
+            <div class="partner-footer">
+              <div class="partner-price-hint">Perfect for mixed group trips.</div>
+              <a class="partner-btn" href="https://www.booking.com" target="_blank" rel="noopener noreferrer">
+                <span class="icon">➡️</span>
+                View on Booking.com
+              </a>
+            </div>
+          </article>
+
+          <article class="partner-card">
+            <div class="partner-top">
+              <div class="partner-name">Trip.com</div>
+              <div class="partner-tag">Good for: global users</div>
+            </div>
+            <p class="partner-body">
+              Handy if you’re flying in from Asia or outside Europe and want multi-language support and bundles.
+            </p>
+            <div class="partner-footer">
+              <div class="partner-price-hint">Check package deals with flights.</div>
+              <a class="partner-btn" href="https://www.trip.com" target="_blank" rel="noopener noreferrer">
+                <span class="icon">➡️</span>
+                View on Trip.com
+              </a>
+            </div>
+          </article>
+
+          <article class="partner-card">
+            <div class="partner-top">
+              <div class="partner-name">Hotels.com</div>
+              <div class="partner-tag">Good for: rewards</div>
+            </div>
+            <p class="partner-body">
+              Ideal if you like collecting nights and future free stays while hopping between Portuguese cities.
+            </p>
+            <div class="partner-footer">
+              <div class="partner-price-hint">Loyalty perks for frequent travellers.</div>
+              <a class="partner-btn" href="https://www.hotels.com" target="_blank" rel="noopener noreferrer">
+                <span class="icon">➡️</span>
+                View on Hotels.com
+              </a>
+            </div>
+          </article>
+
+          <article class="partner-card">
+            <div class="partner-top">
+              <div class="partner-name">Accor</div>
+              <div class="partner-tag">Good for: chains</div>
+            </div>
+            <p class="partner-body">
+              From ibis to Mercure and Sofitel, Accor is great if you prefer familiar brands and loyalty points.
+            </p>
+            <div class="partner-footer">
+              <div class="partner-price-hint">Great for business & city breaks.</div>
+              <a class="partner-btn" href="https://all.accor.com" target="_blank" rel="noopener noreferrer">
+                <span class="icon">➡️</span>
+                View on Accor
+              </a>
+            </div>
+          </article>
+
+          <article class="partner-card">
+            <div class="partner-top">
+              <div class="partner-name">Motel 6</div>
+              <div class="partner-tag">Good for: simple stays</div>
+            </div>
+            <p class="partner-body">
+              When available, expect straightforward rooms for road trips and value-focused travellers.
+            </p>
+            <div class="partner-footer">
+              <div class="partner-price-hint">Check for simple, budget options.</div>
+              <a class="partner-btn" href="https://www.motel6.com" target="_blank" rel="noopener noreferrer">
+                <span class="icon">➡️</span>
+                View on Motel 6
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- WHY -->
+      <section id="why" class="section">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Why use GiftCardZoneEU Travel for Portugal?</h2>
+            <p class="section-kicker">Think of us as your quiet “behind the scenes” comparison layer.</p>
+          </div>
+        </div>
+
+        <div class="why-grid">
+          <div class="why-card">
+            <div class="why-title">
+              <span class="icon">🧠</span>
+              One page, multiple trusted brands
+            </div>
+            <p>
+              Instead of searching each site separately, you start here, open a few tabs, and compare only the
+              serious hotel platforms we’d trust ourselves.
+            </p>
+            <div class="chips-row">
+              <div class="chip">No random pop-ups</div>
+              <div class="chip">Verified partners</div>
+              <div class="chip">Direct booking only</div>
+            </div>
+          </div>
+
+          <div class="why-card">
+            <div class="why-title">
+              <span class="icon">🛡️</span>
+              Your booking stays between you &amp; the hotel site
+            </div>
+            <p>
+              We never take your card details. When you’re ready, you click out to Agoda, Booking.com, Trip.com,
+              Hotels.com, Accor, or Motel 6 and complete everything on their secure checkout.
+            </p>
+            <div class="chips-row">
+              <div class="chip">SSL-protected partners</div>
+              <div class="chip">Bank-level security</div>
+              <div class="chip">You control your data</div>
+            </div>
+          </div>
+
+          <div class="why-card">
+            <div class="why-title">
+              <span class="icon">📊</span>
+              Built for serious, long-term travellers
+            </div>
+            <p>
+              This page is part of a bigger EU-friendly travel project. The layout stays the same per country, so
+              once you know how to use it here, you’re fast everywhere.
+            </p>
+            <div class="chips-row">
+              <div class="chip">Portugal today</div>
+              <div class="chip">More countries next</div>
+              <div class="chip">Consistent layout</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DESTINATIONS -->
+      <section class="section">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Popular areas to check in Portugal</h2>
+            <p class="section-kicker">Use your partner site’s filters, then target these hotspots.</p>
+          </div>
+        </div>
+
+        <div class="dest-grid">
+          <div class="dest-card">
+            <div class="dest-name">Lisbon</div>
+            <div class="dest-hint">Baixa, Alfama, Belém – great for first-timers.</div>
+          </div>
+          <div class="dest-card">
+            <div class="dest-name">Porto</div>
+            <div class="dest-hint">Riverside views, wine cellars, cosy old town stays.</div>
+          </div>
+          <div class="dest-card">
+            <div class="dest-name">Algarve</div>
+            <div class="dest-hint">Beach resorts in Lagos, Albufeira, Vilamoura.</div>
+          </div>
+          <div class="dest-card">
+            <div class="dest-name">Madeira</div>
+            <div class="dest-hint">Ocean-view hotels and hiking-friendly bases.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Portugal hotel booking – quick FAQ</h2>
+            <p class="section-kicker">Short answers before you open your tabs.</p>
+          </div>
+        </div>
+
+        <div class="faq-grid">
+          <div class="faq-item">
+            <div class="faq-q">When is the best time to find cheaper hotels in Portugal?</div>
+            <div class="faq-a">
+              Outside the main summer rush (July–August) and big holidays, you’ll usually see better rates. Try
+              shoulder months like March–May or September–October, and compare a few partners before deciding.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Can I book with free cancellation?</div>
+            <div class="faq-a">
+              Most partners let you filter by “free cancellation” or “refundable”. Tick that option if your dates
+              might change, but expect slightly higher prices compared to non-refundable deals.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Do you charge anything extra on top of the hotel price?</div>
+            <div class="faq-a">
+              No. You don’t pay GiftCardZoneEU Travel. We simply send you to our partner sites. Any taxes or fees
+              are shown directly in the final price on Agoda, Booking.com, Trip.com, Hotels.com, Accor, or Motel 6.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Why do some prices change when I refresh?</div>
+            <div class="faq-a">
+              Hotel prices move based on demand, remaining room count, and your travel dates. If you see a good
+              deal that fits your plans and budget, it’s usually smart not to wait too long.
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> GiftCardZoneEU Travel – Portugal. All partner names are trademarks of their respective owners.</div>
+      <div>
+        Part of the GiftCardZoneEU project.  
+        <a href="https://giftcardzoneeu.com/">Back to main site</a>
       </div>
-
-      <div class="card">
-        <h3>Coimbra</h3>
-        <p>Stay near the University of Coimbra and charming old streets.</p>
-        <a class="btn" href="#" target="_blank">View Hotels</a>
-      </div>
-
-    </div>
-
+    </footer>
   </div>
-</div>
 
-<!-- FOOTER -->
-<footer>
-  <h3>GiftCardZoneEU Travel</h3>
-  <p style="max-width:600px;margin:0 auto 1.5rem;line-height:1.55;">
-    GiftCardZoneEU Travel compares hotel prices using official Agoda, Booking.com, Trip.com,
-    Expedia and Hotels.com partner links. Bookings are processed securely on the partner website.
-  </p>
-
-  <div>
-    <a href="/privacy/">Privacy Policy</a>
-    <a href="/terms/">Terms</a>
-    <a href="/contact/">Contact</a>
-  </div>
-
-  <p style="font-size:0.85rem;margin-top:1rem;opacity:0.8;">
-    © 2025 GiftCardZoneEU.com — All Rights Reserved.
-  </p>
-</footer>
-
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
-
