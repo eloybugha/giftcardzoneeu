@@ -66,8 +66,20 @@
       font-size: 1rem;
       opacity: 0.9;
     }
+/* ANIMATION: Fade In Up */
+.fade-in {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.6s ease-out forwards;
+}
 
-    /* MAIN WRAPPER */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+       /* MAIN WRAPPER */
     .wrapper {
       max-width: 1100px;
       margin: 3rem auto;
