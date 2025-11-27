@@ -1,44 +1,33 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>Best Hotel & Travel Deals in India | GiftCardZoneEU Travel</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description"
-        content="Compare the best hotel and travel deals in India. Find discounts on stays in Mumbai, New Delhi, Bangalore, Goa, Jaipur and more with trusted global partners." />
+        content="Compare hotel and travel prices in India — from Mumbai and New Delhi to Goa and Jaipur — with trusted global booking partners." />
   <link rel="canonical" href="https://giftcardzoneeu.com/travel/india/" />
 
-  <!-- Favicon (optional – gamitin mo yung gamit na natin sa ibang travel pages) -->
-  <link rel="icon" href="/assets/favicon/gz-travel-icon.png" type="image/png" />
-
-  <!-- Open Graph / Social -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Best Hotel & Travel Deals in India | GiftCardZoneEU Travel" />
   <meta property="og:description"
-        content="Plan your India trip with our top hotel and travel partners. Explore deals in Mumbai, New Delhi, Bangalore, Goa, Jaipur and more." />
+        content="Compare hotel and travel prices in India with trusted global booking partners." />
   <meta property="og:url" content="https://giftcardzoneeu.com/travel/india/" />
   <meta property="og:image" content="https://giftcardzoneeu.com/assets/india/india-hero.jpg" />
 
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Best Hotel & Travel Deals in India | GiftCardZoneEU Travel" />
-  <meta name="twitter:description"
-        content="Compare hotel and travel deals for India with trusted global partners." />
-  <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/india/india-hero.jpg" />
-
   <style>
     :root {
-      --bg: #0b1120;
-      --bg-soft: #020617;
+      --bg: #020617;
       --card: #020617;
       --card-soft: #020617;
-      --accent: #38bdf8;
-      --accent-soft: rgba(56, 189, 248, 0.12);
+      --accent: #2563eb;
+      --accent-soft: rgba(37, 99, 235, 0.14);
       --text: #e5e7eb;
-      --muted: #9ca3af;
-      --border-subtle: rgba(148, 163, 184, 0.35);
-      --radius-lg: 1.25rem;
-      --radius-xl: 1.75rem;
-      --shadow-soft: 0 22px 40px rgba(15, 23, 42, 0.65);
+      --muted: #94a3b8;
+      --radius-lg: 1.4rem;
+      --radius-xl: 1.7rem;
+      --border-subtle: rgba(148, 163, 184, 0.4);
     }
 
     * {
@@ -49,7 +38,7 @@
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #1f2937 0, #020617 50%, #000 100%);
+      background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
       color: var(--text);
       min-height: 100vh;
     }
@@ -59,455 +48,406 @@
       text-decoration: none;
     }
 
-    .site-shell {
-      max-width: 1120px;
+    .page-shell {
+      max-width: 1040px;
       margin: 0 auto;
-      padding: 18px 16px 48px;
+      padding: 22px 16px 48px;
     }
 
-    .site-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 10px 14px;
-      margin-bottom: 16px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.8));
-      border: 1px solid rgba(148, 163, 184, 0.45);
-      box-shadow: 0 18px 35px rgba(15, 23, 42, 0.65);
-      backdrop-filter: blur(18px);
-    }
-
-    .logo {
-      display: flex;
+    /* Top tag (GiftCardZoneEU Travel · India) */
+    .page-tag {
+      display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      font-size: 0.98rem;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      margin-bottom: 14px;
     }
 
-    .logo-mark {
-      width: 26px;
-      height: 26px;
+    .page-tag-dot {
+      width: 24px;
+      height: 24px;
       border-radius: 999px;
-      background: radial-gradient(circle at 20% 20%, #38bdf8, #0ea5e9 45%, #6366f1 80%);
+      background: radial-gradient(circle at 25% 20%, #38bdf8, #0ea5e9 45%, #6366f1 80%);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 0.7rem;
-      color: white;
-      box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.65), 0 10px 22px rgba(56, 189, 248, 0.6);
-    }
-
-    .trust-pill {
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      background: rgba(15, 118, 110, 0.26);
-      border: 1px solid rgba(34, 197, 166, 0.7);
-      color: #a5f3fc;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      white-space: nowrap;
-    }
-
-    .trust-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.22);
+      color: #0b1120;
+      font-weight: 700;
     }
 
     /* Hero */
 
-    .hero {
-      position: relative;
+    .hero-card {
       border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, #0b1120, #020617);
+      position: relative;
       overflow: hidden;
-      margin-bottom: 24px;
-      background: #020617;
-      border: 1px solid rgba(148, 163, 184, 0.45);
-      box-shadow: var(--shadow-soft);
-      min-height: 260px;
+      padding: 22px 22px 20px;
+      margin-bottom: 22px;
+      border: 1px solid rgba(30, 64, 175, 0.6);
+      box-shadow: 0 26px 50px rgba(15, 23, 42, 0.85);
     }
 
-    .hero-image {
+    .hero-bg {
       position: absolute;
       inset: 0;
-      background-image: linear-gradient(
-          to bottom,
-          rgba(15, 23, 42, 0.1),
-          rgba(15, 23, 42, 0.85)
-        ),
+      background-image:
+        linear-gradient(120deg, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.4)),
         url("/assets/india/india-hero.jpg");
       background-size: cover;
       background-position: center;
-      transform: scale(1.02);
-    }
-
-    .hero-overlay {
-      position: relative;
-      z-index: 1;
-      padding: 32px 22px 26px;
+      opacity: 0.9;
     }
 
     .hero-inner {
-      max-width: 520px;
+      position: relative;
+      z-index: 1;
+      max-width: 560px;
     }
 
-    .eyebrow {
+    .hero-tags {
       display: inline-flex;
-      align-items: center;
-      gap: 6px;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .hero-tag {
       padding: 4px 10px;
       border-radius: 999px;
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      background: rgba(15, 23, 42, 0.88);
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      color: #e5e7eb;
-      margin-bottom: 10px;
-    }
-
-    .eyebrow-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: #38bdf8;
-      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.35);
+      font-size: 0.75rem;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: #cbd5f5;
     }
 
     h1 {
       font-size: 1.9rem;
       line-height: 1.2;
       margin-bottom: 8px;
-      text-shadow: 0 16px 30px rgba(15, 23, 42, 0.85);
+      text-shadow: 0 16px 30px rgba(15, 23, 42, 0.95);
     }
 
-    .hero-subtitle {
+    .hero-text {
       font-size: 0.95rem;
       color: #e5e7eb;
-      max-width: 32rem;
+      max-width: 34rem;
       margin-bottom: 16px;
-      text-shadow: 0 12px 24px rgba(15, 23, 42, 0.9);
+      text-shadow: 0 12px 24px rgba(15, 23, 42, 0.95);
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .hero-badge {
+      font-size: 0.75rem;
+      padding: 6px 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.85);
     }
 
     .hero-note {
       font-size: 0.8rem;
       color: var(--muted);
-      margin-top: 8px;
+      margin-top: 2px;
     }
 
-    .hero-note strong {
-      color: #e5e7eb;
-      font-weight: 500;
+    .hero-note a {
+      color: #bfdbfe;
+      text-decoration: underline;
+      text-decoration-style: dotted;
     }
 
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
+    .hero-cta {
+      margin-top: 10px;
     }
 
-    .btn-primary {
+    .btn-main {
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      gap: 8px;
       padding: 9px 18px;
       border-radius: 999px;
       border: 0;
-      background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
       color: #0b1120;
       font-weight: 600;
       font-size: 0.9rem;
       cursor: pointer;
-      box-shadow: 0 16px 30px rgba(56, 189, 248, 0.55);
-      gap: 8px;
-      text-decoration: none;
+      box-shadow: 0 18px 32px rgba(37, 99, 235, 0.7);
     }
 
-    .btn-primary span {
+    .btn-main span {
       font-size: 1rem;
     }
 
-    /* Main layout */
+    /* Sections */
 
-    .main-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
-      gap: 18px;
-      align-items: flex-start;
-    }
-
-    @media (max-width: 880px) {
-      .main-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .hero-overlay {
-        padding: 24px 18px 22px;
-      }
-      h1 {
-        font-size: 1.6rem;
-      }
-    }
-
-    .card {
-      background: radial-gradient(circle at top left, rgba(30, 64, 175, 0.5), #020617 55%);
+    .section-card {
       border-radius: var(--radius-lg);
+      background: rgba(15, 23, 42, 0.95);
       border: 1px solid var(--border-subtle);
       padding: 18px 18px 16px;
-      box-shadow: 0 18px 34px rgba(15, 23, 42, 0.9);
+      margin-bottom: 18px;
+      box-shadow: 0 22px 40px rgba(15, 23, 42, 0.85);
     }
 
-    .card h2 {
+    .section-title {
       font-size: 1.05rem;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
-    .card p {
+    .section-sub {
       font-size: 0.88rem;
       color: var(--muted);
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
-    .bullet-list {
-      list-style: none;
-      margin: 4px 0 0;
-      padding: 0;
-      display: grid;
-      gap: 4px;
-      font-size: 0.86rem;
-    }
-
-    .bullet-list li::before {
-      content: "• ";
-      color: var(--accent);
-      margin-right: 4px;
-    }
+    /* Cities grid (same vibe as Thailand) */
 
     .cities-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 6px;
-    }
-
-    .city-pill {
-      padding: 6px 11px;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      background: rgba(15, 23, 42, 0.9);
-      color: #e5e7eb;
-      cursor: default;
-    }
-
-    .city-pill.highlight {
-      border-color: rgba(56, 189, 248, 0.9);
-      background: rgba(15, 23, 42, 0.98);
-    }
-
-    /* Partners */
-
-    #partners.card {
-      background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.42), #020617 60%);
-    }
-
-    .partners-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 10px;
-      margin-top: 10px;
     }
 
-    .partner-btn {
-      border-radius: 999px;
-      padding: 8px 10px;
-      font-size: 0.86rem;
-      border: 1px solid rgba(148, 163, 184, 0.85);
-      background: rgba(15, 23, 42, 0.9);
-      display: flex;
+    @media (max-width: 900px) {
+      .cities-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .cities-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .city-card {
+      border-radius: 1rem;
+      background: radial-gradient(circle at top left, rgba(37, 99, 235, 0.22), #020617 65%);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      padding: 12px 12px 11px;
+    }
+
+    .city-name {
+      font-size: 0.96rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .city-text {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .city-btn {
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
-      text-decoration: none;
-      transition: transform 0.09s ease, box-shadow 0.09s ease, border-color 0.09s ease,
-        background 0.09s ease;
-      box-shadow: 0 12px 22px rgba(15, 23, 42, 0.85);
-    }
-
-    .partner-btn span {
+      padding: 6px 11px;
+      border-radius: 999px;
+      border: 0;
       font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--muted);
+      background: #2563eb;
+      color: #eff6ff;
+      cursor: pointer;
     }
 
-    .partner-btn strong {
-      font-weight: 600;
-      color: #e5e7eb;
-    }
+    /* Partners (pills style) */
 
-    .partner-btn:hover {
-      border-color: rgba(56, 189, 248, 0.95);
-      transform: translateY(-1px);
-      background: rgba(15, 23, 42, 0.98);
-      box-shadow: 0 20px 32px rgba(15, 23, 42, 0.9);
-    }
-
-    /* Explore more */
-
-    .countries-links {
+    .partner-chips {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-top: 6px;
-      font-size: 0.84rem;
+      margin-top: 8px;
     }
 
-    .countries-links a {
-      padding: 4px 9px;
+    .partner-chip {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      font-size: 0.82rem;
+      background: rgba(15, 23, 42, 0.95);
+      color: #e5e7eb;
+    }
+
+    .partner-chip span {
+      font-size: 0.74rem;
+      color: var(--muted);
+      margin-left: 4px;
+    }
+
+    /* Explore more countries */
+
+    .country-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+      font-size: 0.82rem;
+    }
+
+    .country-links a {
+      padding: 5px 11px;
       border-radius: 999px;
       border: 1px solid rgba(148, 163, 184, 0.6);
       color: var(--muted);
-      text-decoration: none;
-      background: rgba(15, 23, 42, 0.9);
+      background: rgba(15, 23, 42, 0.95);
     }
 
-    .countries-links a:hover {
-      border-color: rgba(56, 189, 248, 0.9);
+    .country-links a:hover {
+      border-color: rgba(37, 99, 235, 0.95);
       color: #e5e7eb;
     }
 
     footer {
-      margin-top: 22px;
+      margin-top: 18px;
       font-size: 0.75rem;
       color: var(--muted);
       text-align: center;
-      opacity: 0.85;
     }
   </style>
 </head>
 <body>
-  <div class="site-shell">
-    <header class="site-header">
-      <div class="logo">
-        <div class="logo-mark">GZ</div>
-        <div>GiftCardZoneEU Travel</div>
-      </div>
-      <div class="trust-pill">
-        <span class="trust-dot"></span>
-        <span>Secure global partners</span>
-      </div>
-    </header>
+  <div class="page-shell">
+    <!-- Top tag like Thailand -->
+    <div class="page-tag">
+      <div class="page-tag-dot">GZ</div>
+      <span>GiftCardZoneEU Travel · India</span>
+    </div>
 
-    <section class="hero">
-      <div class="hero-image" aria-hidden="true"></div>
-      <div class="hero-overlay">
-        <div class="hero-inner">
-          <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            <span>India · Hotel & Travel Deals</span>
-          </div>
-          <h1>Best Hotel & Travel Deals in India</h1>
-          <p class="hero-subtitle">
-            Explore India’s top hotel and flight deals — from the busy streets of Mumbai and New Delhi
-            to the heritage sites of Jaipur and the beaches of Goa.
-          </p>
-          <div class="hero-actions">
-            <a href="#partners" class="btn-primary">
-              Compare travel partners
-              <span>↗</span>
-            </a>
-          </div>
-          <p class="hero-note">
-            <strong>No extra booking fees.</strong> You book directly with trusted global brands.
-          </p>
+    <!-- Hero card -->
+    <section class="hero-card">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <div class="hero-tags">
+          <div class="hero-tag">India</div>
+          <div class="hero-tag">Mumbai</div>
+          <div class="hero-tag">New Delhi</div>
+          <div class="hero-tag">Goa</div>
+        </div>
+
+        <h1>Best Hotel & Travel Deals in India</h1>
+        <p class="hero-text">
+          Compare hotel and travel prices in India — from the busy streets of Mumbai and New Delhi
+          to the heritage sites of Jaipur and the beaches of Goa.
+        </p>
+
+        <div class="hero-badges">
+          <div class="hero-badge">Secure booking redirects</div>
+          <div class="hero-badge">Fast price compare</div>
+          <div class="hero-badge">Global travel brands</div>
+          <div class="hero-badge">Direct to official sites</div>
+        </div>
+
+        <p class="hero-note">
+          You book directly with our trusted partners — we simply help you compare deals in one place.
+        </p>
+
+        <div class="hero-cta">
+          <a href="#partners" class="btn-main">
+            Compare travel partners
+            <span>↗</span>
+          </a>
         </div>
       </div>
     </section>
 
-    <main class="main-grid">
-      <section class="card">
-        <h2>Why book your India trip with our partners?</h2>
-        <p>
-          We connect you to global hotel and travel platforms so you can quickly compare prices for
-          stays across India and worldwide.
-        </p>
-        <ul class="bullet-list">
-          <li>Find hotel deals from budget stays to premium hotels across India.</li>
-          <li>Trusted booking platforms with secure payment options.</li>
-          <li>Flexible options for last-minute trips and advance bookings.</li>
-          <li>Same partners you know — all from one simple page.</li>
-        </ul>
+    <!-- Key India cities -->
+    <section class="section-card">
+      <h2 class="section-title">Key India cities · pick a city to start browsing hotel deals</h2>
+      <p class="section-sub">
+        Popular destinations across India — from major business hubs to coastal escapes.
+      </p>
 
-        <h2 style="margin-top: 14px;">Top destinations in India</h2>
-        <p>Some of the most searched cities for hotel and travel deals:</p>
-        <div class="cities-grid">
-          <span class="city-pill highlight">Mumbai</span>
-          <span class="city-pill">New Delhi</span>
-          <span class="city-pill">Bangalore</span>
-          <span class="city-pill">Goa</span>
-          <span class="city-pill">Jaipur</span>
-          <span class="city-pill">Hyderabad</span>
-          <span class="city-pill">Chennai</span>
+      <div class="cities-grid">
+        <div class="city-card">
+          <div class="city-name">Mumbai</div>
+          <div class="city-text">City stays near markets, nightlife, and seaside promenades.</div>
+          <button class="city-btn">View Mumbai hotels</button>
         </div>
-      </section>
 
-      <aside id="partners" class="card">
-        <h2>Top Travel Partners for India</h2>
-        <p>
-          Click a partner below to compare hotel and travel deals for India and other destinations
-          worldwide.
-        </p>
-        <div class="partners-grid">
-          <a class="partner-btn" href="https://giftcardzoneeu.com/go/agoda/" target="_blank" rel="noopener noreferrer">
-            <strong>Agoda</strong>
-            <span>Hotels & stays</span>
-          </a>
-          <a class="partner-btn" href="https://giftcardzoneeu.com/go/booking/" target="_blank" rel="noopener noreferrer">
-            <strong>Booking.com</strong>
-            <span>Global stays</span>
-          </a>
-          <a class="partner-btn" href="https://giftcardzoneeu.com/go/trip/" target="_blank" rel="noopener noreferrer">
-            <strong>Trip.com</strong>
-            <span>Flights & hotels</span>
-          </a>
-          <a class="partner-btn" href="https://giftcardzoneeu.com/go/hotels/" target="_blank" rel="noopener noreferrer">
-            <strong>Hotels.com</strong>
-            <span>Hotel deals</span>
-          </a>
-          <a class="partner-btn" href="https://giftcardzoneeu.com/go/accor/" target="_blank" rel="noopener noreferrer">
-            <strong>Accor</strong>
-            <span>Hotel brands</span>
-          </a>
-          <a class="partner-btn" href="https://giftcardzoneeu.com/go/motel6/" target="_blank" rel="noopener noreferrer">
-            <strong>Motel 6</strong>
-            <span>Budget stays</span>
-          </a>
+        <div class="city-card">
+          <div class="city-name">New Delhi</div>
+          <div class="city-text">Stay close to historic sites, embassies, and business districts.</div>
+          <button class="city-btn">View New Delhi hotels</button>
         </div>
-      </aside>
-    </main>
 
-    <section class="card" style="margin-top: 18px;">
-      <h2>Explore more countries</h2>
-      <p>Looking for deals in other destinations? Start with these popular pages:</p>
-      <div class="countries-links">
+        <div class="city-card">
+          <div class="city-name">Bangalore</div>
+          <div class="city-text">Business and tech hub with modern stays and cafés.</div>
+          <button class="city-btn">View Bangalore hotels</button>
+        </div>
+
+        <div class="city-card">
+          <div class="city-name">Goa</div>
+          <div class="city-text">Beachfront resorts and relaxed coastal stays.</div>
+          <button class="city-btn">View Goa hotels</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Partners -->
+    <section id="partners" class="section-card">
+      <h2 class="section-title">Top travel partners for India</h2>
+      <p class="section-sub">
+        Choose a trusted partner to compare India hotel and travel prices. You’ll book on the
+        official partner website.
+      </p>
+
+      <div class="partner-chips">
+        <a class="partner-chip" href="https://giftcardzoneeu.com/go/agoda/" target="_blank" rel="noopener noreferrer">
+          Agoda<span>Hotels & stays</span>
+        </a>
+        <a class="partner-chip" href="https://giftcardzoneeu.com/go/booking/" target="_blank" rel="noopener noreferrer">
+          Booking.com<span>Global stays</span>
+        </a>
+        <a class="partner-chip" href="https://giftcardzoneeu.com/go/trip/" target="_blank" rel="noopener noreferrer">
+          Trip.com<span>Flights & hotels</span>
+        </a>
+        <a class="partner-chip" href="https://giftcardzoneeu.com/go/hotels/" target="_blank" rel="noopener noreferrer">
+          Hotels.com<span>Hotel deals</span>
+        </a>
+        <a class="partner-chip" href="https://giftcardzoneeu.com/go/accor/" target="_blank" rel="noopener noreferrer">
+          Accor<span>Hotel brands</span>
+        </a>
+        <a class="partner-chip" href="https://giftcardzoneeu.com/go/motel6/" target="_blank" rel="noopener noreferrer">
+          Motel 6<span>Budget stays</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Explore more countries -->
+    <section class="section-card">
+      <h2 class="section-title">Explore more hotel deals with GiftCardZoneEU Travel</h2>
+      <p class="section-sub">
+        Browse more countries and compare hotel prices across our trusted travel partners.
+      </p>
+
+      <div class="country-links">
         <a href="/travel/japan/">Japan</a>
         <a href="/travel/germany/">Germany</a>
+        <a href="/travel/thailand/">Thailand</a>
+        <a href="/travel/italy/">Italy</a>
         <a href="/travel/united-kingdom/">United Kingdom</a>
-        <a href="/travel/spain/">Spain</a>
+        <a href="/travel/belgium/">Belgium</a>
+        <a href="/travel/usa/">USA</a>
         <a href="/travel/canada/">Canada</a>
         <a href="/travel/philippines/">Philippines</a>
-        <a href="/travel/thailand/">Thailand</a>
         <a href="/travel/brazil/">Brazil</a>
       </div>
     </section>
@@ -518,3 +458,4 @@
   </div>
 </body>
 </html>
+  
