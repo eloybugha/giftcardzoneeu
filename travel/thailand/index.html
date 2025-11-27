@@ -1,140 +1,447 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<!-- Canonical (clean folder URL) -->
-<link rel="canonical" href="/travel/thailand/" />
+<title>Best Hotel & Travel Deals in Thailand | GiftCardZoneEU</title>
+<link rel="canonical" href="https://giftcardzoneeu.com/travel/thailand/" />
 
-<!-- OG Tags -->
-<meta property="og:title" content="Thailand Travel Deals | GiftCardZoneEU">
-<meta property="og:description" content="Book Thailand transport, hotels, and tours with trusted affiliate partners.">
-<meta property="og:type" content="website">
-<meta property="og:image" content="/travel/thailand/thailand-hero.jpg">
+<meta name="description" content="Compare Thailand hotel & travel deals in Bangkok, Phuket, Chiang Mai and more. Book with trusted partners like Agoda, Booking.com, Trip.com, Hotels.com, 12GO and Mytrip." />
 
-<title>Thailand Travel – GiftCardZoneEU</title>
+<!-- OG -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Best Hotel & Travel Deals in Thailand" />
+<meta property="og:description" content="Compare Thailand hotel and transport prices across trusted partners. Secure redirects only, no extra mark-ups." />
+<meta property="og:image" content="https://giftcardzoneeu.com/travel/thailand/thailand-hero.jpg" />
+<meta property="og:url" content="https://giftcardzoneeu.com/travel/thailand/" />
 
 <style>
-body {
-   margin:0; font-family:Arial,sans-serif;
-   background:#f7f7f7; color:#222;
+:root{
+  --bg:#050816;
+  --card:#0c1224;
+  --card-soft:#111831;
+  --accent:#2f7dff;
+  --accent-soft:rgba(47,125,255,0.4);
+  --text:#f5f7ff;
+  --muted:#a3acd9;
+  --border:rgba(255,255,255,0.08);
+  --radius-lg:22px;
 }
-.hero {
-   width:100%; height:55vh;
-   background:url('/travel/thailand/thailand-hero.jpg') center/cover no-repeat;
-   display:flex; align-items:center; justify-content:center;
-   text-align:center; padding:20px;
-}
-.hero h1 {
-   font-size:2.4rem; background:rgba(0,0,0,0.45);
-   color:#fff; padding:12px 24px; border-radius:10px;
-}
-.section {
-   padding:30px 20px; max-width:1200px; margin:auto;
-}
-.grid {
-   display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-   gap:18px;
-}
-.card {
-   background:#fff; padding:18px; border-radius:14px;
-   box-shadow:0 3px 10px rgba(0,0,0,0.07);
-   text-align:center;
-}
-.partner-btn {
-   display:inline-block; margin-top:14px;
-   padding:12px 22px; font-size:1rem;
-   background:#0a7cff; color:#fff;
-   text-decoration:none; border-radius:8px;
-   font-weight:bold;
-}
-.partner-btn:hover { background:#065fcc; }
 
-/* Brand Logo */
-.brand-badge {
-   text-align:center; margin:20px 0;
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:radial-gradient(circle at top,#151b3d 0,#050816 55%,#02010a 100%);
+  color:var(--text);
 }
-.brand-badge img {
-   height:65px;
+a{color:inherit;text-decoration:none;}
+
+.page{
+  max-width:1200px;
+  margin:0 auto;
+  padding:24px 16px 60px;
 }
-/* Trust Badges */
-.badges {
-   display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin-bottom:20px;
+
+/* brand */
+.brand-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:18px;
 }
-.badges img {
-   height:36px;
+.brand-logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.brand-logo img{height:36px;}
+.brand-tag{
+  font-size:13px;
+  padding:4px 10px;
+  border-radius:999px;
+  background:rgba(10,20,60,0.8);
+  border:1px solid var(--border);
+  color:var(--muted);
+}
+
+/* hero layout */
+.hero{
+  display:grid;
+  grid-template-columns: minmax(0,1.5fr) minmax(0,1.2fr);
+  gap:22px;
+  margin-bottom:30px;
+}
+.hero-left{
+  background:linear-gradient(145deg,#111836,#060b1e);
+  border-radius:var(--radius-lg);
+  padding:22px 22px 20px;
+  border:1px solid var(--border);
+  position:relative;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute;
+  inset:0;
+  background:url('/travel/thailand/thailand-hero.jpg') center/cover no-repeat;
+  opacity:0.18;
+  filter:saturate(1.1);
+}
+.hero-content{position:relative;z-index:1;}
+.hero-chip{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-size:13px;
+  padding:4px 10px;
+  border-radius:999px;
+  background:rgba(5,10,40,0.8);
+  border:1px solid var(--border);
+  color:var(--muted);
+  margin-bottom:10px;
+}
+.hero-title{
+  font-size:26px;
+  font-weight:700;
+  margin-bottom:8px;
+}
+.hero-sub{
+  font-size:14px;
+  color:var(--muted);
+  max-width:440px;
+}
+.hero-badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:16px 0 18px;
+}
+.hero-badge{
+  font-size:11px;
+  padding:4px 9px;
+  border-radius:999px;
+  background:rgba(8,16,56,0.85);
+  border:1px solid var(--border);
+  color:var(--muted);
+}
+.hero-transport{
+  margin-top:4px;
+  font-size:13px;
+  color:var(--muted);
+}
+.hero-transport a{color:var(--accent);}
+
+/* city cards */
+.hero-right{
+  background:linear-gradient(155deg,#10172f,#060b1d);
+  border-radius:var(--radius-lg);
+  padding:18px 18px 20px;
+  border:1px solid var(--border);
+}
+.cities-title{
+  font-size:14px;
+  color:var(--muted);
+  margin-bottom:10px;
+}
+.city-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+}
+.city-card{
+  background:radial-gradient(circle at top,#182444,#0a0f23);
+  border-radius:18px;
+  padding:12px 12px 13px;
+  border:1px solid rgba(255,255,255,0.06);
+}
+.city-name{
+  font-size:15px;
+  font-weight:600;
+  margin-bottom:4px;
+}
+.city-desc{
+  font-size:12px;
+  color:var(--muted);
+  margin-bottom:10px;
+}
+.city-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:7px 11px;
+  border-radius:999px;
+  background:var(--accent);
+  color:#fff;
+  font-size:12px;
+  font-weight:600;
+}
+
+/* top partners row */
+.section-title{
+  font-size:17px;
+  font-weight:600;
+  margin-bottom:6px;
+}
+.section-sub{
+  font-size:13px;
+  color:var(--muted);
+  margin-bottom:14px;
+}
+
+.top-partners{
+  background:var(--card);
+  padding:18px 16px 16px;
+  border-radius:var(--radius-lg);
+  border:1px solid var(--border);
+  margin-bottom:26px;
+}
+.partner-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.partner-pill{
+  padding:7px 14px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,0.14);
+  background:rgba(10,18,48,0.95);
+  font-size:13px;
+  color:var(--muted);
+  cursor:pointer;
+}
+
+/* more destinations chips */
+.destinations{
+  background:var(--card-soft);
+  padding:16px 16px 18px;
+  border-radius:var(--radius-lg);
+  border:1px solid var(--border);
+  margin-bottom:26px;
+}
+.dest-chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:8px;
+}
+.dest-chip{
+  padding:5px 11px;
+  border-radius:999px;
+  font-size:12px;
+  border:1px solid rgba(255,255,255,0.14);
+  color:var(--muted);
+}
+.dest-chip.active{
+  background:var(--accent-soft);
+  border-color:var(--accent);
+  color:#fff;
+}
+
+/* trust cards */
+.trust-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:14px;
+  margin-top:14px;
+}
+.trust-card{
+  background:var(--card);
+  border-radius:18px;
+  padding:14px 14px 15px;
+  border:1px solid var(--border);
+}
+.trust-tag{
+  font-size:12px;
+  margin-bottom:5px;
+  color:var(--muted);
+}
+.trust-title{
+  font-size:14px;
+  font-weight:600;
+  margin-bottom:5px;
+}
+.trust-text{
+  font-size:12px;
+  color:var(--muted);
+}
+
+/* footer trusted partners */
+.footer-partners{
+  margin-top:26px;
+  padding:16px;
+  border-radius:var(--radius-lg);
+  background:var(--card-soft);
+  border:1px solid var(--border);
+}
+.footer-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:10px;
+}
+.footer-pill{
+  font-size:12px;
+  padding:6px 12px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,0.14);
+  color:var(--muted);
+}
+
+/* responsive */
+@media (max-width:800px){
+  .hero{grid-template-columns:1fr;}
 }
 </style>
 </head>
-
 <body>
+<div class="page">
 
-<!-- Header Brand Logo -->
-<div class="brand-badge">
-   <img src="/assets/brand/gz-logo.png" alt="GiftCardZoneEU">
+  <!-- BRAND -->
+  <div class="brand-row">
+    <div class="brand-logo">
+      <img src="/assets/brand/gz-logo.png" alt="GiftCardZoneEU" />
+      <span class="brand-tag">GiftCardZoneEU Travel · Thailand</span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <div class="hero-chip">Thailand · Bangkok · Phuket · Chiang Mai</div>
+        <h1 class="hero-title">Best Hotel & Travel Deals in Thailand</h1>
+        <p class="hero-sub">
+          Compare hotel and transport prices in Thailand — from Bangkok city stays and island escapes in Phuket to cool mountain trips in Chiang Mai.
+        </p>
+
+        <div class="hero-badges">
+          <span class="hero-badge">Secure booking redirects</span>
+          <span class="hero-badge">Fast price compare</span>
+          <span class="hero-badge">Global travel brands</span>
+          <span class="hero-badge">Direct to official sites</span>
+        </div>
+
+        <p class="hero-transport">
+          Transport & flights powered by
+          <a href="https://www.kqzyfi.com/click-101586981-17115177" target="_blank">12GO</a>
+          and
+          <a href="https://www.kqzyfj.com/click-101586981-17066680" target="_blank">Mytrip</a>.
+        </p>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="cities-title">Key Thailand cities · pick a city to start browsing hotel deals</div>
+      <div class="city-grid">
+        <div class="city-card">
+          <div class="city-name">Bangkok</div>
+          <div class="city-desc">Stay near temples, malls, and rooftop bars.</div>
+          <a href="#" class="city-btn">View Bangkok hotels</a>
+        </div>
+        <div class="city-card">
+          <div class="city-name">Phuket</div>
+          <div class="city-desc">Beachfront escapes and island hopping stays.</div>
+          <a href="#" class="city-btn">View Phuket hotels</a>
+        </div>
+        <div class="city-card">
+          <div class="city-name">Chiang Mai</div>
+          <div class="city-desc">Old city stays near markets & mountains.</div>
+          <a href="#" class="city-btn">View Chiang Mai hotels</a>
+        </div>
+        <div class="city-card">
+          <div class="city-name">Pattaya</div>
+          <div class="city-desc">Coastal stays near nightlife & beaches.</div>
+          <a href="#" class="city-btn">View Pattaya hotels</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOP PARTNERS -->
+  <section class="top-partners">
+    <div class="section-title">Top travel partners</div>
+    <div class="section-sub">Choose a trusted partner to compare Thailand hotel and flight prices.</div>
+    <div class="partner-row">
+      <a href="YOUR-AGODA-LINK-HERE" target="_blank" class="partner-pill">Agoda</a>
+      <a href="YOUR-BOOKING-LINK-HERE" target="_blank" class="partner-pill">Booking.com</a>
+      <a href="YOUR-TRIP-LINK-HERE" target="_blank" class="partner-pill">Trip.com</a>
+      <a href="YOUR-HOTELS-LINK-HERE" target="_blank" class="partner-pill">Hotels.com</a>
+      <a href="https://www.kqzyfi.com/click-101586981-17115177" target="_blank" class="partner-pill">12GO (Transport)</a>
+      <a href="https://www.kqzyfj.com/click-101586981-17066680" target="_blank" class="partner-pill">Mytrip (Flights)</a>
+    </div>
+  </section>
+
+  <!-- MORE DESTINATIONS -->
+  <section class="destinations">
+    <div class="section-title">Explore more hotel deals with GiftCardZoneEU Travel</div>
+    <div class="section-sub">Browse more countries and compare hotel prices across our trusted travel partners.</div>
+    <div class="dest-chips">
+      <span class="dest-chip">Japan</span>
+      <span class="dest-chip">Germany</span>
+      <span class="dest-chip">Italy</span>
+      <span class="dest-chip">United Kingdom</span>
+      <span class="dest-chip">Belgium</span>
+      <span class="dest-chip">Canada</span>
+      <span class="dest-chip">USA</span>
+      <span class="dest-chip">Philippines</span>
+      <span class="dest-chip active">Thailand</span>
+    </div>
+  </section>
+
+  <!-- WHY TRAVELERS TRUST US -->
+  <section>
+    <h2 class="section-title">Why travelers trust us</h2>
+    <div class="section-sub">Book smarter with trusted Thailand hotel partners.</div>
+
+    <div class="trust-grid">
+      <div class="trust-card">
+        <div class="trust-tag">Secure redirects only</div>
+        <div class="trust-title">Straight to official booking pages</div>
+        <div class="trust-text">
+          Every “View hotels” button sends you directly to official partner websites using secure HTTPS links.
+        </div>
+      </div>
+
+      <div class="trust-card">
+        <div class="trust-tag">Global hotel coverage</div>
+        <div class="trust-title">Thousands of stays across Thailand</div>
+        <div class="trust-text">
+          From Bangkok to Phuket and Chiang Mai, our partners list stays from budget hostels to luxury resorts.
+        </div>
+      </div>
+
+      <div class="trust-card">
+        <div class="trust-tag">No extra mark-ups</div>
+        <div class="trust-title">See live prices & promotions</div>
+        <div class="trust-text">
+          We don’t add hidden platform fees. You see real-time prices and promos directly from Agoda, Booking.com, Trip.com and more.
+        </div>
+      </div>
+
+      <div class="trust-card">
+        <div class="trust-tag">Simple disclosures</div>
+        <div class="trust-title">Affiliate links keep us running</div>
+        <div class="trust-text">
+          If you book through our affiliate links, we may earn a small commission at no extra cost to you. This helps keep GiftCardZoneEU online.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUSTED PARTNERS FOOTER -->
+  <section class="footer-partners">
+    <div class="section-title">Trusted partners</div>
+    <div class="footer-row">
+      <span class="footer-pill">Agoda</span>
+      <span class="footer-pill">Booking.com</span>
+      <span class="footer-pill">Trip.com</span>
+      <span class="footer-pill">Hotels.com</span>
+      <span class="footer-pill">12GO</span>
+      <span class="footer-pill">Mytrip</span>
+    </div>
+  </section>
+
 </div>
-
-<!-- Hero Banner -->
-<section class="hero">
-   <h1>Explore Thailand 🇹🇭</h1>
-</section>
-
-<!-- Trust Badges -->
-<section class="section">
-   <div class="badges">
-      <img src="/assets/badges/secure.png" alt="Secure">
-      <img src="/assets/badges/trusted.png" alt="Trusted">
-      <img src="/assets/badges/fast-booking.png" alt="Fast Booking">
-   </div>
-</section>
-
-<!-- Travel Cards Section (same Japan layout) -->
-<section class="section">
-<h2>Top Travel Partners</h2>
-
-<div class="grid">
-
-   <div class="card">
-      <h3>Train · Ferry · Bus</h3>
-      <p>Bangkok → Islands, City Transfers</p>
-      <a href="https://www.kqzyfi.com/click-101586981-17115177" target="_blank" class="partner-btn">
-         Book via 12GO
-      </a>
-   </div>
-
-   <div class="card">
-      <h3>Hotels & Resorts</h3>
-      <p>Bangkok · Phuket · Chiang Mai</p>
-      <a href="YOUR-AGODA-LINK-HERE" target="_blank" class="partner-btn">Book Agoda</a>
-   </div>
-
-   <a href="https://www.kqzyfj.com/click-101586981-17066680"
-   target="_blank"
-   class="partner-btn">
-   Book Flights via Mytrip
-</a>
-
-   <div class="card">
-      <h3>All-in-One Booking</h3>
-      <p>Flight + Hotels combos</p>
-      <a href="YOUR-BOOKING-LINK-HERE" target="_blank" class="partner-btn">Booking.com</a>
-   </div>
-
-   <div class="card">
-      <h3>Reward Stays</h3>
-      <p>Collect nights, redeem stays</p>
-      <a href="YOUR-HOTELS-LINK-HERE" target="_blank" class="partner-btn">Check Hotels</a>
-   </div>
-
-   <div class="card">
-      <h3>Premium Chains</h3>
-      <p>Sofitel · Novotel · Ibis</p>
-      <a href="YOUR-ACCOR-LINK-HERE" target="_blank" class="partner-btn">Accor</a>
-   </div>
-
-</div>
-</section>
-
 </body>
 </html>
