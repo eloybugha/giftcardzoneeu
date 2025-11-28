@@ -1,1 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Book Trains, Buses & Ferries with 12Go | GiftCardZoneEU</title>
+  <meta name="description" content="Book trains, buses, ferries and transfers across Asia and worldwide with 12Go. Compare routes, prices and schedules in one place." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://giftcardzoneeu.com/partners/12go/" />
+
+  <!-- Basic Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="12Go Transport Booking | GiftCardZoneEU" />
+  <meta property="og:description" content="One platform for trains, buses, ferries and transfers with 12Go." />
+  <meta property="og:url" content="https://giftcardzoneeu.com/partners/12go/" />
+  <meta property="og:image" content="https://giftcardzoneeu.com/assets/12go/12go-hero.jpg" />
+
+  <style>
+    :root {
+      --bg: #020617;
+      --card-bg: #020617;
+      --page-bg: #0b1220;
+      --accent: #00c3a3; /* 12Go-like teal */
+      --accent-soft: rgba(0, 195, 163, 0.08);
+      --accent-strong: rgba(0, 195, 163, 0.16);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border-subtle: rgba(148, 163, 184, 0.45);
+      --chip-bg: rgba(15, 23, 42, 0.92);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #0f172a 0, #020617 52%, #000 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+    }
+
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 24px 16px 56px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brandMark {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      background: conic-gradient(
+        from 200deg,
+        #00c3a3,
+        #22c55e,
+        #38bdf8,
+        #00c3a3
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 40px rgba(15, 118, 110, 0.6);
+    }
+
+    .brandMark span {
+      font-size: 18px;
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    .brandText {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .brandText small {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .brandText strong {
+      font-size: 15px;
+    }
+
+    .tag {
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: radial-gradient(circle at top left, #1f2937, #020617);
+      color: var(--text-muted);
+    }
+
+    .tagDot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.2);
+    }
+
+    .hero {
+      position: relative;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background:
+        radial-gradient(circle at top, rgba(56, 189, 248, 0.06), transparent 60%),
+        radial-gradient(circle at bottom, rgba(0, 195, 163, 0.1), transparent 70%),
+        linear-gradient(145deg, #020617, #020617);
+      margin-bottom: 26px;
+    }
+
+    .heroInner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+      gap: 24px;
+      padding: 24px 22px 22px;
+    }
+
+    .heroCopy h1 {
+      font-size: 26px;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    .badgeRow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .pill {
+      font-size: 11px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.9);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-muted);
+    }
+
+    .pill span {
+      font-size: 13px;
+    }
+
+    .heroCopy p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+
+    .heroCTA {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .btnPrimary {
+      background: linear-gradient(135deg, #00c3a3, #22c55e);
+      color: #020617;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 14px 40px rgba(16, 185, 129, 0.5);
+      cursor: pointer;
+    }
+
+    .btnPrimary span {
+      font-size: 15px;
+    }
+
+    .btnGhost {
+      border-radius: 999px;
+      padding: 9px 14px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.9);
+      font-size: 13px;
+      text-decoration: none;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .tinyNote {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .heroVisual {
+      position: relative;
+      min-height: 180px;
+      border-radius: 18px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at top, rgba(56, 189, 248, 0.12), transparent 60%),
+        url("https://images.pexels.com/photos/1094014/pexels-photo-1094014.jpeg?auto=compress&cs=tinysrgb&w=1200")
+          center/cover no-repeat;
+    }
+
+    .heroOverlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at bottom, rgba(15, 23, 42, 0.4), transparent 60%);
+    }
+
+    .heroWidget {
+      position: absolute;
+      left: 16px;
+      right: 16px;
+      bottom: 14px;
+      padding: 10px 12px;
+      border-radius: 16px;
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      backdrop-filter: blur(20px);
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      align-items: center;
+    }
+
+    .heroWidget label {
+      display: flex;
+      flex-direction: column;
+      font-size: 11px;
+      color: var(--text-muted);
+      gap: 2px;
+    }
+
+    .heroWidget span {
+      font-size: 13px;
+    }
+
+    .heroWidget .chip {
+      justify-self: flex-end;
+      font-size: 11px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(22, 163, 74, 0.16);
+      color: #bbf7d0;
+      border: 1px solid rgba(34, 197, 94, 0.5);
+    }
+
+    .section {
+      background: radial-gradient(circle at top left, #0b1220, #020617 60%);
+      border-radius: 20px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      padding: 18px 18px 16px;
+      margin-bottom: 18px;
+    }
+
+    .sectionHeader {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .sectionHeader h2 {
+      font-size: 17px;
+    }
+
+    .sectionHeader p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .routesGrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .routeCard {
+      border-radius: 16px;
+      padding: 12px 12px 11px;
+      background: radial-gradient(circle at top, #020617, #020617);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .routeTitle {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .routeMeta {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .routeTagRow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .routeTag {
+      font-size: 11px;
+      padding: 4px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.96);
+      color: var(--text-muted);
+    }
+
+    .routeLink {
+      margin-top: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      text-decoration: none;
+      color: #e0f2fe;
+    }
+
+    .benefitsGrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .benefitCard {
+      border-radius: 16px;
+      padding: 10px 10px 9px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background: radial-gradient(circle at top left, #020617, #020617);
+      font-size: 13px;
+    }
+
+    .benefitTitle {
+      font-weight: 600;
+      margin-bottom: 3px;
+      font-size: 13px;
+    }
+
+    .benefitCard p {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .trustRow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .trustBadge {
+      padding: 5px 8px;
+      border-radius: 999px;
+      border: 1px dashed rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.96);
+    }
+
+    .disclosure {
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    footer {
+      margin-top: 18px;
+      font-size: 11px;
+      color: var(--text-muted);
+      text-align: left;
+    }
+
+    footer a {
+      color: #93c5fd;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 720px) {
+      .heroInner {
+        grid-template-columns: minmax(0, 1fr);
+        padding: 18px 16px 16px;
+      }
+      .heroWidget {
+        grid-template-columns: minmax(0, 1fr);
+        align-items: flex-start;
+      }
+      .heroWidget .chip {
+        justify-self: flex-start;
+        margin-top: 4px;
+      }
+      .heroCopy h1 {
+        font-size: 23px;
+      }
+      .page {
+        padding-inline: 14px;
+      }
+      .section {
+        padding: 14px 14px 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <div class="brandMark"><span>GZ</span></div>
+        <div class="brandText">
+          <small>GiftCardZoneEU • Partners</small>
+          <strong>12Go Transport Booking</strong>
+        </div>
+      </div>
+      <div class="tag">
+        <div class="tagDot"></div>
+        <span>Official affiliate partner</span>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero">
+        <div class="heroInner">
+          <div class="heroCopy">
+            <div class="badgeRow">
+              <div class="pill">
+                <span>🚆</span> Trains
+              </div>
+              <div class="pill">
+                <span>🚌</span> Buses & Vans
+              </div>
+              <div class="pill">
+                <span>⛴️</span> Ferries & Transfers
+              </div>
+            </div>
+
+            <h1>Book trains, buses & ferries with 12Go in one place.</h1>
+            <p>
+              Compare routes, prices and schedules for Asia and beyond — then
+              complete your booking securely on 12Go&apos;s official platform.
+            </p>
+
+            <div class="heroCTA">
+              <a
+                class="btnPrimary"
+                href="YOUR_12GO_AFFILIATE_LINK"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>Start booking with 12Go</span> →
+              </a>
+              <a
+                class="btnGhost"
+                href="YOUR_12GO_AFFILIATE_LINK"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View routes & schedules
+              </a>
+            </div>
+            <div class="tinyNote">
+              You&apos;ll be redirected to 12Go to complete your booking on their
+              secure website.
+            </div>
+          </div>
+
+          <div class="heroVisual">
+            <div class="heroOverlay"></div>
+            <div class="heroWidget">
+              <label>
+                From
+                <span>Bangkok · Singapore · Kuala Lumpur · more</span>
+              </label>
+              <label>
+                To
+                <span>Phuket · Bali · Chiang Mai · Penang · &amp; 1000+ routes</span>
+              </label>
+              <div class="chip">
+                Live seats & prices on 12Go
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- POPULAR ROUTES -->
+      <section class="section">
+        <div class="sectionHeader">
+          <div>
+            <h2>Popular 12Go routes</h2>
+            <p>Some of the most-searched trips across Asia and beyond.</p>
+          </div>
+        </div>
+        <div class="routesGrid">
+          <article class="routeCard">
+            <div class="routeTitle">Bangkok → Chiang Mai</div>
+            <div class="routeMeta">Overnight trains, buses & flights.</div>
+            <div class="routeTagRow">
+              <span class="routeTag">Sleeper trains</span>
+              <span class="routeTag">AC buses</span>
+            </div>
+            <a
+              class="routeLink"
+              href="YOUR_12GO_AFFILIATE_LINK"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Check Bangkok–Chiang Mai routes →
+            </a>
+          </article>
+
+          <article class="routeCard">
+            <div class="routeTitle">Bangkok → Phuket / Krabi</div>
+            <div class="routeMeta">Buses, vans, flights & combos.</div>
+            <div class="routeTagRow">
+              <span class="routeTag">Island connections</span>
+              <span class="routeTag">Budget options</span>
+            </div>
+            <a
+              class="routeLink"
+              href="YOUR_12GO_AFFILIATE_LINK"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Bangkok–Phuket trips →
+            </a>
+          </article>
+
+          <article class="routeCard">
+            <div class="routeTitle">Singapore → Malaysia</div>
+            <div class="routeMeta">Cross-border buses & trains.</div>
+            <div class="routeTagRow">
+              <span class="routeTag">Johor Bahru</span>
+              <span class="routeTag">Kuala Lumpur</span>
+            </div>
+            <a
+              class="routeLink"
+              href="YOUR_12GO_AFFILIATE_LINK"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Explore SG–MY routes →
+            </a>
+          </article>
+
+          <article class="routeCard">
+            <div class="routeTitle">Ferries & Island hops</div>
+            <div class="routeMeta">Phuket, Bali, Koh Samui & more.</div>
+            <div class="routeTagRow">
+              <span class="routeTag">Port transfers</span>
+              <span class="routeTag">Fast & slow boats</span>
+            </div>
+            <a
+              class="routeLink"
+              href="YOUR_12GO_AFFILIATE_LINK"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Discover ferry routes →
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <!-- WHY 12GO -->
+      <section class="section">
+        <div class="sectionHeader">
+          <div>
+            <h2>Why we like 12Go</h2>
+            <p>Book smarter transport with clear choices and secure checkout.</p>
+          </div>
+        </div>
+
+        <div class="benefitsGrid">
+          <article class="benefitCard">
+            <div class="benefitTitle">One platform for many operators</div>
+            <p>
+              Compare trains, buses, vans, ferries and flights from multiple
+              transport companies in one search.
+            </p>
+          </article>
+          <article class="benefitCard">
+            <div class="benefitTitle">Transparent prices</div>
+            <p>
+              See different seat classes, operators and departure times with
+              upfront pricing before you book.
+            </p>
+          </article>
+          <article class="benefitCard">
+            <div class="benefitTitle">E-tickets & confirmations</div>
+            <p>
+              Most routes support e-tickets, so you can show your booking on
+              your phone during check-in.
+            </p>
+          </article>
+          <article class="benefitCard">
+            <div class="benefitTitle">Secure payment</div>
+            <p>
+              Payments are processed directly on 12Go&apos;s secure website
+              using their payment partners.
+            </p>
+          </article>
+        </div>
+
+        <div class="trustRow">
+          <div class="trustBadge">✔ GiftCardZoneEU partner verified</div>
+          <div class="trustBadge">✔ Official 12Go checkout</div>
+          <div class="trustBadge">✔ No extra mark-ups from us</div>
+        </div>
+      </section>
+
+      <!-- DISCLOSURE -->
+      <section class="section">
+        <div class="sectionHeader">
+          <h2>Affiliate disclosure</h2>
+        </div>
+        <p class="disclosure">
+          Some links on this page are affiliate links. This means we may earn a
+          small commission if you make a booking via 12Go after clicking our
+          link, at no extra cost to you. This helps keep GiftCardZoneEU running
+          while we continue to find more useful tools and travel partners to
+          share.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      &copy; 2025 GiftCardZoneEU. 12Go is a separate company and all bookings
+      are processed on their official website. For support with a booking,
+      please contact 12Go directly via their help centre.
+    </footer>
+  </div>
+</body>
+</html>
 
