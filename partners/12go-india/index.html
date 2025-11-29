@@ -4,76 +4,70 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>India Bus, Train & Transfers | GiftCardZoneEU × 12Go</title>
-  <meta name="description" content="Book bus, train, ferry, and transfers from India to popular Asia routes with 12Go. Start at GiftCardZoneEU — same official prices, fast and no extra fees." />
-  <link rel="canonical" href="https://giftcardzoneeu.com/partners/12go-india/" />
+  <title>India Bus, Train, Ferry & Transfers | GiftCardZoneEU × 12Go</title>
+  <meta name="description" content="Compare buses, trains, ferries, and transfers across India. Start at GiftCardZoneEU and checkout securely on 12Go — same official prices, no extra fees." />
+  <link rel="canonical" href="/partners/12go-india/?v=2" />
 
   <style>
     :root {
       --bg: #020617;
-      --overlay: rgba(15, 23, 42, 0.90);
+      --overlay: rgba(15, 23, 42, 0.86);
       --accent: #f472b6;
-      --accent-soft: rgba(244, 114, 182, 0.16);
       --text-main: #e5e7eb;
       --text-muted: #9ca3af;
-      --border-soft: rgba(148, 163, 184, 0.45);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      min-height: 100vh;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: url('/assets/india-hero.jpg') no-repeat center center/cover;
+      position: relative;
+      font-family: system-ui, sans-serif;
       color: var(--text-main);
-      background:
-        radial-gradient(circle at top, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.98)),
-        url("12go-in-hero.jpg") center/cover fixed no-repeat;
-      padding: 28px 16px 36px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--overlay);
+      z-index: 1;
     }
 
     .shell {
-      width: 100%;
-      max-width: 980px;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      padding: 2rem 1rem;
     }
 
     .card {
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      border-radius: 1.2rem;
       width: 100%;
-      background: var(--overlay);
-      border-radius: 20px;
-      border: 1px solid var(--border-soft);
-      padding: 22px 22px 20px;
-      backdrop-filter: blur(18px);
-      box-shadow: 0 22px 70px rgba(15, 23, 42, 0.95);
+      max-width: 540px;
+      padding: 1.8rem;
+      box-shadow: 0 18px 42px rgba(2, 6, 23, 0.6);
     }
 
-    .top-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      align-items: center;
-      margin-bottom: 18px;
-    }
-
-    .brand-left {
+    /* ⭐ BRAND LOGO HEADER */
+    .gz-header {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 0.9rem;
+      margin-bottom: 1.4rem;
     }
 
     .gz-logo {
-      width: 42px;
-      height: 42px;
-      border-radius: 999px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
       overflow: hidden;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      background: rgba(15, 23, 42, 0.9);
+      background: rgba(2,6,23,0.5);
+      border: 1px solid rgba(255,255,255,0.22);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -86,286 +80,133 @@
       display: block;
     }
 
-    .brand-text {
+    .gz-text {
       display: flex;
       flex-direction: column;
-      gap: 1px;
+      gap: 2px;
     }
 
-    .brand-name {
-      font-size: 0.9rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+    .gz-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .gz-sub {
+      font-size: 0.76rem;
       color: var(--text-muted);
     }
 
-    .brand-sub {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    .partner-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.96);
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      white-space: nowrap;
-    }
-
-    .partner-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 0 4px var(--accent-soft);
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
-      gap: 18px;
-    }
-
-    @media (max-width: 800px) {
-      body {
-        align-items: flex-start;
-      }
-      .card {
-        padding: 18px 16px 18px;
-      }
-      .hero {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .hero-main h1 {
-      font-size: clamp(1.65rem, 3vw, 2.05rem);
-      line-height: 1.35;
-      margin-bottom: 8px;
+    /* ⭐ HERO TEXT */
+    .hero-title {
+      font-size: 1.46rem;
+      margin-bottom: 0.6rem;
+      line-height: 1.2;
     }
 
     .accent {
       color: var(--accent);
+      font-weight: 700;
     }
 
     .subheadline {
-      font-size: 0.93rem;
-      line-height: 1.55;
-      color: var(--text-muted);
-      margin-bottom: 16px;
+      color: var(--text-main);
+      font-size: 0.92rem;
+      margin-bottom: 1.2rem;
+      line-height: 1.5;
     }
 
     .routes {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 18px;
+      gap: 0.46rem;
+      margin-bottom: 1.5rem;
     }
 
     .route-pill {
-      font-size: 0.78rem;
-      padding: 6px 10px;
+      background: rgba(2,6,23,0.38);
+      border: 1px solid rgba(255,255,255,0.18);
+      padding: 0.4rem 0.8rem;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      color: var(--text-muted);
+      font-size: 0.72rem;
+      white-space: nowrap;
     }
 
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-      margin-bottom: 12px;
-    }
-
+    /* ⭐ CTA BUTTON */
     .btn-primary {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 10px 18px;
+      justify-content: center;
+      background: var(--accent);
+      padding: 0.85rem 1.4rem;
       border-radius: 999px;
-      background: var(--accent-soft);
-      border: 1px solid var(--accent);
-      color: var(--accent);
-      font-size: 0.9rem;
-      font-weight: 600;
-      text-decoration: none;
-      box-shadow: 0 0 22px rgba(244, 114, 182, 0.4);
-    }
-
-    .btn-primary span {
       font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: #020617;
+      width: 100%;
+      box-shadow: 0 10px 26px var(--accent-soft), 0 0 10px var(--accent-soft);
+      transition: transform 0.15s, box-shadow 0.15s;
     }
 
-    .btn-note {
-      font-size: 0.82rem;
-      color: var(--text-muted);
+    .btn-primary:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 18px var(--accent), 0 14px 38px var(--accent-soft);
     }
 
     .microcopy {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-    }
-
-    .hero-side {
-      background: rgba(15, 23, 42, 0.97);
-      border-radius: 16px;
-      border: 1px solid rgba(148, 163, 184, 0.45);
-      padding: 14px 14px 12px;
-    }
-
-    .side-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 8px;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    .side-flag {
-      font-size: 1.2rem;
-    }
-
-    .side-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-    }
-
-    @media (max-width: 480px) {
-      .side-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .side-card {
-      background: rgba(15, 23, 42, 1);
-      border-radius: 12px;
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      padding: 9px 10px;
-    }
-
-    .side-card h3 {
-      font-size: 0.8rem;
-      margin-bottom: 3px;
-      color: var(--accent);
-    }
-
-    .side-card p {
-      font-size: 0.74rem;
-      line-height: 1.45;
-      color: var(--text-muted);
-    }
-
-    footer {
-      margin-top: 16px;
-      border-top: 1px solid rgba(51, 65, 85, 0.7);
-      padding-top: 10px;
-      font-size: 0.74rem;
-      text-align: right;
-      color: var(--text-muted);
+      margin-top: 1rem;
+      font-size: 0.7rem;
+      color: #6b7280;
+      text-align: center;
+      line-height: 1.4;
     }
   </style>
 </head>
+
 <body>
   <div class="shell">
     <main class="card">
-      <header class="top-row">
-        <div class="brand-left">
-          <div class="gz-logo">
-            <img src="/assets/gz-logo.png" alt="GiftCardZoneEU Logo" loading="lazy" />
-          </div>
-          <div class="brand-text">
-            <div class="brand-name">GiftCardZoneEU</div>
-            <div class="brand-sub">12Go Partner – India</div>
-          </div>
+
+      <!-- ⭐ BRAND HEADER LOGO -->
+      <div class="gz-header">
+        <div class="gz-logo">
+          <img src="/assets/gz-logo.png" alt="GZEU Logo" loading="lazy">
         </div>
 
-        <div class="partner-pill">
-          <span class="partner-dot"></span>
-          <span>12Go Booking</span>
+        <div class="gz-text">
+          <div class="gz-title">GiftCardZoneEU</div>
+          <div class="gz-sub">Official 12Go Partner — India</div>
         </div>
-      </header>
-      <section class="hero">
-  <div class="hero-main">
-
-    <!-- ⭐ FIXED BRAND BLOCK -->
-<div class="gz-header">
-      <div class="gz-logo">
-        <img src="/assets/gz-logo.png" alt="GZEU Logo" loading="lazy">
       </div>
 
-      <div class="gz-text">
-        <div class="gz-title">GiftCardZoneEU</div>
-        <div class="gz-sub">Official 12Go Partner — India</div>
+      <!-- ⭐ HERO CONTENT -->
+      <h1 class="hero-title">
+        <span class="accent">Book bus, train, ferry & transfers</span> across 🇮🇳 India
+      </h1>
+
+      <p class="subheadline">
+        Start at <strong>GiftCardZoneEU</strong> and finish booking on <strong>12Go</strong> at the same official price — no extra fees.
+        Compare routes instantly. Safe and secure checkout included.
+      </p>
+
+      <!-- ⭐ ROUTE TAGS -->
+      <div class="routes">
+        <span class="route-pill">Delhi → Jaipur</span>
+        <span class="route-pill">Mumbai → Goa</span>
+        <span class="route-pill">India → Nepal / Asia routes</span>
       </div>
-    </div>
-  <div class="gz-text">
-    <div class="gz-title">GiftCardZoneEU</div>
-    <div class="gz-sub">Official 12Go Partner – India</div>
-  </div>
-</div>
-<!-- ⭐ END BRAND BLOCK -->
- <h1 class="hero-title">
-      <span class="accent">Book bus, train, ferry & transfers</span> from 🇮🇳 India
-    </h1>
-          <p class="subheadline">
-            Begin at GiftCardZoneEU then finish your 12Go booking — same official prices,
-            trusted partners and no extra fees.
-          </p>
 
-          <div class="routes">
-            <span class="route-pill">Delhi → Jaipur</span>
-            <span class="route-pill">Mumbai → Goa</span>
-            <span class="route-pill">India → Nepal / Asia routes</span>
-          </div>
+      <!-- ⭐ MAIN CTA BUTTON -->
+      <a class="btn-primary" href="https://www.tqlhce.com/click-101586981-17166613">
+        🚩 Start Booking India Routes →
+      </a>
 
-          <div class="cta-row">
-            <a class="btn-primary" href="https://www.tkqlhce.com/click-101586981-17115150" target="_blank" rel="noopener">
-              <span>Open 12Go</span> ↗
-            </a>
-            <span class="btn-note">Official 12Go site via GiftCardZoneEU</span>
-          </div>
+      <!-- ⭐ MICRO COPY -->
+      <p class="microcopy">
+        You’ll search and book on 12Go. Some links may be affiliate links — this helps keep GiftCardZoneEU running at no extra cost to you.
+      </p>
 
-          <p class="microcopy">
-            You’ll search and book on 12Go. Some links are affiliate links — this helps keep GiftCardZoneEU running at no extra cost to you.
-          </p>
-        </div>
-
-        <aside class="hero-side">
-          <div class="side-header">
-            <span>Why start here?</span>
-            <span class="side-flag">🇮🇳</span>
-          </div>
-
-          <div class="side-grid">
-            <div class="side-card">
-              <h3>IN-friendly routes</h3>
-              <p>Popular India connections plus cross-border trips on 12Go in one click.</p>
-            </div>
-            <div class="side-card">
-              <h3>Fast booking</h3>
-              <p>Compare buses, trains, ferries and vans, then pay securely on 12Go.</p>
-            </div>
-          </div>
-        </aside>
-      </section>
-
-      <footer>
-        © <span id="year"></span> GiftCardZoneEU × 12Go – India Partner
-      </footer>
     </main>
   </div>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
