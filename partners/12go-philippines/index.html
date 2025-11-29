@@ -1,1 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Philippines Bus, Ferry & Transfers | GiftCardZoneEU × 12Go</title>
+  <meta name="description" content="Book bus, ferry, van, and train tickets from the Philippines to top Asia destinations with 12Go. Fast, secure, and trusted when you start from GiftCardZoneEU." />
+  <link rel="canonical" href="https://giftcardzoneeu.com/partners/12go-philippines/" />
+
+  <style>
+    :root {
+      --bg: #020617;
+      --overlay: rgba(15, 23, 42, 0.86);
+      --card-bg: rgba(15, 23, 42, 0.96);
+      --card-border: rgba(148, 163, 184, 0.4);
+      --accent: #22c55e;
+      --accent-soft: rgba(34, 197, 94, 0.18);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --badge: rgba(15, 118, 110, 0.85);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      color: var(--text-main);
+      background:
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.98)),
+        url("/assets/12go-hero.jpg") center/cover fixed no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 1120px;
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 60%),
+                  radial-gradient(circle at bottom right, rgba(34, 197, 94, 0.18), transparent 55%),
+                  var(--overlay);
+      border-radius: 28px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      box-shadow:
+        0 24px 80px rgba(15, 23, 42, 0.95),
+        0 0 0 1px rgba(15, 23, 42, 0.8);
+      padding: 22px 22px 24px;
+      backdrop-filter: blur(22px);
+    }
+
+    @media (min-width: 900px) {
+      .page {
+        padding: 26px 30px 30px;
+      }
+    }
+
+    .top-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .brand-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .gz-logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gz-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand-name {
+      font-size: 0.88rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .brand-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .partner-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .partner-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.18);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr);
+      gap: 26px;
+    }
+
+    @media (max-width: 800px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .top-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    .hero-main {
+      padding-right: 4px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 11px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .eyebrow span {
+      color: #facc15;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 3vw, 2.25rem);
+      line-height: 1.08;
+      margin-bottom: 10px;
+    }
+
+    h1 .accent {
+      background: linear-gradient(to right, #22c55e, #38bdf8);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .subheadline {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      max-width: 40rem;
+    }
+
+    .routes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .route-pill {
+      font-size: 0.78rem;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--text-muted);
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .btn-primary {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #022c22;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow:
+        0 10px 30px rgba(22, 163, 74, 0.55),
+        0 0 0 1px rgba(34, 197, 94, 0.6);
+      transition: transform 0.16s ease, box-shadow 0.16s ease,
+                  filter 0.16s ease, translate 0.16s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary span {
+      font-size: 0.86rem;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow:
+        0 14px 40px rgba(22, 163, 74, 0.65),
+        0 0 0 1px rgba(34, 197, 94, 0.7);
+      filter: brightness(1.03);
+    }
+
+    .btn-primary:active {
+      transform: translateY(1px);
+      box-shadow:
+        0 6px 18px rgba(22, 163, 74, 0.6),
+        0 0 0 1px rgba(22, 163, 74, 0.9);
+      filter: brightness(0.97);
+    }
+
+    .btn-note {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .trust-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .trust-badge {
+      font-size: 0.75rem;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.65);
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .trust-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #22c55e;
+    }
+
+    .tiny-text {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .hero-side {
+      background: radial-gradient(circle at top, rgba(56, 189, 248, 0.18), transparent 55%),
+                  radial-gradient(circle at bottom, rgba(34, 197, 94, 0.16), transparent 55%),
+                  rgba(15, 23, 42, 0.96);
+      border-radius: 20px;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      padding: 14px 14px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    @media (min-width: 900px) {
+      .hero-side {
+        padding: 16px 16px 16px;
+      }
+    }
+
+    .side-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+
+    .side-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .ph-flag {
+      font-size: 1.1rem;
+      filter: drop-shadow(0 0 8px rgba(248, 250, 252, 0.35));
+    }
+
+    .side-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 10px;
+    }
+
+    @media (max-width: 500px) {
+      .side-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .side-card {
+      border-radius: 14px;
+      padding: 10px 11px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+    }
+
+    .side-card h3 {
+      font-size: 0.8rem;
+      margin-bottom: 5px;
+    }
+
+    .side-card p {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .chip {
+      font-size: 0.7rem;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.98);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      color: var(--text-muted);
+    }
+
+    .bottom-row {
+      margin-top: 14px;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      border-top: 1px solid rgba(51, 65, 85, 0.9);
+      padding-top: 10px;
+    }
+
+    .bottom-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .bottom-links span {
+      opacity: 0.9;
+    }
+
+    .bottom-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(148, 163, 184, 0.6);
+    }
+
+    .bottom-links a:hover {
+      color: #e5e7eb;
+      border-bottom-style: solid;
+    }
+
+    .copyright {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-align: right;
+      flex: 1;
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="top-row">
+      <div class="brand-left">
+        <div class="gz-logo">
+          <!-- Update path kung iba filename ng GZ logo mo -->
+          <img src="/assets/gz-logo.png" alt="GiftCardZoneEU Logo" loading="lazy" />
+        </div>
+        <div class="brand-text">
+          <div class="brand-name">GiftCardZoneEU</div>
+          <div class="brand-sub">Official partner landing – Philippines</div>
+        </div>
+      </div>
+
+      <div class="partner-pill">
+        <span class="partner-dot"></span>
+        <span>12Go · Official booking via GZ</span>
+      </div>
+    </header>
+
+    <section class="hero-grid" aria-label="12Go Philippines partner offer">
+      <div class="hero-main">
+        <div class="eyebrow">
+          From <span>Philippines</span> to Asia with 12Go
+        </div>
+
+        <h1>
+          Book <span class="accent">bus, ferry & transfers</span> from the Philippines in a few taps.
+        </h1>
+
+        <p class="subheadline">
+          Starting in the Philippines and heading to Thailand, Vietnam, Singapore, Malaysia or more?
+          Begin with GiftCardZoneEU and complete your booking on 12Go – one account, secure payment, real-time seats.
+        </p>
+
+        <div class="routes">
+          <div class="route-pill">Manila → Bangkok</div>
+          <div class="route-pill">Cebu → Singapore</div>
+          <div class="route-pill">Manila → Ho Chi Minh</div>
+          <div class="route-pill">PH islands → Asia hubs</div>
+        </div>
+
+        <div class="cta-row">
+          <a
+            class="btn-primary"
+            href="YOUR_12GO_AFFILIATE_LINK_HERE"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>Open 12Go from the Philippines</span>
+            <span>↗</span>
+          </a>
+          <span class="btn-note">You’ll be redirected to 12Go’s official website.</span>
+        </div>
+
+        <div class="trust-list">
+          <div class="trust-badge">
+            <span class="trust-dot"></span>
+            <span>Trusted 12Go partner via GiftCardZoneEU</span>
+          </div>
+          <div class="trust-badge">
+            <span class="trust-dot"></span>
+            <span>Same 12Go prices · No extra fees</span>
+          </div>
+          <div class="trust-badge">
+            <span class="trust-dot"></span>
+            <span>Multi-currency & PH-friendly payments</span>
+          </div>
+        </div>
+
+        <p class="tiny-text">
+          Reminder: Always double-check your travel dates, passenger names, and passport details before paying.
+        </p>
+      </div>
+
+      <aside class="hero-side">
+        <div class="side-header">
+          <div class="side-title">Why start on GiftCardZoneEU?</div>
+          <div class="ph-flag">🇵🇭</div>
+        </div>
+
+        <div class="side-grid">
+          <div class="side-card">
+            <h3>PH-friendly experience</h3>
+            <p>
+              Built with Filipino travelers in mind – clear links, no confusion,
+              direct to 12Go’s official pages, ready for your Asia trips.
+            </p>
+            <div class="chip-row">
+              <span class="chip">PH → Asia routes</span>
+              <span class="chip">Secure partner link</span>
+            </div>
+          </div>
+
+          <div class="side-card">
+            <h3>Fast & simple</h3>
+            <p>
+              One click from GiftCardZoneEU, then finalize on 12Go.
+              Less searching, more time planning your actual trip.
+            </p>
+            <div class="chip-row">
+              <span class="chip">No extra fees</span>
+              <span class="chip">Official 12Go only</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="side-card" style="margin-top: 8px;">
+          <h3>Popular from the Philippines</h3>
+          <p>
+            Many Filipino travelers use 12Go for cross-border trips in Asia –
+            land and sea routes that are not always visible in traditional flight apps.
+          </p>
+          <div class="chip-row">
+            <span class="chip">Bus · Ferry · Vans · Trains</span>
+            <span class="chip">Asia regional routes</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <footer class="bottom-row">
+      <div class="bottom-links">
+        <span>Official partner route:&nbsp;</span>
+        <a href="https://giftcardzoneeu.com/">GiftCardZoneEU.com</a>
+        <span>·</span>
+        <a href="YOUR_12GO_AFFILIATE_LINK_HERE" target="_blank" rel="noopener noreferrer">
+          Open 12Go (affiliate)
+        </a>
+      </div>
+      <div class="copyright">
+        © <span id="year"></span> GiftCardZoneEU · 12Go partner landing – Philippines
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Auto year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
 
