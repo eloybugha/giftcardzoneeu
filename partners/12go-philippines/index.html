@@ -4,295 +4,249 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Philippines Bus, Ferry & Transfers | GiftCardZoneEU × 12Go</title>
-  <meta name="description" content="Book bus, ferry, van, and transfers from the Philippines to top Asia destinations with 12Go. Start from GiftCardZoneEU – secure, fast, and no extra fees." />
+  <title>Philippines Transport Booking with 12Go | GiftCardZoneEU</title>
+  <meta name="description" content="Book buses, vans, ferries and airport transfers across the Philippines via 12Go. Compare routes, schedules, and operators easily." />
+  <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://giftcardzoneeu.com/partners/12go-philippines/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="12Go Philippines Transport Booking | GiftCardZoneEU" />
+  <meta property="og:description" content="Compare seats, schedules & operators for transport across the Philippines." />
+  <meta property="og:url" content="https://giftcardzoneeu.com/partners/12go-philippines/" />
+  <meta property="og:image" content="/partners/philippines/assets/12go-hero-ph.jpg" />
 
   <style>
     :root {
       --bg: #020617;
-      --overlay: rgba(15, 23, 42, 0.86);
-      --accent: #22c55e;
-      --accent-soft: rgba(34, 197, 94, 0.18);
+      --card-bg: #020617;
+      --page-bg: #0b1220;
+      --accent: #00c3a3;
+      --accent-soft: rgba(0, 195, 163, 0.08);
+      --accent-strong: rgba(0, 195, 163, 0.16);
       --text-main: #e5e7eb;
       --text-muted: #9ca3af;
+      --border-subtle: rgba(148, 163, 184, 0.45);
+      --chip-bg: rgba(15, 23, 42, 0.92);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin:0; padding:0; }
 
     body {
       min-height: 100vh;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       color: var(--text-main);
       background:
-        linear-gradient(to bottom, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.98)),
-        url("/assets/12go-ph-hero.jpg") top center/cover fixed no-repeat;
-      padding: 28px 16px 36px;
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.82)),
+        url("/travel/philippines/assets/12go-hero.jpg") center/cover no-repeat fixed;
     }
 
     .page {
-      width: 100%;
-      max-width: 1120px;
-      background: var(--overlay);
-      border-radius: 20px;
-      border: 1px solid rgba(148, 163, 184, 0.45);
-      padding: 22px 22px 24px;
-      backdrop-filter: blur(20px);
-      box-shadow: 0 20px 60px rgba(15, 23, 42, 0.95);
-      margin: 0 auto;
+      max-width:1080px;
+      margin:0 auto;
+      padding:24px 16px 56px;
     }
 
-    .top-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      align-items: center;
-      margin-bottom: 18px;
+    header {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:18px;
+      gap:12px;
     }
 
-    .brand-left {
-      display: flex;
-      align-items: center;
-      gap: 14px;
+    .brand { display:flex; align-items:center; gap:10px; }
+
+    .brandMark {
+      width:36px; height:36px; border-radius:12px;
+      background: conic-gradient(from 200deg, #00c3a3,#22c55e,#38bdf8,#00c3a3);
+      display:flex; align-items:center; justify-content:center;
+      box-shadow: 0 12px 40px rgba(15,118,110,0.6);
     }
 
-    .gz-logo {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      background: rgba(15, 23, 42, 0.8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+    .brandMark span { font-size:18px; font-weight:800; color:#0f172a; }
 
-    .gz-logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-    }
-
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .brand-name {
-      font-size: 0.88rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+    .tag {
+      padding:6px 10px; border-radius:999px; font-size:11px;
+      display:inline-flex; align-items:center; gap:6px;
+      border:1px solid rgba(148,163,184,0.5);
+      background:radial-gradient(circle at top left,#1f2937,#020617);
       color: var(--text-muted);
     }
 
-    .brand-sub {
-      font-size: 0.8rem;
-      color: var(--text-muted);
+    .tagDot { width:7px; height:7px; border-radius:999px; background:#22c55e;
+      box-shadow: 0 0 0 5px rgba(34,197,94,0.2);
     }
 
-    .partner-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      white-space: nowrap;
+    .hero {
+      border-radius:22px; overflow:hidden;
+      border:1px solid rgba(148,163,184,0.4);
+      background:linear-gradient(145deg,#020617,#020617);
+      margin-bottom:26px; padding:24px 22px;
     }
 
-    .partner-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.18);
+    .hero h1 { font-size:26px; margin-bottom:10px; }
+    .hero p { font-size:14px; color:var(--text-muted); margin-bottom:16px; }
+
+    .btnPrimary {
+      background:linear-gradient(135deg,#00c3a3,#22c55e);
+      color:#020617; padding:10px 18px; border-radius:999px;
+      font-size:14px; font-weight:600; text-decoration:none;
+      display:inline-flex; align-items:center; gap:8px;
+      box-shadow:0 14px 40px rgba(16,185,129,0.5);
+      cursor:pointer;
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr);
-      gap: 26px;
+    .btnGhost {
+      border-radius:999px; padding:9px 14px;
+      border:1px solid rgba(148,163,184,0.6);
+      background:rgba(15,23,42,0.9);
+      font-size:13px; text-decoration:none;
+      color:var(--text-muted); display:inline-flex; gap:6px;
     }
 
-    h1 {
-      font-size: clamp(1.7rem, 3vw, 2rem);
-      line-height: 1.3;
-      margin-bottom: 10px;
+    .section {
+      border-radius:20px;
+      border:1px solid var(--border-subtle);
+      background:rgba(15,23,42,0.75);
+      padding:16px; margin-bottom:18px;
     }
 
-    .accent {
-      color: var(--accent);
+    .routesGrid {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+      gap:10px; margin-top:6px;
     }
 
-    .subheadline {
-      font-size: 0.95rem;
-      line-height: 1.5;
-      color: var(--text-muted);
-      margin-bottom: 16px;
+    .routeCard {
+      border-radius:16px; background:#020617;
+      border:1px solid rgba(148,163,184,0.45);
+      padding:12px; display:flex; flex-direction:column; gap:6px;
     }
 
-    .routes {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 20px;
+    .routeTitle { font-size:14px; font-weight:600; }
+    .routeMeta { font-size:12px; color:var(--text-muted); }
+    .routeTagRow { display:flex; gap:6px; flex-wrap:wrap; margin-top:4px; }
+    .routeTag { font-size:11px; padding:4px 7px; border-radius:999px;
+      background:rgba(15,23,42,0.96); border:1px dashed var(--border-subtle);
+      color:var(--text-muted);
     }
 
-    .route-pill {
-      font-size: 0.78rem;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.85);
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      color: var(--text-muted);
+    .routeLink { margin-top:6px; font-size:12px; color:#e0f2fe; text-decoration:none; }
+
+    .trustRow {
+      margin-top:8px; font-size:11px;
+      color:var(--text-muted); display:flex; gap:8px; flex-wrap:wrap;
     }
 
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-      margin-bottom: 18px;
+    .trustBadge {
+      padding:5px 8px; border-radius:999px;
+      border:1px dashed var(--border-subtle);
+      background:rgba(15,23,42,0.8);
     }
 
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 18px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      border: 1px solid var(--accent);
-      color: var(--accent);
-      font-size: 0.9rem;
-      font-weight: 600;
-      text-decoration: none;
-      box-shadow: 0 0 18px rgba(34, 197, 94, 0.35);
-    }
+    .disclosure { font-size:11px; color:var(--text-muted); line-height:1.5; }
 
-    .btn-note {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-    }
-
-    .trust-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 16px;
-    }
-
-    .trust-badge {
-      font-size: 0.75rem;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.55);
-      color: var(--text-muted);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .tiny-text {
-      font-size: 0.74rem;
-      color: var(--text-muted);
-    }
-
-    footer {
-      margin-top: 20px;
-      border-top: 1px solid rgba(51, 65, 85, 0.7);
-      padding-top: 12px;
-      font-size: 0.8rem;
-      text-align: right;
-      color: var(--text-muted);
-    }
+    footer { margin-top:18px; font-size:11px; color:var(--text-muted); text-align:left; }
   </style>
 </head>
+
 <body>
+  <div class="page">
 
-  <main class="page">
-    <header class="top-row">
-      <div class="brand-left">
-        <div class="gz-logo">
-          <img src="/assets/gz-logo.png" alt="GiftCardZoneEU Logo" loading="lazy" />
-        </div>
-        <div class="brand-text">
-          <div class="brand-name">GiftCardZoneEU</div>
-          <div class="brand-sub">12Go Partner – Philippines</div>
+    <header>
+      <div class="brand">
+        <div class="brandMark"><span>GZ</span></div>
+        <div class="brandText">
+          <small>Partners</small>
+          <strong>Philippines</strong>
         </div>
       </div>
-
-      <div class="partner-pill">
-        <span class="partner-dot"></span>
-        <span>12Go Booking</span>
-      </div>
+      <div class="tag"><div class="tagDot"></div>Official affiliate partner</div>
     </header>
 
-    <section class="hero-grid">
-      <div class="hero-main">
-        <h1><span class="accent">Book bus, ferry & transfers</span> from 🇵🇭 Philippines</h1>
-        <p class="subheadline">Start here on GiftCardZoneEU then complete your 12Go booking — same prices, fast, and secure.</p>
+    <main>
+      <section class="hero" aria-label="Hero section">
+        <h1>Book transport across the Philippines with 12Go</h1>
+        <p>Compare vans, buses, ferries, departure times, and airport or island transfers, then checkout securely on 12Go.</p>
 
-        <div class="routes">
-          <span class="route-pill">Manila → Bangkok</span>
-          <span class="route-pill">Cebu → Singapore</span>
-          <span class="route-pill">PH Islands → Asia Hubs</span>
-        </div>
-
-        <div class="cta-row">
-          <a class="btn-primary" href="https://www.tkqlhce.com/click-101586981-17115150" target="_blank" rel="noopener noreferrer">
-            Open 12Go <span>↗</span>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btnPrimary" href="https://www.tkqlhce.com/click-101586981-17115164" target="_blank" rel="noopener noreferrer">
+            <span>Start booking Philippine routes</span> →
           </a>
-          <span class="btn-note">Official 12Go site</span>
+          <a class="btnGhost" href="https://www.tkqlhce.com/click-101586981-17115164" target="_blank" rel="noopener noreferrer">
+            View schedules
+          </a>
+        </div>
+        <div class="tinyNote" style="margin-top:6px;">Redirects to 12Go secure checkout page.</div>
+      </section>
+
+      <section class="section">
+        <div class="sectionHeader">
+          <h2 style="font-size:17px;">Popular Philippine Routes on 12Go</h2>
+          <p style="font-size:13px;">Most searched van, bus, ferry and transfer options.</p>
         </div>
 
-        <div class="trust-list">
-          <div class="trust-badge"><span class="trust-dot"></span> Trusted 12Go partner</div>
-          <div class="trust-badge"><span class="trust-dot"></span> No extra fees</div>
-          <div class="trust-badge"><span class="trust-dot"></span> PH-friendly payments</div>
+        <div class="routesGrid">
+          <article class="routeCard">
+            <div class="routeTitle">Manila → Leyte</div>
+            <div class="routeMeta">Bus + ferry combos available.</div>
+            <div class="routeTagRow"><span class="routeTag">Aircon bus</span><span class="routeTag">Roro ferry</span></div>
+            <a class="routeLink" href="https://www.tkqlhce.com/click-101586981-17115164" target="_blank" rel="noopener noreferrer">Check MNL–Leyte →</a>
+          </article>
+
+          <article class="routeCard">
+            <div class="routeTitle">Cebu → Bohol</div>
+            <div class="routeMeta">Fast craft or ferry options.</div>
+            <div class="routeTagRow"><span class="routeTag">OceanJet</span><span class="routeTag">Fast seats</span></div>
+            <a class="routeLink" href="https://www.tkqlhce.com/click-101586981-17115164" target="_blank" rel="noopener noreferrer">View CEB–Bohol →</a>
+          </article>
+
+          <article class="routeCard">
+            <div class="routeTitle">Davao → Samal Island</div>
+            <div class="routeMeta">Ferry transfers.</div>
+            <div class="routeTagRow"><span class="routeTag">Island hop</span><span class="routeTag">Port tickets</span></div>
+            <a class="routeLink" href="https://www.tkqlhce.com/click-101586981-17115164" target="_blank" rel="noopener noreferrer">See DVO–Samal →</a>
+          </article>
+
+          <article class="routeCard">
+            <div class="routeTitle">Palawan island connections</div>
+            <div class="routeMeta">Ferry + van transfers.</div>
+            <div class="routeTagRow"><span class="routeTag">Taytay</span><span class="routeTag">El Nido</span></div>
+            <a class="routeLink" href="https://www.tkqlhce.com/click-101586981-17115164" target="_blank" rel="noopener noreferrer">Discover Palawan transfers →</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="sectionHeader">
+          <h2 style="font-size:17px;">Why 12Go works well for PH</h2>
+          <p style="font-size:13px;">Smarter comparisons & multi-island transfers</p>
         </div>
 
-        <p class="tiny-text">Always double-check details before payment.</p>
-      </div>
-
-      <aside class="hero-side">
-        <div class="side-header">
-          <div class="side-title">Why start here?</div>
-          <div class="ph-flag">🇵🇭</div>
+        <div class="benefitsGrid">
+          <article class="benefitCard"><div class="benefitTitle">Compare operators</div><p>Vans, buses, ferries & island partners.</p></article>
+          <article class="benefitCard"><div class="benefitTitle">Seat classes</div><p>Economy to premium fast craft seats.</p></article>
+          <article class="benefitCard"><div class="benefitTitle">E-tickets</div><p>Mobile-friendly tickets for many routes.</p></article>
+          <article class="benefitCard"><div class="benefitTitle">Secure checkout</div><p>Payments processed directly by 12Go.</p></article>
         </div>
 
-        <div class="side-grid">
-          <div class="side-card">
-            <h3>PH-friendly</h3>
-            <p>One click to 12Go’s official page, less searching, more planning.</p>
-          </div>
-          <div class="side-card">
-            <h3>Fast booking</h3>
-            <p>Bus, ferry, vans & trains across Asia — starting from PH.</p>
-          </div>
+        <div class="trustRow">
+          <div class="trustBadge">✔ GiftCardZoneEU verified</div>
+          <div class="trustBadge">✔ 12Go secure checkout</div>
+          <div class="trustBadge">✔ No extra fees from us</div>
         </div>
-      </aside>
-    </section>
+      </section>
+
+      <section class="section">
+        <div class="sectionHeader"><h2 style="font-size:17px;">Affiliate disclosure</h2></div>
+        <p class="disclosure">We may earn a small commission if you book via our link, at no extra cost to you.</p>
+      </section>
+    </main>
 
     <footer>
-      © <span id="year"></span> GiftCardZoneEU × 12Go – Philippines Partner
+      12Go is an independent company. For booking support please contact the 12Go Help Centre directly.
     </footer>
-  </main>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-
+  </div>
 </body>
 </html>
