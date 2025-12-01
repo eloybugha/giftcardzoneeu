@@ -1,1 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>Vietnam Bus, Train & Ferry Tickets | GiftCardZoneEU × 12Go</title>
+  <meta name="description" content="Book buses, trains, ferries and transfers across Vietnam with 12Go. Routes for Hanoi, Ho Chi Minh, Da Nang, Sapa, Ha Long, Nha Trang and more." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://giftcardzoneeu.com/partners/12go-vietnam/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="12Go Vietnam Transport Booking | GiftCardZoneEU" />
+  <meta property="og:description" content="Compare and book Vietnam buses, trains & ferries with 12Go." />
+  <meta property="og:url" content="https://giftcardzoneeu.com/partners/12go-vietnam/" />
+  <meta property="og:image" content="https://giftcardzoneeu.com/assets/12go/vietnam-hero.jpg" />
+
+  <style>
+    :root {
+      --bg: #020617;
+      --card-bg: #020617;
+      --accent: #00c3a3;
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-main);
+      background:
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.82)),
+        url("/assets/12go/vietnam-hero.jpg") center/cover no-repeat fixed;
+    }
+
+    .page { max-width: 1080px; margin: 0 auto; padding: 24px 16px 56px; }
+
+    header {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 20px; gap: 12px;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; }
+    .brandMark {
+      width: 36px; height: 36px; border-radius: 12px;
+      background: conic-gradient(from 200deg, #00c3a3, #22c55e, #38bdf8, #00c3a3);
+      display: flex; justify-content: center; align-items: center;
+      box-shadow: 0 12px 40px rgba(15,118,110,0.6);
+    }
+    .brandMark span { font-size: 18px; font-weight: 800; color: #0f172a; }
+    .brandText { display: flex; flex-direction: column; }
+    .brandText small { font-size: 11px; color: var(--text-muted); letter-spacing: 0.08em; }
+    .brandText strong { font-size: 15px; }
+
+    .tag {
+      padding: 6px 10px; border-radius: 999px; font-size: 11px;
+      display: inline-flex; gap: 6px; align-items: center;
+      background: rgba(31,41,55,0.8); border: 1px solid rgba(148,163,184,0.5);
+    }
+    .tagDot {
+      width: 7px; height: 7px; border-radius: 999px;
+      background: #22c55e; box-shadow: 0 0 0 5px rgba(34,197,94,0.2);
+    }
+
+    .hero {
+      border-radius: 22px; overflow: hidden;
+      border: 1px solid rgba(148,163,184,0.4);
+      background: rgba(2,6,23,0.9);
+      margin-bottom: 26px;
+    }
+    .heroInner {
+      display: grid; grid-template-columns: 1.3fr 1fr; gap: 24px;
+      padding: 24px 22px;
+    }
+    h1 { font-size: 26px; margin-bottom: 10px; line-height: 1.1; }
+
+    .pill {
+      padding: 6px 10px; border-radius: 999px; font-size: 11px;
+      background: rgba(15,23,42,0.9); border: 1px solid rgba(148,163,184,0.5);
+      display: inline-flex; gap: 6px; align-items: center;
+      color: var(--text-muted);
+    }
+
+    .heroCTA { display: flex; flex-wrap: wrap; gap: 12px; margin: 14px 0; }
+
+    .btnPrimary {
+      padding: 10px 18px; border-radius: 999px; font-weight: 600; font-size: 14px;
+      background: linear-gradient(135deg, #00c3a3, #22c55e);
+      color: #020617; text-decoration: none;
+      box-shadow: 0 14px 40px rgba(16,185,129,0.5);
+    }
+    .btnGhost {
+      padding: 9px 14px; border: 1px solid rgba(148,163,184,0.6);
+      background: rgba(15,23,42,0.9);
+      border-radius: 999px; font-size: 13px; color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .heroVisual {
+      border-radius: 18px; min-height: 180px; position: relative;
+      background:
+        url("https://images.pexels.com/photos/1574843/pexels-photo-1574843.jpeg?auto=compress&cs=tinysrgb&w=1200")
+        center/cover no-repeat;
+    }
+    .heroOverlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+    }
+
+    .heroWidget {
+      position: absolute; bottom: 14px; left: 16px; right: 16px;
+      background: rgba(15,23,42,0.9); border-radius: 16px;
+      border: 1px solid rgba(148,163,184,0.5); padding: 12px;
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 12px;
+    }
+    .heroWidget label { display: flex; flex-direction: column; font-size: 11px; color: var(--text-muted); }
+    .heroWidget span { font-size: 13px; }
+    .chip {
+      padding: 6px 12px; border-radius: 999px; font-size: 11px;
+      background: rgba(22,163,74,0.16); border: 1px solid rgba(34,197,94,0.4);
+      color: #bbf7d0; justify-self: end;
+    }
+
+    .section {
+      background: rgba(2,6,23,0.9);
+      border: 1px solid rgba(148,163,184,0.5);
+      border-radius: 18px;
+      padding: 18px;
+      margin-bottom: 20px;
+    }
+
+    .routesGrid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px; margin-top: 10px;
+    }
+    .routeCard {
+      padding: 12px; border-radius: 16px; background: rgba(2,6,23,1);
+      border: 1px solid rgba(148,163,184,0.4);
+    }
+    .routeTitle { font-size: 14px; font-weight: 600; }
+    .routeMeta { color: var(--text-muted); font-size: 12px; margin-bottom: 6px; }
+    .routeTag { 
+      padding: 4px 7px; font-size: 11px; border-radius: 999px;
+      background: rgba(15,23,42,0.9); border: 1px solid rgba(148,163,184,0.4);
+      display: inline-block; margin-right: 6px;
+    }
+    .routeLink {
+      font-size: 12px; color: #e0f2fe; text-decoration: none; display: inline-flex; gap: 6px;
+      margin-top: 6px;
+    }
+
+    footer {
+      margin-top: 20px; font-size: 11px; color: var(--text-muted);
+    }
+
+    @media (max-width: 720px) {
+      .heroInner { grid-template-columns: 1fr; }
+      .heroWidget { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <div class="brandMark"><span>GZ</span></div>
+        <div class="brandText">
+          <small>GiftCardZoneEU • Partners</small>
+          <strong>12Go Vietnam</strong>
+        </div>
+      </div>
+      <div class="tag">
+        <div class="tagDot"></div> <span>Official affiliate partner</span>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero">
+        <div class="heroInner">
+          <div>
+            <div class="pill"><span>🚌</span> Buses</div>
+            <div class="pill"><span>🚆</span> Trains</div>
+            <div class="pill"><span>⛴️</span> Ferries</div>
+
+            <h1>Book buses, trains & ferries across Vietnam with 12Go.</h1>
+            <p style="color: var(--text-muted); margin-bottom: 14px;">
+              Travel between Hanoi, Ho Chi Minh, Da Nang, Sapa, Ha Long Bay, Nha Trang and more —
+              then finish your booking securely on 12Go.
+            </p>
+
+            <div class="heroCTA">
+              <a class="btnPrimary" href="https://www.tkqlhce.com/click-101586981-17115164" target="_blank" rel="noopener noreferrer">
+                <span>Start booking in Vietnam</span> →
+              </a>
+              <a class="btnGhost" href="https://www.tkqlhce.com/click-101586981-17115164" target="_blank" rel="noopener noreferrer">
+                View Vietnam routes
+              </a>
+            </div>
+          </div>
+
+          <div class="heroVisual">
+            <div class="heroOverlay"></div>
+            <div class="heroWidget">
+              <label>From <span>Hanoi · HCMC · Da Nang</span></label>
+              <label>To <span>Ha Long · Sapa · Ninh Binh</span></label>
+              <div class="chip">Live seats & prices</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- POPULAR ROUTES -->
+      <section class="section">
+        <h2 style="font-size: 17px;">Popular Vietnam routes</h2>
+        <div class="routesGrid">
+
+          <div class="routeCard">
+            <div class="routeTitle">Hanoi → Sapa</div>
+            <div class="routeMeta">Sleeper buses & trains.</div>
+            <span class="routeTag">Sleeper bus</span>
+            <span class="routeTag">Night train</span>
+            <a class="routeLink" href="https://www.tkqlhce.com/click-101586981-17115164" target="_blank">Check Hanoi–Sapa →</a>
+          </div>
+
+          <div class="routeCard">
+            <div class="routeTitle">Hanoi → Ha Long Bay</div>
+            <div class="routeMeta">Buses & transfers.</div>
+            <span class="routeTag">Tourist bus</span>
+            <span class="routeTag">Hotel pickup</span>
+            <a class="routeLink" href="https://www.tkqlhce.com/click-101586981-17115164" target="_blank">Explore Hanoi–Ha Long →</a>
+          </div>
+
+          <div class="routeCard">
+            <div class="routeTitle">Ho Chi Minh → Da Lat</div>
+            <div class="routeMeta">Buses & vans.</div>
+            <span class="routeTag">Express bus</span>
+            <a class="routeLink" href="https://www.tkqlhce.com/click-101586981-17115164" target="_blank">View HCMC–Da Lat →</a>
+          </div>
+
+          <div class="routeCard">
+            <div class="routeTitle">Da Nang → Hoi An</div>
+            <div class="routeMeta">Shuttles & transfers.</div>
+            <span class="routeTag">Van transfer</span>
+            <a class="routeLink" href="https://www.tkqlhce.com/click-101586981-17115164" target="_blank">See Da Nang–Hoi An →</a>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- DISCLOSURE -->
+      <section class="section">
+        <h2 style="font-size: 17px;">Affiliate disclosure</h2>
+        <p style="font-size: 12px; color: var(--text-muted);">
+          Some links on this page are affiliate links. This means we may earn a small commission if you make a booking via 12Go after clicking our link — at no extra cost to you.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      © 2025 GiftCardZoneEU. Bookings are processed on 12Go’s official website.
+    </footer>
+  </div>
+</body>
+</html>
