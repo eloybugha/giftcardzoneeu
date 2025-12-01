@@ -1,4 +1,4 @@
-        <!DOCTYPE html>
+   <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -31,9 +31,7 @@
       min-height: 100vh;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       color: var(--text-main);
-      background:
-        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.82)),
-        url("/partners/12go-singapore/assets/12go/singapore-hero.jpg") center/cover no-repeat fixed;
+      background: radial-gradient(circle at top, #0f172a 0, #020617 45%, #000 100%);
     }
 
     .page { max-width: 1080px; margin: 0 auto; padding: 24px 16px 56px; }
@@ -67,7 +65,7 @@
     .hero {
       border-radius: 22px; overflow: hidden;
       border: 1px solid rgba(148,163,184,0.4);
-      background: rgba(2,6,23,0.9);
+      background: rgba(2,6,23,0.96);
       margin-bottom: 26px;
     }
     .heroInner {
@@ -101,14 +99,15 @@
     }
 
     .heroVisual {
-      border-radius: 18px; min-height: 180px; position: relative;
+      border-radius: 18px; min-height: 200px; position: relative;
       background:
         url("/partners/12go-singapore/assets/12go/singapore-hero.jpg")
         center/cover no-repeat;
+      overflow: hidden;
     }
     .heroOverlay {
       position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+      background: linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0.15));
     }
 
     .heroWidget {
@@ -126,7 +125,7 @@
     }
 
     .section {
-      background: rgba(2,6,23,0.9);
+      background: rgba(2,6,23,0.96);
       border: 1px solid rgba(148,163,184,0.5);
       border-radius: 18px;
       padding: 18px;
@@ -268,3 +267,4 @@
   </div>
 </body>
 </html>
+       
