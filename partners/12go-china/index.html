@@ -1,1 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>China Train, Bus & Ferry Tickets | GiftCardZoneEU × 12Go</title>
+  <meta name="description" content="Book China trains, buses and ferries with 12Go. Routes covering Beijing, Shanghai, Guangzhou, Shenzhen, Hong Kong, Xi'an and more — start with GiftCardZoneEU, finish securely on 12Go." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://giftcardzoneeu.com/partners/12go-china/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="12Go China Transport Booking | GiftCardZoneEU" />
+  <meta property="og:description" content="Compare and book China trains, buses & ferries via 12Go. Beijing, Shanghai, Guangzhou, Shenzhen, Hong Kong and more." />
+  <meta property="og:url" content="https://giftcardzoneeu.com/partners/12go-china/" />
+  <meta property="og:image" content="https://giftcardzoneeu.com/partners/12go-china/assets/12go-hero.jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="China Train, Bus & Ferry Tickets | GiftCardZoneEU × 12Go" />
+  <meta name="twitter:description" content="Book China transport with 12Go — fast trains, buses, ferries and transfers across major cities." />
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/partners/12go-china/assets/12go-hero.jpg" />
+
+  <style>
+    :root {
+      --bg: #020617;
+      --overlay: rgba(15, 23, 42, 0.86);
+      --accent: #f97316; /* soft warm for China */
+      --accent-soft: rgba(249, 115, 22, 0.2);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --card-bg: rgba(15, 23, 42, 0.98);
+      --border-subtle: rgba(148, 163, 184, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #0f172a 0, #020617 55%, #000 100%);
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      padding: 1.5rem;
+    }
+
+    .page {
+      position: relative;
+      width: 100%;
+      max-width: 1120px;
+      min-height: min(640px, 100vh - 3rem);
+      border-radius: 1.75rem;
+      overflow: hidden;
+      background: #020617;
+      box-shadow:
+        0 18px 60px rgba(15, 23, 42, 0.9),
+        0 0 0 1px rgba(148, 163, 184, 0.28);
+      isolation: isolate;
+    }
+
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: inherit;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      color: var(--text-main);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("assets/12go-hero.jpg"); /* palitan mo sa China skyline image */
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.03);
+      filter: brightness(0.8) saturate(1.2);
+      z-index: -2;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top, rgba(15, 23, 42, 0.25), transparent 60%),
+        linear-gradient(to bottom right, rgba(15, 23, 42, 0.88), rgba(15, 23, 42, 0.96));
+      z-index: -1;
+    }
+
+    .brandMark {
+      position: absolute;
+      top: 1.6rem;
+      left: 1.6rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.55rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(248, 250, 252, 0.7);
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.45), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(248, 250, 252, 0.18), transparent 55%),
+        rgba(15, 23, 42, 0.82);
+      box-shadow:
+        0 0 35px rgba(56, 189, 248, 0.55),
+        0 12px 40px rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .brandMark-main {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-weight: 700;
+      color: #e0f2fe;
+      white-space: nowrap;
+    }
+
+    .brandMark-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: radial-gradient(circle, #22c55e 0, #16a34a 55%, #14532d 100%);
+      box-shadow: 0 0 12px rgba(34, 197, 94, 0.9);
+    }
+
+    .brandMark-sub {
+      font-size: 0.74rem;
+      color: rgba(226, 232, 240, 0.88);
+      white-space: nowrap;
+    }
+
+    .content {
+      position: relative;
+      margin: 5.25rem auto 2.25rem;
+      width: min(760px, 100% - 3.25rem);
+      padding: 1.6rem 1.75rem 1.75rem;
+      border-radius: 1.5rem;
+      background: linear-gradient(
+          135deg,
+          rgba(15, 23, 42, 0.98),
+          rgba(15, 23, 42, 0.96)
+        );
+      border: 1px solid var(--border-subtle);
+      box-shadow:
+        0 22px 60px rgba(15, 23, 42, 0.95),
+        0 0 0 1px rgba(15, 23, 42, 0.9);
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.3fr);
+      gap: 1.8rem;
+    }
+
+    @media (max-width: 820px) {
+      body {
+        padding: 1rem;
+      }
+      .page {
+        border-radius: 1.25rem;
+      }
+      .content {
+        margin: 5rem 1.3rem 1.8rem;
+        width: auto;
+        grid-template-columns: minmax(0, 1fr);
+        padding: 1.4rem 1.35rem 1.5rem;
+      }
+      .brandMark {
+        left: 1.1rem;
+        right: 1.1rem;
+        justify-content: space-between;
+      }
+      .brandMark-sub {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .content {
+        margin-top: 4.4rem;
+      }
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: radial-gradient(circle, #22c55e 0, #16a34a 60%, #14532d 100%);
+      box-shadow: 0 0 10px rgba(34, 197, 94, 0.9);
+    }
+
+    .pill span {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 2.2vw + 1.5rem, 2.4rem);
+      line-height: 1.1;
+      margin-bottom: 0.65rem;
+      letter-spacing: -0.03em;
+    }
+
+    h1 span.highlight {
+      background: linear-gradient(120deg, #fb923c, #f97316, #fde047);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .subtitle {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      max-width: 32rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.35rem;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: radial-gradient(circle at top left, rgba(249, 115, 22, 0.16), transparent 55%);
+      color: #e5e7eb;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.9rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0.7rem 1.35rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #0b1120;
+      background: radial-gradient(circle at top left, #fed7aa, #fb923c 45%, #f97316 100%);
+      box-shadow:
+        0 18px 45px rgba(249, 115, 22, 0.58),
+        0 0 0 1px rgba(248, 250, 252, 0.85);
+      transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, filter 0.12s ease-out;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px) scale(1.01);
+      box-shadow:
+        0 24px 55px rgba(249, 115, 22, 0.8),
+        0 0 0 1px rgba(248, 250, 252, 0.95);
+      filter: brightness(1.03);
+    }
+
+    .btn-primary span.icon {
+      font-size: 1rem;
+      margin-left: 0.05rem;
+    }
+
+    .secure-note {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .secure-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+    }
+
+    .secure-note strong {
+      color: #e5e7eb;
+      font-weight: 600;
+    }
+
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .trust-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.32rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(75, 85, 99, 0.9);
+      background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.12), transparent 55%);
+    }
+
+    .trust-pill span.dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: radial-gradient(circle, #22c55e 0, #16a34a 60%, #14532d 100%);
+    }
+
+    .trust-pill strong {
+      color: #e5e7eb;
+      font-weight: 600;
+    }
+
+    .trust-pill span.label {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .partners-label {
+      margin-top: 0.4rem;
+      font-size: 0.74rem;
+      color: var(--text-muted);
+    }
+
+    /* Right column */
+    .right {
+      border-radius: 1.25rem;
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.98));
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      padding: 1.1rem 1.05rem 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.95rem;
+    }
+
+    .right-title {
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #9ca3af;
+      margin-bottom: 0.1rem;
+    }
+
+    .routes-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0.55rem;
+      font-size: 0.8rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .route-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.6rem;
+      padding: 0.4rem 0.55rem;
+      border-radius: 0.65rem;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px dashed rgba(75, 85, 99, 0.85);
+    }
+
+    .route-main {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .route-main strong {
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .route-meta {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .badge-chip {
+      font-size: 0.7rem;
+      padding: 0.18rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.95);
+      white-space: nowrap;
+      color: #e5e7eb;
+    }
+
+    .steps {
+      margin-top: 0.2rem;
+      padding-top: 0.4rem;
+      border-top: 1px solid rgba(31, 41, 55, 0.95);
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.4rem;
+      font-size: 0.75rem;
+    }
+
+    .step {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .step-label {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.66rem;
+      color: #9ca3af;
+    }
+
+    .step strong {
+      font-size: 0.8rem;
+    }
+
+    .step span {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .faq {
+      margin-top: 0.35rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      font-size: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .faq-item strong {
+      display: block;
+      font-size: 0.76rem;
+      margin-bottom: 0.05rem;
+    }
+
+    .faq-item p {
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .disclaimer {
+      margin-top: 0.45rem;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .disclaimer span {
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="brandMark">
+        <span class="brandMark-main">GiftCardZoneEU</span>
+        <span class="brandMark-dot"></span>
+        <span class="brandMark-sub">Official partner landing for 12Go bookings</span>
+      </div>
+
+      <div class="content">
+        <!-- LEFT -->
+        <div>
+          <div class="pill">
+            <span class="pill-dot"></span>
+            <span>China · Trains · Buses · Ferries</span>
+          </div>
+
+          <h1>
+            Book <span class="highlight">China transport</span> with 12Go via GiftCardZoneEU
+          </h1>
+
+          <p class="subtitle">
+            Compare and book high-speed trains, long–distance buses, ferries and airport
+            transfers across China. Start here on GiftCardZoneEU, then complete your secure
+            booking on 12Go with the same official prices.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Beijing · Shanghai · Guangzhou · Shenzhen</span>
+            <span class="tag">Hong Kong · Xi'an · Guilin</span>
+            <span class="tag">High-speed rail &amp; buses</span>
+          </div>
+
+          <div class="cta-row">
+            <a
+              class="btn-primary"
+              href="https://12go.asia/en?z=YOUR_AFFILIATE_ID"
+              rel="noopener nofollow sponsored"
+              target="_blank"
+            >
+              <span>Open 12Go China search</span>
+              <span class="icon">↗</span>
+            </a>
+
+            <div class="secure-note">
+              <div class="secure-dot">✓</div>
+              <span>
+                <strong>Secure checkout</strong> handled directly on 12Go (we never see your card details).
+              </span>
+            </div>
+          </div>
+
+          <div class="trust-row">
+            <div class="trust-pill">
+              <span class="dot"></span>
+              <span class="label">Official partner</span>
+            </div>
+            <div class="trust-pill">
+              <span class="dot"></span>
+              <span>Same fares as booking on 12Go</span>
+            </div>
+            <div class="trust-pill">
+              <span class="dot"></span>
+              <span>Instant confirmation on most routes</span>
+            </div>
+          </div>
+
+          <p class="partners-label">
+            GiftCardZoneEU connects you to trusted travel brands. For China transport, all bookings are
+            processed and fulfilled by <strong>12Go</strong>.
+          </p>
+        </div>
+
+        <!-- RIGHT -->
+        <aside class="right">
+          <div>
+            <div class="right-title">Popular China routes on 12Go</div>
+            <div class="routes-grid">
+              <div class="route-item">
+                <div class="route-main">
+                  <strong>Beijing ⇄ Shanghai</strong>
+                  <div class="route-meta">G–trains · ~4.5 hours · multiple departures</div>
+                </div>
+                <span class="badge-chip">High-speed train</span>
+              </div>
+
+              <div class="route-item">
+                <div class="route-main">
+                  <strong>Shanghai ⇄ Hangzhou / Suzhou</strong>
+                  <div class="route-meta">Frequent daytime departures</div>
+                </div>
+                <span class="badge-chip">Day trips</span>
+              </div>
+
+              <div class="route-item">
+                <div class="route-main">
+                  <strong>Beijing ⇄ Xi'an</strong>
+                  <div class="route-meta">High-speed &amp; overnight options</div>
+                </div>
+                <span class="badge-chip">Trains &amp; buses</span>
+              </div>
+
+              <div class="route-item">
+                <div class="route-main">
+                  <strong>Guangzhou ⇄ Shenzhen / Hong Kong</strong>
+                  <div class="route-meta">Cross–border connections</div>
+                </div>
+                <span class="badge-chip">Cross-border</span>
+              </div>
+
+              <div class="route-item">
+                <div class="route-main">
+                  <strong>Shanghai ⇄ Guilin</strong>
+                  <div class="route-meta">Scenic south China routes</div>
+                </div>
+                <span class="badge-chip">Scenic</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="steps">
+            <div class="step">
+              <span class="step-label">Step 1</span>
+              <strong>Search your route</strong>
+              <span>Choose your cities, date, and number of passengers on 12Go.</span>
+            </div>
+            <div class="step">
+              <span class="step-label">Step 2</span>
+              <strong>Compare &amp; pick</strong>
+              <span>See trains, buses, ferries and transfers, then pick the option you like.</span>
+            </div>
+            <div class="step">
+              <span class="step-label">Step 3</span>
+              <strong>Pay &amp; receive ticket</strong>
+              <span>Pay securely on 12Go and get your e–ticket and confirmation.</span>
+            </div>
+          </div>
+
+          <div class="faq">
+            <div class="faq-item">
+              <strong>Who am I booking with?</strong>
+              <p>
+                You start your journey on GiftCardZoneEU, but all transport in China is booked
+                <strong>directly with 12Go</strong>. They handle your payment, tickets and support.
+              </p>
+            </div>
+
+            <div class="faq-item">
+              <strong>Are prices higher if I start from GiftCardZoneEU?</strong>
+              <p>
+                No. You see the same final prices you would get by going to 12Go on your own.
+                Sometimes 12Go may also display promos or discounts directly on their checkout.
+              </p>
+            </div>
+
+            <div class="faq-item">
+              <strong>What tickets can I book for China?</strong>
+              <p>
+                Depending on the route, you can find high–speed trains, classic trains, long–distance
+                buses, ferries, airport transfers and some private transfers.
+              </p>
+            </div>
+          </div>
+
+          <p class="disclaimer">
+            <span>Note:</span> This page is an affiliate landing by GiftCardZoneEU. If you continue to
+            12Go and complete a booking, we may earn a small commission at no extra cost to you.
+          </p>
+        </aside>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
 
