@@ -4,143 +4,783 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Canada Bus, Train & Ferry Tickets | GiftCardZoneEU × 12Go</title>
-  <meta name="description" content="Book buses, trains, ferries and transfers across Canada with 12Go. Fast, secure, and same official prices." />
+  <title>Canada Trains & Buses | GiftCardZoneEU × 12Go</title>
+  <meta name="description" content="Book trains, buses and transfers across Canada — Vancouver, Toronto, Montreal, Calgary and more with 12Go. Start at GiftCardZoneEU, then finish your booking securely on 12Go." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://giftcardzoneeu.com/partners/12go-canada/" />
 
-  <!-- OG -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="12Go Canada Transport Booking | GiftCardZoneEU" />
-  <meta property="og:description" content="Compare and book transport tickets in Canada with 12Go — no extra fees." />
-  <meta property="og:image" content="assets/canada/12go-canada-hero.jpg" />
+  <meta property="og:title" content="Canada Trains & Buses | GiftCardZoneEU × 12Go" />
+  <meta property="og:description" content="Compare and book trains, buses and transfers across Canada with 12Go." />
+  <meta property="og:url" content="https://giftcardzoneeu.com/partners/12go-canada/" />
+  <meta property="og:image" content="https://giftcardzoneeu.com/partners/12go-canada/assets/12go-canada-hero.jpg" />
+
+  <style>
+    :root {
+      --bg: #020617;
+      --overlay: rgba(15, 23, 42, 0.96);
+      --accent: #22c55e;
+      --accent-soft: rgba(34, 197, 94, 0.18);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border-subtle: rgba(148, 163, 184, 0.45);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #0b1120, #020617 52%, #000 100%);
+      color: var(--text-main);
+    }
+
+    .page-wrap {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(34, 197, 94, 0.12), transparent 55%),
+        var(--overlay);
+    }
+
+    /* Header with GZ logo */
+    .site-header {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 1.2rem 1.5rem 0.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: conic-gradient(from 160deg, #22c55e, #38bdf8, #a855f7, #22c55e);
+      padding: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand-mark-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      background: #020617;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      color: #bbf7d0;
+    }
+
+    .brand-text { display: flex; flex-direction: column; gap: 0.05rem; }
+
+    .brand-name { font-size: 0.98rem; font-weight: 600; }
+
+    .brand-sub { font-size: 0.7rem; color: var(--text-muted); }
+
+    .header-pill {
+      font-size: 0.75rem;
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      color: var(--text-muted);
+    }
+
+    /* HERO */
+    .hero {
+      padding: 2.2rem 1.5rem 2rem;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .hero-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      gap: 1rem;
+    }
+
+    .hero-breadcrumb {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .hero-breadcrumb span {
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    .hero-badge {
+      font-size: 0.8rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #bbf7d0;
+      border: 1px solid rgba(34, 197, 94, 0.6);
+      white-space: nowrap;
+    }
+
+    .hero-inner {
+      display: flex;
+      gap: 2rem;
+      align-items: stretch;
+      flex-wrap: wrap;
+    }
+
+    .hero-text { flex: 1 1 260px; min-width: 260px; }
+
+    .hero-kicker {
+      display: inline-flex;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+
+    .hero-kicker span {
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    .hero-title {
+      font-size: 1.7rem;
+      line-height: 1.28;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 0.96rem;
+      color: var(--text-muted);
+      margin-bottom: 1.4rem;
+      max-width: 34rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .btn-main,
+    .btn-ghost {
+      border-radius: 999px;
+      padding: 0.65rem 1.4rem;
+      font-size: 0.9rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: transform 0.08s ease-out, box-shadow 0.08s ease-out,
+        background 0.08s ease-out, border-color 0.08s ease-out;
+    }
+
+    .btn-main {
+      background: var(--accent);
+      border-color: #16a34a;
+      color: #022c22;
+      font-weight: 600;
+      box-shadow: 0 18px 45px rgba(34, 197, 94, 0.35);
+    }
+
+    .btn-main:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 22px 55px rgba(34, 197, 94, 0.45);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border-color: rgba(148, 163, 184, 0.7);
+      color: var(--text-main);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 0.85);
+      transform: translateY(-1px);
+    }
+
+    .hero-media { flex: 0 0 320px; max-width: 360px; }
+
+    .hero-card {
+      background: radial-gradient(circle at top left,
+                rgba(148, 163, 184, 0.2),
+                rgba(15, 23, 42, 0.96));
+      border-radius: 1.25rem;
+      padding: 0.85rem;
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      height: 100%;
+    }
+
+    .hero-image-wrap {
+      position: relative;
+      border-radius: 1rem;
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+    }
+
+    .hero-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-image-pill {
+      position: absolute;
+      left: 0.75rem;
+      bottom: 0.75rem;
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.88);
+      color: var(--text-main);
+      font-size: 0.75rem;
+      display: inline-flex;
+      gap: 0.45rem;
+      align-items: center;
+    }
+
+    .hero-image-pill span { opacity: 0.86; }
+
+    .hero-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      gap: 0.5rem;
+      padding: 0 0.1rem;
+    }
+
+    .hero-card-footer strong {
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    /* Sections */
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.5rem 2.5rem;
+    }
+
+    .section {
+      padding: 1.8rem 0 0.4rem;
+      border-top: 1px solid rgba(30, 41, 59, 0.9);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .section-title { font-size: 1.05rem; font-weight: 600; }
+
+    .section-kicker { font-size: 0.8rem; color: var(--text-muted); }
+
+    .routes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+    }
+
+    .route-card {
+      border-radius: 0.9rem;
+      border: 1px solid rgba(51, 65, 85, 0.95);
+      background: radial-gradient(circle at top, rgba(30, 64, 175, 0.28), rgba(15, 23, 42, 0.95));
+      padding: 0.95rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      font-size: 0.87rem;
+    }
+
+    .route-main {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .route-title { font-weight: 500; }
+
+    .route-chip {
+      font-size: 0.72rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      color: var(--text-muted);
+      white-space: nowrap;
+      height: fit-content;
+    }
+
+    .route-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .route-tags span {
+      padding: 0.14rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(51, 65, 85, 0.9);
+    }
+
+    .route-link {
+      margin-top: 0.5rem;
+      font-size: 0.8rem;
+      color: #bfdbfe;
+      text-decoration: none;
+    }
+
+    .route-link:hover { text-decoration: underline; }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      font-size: 0.86rem;
+    }
+
+    .why-card {
+      border-radius: 0.9rem;
+      border: 1px solid rgba(51, 65, 85, 0.95);
+      background: radial-gradient(circle at top, rgba(8, 47, 73, 0.7), rgba(15, 23, 42, 0.96));
+      padding: 0.9rem 1rem;
+    }
+
+    .why-title {
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+    }
+
+    .why-body {
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.9rem;
+      font-size: 0.85rem;
+    }
+
+    .step {
+      border-radius: 0.9rem;
+      border: 1px dashed rgba(71, 85, 105, 0.9);
+      padding: 0.85rem 0.9rem;
+      background: rgba(15, 23, 42, 0.96);
+    }
+
+    .step-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #a5b4fc;
+      margin-bottom: 0.25rem;
+    }
+
+    .step-title {
+      font-size: 0.92rem;
+      font-weight: 500;
+      margin-bottom: 0.35rem;
+    }
+
+    .step-body {
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 0.9rem;
+      font-size: 0.85rem;
+    }
+
+    .faq-item {
+      border-radius: 0.85rem;
+      border: 1px solid rgba(30, 41, 59, 0.95);
+      background: rgba(15, 23, 42, 0.96);
+      padding: 0.9rem 1rem;
+    }
+
+    .faq-q {
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+    }
+
+    .faq-a {
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .disclosure {
+      margin-top: 1.6rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      border-radius: 0.75rem;
+      border: 1px dashed rgba(71, 85, 105, 0.9);
+      padding: 0.8rem 0.9rem;
+      background: rgba(15, 23, 42, 0.96);
+    }
+
+    footer {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 1.2rem 1.5rem 1.8rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(15, 23, 42, 0.95);
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 768px) {
+      .hero-inner { flex-direction: column; }
+      .hero-media { max-width: 100%; }
+    }
+  </style>
 </head>
-
-<style>
-  :root {
-    --overlay: rgba(0,0,0,0.55);
-    --accent: #ff2d7f;
-    --text-main: #f5f5f5;
-    --text-muted: #cccccc;
-  }
-
-  body {
-  font-family: 'Poppins', sans-serif;
-  background: url('assets/canada/12go-canada-hero.jpg?v=2') no-repeat center center fixed;
-  background-size: cover;
-  padding: 20px;
-  color: var(--text-main);
-}
-
-  .wrap {
-    max-width: 800px;
-    margin: auto;
-    padding: 26px;
-    border-radius: 18px;
-    background: var(--overlay);
-    backdrop-filter: blur(10px);
-  }
-
-  .header {
-    text-align: center;
-  }
-
-  .header img {
-    width: 140px;
-    margin-bottom: 12px;
-  }
-
-  h1 {
-    margin-top: 0;
-    font-size: 28px;
-    font-weight: 700;
-  }
-
-  .cta {
-    display: block;
-    background: var(--accent);
-    color: white;
-    text-align: center;
-    padding: 14px;
-    margin: 26px 0;
-    border-radius: 14px;
-    font-weight: bold;
-    font-size: 18px;
-    text-decoration: none;
-    transition: 0.25s;
-  }
-
-  .cta:hover {
-    transform: scale(1.03);
-    opacity: .9;
-  }
-
-  .routes {
-    margin-top: 20px;
-  }
-
-  .card {
-    background: rgba(255, 255, 255, 0.12);
-    padding: 16px;
-    border-radius: 14px;
-    margin-top: 12px;
-  }
-
-  .trust {
-    text-align: center;
-    margin-top: 32px;
-  }
-
-  .trust img {
-    width: 95%;
-    border-radius: 12px;
-  }
-</style>
-
 <body>
+  <div class="page-wrap">
+    <header class="site-header">
+      <div class="brand">
+        <div class="brand-mark">
+          <div class="brand-mark-inner">GZ</div>
+        </div>
+        <div class="brand-text">
+          <div class="brand-name">GiftCardZoneEU</div>
+          <div class="brand-sub">Travel · Transport partners</div>
+        </div>
+      </div>
+      <div class="header-pill">
+        12Go Canada partner page
+      </div>
+    </header>
 
-<div class="wrap">
+    <header class="hero">
+      <div class="hero-top">
+        <div class="hero-breadcrumb">
+          GiftCardZoneEU · <span>12Go Canada</span>
+        </div>
+        <div class="hero-badge">
+          ● Official affiliate partner
+        </div>
+      </div>
 
-  <!-- HEADER -->
-  <div class="header">
-    <img src="assets/gz-logo.png?v=2" alt="GiftCardZoneEU Logo" />
-    <h1>12Go Canada Transport Booking</h1>
-    <p>Book buses, trains, ferries, and transfers — no extra fees.</p>
+      <div class="hero-inner">
+        <div class="hero-text">
+          <div class="hero-kicker">
+            <span>Intercity trains</span>
+            <span>Long-distance buses</span>
+            <span>Airport transfers</span>
+          </div>
+
+          <h1 class="hero-title">
+            Book trains, buses & transfers across Canada with 12Go.
+          </h1>
+
+          <p class="hero-subtitle">
+            Travel between Vancouver, Toronto, Montreal, Calgary and more.
+            Start your search on GiftCardZoneEU, then complete your booking
+            safely on 12Go at the same official prices.
+          </p>
+
+          <div class="hero-actions">
+            <a href="https://www.tkqlhce.com/click-101586981-17115150" class="btn-main" target="_blank" rel="nofollow">
+              Start booking in Canada →
+            </a>
+            <a href="https://www.tkqlhce.com/click-101586981-17115150" class="btn-ghost" target="_blank" rel="nofollow">
+              View Canada routes & operators →
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-media">
+          <div class="hero-card">
+            <div class="hero-image-wrap">
+              <!-- upload image as /partners/12go-canada/assets/12go-canada-hero.jpg -->
+              <img src="/partners/12go-canada/assets/12go-canada-hero.jpg" alt="Canada trains and city skyline" />
+              <div class="hero-image-pill">
+                <span>Vancouver</span>
+                <span>→</span>
+                <span>Toronto · Calgary · Montreal</span>
+              </div>
+            </div>
+
+            <div class="hero-card-footer">
+              <span>Same 12Go official prices</span>
+              <span><strong>Secure checkout</strong> · No extra fees</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Popular routes -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-title">Popular Canada routes with 12Go</div>
+          <div class="section-kicker">Sample routes only — search to see all available lines.</div>
+        </div>
+
+        <div class="routes-grid">
+          <article class="route-card">
+            <div class="route-main">
+              <div class="route-title">Vancouver → Toronto</div>
+              <div class="route-chip">Train & bus</div>
+            </div>
+            <div class="route-tags">
+              <span>Cross-country trip</span>
+              <span>Multiple stops</span>
+            </div>
+            <a href="https://www.tkqlhce.com/click-101586981-17115150" class="route-link" target="_blank" rel="nofollow">
+              View Vancouver–Toronto options →
+            </a>
+          </article>
+
+          <article class="route-card">
+            <div class="route-main">
+              <div class="route-title">Toronto → Montreal</div>
+              <div class="route-chip">Trains</div>
+            </div>
+            <div class="route-tags">
+              <span>Frequent departures</span>
+              <span>Business & leisure</span>
+            </div>
+            <a href="https://www.tkqlhce.com/click-101586981-17115150" class="route-link" target="_blank" rel="nofollow">
+              Explore Toronto–Montreal trips →
+            </a>
+          </article>
+
+          <article class="route-card">
+            <div class="route-main">
+              <div class="route-title">Calgary → Vancouver</div>
+              <div class="route-chip">Bus & transfers</div>
+            </div>
+            <div class="route-tags">
+              <span>Scenic routes</span>
+              <span>Rocky Mountains</span>
+            </div>
+            <a href="https://www.tkqlhce.com/click-101586981-17115150" class="route-link" target="_blank" rel="nofollow">
+              See Calgary–Vancouver options →
+            </a>
+          </article>
+
+          <article class="route-card">
+            <div class="route-main">
+              <div class="route-title">Toronto → Ottawa</div>
+              <div class="route-chip">Trains & buses</div>
+            </div>
+            <div class="route-tags">
+              <span>Day trips</span>
+              <span>Flexible times</span>
+            </div>
+            <a href="https://www.tkqlhce.com/click-101586981-17115150" class="route-link" target="_blank" rel="nofollow">
+              Check Toronto–Ottawa routes →
+            </a>
+          </article>
+
+          <article class="route-card">
+            <div class="route-main">
+              <div class="route-title">Vancouver → Victoria</div>
+              <div class="route-chip">Ferries & buses</div>
+            </div>
+            <div class="route-tags">
+              <span>Island connections</span>
+              <span>Popular route</span>
+            </div>
+            <a href="https://www.tkqlhce.com/click-101586981-17115150" class="route-link" target="_blank" rel="nofollow">
+              Browse Vancouver–Victoria options →
+            </a>
+          </article>
+
+          <article class="route-card">
+            <div class="route-main">
+              <div class="route-title">Montreal → Quebec City</div>
+              <div class="route-chip">Trains & buses</div>
+            </div>
+            <div class="route-tags">
+              <span>City breaks</span>
+              <span>Short journeys</span>
+            </div>
+            <a href="https://www.tkqlhce.com/click-101586981-17115150" class="route-link" target="_blank" rel="nofollow">
+              See Montreal–Quebec City trips →
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <!-- Why book via GiftCardZoneEU -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-title">Why book Canada trips via GiftCardZoneEU × 12Go?</div>
+        </div>
+
+        <div class="why-grid">
+          <article class="why-card">
+            <h3 class="why-title">Same prices as 12Go</h3>
+            <p class="why-body">
+              You pay the same official 12Go prices you’d see on their site.
+              No hidden mark-ups, no surprise charges — just a smoother starting point
+              from GiftCardZoneEU.
+            </p>
+          </article>
+
+          <article class="why-card">
+            <h3 class="why-title">Canada routes in one place</h3>
+            <p class="why-body">
+              Compare trains, buses and transfers in a single search — from
+              cross-country journeys to shorter city hops across Canada.
+            </p>
+          </article>
+
+          <article class="why-card">
+            <h3 class="why-title">Secure booking & e-tickets</h3>
+            <p class="why-body">
+              Once you pick a route, you’ll finish the payment on 12Go’s secure
+              checkout. Your confirmation and e-tickets are delivered straight
+              to your inbox.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- How it works -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-title">How booking with 12Go works</div>
+        </div>
+
+        <div class="steps">
+          <article class="step">
+            <div class="step-label">Step 1</div>
+            <div class="step-title">Search Canada routes</div>
+            <p class="step-body">
+              Use the buttons above to open 12Go and search for your route
+              — for example Vancouver → Toronto or Toronto → Montreal.
+            </p>
+          </article>
+
+          <article class="step">
+            <div class="step-label">Step 2</div>
+            <div class="step-title">Compare times & operators</div>
+            <p class="step-body">
+              Check departure times, seat classes, travel duration and reviews,
+              then pick the option that fits your schedule and budget.
+            </p>
+          </article>
+
+          <article class="step">
+            <div class="step-label">Step 3</div>
+            <div class="step-title">Pay securely on 12Go</div>
+            <p class="step-body">
+              Complete your booking on 12Go’s official checkout using your
+              preferred payment method.
+            </p>
+          </article>
+
+          <article class="step">
+            <div class="step-label">Step 4</div>
+            <div class="step-title">Receive tickets & travel</div>
+            <p class="step-body">
+              You’ll get a confirmation email and, where available, e-tickets.
+              Follow the instructions from 12Go and enjoy your trip in Canada.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-title">Canada × 12Go – quick questions</div>
+        </div>
+
+        <div class="faq-grid">
+          <article class="faq-item">
+            <div class="faq-q">Is GiftCardZoneEU the one running the transport?</div>
+            <div class="faq-a">
+              No. We’re an affiliate partner that helps you discover routes and then
+              sends you to 12Go to complete your booking. 12Go works with official
+              operators across Canada.
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <div class="faq-q">Do I pay extra by booking through this page?</div>
+            <div class="faq-a">
+              No. Ticket prices are the same as booking directly on 12Go. In some
+              cases there may even be promos or discounts visible in their search.
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <div class="faq-q">Where will I get my ticket?</div>
+            <div class="faq-a">
+              Your confirmation and ticket details come from 12Go by email after
+              payment. Some routes use e-tickets, while others may require
+              ticket pick-up — 12Go will show the exact instructions.
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <div class="faq-q">Who do I contact if I have issues with my booking?</div>
+            <div class="faq-a">
+              If you have questions about changes, cancellations or delays, please
+              contact 12Go directly using the support details in your booking
+              confirmation email.
+            </div>
+          </article>
+        </div>
+
+        <div class="disclosure">
+          Some links on this page are affiliate links. This means we may earn a
+          small commission if you make a booking via 12Go after clicking our
+          link — at no extra cost to you. Bookings are processed on 12Go’s
+          official platform.
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>© 2025 GiftCardZoneEU. Canada transport search with 12Go.</span>
+      <span>Always check latest schedules, prices and requirements before you travel.</span>
+    </footer>
   </div>
-
-  <!-- MAIN CTA LINK -->
-  <a href="12GO_LINK_HERE" class="cta">Book Canada Tickets on 12Go</a>
-
-  <!-- POPULAR ROUTES -->
-  <h2>Popular Canada Routes</h2>
-
-  <div class="card">
-    <strong>Toronto → Ottawa</strong><br>
-    🕒 4–5 hours • Bus / Train
-  </div>
-
-  <div class="card">
-    <strong>Toronto → Montreal</strong><br>
-    🕒 6–7 hours • Bus / Train
-  </div>
-
-  <div class="card">
-    <strong>Vancouver → Seattle</strong><br>
-    🕒 3–4 hours • Bus (Cross-Border)
-  </div>
-
-  <div class="card">
-    <strong>Vancouver → Victoria</strong><br>
-    🕒 4–5 hours • Bus + Ferry
-  </div>
-
-  <!-- TRUST BADGES -->
-  <div class="trust">
-    <img src="assets/trust/trust-badges-dark.png?v=2" alt="Trust Badges" />
-  </div>
-
-</div>
-
 </body>
 </html>
-
