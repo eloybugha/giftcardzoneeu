@@ -1,1 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>France Train, Bus & Ferry Tickets | GiftCardZoneEU × 12Go</title>
+  <meta name="description" content="Book trains, buses, and ferries across France with 12Go — Paris, Lyon, Marseille, Nice, Toulouse and more. Start at GiftCardZoneEU, then finish your booking securely on 12Go." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://giftcardzoneeu.com/partners/12go-france/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="12Go France Transport Booking | GiftCardZoneEU" />
+  <meta property="og:description" content="Compare and book trains, buses, ferries and airport transfers across France with 12Go." />
+  <meta property="og:url" content="https://giftcardzoneeu.com/partners/12go-france/" />
+  <meta property="og:image" content="https://giftcardzoneeu.com/partners/france/assets/12go-hero.jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="France Train, Bus & Ferry Tickets | GiftCardZoneEU × 12Go" />
+  <meta name="twitter:description" content="Travel across France with 12Go. Book trains, buses and ferries starting from GiftCardZoneEU." />
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/partners/france/assets/12go-hero.jpg" />
+
+  <!-- Favicon (adjust path if needed) -->
+  <link rel="icon" href="https://giftcardzoneeu.com/assets/favicon.png" />
+
+  <style>
+    :root {
+      --bg-overlay: rgba(7, 12, 24, 0.80);
+      --card-bg: rgba(10, 16, 33, 0.92);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --accent: #00c0ff;
+      --accent-soft: rgba(0, 192, 255, 0.18);
+      --accent-strong: #00e0ff;
+      --text-main: #f9fafb;
+      --text-muted: #cbd5f5;
+      --badge-bg: rgba(15, 23, 42, 0.76);
+      --radius-xl: 1.8rem;
+      --radius-lg: 1.1rem;
+      --radius-pill: 999px;
+      --shadow-soft: 0 30px 80px rgba(15, 23, 42, 0.85);
+      --shadow-subtle: 0 18px 40px rgba(15, 23, 42, 0.65);
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", sans-serif;
+      color: var(--text-main);
+      background-color: #020617;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      padding: 16px;
+      background-color: #020617;
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+    }
+
+    .page::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.35), transparent 55%),
+        radial-gradient(circle at top right, rgba(248, 250, 252, 0.35), transparent 55%),
+        radial-gradient(circle at bottom, rgba(59, 130, 246, 0.25), transparent 55%);
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: -3;
+    }
+
+    .hero {
+      position: relative;
+      flex: 1;
+      max-width: var(--max-width);
+      margin: auto;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.96)),
+        #020617;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      background-image: url("/partners/france/assets/12go-hero.jpg");
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.05);
+      filter: saturate(1.1) contrast(1.05) brightness(0.92);
+      opacity: 0.75;
+      z-index: -2;
+    }
+
+    .hero__overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top, rgba(15, 23, 42, 0.18), transparent 60%),
+        linear-gradient(to bottom right, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.90));
+      z-index: -1;
+    }
+
+    .hero__content {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+      gap: 32px;
+      padding: 28px 28px 24px;
+    }
+
+    @media (min-width: 900px) {
+      .hero__content {
+        padding: 32px 36px 30px;
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero__content {
+        grid-template-columns: minmax(0, 1fr);
+        padding: 22px 18px 20px;
+      }
+    }
+
+    .badge-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .brand-lockup {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 6px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(15, 23, 42, 0.88);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.75);
+    }
+
+    .brand-lockup__logo {
+      width: 28px;
+      height: 28px;
+      border-radius: 0.9rem;
+      background:
+        radial-gradient(circle at 0% 0%, #ffffff, #e5f3ff 26%, #bae6fd 48%, #38bdf8 70%, #0f172a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.6),
+                  0 14px 30px rgba(15, 23, 42, 0.9);
+      overflow: hidden;
+    }
+
+    .brand-lockup__logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .brand-lockup__text {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .brand-lockup__label {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #94a3b8;
+    }
+
+    .brand-lockup__brands {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--text-main);
+    }
+
+    .brand-lockup__divider {
+      width: 14px;
+      height: 1px;
+      background: linear-gradient(to right, rgba(148, 163, 184, 0.2), rgba(148, 163, 184, 0.8), rgba(148, 163, 184, 0.2));
+    }
+
+    .brand-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 9px;
+      font-size: 10px;
+      border-radius: 999px;
+      background: rgba(15, 118, 110, 0.25);
+      border: 1px solid rgba(45, 212, 191, 0.6);
+      color: #ccfbf1;
+    }
+
+    .brand-pill span {
+      font-weight: 600;
+    }
+
+    .trust-chip {
+      padding: 6px 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background: rgba(15, 23, 42, 0.86);
+      font-size: 11px;
+      color: #e2e8f0;
+      backdrop-filter: blur(12px);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.6);
+    }
+
+    .trust-chip__dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #bbf7d0, #22c55e);
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.18);
+    }
+
+    .hero__title {
+      margin-bottom: 14px;
+    }
+
+    .hero__eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #a5b4fc;
+      margin-bottom: 6px;
+    }
+
+    .hero__headline {
+      font-size: 28px;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+    }
+
+    .hero__headline span {
+      background: linear-gradient(to right, #e0f2fe, #22d3ee, #0ea5e9);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    @media (min-width: 900px) {
+      .hero__headline {
+        font-size: 34px;
+      }
+    }
+
+    .hero__body {
+      margin-bottom: 18px;
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .hero__body strong {
+      color: #e5e7eb;
+      font-weight: 600;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .pill {
+      padding: 5px 11px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      font-size: 11px;
+      color: #e2e8f0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pill__dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #bae6fd, #0ea5e9);
+    }
+
+    .hero__cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .primary-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 18px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      color: #0b1120;
+      background: radial-gradient(circle at 0% 0%, #e0f2fe, #38bdf8);
+      box-shadow:
+        0 18px 40px rgba(8, 47, 73, 0.9),
+        0 0 0 1px rgba(15, 23, 42, 0.7);
+      border: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .primary-cta span {
+      position: relative;
+      z-index: 1;
+    }
+
+    .primary-cta::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 0% 0%, rgba(248, 250, 252, 0.8), transparent 55%);
+      opacity: 0;
+      transition: opacity 0.2s ease-out;
+    }
+
+    .primary-cta:hover::before {
+      opacity: 1;
+    }
+
+    .primary-cta:hover {
+      transform: translateY(-1px);
+      box-shadow:
+        0 20px 50px rgba(8, 47, 73, 1),
+        0 0 0 1px rgba(15, 23, 42, 0.88);
+    }
+
+    .primary-cta:active {
+      transform: translateY(0);
+      box-shadow:
+        0 12px 26px rgba(8, 47, 73, 0.9),
+        0 0 0 1px rgba(15, 23, 42, 0.88);
+    }
+
+    .cta-note {
+      font-size: 11px;
+      color: #cbd5f5;
+    }
+
+    .cta-note b {
+      color: #e5e7eb;
+    }
+
+    .hero__trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 4px;
+      font-size: 11px;
+      color: #cbd5f5;
+    }
+
+    .trust-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      border: 1px dashed rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .trust-item__icon {
+      width: 13px;
+      height: 13px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+    }
+
+    .hero__disclaimer {
+      font-size: 10px;
+      color: #94a3b8;
+      max-width: 460px;
+    }
+
+    .hero__side {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .hero__side {
+        border-top: 1px solid rgba(148, 163, 184, 0.5);
+        padding-top: 16px;
+        margin-top: 4px;
+      }
+    }
+
+    .side-card {
+      background: linear-gradient(
+        135deg,
+        rgba(15, 23, 42, 0.96),
+        rgba(15, 23, 42, 0.92)
+      );
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      padding: 14px 14px 13px;
+      box-shadow: var(--shadow-subtle);
+      backdrop-filter: blur(16px);
+    }
+
+    .side-card__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .side-card__title {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .side-card__chip {
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-size: 10px;
+      background: rgba(15, 118, 110, 0.22);
+      border: 1px solid rgba(34, 197, 94, 0.7);
+      color: #bbf7d0;
+    }
+
+    .side-card__body {
+      font-size: 12px;
+      color: #cbd5f5;
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+
+    .route-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 8px;
+      font-size: 11px;
+    }
+
+    @media (max-width: 768px) {
+      .route-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .route-col-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #94a3b8;
+      margin-bottom: 3px;
+    }
+
+    .route-pill {
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.65);
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      margin-bottom: 5px;
+    }
+
+    .route-pill span {
+      white-space: nowrap;
+    }
+
+    .route-pill__tag {
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.65);
+      color: #e5e7eb;
+    }
+
+    .side-faq {
+      font-size: 11px;
+      color: #cbd5f5;
+      display: grid;
+      gap: 5px;
+    }
+
+    .faq-item strong {
+      color: #e5e7eb;
+      font-weight: 600;
+    }
+
+    .side-footer {
+      font-size: 10px;
+      color: #94a3b8;
+      margin-top: 6px;
+    }
+
+    .side-footer b {
+      color: #e5e7eb;
+    }
+
+    .badge-row-mobile-only {
+      display: none;
+    }
+
+    @media (max-width: 640px) {
+      .badge-row {
+        display: none;
+      }
+
+      .badge-row-mobile-only {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 12px;
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero" aria-label="Book France transport with 12Go">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="hero__overlay" aria-hidden="true"></div>
+
+      <div class="hero__content">
+        <!-- LEFT: Main copy & CTA -->
+        <div>
+          <div class="badge-row">
+            <div class="brand-lockup">
+              <div class="brand-lockup__logo">
+                <!-- GZ logo (update src if different path) -->
+                <img src="/assets/brand/gz-logo.svg" alt="GiftCardZoneEU logo" />
+              </div>
+              <div class="brand-lockup__text">
+                <span class="brand-lockup__label">Travel booking, made simple</span>
+                <div class="brand-lockup__brands">
+                  <span>GiftCardZoneEU</span>
+                  <span class="brand-lockup__divider"></span>
+                  <span>12Go</span>
+                  <span class="brand-pill"><span>France</span> routes</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="trust-chip">
+              <span class="trust-chip__dot"></span>
+              <span>Secure checkout on 12Go · No extra booking fee</span>
+            </div>
+          </div>
+
+          <div class="badge-row-mobile-only">
+            <div class="brand-lockup">
+              <div class="brand-lockup__logo">
+                <img src="/assets/brand/gz-logo.svg" alt="GiftCardZoneEU logo" />
+              </div>
+              <div class="brand-lockup__text">
+                <span class="brand-lockup__label">GiftCardZoneEU × 12Go</span>
+                <div class="brand-lockup__brands">
+                  <span>France transport</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="trust-chip">
+              <span class="trust-chip__dot"></span>
+              <span>Trusted partner gateway</span>
+            </div>
+          </div>
+
+          <header class="hero__title">
+            <p class="hero__eyebrow">France · Trains · Buses · Ferries</p>
+            <h1 class="hero__headline">
+              Book France <span>train & bus tickets</span> with 12Go — starting at GiftCardZoneEU.
+            </h1>
+          </header>
+
+          <p class="hero__body">
+            Travel between <strong>Paris, Lyon, Marseille, Nice, Bordeaux, Toulouse</strong> and more with verified operators.
+            We start your journey on GiftCardZoneEU, then send you to <strong>12Go</strong> to safely complete your booking.
+          </p>
+
+          <div class="pill-row">
+            <div class="pill">
+              <span class="pill__dot"></span>
+              <span>High-speed & regional trains</span>
+            </div>
+            <div class="pill">
+              <span class="pill__dot"></span>
+              <span>Intercity & airport buses</span>
+            </div>
+            <div class="pill">
+              <span class="pill__dot"></span>
+              <span>Cross-border routes to Spain, Italy, Switzerland & more</span>
+            </div>
+          </div>
+
+          <div class="hero__cta-row">
+            <a
+              class="primary-cta"
+              href="YOUR_12GO_FRANCE_AFFILIATE_LINK"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>Book France tickets on 12Go</span>
+            </a>
+            <div class="cta-note">
+              <b>1 click from here to 12Go.</b> Compare operators, schedules & prices, then pay securely on 12Go.
+            </div>
+          </div>
+
+          <div class="hero__trust-row">
+            <div class="trust-item">
+              <span class="trust-item__icon">✓</span>
+              <span>Instant confirmation on many routes</span>
+            </div>
+            <div class="trust-item">
+              <span class="trust-item__icon">💳</span>
+              <span>Secure card & digital payments processed by 12Go</span>
+            </div>
+            <div class="trust-item">
+              <span class="trust-item__icon">🌐</span>
+              <span>Multi-language support & e-tickets</span>
+            </div>
+          </div>
+
+          <p class="hero__disclaimer">
+            GiftCardZoneEU does not sell tickets directly. We link you to 12Go, where all bookings, payments, and customer support are handled.
+          </p>
+        </div>
+
+        <!-- RIGHT: Routes & FAQ -->
+        <aside class="hero__side" aria-label="Popular France routes and FAQ">
+          <div class="side-card">
+            <div class="side-card__header">
+              <h2 class="side-card__title">Popular France routes</h2>
+              <div class="side-card__chip">Live via 12Go</div>
+            </div>
+
+            <p class="side-card__body">
+              Use 12Go to explore trains, buses and more across France — and to nearby countries in Europe.
+            </p>
+
+            <div class="route-grid">
+              <div>
+                <p class="route-col-title">Within France</p>
+                <div class="route-pill">
+                  <span>Paris → Lyon</span>
+                  <span class="route-pill__tag">TGV / train</span>
+                </div>
+                <div class="route-pill">
+                  <span>Paris → Marseille</span>
+                  <span class="route-pill__tag">train & bus</span>
+                </div>
+                <div class="route-pill">
+                  <span>Paris → Nice</span>
+                  <span class="route-pill__tag">coastal route</span>
+                </div>
+                <div class="route-pill">
+                  <span>Paris → Bordeaux</span>
+                  <span class="route-pill__tag">train</span>
+                </div>
+                <div class="route-pill">
+                  <span>Lyon → Marseille</span>
+                  <span class="route-pill__tag">train / bus</span>
+                </div>
+              </div>
+
+              <div>
+                <p class="route-col-title">Cross-border</p>
+                <div class="route-pill">
+                  <span>Paris → Brussels</span>
+                  <span class="route-pill__tag">Belgium</span>
+                </div>
+                <div class="route-pill">
+                  <span>Paris → London</span>
+                  <span class="route-pill__tag">UK</span>
+                </div>
+                <div class="route-pill">
+                  <span>Paris → Barcelona</span>
+                  <span class="route-pill__tag">Spain</span>
+                </div>
+                <div class="route-pill">
+                  <span>Lyon → Geneva</span>
+                  <span class="route-pill__tag">Switzerland</span>
+                </div>
+                <div class="route-pill">
+                  <span>Nice → Milan</span>
+                  <span class="route-pill__tag">Italy</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="side-card">
+            <div class="side-card__header">
+              <h2 class="side-card__title">Before you book</h2>
+            </div>
+
+            <div class="side-faq">
+              <p class="faq-item">
+                <strong>How do I book?</strong><br />
+                Click the button above — you’ll be redirected to 12Go. Choose your route and time, then pay securely on 12Go.
+              </p>
+              <p class="faq-item">
+                <strong>Who processes my payment?</strong><br />
+                All payments are handled by <strong>12Go</strong>, not GiftCardZoneEU.
+              </p>
+              <p class="faq-item">
+                <strong>Can I change or cancel my ticket?</strong><br />
+                This depends on the operator and fare. Check the fare rules on 12Go before you confirm your booking.
+              </p>
+              <p class="faq-item">
+                <strong>Is this an official partner link?</strong><br />
+                Yes — we send you through our <strong>partner gateway</strong> so you can book directly on 12Go.
+              </p>
+            </div>
+
+            <p class="side-footer">
+              By continuing to 12Go, you agree to their terms, conditions and privacy policy.
+              <br />
+              <b>GiftCardZoneEU</b> simply helps you find the right booking page faster.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
 
