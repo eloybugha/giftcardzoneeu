@@ -1,1 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>12Go Travel Partners | GiftCardZoneEU</title>
+  <meta name="description" content="Browse all GiftCardZoneEU × 12Go country pages in one place. Start with GiftCardZoneEU, then finish your bookings securely on 12Go." />
+  <link rel="canonical" href="https://giftcardzoneeu.com/partners/" />
+
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-soft: #020c1b;
+      --card: #020b1b;
+      --border: rgba(148, 163, 184, 0.35);
+      --accent: #06b6d4;
+      --accent-soft: rgba(56, 189, 248, 0.25);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --radius-xl: 1.5rem;
+      --radius-2xl: 2rem;
+      --shadow-soft: 0 18px 60px rgba(15, 23, 42, 0.7);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #0f172a 0, #020617 55%, #000 100%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 24px 16px 40px;
+    }
+
+    .hero {
+      background: radial-gradient(circle at top left, #1e293b 0, #020617 55%, #000 100%);
+      border-radius: var(--radius-2xl);
+      padding: 24px 22px 22px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.17) 0, transparent 55%),
+        radial-gradient(circle at 100% 0%, rgba(45, 212, 191, 0.14) 0, transparent 55%),
+        radial-gradient(circle at 50% 120%, rgba(59, 130, 246, 0.18) 0, transparent 60%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 4px;
+    }
+
+    .brand-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0%, #22d3ee 0, #0ea5e9 32%, #0369a1 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 17px;
+      letter-spacing: 0.03em;
+      color: #f9fafb;
+      box-shadow: 0 10px 30px rgba(8, 47, 73, 0.8);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .brand-text span:first-child {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+
+    .brand-text span:last-child {
+      font-size: 14px;
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    .hero-chip {
+      padding: 6px 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.72);
+      backdrop-filter: blur(10px);
+      white-space: nowrap;
+    }
+
+    .hero-title {
+      font-size: clamp(22px, 3vw, 28px);
+      line-height: 1.1;
+      margin: 0;
+      font-weight: 650;
+      letter-spacing: 0.01em;
+      color: #f9fafb;
+    }
+
+    .hero-sub {
+      margin: 4px 0 0;
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 520px;
+    }
+
+    .hero-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      font-size: 11px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85);
+      color: var(--muted);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    .stats {
+      display: flex;
+      gap: 14px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .stats span {
+      white-space: nowrap;
+    }
+
+    .content {
+      margin-top: 26px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .section-header h2 {
+      margin: 0;
+      font-size: 16px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #9ca3af;
+    }
+
+    .section-header p {
+      margin: 0;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 14px 14px 13px;
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at 0 0, #020617 0, var(--card) 45%, #020617 100%);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      text-decoration: none;
+      color: inherit;
+      box-shadow: 0 14px 40px rgba(15, 23, 42, 0.85);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -30%;
+      background:
+        radial-gradient(circle at 0 0, var(--accent-soft) 0, transparent 50%),
+        radial-gradient(circle at 100% 100%, rgba(96, 165, 250, 0.2) 0, transparent 55%);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      pointer-events: none;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card-top {
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .card h3 {
+      margin: 0 0 4px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #f9fafb;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .card-bottom {
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 1;
+    }
+
+    .pill {
+      padding: 5px 11px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 500;
+      background: linear-gradient(135deg, #0ea5e9, #22d3ee);
+      color: #0b1220;
+      box-shadow: 0 10px 30px rgba(8, 47, 73, 0.9);
+      border: 1px solid rgba(34, 211, 238, 0.6);
+      white-space: nowrap;
+    }
+
+    .mini-note {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .footer {
+      margin-top: 26px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(51, 65, 85, 0.9);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .footer span {
+      opacity: 0.9;
+    }
+
+    .footer-logos {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 12px rgba(34, 197, 94, 0.9);
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding: 18px 16px 16px;
+      }
+
+      .brand-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .stats {
+        width: 100%;
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div class="hero-inner">
+        <div class="brand-row">
+          <div class="brand-left">
+            <div class="brand-mark">GZ</div>
+            <div class="brand-text">
+              <span>GiftCardZoneEU</span>
+              <span>Official Travel Partner Hub</span>
+            </div>
+          </div>
+          <div class="hero-chip">12Go · Global Routes</div>
+        </div>
+
+        <div>
+          <h1 class="hero-title">12Go Travel Partners by Country</h1>
+          <p class="hero-sub">
+            Start with GiftCardZoneEU, then finish your booking securely on 12Go.
+            Choose a country hub below to find trains, buses, ferries and transfers.
+          </p>
+        </div>
+
+        <div class="hero-bottom">
+          <div class="hero-tags">
+            <span class="tag">Verified affiliate links</span>
+            <span class="tag">Multi-country coverage</span>
+            <span class="tag">Secure bookings on 12Go</span>
+          </div>
+          <div class="stats">
+            <span>● 18 country hubs live</span>
+            <span>● Powered by GiftCardZoneEU × 12Go</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="content">
+      <section>
+        <div class="section-header">
+          <h2>12Go Country Hubs</h2>
+          <p>Click a destination to open its dedicated GiftCardZoneEU × 12Go page.</p>
+        </div>
+
+        <div class="grid">
+          <a class="card" href="/partners/12go-australia/">
+            <div class="card-top">
+              <div class="card-label">Oceania</div>
+              <h3>Australia</h3>
+              <p>Sydney, Melbourne, Brisbane and more — trains, buses & transfers.</p>
+            </div>
+            <div class="card-bottom">
+              <span class="pill">Open Australia hub →</span>
+              <span class="mini-note">12Go × GiftCardZoneEU</span>
+            </div>
+          </a>
+
+          <a class="card" href="/partners/12go-brazil/">
+            <div class="card-top">
+              <div class="card-label">South America</div>
+              <h3>Brazil</h3>
+              <p>Routes across Rio, São Paulo and beyond with 12Go partners.</p>
+            </div>
+            <div class="card-bottom">
+              <span class="pill">Open Brazil hub →</span>
+              <span class="mini-note">12Go × GiftCardZoneEU</span>
+            </div>
+          </a>
+
+          <a class="card" href="/partners/12go-canada/">
+            <div class="card-top">
+              <div class="card-label">North America</div>
+              <h3>Canada</h3>
+              <p>Coast-to-coast routes via Vancouver, Toronto, Montreal and more.</p>
+            </div>
+            <div class="card-bottom">
+              <span class="pill">Open Canada hub →</span>
+              <span class="mini-note">12Go × GiftCardZoneEU</span>
+            </div>
+          </a>
+
+          <a class="card" href="/partners/12go-usa/">
+            <div class="card-top">
+              <div class="card-label">North America</div>
+              <h3>United States</h3>
+              <p>City-to-city trips across the USA with trusted 12Go operators.</p>
+            </div>
+            <div class="card-bottom">
+              <span class="pill">Open USA hub →</span>
+              <span class="mini-note">12Go × GiftCardZoneEU</span>
+            </div>
+          </a>
+
+          <a class="card" href="/partners/12go-uk/">
+            <div class="card-top">
+              <div class="card-label">Europe</div>
+              <h3>United Kingdom</h3>
+              <p>Trains and transfers around London, Edinburgh and key UK cities.</p>
+            </div>
+            <div class="card-bottom">
+              <span class="pill">Open UK hub →</span>
+              <span class="mini-note">12Go × GiftCardZoneEU</span>
+            </div>
+          </a>
+
+          <a class="card" href="/partners/12go-france/">
+            <div class="card-top">
+              <div class="card-label">Europe</div>
+              <h3>France</h3>
+              <p>Paris, Lyon, Nice and more — domestic and cross-border routes.</p>
+            </div>
+            <div class="card-bottom">
+              <span class="pill">Open France hub →</span>
+              <span class="mini-note">12Go × GiftCardZoneEU</span>
+            </div>
+          </a>
+
+          <a class="card" href="/partners/12go-vietnam/">
+            <div class="card-top">
+              <div class="card-label">Asia</div>
+              <h3>Vietnam</h3>
+              <p>Hanoi to Ho Chi Minh and coastal routes by train, bus & ferry.</p>
+            </div>
+            <div class="card-bottom">
+              <span class="pill">Open Vietnam hub →</span>
+              <span class="mini-note">12Go × GiftCardZoneEU</span>
+            </div>
+          </a>
+
+          <a class="card" href="/partners/12go-thailand/">
+            <div class="card-top">
+              <div class="card-label">Asia</div>
+              <h3>Thailand</h3>
+              <p>Bangkok, Phuket, Chiang Mai and island hopping with 12Go.</p>
+            </div>
+            <div class="card-bottom">
+              <span class="pill">Open Thailand hub →</span>
+              <span class="mini-note">12Go × GiftCardZoneEU</span>
+            </div>
+          </a>
+
+          <a class="card" href="/partners/12go-malaysia/">
+            <div class="card-top">
+              <div class="card-label">Asia</div>
+              <h3>Malaysia</h3>
+              <p>Kuala Lumpur, Penang, Langkawi and more — buses, trains & ferries.</p>
+            </div>
+            <div class="card-bottom">
+              <span class="pill">Open Malaysia hub →</span>
+              <span class="mini-note">12Go × GiftCardZoneEU</span>
+            </div>
+          </a>
+
+          <a class="card" href="/partners/12go-singapore/">
+            <div class="card-top">
+              <div class="card-label">Asia</div>
+              <h3>Singapore</h3>
+              <p>City connections and cross-border routes to Malaysia & Thailand.</p>
+            </div>
+            <div class="card-bottom">
+              <span class="pill">Open Singapore hub →</span>
+              <span class="mini-note">12Go × GiftCardZoneEU</span>
+            </div>
+          </a>
+
+          <a class="card" href="/partners/12go-indonesia/">
+            <div class="card-top">
+              <div class="card-label">Asia</div>
+              <h3>Indonesia</h3>
+              <p>Bali, Jakarta, Yogyakarta, Lombok and more island connections.</p>
+            </div>
+            <div class="card-bottom">
+              <span class="pill">Open Indonesia hub →</span>
+              <span class="mini-note">12Go × GiftCardZoneEU</span>
+            </div>
+          </a>
+
+          <a class="card" href="/partners/12go-philippines/">
+            <div class="card-top">
+              <div class="card-label">Asia</div>
+              <h3>Philippines</h3>
+              <p>Manila, Cebu, Davao and inter-island ferries and buses.</p>
+            </div>
+            <div class="card-bottom">
+              <span class="pill">Open Philippines hub →</span>
+              <span class="mini-note">12Go × GiftCardZoneEU</span>
+            </div>
+          </a>
+
+          <a class="card" href="/partners/12go-japan/">
+            <div class="card-top">
+              <div class="card-label">Asia</div>
+              <h3>Japan</h3>
+              <p>Tokyo, Osaka, Kyoto, Hokkaido and more via trains & transfers.</p>
+            </div>
+            <div class="card-bottom">
+              <span class="pill">Open Japan hub →</span>
+              <span class="mini-note">12Go × GiftCardZoneEU</span>
+            </div>
+          </a>
+
+          <a class="card" href="/partners/12go-south-korea/">
+            <div class="card-top">
+              <div class="card-label">Asia</div>
+              <h3>South Korea</h3>
+              <p>Seoul, Busan and more with high-speed trains and buses.</p>
+            </div>
+            <div class="card-bottom">
+              <span class="pill">Open South Korea hub →</span>
+              <span class="mini-note">12Go × GiftCardZoneEU</span>
+            </div>
+          </a>
+
+          <a class="card" href="/partners/12go-taiwan/">
+            <div class="card-top">
+              <div class="card-label">Asia</div>
+              <h3>Taiwan</h3>
+              <p>Taipei, Kaohsiung and scenic routes by rail and coach.</p>
+            </div>
+            <div class="card-bottom">
+              <span class="pill">Open Taiwan hub →</span>
+              <span class="mini-note">12Go × GiftCardZoneEU</span>
+            </div>
+          </a>
+
+          <a class="card" href="/partners/12go-hong-kong/">
+            <div class="card-top">
+              <div class="card-label">Asia</div>
+              <h3>Hong Kong</h3>
+              <p>Links around Hong Kong and connections into mainland China.</p>
+            </div>
+            <div class="card-bottom">
+              <span class="pill">Open Hong Kong hub →</span>
+              <span class="mini-note">12Go × GiftCardZoneEU</span>
+            </div>
+          </a>
+
+          <a class="card" href="/partners/12go-china/">
+            <div class="card-top">
+              <div class="card-label">Asia</div>
+              <h3>China</h3>
+              <p>Major domestic and cross-border routes with 12Go partners.</p>
+            </div>
+            <div class="card-bottom">
+              <span class="pill">Open China hub →</span>
+              <span class="mini-note">12Go × GiftCardZoneEU</span>
+            </div>
+          </a>
+
+          <a class="card" href="/partners/12go-india/">
+            <div class="card-top">
+              <div class="card-label">Asia</div>
+              <h3>India</h3>
+              <p>North to South India routes by train, bus and private transfer.</p>
+            </div>
+            <div class="card-bottom">
+              <span class="pill">Open India hub →</span>
+              <span class="mini-note">12Go × GiftCardZoneEU</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section style="margin-top: 22px;">
+        <div class="section-header">
+          <h2>Other Partner Hubs</h2>
+          <p>More partner sections from GiftCardZoneEU.</p>
+        </div>
+        <div class="grid">
+          <a class="card" href="/partners/12go/">
+            <div class="card-top">
+              <div class="card-label">Multi-country</div>
+              <h3>12Go Global</h3>
+              <p>General 12Go landing page with multi-country search.</p>
+            </div>
+            <div class="card-bottom">
+              <span class="pill">Open 12Go main →</span>
+              <span class="mini-note">Core partner hub</span>
+            </div>
+          </a>
+
+          <a class="card" href="/partners/mytrip/">
+            <div class="card-top">
+              <div class="card-label">Flights</div>
+              <h3>MyTrip</h3>
+              <p>Flight-focused partner hub (content under development).</p>
+            </div>
+            <div class="card-bottom">
+              <span class="pill">View MyTrip hub →</span>
+              <span class="mini-note">GiftCardZoneEU partner</span>
+            </div>
+          </a>
+
+          <a class="card" href="/partners/survey-sites/">
+            <div class="card-top">
+              <div class="card-label">Rewards</div>
+              <h3>Survey Sites</h3>
+              <p>Hand-picked survey & reward platforms curated by GiftCardZoneEU.</p>
+            </div>
+            <div class="card-bottom">
+              <span class="pill">View survey hub →</span>
+              <span class="mini-note">Extra earning options</span>
+            </div>
+          </a>
+
+          <a class="card" href="/partners/creative-hub/">
+            <div class="card-top">
+              <div class="card-label">Brand</div>
+              <h3>Creative Hub</h3>
+              <p>Internal creative resources and assets for the GiftCardZoneEU brand.</p>
+            </div>
+            <div class="card-bottom">
+              <span class="pill">Open creative hub →</span>
+              <span class="mini-note">Internal tools</span>
+            </div>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>© <span id="year"></span> GiftCardZoneEU. All rights reserved.</span>
+      <div class="footer-logos">
+        <div class="dot"></div>
+        <span>GiftCardZoneEU × 12Go · Partner network online</span>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
 
