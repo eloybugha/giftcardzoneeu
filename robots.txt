@@ -1,13 +1,12 @@
-# ============================
+# ======================
 # GiftCardZoneEU Robots Rules
-# ============================
+# ======================
 
 User-agent: *
-# Block duplicate and useless parameter URLs
 Disallow: /*?q=
 Disallow: /*?ref=
 Disallow: /*?source=
-Disallow: /*?utm_
+Disallow: /*?utm=
 Disallow: /*?fbclid=
 Disallow: /*?gclid=
 Disallow: /*?aff_id=
@@ -15,13 +14,8 @@ Disallow: /*?search=
 Disallow: /*?session=
 Disallow: /*?debug=
 
-# Prevent indexing of tag or search pages if ever created
 Disallow: /search
 Disallow: /tag/
 Disallow: /category/
 
-# Yandex-specific requirement
-Host: giftcardzoneeu.com
-
-# Sitemap (works for all search engines)
 Sitemap: https://giftcardzoneeu.com/sitemap.xml
