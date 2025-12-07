@@ -36,6 +36,86 @@ body {
   max-width: 600px;
 }
 
+/* ===== GZ HEADER + LOGO (FAVORITE MO) ===== */
+
+.gz-header {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 20; /* on top of overlay */
+}
+
+.gz-brand-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+}
+
+.gz-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.gz-brand-text {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.75rem;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.gz-brand-main {
+  font-weight: 600;
+  opacity: 0.95;
+}
+
+.gz-brand-sub {
+  font-size: 0.7rem;
+  opacity: 0.85;
+}
+
+.gz-partner-badge {
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: #00b86b;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* Small screens */
+@media (max-width: 600px) {
+  .gz-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .gz-partner-badge {
+    align-self: flex-start;
+  }
+}
+
+/* ===== BUTTONS & SECTIONS (same as sayo) ===== */
+
 .cta {
   display: inline-block;
   margin-top: 20px;
