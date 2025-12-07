@@ -23,20 +23,7 @@ body {
   backdrop-filter: blur(2px);
 }
 
-.brand-text {
-  color: #fff;
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 10;
-  color: #fff;
-  max-width: 600px;
-}
-
-/* ===== GZ HEADER + LOGO (FAVORITE MO) ===== */
+/* ========= GZ HEADER + LOGO (FAVORITE MO) ========= */
 
 .gz-header {
   position: absolute;
@@ -46,7 +33,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 20; /* on top of overlay */
+  z-index: 20; /* para nasa ibabaw ng overlay */
 }
 
 .gz-brand-pill {
@@ -101,7 +88,7 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-/* Small screens */
+/* small screens */
 @media (max-width: 600px) {
   .gz-header {
     flex-direction: column;
@@ -114,7 +101,20 @@ body {
   }
 }
 
-/* ===== BUTTONS & SECTIONS (same as sayo) ===== */
+/* ========= TEXT + CONTENT (same as sayo) ========= */
+
+.brand-text {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  color: #fff;
+  max-width: 600px;
+}
 
 .cta {
   display: inline-block;
