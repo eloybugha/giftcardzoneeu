@@ -84,8 +84,8 @@ img {
 }
 
 /* Background for India */
-.hero--india {
-  background: url("./india-hero.jpg") center/cover no-repeat;
+.hero--japan {
+  background: url("./japan-hero.jpg") center/cover no-repeat;
 }
 
 .hero-overlay {
