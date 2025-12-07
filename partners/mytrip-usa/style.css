@@ -8,7 +8,7 @@ body {
 .hero {
   position: relative;
   height: 80vh;
-  background: url('./assets/mytrip-usa-hero-clean.jpg?v=1') center/cover no-repeat;
+  background: url('./assets/mytrip-usa-hero-clean.jpg?v=2') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
