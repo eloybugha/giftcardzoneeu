@@ -37,11 +37,11 @@ body {
 }
 
 .gz-logo {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #fff;
-  padding: 4px;
+  height: 34px;
+  width: auto;
+  border-radius: 0;         /* wag i-circle, para di ma-crop yung GZ */
+  background: transparent;  /* alisin white bg, original logo lang */
+  padding: 0;
   object-fit: contain;
 }
 
