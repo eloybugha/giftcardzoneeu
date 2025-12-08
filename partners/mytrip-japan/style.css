@@ -1,403 +1,167 @@
-/* ==============
-   Base
-   ============== */
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
-  background: #f3f4f6;
-  color: #0f172a;
-  line-height: 1.5;
+  font-family: Arial, sans-serif;
+  background: #f3f3f3;
+  color: #222;
 }
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-/* Shell */
-
-.page-shell {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-/* ==============
-   Header / Brand
-   ============== */
-
-.site-header {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  z-index: 20;
-}
-
-.brand-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(15, 23, 42, 0.7);
-  color: #f9fafb;
-  font-size: 13px;
-  text-decoration: none;
-  backdrop-filter: blur(6px);
-}
-
-.brand-logo {
-  width: 26px;
-  height: 26px;
-}
-
-.brand-text {
-  font-weight: 600;
-}
-
-/* ==========
-   Hero
-   ========== */
 
 .hero {
   position: relative;
-  min-height: 72vh;
-  padding: 96px 16px 72px;
+  height: 80vh;
+  background: url('./assets/mytrip-hero.jpg') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: #f9fafb;
 }
 
-/* Background for India */
-.hero--japan {
-  background: url("./japan-hero.jpg") center/cover no-repeat;
-}
-
-.hero-overlay {
+.overlay {
   position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at top, rgba(15, 23, 42, 0.35), transparent),
-    linear-gradient(to bottom, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.9));
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.55);
   backdrop-filter: blur(2px);
 }
 
-.hero-inner {
-  position: relative;
-  max-width: 760px;
-  padding: 24px 18px;
-}
+/* ========= GZ HEADER + LOGO (FAVORITE MO) ========= */
 
-.hero-label {
-  display: inline-block;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: rgba(15, 23, 42, 0.65);
-  color: #e5e7eb;
-  font-size: 12px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
-
-.hero-title {
-  font-size: 32px;
-  line-height: 1.15;
-  margin: 0 0 12px;
-  font-weight: 700;
-}
-
-.hero-subtitle {
-  font-size: 15px;
-  margin: 0 0 18px;
-  color: #e5e7eb;
-}
-
-.hero-cta-wrap {
+.gz-header {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 8px;
+  justify-content: space-between;
+  z-index: 20; /* para nasa ibabaw ng overlay */
 }
 
-.hero-note {
-  margin: 0;
-  font-size: 12px;
-  color: #cbd5f5;
+.gz-brand-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: #007bff;
 }
 
-/* ==========
-   Buttons
-   ========== */
-
-.btn {
-  display: inline-flex;
+.gz-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 18px;
-  border-radius: 999px;
-  font-size: 14px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.gz-brand-text {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.75rem;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.gz-brand-main {
   font-weight: 600;
-  cursor: pointer;
-  border: none;
+  opacity: 0.95;
+}
+
+.gz-brand-sub {
+  font-size: 0.7rem;
+  opacity: 0.85;
+}
+
+.gz-partner-badge {
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: #00b86b;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* small screens */
+@media (max-width: 600px) {
+  .gz-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .gz-partner-badge {
+    align-self: flex-start;
+  }
+}
+
+/* ========= TEXT + CONTENT (same as sayo) ========= */
+
+.brand-text {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  color: #fff;
+  max-width: 600px;
+}
+
+.cta {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 14px 28px;
+  background: #007bff;
+  color: #fff;
+  border-radius: 8px;
   text-decoration: none;
-  transition: transform 0.12s ease, box-shadow 0.12s ease,
-    background-color 0.12s ease;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
-.btn-primary {
-  background: #22c55e;
-  color: #022c22;
-  box-shadow: 0 10px 25px rgba(22, 163, 74, 0.5);
+.cta:hover {
+  background: #0069d9;
 }
 
-.btn-primary:hover {
-  background: #16a34a;
-  transform: translateY(-1px);
-  box-shadow: 0 14px 30px rgba(22, 163, 74, 0.7);
+.secondary {
+  background: #333;
 }
 
-.btn-partner {
-  background: #0f172a;
-  color: #f9fafb;
-  width: 100%;
+.features {
+  padding: 20px 20px;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
   margin-top: 10px;
 }
 
-.btn-partner:hover {
-  background: #020617;
-  transform: translateY(-1px);
-  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.25);
+.card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
-/* =================
-   Trust Badges
-   ================= */
-
-.trust-badges {
-  max-width: 1024px;
-  margin: -40px auto 32px;
-  padding: 18px 16px;
-  background: #ffffff;
-  border-radius: 18px;
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
+.center-btn {
+  margin-top: 10px;
 }
 
-.trust-badge {
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
-}
-
-.trust-icon-circle {
-  width: 34px;
-  height: 34px;
-  border-radius: 999px;
-  background: #eff6ff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.trust-icon {
-  font-size: 18px;
-}
-
-.trust-text strong {
-  font-size: 14px;
-  display: block;
-  margin-bottom: 2px;
-}
-
-.trust-text p {
-  margin: 0;
-  font-size: 13px;
-  color: #64748b;
-}
-
-/* ==========
-   Partners
-   ========== */
-
-.partners {
-  max-width: 1100px;
-  margin: 0 auto 48px;
-  padding: 0 16px 24px;
-}
-
-.section-header {
+footer {
+  margin-top: 20px;
   text-align: center;
-  margin-bottom: 18px;
-}
-
-.section-header h2 {
-  font-size: 22px;
-  margin: 0 0 6px;
-}
-
-.section-header p {
-  margin: 0;
-  font-size: 14px;
-  color: #6b7280;
-}
-
-.partner-grid {
-  display: grid;
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.partner-card {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 16px 16px 14px;
-  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.partner-card-body {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-bottom: 8px;
-}
-
-.partner-logo-wrap {
-  height: 32px;
-  display: flex;
-  align-items: center;
-  margin-bottom: 2px;
-}
-
-.partner-logo {
-  max-height: 28px;
-}
-
-.partner-name {
-  font-size: 15px;
-  margin: 0;
-}
-
-.partner-text {
-  font-size: 13px;
-  margin: 4px 0 0;
-  color: #64748b;
-}
-
-.partners-disclaimer {
-  margin-top: 14px;
-  font-size: 12px;
-  color: #6b7280;
-  text-align: center;
-}
-
-/* ==========
-   Footer
-   ========== */
-
-.site-footer {
-  margin-top: auto;
-  background: #020617;
-  color: #e5e7eb;
-  padding: 18px 16px 20px;
-}
-
-.footer-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.footer-brand {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.footer-logo {
-  width: 26px;
-  height: 26px;
-}
-
-.footer-brand-text {
-  font-weight: 600;
-}
-
-.footer-text {
-  font-size: 13px;
-  margin: 0;
-}
-
-.footer-text.small {
-  font-size: 11px;
-  color: #9ca3af;
-}
-
-.footer-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.footer-link {
-  font-size: 12px;
-  color: #9ca3af;
-}
-
-.footer-link:hover {
-  color: #e5e7eb;
-}
-
-/* ==========
-   Responsive
-   ========== */
-
-@media (min-width: 768px) {
-  .hero-title {
-    font-size: 40px;
-  }
-
-  .hero-subtitle {
-    font-size: 16px;
-  }
-
-  .hero-inner {
-    padding: 28px 24px;
-  }
-
-  .trust-badges {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .partner-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .footer-inner {
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
-  }
+  padding: 20px;
+  font-size: 0.9rem;
+  background: #fff;
 }
