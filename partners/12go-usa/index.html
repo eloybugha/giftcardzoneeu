@@ -1,207 +1,75 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>USA Bus, Train & Transfers | GiftCardZoneEU × 12Go</title>
-  <meta name="description" content="Book USA buses, trains, shuttles and airport transfers — New York, Los Angeles, Las Vegas, Chicago, San Francisco and more via 12Go." />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://giftcardzoneeu.com/partners/12go-usa/" />
+  <title>Book Flights & Hotels in USA | GiftCardZoneEU × MyTrip</title>
+  <meta name="description" content="Find affordable flights and hotel deals across top cities in the United States with MyTrip. Compare options and book your next trip with ease." />
 
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="12Go USA Transport Booking | GiftCardZoneEU" />
-  <meta property="og:description" content="Compare and book buses, trains and transfers across the United States with 12Go." />
-  <meta property="og:image" content="https://giftcardzoneeu.com/partners/12go-usa/assets/12go-hero.jpg" />
+  <!-- CANONICAL -->
+  <link rel="canonical" href="https://giftcardzoneeu.com/partners/mytrip-usa/" />
 
+  <!-- SOCIAL META -->
+  <meta property="og:title" content="Book Flights & Hotels in USA | MyTrip × GZEU" />
+  <meta property="og:description" content="Search cheap flights and hotel deals across major destinations in the USA, including New York, Los Angeles, Miami, Las Vegas." />
+  <meta property="og:image" content="https://giftcardzoneeu.com/partners/mytrip-usa/assets/usa-hero.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="USA Travel Tickets | GiftCardZoneEU × 12Go" />
-  <meta name="twitter:image" content="https://giftcardzoneeu.com/partners/12go-usa/assets/12go-hero.jpg" />
 
-  <link rel="icon" href="https://giftcardzoneeu.com/assets/favicon.png" />
-
-  <style>
-    body {
-      margin: 0;
-      font-family: system-ui, sans-serif;
-      background: #020617;
-      color: #f8fafc;
-    }
-
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      padding: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: url("/partners/12go-usa/assets/12go-hero.jpg") center/cover no-repeat;
-      opacity: 0.75;
-      filter: brightness(0.85) saturate(1.1);
-      z-index: -2;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(15,23,42,0.95), rgba(15,23,42,0.9));
-      z-index: -1;
-    }
-
-    .content {
-      width: 100%;
-      max-width: 1100px;
-      display: grid;
-      gap: 32px;
-      grid-template-columns: 1.3fr 1fr;
-    }
-
-    @media(max-width: 800px) {
-      .content {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 14px;
-      background: rgba(15,23,42,0.85);
-      border: 1px solid rgba(148,163,184,0.5);
-      border-radius: 999px;
-      margin-bottom: 18px;
-    }
-
-    .badge img {
-      width: 28px;
-      height: 28px;
-    }
-
-    h1 {
-      font-size: 32px;
-      margin: 10px 0 14px;
-      line-height: 1.18;
-    }
-
-    p {
-      color: #cbd5e1;
-      font-size: 15px;
-      line-height: 1.6;
-    }
-
-    .pill-row, .trust-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 18px;
-    }
-
-    .pill {
-      padding: 6px 12px;
-      background: rgba(15,23,42,0.9);
-      border: 1px solid rgba(148,163,184,0.4);
-      border-radius: 999px;
-      font-size: 12px;
-    }
-
-    .cta-btn {
-      display: inline-flex;
-      margin-top: 20px;
-      padding: 12px 22px;
-      background: radial-gradient(circle at 0% 0%, #e0f2fe, #38bdf8);
-      border-radius: 999px;
-      color: #0f172a;
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 14px;
-      box-shadow: 0 18px 40px rgba(7,89,133,0.7);
-    }
-
-    aside {
-      background: rgba(15,23,42,0.92);
-      padding: 18px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .route {
-      margin-bottom: 10px;
-      background: rgba(15,23,42,0.75);
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.45);
-      font-size: 12px;
-      display: flex;
-      justify-content: space-between;
-    }
-  </style>
+  <link rel="stylesheet" href="./style.css" />
 </head>
 
 <body>
-  <section class="hero">
-    <div class="content">
+  <div class="hero">
+    <div class="overlay"></div>
 
-      <!-- LEFT -->
-      <div>
-        <div class="badge">
-          <img src="/assets/brand/gz-logo.svg" />
-          <span>GiftCardZoneEU × 12Go USA</span>
-        </div>
-
-        <h1>
-          Book USA <span style="color:#38bdf8">bus, train & shuttle tickets</span> with 12Go.
-        </h1>
-
-        <p>
-          Travel between major U.S. cities: <strong>New York, Los Angeles, Las Vegas, Miami, San Francisco, Chicago, Orlando</strong> and more.
-          Compare bus, train, ferries & airport transfers. All payments are handled securely on <strong>12Go</strong>.
-        </p>
-
-        <div class="pill-row">
-          <div class="pill">Intercity buses</div>
-          <div class="pill">Shuttles & airport transfers</div>
-          <div class="pill">Long-distance routes</div>
-          <div class="pill">East Coast ↔ West Coast</div>
-        </div>
-
-        <a class="cta-btn" href="https://www.tkqlhce.com/click-101586981-17115150" target="_blank">
-          Book USA Tickets on 12Go
-        </a>
-
-        <div class="trust-row">
-          <div class="pill">✓ Instant confirmation (select routes)</div>
-          <div class="pill">💳 Secure booking via 12Go</div>
+    <header class="gz-header">
+      <div class="gz-brand-pill">
+        <div class="gz-avatar">GZ</div>
+        <div class="gz-brand-text">
+          <span class="gz-brand-main">GiftCardZoneEU • Partners</span>
+          <span class="gz-brand-sub">MyTrip USA</span>
         </div>
       </div>
 
-      <!-- RIGHT -->
-      <aside>
-        <h3>Popular USA Routes</h3>
+      <div class="gz-partner-badge">Official affiliate partner</div>
+    </header>
 
-        <div class="route"><span>New York → Washington DC</span><span>bus/train</span></div>
-        <div class="route"><span>New York → Boston</span><span>bus</span></div>
-        <div class="route"><span>Los Angeles → Las Vegas</span><span>bus</span></div>
-        <div class="route"><span>San Francisco → Los Angeles</span><span>bus</span></div>
-        <div class="route"><span>Chicago → Detroit</span><span>bus/train</span></div>
-        <div class="route"><span>Miami → Orlando</span><span>bus</span></div>
-        <div class="route"><span>Seattle → Vancouver</span><span>cross-border</span></div>
+    <div class="hero-content">
+      <h1>Book Flights & Hotels in USA</h1>
+      <p>Find affordable flights and hotel deals across New York, Los Angeles, Miami, Las Vegas and more.</p>
+      <a href="https://www.kqzyfj.com/click-101586981-17066582" class="cta">Search Deals</a>
+    </div>
+  </div>
 
-        <p style="margin-top:18px;font-size:12px;color:#94a3b8">
-          GiftCardZoneEU does not process payments. All bookings are completed on 12Go.
-        </p>
-      </aside>
+  <section class="features">
+    <h2>Why Book with MyTrip?</h2>
 
+    <div class="grid">
+      <div class="card">
+        <h3>✈️ Cheap Flights</h3>
+        <p>Compare airline prices to and from major U.S. cities.</p>
+      </div>
+
+      <div class="card">
+        <h3>🏨 Hotels Nationwide</h3>
+        <p>Choose from thousands of hotels, apartments, and stays across the USA.</p>
+      </div>
+
+      <div class="card">
+        <h3>🌴 Travel Packages</h3>
+        <p>Bundle flights and hotels to save more on your next trip.</p>
+      </div>
+    </div>
+
+    <div class="center-btn">
+      <a href="https://www.kqzyfj.com/click-101586981-17066582" class="cta secondary">Start Booking</a>
     </div>
   </section>
+
+  <footer>
+    <p>© 2025 GiftCardZoneEU. All Rights Reserved.</p>
+  </footer>
 </body>
 </html>
-
+  
