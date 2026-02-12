@@ -3,106 +3,99 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Claim Your Xbox Gift Card — Android Only</title>
+
+<title>Xbox Rewards — Device Based Access</title>
+<meta name="description" content="Access reward offers based on your device. Terms and availability may vary." />
+
+<!-- ✅ IMPORTANT: make this page NOT indexable -->
+<meta name="robots" content="noindex, nofollow, noarchive" />
+
+<!-- ✅ Canonical (optional for noindex pages, but ok to keep clean) -->
+<link rel="canonical" href="https://giftcardzoneeu.com/xbox-rewards.html" />
+
 <style>
-  body{margin:0;font-family:sans-serif;background:#0b0f0c;color:#e8f5e9;text-align:center;padding:20px}
-  h1{font-size:28px;margin:10px 0}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#0b0f0c;color:#e8f5e9;text-align:center;padding:20px}
+  h1{font-size:26px;margin:10px 0}
   p{color:#cfead1}
-  .card{max-width:500px;margin:auto;background:#111;padding:20px;border-radius:14px;box-shadow:0 8px 20px rgba(0,0,0,.5)}
+  .card{max-width:520px;margin:auto;background:#111;padding:22px;border-radius:14px;box-shadow:0 8px 20px rgba(0,0,0,.5)}
   .thumb img{width:100%;border-radius:12px}
-  .cta{display:inline-block;margin-top:18px;padding:14px 18px;border-radius:12px;
-       background:linear-gradient(180deg,#22c55e,#16a34a);color:white;font-weight:bold;
-       text-decoration:none;box-shadow:0 8px 18px rgba(22,163,74,.5)}
-  .cta:hover{filter:brightness(1.1)}
-  .cta.disabled{opacity:.55;pointer-events:none}
-  .timer{display:flex;justify-content:center;gap:10px;margin:14px 0}
-  .tick{background:#107c10;padding:10px 14px;border-radius:8px}
-  .tick b{font-size:22px;display:block}
-  .note{margin-top:10px;font-size:13px;color:#a7b8a8}
-  .warn{margin-top:10px;font-size:14px;color:#ffd08a}
-  footer{margin-top:40px;color:#a7b8a8;font-size:13px}
+  .cta{display:inline-block;margin-top:16px;padding:14px 18px;border-radius:12px;
+       background:linear-gradient(180deg,#22c55e,#16a34a);color:white;font-weight:800;
+       text-decoration:none;box-shadow:0 8px 18px rgba(22,163,74,.45)}
+  .cta:hover{filter:brightness(1.07)}
+  .sub{margin-top:10px;font-size:13px;color:#a7b8a8}
+  .warn{margin-top:12px;font-size:14px;color:#ffd08a;display:none}
+  .mini{margin-top:14px;font-size:13px}
+  .mini a{color:#a8f7b0}
+  footer{margin-top:36px;color:#a7b8a8;font-size:13px}
 </style>
 </head>
+
 <body>
   <div class="card">
     <div class="thumb">
-      <!-- Xbox Gift Card Image -->
-<img src="https://i.ibb.co/2vvP0yt/xbox-giftcard.png" 
-     alt="Xbox Gift Card $100" 
-     style="max-width:100%; border-radius:12px; margin-bottom:15px;">
-    </div>
-    <h1>Claim your Xbox Gift Card ($100)</h1>
-    <p>Android users only. Complete quick verification to unlock your reward.</p>
-
-    <!-- Countdown -->
-    <div class="timer">
-      <div class="tick"><b id="m">05</b><small>Minutes</small></div>
-      <div class="tick"><b id="s">00</b><small>Seconds</small></div>
+      <img src="https://i.ibb.co/2vvP0yt/xbox-giftcard.png" alt="Xbox Rewards Card">
     </div>
 
-    <!-- CTA (JS will set the right link) -->
-    <a id="cta" href="#" class="cta">🎮 Claim on Android</a>
-    <div id="warn" class="warn" style="display:none">This offer is available on Android only.</div>
-    <div class="note">If you’re not on Android, use the alternative rewards link below.</div>
-    <p class="note"><a id="fallback" href="#" style="color:#a8f7b0">See other rewards</a></p>
+    <h1>Xbox Rewards Access</h1>
+    <p>Offers may vary by device and location. Please review terms on the next page.</p>
+
+    <a id="cta" href="#" class="cta">Continue</a>
+
+    <div id="warn" class="warn">You may see a different offer depending on your device.</div>
+
+    <p class="sub">
+      No guarantees of rewards. Availability and requirements are set by the offer provider.
+    </p>
+
+    <p class="mini">
+      Alternative link: <a id="fallback" href="#" rel="nofollow">Open offers</a>
+    </p>
   </div>
 
   <footer>© <span id="year"></span> GiftCardZoneEU. All rights reserved.</footer>
 
 <script>
-// ==============================
-// CONFIG: EDIT THESE LINKS
-// ==============================
-const ALIEXPRESS_LINK = "https://s.click.aliexpress.com/e/_c35B3nnp";
-const CPAGRIP_LINK   = "https://singingfiles.com/show.php?l=0&u=180655&id=72074";
-const MONETAG_LINK   = "https://syndication.monetag.com/smartlink?zoneid=4590821";
+  // ==============================
+  // CONFIG: EDIT THESE LINKS
+  // ==============================
+  const ALIEXPRESS_LINK = "https://s.click.aliexpress.com/e/_c35B3nnp";
+  const CPAGRIP_LINK   = "https://singingfiles.com/show.php?l=0&u=180655&id=72074";
+  const MONETAG_LINK   = "https://syndication.monetag.com/smartlink?zoneid=4590821";
 
-// ==============================
-// COUNTDOWN (5:00)
-// ==============================
-let t = 5 * 60;
-const m = document.getElementById("m");
-const s = document.getElementById("s");
+  // ==============================
+  // AUTO YEAR
+  // ==============================
+  document.getElementById("year").textContent = new Date().getFullYear();
 
-function tick() {
-  if (t >= 0) {
-    const min = String(Math.floor(t / 60)).padStart(2, "0");
-    const sec = String(t % 60).padStart(2, "0");
-    if (m) m.textContent = min;
-    if (s) s.textContent = sec;
-    t--;
-    setTimeout(tick, 1000);
+  // ==============================
+  // DEVICE DETECTION + LINK LOGIC
+  // ==============================
+  const ua = navigator.userAgent || "";
+  const isAndroid = /Android/i.test(ua);
+  const isIOS     = /iPhone|iPad|iPod/i.test(ua);
+
+  const cta      = document.getElementById("cta");
+  const warn     = document.getElementById("warn");
+  const fallback = document.getElementById("fallback");
+
+  if (isAndroid) {
+    cta.href = MONETAG_LINK;                 // Android → Monetag
+    cta.textContent = "Continue on Android";
+    fallback.href = MONETAG_LINK;
+  } else if (isIOS) {
+    cta.href = ALIEXPRESS_LINK;              // iOS → AliExpress (affiliate)
+    cta.textContent = "Continue on iOS";
+    fallback.href = ALIEXPRESS_LINK;
+  } else {
+    cta.href = CPAGRIP_LINK;                 // Desktop/Other → CPAGrip
+    cta.textContent = "Continue on Desktop";
+    fallback.href = CPAGRIP_LINK;
   }
-}
-tick();
 
-// ==============================
-// AUTO YEAR
-// ==============================
-document.getElementById("year").textContent = new Date().getFullYear();
-
-// ==============================
-// DEVICE DETECTION + LINK LOGIC
-// ==============================
-const isAndroid = /Android/i.test(navigator.userAgent);
-const isIOS     = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-const cta       = document.getElementById("cta");
-const warn      = document.getElementById("warn");
-const fallback  = document.getElementById("fallback");
-
-if (isAndroid) {
-  cta.href = MONETAG_LINK;          // Android → Monetag
-  cta.textContent = "👉 Claim Offer (Android)";
-} else if (isIOS) {
-  cta.href = ALIEXPRESS_LINK;       // iOS → AliExpress
-  cta.textContent = "👉 Claim Offer (iOS)";
-} else {
-  cta.href = CPAGRIP_LINK;          // Others → CPAGrip
-  cta.textContent = "👉 Claim Offer (Desktop)";
   warn.style.display = "block";
-  fallback.href = CPAGRIP_LINK;
-}
-
-// Optional console check
-console.log("Device detected:", isAndroid ? "Android" : isIOS ? "iOS" : "Other");
+  console.log("Device:", isAndroid ? "Android" : isIOS ? "iOS" : "Other");
 </script>
+
+</body>
+</html>
