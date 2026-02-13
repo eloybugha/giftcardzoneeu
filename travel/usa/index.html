@@ -1,4 +1,4 @@
-l<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -24,7 +24,7 @@ l<!DOCTYPE html>
       font-family: Arial, sans-serif;
       background: var(--bg);
       color: var(--text);
-      background-image: url('https://images.unsplash.com/photo-1485738422979-f5c462d49f74?auto=format&fit=crop&w=1600&q=80');
+      background-image: url('/assets/usa-hero.webp');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -159,7 +159,7 @@ l<!DOCTYPE html>
 
         <!-- LAS VEGAS -->
         <div class="card">
-          <img src="/travel/usa/IMG_20251122_171759.jpg">
+          <img src="/assets/usa-hero.webp" alt="Las Vegas hotels">h
           <div class="card-content">
             <h3>Las Vegas</h3>
             <a class="btn" href="#" target="_blank">View Hotels</a>
@@ -187,8 +187,12 @@ l<!DOCTYPE html>
       </div>
 
       <footer>
-        © 2025 GiftCardZoneEU — Travel Deals Worldwide
-      </footer>
+  © <span id="year"></span> GiftCardZoneEU — Travel Deals Worldwide
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
     </div>
   </div>
