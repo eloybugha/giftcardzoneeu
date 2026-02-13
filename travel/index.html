@@ -36,7 +36,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background-image: url('/assets/IMG_20251122_154708.jpg');
+      background-image: url('/assets/travel-hero.webp');
       background-size: cover;
       background-position: center;
     }
@@ -241,8 +241,12 @@
   </main>
 
   <footer>
-    © 2025 GiftCardZoneEU · Agoda Travel Partner
-  </footer>
+  © <span id="year"></span> GiftCardZoneEU · Agoda Travel Partner
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
