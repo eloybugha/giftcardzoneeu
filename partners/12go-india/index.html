@@ -14,9 +14,36 @@
   <meta property="og:title" content="12Go India Transport Booking | GiftCardZoneEU" />
   <meta property="og:description" content="Compare seats, schedules & operators for transport across India." />
   <meta property="og:url" content="https://giftcardzoneeu.com/partners/12go-india/" />
-  <meta property="og:image" content="/partners/india/assets/12go-hero-in.jpg" />
+  <meta property="og:image" content="https://giftcardzoneeu.com/partners/12go-india/12go-in-hero.jpg" />
 
   <style>
+    .tinyNote{font-size:11px;color:var(--text-muted);}
+
+.benefitsGrid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:10px;
+  margin-top:10px;
+}
+
+.benefitCard{
+  border-radius:16px;
+  background:#020617;
+  border:1px solid rgba(148,163,184,0.45);
+  padding:12px;
+}
+
+.benefitTitle{
+  font-size:14px;
+  font-weight:700;
+  margin-bottom:6px;
+}
+
+.benefitCard p{
+  font-size:12px;
+  color:var(--text-muted);
+  line-height:1.5;
+}
     :root {
       --bg: #020617;
       --card-bg: #020617;
@@ -244,8 +271,13 @@
     </main>
 
     <footer>
-      12Go is an independent company. For booking support please contact the 12Go Help Centre directly.
-    </footer>
+  <p>12Go is an independent company. For booking support please contact the 12Go Help Centre directly.</p>
+  <p>© <span id="year"></span> GiftCardZoneEU. All rights reserved.</p>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
   </div>
 </body>
