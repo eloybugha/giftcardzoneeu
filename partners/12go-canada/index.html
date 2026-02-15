@@ -15,7 +15,7 @@
   <meta property="og:description" content="Compare and book trains, buses and transfers across Canada with 12Go." />
   <meta property="og:url" content="https://giftcardzoneeu.com/partners/12go-canada/" />
   <meta property="og:image" content="https://giftcardzoneeu.com/partners/12go-canada/assets/12go-canada-hero.jpg" />
-
+<meta name="twitter:image" content="https://giftcardzoneeu.com/partners/12go-canada/assets/12go-canada-hero.jpg" />
   <style>
     :root {
       --bg: #020617;
@@ -778,9 +778,13 @@
     </main>
 
     <footer>
-      <span>© 2025 GiftCardZoneEU. Canada transport search with 12Go.</span>
-      <span>Always check latest schedules, prices and requirements before you travel.</span>
-    </footer>
+  <p>12Go is a separate company. For booking support please contact 12Go Help Centre.</p>
+  <p>© <span id="year"></span> GiftCardZoneEU. All rights reserved.</p>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
   </div>
 </body>
 </html>
