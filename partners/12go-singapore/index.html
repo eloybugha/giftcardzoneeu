@@ -1,4 +1,4 @@
-   <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -6,8 +6,13 @@
 
   <title>Singapore Bus & Train Tickets | GiftCardZoneEU × 12Go</title>
   <meta name="description" content="Book buses, trains and transfers from Singapore to Johor Bahru, Kuala Lumpur, Melaka, Genting Highlands and more with 12Go." />
+
+  <!-- ✅ Indexable partner page -->
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://giftcardzoneeu.com/partners/12go-singapore/" />
+
+  <!-- ✅ Preload hero (LCP boost) - SAME IMAGE PATH (no change to file) -->
+  <link rel="preload" as="image" href="/partners/12go-singapore/assets/12go/singapore-hero.jpg" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -15,6 +20,12 @@
   <meta property="og:description" content="Compare and book cross-border buses & trains from Singapore with 12Go." />
   <meta property="og:url" content="https://giftcardzoneeu.com/partners/12go-singapore/" />
   <meta property="og:image" content="https://giftcardzoneeu.com/partners/12go-singapore/assets/12go/singapore-hero.jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="12Go Singapore Transport Booking | GiftCardZoneEU" />
+  <meta name="twitter:description" content="Compare and book cross-border buses & trains from Singapore with 12Go." />
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/partners/12go-singapore/assets/12go/singapore-hero.jpg" />
 
   <style>
     :root {
@@ -56,6 +67,8 @@
       padding: 6px 10px; border-radius: 999px; font-size: 11px;
       display: inline-flex; gap: 6px; align-items: center;
       background: rgba(31,41,55,0.8); border: 1px solid rgba(148,163,184,0.5);
+      color: var(--text-main);
+      white-space: nowrap;
     }
     .tagDot {
       width: 7px; height: 7px; border-radius: 999px;
@@ -90,12 +103,18 @@
       background: linear-gradient(135deg, #00c3a3, #22c55e);
       color: #020617; text-decoration: none;
       box-shadow: 0 14px 40px rgba(16,185,129,0.5);
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
     }
     .btnGhost {
       padding: 9px 14px; border: 1px solid rgba(148,163,184,0.6);
       background: rgba(15,23,42,0.9);
       border-radius: 999px; font-size: 13px; color: var(--text-muted);
       text-decoration: none;
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
     }
 
     .heroVisual {
@@ -117,11 +136,14 @@
       display: grid; grid-template-columns: repeat(3,1fr); gap: 12px;
     }
     .heroWidget label { display: flex; flex-direction: column; font-size: 11px; color: var(--text-muted); }
-    .heroWidget span { font-size: 13px; }
+    .heroWidget span { font-size: 13px; color: var(--text-main); }
     .chip {
       padding: 6px 12px; border-radius: 999px; font-size: 11px;
       background: rgba(22,163,74,0.16); border: 1px solid rgba(34,197,94,0.4);
       color: #bbf7d0; justify-self: end;
+      display: inline-flex; align-items: center; justify-content: center;
+      text-align: center;
+      white-space: nowrap;
     }
 
     .section {
@@ -141,24 +163,28 @@
       border: 1px solid rgba(148,163,184,0.4);
     }
     .routeTitle { font-size: 14px; font-weight: 600; }
-    .routeMeta { color: var(--text-muted); font-size: 12px; margin-bottom: 6px; }
-    .routeTag { 
+    .routeMeta { color: var(--text-muted); font-size: 12px; margin-bottom: 6px; line-height: 1.35; }
+    .routeTag {
       padding: 4px 7px; font-size: 11px; border-radius: 999px;
       background: rgba(15,23,42,0.9); border: 1px solid rgba(148,163,184,0.4);
       display: inline-block; margin-right: 6px; margin-bottom: 4px;
+      color: var(--text-muted);
     }
     .routeLink {
       font-size: 12px; color: #e0f2fe; text-decoration: none; display: inline-flex; gap: 6px;
-      margin-top: 6px;
+      margin-top: 8px;
     }
+    .routeLink:hover { text-decoration: underline; }
 
     footer {
       margin-top: 20px; font-size: 11px; color: var(--text-muted);
+      line-height: 1.5;
     }
 
     @media (max-width: 720px) {
       .heroInner { grid-template-columns: 1fr; }
       .heroWidget { grid-template-columns: 1fr; }
+      .chip { justify-self: start; width: fit-content; }
     }
   </style>
 </head>
@@ -194,16 +220,23 @@
             </p>
 
             <div class="heroCTA">
-              <a class="btnPrimary" href="https://www.tkqlhce.com/click-101586981-17115164" target="_blank" rel="noopener noreferrer">
+              <a class="btnPrimary"
+                 href="https://www.tkqlhce.com/click-101586981-17115164"
+                 target="_blank"
+                 rel="nofollow sponsored noopener noreferrer">
                 <span>Start booking from Singapore</span> →
               </a>
-              <a class="btnGhost" href="https://www.tkqlhce.com/click-101586981-17115164" target="_blank" rel="noopener noreferrer">
+
+              <a class="btnGhost"
+                 href="https://www.tkqlhce.com/click-101586981-17115164"
+                 target="_blank"
+                 rel="nofollow sponsored noopener noreferrer">
                 View Singapore routes
               </a>
             </div>
           </div>
 
-          <div class="heroVisual">
+          <div class="heroVisual" aria-label="Singapore hero image">
             <div class="heroOverlay"></div>
             <div class="heroWidget">
               <label>From <span>Singapore</span></label>
@@ -217,14 +250,17 @@
       <!-- POPULAR ROUTES -->
       <section class="section">
         <h2 style="font-size: 17px;">Popular routes from Singapore</h2>
-        <div class="routesGrid">
 
+        <div class="routesGrid">
           <div class="routeCard">
             <div class="routeTitle">Singapore → Johor Bahru</div>
             <div class="routeMeta">Frequent buses & shuttles.</div>
             <span class="routeTag">Cross-border bus</span>
             <span class="routeTag">Shuttle</span>
-            <a class="routeLink" href="https://www.tkqlhce.com/click-101586981-17115164" target="_blank">Check SG–JB options →</a>
+            <a class="routeLink"
+               href="https://www.tkqlhce.com/click-101586981-17115164"
+               target="_blank"
+               rel="nofollow sponsored noopener noreferrer">Check SG–JB options →</a>
           </div>
 
           <div class="routeCard">
@@ -232,39 +268,55 @@
             <div class="routeMeta">Day & night buses.</div>
             <span class="routeTag">Express bus</span>
             <span class="routeTag">Overnight</span>
-            <a class="routeLink" href="https://www.tkqlhce.com/click-101586981-17115164" target="_blank">Explore SG–KL trips →</a>
+            <a class="routeLink"
+               href="https://www.tkqlhce.com/click-101586981-17115164"
+               target="_blank"
+               rel="nofollow sponsored noopener noreferrer">Explore SG–KL trips →</a>
           </div>
 
           <div class="routeCard">
             <div class="routeTitle">Singapore → Melaka</div>
             <div class="routeMeta">Direct coaches.</div>
             <span class="routeTag">Tourist coach</span>
-            <a class="routeLink" href="https://www.tkqlhce.com/click-101586981-17115164" target="_blank">View SG–Melaka →</a>
+            <a class="routeLink"
+               href="https://www.tkqlhce.com/click-101586981-17115164"
+               target="_blank"
+               rel="nofollow sponsored noopener noreferrer">View SG–Melaka →</a>
           </div>
 
           <div class="routeCard">
             <div class="routeTitle">Singapore → Genting Highlands / Penang</div>
             <div class="routeMeta">Long-distance buses.</div>
             <span class="routeTag">Comfort coach</span>
-            <a class="routeLink" href="https://www.tkqlhce.com/click-101586981-17115164" target="_blank">See SG–Genting/Penang →</a>
+            <a class="routeLink"
+               href="https://www.tkqlhce.com/click-101586981-17115164"
+               target="_blank"
+               rel="nofollow sponsored noopener noreferrer">See SG–Genting/Penang →</a>
           </div>
-
         </div>
       </section>
 
       <!-- DISCLOSURE -->
       <section class="section">
         <h2 style="font-size: 17px;">Affiliate disclosure</h2>
-        <p style="font-size: 12px; color: var(--text-muted);">
-          Some links on this page are affiliate links. This means we may earn a small commission if you make a booking via 12Go after clicking our link — at no extra cost to you.
+        <p style="font-size: 12px; color: var(--text-muted); line-height: 1.55;">
+          Some links on this page are affiliate links. This means we may earn a small commission if you make a booking via 12Go
+          after clicking our link — at no extra cost to you.
         </p>
       </section>
     </main>
 
     <footer>
-      © 2025 GiftCardZoneEU. Bookings are processed on 12Go’s official website.
+      © <span id="y"></span> GiftCardZoneEU. Bookings are processed on 12Go’s official website.
     </footer>
   </div>
+
+  <!-- ✅ Auto-year -->
+  <script>
+    (function(){
+      var el = document.getElementById('y');
+      if (el) el.textContent = new Date().getFullYear();
+    })();
+  </script>
 </body>
-</html>
-       
+</html>                
