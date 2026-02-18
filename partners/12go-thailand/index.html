@@ -5,15 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Thailand Trains, Buses & Ferries | GiftCardZoneEU × 12Go</title>
-  <meta name="description" content="Travel across Thailand with ease. Book trains, buses, vans, ferries and airport transfers through 12Go. Start at GiftCardZoneEU, finish securely on 12Go." />
-
+  <meta name="description" content="Travel across Thailand with ease. Book trains, buses, vans, ferries and airport transfers through 12Go. Start at GiftCardZoneEU and finish securely on 12Go." />
+  <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://giftcardzoneeu.com/partners/12go-thailand/" />
 
-  <!-- OG Tags -->
+  <!-- Preload Hero -->
+  <link rel="preload" as="image" href="/partners/12go-thailand/12go-thailand-hero.jpg" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
   <meta property="og:title" content="Thailand Trains, Buses & Ferries | GiftCardZoneEU × 12Go" />
   <meta property="og:description" content="Book verified trips across Thailand — Bangkok, Phuket, Chiang Mai, Pattaya, Krabi, Ayutthaya and more." />
   <meta property="og:image" content="https://giftcardzoneeu.com/partners/12go-thailand/12go-thailand-hero.jpg" />
   <meta property="og:url" content="https://giftcardzoneeu.com/partners/12go-thailand/" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Thailand Trains, Buses & Ferries | GiftCardZoneEU × 12Go" />
+  <meta name="twitter:description" content="Book trains, buses, ferries and transfers across Thailand with 12Go." />
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/partners/12go-thailand/12go-thailand-hero.jpg" />
+  <meta name="twitter:url" content="https://giftcardzoneeu.com/partners/12go-thailand/" />
 
   <style>
     body {
@@ -27,7 +38,7 @@
       position: relative;
       height: 100vh;
       width: 100%;
-      background: url('12go-thailand-hero.jpg') center/cover no-repeat;
+      background: url('/partners/12go-thailand/12go-thailand-hero.jpg') center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -43,7 +54,8 @@
     .content {
       position: relative;
       z-index: 2;
-      max-width: 90%;
+      max-width: 900px;
+      padding: 20px;
     }
 
     .gz-logo {
@@ -82,6 +94,13 @@
       font-size: 0.9rem;
     }
 
+    footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 0.8rem;
+      opacity: 0.7;
+    }
+
     @media (max-width: 768px) {
       h1 { font-size: 2rem; }
       p { font-size: 1rem; }
@@ -98,15 +117,27 @@
       <img src="/assets/gz-logo.png" alt="GiftCardZoneEU Logo" class="gz-logo" />
 
       <h1>Explore Thailand with 12Go</h1>
-      <p>Book trains, buses, vans, ferries & transfers — Bangkok • Phuket • Chiang Mai • Pattaya • Krabi.</p>
+      <p>Book trains, buses, vans, ferries & transfers — Bangkok • Phuket • Chiang Mai • Pattaya • Krabi • Ayutthaya.</p>
 
-      <a href="https://www.tkqlhce.com/click-101586981-17115150" target="_blank">
-        Book Your Trip → 
+      <a href="https://www.tkqlhce.com/click-101586981-17115150"
+         class="cta-btn"
+         target="_blank"
+         rel="nofollow sponsored noopener noreferrer">
+        Book Your Trip →
       </a>
 
-      <div class="trust">Trusted by millions of travelers in Asia</div>
+      <div class="trust">
+        Trusted by millions of travelers in Asia · Secure checkout on 12Go
+      </div>
     </div>
   </section>
+
+  <footer>
+    © <span id="year"></span> GiftCardZoneEU · Official 12Go affiliate partner
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
-
