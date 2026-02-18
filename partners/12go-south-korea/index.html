@@ -199,24 +199,50 @@
       text-align: center;
       line-height: 1.5;
     }
+    .hero-bg {
+  position: relative;
+  background: url('/partners/12go-south-korea/assets/12go-south-korea-hero.jpg') center/cover no-repeat;
+  border-radius: 16px;
+  padding: 60px 20px 50px;
+  margin-bottom: 20px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
   </style>
 </head>
 <body>
   <main class="page">
     <section class="card" aria-labelledby="korea-title">
-      <div style="text-align:center;margin-bottom:12px;">
-  <a href="https://giftcardzoneeu.com/" 
-     style="text-decoration:none;color:#fff;font-weight:800;font-size:22px;">
-     GiftCardZoneEU
-  </a>
-  <div style="font-size:12px;color:#d1d5db;margin-top:4px;">
-     Official partner page
+      <div class="hero-bg">
+  <div class="hero-content">
+    <a href="https://giftcardzoneeu.com/"
+       style="text-decoration:none;color:#fff;font-weight:800;font-size:24px;letter-spacing:0.5px;">
+       GiftCardZoneEU
+    </a>
+    <div style="font-size:13px;color:#d1d5db;margin-top:4px;">
+       Official partner page
+    </div>
+
+    <h1 id="korea-title" style="margin-top:18px;">
+      12Go South Korea Transport Booking
+    </h1>
+    <p class="subtitle">
+      Book buses, trains, ferries, and transfers across South Korea — no hidden fees.
+    </p>
   </div>
 </div>
-      <h1 id="korea-title">12Go South Korea Transport Booking</h1>
-      <p class="subtitle">
-        Book buses, trains, ferries, and transfers across South Korea — no hidden fees.
-      </p>
 
       <!-- TODO: replace href with your CJ / 12Go affiliate link -->
       <a class="primary-cta" href="https://www.dpbolvw.net/click-101586981-17115158" rel="nofollow sponsored noopener noreferrer">
