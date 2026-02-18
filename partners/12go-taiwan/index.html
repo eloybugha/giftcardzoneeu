@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+   <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -9,12 +9,22 @@
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://giftcardzoneeu.com/partners/12go-taiwan/" />
 
+  <!-- Performance -->
+  <link rel="preload" as="image" href="/partners/12go-taiwan/assets/12go-taiwan-hero.jpg" />
+
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Taiwan Trains, Buses & Ferries | GiftCardZoneEU × 12Go" />
   <meta property="og:description" content="Compare and book trains, buses and ferries across Taiwan with 12Go." />
   <meta property="og:url" content="https://giftcardzoneeu.com/partners/12go-taiwan/" />
   <meta property="og:image" content="https://giftcardzoneeu.com/partners/12go-taiwan/assets/12go-taiwan-hero.jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Taiwan Trains, Buses & Ferries | GiftCardZoneEU × 12Go" />
+  <meta name="twitter:description" content="Compare and book trains, buses and ferries across Taiwan with 12Go." />
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/partners/12go-taiwan/assets/12go-taiwan-hero.jpg" />
+  <meta name="twitter:url" content="https://giftcardzoneeu.com/partners/12go-taiwan/" />
 
   <style>
     :root {
@@ -556,10 +566,16 @@
           </p>
 
           <div class="hero-actions">
-            <a href="https://www.tkqlhce.com/click-101586981-17115150" class="btn-main" target="_blank" rel="nofollow">
+            <a href="https://www.tkqlhce.com/click-101586981-17115150"
+               class="btn-main"
+               target="_blank"
+               rel="nofollow sponsored noopener noreferrer">
               Start booking in Taiwan →
             </a>
-            <a href="https://www.tkqlhce.com/click-101586981-17115150" class="btn-ghost" target="_blank" rel="nofollow">
+            <a href="https://www.tkqlhce.com/click-101586981-17115150"
+               class="btn-ghost"
+               target="_blank"
+               rel="nofollow sponsored noopener noreferrer">
               View Taiwan routes & operators →
             </a>
           </div>
@@ -604,7 +620,10 @@
               <span>High-speed rail</span>
               <span>Frequent departures</span>
             </div>
-            <a href="https://www.tkqlhce.com/click-101586981-17115150" class="route-link" target="_blank" rel="nofollow">
+            <a href="https://www.tkqlhce.com/click-101586981-17115150"
+               class="route-link"
+               target="_blank"
+               rel="nofollow sponsored noopener noreferrer">
               View Taipei–Taichung options →
             </a>
           </article>
@@ -618,7 +637,10 @@
               <span>North–south route</span>
               <span>Multiple classes</span>
             </div>
-            <a href="https://www.tkqlhce.com/click-101586981-17115150" class="route-link" target="_blank" rel="nofollow">
+            <a href="https://www.tkqlhce.com/click-101586981-17115150"
+               class="route-link"
+               target="_blank"
+               rel="nofollow sponsored noopener noreferrer">
               Explore Taipei–Kaohsiung trips →
             </a>
           </article>
@@ -632,7 +654,10 @@
               <span>East coast views</span>
               <span>Scenic route</span>
             </div>
-            <a href="https://www.tkqlhce.com/click-101586981-17115150" class="route-link" target="_blank" rel="nofollow">
+            <a href="https://www.tkqlhce.com/click-101586981-17115150"
+               class="route-link"
+               target="_blank"
+               rel="nofollow sponsored noopener noreferrer">
               See Taipei–Hualien schedules →
             </a>
           </article>
@@ -646,7 +671,10 @@
               <span>Historic city</span>
               <span>Flexible timings</span>
             </div>
-            <a href="https://www.tkqlhce.com/click-101586981-17115150" class="route-link" target="_blank" rel="nofollow">
+            <a href="https://www.tkqlhce.com/click-101586981-17115150"
+               class="route-link"
+               target="_blank"
+               rel="nofollow sponsored noopener noreferrer">
               Check Taipei–Tainan routes →
             </a>
           </article>
@@ -660,7 +688,10 @@
               <span>Fast connections</span>
               <span>Multiple operators</span>
             </div>
-            <a href="https://www.tkqlhce.com/click-101586981-17115150" class="route-link" target="_blank" rel="nofollow">
+            <a href="https://www.tkqlhce.com/click-101586981-17115150"
+               class="route-link"
+               target="_blank"
+               rel="nofollow sponsored noopener noreferrer">
               Browse Taichung–Kaohsiung options →
             </a>
           </article>
@@ -674,7 +705,10 @@
               <span>Round-island travel</span>
               <span>Custom routes</span>
             </div>
-            <a href="https://www.tkqlhce.com/click-101586981-17115150" class="route-link" target="_blank" rel="nofollow">
+            <a href="https://www.tkqlhce.com/click-101586981-17115150"
+               class="route-link"
+               target="_blank"
+               rel="nofollow sponsored noopener noreferrer">
               See more routes across Taiwan →
             </a>
           </article>
@@ -814,10 +848,13 @@
     </main>
 
     <footer>
-      <span>© 2025 GiftCardZoneEU. Taiwan transport search with 12Go.</span>
+      <span>© <span id="year"></span> GiftCardZoneEU. Taiwan transport search with 12Go.</span>
       <span>Always check latest schedules, prices and requirements before you travel.</span>
     </footer>
   </div>
-</body>
-</html>
 
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>   
