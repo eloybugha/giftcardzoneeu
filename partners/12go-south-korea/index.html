@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>South Korea Bus & Train Tickets | GiftCardZoneEU × 12Go</title>
+  <meta name="theme-color" content="#6b7280">
   <meta name="description" content="Book buses, trains, ferries, and transfers across South Korea with 12Go — Seoul, Busan, Jeju and more. Secure checkout on 12Go’s official site." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://giftcardzoneeu.com/partners/12go-south-korea/" />
@@ -214,7 +215,7 @@
       </p>
 
       <!-- TODO: replace href with your CJ / 12Go affiliate link -->
-      <a class="primary-cta" href="https://www.dpbolvw.net/click-101586981-17115158" rel="nofollow sponsored">
+      <a class="primary-cta" href="https://www.dpbolvw.net/click-101586981-17115158" rel="nofollow sponsored noopener noreferrer">
         Book South Korea Tickets on 12Go
       </a>
 
@@ -273,10 +274,17 @@
       </div>
 
       <p class="disclosure">
-        Some links on this page are affiliate links. We may earn a small commission if you book via 12Go after
-        clicking, at no extra cost to you. All bookings are processed on 12Go’s official website.
+  © <span id="auto-year"></span> GiftCardZoneEU. 
       </p>
     </section>
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const yearSpan = document.getElementById("auto-year");
+    if (yearSpan) {
+      yearSpan.textContent = new Date().getFullYear();
+    }
+  });
+</script>
   </main>
 </body>
 </html>
