@@ -14,15 +14,21 @@
   <meta property="og:title" content="12Go Vietnam Transport Booking | GiftCardZoneEU" />
   <meta property="og:description" content="Compare and book Vietnam buses, trains & ferries with 12Go." />
   <meta property="og:url" content="https://giftcardzoneeu.com/partners/12go-vietnam/" />
-  <meta property="og:image" content="https://giftcardzoneeu.com/assets/12go/vietnam-hero.jpg" />
+  <!-- NOTE: change to your real hosted image if you have it -->
+  <meta property="og:image" content="https://giftcardzoneeu.com/partners/12go-vietnam/assets/vietnam-hero.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Preload Hero (LCP boost) -->
+  <link rel="preload" as="image" href="/partners/12go-vietnam/assets/vietnam-hero.webp" />
 
   <style>
     :root {
       --bg: #020617;
-      --card-bg: #020617;
+      --card-bg: rgba(2,6,23,0.92);
       --accent: #00c3a3;
       --text-main: #e5e7eb;
       --text-muted: #9ca3af;
+      --border: rgba(148,163,184,0.45);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -33,7 +39,7 @@
       color: var(--text-main);
       background:
         linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.82)),
-        url("/assets/12go/vietnam-hero.jpg") center/cover no-repeat fixed;
+        url("/partners/12go-vietnam/assets/vietnam-hero.webp") center/cover no-repeat fixed;
     }
 
     .page { max-width: 1080px; margin: 0 auto; padding: 24px 16px 56px; }
@@ -57,7 +63,8 @@
     .tag {
       padding: 6px 10px; border-radius: 999px; font-size: 11px;
       display: inline-flex; gap: 6px; align-items: center;
-      background: rgba(31,41,55,0.8); border: 1px solid rgba(148,163,184,0.5);
+      background: rgba(31,41,55,0.8); border: 1px solid var(--border);
+      white-space: nowrap;
     }
     .tagDot {
       width: 7px; height: 7px; border-radius: 999px;
@@ -66,98 +73,109 @@
 
     .hero {
       border-radius: 22px; overflow: hidden;
-      border: 1px solid rgba(148,163,184,0.4);
-      background: rgba(2,6,23,0.9);
+      border: 1px solid var(--border);
+      background: var(--card-bg);
       margin-bottom: 26px;
     }
     .heroInner {
       display: grid; grid-template-columns: 1.3fr 1fr; gap: 24px;
       padding: 24px 22px;
     }
-    h1 { font-size: 26px; margin-bottom: 10px; line-height: 1.1; }
 
+    h1 { font-size: 26px; margin-bottom: 10px; line-height: 1.12; }
+    p { line-height: 1.5; }
+
+    .pillRow { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
     .pill {
       padding: 6px 10px; border-radius: 999px; font-size: 11px;
-      background: rgba(15,23,42,0.9); border: 1px solid rgba(148,163,184,0.5);
+      background: rgba(15,23,42,0.9); border: 1px solid var(--border);
       display: inline-flex; gap: 6px; align-items: center;
       color: var(--text-muted);
     }
 
-    .heroCTA { display: flex; flex-wrap: wrap; gap: 12px; margin: 14px 0; }
+    .heroCTA { display: flex; flex-wrap: wrap; gap: 12px; margin: 14px 0 0; }
 
     .btnPrimary {
-      padding: 10px 18px; border-radius: 999px; font-weight: 600; font-size: 14px;
+      padding: 10px 18px; border-radius: 999px; font-weight: 700; font-size: 14px;
       background: linear-gradient(135deg, #00c3a3, #22c55e);
       color: #020617; text-decoration: none;
       box-shadow: 0 14px 40px rgba(16,185,129,0.5);
+      display: inline-flex; gap: 8px; align-items: center;
     }
     .btnGhost {
-      padding: 9px 14px; border: 1px solid rgba(148,163,184,0.6);
+      padding: 9px 14px; border: 1px solid var(--border);
       background: rgba(15,23,42,0.9);
       border-radius: 999px; font-size: 13px; color: var(--text-muted);
       text-decoration: none;
+      display: inline-flex; gap: 8px; align-items: center;
     }
 
     .heroVisual {
-      border-radius: 18px; min-height: 180px; position: relative;
+      border-radius: 18px; min-height: 220px; position: relative;
+      border: 1px solid rgba(148,163,184,0.25);
       background:
-        url("https://images.pexels.com/photos/1574843/pexels-photo-1574843.jpeg?auto=compress&cs=tinysrgb&w=1200")
-        center/cover no-repeat;
-    }
-    .heroOverlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+        linear-gradient(rgba(0,0,0,0.12), rgba(0,0,0,0.6)),
+        url("/partners/12go-vietnam/assets/vietnam-card.webp") center/cover no-repeat;
     }
 
     .heroWidget {
-      position: absolute; bottom: 14px; left: 16px; right: 16px;
+      position: absolute; bottom: 14px; left: 14px; right: 14px;
       background: rgba(15,23,42,0.9); border-radius: 16px;
-      border: 1px solid rgba(148,163,184,0.5); padding: 12px;
+      border: 1px solid var(--border); padding: 12px;
       display: grid; grid-template-columns: repeat(3,1fr); gap: 12px;
     }
     .heroWidget label { display: flex; flex-direction: column; font-size: 11px; color: var(--text-muted); }
-    .heroWidget span { font-size: 13px; }
+    .heroWidget span { font-size: 13px; color: var(--text-main); }
     .chip {
       padding: 6px 12px; border-radius: 999px; font-size: 11px;
       background: rgba(22,163,74,0.16); border: 1px solid rgba(34,197,94,0.4);
-      color: #bbf7d0; justify-self: end;
+      color: #bbf7d0; justify-self: end; align-self: start;
+      white-space: nowrap;
     }
 
     .section {
-      background: rgba(2,6,23,0.9);
-      border: 1px solid rgba(148,163,184,0.5);
+      background: var(--card-bg);
+      border: 1px solid var(--border);
       border-radius: 18px;
       padding: 18px;
       margin-bottom: 20px;
     }
 
     .routesGrid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 12px; margin-top: 10px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px; margin-top: 12px;
     }
     .routeCard {
       padding: 12px; border-radius: 16px; background: rgba(2,6,23,1);
-      border: 1px solid rgba(148,163,184,0.4);
+      border: 1px solid rgba(148,163,184,0.35);
     }
-    .routeTitle { font-size: 14px; font-weight: 600; }
-    .routeMeta { color: var(--text-muted); font-size: 12px; margin-bottom: 6px; }
-    .routeTag { 
+    .routeTitle { font-size: 14px; font-weight: 700; }
+    .routeMeta { color: var(--text-muted); font-size: 12px; margin: 6px 0 8px; }
+    .routeTag {
       padding: 4px 7px; font-size: 11px; border-radius: 999px;
-      background: rgba(15,23,42,0.9); border: 1px solid rgba(148,163,184,0.4);
-      display: inline-block; margin-right: 6px;
+      background: rgba(15,23,42,0.9); border: 1px solid rgba(148,163,184,0.35);
+      display: inline-block; margin-right: 6px; margin-bottom: 6px;
+      color: var(--text-muted);
     }
     .routeLink {
       font-size: 12px; color: #e0f2fe; text-decoration: none; display: inline-flex; gap: 6px;
-      margin-top: 6px;
+      margin-top: 8px;
     }
+    .routeLink:hover { text-decoration: underline; }
 
     footer {
-      margin-top: 20px; font-size: 11px; color: var(--text-muted);
+      margin-top: 18px; font-size: 11px; color: var(--text-muted);
+      background: rgba(2,6,23,0.75);
+      border: 1px solid rgba(148,163,184,0.25);
+      padding: 14px 16px;
+      border-radius: 16px;
     }
 
     @media (max-width: 720px) {
+      header { flex-direction: column; align-items: flex-start; }
       .heroInner { grid-template-columns: 1fr; }
       .heroWidget { grid-template-columns: 1fr; }
+      .chip { justify-self: start; }
     }
   </style>
 </head>
@@ -165,14 +183,14 @@
 <body>
   <div class="page">
     <header>
-      <div class="brand">
-        <div class="brandMark"><span>GZ</span></div>
+      <div class="brand" aria-label="GiftCardZoneEU brand">
+        <div class="brandMark" title="GiftCardZoneEU"><span>GZ</span></div>
         <div class="brandText">
           <small>GiftCardZoneEU • Partners</small>
           <strong>12Go Vietnam</strong>
         </div>
       </div>
-      <div class="tag">
+      <div class="tag" title="Affiliate partner">
         <div class="tagDot"></div> <span>Official affiliate partner</span>
       </div>
     </header>
@@ -182,9 +200,11 @@
       <section class="hero">
         <div class="heroInner">
           <div>
-            <div class="pill"><span>🚌</span> Buses</div>
-            <div class="pill"><span>🚆</span> Trains</div>
-            <div class="pill"><span>⛴️</span> Ferries</div>
+            <div class="pillRow">
+              <div class="pill"><span>🚌</span> Buses</div>
+              <div class="pill"><span>🚆</span> Trains</div>
+              <div class="pill"><span>⛴️</span> Ferries</div>
+            </div>
 
             <h1>Book buses, trains & ferries across Vietnam with 12Go.</h1>
             <p style="color: var(--text-muted); margin-bottom: 14px;">
@@ -193,18 +213,24 @@
             </p>
 
             <div class="heroCTA">
-              <a class="btnPrimary" href="https://www.tkqlhce.com/click-101586981-17115164" target="_blank" rel="noopener noreferrer">
+              <a class="btnPrimary"
+                 href="https://www.tkqlhce.com/click-101586981-17115164"
+                 target="_blank"
+                 rel="nofollow sponsored noopener noreferrer">
                 <span>Start booking in Vietnam</span> →
               </a>
-              <a class="btnGhost" href="https://www.tkqlhce.com/click-101586981-17115164" target="_blank" rel="noopener noreferrer">
+
+              <a class="btnGhost"
+                 href="https://www.tkqlhce.com/click-101586981-17115164"
+                 target="_blank"
+                 rel="nofollow sponsored noopener noreferrer">
                 View Vietnam routes
               </a>
             </div>
           </div>
 
-          <div class="heroVisual">
-            <div class="heroOverlay"></div>
-            <div class="heroWidget">
+          <div class="heroVisual" role="img" aria-label="Vietnam travel visual">
+            <div class="heroWidget" aria-label="Quick route ideas">
               <label>From <span>Hanoi · HCMC · Da Nang</span></label>
               <label>To <span>Ha Long · Sapa · Ninh Binh</span></label>
               <div class="chip">Live seats & prices</div>
@@ -216,14 +242,17 @@
       <!-- POPULAR ROUTES -->
       <section class="section">
         <h2 style="font-size: 17px;">Popular Vietnam routes</h2>
-        <div class="routesGrid">
 
+        <div class="routesGrid">
           <div class="routeCard">
             <div class="routeTitle">Hanoi → Sapa</div>
             <div class="routeMeta">Sleeper buses & trains.</div>
             <span class="routeTag">Sleeper bus</span>
             <span class="routeTag">Night train</span>
-            <a class="routeLink" href="https://www.tkqlhce.com/click-101586981-17115164" target="_blank">Check Hanoi–Sapa →</a>
+            <a class="routeLink"
+               href="https://www.tkqlhce.com/click-101586981-17115164"
+               target="_blank"
+               rel="nofollow sponsored noopener noreferrer">Check Hanoi–Sapa →</a>
           </div>
 
           <div class="routeCard">
@@ -231,23 +260,31 @@
             <div class="routeMeta">Buses & transfers.</div>
             <span class="routeTag">Tourist bus</span>
             <span class="routeTag">Hotel pickup</span>
-            <a class="routeLink" href="https://www.tkqlhce.com/click-101586981-17115164" target="_blank">Explore Hanoi–Ha Long →</a>
+            <a class="routeLink"
+               href="https://www.tkqlhce.com/click-101586981-17115164"
+               target="_blank"
+               rel="nofollow sponsored noopener noreferrer">Explore Hanoi–Ha Long →</a>
           </div>
 
           <div class="routeCard">
             <div class="routeTitle">Ho Chi Minh → Da Lat</div>
             <div class="routeMeta">Buses & vans.</div>
             <span class="routeTag">Express bus</span>
-            <a class="routeLink" href="https://www.tkqlhce.com/click-101586981-17115164" target="_blank">View HCMC–Da Lat →</a>
+            <a class="routeLink"
+               href="https://www.tkqlhce.com/click-101586981-17115164"
+               target="_blank"
+               rel="nofollow sponsored noopener noreferrer">View HCMC–Da Lat →</a>
           </div>
 
           <div class="routeCard">
             <div class="routeTitle">Da Nang → Hoi An</div>
             <div class="routeMeta">Shuttles & transfers.</div>
             <span class="routeTag">Van transfer</span>
-            <a class="routeLink" href="https://www.tkqlhce.com/click-101586981-17115164" target="_blank">See Da Nang–Hoi An →</a>
+            <a class="routeLink"
+               href="https://www.tkqlhce.com/click-101586981-17115164"
+               target="_blank"
+               rel="nofollow sponsored noopener noreferrer">See Da Nang–Hoi An →</a>
           </div>
-
         </div>
       </section>
 
@@ -261,8 +298,13 @@
     </main>
 
     <footer>
-      © 2025 GiftCardZoneEU. Bookings are processed on 12Go’s official website.
+      © <span id="year"></span> GiftCardZoneEU. Bookings are processed on 12Go’s official website.
     </footer>
   </div>
+
+  <!-- Auto-year (locked standard) -->
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
