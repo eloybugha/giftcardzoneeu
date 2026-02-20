@@ -165,15 +165,14 @@
     /* NOTE: We keep external image OFF by default (faster + controlled).
        If you want a local image, upload /assets/12go/12go-card.jpg and switch it below. */
     .heroVisual {
-      position: relative;
-      min-height: 180px;
-      border-radius: 18px;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at top, rgba(56, 189, 248, 0.12), transparent 60%),
-        url("/assets/12go/12go-hero.jpg") center/cover no-repeat;
-      filter: saturate(1.05);
-    }
+  position: relative;
+  min-height: 180px;
+  border-radius: 18px;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)),
+    url("/partners/12go/assets/12go-hero.webp") center/cover no-repeat;
+}
 
     .heroOverlay {
       position: absolute; inset: 0;
