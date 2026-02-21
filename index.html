@@ -3,53 +3,99 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>GiftCardZoneEU • Global Deals & Gift Cards</title>
-  <meta name="description" content="Discover country-specific deals and gift card offers. Clean pages, fast loads, direct affiliate links." />
+  <meta name="description" content="Discover country-specific deals, partner pages, and gift card guides. Clean layout, fast loads, and direct buttons." />
+  <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://giftcardzoneeu.com/" />
+
+  <!-- Icons -->
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="manifest" href="/manifest.json">
-  <meta property="og:title" content="GiftCardZoneEU • Global Deals & Gift Cards" />
-  <meta property="og:description" content="Browse Germany, Netherlands, US and more. No popups, just clean affiliate pages." />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- Social -->
   <meta property="og:type" content="website" />
-  <meta name="robots" content="index,follow" />
+  <meta property="og:title" content="GiftCardZoneEU • Global Deals & Gift Cards" />
+  <meta property="og:description" content="Browse Germany, Netherlands, US and more. No popups — just clean pages." />
+  <meta property="og:url" content="https://giftcardzoneeu.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preload" as="image" href="/assets/IMG_20251122_154708.jpg" />
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"GiftCardZoneEU",
+    "url":"https://giftcardzoneeu.com/"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"GiftCardZoneEU",
+    "url":"https://giftcardzoneeu.com/"
+  }
+  </script>
+
   <style>
     :root{--bg:#0b0e14;--card:#111623;--text:#e8eefc;--muted:#9fb0d1;--ring:#2b5cff;--gap:16px;--radius:16px}
-    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:500 16px/1.5 system-ui,Segoe UI,Roboto,Inter,Arial}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);font:500 16px/1.5 system-ui,Segoe UI,Roboto,Inter,Arial}
     .wrap{max-width:980px;margin:auto;padding:32px 20px}
-    header{display:flex;justify-content:space-between;align-items:center;gap:16px}
+
+    header{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
     a{color:inherit;text-decoration:none}
-    .logo{font-weight:800;font-size:20px;letter-spacing:.5px}
-    nav a{opacity:.9;margin-left:16px}
+    .brand{display:flex;align-items:center;gap:10px}
+    .logo-text{font-weight:800;font-size:20px;letter-spacing:.5px}
+
+    nav{display:flex;gap:14px;flex-wrap:wrap}
+    nav a{opacity:.92}
+    nav a:hover{opacity:1;text-decoration:underline}
+
     .hero{
-  margin:28px 0;
-  padding:28px;
-  border:1px solid #22293b;
-  border-radius:20px;
-  background:
-    linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
-    url("/assets/IMG_20251122_154708.jpg")center/cover no-repeat;
-}
+      margin:28px 0;
+      padding:28px;
+      border:1px solid #22293b;
+      border-radius:20px;
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,0.60), rgba(0,0,0,0.82)),
+        url("/assets/IMG_20251122_154708.jpg") center/cover no-repeat;
+    }
     h1{margin:0 0 8px;font-size:28px}
     p{margin:0 0 10px;color:var(--muted)}
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+
+    .btn{
+      display:inline-block;
+      padding:10px 14px;
+      border-radius:12px;
+      border:1px solid var(--ring);
+      background:transparent;
+      cursor:pointer;
+      font:inherit;
+    }
+    .btn:hover{filter:brightness(1.1)}
+    .btn.primary{background:#2b5cff22}
+
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:var(--gap);margin-top:20px}
     .card{border:1px solid #22293b;background:var(--card);border-radius:var(--radius);padding:16px}
-    .btn{display:inline-block;margin-top:6px;padding:10px 14px;border-radius:12px;border:1px solid var(--ring)}
+    .card strong{display:block;margin-bottom:6px}
     footer{margin-top:28px;opacity:.7;font-size:14px}
-
-    /* Countdown bar */
-    .count-wrap{position:fixed;left:0;right:0;bottom:14px;display:none;justify-content:center;z-index:50}
-    .count-bar{display:flex;align-items:center;gap:12px;background:#111623cc;border:1px solid #22293b;padding:12px 16px;border-radius:14px;backdrop-filter:blur(6px)}
-    .pill{font-weight:700;padding:6px 10px;border-radius:10px;border:1px solid #2b5cff33}
-    .cancel{cursor:pointer;border:1px solid #2b5cff;border-radius:10px;padding:6px 10px}
-    .hint{font-size:12px;opacity:.7;margin-top:4px;text-align:center}
   </style>
 </head>
+
 <body>
   <div class="wrap">
     <header>
-      <div class="logo">GiftCardZoneEU</div>
+      <a class="brand" href="/">
+        <div class="logo-text">GiftCardZoneEU</div>
+      </a>
+
       <nav>
         <a href="/deals/germany/">Germany Deals</a>
         <a href="/country/nl/">Netherlands</a>
@@ -59,10 +105,13 @@
     </header>
 
     <section class="hero">
-      <h1>Clean, fast, country-specific deals</h1>
-      <p>Browse curated offers. No popups — just direct affiliate buttons.</p>
-      <a class="btn" href="/go/global-router/">Open Global Router</a>
-      <div class="hint">Tip: Add <code>?noredirect=1</code> to disable the countdown for debugging.</div>
+      <h1>Clean, fast, country-specific pages</h1>
+      <p>Browse curated offers and guides. No popups — just direct buttons.</p>
+
+      <div class="actions">
+        <a class="btn primary" href="/go/global-router/">Open Global Router</a>
+        <a class="btn" href="/deals/germany/">Explore Germany Deals</a>
+      </div>
     </section>
 
     <section>
@@ -70,89 +119,39 @@
       <div class="grid">
         <article class="card">
           <strong>Germany Deals</strong>
-          <p>Curated AliExpress picks for DE.</p>
+          <p>Curated picks for DE visitors.</p>
           <a class="btn" href="/deals/germany/">View Germany Deals</a>
         </article>
+
         <article class="card">
           <strong>Survey Sites</strong>
           <p>Legit survey platforms we partner with.</p>
           <a class="btn" href="/partners/survey-sites/">View List</a>
         </article>
+
         <article class="card">
           <strong>Global Router</strong>
-          <p>Send visitors to the best offer per geo.</p>
-          <a class="btn" href="/go/global-router/">Launch Router</a>
+          <p>Pick the best offer per geo.</p>
+          <a class="btn" href="/go/global-router/">Open Router</a>
         </article>
-        <article class="card">
-  <strong>Fiverr (Hire or Earn)</strong>
-  <p>Global freelance marketplace — start working or hiring today.</p>
-  <a class="btn" href="/services/fiverr/">View Fiverr Page</a>
-</article>
 
+        <article class="card">
+          <strong>Fiverr (Hire or Earn)</strong>
+          <p>Global freelance marketplace — start working or hiring today.</p>
+          <a class="btn" href="/services/fiverr/">View Fiverr Page</a>
+        </article>
       </div>
     </section>
 
     <footer>
-      © GiftCardZoneEU · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/sitemap.xml">Sitemap</a>
+      © <span id="year"></span> GiftCardZoneEU · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/sitemap.xml">Sitemap</a>
     </footer>
   </div>
 
-  <!-- Countdown (no instant run; safe for indexing) -->
-  <div class="count-wrap" id="countWrap">
-    <div class="count-bar">
-      <span>🔄 Redirecting to best offer in</span>
-      <span class="pill" id="counter">5</span>
-      <button class="cancel" id="cancelBtn" aria-label="Cancel redirect">Cancel</button>
-    </div>
-  </div>
-
   <script>
-    // CONFIG
-    const REDIRECT_TARGET = "/go/global-router/";
-    const COUNTDOWN_SECONDS = 5;       // change if you want 3/7/etc
-    const START_DELAY_MS = 1200;       // delay before showing countdown (so "di agad tumakbo")
-    const params = new URLSearchParams(location.search);
-
-    // Basic bot detection → don't redirect bots (helps indexing)
-    const ua = (navigator.userAgent || "").toLowerCase();
-    const isBot = /(googlebot|bingbot|slurp|duckduckbot|baiduspider|yandexbot|semrush|ahrefs|crawler|spider)/i.test(ua);
-
-    // Allow manual disable via ?noredirect=1
-    const noRedirect = isBot || params.get("noredirect") === "1";
-
-    // Visible countdown, user can cancel
-    function startCountdown() {
-      if (noRedirect) return; // don't even show the bar for bots / noredirect
-
-      const wrap = document.getElementById("countWrap");
-      const counter = document.getElementById("counter");
-      const cancelBtn = document.getElementById("cancelBtn");
-
-      let t = COUNTDOWN_SECONDS;
-      counter.textContent = t;
-      wrap.style.display = "flex";
-
-      const tick = setInterval(() => {
-        t -= 1;
-        counter.textContent = t;
-        if (t <= 0) {
-          clearInterval(tick);
-          location.assign(REDIRECT_TARGET);
-        }
-      }, 1000);
-
-      cancelBtn.addEventListener("click", () => {
-        clearInterval(tick);
-        wrap.style.display = "none";
-        history.replaceState(null, "", location.pathname); // remove any query clutter
-      }, { once: true });
-    }
-
-    // Don't start immediately: wait a bit so user sees the page first
-    window.addEventListener("load", () => {
-      setTimeout(startCountdown, START_DELAY_MS);
-    });
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
- <!-- refreshed Nov 8, 2025 -->
+
+  <!-- refreshed Feb 21, 2026 -->
 </body>
 </html>
