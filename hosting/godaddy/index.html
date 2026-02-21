@@ -34,6 +34,7 @@
       --shadow: 0 18px 50px rgba(0,0,0,.35);
     }
     *{box-sizing:border-box}
+    html,body{height:100%}
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
@@ -45,6 +46,9 @@
     a{color:inherit}
     .wrap{max-width:1100px; margin:0 auto; padding:0 18px}
 
+    /* =======================
+       TOP BAR
+    ======================== */
     .topbar{
       position:sticky; top:0; z-index:20;
       backdrop-filter: blur(10px);
@@ -53,36 +57,51 @@
     }
     .topbar-inner{
       display:flex; align-items:center; justify-content:space-between;
-      padding:12px 0;
+      padding:10px 0; /* slightly tighter */
       gap:12px;
     }
     .brand{
       display:flex; align-items:center; gap:10px; text-decoration:none;
+      min-width: 200px;
     }
+
+    /* LOGO FIX */
     .logo{
-      width:40px; height:40px; border-radius:999px;
+      width:34px; height:34px; border-radius:999px;
       border:1px solid rgba(255,255,255,.18);
       background:#0b1220;
       display:grid; place-items:center;
       overflow:hidden;
       box-shadow: 0 10px 25px rgba(0,0,0,.25);
+      flex: 0 0 auto;
     }
-    .logo img{width:100%; height:100%; object-fit:cover}
-    .brand .text b{display:block; font-size:14px; letter-spacing:.2px}
-    .brand .text span{display:block; font-size:12px; color:var(--muted2)}
-    .nav{display:flex; gap:10px; flex-wrap:wrap;}
+    .logo img{
+      width:100%;
+      height:100%;
+      object-fit: cover; /* keeps it clean */
+      display:block;
+      image-rendering:auto;
+    }
+    .brand .text b{display:block; font-size:14px; letter-spacing:.2px; line-height:1.1}
+    .brand .text span{display:block; font-size:12px; color:var(--muted2); line-height:1.1}
+
+    .nav{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;}
     .chip{
       font-size:12px; color:var(--muted);
       border:1px solid var(--line);
       padding:8px 10px; border-radius:999px;
       text-decoration:none;
       background: rgba(255,255,255,.04);
+      white-space:nowrap;
     }
     .chip:hover{border-color:rgba(255,255,255,.22)}
 
+    /* =======================
+       HERO (SPACE COMPRESS)
+    ======================== */
     .hero{
       position:relative;
-      min-height:62vh;
+      min-height:56vh; /* tighter than before */
       display:flex;
       align-items:center;
       border-bottom:1px solid var(--line);
@@ -96,18 +115,24 @@
         url("https://giftcardzoneeu.com/hosting/godaddy/assets/godaddy-hero.webp") center/cover no-repeat;
       transform: scale(1.03);
     }
-    .hero-inner{position:relative; padding:42px 0 32px; width:100%;}
-    h1{margin:0 0 10px; font-size:38px; line-height:1.1}
-    .sub{margin:0 0 18px; color:var(--muted); font-size:16px; max-width:820px}
+    .hero-inner{
+      position:relative;
+      padding:30px 0 22px; /* reduced top/bottom padding */
+      width:100%;
+    }
 
-    .badges{display:flex; flex-wrap:wrap; gap:10px; margin:16px 0 18px}
+    h1{margin:0 0 10px; font-size:38px; line-height:1.08}
+    .sub{margin:0 0 16px; color:var(--muted); font-size:16px; max-width:820px}
+
+    .badges{display:flex; flex-wrap:wrap; gap:10px; margin:14px 0 16px}
     .badge{
       font-size:12px; color:rgba(255,255,255,.86);
       border:1px solid var(--line);
       padding:7px 10px; border-radius:999px;
       background: rgba(255,255,255,.04);
     }
-    .cta-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
+
+    .cta-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:12px}
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
       padding:12px 14px;
@@ -118,25 +143,32 @@
       color:#fff;
       font-weight:700;
       box-shadow: 0 12px 30px rgba(0,0,0,.25);
+      transition: transform .12s ease;
     }
     .btn.primary{
       border-color: rgba(125,211,252,.38);
       background: linear-gradient(135deg, rgba(125,211,252,.22), rgba(167,139,250,.18));
     }
     .btn:hover{transform: translateY(-1px)}
-    .note{margin-top:14px; font-size:12px; color:var(--muted2); max-width:900px}
+    .note{margin-top:12px; font-size:12px; color:var(--muted2); max-width:900px}
 
-    .section{padding:34px 0}
+    .disclosure{
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      border-radius:16px;
+      padding:12px 14px;
+      margin-top:12px;
+    }
+
+    /* =======================
+       CONTENT
+    ======================== */
+    .section{padding:30px 0}
     .grid{
       display:grid;
       grid-template-columns: 1.1fr .9fr;
       gap:16px;
       align-items:start;
-    }
-    @media (max-width: 900px){
-      h1{font-size:32px}
-      .grid{grid-template-columns:1fr}
-      .hero{min-height:58vh}
     }
 
     .card{
@@ -176,14 +208,6 @@
       margin-top:6px;
     }
 
-    .disclosure{
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.04);
-      border-radius:16px;
-      padding:12px 14px;
-      margin-top:12px;
-    }
-
     details{border-top:1px solid var(--line); padding:12px 0}
     summary{cursor:pointer; font-weight:800; color:rgba(255,255,255,.9)}
 
@@ -193,6 +217,7 @@
       color:var(--muted2);
       font-size:12px;
     }
+
     .smallbtn{
       font-size:12px;
       padding:10px 12px;
@@ -204,17 +229,39 @@
       display:inline-flex;
       align-items:center;
       justify-content:center;
+      transition: transform .12s ease;
     }
     .smallbtn.primary{
       border-color: rgba(125,211,252,.38);
       background: linear-gradient(135deg, rgba(125,211,252,.18), rgba(167,139,250,.14));
     }
+    .smallbtn:hover{transform: translateY(-1px)}
+
     .callout{
       border:1px solid rgba(52,211,153,.25);
       background: rgba(52,211,153,.06);
       border-radius:16px;
       padding:12px 14px;
       margin-top:12px;
+    }
+
+    /* =======================
+       RESPONSIVE
+    ======================== */
+    @media (max-width: 900px){
+      h1{font-size:32px}
+      .grid{grid-template-columns:1fr}
+      .hero{min-height:52vh}
+      .hero-inner{padding:26px 0 18px}
+      .nav{gap:8px}
+      .chip{padding:7px 9px}
+    }
+    @media (max-width: 520px){
+      .brand .text span{display:none;} /* cleaner on tiny screens */
+      h1{font-size:28px}
+      .sub{font-size:15px}
+      .topbar-inner{padding:10px 0}
+      .logo{width:32px; height:32px}
     }
   </style>
 
@@ -251,7 +298,6 @@
       <div class="topbar-inner">
         <a class="brand" href="https://giftcardzoneeu.com/">
           <div class="logo">
-            <!-- CHANGE if your logo path is different -->
             <img src="https://giftcardzoneeu.com/assets/gz-logo.webp" alt="GiftCardZoneEU Logo" loading="eager" />
           </div>
           <div class="text">
@@ -287,17 +333,13 @@
         </div>
 
         <div class="cta-row">
-          <!-- OFFICIAL LINK ONLY (not affiliate yet) -->
           <a class="btn primary"
              href="https://www.godaddy.com/"
              target="_blank"
              rel="nofollow noopener noreferrer">
             Visit GoDaddy Official Site
           </a>
-          <a class="btn"
-             href="#quick-summary">
-            See Quick Summary
-          </a>
+          <a class="btn" href="#quick-summary">See Quick Summary</a>
         </div>
 
         <div class="disclosure">
@@ -313,7 +355,6 @@
 
   <!-- Content -->
   <main class="wrap">
-
     <section class="section grid" id="quick-summary">
       <div class="card">
         <div class="in">
@@ -357,10 +398,7 @@
                rel="nofollow noopener noreferrer">
               GoDaddy Official Site
             </a>
-            <a class="smallbtn"
-               href="#faq">
-              FAQ
-            </a>
+            <a class="smallbtn" href="#faq">FAQ</a>
           </div>
 
           <p class="mini" style="margin-top:12px;">
@@ -460,10 +498,7 @@
                rel="nofollow noopener noreferrer">
               Visit GoDaddy Official Site
             </a>
-            <a class="smallbtn"
-               href="https://giftcardzoneeu.com/hosting/">
-              More Hosting Guides
-            </a>
+            <a class="smallbtn" href="https://giftcardzoneeu.com/hosting/">More Hosting Guides</a>
           </div>
         </div>
       </div>
@@ -509,7 +544,6 @@
   </main>
 
   <script>
-    // Auto-year
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
