@@ -98,36 +98,116 @@
     }
 
     h1{
-      margin:0 0 10px 0;
-      font-size:clamp(24px,3vw,38px);
-    }
+<style>
+  :root{
+    --bg:#070a12;
+    --card:#0c1222cc;
+    --border:#ffffff1a;
+    --text:#eaf0ff;
+    --muted:#b9c3e6;
+    --shadow:0 18px 55px rgba(0,0,0,.45);
+    --radius:18px;
+  }
+  *{box-sizing:border-box}
 
-    .sub{
-      color:var(--muted);
-      margin-bottom:18px;
-      max-width:60ch;
-    }
+  html, body{ height:100%; }
 
-    .btn{
-      display:inline-block;
-      background:#ffffff;
-      color:#000;
-      padding:14px 20px;
-      border-radius:12px;
-      font-weight:800;
-      text-decoration:none;
-      margin-top:10px;
-    }
+  body{
+    margin:0;
+    min-height:100vh;
+    font-family: ui-sans-serif, system-ui;
+    color:var(--text);
 
-    .btn:hover{filter:brightness(.95)}
+    background:
+      linear-gradient(180deg, rgba(7,10,18,.45), rgba(7,10,18,.65)),
+      url("/assets/partners/booking-germany-hero.webp");
 
-    footer{
-      margin-top:20px;
-      font-size:12px;
-      color:var(--muted);
-      text-align:center;
-    }
-  </style>
+    background-size:cover;
+    background-position:center 25%;
+    background-repeat:no-repeat;
+    background-attachment:scroll;
+  }
+
+  .wrap{
+    min-height:100vh;              /* ✅ ito yung importante */
+    max-width:1100px;
+    margin:auto;
+    padding:28px 16px;
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+  }
+
+  header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+    color:var(--text);
+  }
+
+  .brand img{
+    width:42px;
+    height:42px;
+    border-radius:12px;
+  }
+
+  .chip{
+    border:1px solid var(--border);
+    padding:8px 12px;
+    border-radius:999px;
+    text-decoration:none;
+    color:var(--text);
+    font-size:12px;
+  }
+
+  .card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:24px;
+    box-shadow:var(--shadow);
+    margin-top:auto;               /* ✅ pushes card to middle-ish */
+    margin-bottom:auto;            /* ✅ keeps it centered vertically */
+  }
+
+  h1{
+    margin:0 0 10px 0;
+    font-size:clamp(24px,3vw,38px);
+  }
+
+  .sub{
+    color:var(--muted);
+    margin-bottom:18px;
+    max-width:60ch;
+  }
+
+  .btn{
+    display:inline-block;
+    background:#ffffff;
+    color:#000;
+    padding:14px 20px;
+    border-radius:12px;
+    font-weight:800;
+    text-decoration:none;
+    margin-top:10px;
+  }
+
+  .btn:hover{filter:brightness(.95)}
+
+  footer{
+    margin-top:20px;
+    font-size:12px;
+    color:var(--muted);
+    text-align:center;
+  }
+</style>
 </head>
 
 <body>
