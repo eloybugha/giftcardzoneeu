@@ -7,16 +7,25 @@
   <title>Book Flights & Hotels in Brazil | GiftCardZoneEU × MyTrip</title>
   <meta name="description" content="Find the best deals on flights and hotels in Brazil with MyTrip. Compare prices, book securely, and explore Rio de Janeiro, São Paulo, Florianópolis, Salvador and more." />
 
-  <!-- CANONICAL -->
+  <!-- STANDARD -->
+  <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://giftcardzoneeu.com/partners/mytrip-brazil/" />
 
-  <!-- SOCIAL META -->
+  <!-- OPEN GRAPH -->
+  <meta property="og:type" content="website" />
   <meta property="og:title" content="Book Flights & Hotels in Brazil | MyTrip × GZEU" />
   <meta property="og:description" content="Search cheap flights and hotel deals across Brazil, from Rio de Janeiro and São Paulo to Salvador, Brasília and more." />
-  <meta property="og:image" content="https://giftcardzoneeu.com/partners/mytrip-brazil/assets/mytrip-hero.jpg" />
+  <meta property="og:url" content="https://giftcardzoneeu.com/partners/mytrip-brazil/" />
+  <!-- IMPORTANT: Use your real existing image path -->
+  <meta property="og:image" content="https://giftcardzoneeu.com/assets/partners/mytrip-brazil-hero.webp" />
 
+  <!-- TWITTER -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Flights & Hotels in Brazil | MyTrip × GiftCardZoneEU" />
+  <meta name="twitter:description" content="Compare flights and hotels across Brazil. Book securely and explore Rio de Janeiro, São Paulo and more." />
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/partners/mytrip-brazil-hero.webp" />
 
+  <!-- CSS (external file) -->
   <link rel="stylesheet" href="./style.css" />
 </head>
 
@@ -26,7 +35,8 @@
 
     <header class="gz-header">
       <div class="gz-brand-pill">
-        <div class="gz-avatar">GZ</div>
+        <!-- GZ logo file you mentioned -->
+        <img src="/assets/gz-hero.png" alt="GiftCardZoneEU" class="gz-avatar" />
         <div class="gz-brand-text">
           <span class="gz-brand-main">GiftCardZoneEU • Partners</span>
           <span class="gz-brand-sub">MyTrip Brazil</span>
@@ -40,8 +50,19 @@
 
     <div class="hero-content">
       <h1>Book Flights & Hotels in Brazil</h1>
-      <p>Find affordable flights and hotel deals across Rio de Janeiro, São Paulo, Florianópolis, Salvador, Foz do Iguaçu and more.</p>
-      <a href="https://www.kqzyfj.com/click-101586981-17066582" class="cta">Search Deals</a>
+      <p>
+        Find affordable flights and hotel deals across Rio de Janeiro, São Paulo,
+        Florianópolis, Salvador, Foz do Iguaçu and more.
+      </p>
+
+      <a
+        href="https://www.kqzyfj.com/click-101586981-17066582"
+        class="cta"
+        target="_blank"
+        rel="nofollow sponsored noopener noreferrer"
+      >
+        Search Deals
+      </a>
     </div>
   </div>
 
@@ -51,29 +72,47 @@
     <div class="grid">
       <div class="card">
         <h3>✈️ Flexible Flights</h3>
-        <p>Compare airlines flying to major Brazilian cities like Rio de Janeiro, São Paulo, Brasília and beyond with flexible dates.</p>
+        <p>
+          Compare airlines flying to major Brazilian cities like Rio de Janeiro,
+          São Paulo, Brasília and beyond with flexible dates.
+        </p>
       </div>
 
       <div class="card">
         <h3>🏨 Top Beach & City Stays</h3>
-        <p>Stay near Copacabana and Ipanema in Rio, Paulista Avenue in São Paulo, or historic Salvador with thousands of options.</p>
+        <p>
+          Stay near Copacabana and Ipanema in Rio, Paulista Avenue in São Paulo,
+          or historic Salvador with thousands of options.
+        </p>
       </div>
 
       <div class="card">
         <h3>🎒 Trip Packages</h3>
-        <p>Bundle flights and hotels to save more on your Brazil adventure, from carnival city breaks to nature escapes.</p>
+        <p>
+          Bundle flights and hotels to save more on your Brazil adventure, from
+          carnival city breaks to nature escapes.
+        </p>
       </div>
     </div>
 
     <div class="center-btn">
-      <a href="https://www.kqzyfj.com/click-101586981-17066582" class="cta secondary">Start Booking</a>
+      <a
+        href="https://www.kqzyfj.com/click-101586981-17066582"
+        class="cta secondary"
+        target="_blank"
+        rel="nofollow sponsored noopener noreferrer"
+      >
+        Start Booking
+      </a>
     </div>
   </section>
 
   <footer>
-    <p>© 2025 GiftCardZoneEU. All Rights Reserved.</p>
+    <p>© <span id="y"></span> GiftCardZoneEU. All Rights Reserved.</p>
   </footer>
 
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
-
