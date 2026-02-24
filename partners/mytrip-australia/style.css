@@ -1,53 +1,166 @@
-/* ===== AUSTRALIA COMPACT PATCH ===== */
-
-/* Hero: bawasan height para di sobrang scroll */
-.hero{
-  height: 58vh !important;
-  min-height: 360px !important;
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f3f3f3;
+  color: #222;
 }
 
-/* Hero text: konting compact */
-.hero-content{
-  max-width: 520px !important;
-}
-.hero-content h1{
-  font-size: clamp(26px, 3.2vw, 40px) !important;
-  margin: 0 0 8px !important;
-}
-.hero-content p{
-  font-size: 0.95rem !important;
-}
-
-/* Features section: less white space */
-.features{
-  padding: 12px 12px !important;
-}
-.features h2{
-  margin: 4px 0 8px !important;
+/* HERO */
+.hero {
+  position: relative;
+  height: 58vh;
+  min-height: 360px;
+  background: url('./assets/mytrip-hero.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
-/* Grid/cards: mas tight */
-.grid{
-  gap: 12px !important;
-  margin-top: 6px !important;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
-}
-.card{
-  padding: 16px !important;
-}
-.card h3{
-  margin: 0 0 6px !important;
-}
-.card p{
-  margin: 0 !important;
-  line-height: 1.35 !important;
+.overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(2px);
 }
 
-/* Button/footer: bawasan ilalim */
-.center-btn{
-  margin-top: 6px !important;
+/* HEADER */
+.gz-header {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 20;
 }
-footer{
-  margin-top: 10px !important;
-  padding: 12px !important;
+
+.gz-brand-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #007bff;
+}
+
+.gz-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: #fff;
+  background: rgba(0,0,0,0.3);
+}
+
+.gz-brand-text {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.72rem;
+  color: #fff;
+}
+
+.gz-partner-badge {
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: #00b86b;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+/* HERO TEXT */
+.hero-content {
+  position: relative;
+  z-index: 10;
+  color: #fff;
+  max-width: 520px;
+  padding: 0 14px;
+}
+
+.hero-content h1 {
+  margin: 0 0 8px;
+  line-height: 1.15;
+}
+
+.hero-content p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* CTA */
+.cta {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 12px 22px;
+  background: #007bff;
+  color: #fff;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.cta:hover { background: #0069d9; }
+.secondary { background: #333; }
+
+/* FEATURES */
+.features {
+  padding: 12px;
+  text-align: center;
+}
+
+.features h2 {
+  margin: 4px 0 8px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.card {
+  background: #fff;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.card h3 {
+  margin: 0 0 6px;
+}
+
+.card p {
+  margin: 0;
+  line-height: 1.35;
+}
+
+.center-btn {
+  margin-top: 6px;
+}
+
+/* FOOTER */
+footer {
+  margin-top: 10px;
+  padding: 12px;
+  text-align: center;
+  background: #fff;
+  font-size: 0.85rem;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .gz-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
 }
