@@ -7,13 +7,23 @@
   <title>Flights & Hotels in Australia | GiftCardZoneEU × MyTrip</title>
   <meta name="description" content="Find the best deals on flights and hotels in Australia with MyTrip. Compare prices, book securely, and explore Sydney, Melbourne, Brisbane, Perth and more." />
 
+  <!-- STANDARD -->
+  <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://giftcardzoneeu.com/partners/mytrip-australia/" />
 
+  <!-- OPEN GRAPH -->
+  <meta property="og:type" content="website" />
   <meta property="og:title" content="Book Flights & Hotels in Australia | MyTrip × GZEU" />
   <meta property="og:description" content="Search cheap flights and hotel deals across Sydney, Melbourne, Brisbane, Perth, Adelaide and more destinations in Australia." />
-  <meta property="og:image" content="https://giftcardzoneeu.com/partners/mytrip-australia/assets/mytrip-hero.jpg" />
+  <meta property="og:url" content="https://giftcardzoneeu.com/partners/mytrip-australia/" />
+  <!-- IMPORTANT: recommended root assets path -->
+  <meta property="og:image" content="https://giftcardzoneeu.com/assets/partners/mytrip-australia-hero.webp" />
 
+  <!-- TWITTER -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Flights & Hotels in Australia | MyTrip × GiftCardZoneEU" />
+  <meta name="twitter:description" content="Compare flights and hotels across Australia. Book securely and explore Sydney, Melbourne, Brisbane, Perth and more." />
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/partners/mytrip-australia-hero.webp" />
 
   <!-- SAME CSS AS SINGAPORE -->
   <link rel="stylesheet" href="./style.css" />
@@ -46,7 +56,7 @@
       <a href="https://www.kqzyfj.com/click-101586981-17066582"
          class="cta"
          target="_blank"
-         rel="nofollow noopener">
+         rel="nofollow sponsored noopener noreferrer">
         Search Deals
       </a>
     </div>
@@ -56,7 +66,6 @@
     <h2>Why Book with MyTrip?</h2>
 
     <div class="grid">
-
       <div class="card">
         <h3>✈️ Australia Flights</h3>
         <p>
@@ -79,22 +88,24 @@
           Bundle flights and hotels to save more on your Australia vacation.
         </p>
       </div>
-
     </div>
 
     <div class="center-btn">
       <a href="https://www.kqzyfj.com/click-101586981-17066582"
          class="cta secondary"
          target="_blank"
-         rel="nofollow noopener">
+         rel="nofollow sponsored noopener noreferrer">
         Start Booking
       </a>
     </div>
   </section>
 
   <footer>
-    <p>© 2025 GiftCardZoneEU. All Rights Reserved.</p>
+    <p>© <span id="y"></span> GiftCardZoneEU. All Rights Reserved.</p>
   </footer>
 
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
