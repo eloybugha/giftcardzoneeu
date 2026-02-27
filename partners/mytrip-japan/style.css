@@ -10,7 +10,7 @@ body {
   position: relative;
   height: 58vh;
   min-height: 360px;
-  background: url('./assets/japan-hero.webp'') center/cover no-repeat;
+  background: url('./assets/japan-hero.webp") center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
