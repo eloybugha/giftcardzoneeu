@@ -10,7 +10,7 @@ body {
   position: relative;
   height: 58vh;
   min-height: 360px;
-  background: url('./partners/mytrip-india/assets/india-hero.webp') center/cover no-repeat;
+  background: url('./assets/india-hero.webp') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
