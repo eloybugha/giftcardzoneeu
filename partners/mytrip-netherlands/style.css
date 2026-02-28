@@ -10,14 +10,14 @@ body {
   position: relative;
   height: 58vh;
   min-height: 360px;
-  background: url(background: url('./assets/netherlands-hero.webp')center/cover no-repeat;
+  background: url('./assets/mytrip-hero.jpg') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
 
-.overlay {and
+.overlay {
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
