@@ -26,14 +26,14 @@ body {
   line-height: 1.6;
 }
 
-/* Optional: smoother rendering */
+/* ===== GLOBAL IMAGE RULE ===== */
 img{
   max-width: 100%;
+  height: auto;
   display: block;
 }
 
-/* ===== STICKY NAVBAR (OPTIONAL) =====
-   If you add <div class="navbar">...</div> in HTML, it will stick on top. */
+/* ===== STICKY NAVBAR ===== */
 .navbar{
   position: sticky;
   top: 0;
@@ -42,16 +42,17 @@ img{
   background: rgba(15, 28, 46, 0.85);
   border-bottom: 1px solid var(--line);
   padding: 12px 20px;
+  text-align:center;
 }
 
-/* basic nav link style (optional) */
 .navbar a{
   color: rgba(255,255,255,0.9);
   text-decoration: none;
   font-weight: 600;
-  margin-right: 14px;
+  margin: 0 14px;
   font-size: 14px;
 }
+
 .navbar a:hover{
   color: #ffffff;
 }
@@ -64,7 +65,6 @@ img{
   overflow: hidden;
 }
 
-/* Hero overlay depth effect */
 .hero::before{
   content:"";
   position: absolute;
@@ -75,7 +75,6 @@ img{
   z-index: 0;
 }
 
-/* Keep hero content above overlay */
 .hero > *{
   position: relative;
   z-index: 1;
@@ -93,8 +92,7 @@ img{
   opacity: 0.9;
 }
 
-/* ===== TRUST BAR (OPTIONAL) =====
-   If you add <div class="trust-bar"><span>...</span></div> under hero text */
+/* ===== TRUST BAR ===== */
 .trust-bar{
   display: flex;
   flex-wrap: wrap;
@@ -105,6 +103,7 @@ img{
   font-size: 14px;
   margin-top: 28px;
 }
+
 .trust-bar span{
   padding: 6px 10px;
   border-radius: 999px;
@@ -117,7 +116,7 @@ img{
   position: absolute;
   top: 20px;
   left: 20px;
-  z-index: 150; /* above hero overlay */
+  z-index: 150;
 }
 
 .gz-brand-pill {
@@ -134,9 +133,13 @@ img{
   border: 1px solid rgba(255,255,255,0.10);
 }
 
-.gz-logo {
-  width: 28px;
-  height: 28px;
+/* 🔥 LOGO FIX – prevents billboard */
+.gz-brand-pill .gz-logo{
+  width: 28px !important;
+  height: 28px !important;
+  max-width: 28px !important;
+  flex: 0 0 28px !important;
+  display: inline-block !important;
   object-fit: contain;
 }
 
@@ -147,7 +150,6 @@ section {
   margin: auto;
 }
 
-/* clean divider between sections */
 section:not(:last-child){
   border-bottom: 1px solid var(--line);
 }
@@ -204,12 +206,11 @@ section h2 {
   opacity: 0.95;
 }
 
-/* Optional: make buttons stack nicely on small screens */
 .btn + .btn{
   margin-left: 10px;
 }
 
-/* ===== MOBILE ADJUST ===== */
+/* ===== MOBILE ===== */
 @media (max-width: 600px) {
   .hero {
     padding: 90px 16px 40px;
@@ -233,6 +234,7 @@ section h2 {
     width: 100%;
     text-align: center;
   }
+
   .btn + .btn{
     margin-left: 0;
     margin-top: 10px;
