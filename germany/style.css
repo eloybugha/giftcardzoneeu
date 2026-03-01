@@ -197,3 +197,60 @@ section h2{
   .grid{ grid-template-columns:1fr; gap:14px; }
   .btn{ width:100%; text-align:center; }
 }
+
+/* ===== FORCE HERO LOGO SIZE (BULLETPROOF) ===== */
+
+/* kung may wrapper like hero-media / hero-logo / logo */
+.hero .hero-media,
+.hero .hero-logo,
+.hero .logo,
+.hero .logo-wrap{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin: 0 auto 18px;
+}
+
+/* target ALL possible logo render types */
+.hero img,
+.hero svg,
+.hero object,
+.hero embed{
+  width: min(220px, 62vw) !important;
+  max-width: 220px !important;
+  max-height: 220px !important;
+  height: auto !important;
+  display: block !important;
+  object-fit: contain !important;
+}
+
+/* kung yung malaking logo ay background-image sa div */
+.hero .logo,
+.hero .hero-logo{
+  width: min(220px, 62vw) !important;
+  height: min(220px, 62vw) !important;
+  max-width: 220px !important;
+  max-height: 220px !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+}
+
+/* mobile tighter */
+@media (max-width: 600px){
+  .hero img,
+  .hero svg,
+  .hero object,
+  .hero embed{
+    width: min(170px, 58vw) !important;
+    max-width: 170px !important;
+    max-height: 170px !important;
+  }
+  .hero .logo,
+  .hero .hero-logo{
+    width: min(170px, 58vw) !important;
+    height: min(170px, 58vw) !important;
+    max-width: 170px !important;
+    max-height: 170px !important;
+  }
+}
