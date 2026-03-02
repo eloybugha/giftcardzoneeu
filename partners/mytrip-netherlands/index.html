@@ -4,74 +4,480 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Flights & Hotels in the Netherlands | GiftCardZoneEU × MyTrip</title>
-  <meta name="description" content="Find affordable flights and hotel deals in the Netherlands with MyTrip. Explore Amsterdam, Rotterdam, Utrecht, The Hague and more. Book securely today." />
+  <title>MyTrip Netherlands – Cheap Flights & Hotels (2026) | GiftCardZoneEU</title>
+  <meta name="description" content="Book cheap flights and hotels in the Netherlands with MyTrip. Compare deals for Amsterdam, Rotterdam, Utrecht, The Hague and more. Secure booking, updated 2026." />
 
+  <!-- LOCKED: Canonical trailing slash (folder structure) -->
   <link rel="canonical" href="https://giftcardzoneeu.com/partners/mytrip-netherlands/" />
 
-  <meta property="og:title" content="Book Flights & Hotels in the Netherlands | MyTrip × GZEU" />
-  <meta property="og:description" content="Search cheap flights and hotel deals across Amsterdam, Rotterdam, Utrecht, The Hague and more Dutch cities." />
-  <meta property="og:image" content="https://giftcardzoneeu.com/partners/mytrip-netherlands/assets/mytrip-hero.jpg" />
+  <!-- LOCKED: Robots -->
+  <meta name="robots" content="index,follow" />
 
+  <!-- Open Graph -->
+  <meta property="og:title" content="MyTrip Netherlands – Cheap Flights & Hotels (2026) | GiftCardZoneEU" />
+  <meta property="og:description" content="Find flights and hotels in the Netherlands with MyTrip. Compare Amsterdam, Rotterdam, Utrecht, The Hague and more." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://giftcardzoneeu.com/partners/mytrip-netherlands/" />
+  <meta property="og:image" content="https://giftcardzoneeu.com/assets/partners/mytrip-netherlands-hero.webp" />
+
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MyTrip Netherlands – Cheap Flights & Hotels (2026)" />
+  <meta name="twitter:description" content="Compare MyTrip deals for flights and hotels in the Netherlands. Amsterdam, Rotterdam, Utrecht and more." />
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/partners/mytrip-netherlands-hero.webp" />
 
-  <link rel="stylesheet" href="./style.css" />
+  <!-- Performance hint: hero image -->
+  <link rel="preload" as="image" href="/assets/partners/mytrip-netherlands-hero.webp" />
+
+  <style>
+    :root{
+      --bg1:#0b1624;
+      --bg2:#0f1c2e;
+      --card:#0f2036cc;
+      --card2:#0f203699;
+      --text:#ffffff;
+      --muted:rgba(255,255,255,.82);
+      --muted2:rgba(255,255,255,.70);
+      --line:rgba(255,255,255,.14);
+      --shadow: 0 14px 40px rgba(0,0,0,.35);
+      --radius: 18px;
+      --radius2: 14px;
+      --max: 1120px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Arial, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color:var(--text);
+      background: linear-gradient(135deg, var(--bg1), var(--bg2));
+      line-height:1.55;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px;}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:7px 12px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background: rgba(0,0,0,.28);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      font-size:13px;
+      color:var(--muted);
+      text-decoration:none;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 16px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.08);
+      box-shadow: 0 10px 26px rgba(0,0,0,.25);
+      text-decoration:none;
+      font-weight:700;
+      letter-spacing:.2px;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      white-space:nowrap;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.22);}
+    .btn.primary{
+      background: rgba(0, 190, 255, .18);
+      border-color: rgba(0, 190, 255, .35);
+    }
+    .btn.primary:hover{
+      background: rgba(0, 190, 255, .24);
+      border-color: rgba(0, 190, 255, .45);
+    }
+
+    /* ===== HERO ===== */
+    .hero{
+      position:relative;
+      min-height: 78vh;
+      display:flex;
+      align-items:center;
+      padding: 22px 0 46px;
+      background: url("/assets/partners/mytrip-netherlands-hero.webp") center/cover no-repeat;
+      isolation:isolate;
+    }
+    .hero::before{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(0,0,0,.70), rgba(0,0,0,.50) 55%, rgba(11,22,36,.92));
+      z-index:-1;
+    }
+
+    /* ===== HEADER (LOCKED: GZ logo always visible) ===== */
+    .topbar{
+      position:absolute;
+      top:16px; left:0; right:0;
+      z-index:20;
+    }
+    .topbar-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .brand-pill{
+      display:flex; align-items:center; gap:10px;
+      padding:7px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.34);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      text-decoration:none;
+    }
+    .brand-pill img{
+      width:26px; height:26px; object-fit:contain;
+      filter: drop-shadow(0 6px 18px rgba(0,0,0,.35));
+    }
+    .brand-pill span{
+      font-weight:800;
+      letter-spacing:.2px;
+      font-size:13px;
+      color:var(--text);
+      opacity:.95;
+    }
+
+    .hero-content{width:100%; padding-top: 62px;}
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .hero-card{
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(0,0,0,.32);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: var(--shadow);
+      padding: 18px 18px 16px;
+    }
+    .kicker{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      margin-bottom: 10px;
+    }
+    h1{
+      margin: 6px 0 10px;
+      font-size: clamp(28px, 3.7vw, 46px);
+      line-height:1.08;
+      letter-spacing:-.2px;
+    }
+    .sub{
+      margin:0 0 14px;
+      color:var(--muted);
+      font-size: 15.5px;
+      max-width: 64ch;
+    }
+    .cta-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      margin-top: 10px;
+    }
+    .mini{
+      margin-top: 10px;
+      color: var(--muted2);
+      font-size: 12.5px;
+    }
+
+    .trust{
+      display:grid;
+      gap:10px;
+      height:100%;
+      align-content:start;
+    }
+    .trust .box{
+      border:1px solid var(--line);
+      border-radius: var(--radius2);
+      background: rgba(0,0,0,.24);
+      padding: 14px;
+    }
+    .trust h3{
+      margin:0 0 8px;
+      font-size: 14px;
+      letter-spacing:.2px;
+    }
+    .trust ul{
+      margin:0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 13.5px;
+    }
+    .trust li{margin: 6px 0;}
+    .trust .badge-row{
+      display:flex; flex-wrap:wrap; gap:8px;
+      margin-top: 10px;
+    }
+
+    /* ===== MAIN ===== */
+    main{padding: 26px 0 56px;}
+    .section{
+      margin-top: 18px;
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, var(--card), var(--card2));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .section-inner{padding: 18px;}
+    .section h2{
+      margin:0 0 10px;
+      font-size: 20px;
+      letter-spacing:-.1px;
+    }
+    .section p{margin: 8px 0; color: var(--muted);}
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:12px;
+      margin-top: 12px;
+    }
+    .card{
+      grid-column: span 6;
+      border:1px solid var(--line);
+      border-radius: var(--radius2);
+      background: rgba(0,0,0,.22);
+      padding: 14px;
+    }
+    .card h3{margin:0 0 8px; font-size: 15px;}
+    .card ul{margin:0; padding-left:18px; color: var(--muted); font-size: 13.5px;}
+    .card li{margin: 6px 0;}
+
+    .cta-band{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding: 14px 18px;
+      border-top:1px solid var(--line);
+      background: rgba(0,0,0,.18);
+    }
+    .cta-band strong{font-size: 14px;}
+    .cta-band span{color: var(--muted); font-size: 13px;}
+
+    /* ===== FOOTER ===== */
+    footer{
+      border-top:1px solid rgba(255,255,255,.12);
+      padding: 22px 0 24px;
+      color: var(--muted2);
+      font-size: 12.5px;
+    }
+    .foot{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+    .foot a{color: var(--muted); text-decoration:none;}
+    .foot a:hover{text-decoration:underline;}
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 920px){
+      .hero-grid{grid-template-columns: 1fr; }
+      .card{grid-column: span 12;}
+      .hero{min-height: 86vh;}
+    }
+  </style>
 </head>
 
 <body>
-  <div class="hero">
-    <div class="overlay"></div>
+  <header class="hero" role="banner">
+    <div class="topbar">
+      <div class="wrap topbar-inner">
+        <!-- LOCKED: GZ logo always on page -->
+        <a class="brand-pill" href="/" aria-label="GiftCardZoneEU Home">
+          <img src="/assets/gz-logo.png" alt="GZEU Logo" />
+          <span>GiftCardZoneEU</span>
+        </a>
 
-    <header class="gz-header">
-      <div class="gz-brand-pill">
-        <div class="gz-avatar">GZ</div>
-        <div class="gz-brand-text">
-          <span class="gz-brand-main">GiftCardZoneEU • Partners</span>
-          <span class="gz-brand-sub">MyTrip Netherlands</span>
+        <!-- OPTIONAL: if you have a Netherlands hub later, change this to /netherlands/ -->
+        <a class="pill" href="/" aria-label="Back to Home">← Home</a>
+      </div>
+    </div>
+
+    <div class="wrap hero-content">
+      <div class="hero-grid">
+        <div class="hero-card">
+          <div class="kicker">
+            <span class="pill">Partner Page</span>
+            <span class="pill">Updated <span id="autoYearHero">2026</span></span>
+            <span class="pill">Netherlands</span>
+          </div>
+
+          <h1>MyTrip Netherlands – Cheap Flights & Hotels (<span id="autoYearTitle">2026</span>)</h1>
+          <p class="sub">
+            Compare deals for flights and hotels across the Netherlands using MyTrip — ideal for trips to
+            Amsterdam, Rotterdam, Utrecht, The Hague and more.
+          </p>
+
+          <div class="cta-row">
+            <!-- LOCKED: affiliate link attributes -->
+            <a class="btn primary"
+               href="https://www.kqzyfj.com/click-101586981-17066582"
+               target="_blank"
+               rel="nofollow sponsored noopener noreferrer">
+              Search Deals on MyTrip →
+            </a>
+
+            <a class="btn" href="/" aria-label="Go to GiftCardZoneEU Home">
+              Browse More Pages
+            </a>
+          </div>
+
+          <p class="mini">
+            Disclosure: Links may be affiliate links. If you book through them, we may earn a commission at no extra cost to you.
+          </p>
+        </div>
+
+        <aside class="trust">
+          <div class="box">
+            <h3>Quick Safety Checklist</h3>
+            <ul>
+              <li>Double-check dates, passenger names, and baggage rules before paying.</li>
+              <li>Use a card with travel protection if available.</li>
+              <li>Save confirmations and receipts (PDF or email).</li>
+            </ul>
+          </div>
+
+          <div class="box">
+            <h3>Best For</h3>
+            <ul>
+              <li>Budget flight + hotel deals</li>
+              <li>Fast comparisons</li>
+              <li>City breaks in NL</li>
+            </ul>
+
+            <div class="badge-row" aria-label="Trust badges">
+              <span class="pill">Secure checkout</span>
+              <span class="pill">Trusted platform</span>
+              <span class="pill">Fast booking</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="section" aria-label="Why MyTrip for Netherlands">
+      <div class="section-inner">
+        <h2>Why use MyTrip for the Netherlands?</h2>
+        <p>
+          MyTrip is helpful when you want a quick way to compare flight and hotel options for major Dutch destinations.
+          It’s practical for weekend trips, business travel, and multi-city itineraries.
+        </p>
+
+        <div class="grid">
+          <div class="card">
+            <h3>Popular Netherlands Cities</h3>
+            <ul>
+              <li>Amsterdam – canals, museums, nightlife</li>
+              <li>Rotterdam – modern architecture</li>
+              <li>Utrecht – cozy city center</li>
+              <li>The Hague – government, seaside trips</li>
+              <li>Eindhoven – tech city gateway</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Booking Tips (avoid headaches)</h3>
+            <ul>
+              <li>Match passport name exactly (first/middle/last).</li>
+              <li>Read refund / change rules before checkout.</li>
+              <li>Check hotel check-in times (late arrivals may need notice).</li>
+              <li>Keep confirmation email + screenshot as backup.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Good Use Cases</h3>
+            <ul>
+              <li>Weekend city breaks</li>
+              <li>Business trips to Amsterdam/Rotterdam</li>
+              <li>Budget travel planning</li>
+              <li>Multi-city Netherlands itinerary</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>What to book here</h3>
+            <ul>
+              <li>Flights to the Netherlands</li>
+              <li>Hotels and stays</li>
+              <li>Bundles when available</li>
+            </ul>
+          </div>
         </div>
       </div>
 
-      <div class="gz-partner-badge">
-        Official affiliate partner
+      <div class="cta-band">
+        <div>
+          <strong>Ready to check prices?</strong><br />
+          <span>Open MyTrip and compare today’s availability.</span>
+        </div>
+
+        <a class="btn primary"
+           href="https://www.kqzyfj.com/click-101586981-17066582"
+           target="_blank"
+           rel="nofollow sponsored noopener noreferrer">
+          Search Netherlands Deals →
+        </a>
       </div>
-    </header>
+    </section>
 
-    <div class="hero-content">
-      <h1>Book Flights & Hotels in the Netherlands</h1>
-      <p>Discover great travel deals across Amsterdam, Rotterdam, Utrecht, The Hague and more Dutch destinations with MyTrip.</p>
-      <a href="https://www.kqzyfj.com/click-101586981-17066582" class="cta">Search Deals</a>
-    </div>
-  </div>
+    <section class="section" aria-label="FAQ">
+      <div class="section-inner">
+        <h2>FAQ</h2>
+        <p><strong>Is this an official MyTrip website?</strong><br />
+          No. This is a partner guide page by GiftCardZoneEU to help you compare and start your booking.
+        </p>
 
-  <section class="features">
-    <h2>Why Book with MyTrip?</h2>
+        <p><strong>Do prices change quickly?</strong><br />
+          Yes. Flight and hotel prices can change fast depending on demand and availability.
+        </p>
 
-    <div class="grid">
-      <div class="card">
-        <h3>🚲 Explore Dutch Cities</h3>
-        <p>Find flights to Amsterdam Schiphol, Rotterdam The Hague Airport and more popular travel hubs.</p>
+        <p><strong>What’s the best next step?</strong><br />
+          Start by checking availability and price, then confirm baggage rules and hotel policies before payment.
+        </p>
       </div>
-
-      <div class="card">
-        <h3>🏨 Hotels for Every Budget</h3>
-        <p>Book stays near canals, museums, nightlife spots and iconic Dutch landmarks.</p>
-      </div>
-
-      <div class="card">
-        <h3>🌷 Smooth Trip Planning</h3>
-        <p>Bundle flights + hotels to save more on your Netherlands vacation or business trip.</p>
-      </div>
-    </div>
-
-    <div class="center-btn">
-      <a href="https://www.kqzyfj.com/click-101586981-17066582" class="cta secondary">Start Booking</a>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <footer>
-    <p>© 2025 GiftCardZoneEU. All Rights Reserved.</p>
-  </footer>
+    <div class="wrap foot">
+      <div>
+        © <span id="autoYearFooter"></span> GiftCardZoneEU. All rights reserved.
+      </div>
+      <div style="display:flex; gap:14px; flex-wrap:wrap;">
+        <a href="/" aria-label="Home">Home</a>
+      </div>
+    </div>
 
+    <!-- LOCKED: Auto year script in footer -->
+    <script>
+      (function () {
+        var y = new Date().getFullYear();
+        var heroY = document.getElementById('autoYearHero');
+        var titleY = document.getElementById('autoYearTitle');
+        var footY = document.getElementById('autoYearFooter');
+        if (heroY) heroY.textContent = y;
+        if (titleY) titleY.textContent = y;
+        if (footY) footY.textContent = y;
+      })();
+    </script>
+  </footer>
 </body>
 </html>
-
