@@ -1,229 +1,482 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Best Flights & Hotels in Singapore (2026) | GiftCardZoneEU × MyTrip</title>
-<meta name="description" content="Compare flights and hotels in Singapore. Find deals near Marina Bay, Sentosa, Orchard Road and more. Secure booking with MyTrip." />
+  <title>MyTrip Singapore – Book Cheap Flights & Hotels (2026) | GiftCardZoneEU</title>
+  <meta name="description" content="Book cheap flights and hotels in Singapore with MyTrip. Compare deals for Marina Bay, Orchard Road, Sentosa, Bugis and more. Secure booking, updated 2026." />
 
-<link rel="canonical" href="https://giftcardzoneeu.com/partners/mytrip-singapore/" />
-<meta name="robots" content="index,follow" />
+  <!-- LOCKED: Canonical trailing slash (folder structure) -->
+  <link rel="canonical" href="https://giftcardzoneeu.com/partners/mytrip-singapore/" />
 
-<meta property="og:title" content="Singapore Travel Deals | MyTrip × GiftCardZoneEU" />
-<meta property="og:description" content="Book flights and hotels in Singapore. Compare prices and travel smarter." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://giftcardzoneeu.com/partners/mytrip-singapore/" />
-<meta property="og:image" content="https://giftcardzoneeu.com/partners/mytrip-singapore/assets/mytrip-singapore-hero.webp" />
+  <!-- LOCKED: Robots -->
+  <meta name="robots" content="index,follow" />
 
-<meta name="twitter:card" content="summary_large_image" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="MyTrip Singapore – Cheap Flights & Hotels (2026) | GiftCardZoneEU" />
+  <meta property="og:description" content="Find flights and hotels in Singapore with MyTrip. Compare Marina Bay, Orchard Road, Sentosa, Bugis and more." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://giftcardzoneeu.com/partners/mytrip-singapore/" />
+  <meta property="og:image" content="https://giftcardzoneeu.com/assets/partners/mytrip-singapore-hero.webp" />
 
-<link rel="stylesheet" href="/style.css" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MyTrip Singapore – Cheap Flights & Hotels (2026)" />
+  <meta name="twitter:description" content="Compare MyTrip deals for flights and hotels across Singapore. Marina Bay, Orchard Road, Sentosa and more." />
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/partners/mytrip-singapore-hero.webp" />
 
-<style>
+  <!-- Performance hint: hero image -->
+  <link rel="preload" as="image" href="/assets/partners/mytrip-singapore-hero.webp" />
 
-/* ===== HERO ===== */
-.hero {
-  position: relative;
-  height: 60vh;
-  min-height: 420px;
-  background: url('./assets/mytrip-singapore-hero.webp') center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #fff;
-}
+  <style>
+    :root{
+      --bg1:#0b1624;
+      --bg2:#0f1c2e;
+      --card:#0f2036cc;
+      --card2:#0f203699;
+      --text:#ffffff;
+      --muted:rgba(255,255,255,.82);
+      --muted2:rgba(255,255,255,.70);
+      --line:rgba(255,255,255,.14);
+      --shadow: 0 14px 40px rgba(0,0,0,.35);
+      --radius: 18px;
+      --radius2: 14px;
+      --max: 1120px;
+    }
 
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.65);
-  backdrop-filter: blur(3px);
-}
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Arial, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color:var(--text);
+      background: linear-gradient(135deg, var(--bg1), var(--bg2));
+      line-height:1.55;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px;}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:7px 12px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background: rgba(0,0,0,.28);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      font-size:13px;
+      color:var(--muted);
+      text-decoration:none;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 16px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.08);
+      box-shadow: 0 10px 26px rgba(0,0,0,.25);
+      text-decoration:none;
+      font-weight:700;
+      letter-spacing:.2px;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      white-space:nowrap;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.22);}
+    .btn.primary{
+      background: rgba(0, 190, 255, .18);
+      border-color: rgba(0, 190, 255, .35);
+    }
+    .btn.primary:hover{
+      background: rgba(0, 190, 255, .24);
+      border-color: rgba(0, 190, 255, .45);
+    }
 
-/* ===== HEADER ===== */
-.gz-header {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  right: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 20;
-}
+    /* ===== HERO ===== */
+    .hero{
+      position:relative;
+      min-height: 78vh;
+      display:flex;
+      align-items:center;
+      padding: 22px 0 46px;
+      background: url("/assets/partners/mytrip-singapore-hero.webp") center/cover no-repeat;
+      isolation:isolate;
+    }
+    .hero::before{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(0,0,0,.70), rgba(0,0,0,.50) 55%, rgba(11,22,36,.92));
+      z-index:-1;
+    }
 
-.gz-brand-pill {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: rgba(255,255,255,0.1);
-  padding: 8px 14px;
-  border-radius: 30px;
-  backdrop-filter: blur(6px);
-}
+    /* ===== HEADER (LOCKED: GZ logo always visible) ===== */
+    .topbar{
+      position:absolute;
+      top:16px; left:0; right:0;
+      z-index:20;
+    }
+    .topbar-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .brand-pill{
+      display:flex; align-items:center; gap:10px;
+      padding:7px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.34);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      text-decoration:none;
+    }
+    .brand-pill img{
+      width:26px; height:26px; object-fit:contain;
+      filter: drop-shadow(0 6px 18px rgba(0,0,0,.35));
+    }
+    .brand-pill span{
+      font-weight:800;
+      letter-spacing:.2px;
+      font-size:13px;
+      color:var(--text);
+      opacity:.95;
+    }
 
-.gz-avatar {
-  width: 34px;
-  height: 34px;
-  background: #0ea5e9;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-}
+    .hero-content{width:100%; padding-top: 62px;}
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .hero-card{
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(0,0,0,.32);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: var(--shadow);
+      padding: 18px 18px 16px;
+    }
+    .kicker{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      margin-bottom: 10px;
+    }
+    h1{
+      margin: 6px 0 10px;
+      font-size: clamp(28px, 3.7vw, 46px);
+      line-height:1.08;
+      letter-spacing:-.2px;
+    }
+    .sub{
+      margin:0 0 14px;
+      color:var(--muted);
+      font-size: 15.5px;
+      max-width: 64ch;
+    }
+    .cta-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      margin-top: 10px;
+    }
+    .mini{
+      margin-top: 10px;
+      color: var(--muted2);
+      font-size: 12.5px;
+    }
 
-.gz-partner-badge {
-  background: #16a34a;
-  padding: 8px 14px;
-  border-radius: 30px;
-  font-size: 13px;
-  font-weight: 600;
-}
+    .trust{
+      display:grid;
+      gap:10px;
+      height:100%;
+      align-content:start;
+    }
+    .trust .box{
+      border:1px solid var(--line);
+      border-radius: var(--radius2);
+      background: rgba(0,0,0,.24);
+      padding: 14px;
+    }
+    .trust h3{
+      margin:0 0 8px;
+      font-size: 14px;
+      letter-spacing:.2px;
+    }
+    .trust ul{
+      margin:0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 13.5px;
+    }
+    .trust li{margin: 6px 0;}
+    .trust .badge-row{
+      display:flex; flex-wrap:wrap; gap:8px;
+      margin-top: 10px;
+    }
 
-/* ===== HERO CONTENT ===== */
-.hero-content {
-  position: relative;
-  z-index: 10;
-  max-width: 850px;
-  padding: 0 20px;
-}
+    /* ===== MAIN ===== */
+    main{padding: 26px 0 56px;}
+    .section{
+      margin-top: 18px;
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, var(--card), var(--card2));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .section-inner{padding: 18px;}
+    .section h2{
+      margin:0 0 10px;
+      font-size: 20px;
+      letter-spacing:-.1px;
+    }
+    .section p{margin: 8px 0; color: var(--muted);}
 
-.hero-content h1 {
-  font-size: clamp(28px,4vw,46px);
-  margin-bottom: 18px;
-}
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:12px;
+      margin-top: 12px;
+    }
+    .card{
+      grid-column: span 6;
+      border:1px solid var(--line);
+      border-radius: var(--radius2);
+      background: rgba(0,0,0,.22);
+      padding: 14px;
+    }
+    .card h3{margin:0 0 8px; font-size: 15px;}
+    .card ul{margin:0; padding-left:18px; color: var(--muted); font-size: 13.5px;}
+    .card li{margin: 6px 0;}
 
-.hero-content p {
-  font-size: 16px;
-  opacity: 0.9;
-}
+    .cta-band{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding: 14px 18px;
+      border-top:1px solid var(--line);
+      background: rgba(0,0,0,.18);
+    }
+    .cta-band strong{font-size: 14px;}
+    .cta-band span{color: var(--muted); font-size: 13px;}
 
-.cta {
-  display: inline-block;
-  margin-top: 25px;
-  padding: 14px 28px;
-  background: #0ea5e9;
-  color: #fff;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-}
+    /* ===== FOOTER ===== */
+    footer{
+      border-top:1px solid rgba(255,255,255,.12);
+      padding: 22px 0 24px;
+      color: var(--muted2);
+      font-size: 12.5px;
+    }
+    .foot{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+    .foot a{color: var(--muted); text-decoration:none;}
+    .foot a:hover{text-decoration:underline;}
 
-.cta:hover {
-  background: #0284c7;
-}
-
-/* ===== AUTHORITY SECTION ===== */
-.section {
-  padding: 80px 20px;
-  max-width: 1100px;
-  margin: auto;
-}
-
-.section h2 {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
-  gap: 25px;
-}
-
-.card {
-  background: #111827;
-  padding: 25px;
-  border-radius: 12px;
-  transition: 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-footer {
-  text-align: center;
-  padding: 30px;
-  font-size: 14px;
-  background: #0f172a;
-}
-
-</style>
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 920px){
+      .hero-grid{grid-template-columns: 1fr; }
+      .card{grid-column: span 12;}
+      .hero{min-height: 86vh;}
+    }
+  </style>
 </head>
 
 <body>
+  <header class="hero" role="banner">
+    <div class="topbar">
+      <div class="wrap topbar-inner">
+        <!-- LOCKED: GZ logo always on page -->
+        <a class="brand-pill" href="/" aria-label="GiftCardZoneEU Home">
+          <img src="/assets/gz-logo.png" alt="GZEU Logo" />
+          <span>GiftCardZoneEU</span>
+        </a>
 
-<div class="hero">
-<div class="overlay"></div>
-
-<header class="gz-header">
-  <div class="gz-brand-pill">
-    <div class="gz-avatar">GZ</div>
-    <div>
-      <strong>GiftCardZoneEU • Partners</strong><br>
-      MyTrip Singapore Authority Page
+        <a class="pill" href="/" aria-label="Back to Home">← Home</a>
+      </div>
     </div>
-  </div>
 
-  <div class="gz-partner-badge">
-    Official Affiliate
-  </div>
-</header>
+    <div class="wrap hero-content">
+      <div class="hero-grid">
+        <div class="hero-card">
+          <div class="kicker">
+            <span class="pill">Partner Page</span>
+            <span class="pill">Updated <span id="autoYearHero">2026</span></span>
+            <span class="pill">Singapore</span>
+          </div>
 
-<div class="hero-content">
-  <h1>Flights & Hotels in Singapore</h1>
-  <p>Compare airlines and hotels across Marina Bay, Sentosa, Orchard Road and Clarke Quay. Travel smarter with secure booking.</p>
+          <h1>Book Cheap Flights & Hotels in Singapore with MyTrip (<span id="autoYearTitle">2026</span>)</h1>
+          <p class="sub">
+            Compare deals for flights and hotels across Singapore using MyTrip — ideal for trips to
+            Marina Bay, Orchard Road, Sentosa, Bugis and more.
+          </p>
 
-  <a href="https://www.kqzyfj.com/click-101586981-17066582"
-     class="cta"
-     rel="nofollow sponsored noopener noreferrer"
-     target="_blank">
-     Search Singapore Deals
-  </a>
-</div>
-</div>
+          <div class="cta-row">
+            <!-- LOCKED: affiliate link attributes -->
+            <a class="btn primary"
+               href="https://www.kqzyfj.com/click-101586981-17066582"
+               target="_blank"
+               rel="nofollow sponsored noopener noreferrer">
+              Search Deals on MyTrip →
+            </a>
 
-<section class="section">
-<h2>Top Areas to Stay in Singapore</h2>
+            <a class="btn" href="/" aria-label="Go to GiftCardZoneEU Home">
+              Browse More Pages
+            </a>
+          </div>
 
-<div class="grid">
-  <div class="card">
-    <h3>Marina Bay</h3>
-    <p>Luxury hotels, skyline views and iconic landmarks like Marina Bay Sands.</p>
-  </div>
+          <p class="mini">
+            Disclosure: Links may be affiliate links. If you book through them, we may earn a commission at no extra cost to you.
+          </p>
+        </div>
 
-  <div class="card">
-    <h3>Sentosa Island</h3>
-    <p>Beach resorts, Universal Studios and family-friendly attractions.</p>
-  </div>
+        <aside class="trust">
+          <div class="box">
+            <h3>Quick Safety Checklist</h3>
+            <ul>
+              <li>Double-check dates, passenger names, and baggage rules before paying.</li>
+              <li>Save confirmations and receipts (PDF or email).</li>
+              <li>Prices and availability may change quickly depending on demand.</li>
+            </ul>
+          </div>
 
-  <div class="card">
-    <h3>Orchard Road</h3>
-    <p>Best area for shopping and central access to the city.</p>
-  </div>
-</div>
+          <div class="box">
+            <h3>Best For</h3>
+            <ul>
+              <li>Short city breaks</li>
+              <li>Shopping + food trips</li>
+              <li>Budget flight + hotel deals</li>
+            </ul>
 
-<div style="text-align:center; margin-top:50px;">
-  <a href="https://www.kqzyfj.com/click-101586981-17066582"
-     class="cta"
-     rel="nofollow sponsored noopener noreferrer"
-     target="_blank">
-     Compare Flights & Hotels
-  </a>
-</div>
-</section>
+            <div class="badge-row" aria-label="Trust badges">
+              <span class="pill">Secure checkout</span>
+              <span class="pill">Flight + hotel bundles</span>
+              <span class="pill">Fast comparison</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </header>
 
-<footer>
-  © <span id="y"></span> GiftCardZoneEU. All Rights Reserved.
-</footer>
+  <main class="wrap">
+    <section class="section" aria-label="Why MyTrip for Singapore">
+      <div class="section-inner">
+        <h2>Why use MyTrip for Singapore?</h2>
+        <p>
+          Singapore is compact but can get expensive during peak seasons and events. MyTrip helps you compare flight and hotel options quickly
+          — useful for locking in deals early and choosing the best location for your trip.
+        </p>
 
-<script>
-document.getElementById("y").textContent = new Date().getFullYear();
-</script>
+        <div class="grid">
+          <div class="card">
+            <h3>Top Areas</h3>
+            <ul>
+              <li>Marina Bay – skyline views & major attractions</li>
+              <li>Orchard Road – shopping district</li>
+              <li>Sentosa – beaches & theme parks</li>
+              <li>Bugis – budget-friendly stays</li>
+              <li>Chinatown – food & culture</li>
+            </ul>
+          </div>
 
+          <div class="card">
+            <h3>Booking Tips (avoid headaches)</h3>
+            <ul>
+              <li>Match passenger name exactly to your ID/passport.</li>
+              <li>Check baggage rules (low-cost flights vary).</li>
+              <li>Confirm hotel check-in time (late arrivals may need notice).</li>
+              <li>Keep confirmation email + screenshot as backup.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Good Use Cases</h3>
+            <ul>
+              <li>Weekend city breaks</li>
+              <li>Food trip planning</li>
+              <li>Sentosa family days</li>
+              <li>Work trips with flexible hotels</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>What to book here</h3>
+            <ul>
+              <li>International flights</li>
+              <li>Hotels and serviced stays</li>
+              <li>Bundles when available</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-band">
+        <div>
+          <strong>Ready to check prices?</strong><br />
+          <span>Open MyTrip and compare today’s availability.</span>
+        </div>
+
+        <a class="btn primary"
+           href="https://www.kqzyfj.com/click-101586981-17066582"
+           target="_blank"
+           rel="nofollow sponsored noopener noreferrer">
+          Search Singapore Deals →
+        </a>
+      </div>
+    </section>
+
+    <section class="section" aria-label="FAQ">
+      <div class="section-inner">
+        <h2>FAQ</h2>
+        <p><strong>Is this an official MyTrip website?</strong><br />
+          No. This is a partner guide page by GiftCardZoneEU to help you compare and start your booking.
+        </p>
+
+        <p><strong>Do prices change fast?</strong><br />
+          Yes. Flights and hotels can change quickly based on demand, seasons, and availability.
+        </p>
+
+        <p><strong>What’s the best next step?</strong><br />
+          Check availability, then confirm baggage rules and hotel policies before payment.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <div>
+        © <span id="autoYearFooter"></span> GiftCardZoneEU. All rights reserved.
+      </div>
+      <div style="display:flex; gap:14px; flex-wrap:wrap;">
+        <a href="/" aria-label="Home">Home</a>
+      </div>
+    </div>
+
+    <!-- LOCKED: Auto year script in footer -->
+    <script>
+      (function () {
+        var y = new Date().getFullYear();
+        var heroY = document.getElementById('autoYearHero');
+        var titleY = document.getElementById('autoYearTitle');
+        var footY = document.getElementById('autoYearFooter');
+        if (heroY) heroY.textContent = y;
+        if (titleY) titleY.textContent = y;
+        if (footY) footY.textContent = y;
+      })();
+    </script>
+  </footer>
 </body>
-</html>
+</html>   
