@@ -4,73 +4,455 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Flights & Hotels in the UK | GiftCardZoneEU × MyTrip</title>
-  <meta name="description" content="Find the best deals on flights and hotels in the UK with MyTrip. Compare prices, book securely, and explore London, Manchester, Edinburgh, Birmingham and more." />
+  <title>Book Cheap Flights & Hotels in UK with MyTrip (2026) | GiftCardZoneEU</title>
+  <meta name="description" content="Compare cheap flights and hotels across the UK with MyTrip. Find deals for London, Manchester, Edinburgh, Birmingham, Glasgow and more. Secure booking, updated 2026." />
 
+  <!-- LOCKED: Canonical trailing slash (folder structure) -->
   <link rel="canonical" href="https://giftcardzoneeu.com/partners/mytrip-uk/" />
 
-  <meta property="og:title" content="Book Flights & Hotels in the UK | MyTrip × GZEU" />
-  <meta property="og:description" content="Search cheap flights and hotel deals across the UK, from London and Manchester to Edinburgh and Birmingham." />
-  <meta property="og:image" content="https://giftcardzoneeu.com/partners/mytrip-uk/assets/mytrip-hero.jpg" />
+  <!-- LOCKED: Robots -->
+  <meta name="robots" content="index,follow" />
 
+  <!-- Open Graph -->
+  <meta property="og:title" content="MyTrip UK – Book Cheap Flights & Hotels (2026) | GiftCardZoneEU" />
+  <meta property="og:description" content="Compare UK flight + hotel deals with MyTrip — London, Manchester, Edinburgh, Birmingham, Glasgow and more." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://giftcardzoneeu.com/partners/mytrip-uk/" />
+  <meta property="og:image" content="https://giftcardzoneeu.com/partners/mytrip-uk/assets/mytrip-uk-hero.webp" />
+
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MyTrip UK – Cheap Flights & Hotels (2026) | GiftCardZoneEU" />
+  <meta name="twitter:description" content="Find UK flight + hotel deals with MyTrip. Compare prices, book securely, updated 2026." />
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/partners/mytrip-uk/assets/mytrip-uk-hero.webp" />
 
-  <link rel="stylesheet" href="./style.css" />
+  <!-- Basic Performance -->
+  <link rel="preload" as="image" href="/partners/mytrip-uk/assets/mytrip-uk-hero.webp" />
+
+  <style>
+    :root{
+      --bg1:#0b1220;
+      --bg2:#0a1627;
+      --card: rgba(10, 18, 32, .62);
+      --stroke: rgba(255,255,255,.10);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.78);
+      --pill: rgba(0,0,0,.25);
+      --shadow: 0 20px 70px rgba(0,0,0,.45);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Arial, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: radial-gradient(1200px 600px at 20% 10%, #132a46 0%, transparent 60%),
+                  radial-gradient(900px 500px at 80% 20%, #1f3b5f 0%, transparent 55%),
+                  linear-gradient(135deg, var(--bg1), var(--bg2));
+      color: var(--text);
+      line-height:1.6;
+    }
+    a{color:inherit}
+
+    /* HERO */
+    .hero{
+      position:relative;
+      min-height: 86vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 22px 14px 46px;
+      background: url('/partners/mytrip-uk/assets/mytrip-uk-hero.webp') center/cover no-repeat;
+    }
+    .overlay{
+      position:absolute; inset:0;
+      background: rgba(0,0,0,.58);
+      backdrop-filter: blur(2px);
+    }
+
+    /* HEADER */
+    .gz-header{
+      position:absolute;
+      top: 14px; left: 14px; right: 14px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      z-index: 5;
+      gap: 10px;
+    }
+    .gz-brand-pill{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--pill);
+      border: 1px solid var(--stroke);
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+      text-decoration:none;
+      max-width: 70%;
+    }
+    .gz-brand-pill img{
+      width: 26px;
+      height: 26px;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+    .gz-brand-pill span{
+      font-weight: 700;
+      letter-spacing: .2px;
+      white-space: nowrap;
+      overflow:hidden;
+      text-overflow: ellipsis;
+    }
+    .top-nav{
+      display:flex;
+      gap: 10px;
+      align-items:center;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .nav-btn{
+      text-decoration:none;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--pill);
+      border: 1px solid var(--stroke);
+      font-weight: 700;
+      opacity: .95;
+    }
+
+    /* GLASS CARD */
+    .card{
+      position:relative;
+      z-index: 4;
+      width: min(980px, 100%);
+      border-radius: var(--radius);
+      background: var(--card);
+      border: 1px solid var(--stroke);
+      box-shadow: var(--shadow);
+      padding: 18px 18px 16px;
+    }
+    .pills{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    .pill{
+      font-size: 13px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.10);
+      opacity: .95;
+    }
+    h1{
+      margin: 0 0 10px;
+      font-size: clamp(28px, 4.2vw, 48px);
+      line-height: 1.12;
+      letter-spacing: -0.4px;
+    }
+    .sub{
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 860px;
+    }
+
+    .cta{
+      display:flex;
+      gap: 12px;
+      flex-wrap:wrap;
+      margin: 14px 0 8px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.10);
+      text-decoration:none;
+      font-weight: 800;
+      letter-spacing: .2px;
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(50, 180, 255, .35), rgba(10, 120, 255, .18));
+      border: 1px solid rgba(80, 190, 255, .28);
+    }
+
+    .disclosure{
+      margin-top: 8px;
+      font-size: 13px;
+      color: rgba(255,255,255,.72);
+    }
+
+    /* SECTIONS */
+    .wrap{
+      width: min(980px, 92%);
+      margin: 0 auto;
+      padding: 26px 0 46px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+      margin-top: 14px;
+    }
+    .box{
+      grid-column: span 12;
+      border-radius: 16px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+      padding: 16px;
+    }
+    .box h2{
+      margin: 0 0 8px;
+      font-size: 18px;
+      letter-spacing: -.2px;
+    }
+    ul{margin:10px 0 0; padding-left: 18px}
+    li{margin: 6px 0; color: rgba(255,255,255,.86)}
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .chip{
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.22);
+      color: rgba(255,255,255,.86);
+    }
+
+    .faq details{
+      border-top: 1px solid rgba(255,255,255,.10);
+      padding: 10px 0;
+    }
+    .faq details:first-child{border-top: 0}
+    .faq summary{
+      cursor:pointer;
+      font-weight: 800;
+      color: rgba(255,255,255,.92);
+    }
+    .faq p{
+      margin: 8px 0 0;
+      color: rgba(255,255,255,.78);
+      font-size: 14px;
+    }
+
+    footer{
+      padding: 28px 0 40px;
+      color: rgba(255,255,255,.72);
+      font-size: 13px;
+      text-align:center;
+    }
+    footer a{opacity:.9}
+    .footer-row{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      flex-wrap:wrap;
+      margin-top: 8px;
+    }
+    .mini-logo{
+      width: 18px;
+      height: 18px;
+      object-fit: contain;
+      vertical-align: middle;
+    }
+
+    @media (min-width: 760px){
+      .box.col6{grid-column: span 6}
+      .box.col4{grid-column: span 4}
+    }
+  </style>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "MyTrip UK – Book Cheap Flights & Hotels (2026) | GiftCardZoneEU",
+    "url": "https://giftcardzoneeu.com/partners/mytrip-uk/",
+    "description": "Compare cheap flights and hotels across the UK with MyTrip. Find deals for London, Manchester, Edinburgh, Birmingham, Glasgow and more.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "GiftCardZoneEU",
+      "url": "https://giftcardzoneeu.com/"
+    }
+  }
+  </script>
 </head>
 
 <body>
-  <div class="hero">
-    <div class="overlay"></div>
+  <section class="hero" aria-label="MyTrip UK hero section">
+    <div class="overlay" aria-hidden="true"></div>
 
+    <!-- GZ Logo Header (LOCKED: always show GZ logo) -->
     <header class="gz-header">
-      <div class="gz-brand-pill">
-        <div class="gz-avatar">GZ</div>
-        <div class="gz-brand-text">
-          <span class="gz-brand-main">GiftCardZoneEU • Partners</span>
-          <span class="gz-brand-sub">MyTrip UK</span>
-        </div>
-      </div>
+      <a class="gz-brand-pill" href="/" aria-label="Go to GiftCardZoneEU home">
+        <img src="/assets/gz-logo.png" alt="GiftCardZoneEU logo" />
+        <span>GiftCardZoneEU</span>
+      </a>
 
-      <div class="gz-partner-badge">
-        Official affiliate partner
-      </div>
+      <nav class="top-nav" aria-label="Top navigation">
+        <a class="nav-btn" href="/" aria-label="Home">← Home</a>
+      </nav>
     </header>
 
-    <div class="hero-content">
-      <h1>Book Flights & Hotels in the UK</h1>
-      <p>Find affordable flights and hotel deals across London, Manchester, Edinburgh, Birmingham and more.</p>
-      <a href="https://www.kqzyfj.com/click-101586981-17066582" class="cta">Search Deals</a>
-    </div>
-  </div>
-
-  <section class="features">
-    <h2>Why Book with MyTrip?</h2>
-
-    <div class="grid">
-      <div class="card">
-        <h3>✈️ Cheap Flights</h3>
-        <p>Compare airlines flying to and from major UK airports like London, Manchester and Edinburgh.</p>
+    <div class="card">
+      <div class="pills">
+        <div class="pill">Partner Page</div>
+        <div class="pill">Updated <span class="year"></span></div>
+        <div class="pill">UK</div>
       </div>
 
-      <div class="card">
-        <h3>🏨 Hotels Nationwide</h3>
-        <p>Stay near city centres, landmarks and business hubs across England, Scotland, Wales and Northern Ireland.</p>
+      <h1>Book Cheap Flights &amp; Hotels in UK with MyTrip (<span class="year"></span>)</h1>
+
+      <p class="sub">
+        Compare deals for flights and hotels across the UK using MyTrip — ideal for trips to
+        London, Manchester, Edinburgh, Birmingham, Glasgow and more.
+      </p>
+
+      <div class="cta">
+        <!-- LOCKED: affiliate links use rel nofollow sponsored noopener noreferrer -->
+        <a class="btn primary"
+           href="https://www.kqzyfj.com/click-101586981-17066582"
+           target="_blank"
+           rel="nofollow sponsored noopener noreferrer">
+          Search Deals on MyTrip →
+        </a>
+
+        <a class="btn"
+           href="/partners/"
+           aria-label="Browse more partner pages">
+          Browse More Pages
+        </a>
       </div>
 
-      <div class="card">
-        <h3>🎒 City Break Packages</h3>
-        <p>Bundle flights and hotels to save more on your UK city break or holiday.</p>
+      <div class="disclosure">
+        Disclosure: Links may be affiliate links. If you book through them, we may earn a commission at no extra cost to you.
       </div>
-    </div>
-
-    <div class="center-btn">
-      <a href="https://www.kqzyfj.com/click-101586981-17066582" class="cta secondary">Start Booking</a>
     </div>
   </section>
 
-  <footer>
-    <p>© 2025 GiftCardZoneEU. All Rights Reserved.</p>
-  </footer>
+  <main class="wrap">
+    <div class="grid">
+      <section class="box col6">
+        <h2>Quick Safety Checklist</h2>
+        <ul>
+          <li>Double-check dates, passenger names, and baggage rules before paying.</li>
+          <li>Save confirmations and receipts (PDF or email).</li>
+          <li>Prices and availability can change quickly depending on demand.</li>
+        </ul>
+      </section>
 
+      <section class="box col6">
+        <h2>Best For</h2>
+        <ul>
+          <li>City breaks (London)</li>
+          <li>Historic trips (Edinburgh)</li>
+          <li>Budget flight + hotel bundles</li>
+        </ul>
+        <div class="chips" aria-label="Feature chips">
+          <span class="chip">Secure checkout</span>
+          <span class="chip">Flight + hotel bundles</span>
+          <span class="chip">Fast comparison</span>
+        </div>
+      </section>
+
+      <section class="box col4">
+        <h2>Popular Cities</h2>
+        <ul>
+          <li>London</li>
+          <li>Manchester</li>
+          <li>Edinburgh</li>
+          <li>Birmingham</li>
+          <li>Glasgow</li>
+        </ul>
+      </section>
+
+      <section class="box col4">
+        <h2>Trip Tips</h2>
+        <ul>
+          <li>For London flights, compare LHR vs LGW vs STN depending on price/time.</li>
+          <li>Check hotel area vs. train/tube access for easy commuting.</li>
+          <li>Bundle flight + hotel for better value during busy travel weeks.</li>
+        </ul>
+      </section>
+
+      <section class="box col4">
+        <h2>Fast Action</h2>
+        <p style="margin:0;color:rgba(255,255,255,.80)">
+          Ready to book? Use MyTrip to compare prices and lock a deal.
+        </p>
+        <div class="cta" style="margin-top:12px">
+          <a class="btn primary"
+             href="https://www.kqzyfj.com/click-101586981-17066582"
+             target="_blank"
+             rel="nofollow sponsored noopener noreferrer">
+            Open MyTrip UK →
+          </a>
+        </div>
+      </section>
+
+      <section class="box faq">
+        <h2>FAQ</h2>
+
+        <details>
+          <summary>Is it cheaper to book flight + hotel together?</summary>
+          <p>
+            Often yes — bundles can reduce total cost, especially for short trips and peak travel weeks.
+            Always compare bundle vs. separate booking before checkout.
+          </p>
+        </details>
+
+        <details>
+          <summary>Which UK cities are best for first-time travel?</summary>
+          <p>
+            London is the most common starting point, then add Edinburgh for history and culture.
+            Manchester and Birmingham are great for city breaks and events.
+          </p>
+        </details>
+
+        <details>
+          <summary>When should I book for better prices?</summary>
+          <p>
+            Prices change fast. If you see a good fare and your dates are fixed,
+            booking earlier can help — especially for weekends and holiday seasons.
+          </p>
+        </details>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div>
+      © <span class="year"></span> GiftCardZoneEU • MyTrip Partner Page • UK
+    </div>
+
+    <div class="footer-row">
+      <img class="mini-logo" src="/assets/gz-logo.png" alt="GZ logo" />
+      <a href="/" aria-label="Back to homepage">Home</a>
+      <span>•</span>
+      <a href="/partners/" aria-label="Browse partners">Partners</a>
+    </div>
+
+    <!-- LOCKED: auto year script -->
+    <script>
+      (function () {
+        var y = new Date().getFullYear();
+        var nodes = document.querySelectorAll('.year');
+        for (var i = 0; i < nodes.length; i++) nodes[i].textContent = y;
+      })();
+    </script>
+  </footer>
 </body>
 </html>
