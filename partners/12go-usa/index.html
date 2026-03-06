@@ -1,458 +1,235 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Book Cheap Flights & Hotels in USA with MyTrip (2026) | GiftCardZoneEU</title>
-  <meta name="description" content="Compare cheap flights and hotels across the USA with MyTrip. Find deals for New York, Los Angeles, Chicago, Miami, Las Vegas and more. Secure booking, updated 2026." />
-
-  <!-- LOCKED: Canonical trailing slash (folder structure) -->
-  <link rel="canonical" href="https://giftcardzoneeu.com/partners/mytrip-usa/" />
-
-  <!-- LOCKED: Robots -->
-  <meta name="robots" content="index,follow" />
+  <title>USA Train, Bus & Ferry Tickets | GiftCardZoneEU × 12Go</title>
+  <meta name="description" content="Book USA trains, buses, ferries and airport transfers — New York, Los Angeles, Chicago, Miami, Las Vegas and more via 12Go." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://giftcardzoneeu.com/partners/12go-usa/" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="MyTrip USA – Book Cheap Flights & Hotels (2026) | GiftCardZoneEU" />
-  <meta property="og:description" content="Compare USA flight + hotel deals with MyTrip — New York, Los Angeles, Chicago, Miami, Las Vegas and more." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://giftcardzoneeu.com/partners/mytrip-usa/" />
-  <meta property="og:image" content="https://giftcardzoneeu.com/partners/mytrip-usa/assets/mytrip-usa-hero.webp" />
+  <meta property="og:title" content="12Go USA Transport Booking | GiftCardZoneEU" />
+  <meta property="og:description" content="Compare and book USA trains, buses and ferries — secure checkout via 12Go." />
+  <meta property="og:url" content="https://giftcardzoneeu.com/partners/12go-usa/" />
+  <meta property="og:image" content="https://giftcardzoneeu.com/partners/12go-usa/assets/12go-hero.jpg" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="MyTrip USA – Cheap Flights & Hotels (2026) | GiftCardZoneEU" />
-  <meta name="twitter:description" content="Find USA flight + hotel deals with MyTrip. Compare prices, book securely, updated 2026." />
-  <meta name="twitter:image" content="https://giftcardzoneeu.com/partners/mytrip-usa/assets/mytrip-usa-hero.webp" />
+  <meta name="twitter:title" content="USA Travel Tickets | GiftCardZoneEU × 12Go" />
+  <meta name="twitter:description" content="Book USA trains, buses, ferries and airport transfers securely via 12Go." />
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/partners/12go-usa/assets/12go-hero.jpg" />
 
-  <!-- Basic Performance -->
-  <link rel="preload" as="image" href="/partners/mytrip-usa/assets/mytrip-usa-hero.webp" />
+  <link rel="icon" href="https://giftcardzoneeu.com/assets/favicon.png" />
+  <meta name="theme-color" content="#020617" />
 
   <style>
-    :root{
-      --bg1:#0b1220;
-      --bg2:#0a1627;
-      --card: rgba(10, 18, 32, .62);
-      --stroke: rgba(255,255,255,.10);
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.78);
-      --pill: rgba(0,0,0,.25);
-      --shadow: 0 20px 70px rgba(0,0,0,.45);
-      --radius: 18px;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: Arial, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      background: radial-gradient(1200px 600px at 20% 10%, #132a46 0%, transparent 60%),
-                  radial-gradient(900px 500px at 80% 20%, #1f3b5f 0%, transparent 55%),
-                  linear-gradient(135deg, var(--bg1), var(--bg2));
-      color: var(--text);
-      line-height:1.6;
-    }
-    a{color:inherit}
-
-    /* HERO */
-    .hero{
-      position:relative;
-      min-height: 86vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding: 22px 14px 46px;
-      background: url('/partners/mytrip-usa/assets/mytrip-usa-hero.webp') center/cover no-repeat;
-    }
-    .overlay{
-      position:absolute; inset:0;
-      background: rgba(0,0,0,.58);
-      backdrop-filter: blur(2px);
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: #020617;
+      color: #f8fafc;
     }
 
-    /* HEADER */
-    .gz-header{
-      position:absolute;
-      top: 14px; left: 14px; right: 14px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      z-index: 5;
-      gap: 10px;
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
     }
-    .gz-brand-pill{
-      display:flex;
-      align-items:center;
+
+    /* Background Image */
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("https://giftcardzoneeu.com/partners/12go-usa/assets/12go-hero.jpg") center/cover no-repeat;
+      filter: brightness(0.85);
+      z-index: -2;
+    }
+
+    /* Dark Overlay */
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(15,23,42,0.85), rgba(15,23,42,0.9));
+      z-index: -1;
+    }
+
+    .content {
+      width: 100%;
+      max-width: 1100px;
+      display: grid;
+      gap: 32px;
+      grid-template-columns: 1.3fr 1fr;
+      position: relative;
+      z-index: 2;
+    }
+
+    @media(max-width: 800px) {
+      .content { grid-template-columns: 1fr; }
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
       gap: 10px;
-      padding: 8px 12px;
+      padding: 8px 14px;
+      background: rgba(15,23,42,0.95);
+      border: 1px solid rgba(148,163,184,0.5);
       border-radius: 999px;
-      background: var(--pill);
-      border: 1px solid var(--stroke);
-      box-shadow: 0 10px 30px rgba(0,0,0,.25);
-      text-decoration:none;
-      max-width: 70%;
-    }
-    .gz-brand-pill img{
-      width: 26px;
-      height: 26px;
-      object-fit: contain;
-      border-radius: 6px;
-    }
-    .gz-brand-pill span{
-      font-weight: 700;
-      letter-spacing: .2px;
-      white-space: nowrap;
-      overflow:hidden;
-      text-overflow: ellipsis;
-    }
-    .top-nav{
-      display:flex;
-      gap: 10px;
-      align-items:center;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-    }
-    .nav-btn{
-      text-decoration:none;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: var(--pill);
-      border: 1px solid var(--stroke);
-      font-weight: 700;
-      opacity: .95;
     }
 
-    /* GLASS CARD */
-    .card{
-      position:relative;
-      z-index: 4;
-      width: min(980px, 100%);
-      border-radius: var(--radius);
-      background: var(--card);
-      border: 1px solid var(--stroke);
-      box-shadow: var(--shadow);
-      padding: 18px 18px 16px;
+    .badge img {
+      width: 28px;
+      height: 28px;
     }
-    .pills{
-      display:flex;
-      gap: 10px;
+
+    h1 {
+      font-size: 32px;
+      margin: 10px 0 14px;
+      line-height: 1.18;
+    }
+
+    p {
+      color: #cbd5e1;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .pill-row, .trust-row {
+      display: flex;
       flex-wrap: wrap;
-      margin-bottom: 12px;
-    }
-    .pill{
-      font-size: 13px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.10);
-      opacity: .95;
-    }
-    h1{
-      margin: 0 0 10px;
-      font-size: clamp(28px, 4.2vw, 48px);
-      line-height: 1.12;
-      letter-spacing: -0.4px;
-    }
-    .sub{
-      margin: 0 0 14px;
-      color: var(--muted);
-      font-size: 16px;
-      max-width: 860px;
-    }
-
-    .cta{
-      display:flex;
-      gap: 12px;
-      flex-wrap:wrap;
-      margin: 14px 0 8px;
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap: 10px;
-      padding: 12px 16px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.10);
-      text-decoration:none;
-      font-weight: 800;
-      letter-spacing: .2px;
-    }
-    .btn.primary{
-      background: linear-gradient(135deg, rgba(50, 180, 255, .35), rgba(10, 120, 255, .18));
-      border: 1px solid rgba(80, 190, 255, .28);
-    }
-
-    .disclosure{
-      margin-top: 8px;
-      font-size: 13px;
-      color: rgba(255,255,255,.72);
-    }
-
-    /* SECTIONS */
-    .wrap{
-      width: min(980px, 92%);
-      margin: 0 auto;
-      padding: 26px 0 46px;
-    }
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 14px;
-      margin-top: 14px;
-    }
-    .box{
-      grid-column: span 12;
-      border-radius: 16px;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.10);
-      padding: 16px;
-    }
-    .box h2{
-      margin: 0 0 8px;
-      font-size: 18px;
-      letter-spacing: -.2px;
-    }
-    ul{margin:10px 0 0; padding-left: 18px}
-    li{margin: 6px 0; color: rgba(255,255,255,.86)}
-    .chips{
-      display:flex;
-      flex-wrap:wrap;
       gap: 8px;
-      margin-top: 10px;
-    }
-    .chip{
-      font-size: 12px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.22);
-      color: rgba(255,255,255,.86);
+      margin-top: 18px;
     }
 
-    .faq details{
-      border-top: 1px solid rgba(255,255,255,.10);
-      padding: 10px 0;
+    .pill {
+      padding: 6px 12px;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.4);
+      border-radius: 999px;
+      font-size: 12px;
     }
-    .faq details:first-child{border-top: 0}
-    .faq summary{
-      cursor:pointer;
-      font-weight: 800;
-      color: rgba(255,255,255,.92);
-    }
-    .faq p{
-      margin: 8px 0 0;
-      color: rgba(255,255,255,.78);
+
+    .cta-btn {
+      display: inline-flex;
+      margin-top: 20px;
+      padding: 12px 22px;
+      background: radial-gradient(circle at 0% 0%, #e0f2fe, #38bdf8);
+      border-radius: 999px;
+      color: #0f172a;
+      font-weight: 600;
+      text-decoration: none;
       font-size: 14px;
+      box-shadow: 0 18px 40px rgba(7,89,133,0.7);
+      transition: transform .15s ease;
+    }
+
+    .cta-btn:hover { transform: translateY(-1px); }
+
+    aside {
+      background: rgba(15,23,42,0.95);
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .route {
+      margin-bottom: 10px;
+      background: rgba(15,23,42,0.75);
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.45);
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
     }
 
     footer{
-      padding: 28px 0 40px;
-      color: rgba(255,255,255,.72);
-      font-size: 13px;
-      text-align:center;
-    }
-    footer a{opacity:.9}
-    .footer-row{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap: 10px;
-      flex-wrap:wrap;
-      margin-top: 8px;
-    }
-    .mini-logo{
-      width: 18px;
-      height: 18px;
-      object-fit: contain;
-      vertical-align: middle;
-    }
-
-    @media (min-width: 760px){
-      .box.col6{grid-column: span 6}
-      .box.col4{grid-column: span 4}
+      padding: 18px 14px;
+      font-size: 0.8rem;
+      background: #020617;
+      color: rgba(255,255,255,0.75);
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.06);
     }
   </style>
-
-  <!-- JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "MyTrip USA – Book Cheap Flights & Hotels (2026) | GiftCardZoneEU",
-    "url": "https://giftcardzoneeu.com/partners/mytrip-usa/",
-    "description": "Compare cheap flights and hotels across the USA with MyTrip. Find deals for New York, Los Angeles, Chicago, Miami, Las Vegas and more.",
-    "isPartOf": {
-      "@type": "WebSite",
-      "name": "GiftCardZoneEU",
-      "url": "https://giftcardzoneeu.com/"
-    }
-  }
-  </script>
 </head>
 
 <body>
-  <section class="hero" aria-label="MyTrip USA hero section">
-    <div class="overlay" aria-hidden="true"></div>
+  <section class="hero">
+    <div class="content">
 
-    <!-- GZ Logo Header (LOCKED: always show GZ logo) -->
-    <header class="gz-header">
-      <a class="gz-brand-pill" href="/" aria-label="Go to GiftCardZoneEU home">
-        <img src="/assets/gz-logo.png" alt="GiftCardZoneEU logo" />
-        <span>GiftCardZoneEU</span>
-      </a>
+      <div>
+        <div class="badge">
+          <img 
+            src="https://giftcardzoneeu.com/assets/gz-logo.png"
+            alt="GiftCardZoneEU Logo"
+            width="28"
+            height="28"
+          />
+          <span>GiftCardZoneEU × 12Go USA</span>
+        </div>
 
-      <nav class="top-nav" aria-label="Top navigation">
-        <a class="nav-btn" href="/" aria-label="Home">← Home</a>
-      </nav>
-    </header>
+        <h1>
+          Book USA <span style="color:#38bdf8">train & bus tickets</span> with 12Go — fast & secure.
+        </h1>
 
-    <div class="card">
-      <div class="pills">
-        <div class="pill">Partner Page</div>
-        <div class="pill">Updated <span class="year"></span></div>
-        <div class="pill">USA</div>
-      </div>
+        <p>
+          Travel across the United States: <strong>New York, Washington DC, Boston, Chicago, Los Angeles, Miami</strong> and more.
+          Compare trains, buses, ferries & airport transfers. Booking is completed safely on <strong>12Go</strong>.
+        </p>
 
-      <h1>Book Cheap Flights &amp; Hotels in USA with MyTrip (<span class="year"></span>)</h1>
+        <div class="pill-row">
+          <div class="pill">Amtrak & regional rail</div>
+          <div class="pill">City & intercity buses</div>
+          <div class="pill">Airport transfers</div>
+          <div class="pill">Popular East Coast routes</div>
+        </div>
 
-      <p class="sub">
-        Compare deals for flights and hotels across the USA using MyTrip — ideal for trips to
-        New York, Los Angeles, Chicago, Miami, Las Vegas and more.
-      </p>
-
-      <div class="cta">
-        <!-- LOCKED: affiliate links use rel nofollow sponsored noopener noreferrer -->
-        <a class="btn primary"
-           href="https://www.kqzyfj.com/click-101586981-17066582"
-           target="_blank"
-           rel="nofollow sponsored noopener noreferrer">
-          Search Deals on MyTrip →
+        <a
+          class="cta-btn"
+          href="https://www.tkqlhce.com/click-101586981-17115150"
+          target="_blank"
+          rel="nofollow sponsored noopener noreferrer"
+        >
+          Book USA Tickets on 12Go
         </a>
 
-        <a class="btn"
-           href="/partners/"
-           aria-label="Browse more partner pages">
-          Browse More Pages
-        </a>
+        <div class="trust-row">
+          <div class="pill">✓ Instant confirmation on many routes</div>
+          <div class="pill">💳 Secure 12Go checkout</div>
+        </div>
       </div>
 
-      <div class="disclosure">
-        Disclosure: Links may be affiliate links. If you book through them, we may earn a commission at no extra cost to you.
-      </div>
+      <aside>
+        <h3>Popular USA Routes</h3>
+        <div class="route"><span>New York → Washington DC</span><span>train/bus</span></div>
+        <div class="route"><span>New York → Boston</span><span>train/bus</span></div>
+        <div class="route"><span>New York → Philadelphia</span><span>train/bus</span></div>
+        <div class="route"><span>Boston → Washington DC</span><span>train/bus</span></div>
+        <div class="route"><span>Los Angeles → San Diego</span><span>train/bus</span></div>
+        <div class="route"><span>Miami → Orlando</span><span>train/bus</span></div>
+        <div class="route"><span>Chicago → Milwaukee</span><span>train</span></div>
+        <div class="route"><span>San Francisco → Los Angeles</span><span>bus/train</span></div>
+
+        <p style="margin-top:18px;font-size:12px;color:#94a3b8">
+          GiftCardZoneEU does not process payments. All bookings are completed on 12Go.
+        </p>
+      </aside>
+
     </div>
   </section>
 
-  <main class="wrap">
-    <div class="grid">
-      <section class="box col6">
-        <h2>Quick Safety Checklist</h2>
-        <ul>
-          <li>Double-check dates, passenger names, baggage rules, and airport terminals before paying.</li>
-          <li>Save confirmations and receipts (PDF or email).</li>
-          <li>Prices and availability can change quickly depending on season and demand.</li>
-        </ul>
-      </section>
-
-      <section class="box col6">
-        <h2>Best For</h2>
-        <ul>
-          <li>Big city trips (New York, Chicago)</li>
-          <li>Beach + nightlife travel (Miami)</li>
-          <li>Budget flight + hotel bundles</li>
-        </ul>
-        <div class="chips" aria-label="Feature chips">
-          <span class="chip">Secure checkout</span>
-          <span class="chip">Flight + hotel bundles</span>
-          <span class="chip">Fast comparison</span>
-        </div>
-      </section>
-
-      <section class="box col4">
-        <h2>Popular Cities</h2>
-        <ul>
-          <li>New York</li>
-          <li>Los Angeles</li>
-          <li>Chicago</li>
-          <li>Miami</li>
-          <li>Las Vegas</li>
-        </ul>
-      </section>
-
-      <section class="box col4">
-        <h2>Trip Tips</h2>
-        <ul>
-          <li>For New York, compare JFK vs EWR vs LGA depending on total travel time.</li>
-          <li>Check hotel area carefully, especially for transit access and parking fees.</li>
-          <li>Bundle flight + hotel for better value during holidays and busy weekends.</li>
-        </ul>
-      </section>
-
-      <section class="box col4">
-        <h2>Fast Action</h2>
-        <p style="margin:0;color:rgba(255,255,255,.80)">
-          Ready to book? Use MyTrip to compare prices and lock a deal.
-        </p>
-        <div class="cta" style="margin-top:12px">
-          <a class="btn primary"
-             href="https://www.kqzyfj.com/click-101586981-17066582"
-             target="_blank"
-             rel="nofollow sponsored noopener noreferrer">
-            Open MyTrip USA →
-          </a>
-        </div>
-      </section>
-
-      <section class="box faq">
-        <h2>FAQ</h2>
-
-        <details>
-          <summary>Is it cheaper to book flight + hotel together?</summary>
-          <p>
-            Often yes — bundles can reduce total cost, especially for short trips and peak travel periods.
-            Always compare bundle pricing versus separate bookings before checkout.
-          </p>
-        </details>
-
-        <details>
-          <summary>Which USA cities are best for first-time travel?</summary>
-          <p>
-            New York is one of the most common first stops, while Las Vegas and Miami are popular for
-            entertainment-focused trips. Los Angeles is ideal if you want a West Coast city experience.
-          </p>
-        </details>
-
-        <details>
-          <summary>When should I book for better prices?</summary>
-          <p>
-            Prices can move fast. If your travel dates are fixed and you find a strong fare,
-            earlier booking often helps — especially around holidays and long weekends.
-          </p>
-        </details>
-      </section>
-    </div>
-  </main>
-
   <footer>
-    <div>
-      © <span class="year"></span> GiftCardZoneEU • MyTrip Partner Page • USA
-    </div>
-
-    <div class="footer-row">
-      <img class="mini-logo" src="/assets/gz-logo.png" alt="GZ logo" />
-      <a href="/" aria-label="Back to homepage">Home</a>
-      <span>•</span>
-      <a href="/partners/" aria-label="Browse partners">Partners</a>
-    </div>
-
-    <!-- LOCKED: auto year script -->
-    <script>
-      (function () {
-        var y = new Date().getFullYear();
-        var nodes = document.querySelectorAll('.year');
-        for (var i = 0; i < nodes.length; i++) nodes[i].textContent = y;
-      })();
-    </script>
+    © <script>document.write(new Date().getFullYear())</script> GiftCardZoneEU.com – All Rights Reserved
   </footer>
 </body>
-</html>      
+</html>
