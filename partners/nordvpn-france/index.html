@@ -7,18 +7,21 @@
   <title>NordVPN France Deals | Secure Your Online Privacy | GiftCardZoneEU</title>
   <meta name="description" content="Protect your privacy online in France with NordVPN. Encrypt your connection, stay safer on public Wi-Fi in cafés, trains, hotels and at home, and enjoy a more secure browsing experience." />
 
-  <meta name="robots" content="index, follow" />
-
-  <!-- CANONICAL -->
+  <!-- LOCKED SEO -->
+  <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://giftcardzoneeu.com/partners/nordvpn-france/" />
 
-  <!-- SOCIAL META -->
+  <!-- OPEN GRAPH -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="NordVPN France Deals | Secure Your Online Privacy" />
+  <meta property="og:title" content="NordVPN France Deals | Secure Your Online Privacy | GiftCardZoneEU" />
   <meta property="og:description" content="Use NordVPN in France to protect your connection, hide your IP, and feel safer on public Wi-Fi at home or while traveling." />
   <meta property="og:image" content="https://giftcardzoneeu.com/partners/nordvpn-france/assets/nordvpn-hero.jpg" />
+  <meta property="og:url" content="https://giftcardzoneeu.com/partners/nordvpn-france/" />
 
+  <!-- TWITTER -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="NordVPN France Deals | Secure Your Online Privacy | GiftCardZoneEU" />
+  <meta name="twitter:description" content="Protect your connection, hide your IP, and browse more securely in France with NordVPN." />
   <meta name="twitter:image" content="https://giftcardzoneeu.com/partners/nordvpn-france/assets/nordvpn-hero.jpg" />
 
   <!-- CSS FILE -->
@@ -66,7 +69,12 @@
         </ul>
 
         <div class="btn-row">
-          <a href="https://www.jdoqocy.com/click-101586981-17085924" class="btn-primary">
+          <a
+            href="https://www.jdoqocy.com/click-101586981-17085924"
+            class="btn-primary"
+            rel="nofollow sponsored noopener noreferrer"
+            target="_blank"
+          >
             Get NordVPN deal
             <span class="icon">➜</span>
           </a>
@@ -202,8 +210,11 @@
   </section>
 
   <footer>
-    © 2025 GiftCardZoneEU. All rights reserved. NordVPN is a third-party service provider. We may earn a commission if you purchase through our link.
+    © <span id="year"></span> GiftCardZoneEU. All rights reserved. NordVPN is a third-party service provider. We may earn a commission if you purchase through our link.
   </footer>
-</body>
-</html>
 
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>              
