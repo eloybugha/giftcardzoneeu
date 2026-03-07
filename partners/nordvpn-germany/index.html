@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -7,16 +7,20 @@
   <title>NordVPN Germany Deals | Secure Your Online Privacy | GiftCardZoneEU</title>
   <meta name="description" content="Protect your privacy online in Germany with NordVPN. Encrypt your connection, stay safer on public Wi-Fi in cafés, trains, hotels and at home, and enjoy a more secure browsing experience." />
 
-  <!-- CANONICAL -->
+  <!-- LOCKED SEO -->
+  <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://giftcardzoneeu.com/partners/nordvpn-germany/" />
 
   <!-- SOCIAL META -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="NordVPN Germany Deals | Secure Your Online Privacy" />
+  <meta property="og:title" content="NordVPN Germany Deals | Secure Your Online Privacy | GiftCardZoneEU" />
   <meta property="og:description" content="Use NordVPN in Germany to protect your connection, hide your IP, and feel safer on public Wi-Fi at home or while traveling." />
   <meta property="og:image" content="https://giftcardzoneeu.com/partners/nordvpn-germany/assets/nordvpn-hero.jpg" />
+  <meta property="og:url" content="https://giftcardzoneeu.com/partners/nordvpn-germany/" />
 
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="NordVPN Germany Deals | Secure Your Online Privacy | GiftCardZoneEU" />
+  <meta name="twitter:description" content="Protect your connection, hide your IP, and browse more securely in Germany with NordVPN." />
   <meta name="twitter:image" content="https://giftcardzoneeu.com/partners/nordvpn-germany/assets/nordvpn-hero.jpg" />
 
   <style>
@@ -44,8 +48,6 @@
     a {
       color: inherit;
     }
-
-    /* ============ HERO SECTION ============ */
 
     .hero {
       min-height: 420px;
@@ -85,8 +87,6 @@
         text-align: center;
       }
     }
-
-    /* GZ brand pill */
 
     .gz-brand-pill {
       display: inline-flex;
@@ -128,8 +128,6 @@
       color: var(--text-main);
       font-weight: 600;
     }
-
-    /* Badge */
 
     .badge {
       display: inline-flex;
@@ -261,8 +259,6 @@
       font-size: 11px;
       color: #6b7280;
     }
-
-    /* Right visual card */
 
     .hero-visual {
       position: relative;
@@ -423,8 +419,6 @@
       color: #e0f2fe;
       font-weight: 600;
     }
-
-    /* ============ CONTENT SECTIONS ============ */
 
     .section {
       padding: 32px 16px 8px;
@@ -594,7 +588,7 @@
         </ul>
 
         <div class="btn-row">
-          <a href="https://www.jdoqocy.com/click-101586981-17085924" class="btn-primary">
+          <a href="https://www.jdoqocy.com/click-101586981-17085924" class="btn-primary" rel="nofollow sponsored noopener noreferrer" target="_blank">
             Get NordVPN deal
             <span class="icon">➜</span>
           </a>
@@ -730,8 +724,11 @@
   </section>
 
   <footer>
-    © 2025 GiftCardZoneEU. All rights reserved. NordVPN is a third-party service provider. We may earn a commission if you purchase through our link.
+    © <span id="year"></span> GiftCardZoneEU. All rights reserved. NordVPN is a third-party service provider. We may earn a commission if you purchase through our link.
   </footer>
-</body>
-</html>
 
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>               
