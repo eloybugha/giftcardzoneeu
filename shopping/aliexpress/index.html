@@ -7,8 +7,8 @@
   <title>AliExpress Deals – Budget Finds & Trending Products (2026) | GiftCardZoneEU</title>
   <meta name="description" content="Discover trending AliExpress budget finds in 2026: gadgets, home essentials, accessories, and more. Curated picks, safe shopping tips, and quick links to deals." />
 
-  <!-- LOCKED: Canonical trailing slash (folder structure) -->
-  <link rel="canonical" href="https://giftcardzoneeu.com/aliexpress/" />
+  <!-- LOCKED: Canonical trailing slash (shopping structure) -->
+  <link rel="canonical" href="https://giftcardzoneeu.com/shopping/aliexpress/" />
 
   <!-- LOCKED: Robots -->
   <meta name="robots" content="index,follow" />
@@ -17,17 +17,20 @@
   <meta property="og:title" content="AliExpress Deals – Budget Finds & Trending Products (2026) | GiftCardZoneEU" />
   <meta property="og:description" content="Curated AliExpress budget finds for 2026: gadgets, home essentials, accessories, and trending deals." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://giftcardzoneeu.com/aliexpress/" />
-  <meta property="og:image" content="https://giftcardzoneeu.com/aliexpress-hero.webp" />
+  <meta property="og:url" content="https://giftcardzoneeu.com/shopping/aliexpress/" />
+  <meta property="og:image" content="https://giftcardzoneeu.com/assets/aliexpress-hero.webp" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="AliExpress Deals – Budget Finds (2026) | GiftCardZoneEU" />
   <meta name="twitter:description" content="Trending AliExpress deals for 2026: gadgets, home essentials, accessories, and more." />
-  <meta name="twitter:image" content="https://giftcardzoneeu.com/aliexpress-hero.webp" />
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/aliexpress-hero.webp" />
 
-  <!-- Favicon (optional) -->
+  <!-- Favicon -->
   <link rel="icon" href="/assets/gz-favicon.png" />
+
+  <!-- Optional performance hint for hero -->
+  <link rel="preload" as="image" href="/assets/aliexpress-hero.webp" />
 
   <!-- JSON-LD -->
   <script type="application/ld+json">
@@ -35,7 +38,7 @@
     "@context":"https://schema.org",
     "@type":"WebPage",
     "name":"AliExpress Deals – Budget Finds & Trending Products (2026) | GiftCardZoneEU",
-    "url":"https://giftcardzoneeu.com/aliexpress/",
+    "url":"https://giftcardzoneeu.com/shopping/aliexpress/",
     "description":"Discover trending AliExpress budget finds in 2026: gadgets, home essentials, accessories, and more. Curated picks, safe shopping tips, and quick links to deals.",
     "isPartOf":{
       "@type":"WebSite",
@@ -56,18 +59,20 @@
       --shadow: 0 14px 34px rgba(0,0,0,.22);
     }
     *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{
       margin:0;
       font-family: Arial, sans-serif;
       color:var(--text);
-      background: radial-gradient(1200px 700px at 20% 0%, #12335a 0%, transparent 60%),
-                  linear-gradient(135deg, var(--bg2), var(--bg1));
+      background:
+        radial-gradient(1200px 700px at 20% 0%, #12335a 0%, transparent 60%),
+        linear-gradient(135deg, var(--bg2), var(--bg1));
       line-height:1.6;
     }
     a{color:inherit}
     .wrap{max-width:1100px;margin:0 auto;padding:0 18px}
 
-    /* ===== GZ BRAND HEADER (ALWAYS) ===== */
+    /* ===== GZ BRAND HEADER ===== */
     .gz-header{
       position:absolute;
       top:18px;
@@ -109,7 +114,7 @@
       inset:0;
       background:
         linear-gradient(180deg, rgba(0,0,0,.22), rgba(0,0,0,.70)),
-        url("/aliexpress-hero.webp");
+        url("/assets/aliexpress-hero.webp");
       background-size:cover;
       background-position:center;
       opacity:1;
@@ -223,7 +228,6 @@
       color:var(--muted);
     }
 
-    /* Picks */
     .picks{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -232,7 +236,9 @@
       padding:0;
       list-style:none;
     }
-    @media (max-width:900px){ .picks{grid-template-columns:1fr} }
+    @media (max-width:900px){
+      .picks{grid-template-columns:1fr}
+    }
     .pick{
       border:1px solid var(--stroke);
       background: rgba(15,32,54,.50);
@@ -255,10 +261,8 @@
       background: rgba(0,0,0,.14);
     }
 
-    /* Safety */
     .tips li{margin:6px 0; color:var(--muted)}
 
-    /* Footer */
     footer{
       margin:28px 0 0;
       padding:18px 0 26px;
@@ -281,7 +285,6 @@
   <!-- GZ LOGO: ALWAYS ON EVERY PAGE -->
   <a class="gz-header" href="/" aria-label="GiftCardZoneEU Home">
     <div class="gz-pill">
-      <!-- IMPORTANT: upload your logo to /assets/gz-logo.png -->
       <img src="/assets/gz-logo.png" alt="GiftCardZoneEU logo" loading="eager" />
       <div>
         <strong>GiftCardZoneEU</strong><br />
@@ -341,7 +344,6 @@
         <h2>Quick categories</h2>
         <p>Jump to a category and open deals directly.</p>
         <div class="cta-row" style="justify-content:flex-start;">
-          <!-- TODO: Replace each # with affiliate deep links -->
           <a class="btn" href="https://www.aliexpress.com" rel="nofollow sponsored noopener noreferrer" target="_blank">📱 Phone Accessories</a>
           <a class="btn" href="https://www.aliexpress.com" rel="nofollow sponsored noopener noreferrer" target="_blank">🏠 Home & Living</a>
           <a class="btn" href="https://www.aliexpress.com" rel="nofollow sponsored noopener noreferrer" target="_blank">🔌 Tech & Gadgets</a>
@@ -355,8 +357,8 @@
     <section class="card" id="picks" aria-label="Curated picks">
       <h2>Curated picks (starter set)</h2>
       <p>
-        Replace these with your best-performing categories/products later (top clicks / top EPC).
-        For now, this shows a clean “review-ready” page structure.
+        Replace these with your best-performing categories or deep links later.
+        For now, this gives you a clean review-ready page structure.
       </p>
 
       <ul class="picks">
@@ -395,13 +397,13 @@
 
     <section class="card" id="tips" aria-label="Safety tips">
       <h2>Safe shopping tips</h2>
-      <p>Simple checks before buying (good for trust + conversions).</p>
+      <p>Simple checks before buying.</p>
       <ul class="tips">
-        <li>Check seller rating + recent reviews (especially with photos).</li>
+        <li>Check seller rating and recent reviews, especially those with photos.</li>
         <li>Compare shipping time and tracking availability.</li>
-        <li>Read product specs carefully (sizes, voltage, materials).</li>
-        <li>Prefer listings with clear return/refund policy.</li>
-        <li>Use secure payment methods and avoid off-platform messaging for payments.</li>
+        <li>Read product specs carefully such as sizes, voltage, and materials.</li>
+        <li>Prefer listings with clear return or refund policy.</li>
+        <li>Use secure payment methods and avoid off-platform payment requests.</li>
       </ul>
       <p style="color: rgba(255,204,102,.95); margin:10px 0 0;">
         Note: Product availability and prices may change anytime. Always verify details on AliExpress before checkout.
@@ -428,4 +430,4 @@
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
-</html>
+</html>a              
