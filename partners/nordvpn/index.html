@@ -5,24 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>NordVPN Deals | Secure Your Online Privacy | GiftCardZoneEU</title>
-  <meta name="description" content="Protect your privacy online with NordVPN. Encrypt your connection, stay safe on public Wi-Fi, and enjoy a more secure browsing experience." />
+  <meta name="description" content="Protect your privacy online with NordVPN. Encrypt your connection, stay safe on public Wi-Fi, and explore NordVPN country pages on GiftCardZoneEU." />
+  <meta name="robots" content="index,follow" />
 
-  <!-- CANONICAL -->
   <link rel="canonical" href="https://giftcardzoneeu.com/partners/nordvpn/" />
-<link rel="icon" href="/assets/gz-favicon.png" />
-<meta property="og:url" content="https://giftcardzoneeu.com/partners/nordvpn/" />
-  
-  <!-- SOCIAL META -->
+  <link rel="icon" href="/assets/gz-favicon.png" />
+
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="NordVPN Deals | Secure Your Online Privacy" />
+  <meta property="og:title" content="NordVPN Deals | Secure Your Online Privacy | GiftCardZoneEU" />
   <meta property="og:description" content="Use NordVPN to protect your connection, hide your IP, and stay safer on public Wi-Fi." />
+  <meta property="og:url" content="https://giftcardzoneeu.com/partners/nordvpn/" />
   <meta property="og:image" content="https://giftcardzoneeu.com/partners/nordvpn/assets/nordvpn-hero.png" />
 
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="NordVPN Deals | Secure Your Online Privacy" />
-<meta name="twitter:description" content="Encrypt your connection, hide your IP, and stay safer on public Wi-Fi with NordVPN." />
-<meta name="twitter:image" content="https://giftcardzoneeu.com/partners/nordvpn/assets/nordvpn-hero.png" />
-  
+  <meta name="twitter:title" content="NordVPN Deals | Secure Your Online Privacy | GiftCardZoneEU" />
+  <meta name="twitter:description" content="Encrypt your connection, hide your IP, and stay safer on public Wi-Fi with NordVPN." />
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/partners/nordvpn/assets/nordvpn-hero.png" />
+
   <style>
     :root {
       --bg-dark: #020617;
@@ -47,10 +48,15 @@
 
     a {
       color: inherit;
+      text-decoration: none;
     }
 
-    /* ============ HERO SECTION ============ */
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
+    /* HERO */
     .hero {
       min-height: 420px;
       display: flex;
@@ -90,8 +96,6 @@
       }
     }
 
-    /* GZ brand pill */
-
     .gz-brand-pill {
       display: inline-flex;
       align-items: center;
@@ -104,22 +108,29 @@
     }
 
     .gz-avatar {
-      width: 20px;
-      height: 20px;
+      width: 28px;
+      height: 28px;
       border-radius: 999px;
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 11px;
-      font-weight: 700;
+      flex-shrink: 0;
       background: linear-gradient(135deg, #38bdf8, #0ea5e9);
-      color: #ecfeff;
+    }
+
+    .gz-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 999px;
     }
 
     .gz-brand-text {
       display: flex;
       flex-direction: column;
       line-height: 1.1;
+      text-align: left;
     }
 
     .gz-brand-main {
@@ -132,8 +143,6 @@
       color: var(--text-main);
       font-weight: 600;
     }
-
-    /* Badge */
 
     .badge {
       display: inline-flex;
@@ -202,6 +211,12 @@
       gap: 8px;
     }
 
+    @media (max-width: 880px) {
+      .hero-list li {
+        justify-content: center;
+      }
+    }
+
     .hero-list-bullet {
       width: 16px;
       height: 16px;
@@ -266,8 +281,6 @@
       color: #6b7280;
     }
 
-    /* Right visual card */
-
     .hero-visual {
       position: relative;
       max-width: 380px;
@@ -308,6 +321,8 @@
       align-items: center;
       justify-content: space-between;
       margin-bottom: 14px;
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
     .hero-card-title {
@@ -428,8 +443,7 @@
       font-weight: 600;
     }
 
-    /* ============ CONTENT SECTIONS ============ */
-
+    /* CONTENT */
     .section {
       padding: 32px 16px 8px;
       background: radial-gradient(circle at top, #020617 0, #000 90%);
@@ -453,7 +467,7 @@
       font-size: 14px;
       color: var(--text-muted);
       margin: 0 0 18px;
-      max-width: 520px;
+      max-width: 620px;
     }
 
     .feature-grid {
@@ -482,16 +496,24 @@
     }
 
     .feature-card p {
-      margin: 0;
+      margin: 0 0 10px;
       font-size: 13px;
       color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .card-link {
+      display: inline-block;
+      margin-top: 4px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #7dd3fc;
     }
 
     .how-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 14px;
-      counter-reset: step;
     }
 
     @media (max-width: 880px) {
@@ -537,6 +559,7 @@
     .how-step p {
       margin: 0;
       color: var(--text-muted);
+      line-height: 1.5;
     }
 
     .disclaimer {
@@ -544,6 +567,7 @@
       font-size: 11px;
       color: #6b7280;
       max-width: 720px;
+      line-height: 1.5;
     }
 
     footer {
@@ -562,7 +586,9 @@
     <div class="hero-inner">
       <div>
         <div class="gz-brand-pill">
-          <div class="gz-avatar">GZ</div>
+          <a href="/" class="gz-avatar" aria-label="GiftCardZoneEU homepage">
+            <img src="/assets/gz-logo.png" alt="GiftCardZoneEU logo">
+          </a>
           <div class="gz-brand-text">
             <span class="gz-brand-main">GiftCardZoneEU • Partners</span>
             <span class="gz-brand-sub">NordVPN</span>
@@ -598,7 +624,10 @@
         </ul>
 
         <div class="btn-row">
-          <a href="https://www.jdoqocy.com/click-101586981-17085924" class="btn-primary">
+          <a href="https://www.jdoqocy.com/click-101586981-17085924"
+             class="btn-primary"
+             target="_blank"
+             rel="nofollow sponsored noopener noreferrer">
             Get NordVPN deal
             <span class="icon">➜</span>
           </a>
@@ -672,23 +701,17 @@
       <div class="feature-grid">
         <article class="feature-card">
           <h3>🕶️ More privacy online</h3>
-          <p>
-            Hide your IP address from websites and internet providers so your activity is less tied to your personal identity.
-          </p>
+          <p>Hide your IP address from websites and internet providers so your activity is less tied to your personal identity.</p>
         </article>
 
         <article class="feature-card">
           <h3>📶 Safer on public Wi-Fi</h3>
-          <p>
-            Turn NordVPN on when you connect to cafés, airports, hotels or any shared network to help shield your data from snooping.
-          </p>
+          <p>Turn NordVPN on when you connect to cafés, airports, hotels or any shared network to help shield your data from snooping.</p>
         </article>
 
         <article class="feature-card">
           <h3>⚡ Fast, global servers</h3>
-          <p>
-            Thousands of servers in many regions worldwide help you enjoy a smoother connection while you work, browse or stream.
-          </p>
+          <p>Thousands of servers in many regions worldwide help you enjoy a smoother connection while you work, browse or stream.</p>
         </article>
       </div>
     </div>
@@ -733,9 +756,77 @@
     </div>
   </section>
 
+  <section class="section">
+    <div class="section-inner">
+      <h2 class="section-title">NordVPN Country Pages</h2>
+      <p class="section-subtitle">
+        Explore NordVPN pages for different countries and find the most relevant guide for your location.
+      </p>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <h3>NordVPN Germany</h3>
+          <p>Explore NordVPN privacy and browsing protection in Germany.</p>
+          <a class="card-link" href="/partners/nordvpn-germany/">View page</a>
+        </article>
+
+        <article class="feature-card">
+          <h3>NordVPN United Kingdom</h3>
+          <p>See how NordVPN helps protect your connection in the UK.</p>
+          <a class="card-link" href="/partners/nordvpn-uk/">View page</a>
+        </article>
+
+        <article class="feature-card">
+          <h3>NordVPN Sweden</h3>
+          <p>Browse the Sweden-specific NordVPN page and features.</p>
+          <a class="card-link" href="/partners/nordvpn-sweden/">View page</a>
+        </article>
+
+        <article class="feature-card">
+          <h3>NordVPN Spain</h3>
+          <p>Learn how NordVPN can help protect your privacy in Spain.</p>
+          <a class="card-link" href="/partners/nordvpn-spain/">View page</a>
+        </article>
+
+        <article class="feature-card">
+          <h3>NordVPN France</h3>
+          <p>Check NordVPN use cases for safer browsing in France.</p>
+          <a class="card-link" href="/partners/nordvpn-france/">View page</a>
+        </article>
+
+        <article class="feature-card">
+          <h3>NordVPN Netherlands</h3>
+          <p>See the Netherlands page for NordVPN privacy protection.</p>
+          <a class="card-link" href="/partners/nordvpn-netherlands/">View page</a>
+        </article>
+
+        <article class="feature-card">
+          <h3>NordVPN Italy</h3>
+          <p>Read the Italy page and explore NordVPN benefits there.</p>
+          <a class="card-link" href="/partners/nordvpn-italy/">View page</a>
+        </article>
+
+        <article class="feature-card">
+          <h3>NordVPN USA</h3>
+          <p>Browse the United States NordVPN guide and privacy page.</p>
+          <a class="card-link" href="/partners/nordvpn-usa/">View page</a>
+        </article>
+
+        <article class="feature-card">
+          <h3>NordVPN Philippines</h3>
+          <p>Open the Philippines page for NordVPN browsing protection.</p>
+          <a class="card-link" href="/partners/nordvpn-philippines/">View page</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <footer>
-    © 2025 GiftCardZoneEU. All rights reserved. NordVPN is a third-party service provider. We may earn a commission if you purchase through our link.
+    © <span id="year"></span> GiftCardZoneEU. All rights reserved. NordVPN is a third-party service provider. We may earn a commission if you purchase through our link.
   </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
-
