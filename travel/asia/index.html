@@ -1,119 +1,342 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Explore Asia Travel Deals | Agoda Partners</title>
-  <meta name="description" content="Compare hotel deals across Asia — Japan, Singapore, Thailand, and more. Powered by Agoda partners." />
-  <meta property="og:title" content="Top Hotel Deals in Asia" />
-  <meta property="og:description" content="Find great hotel deals in Japan, Singapore, Thailand and more. Discover Asia’s best destinations." />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1549692520-acc6669e2f0c?auto=format&fit=crop&w=1600&q=90" />
+  <title>Explore Asia Travel Deals | Agoda Partners | GiftCardZoneEU</title>
+  <meta name="description" content="Compare hotel deals across Asia — Japan, Singapore, Thailand, Philippines and more. Explore top travel destinations with GiftCardZoneEU Agoda partner pages." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://giftcardzoneeu.com/asia/" />
+
+  <link rel="icon" href="/assets/gz-logo.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Explore Asia Travel Deals | Agoda Partners" />
+  <meta property="og:description" content="Compare hotel deals across Asia — Japan, Singapore, Thailand, Philippines and more." />
+  <meta property="og:url" content="https://giftcardzoneeu.com/asia/" />
+  <meta property="og:image" content="https://giftcardzoneeu.com/assets/asia-hero.webp" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Explore Asia Travel Deals | Agoda Partners" />
+  <meta name="twitter:description" content="Compare hotel deals across Asia — Japan, Singapore, Thailand, Philippines and more." />
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/asia-hero.webp" />
 
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; font-family:system-ui, sans-serif; }
-    body { background:#050816; color:#f9fafb; line-height:1.6; }
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    }
 
-    .page-wrapper { min-height:100vh; display:flex; flex-direction:column; }
+    :root{
+      --bg:#050816;
+      --text:#f9fafb;
+      --muted:#9ca3af;
+      --card-border:rgba(148,163,184,0.35);
+      --card-bg:rgba(15,23,42,0.88);
+      --pill-bg:rgba(15,23,42,0.92);
+    }
 
-    /* ASIA HERO */
-    .hero {
+    body{
+      background:#050816;
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    .logo-home{
+      position:fixed;
+      top:18px;
+      left:20px;
+      z-index:999;
+    }
+
+    .logo-home img{
+      width:48px;
+      height:48px;
+      border-radius:50%;
+      box-shadow:0 4px 14px rgba(0,0,0,.35);
+    }
+
+    .page-wrapper{
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+    }
+
+    .hero{
       position:relative;
-      padding:4rem 1.5rem 3rem;
+      padding:5.5rem 1.5rem 3rem;
       text-align:center;
       overflow:hidden;
+      isolation:isolate;
     }
-    .hero::before {
+
+    .hero::before{
       content:"";
       position:absolute;
       inset:0;
-      background-image:url("https://images.unsplash.com/photo-1549692520-acc6669e2f0c?auto=format&fit=crop&w=1600&q=90");
+      background:
+        linear-gradient(135deg, rgba(5,8,22,.65), rgba(17,24,39,.55)),
+        url("/assets/asia-hero.webp");
       background-size:cover;
       background-position:center;
-      opacity:0.25;
-      filter:blur(1px);
       z-index:-2;
     }
-    .hero::after {
+
+    .hero::after{
       content:"";
       position:absolute;
       inset:0;
-      background:radial-gradient(circle at top, rgba(255,105,180,0.5), transparent 60%),
-                 radial-gradient(circle at bottom, rgba(59,130,246,0.5), transparent 60%);
-      opacity:0.9;
-      mix-blend-mode:screen;
+      background:
+        radial-gradient(circle at top, rgba(255,105,180,0.30), transparent 55%),
+        radial-gradient(circle at bottom, rgba(59,130,246,0.25), transparent 55%);
       z-index:-1;
     }
 
-    .hero-inner { max-width:900px; margin:0 auto; }
-    .hero-badge {
-      display:inline-flex; align-items:center; gap:.4rem;
-      padding:.35rem .9rem; border-radius:999px;
-      background:rgba(15,23,42,0.9); border:1px solid rgba(148,163,184,0.4);
-      font-size:.8rem; color:#e5e7eb;
+    .hero-inner{
+      max-width:900px;
+      margin:0 auto;
     }
-    .hero-badge-dot {
-      width:8px; height:8px; border-radius:999px; background:#22c55e;
+
+    .hero-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:.45rem;
+      padding:.35rem .9rem;
+      border-radius:999px;
+      background:var(--pill-bg);
+      border:1px solid rgba(148,163,184,0.35);
+      font-size:.82rem;
+      color:#e5e7eb;
+    }
+
+    .hero-badge-dot{
+      width:8px;
+      height:8px;
+      border-radius:999px;
+      background:#22c55e;
       box-shadow:0 0 12px rgba(34,197,94,0.9);
     }
-    .hero-title { font-size:clamp(2rem,4vw,2.8rem); font-weight:700; margin:.8rem 0; }
-    .hero-subtitle { max-width:620px; margin:0.5rem auto 1.5rem; color:#e5e7eb; }
 
-    /* CONTENT */
-    .content { max-width:1100px; margin:0 auto; padding:0 1.5rem 3.5rem; flex:1; }
-    .section-heading { margin-bottom:1rem; }
-    .section-heading h2 { font-size:1.3rem; margin-bottom:0.3rem; }
-    .section-heading p { font-size:.95rem; color:#9ca3af; }
-
-    /* GRID */
-    .grid {
-      display:grid; grid-template-columns:repeat(1,1fr);
-      gap:1.5rem; margin-top:1.5rem;
+    .hero-title{
+      font-size:clamp(2rem,4vw,2.9rem);
+      font-weight:800;
+      margin:.9rem 0 .7rem;
+      line-height:1.15;
     }
-    @media(min-width:640px){ .grid{ grid-template-columns:repeat(2,1fr);} }
-    @media(min-width:1024px){ .grid{ grid-template-columns:repeat(3,1fr);} }
 
-    .card {
-      background:radial-gradient(circle at top left, rgba(255,105,180,0.25), rgba(15,23,42,0.95));
+    .hero-subtitle{
+      max-width:680px;
+      margin:0 auto 1.6rem;
+      color:#e5e7eb;
+      font-size:1rem;
+    }
+
+    .content{
+      max-width:1100px;
+      margin:0 auto;
+      padding:0 1.5rem 3.5rem;
+      flex:1;
+      width:100%;
+    }
+
+    .section-heading{
+      margin-bottom:1rem;
+    }
+
+    .section-heading h2{
+      font-size:1.35rem;
+      margin-bottom:.35rem;
+    }
+
+    .section-heading p{
+      font-size:.95rem;
+      color:var(--muted);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(1,1fr);
+      gap:1.5rem;
+      margin-top:1.5rem;
+    }
+
+    @media(min-width:640px){
+      .grid{ grid-template-columns:repeat(2,1fr); }
+    }
+
+    @media(min-width:1024px){
+      .grid{ grid-template-columns:repeat(3,1fr); }
+    }
+
+    .card{
+      background:radial-gradient(circle at top left, rgba(255,105,180,0.15), rgba(15,23,42,0.95));
       border-radius:1.25rem;
-      border:1px solid rgba(148,163,184,0.4);
+      border:1px solid var(--card-border);
       padding:1rem;
       display:flex;
       flex-direction:column;
       gap:.75rem;
-      box-shadow:0 18px 40px rgba(15,23,42,0.85);
+      box-shadow:0 18px 40px rgba(15,23,42,0.65);
+      backdrop-filter:blur(8px);
     }
 
-    .card-image { overflow:hidden; border-radius:.9rem; max-height:160px; }
-    .card-image img { width:100%; height:100%; object-fit:cover; }
-
-    .card-title { font-size:1.05rem; font-weight:600; }
-    .card-sub { font-size:.9rem; color:#e5e7eb; }
-
-    .chip-row { display:flex; flex-wrap:wrap; gap:.4rem; }
-    .chip {
-      font-size:.75rem; padding:.15rem .55rem; border-radius:999px;
-      border:1px solid rgba(148,163,184,0.55); color:#e5e7eb; background:rgba(15,23,42,0.9);
+    .card-image{
+      overflow:hidden;
+      border-radius:.9rem;
+      max-height:180px;
+      min-height:180px;
+      background:#111827;
     }
 
-    .card-footer { margin-top:auto; display:flex; justify-content:space-between; align-items:center; font-size:.8rem; color:#9ca3af; }
+    .card-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
 
-    .btn {
-      padding:.55rem .9rem; border-radius:999px; border:none;
-      display:inline-flex; align-items:center; justify-content:center;
+    .card-title{
+      font-size:1.05rem;
+      font-weight:700;
+    }
+
+    .card-sub{
+      font-size:.92rem;
+      color:#e5e7eb;
+    }
+
+    .chip-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.4rem;
+    }
+
+    .chip{
+      font-size:.75rem;
+      padding:.15rem .55rem;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,0.45);
+      color:#e5e7eb;
+      background:rgba(15,23,42,0.9);
+    }
+
+    .card-footer{
+      margin-top:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:.8rem;
+      font-size:.8rem;
+      color:var(--muted);
+    }
+
+    .btn{
+      padding:.58rem .95rem;
+      border-radius:999px;
+      border:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
       background:linear-gradient(135deg,#fb7185,#8b5cf6);
-      color:#fff; font-size:.85rem; font-weight:500;
-      text-decoration:none; box-shadow:0 12px 30px rgba(236,72,153,0.5);
-      transition:.15s;
+      color:#fff;
+      font-size:.85rem;
+      font-weight:700;
+      text-decoration:none;
+      box-shadow:0 12px 30px rgba(236,72,153,0.35);
+      transition:transform .15s ease, opacity .15s ease;
+      white-space:nowrap;
     }
-    .btn:hover { transform:translateY(-1px); }
-  </style>
 
+    .btn:hover{
+      transform:translateY(-1px);
+      opacity:.96;
+    }
+
+    .partners-section{
+      max-width:1100px;
+      margin:0 auto 3rem;
+      padding:0 1.5rem;
+      width:100%;
+    }
+
+    .partners-title{
+      font-size:1.4rem;
+      font-weight:800;
+      margin-bottom:1.25rem;
+      text-align:center;
+    }
+
+    .partners-grid{
+      display:flex;
+      flex-wrap:wrap;
+      gap:1rem;
+      justify-content:center;
+    }
+
+    .partner-card{
+      background:#f9fafb;
+      color:#111827;
+      padding:1.1rem 1rem;
+      border-radius:.95rem;
+      box-shadow:0 8px 24px rgba(15,23,42,0.35);
+      text-decoration:none;
+      transition:transform .15s ease, box-shadow .15s ease;
+      min-width:180px;
+      max-width:210px;
+      flex:1 1 180px;
+    }
+
+    .partner-card:hover{
+      transform:translateY(-2px);
+      box-shadow:0 12px 28px rgba(15,23,42,0.45);
+    }
+
+    .partner-card h3{
+      margin:0;
+      font-size:1rem;
+      font-weight:700;
+    }
+
+    .partner-card p{
+      margin-top:.35rem;
+      font-size:.85rem;
+      color:#4b5563;
+    }
+
+    .footer{
+      text-align:center;
+      padding:1.8rem 1.5rem 2.8rem;
+      font-size:.85rem;
+      color:#9ca3af;
+      border-top:1px solid rgba(31,41,55,0.9);
+      background:radial-gradient(circle at top, rgba(255,105,180,0.12), rgba(15,23,42,1));
+    }
+
+    .footer a{
+      color:#a5b4fc;
+      text-decoration:none;
+    }
+
+    @media(max-width:640px){
+      .card-footer{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+    }
+  </style>
 </head>
 <body>
+  <a href="https://giftcardzoneeu.com/" class="logo-home">
+    <img src="/assets/gz-logo.png" alt="GiftCardZoneEU Logo">
+  </a>
+
   <div class="page-wrapper">
 
-    <!-- HERO -->
     <header class="hero">
       <div class="hero-inner">
         <div class="hero-badge">
@@ -122,13 +345,12 @@
         </div>
         <h1 class="hero-title">Explore Top Asia Travel & Hotel Deals</h1>
         <p class="hero-subtitle">
-          Discover the best hotel deals across Asia — Japan, Singapore, Thailand and more.
-          Book smarter and explore the beauty of Asia.
+          Discover hotel deals across Asia — Japan, Singapore, Thailand, the Philippines and more.
+          Book smarter and explore Asia with GiftCardZoneEU.
         </p>
       </div>
     </header>
 
-    <!-- MAIN CONTENT -->
     <main class="content">
       <section class="section-heading">
         <h2>Top Hotel Deals in Asia</h2>
@@ -137,10 +359,9 @@
 
       <section class="grid">
 
-        <!-- JAPAN -->
         <article class="card">
           <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1554797589-7241bb691973?auto=format&fit=crop&w=900&q=80">
+            <img src="/assets/japan-hotel-deals.webp" alt="Japan hotel deals">
           </div>
           <h3 class="card-title">Japan Hotel Deals</h3>
           <p class="card-sub">Tokyo, Kyoto, Osaka — culture, technology and unforgettable travel experiences.</p>
@@ -151,15 +372,13 @@
           </div>
           <div class="card-footer">
             <span>Live now</span>
-            <a class="btn" href="https://www.agoda.com/partners/partnersearch.aspx"
- target="_blank">View Japan Deals ↗</a>
+            <a class="btn" href="https://www.agoda.com/partners/partnersearch.aspx" target="_blank" rel="nofollow sponsored noopener noreferrer">View Japan Deals ↗</a>
           </div>
         </article>
 
-        <!-- SINGAPORE -->
         <article class="card">
           <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1531572753322-ad063cecc140?auto=format&fit=crop&w=900&q=80" alt="Singapore skyline hotel deals">
+            <img src="/assets/singapore-hotel-deals.webp" alt="Singapore hotel deals">
           </div>
           <h3 class="card-title">Singapore Hotel Deals</h3>
           <p class="card-sub">Modern, clean, fast — discover hotels in Singapore’s top districts.</p>
@@ -170,15 +389,13 @@
           </div>
           <div class="card-footer">
             <span>Live now</span>
-            <a class="btn" href="https://www.agoda.com/partners/partnersearch.aspx"
- target="_blank">View Singapore Deals ↗</a>
+            <a class="btn" href="https://www.agoda.com/partners/partnersearch.aspx" target="_blank" rel="nofollow sponsored noopener noreferrer">View Singapore Deals ↗</a>
           </div>
         </article>
 
-        <!-- THAILAND -->
         <article class="card">
           <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=900&q=80">
+            <img src="/assets/thailand-hotel-deals.webp" alt="Thailand hotel deals">
           </div>
           <h3 class="card-title">Thailand Hotel Deals</h3>
           <p class="card-sub">Bangkok, Phuket, Chiang Mai — islands, nightlife and nature escapes.</p>
@@ -189,103 +406,73 @@
           </div>
           <div class="card-footer">
             <span>Live now</span>
-            <a class="btn" href="https://www.agoda.com/partners/partnersearch.aspx"
- target="_blank">View Thailand Deals ↗</a>
+            <a class="btn" href="https://www.agoda.com/partners/partnersearch.aspx" target="_blank" rel="nofollow sponsored noopener noreferrer">View Thailand Deals ↗</a>
           </div>
         </article>
 
-        <!-- PHILIPPINES -->
-<article class="card">
-  <div class="card-image">
-    <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=900&q=80" 
-         alt="Philippines hotel deals - beaches and islands">
-  </div>
-  <h3 class="card-title">Philippines Hotel Deals</h3>
-  <p class="card-sub">Boracay, Palawan, Cebu — beaches, islands, food, nightlife and incredible travel experiences.</p>
-
-  <div class="chip-row">
-    <span class="chip">Philippines</span>
-    <span class="chip">Beaches</span>
-    <span class="chip">Islands</span>
-  </div>
-
-  <div class="card-footer">
-    <span>Live now</span>
-    <a
-      class="btn"
-      href="https://www.agoda.com/partners/partnersearch.aspx"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      View Philippines Deals <span>↗</span>
-    </a>
-  </div>
-</article>
+        <article class="card">
+          <div class="card-image">
+            <img src="/assets/philippines-hotel-deals.webp" alt="Philippines hotel deals">
+          </div>
+          <h3 class="card-title">Philippines Hotel Deals</h3>
+          <p class="card-sub">Boracay, Palawan, Cebu — beaches, islands, food, nightlife and unforgettable escapes.</p>
+          <div class="chip-row">
+            <span class="chip">Philippines</span>
+            <span class="chip">Beaches</span>
+            <span class="chip">Islands</span>
+          </div>
+          <div class="card-footer">
+            <span>Live now</span>
+            <a class="btn" href="https://www.agoda.com/partners/partnersearch.aspx" target="_blank" rel="nofollow sponsored noopener noreferrer">View Philippines Deals ↗</a>
+          </div>
+        </article>
 
       </section>
-    </main>     <!-- TOP TRAVEL PARTNERS (ASIA) -->
-    <section class="partners-section" style="max-width:1100px;margin:0 auto 3rem;padding:0 1.5rem;">
-      <h2 class="partners-title" style="font-size:1.4rem;font-weight:700;margin-bottom:1.25rem;text-align:center;">
-        🌏 Top Travel Partners
-      </h2>
+    </main>
 
-      <div class="partners-grid" style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
-        
-        <a href="https://www.booking.com/" target="_blank" rel="noopener noreferrer"
-           class="partner-card" style="background:#f9fafb;color:#111827;padding:1.1rem 1rem;border-radius:0.9rem;
-           box-shadow:0 8px 24px rgba(15,23,42,0.35);text-decoration:none;transition:0.12s;">
-          <h3 style="margin:0;font-size:1rem;font-weight:600;">Booking.com</h3>
-          <p style="margin-top:0.35rem;font-size:0.85rem;color:#4b5563;">Hotels & vacation rentals worldwide.</p>
+    <section class="partners-section">
+      <h2 class="partners-title">🌏 Top Travel Partners</h2>
+
+      <div class="partners-grid">
+
+        <a href="https://www.booking.com/" target="_blank" rel="nofollow sponsored noopener noreferrer" class="partner-card">
+          <h3>Booking.com</h3>
+          <p>Hotels & vacation rentals worldwide.</p>
         </a>
 
-        <a href="https://www.trip.com/index?locale=en_us" target="_blank" rel="noopener noreferrer"
-           class="partner-card" style="background:#f9fafb;color:#111827;padding:1.1rem 1rem;border-radius:0.9rem;
-           box-shadow:0 8px 24px rgba(15,23,42,0.35);text-decoration:none;transition:0.12s;">
-          <h3 style="margin:0;font-size:1rem;font-weight:600;">Trip.com</h3>
-          <p style="margin-top:0.35rem;font-size:0.85rem;color:#4b5563;">Flights, hotels & travel packages.</p>
+        <a href="https://www.trip.com/index?locale=en_us" target="_blank" rel="nofollow sponsored noopener noreferrer" class="partner-card">
+          <h3>Trip.com</h3>
+          <p>Flights, hotels & travel packages.</p>
         </a>
 
-        <a href="https://www.hoteles.com" target="_blank" rel="noopener noreferrer"
-           class="partner-card" style="background:#f9fafb;color:#111827;padding:1.1rem 1rem;border-radius:0.9rem;
-           box-shadow:0 8px 24px rgba(15,23,42,0.35);text-decoration:none;transition:0.12s;">
-          <h3 style="margin:0;font-size:1rem;font-weight:600;">Hoteles.com</h3>
-          <p style="margin-top:0.35rem;font-size:0.85rem;color:#4b5563;">Hotel rewards & discount stays.</p>
+        <a href="https://www.hoteles.com" target="_blank" rel="nofollow sponsored noopener noreferrer" class="partner-card">
+          <h3>Hoteles.com</h3>
+          <p>Hotel rewards & discount stays.</p>
         </a>
 
-        <a href="https://all.accor.com/usa/index.en.shtml" target="_blank" rel="noopener noreferrer"
-           class="partner-card" style="background:#f9fafb;color:#111827;padding:1.1rem 1rem;border-radius:0.9rem;
-           box-shadow:0 8px 24px rgba(15,23,42,0.35);text-decoration:none;transition:0.12s;">
-          <h3 style="margin:0;font-size:1rem;font-weight:600;">Accor Hotels</h3>
-          <p style="margin-top:0.35rem;font-size:0.85rem;color:#4b5563;">Premium hotels in 110+ countries.</p>
+        <a href="https://all.accor.com/usa/index.en.shtml" target="_blank" rel="nofollow sponsored noopener noreferrer" class="partner-card">
+          <h3>Accor Hotels</h3>
+          <p>Premium hotels in 110+ countries.</p>
         </a>
 
-        <a href="https://www.motel6.com/en/home.html" target="_blank" rel="noopener noreferrer"
-           class="partner-card" style="background:#f9fafb;color:#111827;padding:1.1rem 1rem;border-radius:0.9rem;
-           box-shadow:0 8px 24px rgba(15,23,42,0.35);text-decoration:none;transition:0.12s;">
-          <h3 style="margin:0;font-size:1rem;font-weight:600;">Motel 6</h3>
-          <p style="margin-top:0.35rem;font-size:0.85rem;color:#4b5563;">Budget-friendly stays in Asia & beyond.</p>
+        <a href="https://www.motel6.com/en/home.html" target="_blank" rel="nofollow sponsored noopener noreferrer" class="partner-card">
+          <h3>Motel 6</h3>
+          <p>Budget-friendly stays in Asia & beyond.</p>
         </a>
 
       </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="footer" style="
-  text-align:center; 
-  padding:1.8rem 1.5rem 2.8rem; 
-  font-size:0.85rem; 
-  color:#9ca3af; 
-  border-top:1px solid rgba(31,41,55,0.9);
-  background: radial-gradient(circle at top, rgba(255,105,180,0.15), rgba(15,23,42,1));
-">
-  Part of 
-  <a href="https://giftcardzoneeu.com" style="color:#a5b4fc; text-decoration:none;">
-    GiftCardZoneEU.com
-  </a> 
-  travel &amp; deals network. Agoda partner page — links may contain affiliate tracking.
-</footer>
+    <footer class="footer">
+      © <span id="year"></span> Part of
+      <a href="https://giftcardzoneeu.com/">GiftCardZoneEU.com</a>
+      travel &amp; deals network. Agoda partner page — links may contain affiliate tracking.
+    </footer>
 
   </div>
-</body>
-</html>
 
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>  
