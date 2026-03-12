@@ -1,284 +1,338 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Best Hotels in Australia | Where to Stay & Book Online</title>
+  <meta name="description" content="Find the best hotels in Australia including Sydney, Melbourne, Brisbane and Perth. Compare hotel deals with trusted travel partners like Booking.com, Agoda and Trip.com." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://giftcardzoneeu.com/travel/australia/" />
+  <link rel="icon" href="/assets/gz-logo.png" />
 
-<title>Best Hotels in Australia | Where to Stay & Book Online</title>
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Best Hotels in Australia | GiftCardZoneEU" />
+  <meta property="og:description" content="Compare hotel deals across Australia including Sydney, Melbourne, Brisbane and Perth." />
+  <meta property="og:url" content="https://giftcardzoneeu.com/travel/australia/" />
+  <meta property="og:image" content="https://giftcardzoneeu.com/assets/travel/australia-hero.webp" />
 
-<meta name="description" content="Find the best hotels in Australia including Sydney, Melbourne, Brisbane and Perth. Compare hotel deals with trusted travel partners like Booking.com, Agoda and Trip.com." />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Best Hotels in Australia | GiftCardZoneEU" />
+  <meta name="twitter:description" content="Discover Australia's top cities and hotel deals with trusted travel partners." />
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/travel/australia-hero.webp" />
 
-<meta name="robots" content="index,follow" />
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    }
 
-<link rel="canonical" href="https://giftcardzoneeu.com/travel/australia/" />
+    body{
+      background:#08152f;
+      color:#ffffff;
+      line-height:1.6;
+    }
 
-<link rel="icon" href="/assets/gz-logo.png" />
+    a{
+      text-decoration:none;
+    }
 
-<meta property="og:type" content="website" />
-<meta property="og:title" content="Best Hotels in Australia | GiftCardZoneEU" />
-<meta property="og:description" content="Compare hotel deals across Australia including Sydney, Melbourne and Brisbane." />
-<meta property="og:url" content="https://giftcardzoneeu.com/travel/australia/" />
-<meta property="og:image" content="https://giftcardzoneeu.com/assets/travel/australia-hero.webp" />
+    .nav{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:flex-start;
+      padding:14px 22px;
+      background:rgba(0,0,0,0.70);
+      backdrop-filter:blur(8px);
+      z-index:1000;
+      border-bottom:1px solid rgba(255,255,255,0.06);
+    }
 
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Best Hotels in Australia | GiftCardZoneEU" />
-<meta name="twitter:description" content="Discover Australia's top cities and hotel deals." />
-<meta name="twitter:image" content="https://giftcardzoneeu.com/assets/travel/australia-hero.webp" />
+    .nav img{
+      height:42px;
+      width:auto;
+      display:block;
+    }
 
-<style>
+    .hero{
+      min-height:65vh;
+      background:
+        linear-gradient(rgba(4,10,24,0.42), rgba(4,10,24,0.62)),
+        url("/assets/travel/australia-hero.webp");
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:100px 20px 28px;
+    }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
-}
+    .hero-overlay{
+      width:100%;
+      max-width:960px;
+      background:rgba(0,0,0,0.42);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:20px;
+      padding:28px 22px;
+      box-shadow:0 16px 40px rgba(0,0,0,0.26);
+    }
 
-body{
-background:#0f172a;
-color:white;
-line-height:1.6;
-}
+    .hero h1{
+      font-size:clamp(2rem, 5vw, 4rem);
+      line-height:1.1;
+      margin-bottom:14px;
+    }
 
-.nav{
-position:fixed;
-top:0;
-width:100%;
-padding:15px 30px;
-background:rgba(0,0,0,0.7);
-backdrop-filter:blur(6px);
-z-index:1000;
-}
+    .hero p{
+      font-size:clamp(1rem, 2.2vw, 1.2rem);
+      color:rgba(255,255,255,0.93);
+      max-width:760px;
+      margin:0 auto;
+    }
 
-.nav img{
-height:40px;
-cursor:pointer;
-}
+    .hero-partner{
+      margin-top:10px;
+      font-size:14px;
+      opacity:0.82;
+      letter-spacing:0.3px;
+    }
 
-.hero{
-height:80vh;
-background-image:url("/assets/travel/australia-hero.webp");
-background-size:cover;
-background-position:center;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:20px;
-}
+    .container{
+      max-width:1180px;
+      margin:0 auto;
+      padding:44px 20px 60px;
+    }
 
-.hero-overlay{
-background:rgba(0,0,0,0.55);
-padding:40px;
-border-radius:12px;
-}
+    .section{
+      margin-bottom:52px;
+    }
 
-.hero h1{
-font-size:2.5rem;
-margin-bottom:10px;
-}
+    .section h2{
+      font-size:clamp(1.7rem, 3vw, 2.2rem);
+      color:#40bfff;
+      margin-bottom:16px;
+    }
 
-.hero p{
-font-size:1.1rem;
-opacity:0.9;
-}
+    .section p{
+      color:rgba(255,255,255,0.92);
+      max-width:920px;
+    }
 
-.container{
-max-width:1100px;
-margin:auto;
-padding:80px 20px;
-}
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:22px;
+      margin-top:22px;
+    }
 
-.section{
-margin-bottom:60px;
-}
+    .card{
+      background:#12213f;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:20px;
+      padding:24px;
+      box-shadow:0 12px 28px rgba(0,0,0,0.18);
+      transition:transform 0.25s ease, box-shadow 0.25s ease;
+    }
 
-.section h2{
-font-size:1.8rem;
-margin-bottom:15px;
-color:#38bdf8;
-}
+    .card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 16px 34px rgba(0,0,0,0.24);
+    }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
+    .card h3{
+      font-size:1.25rem;
+      margin-bottom:10px;
+      color:#ffffff;
+    }
 
-.card{
-background:#1e293b;
-padding:25px;
-border-radius:10px;
-transition:0.3s;
-}
+    .card p{
+      color:rgba(255,255,255,0.88);
+      font-size:0.98rem;
+    }
 
-.card:hover{
-transform:translateY(-5px);
-}
+    .btn{
+      display:inline-block;
+      margin-top:16px;
+      padding:11px 18px;
+      border-radius:10px;
+      background:#40bfff;
+      color:#06111f;
+      font-weight:700;
+      transition:opacity 0.2s ease, transform 0.2s ease;
+    }
 
-.card h3{
-margin-bottom:10px;
-}
+    .btn:hover{
+      opacity:0.92;
+      transform:translateY(-1px);
+    }
 
-.btn{
-display:inline-block;
-margin-top:15px;
-padding:10px 18px;
-background:#38bdf8;
-color:black;
-text-decoration:none;
-border-radius:6px;
-font-weight:600;
-}
+    .footer{
+      text-align:center;
+      padding:28px 20px 34px;
+      color:rgba(255,255,255,0.70);
+      font-size:14px;
+      border-top:1px solid rgba(255,255,255,0.06);
+    }
 
-.footer{
-text-align:center;
-padding:30px;
-font-size:14px;
-opacity:0.7;
-}
+    @media (max-width:768px){
+      .nav{
+        padding:12px 16px;
+      }
 
-</style>
+      .nav img{
+        height:38px;
+      }
 
+      .hero{
+        min-height:58vh;
+        padding:92px 16px 22px;
+      }
+
+      .hero-overlay{
+        padding:22px 16px;
+        border-radius:16px;
+      }
+
+      .hero h1{
+        font-size:clamp(1.9rem, 7vw, 3rem);
+      }
+
+      .hero p{
+        font-size:1rem;
+      }
+
+      .hero-partner{
+        font-size:13px;
+      }
+
+      .container{
+        padding:34px 20px 54px;
+      }
+
+      .section{
+        margin-bottom:42px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="nav">
+  <div class="nav">
+    <a href="https://giftcardzoneeu.com/" aria-label="GiftCardZoneEU Home">
+      <img src="/assets/gz-logo.png" alt="GiftCardZoneEU Logo" />
+    </a>
+  </div>
 
-<a href="https://giftcardzoneeu.com/">
-<img src="/assets/gz-logo.png" alt="GiftCardZoneEU Logo">
-</a>
+  <section class="hero">
+    <div class="hero-overlay">
+      <h1>Explore Australia Travel Deals</h1>
+      <p>
+        Compare hotels and travel deals in Sydney, Melbourne, Brisbane and more.
+        Book with trusted travel partners worldwide.
+      </p>
+      <p class="hero-partner">GiftCardZoneEU × Trusted Travel Partners</p>
+    </div>
+  </section>
 
-</div>
+  <main class="container">
 
-<section class="hero">
+    <section class="section">
+      <h2>Why Visit Australia</h2>
+      <p>
+        Australia is one of the world’s most exciting travel destinations. From the famous Sydney Opera House
+        and the Great Barrier Reef to vibrant cities like Melbourne, Brisbane and Perth, Australia offers
+        beautiful coastlines, modern cities, unique wildlife and unforgettable adventures for travelers worldwide.
+      </p>
+    </section>
 
-<div class="hero-overlay">
+    <section class="section">
+      <h2>Top Cities in Australia</h2>
+      <div class="grid">
 
-<h1>Explore Australia Travel Deals</h1>
+        <div class="card">
+          <h3>Sydney</h3>
+          <p>
+            Home of the iconic Sydney Opera House and Harbour Bridge, with world-class beaches,
+            skyline views and vibrant city life.
+          </p>
+        </div>
 
-<p>
-Compare hotels and travel deals in Sydney, Melbourne, Brisbane and more.
-Book with trusted travel partners worldwide.
-</p>
+        <div class="card">
+          <h3>Melbourne</h3>
+          <p>
+            Australia’s cultural capital known for its food scene, art, live music, coffee culture
+            and stylish city atmosphere.
+          </p>
+        </div>
 
-</div>
+        <div class="card">
+          <h3>Brisbane</h3>
+          <p>
+            A warm-weather city with a relaxed riverside lifestyle and easy access to the Gold Coast
+            and nearby natural attractions.
+          </p>
+        </div>
 
-</section>
+        <div class="card">
+          <h3>Perth</h3>
+          <p>
+            A beautiful coastal city famous for beaches, parks, sunshine and stunning sunsets
+            on Australia’s west coast.
+          </p>
+        </div>
 
-<div class="container">
+      </div>
+    </section>
 
-<div class="section">
+    <section class="section">
+      <h2>Book Hotels with Trusted Travel Partners</h2>
+      <div class="grid">
 
-<h2>Why Visit Australia</h2>
+        <div class="card">
+          <h3>Booking.com</h3>
+          <p>
+            Search thousands of hotels and accommodations across Australia with flexible booking options.
+          </p>
+          <a href="https://www.booking.com/" class="btn" rel="nofollow sponsored noopener noreferrer">Search Hotels</a>
+        </div>
 
-<p>
-Australia is one of the world's most exciting travel destinations.
-From the famous Sydney Opera House and the Great Barrier Reef to vibrant cities like Melbourne and Brisbane,
-Australia offers stunning nature, modern cities and unforgettable adventures for travelers worldwide.
-</p>
+        <div class="card">
+          <h3>Agoda</h3>
+          <p>
+            Compare hotel deals across Australia and find travel prices in top cities and destinations.
+          </p>
+          <a href="https://www.agoda.com/" class="btn" rel="nofollow sponsored noopener noreferrer">View Deals</a>
+        </div>
 
-</div>
+        <div class="card">
+          <h3>Trip.com</h3>
+          <p>
+            Book flights and hotels together for better travel savings across Australia.
+          </p>
+          <a href="https://www.jdoqocy.com/click-101586981-13761944" class="btn" rel="nofollow sponsored noopener noreferrer">Find Hotels</a>
+        </div>
 
-<div class="section">
+      </div>
+    </section>
 
-<h2>Top Cities in Australia</h2>
+  </main>
 
-<div class="grid">
+  <div class="footer">
+    © <span id="year"></span> GiftCardZoneEU
+  </div>
 
-<div class="card">
-<h3>Sydney</h3>
-<p>Home of the iconic Sydney Opera House and Harbour Bridge with world-class beaches.</p>
-</div>
-
-<div class="card">
-<h3>Melbourne</h3>
-<p>Australia's cultural capital known for its food, art, music and coffee culture.</p>
-</div>
-
-<div class="card">
-<h3>Brisbane</h3>
-<p>Warm weather city with riverside lifestyle and gateway to the Gold Coast.</p>
-</div>
-
-<div class="card">
-<h3>Perth</h3>
-<p>A beautiful coastal city known for its beaches, parks and stunning sunsets.</p>
-</div>
-
-</div>
-
-</div>
-
-<div class="section">
-
-<h2>Book Hotels with Trusted Travel Partners</h2>
-
-<div class="grid">
-
-<div class="card">
-
-<h3>Booking.com</h3>
-
-<p>
-Search thousands of hotels and accommodations across Australia with flexible booking options.
-</p>
-
-<a href="https://www.booking.com/" class="btn" rel="nofollow sponsored noopener noreferrer">
-Search Hotels
-</a>
-
-</div>
-
-<div class="card">
-
-<h3>Agoda</h3>
-
-<p>
-Compare hotel deals across Australia and find the best travel prices online.
-</p>
-
-<a href="https://www.agoda.com/" class="btn" rel="nofollow sponsored noopener noreferrer">
-View Deals
-</a>
-
-</div>
-
-<div class="card">
-
-<h3>Trip.com</h3>
-
-<p>
-Book flights and hotels together for better travel savings across Australia.
-</p>
-
-<a href="https://www.jdoqocy.com/click-101586981-13761944" class="btn" rel="nofollow sponsored noopener noreferrer">
-Find Hotels
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="footer">
-
-© <span id="year"></span> GiftCardZoneEU
-
-</div>
-
-<script>
-
-document.getElementById("year").textContent = new Date().getFullYear();
-
-</script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 
 </body>
-
 </html>
