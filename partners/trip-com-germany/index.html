@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Trip.com Germany – Cheap Flights & Hotels (2026)</title>
+  <meta name="description" content="Explore Germany with Trip.com. Find cheap flights, hotels and travel deals for Berlin, Munich, Frankfurt and Hamburg with GiftCardZoneEU." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://giftcardzoneeu.com/partners/trip-com-germany/" />
+  <link rel="icon" href="/assets/gz-logo.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Trip.com Germany – Cheap Flights & Hotels (2026)" />
+  <meta property="og:description" content="Discover Germany travel deals with Trip.com. Compare hotels, flights and city stays across Berlin, Munich, Frankfurt and Hamburg." />
+  <meta property="og:url" content="https://giftcardzoneeu.com/partners/trip-com-germany/" />
+  <meta property="og:image" content="https://giftcardzoneeu.com/assets/partners/trip-germany-hero.webp" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Trip.com Germany – Cheap Flights & Hotels (2026)" />
+  <meta name="twitter:description" content="Book Germany hotels and flights with Trip.com through GiftCardZoneEU." />
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/partners/trip-germany-hero.webp" />
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    }
+
+    body{
+      background:#08152f;
+      color:#ffffff;
+      line-height:1.6;
+    }
+
+    a{
+      text-decoration:none;
+    }
+
+    .nav{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:flex-start;
+      padding:14px 22px;
+      background:rgba(0,0,0,0.70);
+      backdrop-filter:blur(8px);
+      z-index:1000;
+      border-bottom:1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav img{
+      height:42px;
+      width:auto;
+      display:block;
+    }
+
+    .hero{
+      min-height:65vh;
+      background:
+        linear-gradient(rgba(4,10,24,0.42), rgba(4,10,24,0.62)),
+        url("/assets/partners/trip-germany-hero.webp");
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:100px 20px 28px;
+    }
+
+    .hero-overlay{
+      width:100%;
+      max-width:960px;
+      background:rgba(0,0,0,0.42);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:20px;
+      padding:28px 22px;
+      box-shadow:0 16px 40px rgba(0,0,0,0.26);
+    }
+
+    .hero h1{
+      font-size:clamp(2rem, 5vw, 4rem);
+      line-height:1.1;
+      margin-bottom:14px;
+    }
+
+    .hero p{
+      font-size:clamp(1rem, 2.2vw, 1.2rem);
+      color:rgba(255,255,255,0.93);
+      max-width:760px;
+      margin:0 auto;
+    }
+
+    .hero-partner{
+      margin-top:10px;
+      font-size:14px;
+      opacity:0.82;
+      letter-spacing:0.3px;
+    }
+
+    .container{
+      max-width:1180px;
+      margin:0 auto;
+      padding:44px 20px 60px;
+    }
+
+    .section{
+      margin-bottom:52px;
+    }
+
+    .section h2{
+      font-size:clamp(1.7rem, 3vw, 2.2rem);
+      color:#40bfff;
+      margin-bottom:16px;
+    }
+
+    .section p{
+      color:rgba(255,255,255,0.92);
+      max-width:920px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:22px;
+      margin-top:22px;
+    }
+
+    .card{
+      background:#12213f;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:20px;
+      padding:24px;
+      box-shadow:0 12px 28px rgba(0,0,0,0.18);
+      transition:transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 16px 34px rgba(0,0,0,0.24);
+    }
+
+    .card img{
+      width:100%;
+      height:170px;
+      object-fit:cover;
+      border-radius:14px;
+      margin-bottom:14px;
+      transition:transform .4s;
+    }
+
+    .card:hover img{
+      transform:scale(1.05);
+    }
+
+    .card h3{
+      font-size:1.25rem;
+      margin-bottom:10px;
+      color:#ffffff;
+    }
+
+    .card p{
+      color:rgba(255,255,255,0.88);
+      font-size:0.98rem;
+    }
+
+    .btn{
+      display:inline-block;
+      margin-top:16px;
+      padding:11px 18px;
+      border-radius:10px;
+      background:#40bfff;
+      color:#06111f;
+      font-weight:700;
+      transition:opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn:hover{
+      opacity:0.92;
+      transform:translateY(-1px);
+    }
+
+    .footer{
+      text-align:center;
+      padding:28px 20px 34px;
+      color:rgba(255,255,255,0.70);
+      font-size:14px;
+      border-top:1px solid rgba(255,255,255,0.06);
+    }
+
+    @media (max-width:768px){
+      .nav{
+        padding:12px 16px;
+      }
+
+      .nav img{
+        height:38px;
+      }
+
+      .hero{
+        min-height:58vh;
+        padding:92px 16px 22px;
+      }
+
+      .hero-overlay{
+        padding:22px 16px;
+        border-radius:16px;
+      }
+
+      .hero h1{
+        font-size:clamp(1.9rem, 7vw, 3rem);
+      }
+
+      .hero p{
+        font-size:1rem;
+      }
+
+      .hero-partner{
+        font-size:13px;
+      }
+
+      .container{
+        padding:34px 20px 54px;
+      }
+
+      .section{
+        margin-bottom:42px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="nav">
+    <a href="https://giftcardzoneeu.com/" aria-label="GiftCardZoneEU Home">
+      <img src="/assets/gz-logo.png" alt="GiftCardZoneEU Logo" />
+    </a>
+  </div>
+
+  <section class="hero">
+    <div class="hero-overlay">
+      <h1>Trip.com Germany Travel Deals</h1>
+      <p>
+        Find cheap flights, hotels and city stays in Germany with Trip.com.
+        Explore Berlin, Munich, Frankfurt and Hamburg with trusted travel booking options.
+      </p>
+      <p class="hero-partner">GiftCardZoneEU × Trip.com Germany</p>
+    </div>
+  </section>
+
+  <main class="container">
+
+    <section class="section">
+      <h2>Why Visit Germany</h2>
+      <p>
+        Germany is one of Europe’s top travel destinations, known for its historic cities, modern transport,
+        cultural landmarks and seasonal festivals. From Berlin’s creative energy to Munich’s Bavarian charm,
+        Germany offers memorable city breaks, business travel hubs and easy access to hotels, flights and rail connections.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Top Cities in Germany</h2>
+      <div class="grid">
+
+        <div class="card">
+          <img src="/assets/partners/trip-germany/berlin.webp" alt="Berlin Germany" />
+          <h3>Berlin</h3>
+          <p>
+            Germany’s capital is known for history, museums, nightlife and major landmarks like the Brandenburg Gate.
+          </p>
+        </div>
+
+        <div class="card">
+          <img src="/assets/partners/trip-germany/munich.webp" alt="Munich Germany" />
+          <h3>Munich</h3>
+          <p>
+            Munich blends Bavarian tradition with modern city life, famous for Oktoberfest, architecture and culture.
+          </p>
+        </div>
+
+        <div class="card">
+          <img src="/assets/partners/trip-germany/frankfurt.webp" alt="Frankfurt Germany" />
+          <h3>Frankfurt</h3>
+          <p>
+            Frankfurt is a major financial and travel hub with skyline views, international connections and business hotels.
+          </p>
+        </div>
+
+        <div class="card">
+          <img src="/assets/partners/trip-germany/hamburg.webp" alt="Hamburg Germany" />
+          <h3>Hamburg</h3>
+          <p>
+            Hamburg offers waterfront charm, shopping, food and one of Europe’s most important port city experiences.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Why Book Germany with Trip.com</h2>
+      <p>
+        Trip.com helps travelers compare hotel stays, flight options and travel deals in one place. Whether you are planning
+        a city trip, business travel or a longer Europe itinerary, Trip.com can help simplify your Germany travel booking experience.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Book Germany Hotels & Flights with Trip.com</h2>
+      <div class="grid">
+
+        <div class="card">
+          <h3>Hotels in Germany</h3>
+          <p>
+            Browse hotel options across Berlin, Munich, Frankfurt, Hamburg and other key destinations in Germany.
+          </p>
+          <a href="https://www.jdoqocy.com/click-101586981-13761944" class="btn" rel="nofollow sponsored noopener noreferrer">Book with Trip.com</a>
+        </div>
+
+        <div class="card">
+          <h3>Flights & Travel Deals</h3>
+          <p>
+            Compare flights and travel deals for Germany and plan a smoother trip with one trusted booking platform.
+          </p>
+          <a href="https://www.jdoqocy.com/click-101586981-13761944" class="btn" rel="nofollow sponsored noopener noreferrer">Find Travel Deals</a>
+        </div>
+
+        <div class="card">
+          <h3>City Breaks & Business Travel</h3>
+          <p>
+            From weekend city breaks to business stays, Trip.com gives flexible booking options for Germany travel.
+          </p>
+          <a href="https://www.jdoqocy.com/click-101586981-13761944" class="btn" rel="nofollow sponsored noopener noreferrer">Explore Germany</a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <div class="footer">
+    © <span id="year"></span> GiftCardZoneEU
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
