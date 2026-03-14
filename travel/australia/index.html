@@ -23,12 +23,61 @@
   <meta name="twitter:description" content="Discover Australia's top cities and hotel deals with trusted travel partners." />
   <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/travel/australia-hero.webp" />
 
+  <!-- Basic Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Best Hotels in Australia | Where to Stay & Book Online",
+    "url": "https://giftcardzoneeu.com/travel/australia/",
+    "description": "Find the best hotels in Australia including Sydney, Melbourne, Brisbane and Perth. Compare hotel deals with trusted travel partners like Booking.com, Agoda and Trip.com."
+  }
+  </script>
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the best city to visit first in Australia?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sydney is often a top choice for first-time visitors because of its famous landmarks, beaches and wide range of hotels."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Australia good for hotel deals?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, travelers can often find good hotel deals by comparing platforms, booking early and checking flexible travel dates."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which cities are best for culture and food?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Melbourne is especially popular for food, coffee, art and cultural experiences, while Sydney also offers a strong mix of city attractions and dining."
+        }
+      }
+    ]
+  }
+  </script>
+
   <style>
     *{
       margin:0;
       padding:0;
       box-sizing:border-box;
       font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    }
+
+    html{
+      scroll-behavior:smooth;
     }
 
     body{
@@ -39,6 +88,11 @@
 
     a{
       text-decoration:none;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
     }
 
     .nav{
@@ -59,13 +113,12 @@
     .nav img{
       height:42px;
       width:auto;
-      display:block;
     }
 
     .hero{
-      min-height:65vh;
+      min-height:70vh;
       background:
-        linear-gradient(rgba(4,10,24,0.42), rgba(4,10,24,0.62)),
+        linear-gradient(rgba(4,10,24,0.42), rgba(4,10,24,0.65)),
         url("/assets/travel/australia-hero.webp");
       background-size:cover;
       background-position:center;
@@ -73,7 +126,7 @@
       align-items:center;
       justify-content:center;
       text-align:center;
-      padding:100px 20px 28px;
+      padding:110px 20px 36px;
     }
 
     .hero-overlay{
@@ -82,7 +135,7 @@
       background:rgba(0,0,0,0.42);
       border:1px solid rgba(255,255,255,0.08);
       border-radius:20px;
-      padding:28px 22px;
+      padding:30px 24px;
       box-shadow:0 16px 40px rgba(0,0,0,0.26);
     }
 
@@ -100,10 +153,18 @@
     }
 
     .hero-partner{
-      margin-top:10px;
+      margin-top:12px;
       font-size:14px;
       opacity:0.82;
       letter-spacing:0.3px;
+    }
+
+    .hero-actions{
+      display:flex;
+      justify-content:center;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:22px;
     }
 
     .container{
@@ -113,7 +174,7 @@
     }
 
     .section{
-      margin-bottom:52px;
+      margin-bottom:56px;
     }
 
     .section h2{
@@ -124,7 +185,7 @@
 
     .section p{
       color:rgba(255,255,255,0.92);
-      max-width:920px;
+      max-width:940px;
     }
 
     .grid{
@@ -133,21 +194,6 @@
       gap:22px;
       margin-top:22px;
     }
-    
-    .card img{
-width:100%;
-height:170px;
-object-fit:cover;
-border-radius:14px;
-margin-bottom:14px;
-}
-    .card img{
-transition:transform .4s;
-}
-
-.card:hover img{
-transform:scale(1.05);
-}
 
     .card{
       background:#12213f;
@@ -156,11 +202,25 @@ transform:scale(1.05);
       padding:24px;
       box-shadow:0 12px 28px rgba(0,0,0,0.18);
       transition:transform 0.25s ease, box-shadow 0.25s ease;
+      overflow:hidden;
     }
 
     .card:hover{
       transform:translateY(-4px);
       box-shadow:0 16px 34px rgba(0,0,0,0.24);
+    }
+
+    .card img{
+      width:100%;
+      height:180px;
+      object-fit:cover;
+      border-radius:14px;
+      margin-bottom:14px;
+      transition:transform .4s ease;
+    }
+
+    .card:hover img{
+      transform:scale(1.05);
     }
 
     .card h3{
@@ -172,6 +232,31 @@ transform:scale(1.05);
     .card p{
       color:rgba(255,255,255,0.88);
       font-size:0.98rem;
+    }
+
+    .info-strip{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:16px;
+      margin-top:22px;
+    }
+
+    .info-box{
+      background:rgba(64,191,255,0.10);
+      border:1px solid rgba(64,191,255,0.18);
+      border-radius:16px;
+      padding:18px;
+    }
+
+    .info-box h3{
+      font-size:1.05rem;
+      margin-bottom:8px;
+      color:#ffffff;
+    }
+
+    .info-box p{
+      font-size:0.95rem;
+      color:rgba(255,255,255,0.88);
     }
 
     .btn{
@@ -188,6 +273,25 @@ transform:scale(1.05);
     .btn:hover{
       opacity:0.92;
       transform:translateY(-1px);
+    }
+
+    .btn-secondary{
+      background:transparent;
+      color:#ffffff;
+      border:1px solid rgba(255,255,255,0.22);
+    }
+
+    .highlight-box{
+      background:linear-gradient(135deg, rgba(64,191,255,0.12), rgba(255,255,255,0.03));
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:22px;
+      padding:26px;
+      margin-top:20px;
+    }
+
+    .highlight-box h3{
+      font-size:1.3rem;
+      margin-bottom:10px;
     }
 
     .footer{
@@ -208,8 +312,8 @@ transform:scale(1.05);
       }
 
       .hero{
-        min-height:58vh;
-        padding:92px 16px 22px;
+        min-height:60vh;
+        padding:96px 16px 24px;
       }
 
       .hero-overlay{
@@ -236,6 +340,10 @@ transform:scale(1.05);
       .section{
         margin-bottom:42px;
       }
+
+      .card img{
+        height:170px;
+      }
     }
   </style>
 </head>
@@ -251,68 +359,158 @@ transform:scale(1.05);
     <div class="hero-overlay">
       <h1>Explore Australia Travel Deals</h1>
       <p>
-        Compare hotels and travel deals in Sydney, Melbourne, Brisbane and more.
-        Book with trusted travel partners worldwide.
+        Compare hotels and travel deals in Sydney, Melbourne, Brisbane, Perth and more.
+        Discover where to stay and book with trusted travel partners worldwide.
       </p>
       <p class="hero-partner">GiftCardZoneEU × Trusted Travel Partners</p>
+
+      <div class="hero-actions">
+        <a href="#partners" class="btn">Compare Hotel Deals</a>
+        <a href="#cities" class="btn btn-secondary">Explore Top Cities</a>
+      </div>
     </div>
   </section>
 
   <main class="container">
 
     <section class="section">
-    <section class="section">
-  <h2>Top Cities in Australia</h2>
-
-  <div class="grid">
-
-    <div class="card">
-      <img src="/assets/travel/australia/sydney.webp" alt="Sydney Australia" style="width:100%;border-radius:14px;margin-bottom:14px;">
-      <h3>Sydney</h3>
+      <h2>Why Visit Australia?</h2>
       <p>
-        Home of the iconic Sydney Opera House and Harbour Bridge, with world-class beaches,
-        skyline views and vibrant city life.
+        Australia is one of the world’s most exciting travel destinations, offering a mix of iconic
+        city landmarks, beautiful coastlines, outdoor adventure and laid-back urban culture. From the
+        world-famous Sydney Opera House to Melbourne’s creative neighborhoods, Brisbane’s riverside
+        lifestyle and Perth’s sunny beaches, Australia gives travelers a wide variety of places to
+        explore in one unforgettable trip.
       </p>
-    </div>
 
-    <div class="card">
-      <img src="/assets/travel/australia/melbourne.webp" alt="Melbourne Australia" style="width:100%;border-radius:14px;margin-bottom:14px;">
-      <h3>Melbourne</h3>
-      <p>
-        Australia’s cultural capital known for its food scene, art, live music, coffee culture
-        and stylish city atmosphere.
-      </p>
-    </div>
-
-    <div class="card">
-      <img src="/assets/travel/australia/brisbane.webp" alt="Brisbane Australia" style="width:100%;border-radius:14px;margin-bottom:14px;">
-      <h3>Brisbane</h3>
-      <p>
-        A warm-weather city with a relaxed riverside lifestyle and easy access to the Gold Coast
-        and nearby natural attractions.
-      </p>
-    </div>
-
-    <div class="card">
-      <img src="/assets/travel/australia/perth.webp" alt="Perth Australia" style="width:100%;border-radius:14px;margin-bottom:14px;">
-      <h3>Perth</h3>
-      <p>
-        A beautiful coastal city famous for beaches, parks, sunshine and stunning sunsets
-        on Australia’s west coast.
-      </p>
-    </div>
-
-  </div>
-</section>
+      <div class="info-strip">
+        <div class="info-box">
+          <h3>Best For</h3>
+          <p>City breaks, beach escapes, food trips, outdoor travel and long-haul vacations.</p>
+        </div>
+        <div class="info-box">
+          <h3>Top Experiences</h3>
+          <p>Harbour views, coastal stays, cultural districts, local food scenes and scenic road trips.</p>
+        </div>
+        <div class="info-box">
+          <h3>Travel Style</h3>
+          <p>Great for solo travelers, couples, families and travelers planning multi-city stays.</p>
+        </div>
+      </div>
+    </section>
 
     <section class="section">
+      <h2>Best Time to Visit Australia</h2>
+      <p>
+        Australia is a year-round destination, but the best time to visit often depends on the region
+        and your travel plans. Spring and autumn are popular for comfortable weather and city travel,
+        while summer is ideal for beach destinations and coastal adventures. Travelers who want better
+        hotel availability and price options can often benefit from booking early and comparing rates
+        across trusted travel platforms.
+      </p>
+    </section>
+
+    <section class="section" id="cities">
+      <h2>Top Cities in Australia</h2>
+
+      <div class="grid">
+
+        <div class="card">
+          <img src="/assets/travel/australia/sydney.webp" alt="Sydney Australia" />
+          <h3>Sydney</h3>
+          <p>
+            Home of the iconic Sydney Opera House and Harbour Bridge, Sydney offers famous landmarks,
+            waterfront views, beaches and a lively urban atmosphere for first-time visitors.
+          </p>
+        </div>
+
+        <div class="card">
+          <img src="/assets/travel/australia/melbourne.webp" alt="Melbourne Australia" />
+          <h3>Melbourne</h3>
+          <p>
+            Melbourne is known for its coffee culture, food scene, art, shopping streets and creative
+            neighborhoods, making it a top destination for culture-focused travelers.
+          </p>
+        </div>
+
+        <div class="card">
+          <img src="/assets/travel/australia/brisbane.webp" alt="Brisbane Australia" />
+          <h3>Brisbane</h3>
+          <p>
+            Brisbane offers a warmer climate, a relaxed riverside setting and easy access to nearby
+            attractions, making it a smart option for travelers who want a more laid-back stay.
+          </p>
+        </div>
+
+        <div class="card">
+          <img src="/assets/travel/australia/perth.webp" alt="Perth Australia" />
+          <h3>Perth</h3>
+          <p>
+            Perth is a beautiful coastal city known for beaches, sunshine, open spaces and scenic
+            sunsets, perfect for travelers looking for a slower and more relaxing city break.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Where to Stay in Australia</h2>
+      <p>
+        Choosing where to stay in Australia depends on your travel style. Sydney is ideal for famous
+        attractions and harbor views. Melbourne suits travelers interested in food, art and city life.
+        Brisbane is a strong option for warm-weather city stays with nearby escapes, while Perth is
+        perfect for coastal relaxation and beach-focused travel.
+      </p>
+
+      <div class="highlight-box">
+        <h3>Travel Planning Tip</h3>
+        <p>
+          If you are visiting more than one city, compare hotel locations carefully. Staying near
+          public transport, city centers or major attractions can save time and improve your overall
+          trip experience, especially on shorter itineraries.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Hotel Booking Tips for Australia</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Compare Before Booking</h3>
+          <p>
+            Hotel prices, cancellation policies and included amenities can vary across platforms, so
+            comparing options first can help you make a smarter booking decision.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Book Early for Popular Cities</h3>
+          <p>
+            Major cities like Sydney and Melbourne can get busy during holidays, events and peak travel
+            periods, so early booking can give you better room choices and pricing.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Check the Hotel Location</h3>
+          <p>
+            In large cities, location matters. Staying near transport links, tourist areas or central
+            districts can make your trip more convenient and reduce local travel time.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="partners">
       <h2>Book Hotels with Trusted Travel Partners</h2>
       <div class="grid">
 
         <div class="card">
           <h3>Booking.com</h3>
           <p>
-            Search thousands of hotels and accommodations across Australia with flexible booking options.
+            Search thousands of hotels and accommodations across Australia with flexible booking
+            options and a wide selection of city and leisure stays.
           </p>
           <a href="https://www.booking.com/" class="btn" rel="nofollow sponsored noopener noreferrer">Search Hotels</a>
         </div>
@@ -320,7 +518,8 @@ transform:scale(1.05);
         <div class="card">
           <h3>Agoda</h3>
           <p>
-            Compare hotel deals across Australia and find travel prices in top cities and destinations.
+            Compare hotel deals across Australia and explore prices in major cities, popular districts
+            and top travel destinations.
           </p>
           <a href="https://www.agoda.com/" class="btn" rel="nofollow sponsored noopener noreferrer">View Deals</a>
         </div>
@@ -328,11 +527,83 @@ transform:scale(1.05);
         <div class="card">
           <h3>Trip.com</h3>
           <p>
-            Book flights and hotels together for better travel savings across Australia.
+            Book flights and hotels together for better trip planning and travel savings across
+            Australia’s leading cities and destinations.
           </p>
           <a href="https://www.jdoqocy.com/click-101586981-13761944" class="btn" rel="nofollow sponsored noopener noreferrer">Find Hotels</a>
         </div>
 
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Why Book with Trusted Travel Partners?</h2>
+      <p>
+        Using trusted travel platforms makes it easier to compare room prices, accommodation types,
+        booking flexibility and user reviews in one place. Whether you are planning a short city break
+        or a longer Australia trip, comparing travel partners can help you find a hotel that matches
+        your budget, preferred location and travel needs.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>What is the best city to visit first in Australia?</h3>
+          <p>
+            Sydney is often the top choice for first-time visitors because of its famous landmarks,
+            beaches, iconic views and wide hotel selection.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Is Australia good for hotel deals?</h3>
+          <p>
+            Yes. Travelers can often find good hotel deals by comparing platforms, booking early and
+            checking multiple cities or travel dates.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Which Australian city is best for food and culture?</h3>
+          <p>
+            Melbourne is especially popular for food, coffee, art and cultural experiences, while
+            Sydney also offers an excellent city-and-dining mix.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Explore More Travel Pages</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Travel Hub</h3>
+          <p>
+            Discover more destination pages, hotel guides and travel partner pages across the
+            GiftCardZoneEU travel section.
+          </p>
+          <a href="/travel/" class="btn">View Travel Hub</a>
+        </div>
+
+        <div class="card">
+          <h3>Asia Travel</h3>
+          <p>
+            Explore more destination ideas and hotel deal pages across Asia using the same trusted
+            travel-page format.
+          </p>
+          <a href="/travel/asia/" class="btn">Explore Asia</a>
+        </div>
+
+        <div class="card">
+          <h3>Back to Home</h3>
+          <p>
+            Return to the main GiftCardZoneEU homepage and explore more travel, shopping and partner
+            pages across your growing site.
+          </p>
+          <a href="/" class="btn">Go Home</a>
+        </div>
       </div>
     </section>
 
@@ -347,4 +618,4 @@ transform:scale(1.05);
   </script>
 
 </body>
-</html>
+</html> 
