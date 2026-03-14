@@ -1,473 +1,622 @@
-<!DOCTYPE html>
+   <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Best Hotel Deals in Belgium | GiftCardZoneEU</title>
-  <meta name="description" content="Find the best hotel deals in Belgium — compare prices across trusted travel partners for Brussels, Bruges, Antwerp, Ghent and more." />
+  <title>Best Hotels in Belgium | Where to Stay & Book Online</title>
+  <meta name="description" content="Find the best hotels in Belgium including Brussels, Bruges, Antwerp and Ghent. Compare hotel deals with trusted travel partners like Booking.com, Agoda and Trip.com." />
+  <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://giftcardzoneeu.com/travel/belgium/" />
+  <link rel="icon" href="/assets/gz-logo.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Best Hotels in Belgium | GiftCardZoneEU" />
+  <meta property="og:description" content="Compare hotel deals across Belgium including Brussels, Bruges, Antwerp and Ghent." />
+  <meta property="og:url" content="https://giftcardzoneeu.com/travel/belgium/" />
+  <meta property="og:image" content="https://giftcardzoneeu.com/assets/travel/belgium-hero.webp" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Best Hotels in Belgium | GiftCardZoneEU" />
+  <meta name="twitter:description" content="Discover Belgium's top cities and hotel deals with trusted travel partners." />
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/travel/belgium-hero.webp" />
+
+  <!-- Basic Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Best Hotels in Belgium | Where to Stay & Book Online",
+    "url": "https://giftcardzoneeu.com/travel/belgium/",
+    "description": "Find the best hotels in Belgium including Brussels, Bruges, Antwerp and Ghent. Compare hotel deals with trusted travel partners like Booking.com, Agoda and Trip.com."
+  }
+  </script>
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the best city to visit first in Belgium?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Brussels is often a top choice for first-time visitors because of its central location, famous landmarks, museums and easy access to other Belgian cities."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Belgium good for hotel deals?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, travelers can often find good hotel deals in Belgium by comparing booking platforms, planning ahead and checking different cities based on budget and travel style."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which cities in Belgium are best for culture and history?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Bruges and Ghent are especially popular for history, architecture and scenic old-town charm, while Brussels and Antwerp offer strong mixes of culture, food, shopping and museums."
+        }
+      }
+    ]
+  }
+  </script>
 
   <style>
-    * {
-      box-sizing: border-box;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
     }
 
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
-      background: #f5f7fa;
-      color: #111827;
-      -webkit-font-smoothing: antialiased;
+    html{
+      scroll-behavior:smooth;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+    body{
+      background:#08152f;
+      color:#ffffff;
+      line-height:1.6;
     }
 
-    /* HERO */
-
-    .hero {
-      position: relative;
-      height: 280px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 32px 10px 40px;
-      overflow: hidden;
-      background: #020617;
+    a{
+      text-decoration:none;
     }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    .nav{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:flex-start;
+      padding:14px 22px;
+      background:rgba(0,0,0,0.70);
+      backdrop-filter:blur(8px);
+      z-index:1000;
+      border-bottom:1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav img{
+      height:42px;
+      width:auto;
+    }
+
+    .hero{
+      min-height:70vh;
       background:
-        linear-gradient(
-          180deg,
-          rgba(15, 23, 42, 0.15),
-          rgba(15, 23, 42, 0.75)
-        ),
-        /* 👉 Belgium hero image file sa /travel/belgium/ */
-        url("./belgium-hero.jpg") center/cover no-repeat;
-      filter: blur(3px);
-      transform: scale(1.03);
-      transform-origin: center;
+        linear-gradient(rgba(4,10,24,0.42), rgba(4,10,24,0.65)),
+        url("/assets/travel/belgium-hero.webp");
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:110px 20px 36px;
     }
 
-    .hero-inner {
-      position: relative;
-      max-width: 720px;
-      color: #f9fafb;
-      padding: 16px 24px;
+    .hero-overlay{
+      width:100%;
+      max-width:960px;
+      background:rgba(0,0,0,0.42);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:20px;
+      padding:30px 24px;
+      box-shadow:0 16px 40px rgba(0,0,0,0.26);
     }
 
-    .hero-title {
-      font-size: 2rem;
-      font-weight: 700;
-      margin: 0 0 8px;
+    .hero h1{
+      font-size:clamp(2rem, 5vw, 4rem);
+      line-height:1.1;
+      margin-bottom:14px;
     }
 
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.9rem;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.75);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(148, 163, 184, 0.45);
-      margin-bottom: 8px;
+    .hero p{
+      font-size:clamp(1rem, 2.2vw, 1.2rem);
+      color:rgba(255,255,255,0.93);
+      max-width:760px;
+      margin:0 auto;
     }
 
-    .hero-subtitle {
-      font-size: 0.98rem;
-      max-width: 640px;
-      margin: 4px auto 0;
-      color: #e5e7eb;
+    .hero-partner{
+      margin-top:12px;
+      font-size:14px;
+      opacity:0.82;
+      letter-spacing:0.3px;
     }
 
-    /* LAYOUT WRAPPER */
-
-    .page {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 24px 16px 40px;
+    .hero-actions{
+      display:flex;
+      justify-content:center;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:22px;
     }
 
-    .section {
-      background: #ffffff;
-      border-radius: 18px;
-      padding: 20px 18px 22px;
-      margin-bottom: 20px;
-      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.06);
+    .container{
+      max-width:1180px;
+      margin:0 auto;
+      padding:44px 20px 60px;
     }
 
-    .section-header {
-      margin-bottom: 14px;
+    .section{
+      margin-bottom:56px;
     }
 
-    .section-title {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin: 0 0 4px;
-      color: #0f172a;
+    .section h2{
+      font-size:clamp(1.7rem, 3vw, 2.2rem);
+      color:#40bfff;
+      margin-bottom:16px;
     }
 
-    .section-sub {
-      font-size: 0.9rem;
-      color: #64748b;
-      margin: 0;
+    .section p{
+      color:rgba(255,255,255,0.92);
+      max-width:940px;
     }
 
-    /* TOP TRAVEL PARTNERS BUTTONS */
-
-    .partner-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 10px;
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:22px;
+      margin-top:22px;
     }
 
-    .partner-btn {
-      flex: 1 1 120px;
-      text-align: center;
-      font-size: 0.9rem;
-      font-weight: 600;
-      padding: 10px 14px;
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      background: #0f172a;
-      color: #f9fafb;
-      box-shadow: 0 10px 20px rgba(15, 23, 42, 0.15);
-      transition: transform 0.12s ease, box-shadow 0.12s ease,
-        background 0.12s ease, opacity 0.12s ease;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
+    .card{
+      background:#12213f;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:20px;
+      padding:24px;
+      box-shadow:0 12px 28px rgba(0,0,0,0.18);
+      transition:transform 0.25s ease, box-shadow 0.25s ease;
+      overflow:hidden;
     }
 
-    .partner-btn span {
-      font-size: 0.78rem;
-      font-weight: 500;
-      opacity: 0.9;
+    .card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 16px 34px rgba(0,0,0,0.24);
     }
 
-    .partner-btn.agoda {
-      background: #14b8a6;
+    .card img{
+      width:100%;
+      height:180px;
+      object-fit:cover;
+      border-radius:14px;
+      margin-bottom:14px;
+      transition:transform .4s ease;
     }
 
-    .partner-btn.booking {
-      background: #1d4ed8;
+    .card:hover img{
+      transform:scale(1.05);
     }
 
-    .partner-btn.trip {
-      background: #0369a1;
+    .card h3{
+      font-size:1.25rem;
+      margin-bottom:10px;
+      color:#ffffff;
     }
 
-    .partner-btn.hotels {
-      background: #b91c1c;
+    .card p{
+      color:rgba(255,255,255,0.88);
+      font-size:0.98rem;
     }
 
-    .partner-btn.accor {
-      background: #b45309;
+    .info-strip{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:16px;
+      margin-top:22px;
     }
 
-    .partner-btn.motel6 {
-      background: #111827;
+    .info-box{
+      background:rgba(64,191,255,0.10);
+      border:1px solid rgba(64,191,255,0.18);
+      border-radius:16px;
+      padding:18px;
     }
 
-    .partner-btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 14px 28px rgba(15, 23, 42, 0.2);
-      opacity: 0.97;
+    .info-box h3{
+      font-size:1.05rem;
+      margin-bottom:8px;
+      color:#ffffff;
     }
 
-    /* WHY TRAVELERS TRUST US */
-
-    .trust-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-      margin-top: 12px;
+    .info-box p{
+      font-size:0.95rem;
+      color:rgba(255,255,255,0.88);
     }
 
-    .trust-card {
-      background: #f9fafb;
-      border-radius: 14px;
-      padding: 10px 11px;
-      border: 1px solid #e5e7eb;
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      font-size: 0.88rem;
-      color: #0f172a;
+    .btn{
+      display:inline-block;
+      margin-top:16px;
+      padding:11px 18px;
+      border-radius:10px;
+      background:#40bfff;
+      color:#06111f;
+      font-weight:700;
+      transition:opacity 0.2s ease, transform 0.2s ease;
     }
 
-    .trust-icon {
-      font-size: 1rem;
-      margin-top: 1px;
+    .btn:hover{
+      opacity:0.92;
+      transform:translateY(-1px);
     }
 
-    .trust-label {
-      font-weight: 600;
-      margin-bottom: 2px;
+    .btn-secondary{
+      background:transparent;
+      color:#ffffff;
+      border:1px solid rgba(255,255,255,0.22);
     }
 
-    .trust-text {
-      font-size: 0.8rem;
-      color: #64748b;
+    .highlight-box{
+      background:linear-gradient(135deg, rgba(64,191,255,0.12), rgba(255,255,255,0.03));
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:22px;
+      padding:26px;
+      margin-top:20px;
     }
 
-    /* TRUSTED PARTNERS CHIPS */
-
-    .chips-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 8px;
+    .highlight-box h3{
+      font-size:1.3rem;
+      margin-bottom:10px;
     }
 
-    .chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: #f9fafb;
-      border: 1px solid #e5e7eb;
-      font-size: 0.8rem;
-      color: #0f172a;
+    .footer{
+      text-align:center;
+      padding:28px 20px 34px;
+      color:rgba(255,255,255,0.70);
+      font-size:14px;
+      border-top:1px solid rgba(255,255,255,0.06);
     }
 
-    .chip-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.25);
-    }
-
-    /* AFFILIATE DISCLOSURE */
-
-    .disclosure {
-      font-size: 0.78rem;
-      color: #64748b;
-      line-height: 1.5;
-    }
-
-    .disclosure strong {
-      color: #0f172a;
-    }
-
-    @media (min-width: 768px) {
-      .hero {
-        height: 300px;
+    @media (max-width:768px){
+      .nav{
+        padding:12px 16px;
       }
 
-      .hero-title {
-        font-size: 2.2rem;
+      .nav img{
+        height:38px;
       }
 
-      .page {
-        padding: 32px 20px 44px;
+      .hero{
+        min-height:60vh;
+        padding:96px 16px 24px;
       }
 
-      .section {
-        padding: 22px 22px 24px;
+      .hero-overlay{
+        padding:22px 16px;
+        border-radius:16px;
       }
 
-      .trust-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+      .hero h1{
+        font-size:clamp(1.9rem, 7vw, 3rem);
       }
-    }
 
-    @media (min-width: 1024px) {
-      .hero {
-        height: 320px;
+      .hero p{
+        font-size:1rem;
+      }
+
+      .hero-partner{
+        font-size:13px;
+      }
+
+      .container{
+        padding:34px 20px 54px;
+      }
+
+      .section{
+        margin-bottom:42px;
+      }
+
+      .card img{
+        height:170px;
       }
     }
   </style>
 </head>
 <body>
-  <!-- HERO -->
-  <header class="hero">
-    <div class="hero-inner">
-      <div class="hero-badge">
-        <span>Belgium 🇧🇪</span>
-        <span>Brussels · Bruges · Antwerp · Ghent</span>
-      </div>
-      <h1 class="hero-title">Best Hotel Deals in Belgium</h1>
-      <p class="hero-subtitle">
-        Compare hotel prices across our trusted travel partners and find great-value stays in Belgium — from historic squares in Brussels to romantic canals in Bruges and vibrant city breaks in Antwerp and Ghent.
+
+  <div class="nav">
+    <a href="https://giftcardzoneeu.com/" aria-label="GiftCardZoneEU Home">
+      <img src="/assets/gz-logo.png" alt="GiftCardZoneEU Logo" />
+    </a>
+  </div>
+
+  <section class="hero">
+    <div class="hero-overlay">
+      <h1>Explore Belgium Travel Deals</h1>
+      <p>
+        Compare hotels and travel deals in Brussels, Bruges, Antwerp, Ghent and more.
+        Discover where to stay and book with trusted travel partners worldwide.
       </p>
+      <p class="hero-partner">GiftCardZoneEU × Trusted Travel Partners</p>
+
+      <div class="hero-actions">
+        <a href="#partners" class="btn">Compare Hotel Deals</a>
+        <a href="#cities" class="btn btn-secondary">Explore Top Cities</a>
+      </div>
     </div>
-  </header>
+  </section>
 
-  <main class="page">
-    <!-- TOP TRAVEL PARTNERS -->
+  <main class="container">
+
     <section class="section">
-      <div class="section-header">
-        <h2 class="section-title">Top Travel Partners</h2>
-        <p class="section-sub">
-          Compare hotel prices across our trusted partners and grab the best deal for your trip to Belgium.
-        </p>
-      </div>
+      <h2>Why Visit Belgium?</h2>
+      <p>
+        Belgium is a charming European destination known for historic cities, beautiful architecture,
+        famous chocolate, rich culture and easy rail connections between major destinations. From the
+        grand squares of Brussels to the storybook canals of Bruges, the fashion and art scene of
+        Antwerp and the medieval beauty of Ghent, Belgium offers travelers a compact but rewarding
+        experience filled with culture, food and memorable city stays.
+      </p>
 
-      <div class="partner-buttons">
-        <!-- TODO: palitan lahat ng href sa sariling affiliate links mo -->
-        <a class="partner-btn agoda" href="https://www.agoda.com" target="_blank" rel="nofollow noopener">
-          Agoda
-          <span>Compare Belgium hotels</span>
-        </a>
-        <a class="partner-btn booking" href="https://www.booking.com" target="_blank" rel="nofollow noopener">
-          Booking.com
-          <span>Stays across Belgium</span>
-        </a>
-        <a class="partner-btn trip" href="https://www.trip.com" target="_blank" rel="nofollow noopener">
-          Trip.com
-          <span>Deals for Brussels & more</span>
-        </a>
-        <a class="partner-btn hotels" href="https://www.hotels.com" target="_blank" rel="nofollow noopener">
-          Hotels.com
-          <span>Reward nights & savings</span>
-        </a>
-        <a class="partner-btn accor" href="https://all.accor.com" target="_blank" rel="nofollow noopener">
-          Accor
-          <span>Brand hotels in Belgium</span>
-        </a>
-        <a class="partner-btn motel6" href="https://www.motel6.com" target="_blank" rel="nofollow noopener">
-          Motel 6
-          <span>Budget-friendly stays</span>
-        </a>
-      </div>
-    </section>
-
-    <!-- WHY TRAVELERS TRUST US -->
-    <section class="section">
-      <div class="section-header">
-        <h2 class="section-title">Why Travelers Trust Us</h2>
-        <p class="section-sub">
-          Simple pages, direct partner links, and clear disclosures — so you can book smarter and travel better.
-        </p>
-      </div>
-
-      <div class="trust-grid">
-        <div class="trust-card">
-          <div class="trust-icon">✔</div>
-          <div>
-            <div class="trust-label">GiftCardZoneEU Partner Verified</div>
-            <div class="trust-text">
-              We only feature reputable hotel partners for Belgium travel.
-            </div>
-          </div>
+      <div class="info-strip">
+        <div class="info-box">
+          <h3>Best For</h3>
+          <p>City breaks, food trips, cultural travel, historic sightseeing and easy multi-city stays.</p>
         </div>
-
-        <div class="trust-card">
-          <div class="trust-icon">✔</div>
-          <div>
-            <div class="trust-label">SSL Secured</div>
-            <div class="trust-text">
-              All bookings happen on secure, encrypted partner websites.
-            </div>
-          </div>
+        <div class="info-box">
+          <h3>Top Experiences</h3>
+          <p>Grand squares, canals, museums, Belgian cuisine, architecture and scenic old-town walks.</p>
         </div>
-
-        <div class="trust-card">
-          <div class="trust-icon">✔</div>
-          <div>
-            <div class="trust-label">Trusted Global Partners</div>
-            <div class="trust-text">
-              Agoda, Booking.com, Trip.com, Hotels.com, Accor &amp; more.
-            </div>
-          </div>
-        </div>
-
-        <div class="trust-card">
-          <div class="trust-icon">✔</div>
-          <div>
-            <div class="trust-label">Safe Payment Redirects</div>
-            <div class="trust-text">
-              You are always redirected straight to official partner checkouts.
-            </div>
-          </div>
-        </div>
-
-        <div class="trust-card">
-          <div class="trust-icon">✔</div>
-          <div>
-            <div class="trust-label">24/7 Booking Support</div>
-            <div class="trust-text">
-              Customer support is handled directly by each hotel partner.
-            </div>
-          </div>
-        </div>
-
-        <div class="trust-card">
-          <div class="trust-icon">✔</div>
-          <div>
-            <div class="trust-label">Verified Travel Deals</div>
-            <div class="trust-text">
-              We focus on clean pages that highlight the best Belgium hotel deals.
-            </div>
-          </div>
+        <div class="info-box">
+          <h3>Travel Style</h3>
+          <p>Great for couples, solo travelers, families and travelers planning short European getaways.</p>
         </div>
       </div>
     </section>
 
-    <!-- TRUSTED PARTNERS -->
     <section class="section">
-      <div class="section-header">
-        <h2 class="section-title">Trusted Partners</h2>
-        <p class="section-sub">
-          We compare prices across leading hotel and travel brands.
-        </p>
-      </div>
-
-      <div class="chips-row">
-        <div class="chip">
-          <span class="chip-dot"></span>
-          <span>Agoda</span>
-        </div>
-        <div class="chip">
-          <span class="chip-dot"></span>
-          <span>Booking.com</span>
-        </div>
-        <div class="chip">
-          <span class="chip-dot"></span>
-          <span>Trip.com</span>
-        </div>
-        <div class="chip">
-          <span class="chip-dot"></span>
-          <span>Hotels.com</span>
-        </div>
-        <div class="chip">
-          <span class="chip-dot"></span>
-          <span>Accor</span>
-        </div>
-        <div class="chip">
-          <span class="chip-dot"></span>
-          <span>Motel 6</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- AFFILIATE DISCLOSURE -->
-    <section class="section">
-      <p class="disclosure">
-        <strong>Affiliate Disclosure:</strong>
-        Some links on this page are affiliate links. This means we may earn a
-        small commission when you book a hotel through our partners at no extra
-        cost to you. This helps keep GiftCardZoneEU running while we continue
-        to search for the best travel deals for you.
+      <h2>Best Time to Visit Belgium</h2>
+      <p>
+        Belgium is a year-round destination, but spring and autumn are especially popular for pleasant
+        temperatures, sightseeing and comfortable city travel. Summer is ideal for outdoor walks,
+        canal-side dining and exploring historic centers, while winter can be a great time for festive
+        city breaks and seasonal markets. Travelers looking for better hotel choices and pricing can
+        benefit from booking early and comparing rates across trusted travel platforms.
       </p>
     </section>
+
+    <section class="section" id="cities">
+      <h2>Top Cities in Belgium</h2>
+
+      <div class="grid">
+
+        <div class="card">
+          <img src="/assets/travel/belgium/brussels.webp" alt="Brussels Belgium" />
+          <h3>Brussels</h3>
+          <p>
+            Belgium’s capital is known for Grand Place, museums, government buildings, shopping streets
+            and a central location that makes it ideal for first-time visitors.
+          </p>
+        </div>
+
+        <div class="card">
+          <img src="/assets/travel/belgium/bruges.webp" alt="Bruges Belgium" />
+          <h3>Bruges</h3>
+          <p>
+            Bruges is famous for canals, cobblestone streets and medieval charm, making it one of the
+            most picturesque cities in Belgium for romantic and scenic stays.
+          </p>
+        </div>
+
+        <div class="card">
+          <img src="/assets/travel/belgium/antwerp.webp" alt="Antwerp Belgium" />
+          <h3>Antwerp</h3>
+          <p>
+            Antwerp offers fashion, art, shopping, architecture and a lively city atmosphere, perfect
+            for travelers who want a more modern and stylish Belgian city experience.
+          </p>
+        </div>
+
+        <div class="card">
+          <img src="/assets/travel/belgium/ghent.webp" alt="Ghent Belgium" />
+          <h3>Ghent</h3>
+          <p>
+            Ghent combines medieval beauty with a vibrant local scene, offering canals, historic
+            buildings and a slightly quieter but equally rewarding city stay.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Where to Stay in Belgium</h2>
+      <p>
+        Choosing where to stay in Belgium depends on your itinerary and travel style. Brussels is ideal
+        for central access, museums and transport links. Bruges suits travelers who want postcard-like
+        scenery and romantic old-town charm. Antwerp is a strong choice for shopping, food and modern
+        city life, while Ghent is perfect for travelers who want history, canals and a more relaxed
+        local atmosphere.
+      </p>
+
+      <div class="highlight-box">
+        <h3>Travel Planning Tip</h3>
+        <p>
+          Belgium’s cities are well connected, so many travelers combine two or more destinations in one
+          trip. When comparing hotels, check distance to train stations, city centers and major
+          attractions to make your stay more convenient.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Hotel Booking Tips for Belgium</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Compare Before Booking</h3>
+          <p>
+            Hotel rates, room conditions and cancellation policies can vary between platforms, so
+            comparing deals first can help you find the best overall value.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Choose Your City Carefully</h3>
+          <p>
+            Each Belgian city offers a different experience, so choosing the right base can improve
+            your trip and help match your budget, travel style and sightseeing plans.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Stay Near the Center or Station</h3>
+          <p>
+            In Belgium, hotels near old towns, main squares or train stations can make it easier to
+            explore multiple attractions without spending extra time on transport.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="partners">
+      <h2>Book Hotels with Trusted Travel Partners</h2>
+      <div class="grid">
+
+        <div class="card">
+          <h3>Booking.com</h3>
+          <p>
+            Search hotels and accommodations across Belgium with flexible booking options and a wide
+            range of city-center, boutique and family-friendly stays.
+          </p>
+          <a href="https://www.booking.com/" class="btn" rel="nofollow sponsored noopener noreferrer">Search Hotels</a>
+        </div>
+
+        <div class="card">
+          <h3>Agoda</h3>
+          <p>
+            Compare hotel deals in Belgium and explore room prices in top destinations like Brussels,
+            Bruges, Antwerp and Ghent.
+          </p>
+          <a href="https://www.agoda.com/" class="btn" rel="nofollow sponsored noopener noreferrer">View Deals</a>
+        </div>
+
+        <div class="card">
+          <h3>Trip.com</h3>
+          <p>
+            Plan your Belgium stay more easily by comparing hotels and travel options for city breaks,
+            train-connected trips and multi-destination European travel.
+          </p>
+          <a href="https://www.jdoqocy.com/click-101586981-13761944" class="btn" rel="nofollow sponsored noopener noreferrer">Find Hotels</a>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Why Book with Trusted Travel Partners?</h2>
+      <p>
+        Trusted travel platforms make it easier to compare hotel prices, room options, location
+        benefits, cancellation policies and traveler reviews in one place. Whether you are planning a
+        quick Belgium getaway or a longer Europe itinerary, comparing hotel deals can help you choose a
+        stay that fits your budget and travel plans.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>What is the best city to visit first in Belgium?</h3>
+          <p>
+            Brussels is often the best first stop because it is central, easy to reach and full of
+            major attractions, museums and transport connections.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Is Belgium good for hotel deals?</h3>
+          <p>
+            Yes. Travelers can often find good hotel deals in Belgium by comparing platforms, booking
+            ahead and choosing cities that match their preferred budget and travel season.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Which Belgian city is best for history and charm?</h3>
+          <p>
+            Bruges is especially popular for romantic scenery and medieval charm, while Ghent also
+            offers beautiful historic character with a more local city feel.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Explore More Travel Pages</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Travel Hub</h3>
+          <p>
+            Discover more destination pages, hotel guides and travel partner pages across the
+            GiftCardZoneEU travel section.
+          </p>
+          <a href="/travel/" class="btn">View Travel Hub</a>
+        </div>
+
+        <div class="card">
+          <h3>Australia Travel</h3>
+          <p>
+            Explore another upgraded travel page format featuring city guides, hotel booking tips and
+            trusted travel partners.
+          </p>
+          <a href="/travel/australia/" class="btn">Explore Australia</a>
+        </div>
+
+        <div class="card">
+          <h3>Back to Home</h3>
+          <p>
+            Return to the main GiftCardZoneEU homepage and explore more travel, shopping and partner
+            pages across your growing site.
+          </p>
+          <a href="/" class="btn">Go Home</a>
+        </div>
+      </div>
+    </section>
+
   </main>
+
+  <div class="footer">
+    © <span id="year"></span> GiftCardZoneEU
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
 </body>
-</html>
+</html>         
