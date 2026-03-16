@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Trip.com France – Cheap Flights & Hotels (2026) | GiftCardZoneEU</title>
+  <meta name="description" content="Explore Trip.com France for cheap flights, hotel bookings and travel deals across Paris, Nice, Lyon and Marseille. Compare France travel options online with GiftCardZoneEU." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://giftcardzoneeu.com/travel/france/trip-com/" />
+  <link rel="icon" href="/assets/gz-logo.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Trip.com France – Cheap Flights & Hotels (2026) | GiftCardZoneEU" />
+  <meta property="og:description" content="Compare France hotel bookings and travel deals on Trip.com for Paris, Nice, Lyon and Marseille." />
+  <meta property="og:url" content="https://giftcardzoneeu.com/travel/france/trip-com/" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=1600&auto=format&q=70" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Trip.com France – Cheap Flights & Hotels (2026) | GiftCardZoneEU" />
+  <meta name="twitter:description" content="Find cheap flights, hotels and France travel deals with Trip.com." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=1600&auto=format&q=70" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #1f2937;
+      background: #f8fafc;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(8, 15, 32, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand img {
+      height: 44px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #e5e7eb;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 560px;
+      background:
+        linear-gradient(rgba(4, 10, 24, 0.58), rgba(4, 10, 24, 0.72)),
+        url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=1600&auto=format&q=70') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 20px;
+      width: 100%;
+      color: #fff;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 8px 14px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: 50px;
+      line-height: 1.1;
+      margin: 0 0 18px;
+      max-width: 780px;
+    }
+
+    .hero p {
+      max-width: 740px;
+      font-size: 18px;
+      color: #e5e7eb;
+      margin: 0 0 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 15px;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: #2563eb;
+      color: #fff;
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.16);
+    }
+
+    .btn-primary:hover,
+    .btn-secondary:hover {
+      transform: translateY(-1px);
+      opacity: 0.96;
+    }
+
+    .section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 72px 20px;
+    }
+
+    .section-title {
+      font-size: 34px;
+      line-height: 1.2;
+      margin: 0 0 16px;
+      color: #0f172a;
+    }
+
+    .section-text {
+      max-width: 860px;
+      font-size: 17px;
+      color: #475569;
+      margin: 0;
+    }
+
+    .city-grid {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .city-card {
+      background: #fff;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+      border: 1px solid #e5e7eb;
+    }
+
+    .city-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .city-card-content {
+      padding: 22px;
+    }
+
+    .city-card h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      color: #0f172a;
+    }
+
+    .city-card p {
+      margin: 0;
+      color: #475569;
+      font-size: 15px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .info-box,
+    .trust-box {
+      background: #fff;
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+      border: 1px solid #e5e7eb;
+    }
+
+    .info-box h2,
+    .trust-box h2 {
+      margin-top: 0;
+      font-size: 28px;
+      color: #0f172a;
+    }
+
+    .info-box p,
+    .trust-box p,
+    .info-box li,
+    .trust-box li {
+      color: #475569;
+      font-size: 16px;
+    }
+
+    .info-box ul,
+    .trust-box ul {
+      padding-left: 18px;
+      margin: 16px 0 0;
+    }
+
+    .partners-strip {
+      margin-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .partner-pill {
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .cta-grid {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .cta-card {
+      background: linear-gradient(180deg, #0f172a, #172554);
+      color: #fff;
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.16);
+    }
+
+    .cta-card h3 {
+      margin: 0 0 12px;
+      font-size: 24px;
+    }
+
+    .cta-card p {
+      color: #dbeafe;
+      font-size: 15px;
+      margin: 0 0 20px;
+    }
+
+    .cta-card a {
+      display: inline-block;
+      background: #fff;
+      color: #0f172a;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .related-links {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .related-links a {
+      display: inline-block;
+      background: #e2e8f0;
+      color: #0f172a;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .footer {
+      background: #0f172a;
+      color: #cbd5e1;
+      padding: 28px 20px;
+      text-align: center;
+      font-size: 14px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 1024px) {
+      .city-grid,
+      .cta-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .hero {
+        min-height: 500px;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .city-grid,
+      .cta-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .section {
+        padding: 56px 16px;
+      }
+
+      .hero-content {
+        padding: 64px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="nav-inner">
+      <a class="brand" href="https://giftcardzoneeu.com/" aria-label="GiftCardZoneEU homepage">
+        <img src="/assets/gz-logo.png" alt="GiftCardZoneEU logo" />
+      </a>
+
+      <nav class="nav-links">
+        <a href="#destinations">France Cities</a>
+        <a href="#why-tripcom">Why Trip.com</a>
+        <a href="#book-now">Book Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-badge">Trip.com France • Hotels, Flights & Travel Deals</span>
+      <h1>Book Cheap Flights, Hotels & France Travel Deals with Trip.com</h1>
+      <p>
+        Explore Trip.com France for city stays, holiday hotels and travel planning across Paris,
+        Nice, Lyon and Marseille. Compare hotel and flight options for one of Europe’s most
+        visited destinations through a trusted global travel platform.
+      </p>
+      <div class="hero-actions">
+        <a href="#book-now" class="btn-primary">Explore Trip.com France</a>
+        <a href="#destinations" class="btn-secondary">View Top France Cities</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Trip.com France for Hotels, Flights & City Breaks</h2>
+    <p class="section-text">
+      France remains one of the strongest travel destinations in Europe for romantic escapes,
+      cultural city breaks, food travel and coastal holidays. A dedicated Trip.com France page
+      helps visitors compare booking options for major destinations and supports your country
+      cluster structure with a stronger travel-partner page inside the France section.
+    </p>
+  </section>
+
+  <section class="section" id="destinations">
+    <h2 class="section-title">Top France Destinations You Can Explore</h2>
+    <p class="section-text">
+      These key cities help position the page for France travel intent while matching the style
+      of your other upgraded country and partner pages.
+    </p>
+
+    <div class="city-grid">
+      <article class="city-card">
+        <img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?w=700&auto=format&q=70" alt="Paris France city view" loading="lazy" />
+        <div class="city-card-content">
+          <h3>Paris</h3>
+          <p>
+            Discover hotels and travel options for the French capital, famous for landmarks,
+            museums, fashion districts and romantic city breaks.
+          </p>
+        </div>
+      </article>
+
+      <article class="city-card">
+        <img src="https://images.unsplash.com/photo-1549144511-f099e773c147?w=700&auto=format&q=70" alt="Nice France travel destination" loading="lazy" />
+        <div class="city-card-content">
+          <h3>Nice</h3>
+          <p>
+            Explore Riviera stays, seaside hotels and Mediterranean travel options in one of
+            southern France’s most searched holiday destinations.
+          </p>
+        </div>
+      </article>
+
+      <article class="city-card">
+        <img src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?w=700&auto=format&q=70" alt="Lyon France historic district" loading="lazy" />
+        <div class="city-card-content">
+          <h3>Lyon</h3>
+          <p>
+            Compare travel choices for Lyon, known for food culture, historic districts,
+            riverside scenery and classic French city-break appeal.
+          </p>
+        </div>
+      </article>
+
+      <article class="city-card">
+        <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=700&auto=format&q=70" alt="Marseille France harbor view" loading="lazy" />
+        <div class="city-card-content">
+          <h3>Marseille</h3>
+          <p>
+            Review hotel and trip options for Marseille, a major Mediterranean port city with
+            coastal access, culture and vibrant local character.
+          </p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="why-tripcom">
+    <div class="info-grid">
+      <div class="info-box">
+        <h2>Why Build a Trip.com France Page?</h2>
+        <p>
+          A France-specific Trip.com page is stronger than a generic partner page because it
+          aligns directly with your France travel cluster. It can support internal links from the
+          main France page and future related partner pages while targeting country-level hotel
+          and travel intent.
+        </p>
+        <ul>
+          <li>Supports France-specific hotel and flight intent</li>
+          <li>Matches your country-based partner page structure</li>
+          <li>Strengthens internal linking inside the France cluster</li>
+          <li>Helps build topical authority for travel pages</li>
+        </ul>
+      </div>
+
+      <div class="trust-box">
+        <h2>Trip.com France Highlights</h2>
+        <p>
+          Travelers can use Trip.com France to review hotel stays, compare travel schedules and
+          explore booking options for city breaks, holidays and international trips connected to
+          major French destinations.
+        </p>
+        <ul>
+          <li>Hotels in major France cities</li>
+          <li>Flight search and booking options</li>
+          <li>City-break and holiday planning</li>
+          <li>Travel comparisons for popular routes</li>
+        </ul>
+
+        <div class="partners-strip">
+          <span class="partner-pill">France Hotels</span>
+          <span class="partner-pill">Cheap Flights</span>
+          <span class="partner-pill">City Breaks</span>
+          <span class="partner-pill">Travel Deals</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="book-now">
+    <h2 class="section-title">Compare Trip.com France Travel Deals</h2>
+    <p class="section-text">
+      Use the booking options below to explore France hotel stays, flights and travel planning
+      through Trip.com.
+    </p>
+
+    <div class="cta-grid">
+      <div class="cta-card">
+        <h3>France Hotels</h3>
+        <p>
+          Browse hotel stays for Paris, Nice, Lyon, Marseille and other major destinations across
+          France.
+        </p>
+        <a href="https://www.jdoqocy.com/click-101586981-13761944" rel="nofollow sponsored noopener noreferrer">Check France Hotels</a>
+      </div>
+
+      <div class="cta-card">
+        <h3>Flights to France</h3>
+        <p>
+          Search flight routes and compare travel options for France trips, city breaks and
+          holiday planning.
+        </p>
+        <a href="https://www.jdoqocy.com/click-101586981-13761944" rel="nofollow sponsored noopener noreferrer">Search Flights</a>
+      </div>
+
+      <div class="cta-card">
+        <h3>Visit Trip.com</h3>
+        <p>
+          Explore France travel bookings directly on Trip.com and compare your next hotel or
+          flight option.
+        </p>
+        <a href="https://www.jdoqocy.com/click-101586981-13761944" rel="nofollow sponsored noopener noreferrer">Visit Trip.com</a>
+      </div>
+    </div>
+
+    <div class="related-links">
+      <a href="https://giftcardzoneeu.com/travel/france/">France Travel Page</a>
+      <a href="https://giftcardzoneeu.com/travel/europe/">Europe Travel Page</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    © <span id="year"></span> GiftCardZoneEU. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
