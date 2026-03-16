@@ -1,4 +1,4 @@
-     <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -6,7 +6,23 @@
 
   <title>Explore Hotel Deals Worldwide | GiftCardZoneEU x Agoda</title>
   <meta name="description" content="Compare hotel deals worldwide — Japan, Germany, France, USA, Australia, Netherlands and more via Agoda travel partners." />
+  <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://giftcardzoneeu.com/travel/" />
+  <link rel="icon" href="/assets/gz-logo.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Explore Hotel Deals Worldwide | GiftCardZoneEU x Agoda" />
+  <meta property="og:description" content="Compare hotel deals worldwide — Japan, Germany, France, USA, Australia, Netherlands and more via Agoda travel partners." />
+  <meta property="og:url" content="https://giftcardzoneeu.com/travel/" />
+  <meta property="og:image" content="https://giftcardzoneeu.com/assets/travel-hero.webp" />
+  <meta property="og:site_name" content="GiftCardZoneEU" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Explore Hotel Deals Worldwide | GiftCardZoneEU x Agoda" />
+  <meta name="twitter:description" content="Compare hotel deals worldwide — Japan, Germany, France, USA, Australia, Netherlands and more via Agoda travel partners." />
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/travel-hero.webp" />
 
   <style>
     :root {
@@ -20,7 +36,13 @@
       --shadow-soft: 0 14px 28px rgba(15, 23, 42, 0.06);
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
@@ -29,75 +51,188 @@
       color: var(--text-main);
     }
 
+    a {
+      text-decoration: none;
+    }
+
+    /* TOPBAR */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+    }
+
+    .topbar-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.85rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      color: var(--text-main);
+      font-weight: 800;
+      font-size: 1rem;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .brand-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.55rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-light);
+      background: #ffffff;
+      color: var(--text-main);
+      font-size: 0.9rem;
+      font-weight: 700;
+      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.05);
+    }
+
     /* HERO */
     .hero {
       position: relative;
-      height: 360px;
+      min-height: 420px;
       display: flex;
       align-items: center;
       justify-content: center;
       background-image: url('/assets/travel-hero.webp');
       background-size: cover;
       background-position: center;
+      text-align: center;
+      overflow: hidden;
     }
 
     .hero::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.3), rgba(0,0,0,0.65));
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0.68));
     }
 
     .hero-content {
       position: relative;
-      text-align: center;
-      max-width: 800px;
-      padding: 0 1.5rem;
+      z-index: 1;
+      max-width: 860px;
+      padding: 2rem 1.5rem;
       color: #f8fafc;
     }
 
     .hero-title {
-      font-size: 2.4rem;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.1;
       font-weight: 800;
-      margin-bottom: 0.5rem;
+      margin: 0 0 0.85rem;
+      text-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
     }
 
     .hero-sub {
-      font-size: 1rem;
-      opacity: 0.9;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      max-width: 760px;
+      margin: 0 auto 1.25rem;
+      opacity: 0.96;
     }
-/* ANIMATION: Fade In Up */
-.fade-in {
-  opacity: 0;
-  transform: translateY(10px);
-  animation: fadeInUp 0.6s ease-out forwards;
-}
 
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-       /* MAIN WRAPPER */
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.9rem 1.25rem;
+      border-radius: 999px;
+      background: #ffffff;
+      color: #0f172a;
+      font-weight: 800;
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+      transition: 0.25s ease;
+    }
+
+    .hero-cta:hover {
+      transform: translateY(-2px);
+    }
+
+    /* ANIMATION */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(12px);
+      animation: fadeInUp 0.65s ease-out forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* MAIN WRAPPER */
     .wrapper {
       max-width: 1100px;
-      margin: 3rem auto;
+      margin: 0 auto;
       padding: 0 1.5rem;
     }
 
+    /* INTRO */
+    .travel-intro {
+      padding: 3.2rem 0 1rem;
+    }
+
+    .travel-intro-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .travel-intro h2 {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      line-height: 1.2;
+      margin: 0 0 1rem;
+      color: var(--text-main);
+      font-weight: 800;
+    }
+
+    .travel-intro p {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text-muted);
+    }
+
+    /* DESTINATIONS */
+    .destinations {
+      padding: 1.2rem 0 0.5rem;
+    }
+
     .section-title {
-      font-size: 1.6rem;
+      font-size: 1.9rem;
       font-weight: 800;
       text-align: center;
-      margin-bottom: 0.5rem;
+      margin: 0 0 0.55rem;
+      color: var(--text-main);
     }
 
     .section-sub {
       text-align: center;
-      font-size: 0.95rem;
+      font-size: 1rem;
       color: var(--text-muted);
-      margin-bottom: 2rem;
+      margin: 0 0 2rem;
     }
 
     .grid {
@@ -108,11 +243,10 @@
 
     .country-card {
       display: block;
-      padding: 1.2rem 1.2rem;
-      background: white;
+      padding: 1.25rem;
+      background: var(--card-bg);
       border: 1px solid var(--border-light);
       border-radius: 1.3rem;
-      text-decoration: none;
       box-shadow: var(--shadow-soft);
       transition: 0.25s ease;
       color: inherit;
@@ -121,133 +255,257 @@
     .country-card:hover {
       transform: translateY(-4px);
       border-color: var(--accent);
-      box-shadow: 0 14px 30px rgba(0,0,0,0.08);
+      box-shadow: 0 18px 34px rgba(15, 23, 42, 0.08);
     }
 
     .country-name {
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 0.3rem;
+      font-size: 1.12rem;
+      font-weight: 800;
+      margin-bottom: 0.35rem;
+      color: var(--text-main);
     }
 
     .country-desc {
-      font-size: 0.85rem;
+      font-size: 0.93rem;
       color: var(--text-muted);
-      line-height: 1.4;
-      margin-bottom: 0.7rem;
+      line-height: 1.6;
+      margin-bottom: 0.9rem;
     }
 
     .country-link {
-      font-size: 0.9rem;
-      font-weight: 600;
+      font-size: 0.95rem;
+      font-weight: 700;
       color: var(--accent-strong);
     }
 
+    /* INFO SECTION */
+    .travel-info-grid {
+      margin: 2.2rem 0 0;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .info-box {
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      border-radius: 1.3rem;
+      padding: 1.35rem 1.35rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .info-box h3 {
+      margin: 0 0 0.9rem;
+      font-size: 1.18rem;
+      color: var(--text-main);
+    }
+
+    .info-box ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .info-box li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.55rem;
+      font-size: 0.98rem;
+      color: #334155;
+      line-height: 1.65;
+      margin-bottom: 0.55rem;
+    }
+
+    .check {
+      color: #16a34a;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .partner-dot {
+      color: #16a34a;
+      font-size: 1rem;
+      line-height: 1.2;
+      margin-top: 0.05rem;
+      flex-shrink: 0;
+    }
+
+    /* FOOTER */
     footer {
       margin-top: 3rem;
-      padding: 2rem 1.5rem;
+      padding: 2rem 1.5rem 2.5rem;
       border-top: 1px solid var(--border-light);
       text-align: center;
-      font-size: 0.8rem;
+      font-size: 0.88rem;
       color: var(--text-muted);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .travel-info-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .topbar-inner {
+        padding: 0.8rem 1rem;
+      }
+
+      .brand span {
+        font-size: 0.95rem;
+      }
+
+      .hero {
+        min-height: 360px;
+      }
+
+      .hero-content {
+        padding: 2rem 1rem;
+      }
+
+      .wrapper {
+        padding: 0 1rem;
+      }
+
+      .travel-intro {
+        padding-top: 2.5rem;
+      }
+
+      .section-title {
+        font-size: 1.65rem;
+      }
+
+      .country-card {
+        padding: 1.1rem;
+      }
     }
   </style>
 </head>
 
 <body>
 
+  <div class="topbar">
+    <div class="topbar-inner">
+      <a href="https://giftcardzoneeu.com/" class="brand" aria-label="GiftCardZoneEU homepage">
+        <img src="/assets/gz-logo.png" alt="GiftCardZoneEU logo" />
+        <span>GiftCardZoneEU</span>
+      </a>
+      <div class="brand-pill">Global Travel Deals</div>
+    </div>
+  </div>
+
   <header class="hero">
-    <div class="hero-content">
-      <div class="hero-title">Explore Worldwide Hotel Deals</div>
-      <div class="hero-sub">Powered by Agoda travel partners · Book smarter, travel better</div>
+    <div class="hero-content fade-in">
+      <h1 class="hero-title">Explore Worldwide Hotel Deals</h1>
+      <p class="hero-sub">
+        Powered by Agoda travel partners · Compare destinations, discover trusted hotel booking options,
+        and travel smarter with GiftCardZoneEU.
+      </p>
+      <a href="#destinations" class="hero-cta">Explore destinations</a>
     </div>
   </header>
 
-  <main class="wrapper">
-    <div class="section-title">Top Travel Destinations</div>
-    <div class="section-sub">Select a country to find hotel deals</div>
-
-    <div class="grid fade-in">
-
-      <a href="/travel/japan/" class="country-card">
-        <div class="country-name">Japan 🇯🇵</div>
-        <div class="country-desc">Tokyo, Osaka, Kyoto, Sapporo & more.</div>
-        <div class="country-link">View Japan deals →</div>
-      </a>
-
-      <a href="/travel/germany/" class="country-card">
-        <div class="country-name">Germany 🇩🇪</div>
-        <div class="country-desc">Berlin, Munich, Hamburg & more.</div>
-        <div class="country-link">View Germany deals →</div>
-      </a>
-
-      <a href="/travel/france/" class="country-card">
-        <div class="country-name">France 🇫🇷</div>
-        <div class="country-desc">Paris, Nice, Lyon, Marseille & more.</div>
-        <div class="country-link">View France deals →</div>
-      </a>
-
-      <a href="/travel/usa/" class="country-card">
-        <div class="country-name">United States 🇺🇸</div>
-        <div class="country-desc">New York, Las Vegas, LA & more.</div>
-        <div class="country-link">View USA deals →</div>
-      </a>
-
-      <a href="/travel/australia/" class="country-card">
-        <div class="country-name">Australia 🇦🇺</div>
-        <div class="country-desc">Sydney, Melbourne, Brisbane & more.</div>
-        <div class="country-link">View Australia deals →</div>
-      </a>
-
-      <a href="/travel/netherland/" class="country-card">
-        <div class="country-name">Netherlands 🇳🇱</div>
-        <div class="country-desc">Amsterdam, Rotterdam, Utrecht & more.</div>
-        <div class="country-link">View Netherlands deals →</div>
-      </a>
-
-      <a href="/travel/asia/" class="country-card">
-        <div class="country-name">Asia 🌏</div>
-        <div class="country-desc">Philippines, Thailand, Singapore & more.</div>
-        <div class="country-link">View Asia deals →</div>
-      </a>
-         <!-- TRUST BADGE SECTION -->
-<section class="trust-section fade-in">
-  <div class="trust-title">Why Travelers Trust Us</div>
-  <div class="trust-grid">
-    <div class="trust-card">✔ GiftCardZoneEU Partner Verified</div>
-    <div class="trust-card">✔ SSL Secured</div>
-    <div class="trust-card">✔ Trusted Global Partners</div>
-    <div class="trust-card">✔ Safe Payment Redirects</div>
-    <div class="trust-card">✔ 24/7 Booking Support</div>
-    <div class="trust-card">✔ Verified Travel Deals</div>
-    <div class="trust-card">✔ Privacy Protected</div>
-  </div>
-</section>
-
-<!-- TRUSTED PARTNERS SECTION -->
-<section class="trusted-section fade-in">
-  <div class="trusted-title">Trusted Partners</div>
-  <div class="trusted-logos">
-    <div class="trusted-item">🟢 Agoda</div>
-    <div class="trusted-item">🟢 Booking.com</div>
-    <div class="trusted-item">🟢 Trip.com</div>
-    <div class="trusted-item">🟢 Hotels.com</div>
-    <div class="trusted-item">🟢 Accor</div>
-    <div class="trusted-item">🟢 Motel 6</div>
-  </div>
-</section>
-
+  <section class="travel-intro">
+    <div class="wrapper">
+      <div class="travel-intro-inner fade-in">
+        <h2>Find Hotel Deals Across Top Travel Destinations</h2>
+        <p>
+          Explore hotel deals across popular destinations including Japan, Germany, France,
+          the United States, Australia, the Netherlands, and Asia. GiftCardZoneEU helps
+          travelers discover places to stay, compare destination pages, and connect with
+          trusted travel booking partners for a smoother booking experience online.
+        </p>
+      </div>
     </div>
+  </section>
+
+  <main class="wrapper">
+    <section class="destinations" id="destinations">
+      <h2 class="section-title">Top Travel Destinations</h2>
+      <p class="section-sub">Select a country to find hotel deals</p>
+
+      <div class="grid fade-in">
+        <a href="/travel/japan/" class="country-card">
+          <div class="country-name">Japan 🇯🇵</div>
+          <div class="country-desc">Tokyo, Osaka, Kyoto, Sapporo & more.</div>
+          <div class="country-link">View Japan deals →</div>
+        </a>
+
+        <a href="/travel/germany/" class="country-card">
+          <div class="country-name">Germany 🇩🇪</div>
+          <div class="country-desc">Berlin, Munich, Hamburg & more.</div>
+          <div class="country-link">View Germany deals →</div>
+        </a>
+
+        <a href="/travel/france/" class="country-card">
+          <div class="country-name">France 🇫🇷</div>
+          <div class="country-desc">Paris, Nice, Lyon, Marseille & more.</div>
+          <div class="country-link">View France deals →</div>
+        </a>
+
+        <a href="/travel/usa/" class="country-card">
+          <div class="country-name">United States 🇺🇸</div>
+          <div class="country-desc">New York, Las Vegas, Los Angeles & more.</div>
+          <div class="country-link">View USA deals →</div>
+        </a>
+
+        <a href="/travel/australia/" class="country-card">
+          <div class="country-name">Australia 🇦🇺</div>
+          <div class="country-desc">Sydney, Melbourne, Brisbane & more.</div>
+          <div class="country-link">View Australia deals →</div>
+        </a>
+
+        <a href="/travel/netherlands/" class="country-card">
+          <div class="country-name">Netherlands 🇳🇱</div>
+          <div class="country-desc">Amsterdam, Rotterdam, Utrecht & more.</div>
+          <div class="country-link">View Netherlands deals →</div>
+        </a>
+
+        <a href="/travel/asia/" class="country-card">
+          <div class="country-name">Asia 🌏</div>
+          <div class="country-desc">Philippines, Thailand, Singapore & more.</div>
+          <div class="country-link">View Asia deals →</div>
+        </a>
+      </div>
+
+      <div class="travel-info-grid fade-in">
+        <section class="info-box">
+          <h3>Why Travelers Trust Us</h3>
+          <ul>
+            <li><span class="check">✔</span><span>GiftCardZoneEU Partner Verified</span></li>
+            <li><span class="check">✔</span><span>SSL Secured</span></li>
+            <li><span class="check">✔</span><span>Trusted Global Partners</span></li>
+            <li><span class="check">✔</span><span>Safe Payment Redirects</span></li>
+            <li><span class="check">✔</span><span>24/7 Booking Support</span></li>
+            <li><span class="check">✔</span><span>Verified Travel Deals</span></li>
+            <li><span class="check">✔</span><span>Privacy Protected</span></li>
+          </ul>
+        </section>
+
+        <section class="info-box">
+          <h3>Trusted Partners</h3>
+          <ul>
+            <li><span class="partner-dot">🟢</span><span>Agoda</span></li>
+            <li><span class="partner-dot">🟢</span><span>Booking.com</span></li>
+            <li><span class="partner-dot">🟢</span><span>Trip.com</span></li>
+            <li><span class="partner-dot">🟢</span><span>Hotels.com</span></li>
+            <li><span class="partner-dot">🟢</span><span>Accor</span></li>
+            <li><span class="partner-dot">🟢</span><span>Motel 6</span></li>
+          </ul>
+        </section>
+      </div>
+    </section>
   </main>
 
   <footer>
-  © <span id="year"></span> GiftCardZoneEU · Agoda Travel Partner
-</footer>
+    © <span id="year"></span> GiftCardZoneEU · Agoda Travel Partner
+  </footer>
 
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>
- 
