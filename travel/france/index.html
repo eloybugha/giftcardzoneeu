@@ -4,417 +4,542 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Best Hotel Deals in France | GiftCardZoneEU Travel Partners</title>
-  <meta name="description" content="Find the best hotel deals in France — Paris, Nice, Lyon, Marseille and more via our trusted partners Agoda, Booking.com, Trip.com, Hotels.com, Accor and Motel 6." />
+  <title>Best Hotels in France | Where to Stay & Book Online</title>
+  <meta name="description" content="Find the best hotels in France including Paris, Nice, Lyon and Marseille. Compare hotel deals with trusted travel partners and book your France stay online." />
+  <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://giftcardzoneeu.com/travel/france/" />
-<meta name="robots" content="index, follow" />
-  <style>
-    :root {
-      --bg: #f5f5f7;
-      --text-main: #111827;
-      --text-muted: #6b7280;
-      --radius-lg: 18px;
-      --shadow-soft: 0 10px 25px rgba(15, 23, 42, 0.09);
-    }
+  <link rel="icon" href="/assets/gz-logo.png" />
 
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Best Hotels in France | GiftCardZoneEU" />
+  <meta property="og:description" content="Compare hotel deals across France including Paris, Nice, Lyon and Marseille." />
+  <meta property="og:url" content="https://giftcardzoneeu.com/travel/france/" />
+  <meta property="og:image" content="PASTE-YOUR-HERO-IMAGE-LINK-HERE" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Best Hotels in France | GiftCardZoneEU" />
+  <meta name="twitter:description" content="Find the best hotels in France including Paris, Nice, Lyon and Marseille." />
+  <meta name="twitter:image" content="PASTE-YOUR-HERO-IMAGE-LINK-HERE" />
+
+  <style>
     * {
       box-sizing: border-box;
     }
 
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bg);
-      color: var(--text-main);
+      font-family: Arial, sans-serif;
+      color: #1f2937;
+      background: #f8fafc;
+      line-height: 1.6;
     }
 
-    .page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+    a {
+      text-decoration: none;
     }
 
-    /* HERO WITH LUXURY PARIS IMAGE */
-    .hero {
-      position: relative;
-      padding: 32px 16px 40px;
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(8, 15, 32, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 14px 20px;
       display: flex;
       align-items: center;
-      justify-content: center;
-      text-align: center;
-      overflow: hidden;
-      background: #020617; /* fallback color */
+      justify-content: space-between;
     }
 
-    .hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(to bottom, rgba(15,23,42,0.45), rgba(15,23,42,0.25)),
-    url("IMG_20251122_133628.jpg") center/cover no-repeat;
-  filter: blur(0.7px);
-  transform: scale(1.02);
-  opacity: 0.97;
-  z-index: 0;
-}
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at top left, rgba(59,130,246,0.35), transparent 60%),
-        radial-gradient(circle at bottom right, rgba(239,68,68,0.25), transparent 60%);
-      mix-blend-mode: soft-light;
-      z-index: 0;
+    .brand img {
+      height: 44px;
+      width: auto;
     }
 
-    .hero-overlay {
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #e5e7eb;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .hero {
       position: relative;
-      z-index: 1;
-      max-width: 720px;
-      padding: 18px 20px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.55);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.5);
+      min-height: 560px;
+      background:
+        linear-gradient(rgba(4, 10, 24, 0.55), rgba(4, 10, 24, 0.65)),
+        url('PASTE-YOUR-HERO-IMAGE-LINK-HERE') center/cover no-repeat;
+      display: flex;
+      align-items: center;
     }
 
-    .hero-title {
-      margin: 0;
-      font-size: clamp(1.6rem, 3vw, 2rem);
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      color: #f9fafb;
-      text-shadow: 0 4px 16px rgba(0,0,0,0.55);
-    }
-
-    .hero-flag {
-      margin-left: 8px;
-    }
-
-    main {
-      flex: 1;
-      padding: 10px 16px 40px;
-      max-width: 1080px;
+    .hero-content {
+      max-width: 1200px;
       margin: 0 auto;
+      padding: 80px 20px;
+      width: 100%;
+      color: #fff;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 8px 14px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: 50px;
+      line-height: 1.1;
+      margin: 0 0 18px;
+      max-width: 760px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      font-size: 18px;
+      color: #e5e7eb;
+      margin: 0 0 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 15px;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: #2563eb;
+      color: #fff;
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.16);
+    }
+
+    .btn-primary:hover,
+    .btn-secondary:hover {
+      transform: translateY(-1px);
+      opacity: 0.95;
     }
 
     .section {
-      margin-top: 20px;
-      background: rgba(255,255,255,0.9);
-      border-radius: 24px;
-      padding: 18px 18px 20px;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .section + .section {
-      margin-top: 16px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 70px 20px;
     }
 
     .section-title {
-      margin: 0 0 14px;
-      font-size: 1.1rem;
+      font-size: 34px;
+      line-height: 1.2;
+      margin: 0 0 16px;
+      color: #0f172a;
+    }
+
+    .section-text {
+      max-width: 850px;
+      font-size: 17px;
+      color: #475569;
+      margin: 0;
+    }
+
+    .city-grid {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .city-card {
+      background: #fff;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+      border: 1px solid #e5e7eb;
+    }
+
+    .city-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .city-card-content {
+      padding: 22px;
+    }
+
+    .city-card h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      color: #0f172a;
+    }
+
+    .city-card p {
+      margin: 0;
+      color: #475569;
+      font-size: 15px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .info-box,
+    .trust-box {
+      background: #fff;
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+      border: 1px solid #e5e7eb;
+    }
+
+    .info-box h2,
+    .trust-box h2 {
+      margin-top: 0;
+      font-size: 28px;
+      color: #0f172a;
+    }
+
+    .info-box p,
+    .trust-box p,
+    .info-box li,
+    .trust-box li {
+      color: #475569;
+      font-size: 16px;
+    }
+
+    .info-box ul,
+    .trust-box ul {
+      padding-left: 18px;
+      margin: 16px 0 0;
+    }
+
+    .cta-grid {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .cta-card {
+      background: linear-gradient(180deg, #0f172a, #172554);
+      color: #fff;
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.16);
+    }
+
+    .cta-card h3 {
+      margin: 0 0 12px;
+      font-size: 24px;
+    }
+
+    .cta-card p {
+      color: #dbeafe;
+      font-size: 15px;
+      margin: 0 0 20px;
+    }
+
+    .cta-card a {
+      display: inline-block;
+      background: #fff;
+      color: #0f172a;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .partners-strip {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .partner-pill {
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 14px;
       font-weight: 700;
     }
 
-    .section-subtitle {
-      margin-top: 4px;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    /* TOP TRAVEL PARTNERS – brand colors + click effect */
-    .partner-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 10px;
-    }
-
-    .partner-card {
-      border-radius: var(--radius-lg);
-      padding: 12px 10px;
+    .footer {
+      background: #0f172a;
+      color: #cbd5e1;
+      padding: 28px 20px;
       text-align: center;
-      font-weight: 600;
-      font-size: 0.95rem;
-      cursor: pointer;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid transparent;
-      transition:
-        transform 0.16s ease,
-        box-shadow 0.16s ease,
-        background 0.16s ease,
-        color 0.16s ease,
-        border-color 0.16s ease;
+      font-size: 14px;
+      margin-top: 30px;
     }
 
-    .partner-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.25);
-    }
-
-    /* Agoda – purple */
-    .partner-card:nth-child(1) {
-      background: #f3e8ff;
-      color: #4c1d95;
-      border-color: #e9d5ff;
-    }
-    .partner-card:nth-child(1):active {
-      background: #c4b5fd;
-      color: #1e1b4b;
-      transform: scale(0.96);
-      box-shadow: 0 0 0 rgba(0,0,0,0.2);
-    }
-
-    /* Booking.com – blue */
-    .partner-card:nth-child(2) {
-      background: #dbeafe;
-      color: #1d4ed8;
-      border-color: #bfdbfe;
-    }
-    .partner-card:nth-child(2):active {
-      background: #93c5fd;
-      color: #0b1f5f;
-      transform: scale(0.96);
-      box-shadow: 0 0 0 rgba(0,0,0,0.2);
-    }
-
-    /* Trip.com – teal */
-    .partner-card:nth-child(3) {
-      background: #e0f2fe;
-      color: #0369a1;
-      border-color: #bae6fd;
-    }
-    .partner-card:nth-child(3):active {
-      background: #7dd3fc;
-      color: #0f172a;
-      transform: scale(0.96);
-      box-shadow: 0 0 0 rgba(0,0,0,0.2);
-    }
-
-    /* Hotels.com – red */
-    .partner-card:nth-child(4) {
-      background: #fee2e2;
-      color: #b91c1c;
-      border-color: #fecaca;
-    }
-    .partner-card:nth-child(4):active {
-      background: #fca5a5;
-      color: #7f1d1d;
-      transform: scale(0.96);
-      box-shadow: 0 0 0 rgba(0,0,0,0.2);
-    }
-
-    /* Accor – gold */
-    .partner-card:nth-child(5) {
-      background: #fef3c7;
-      color: #92400e;
-      border-color: #fde68a;
-    }
-    .partner-card:nth-child(5):active {
-      background: #facc15;
-      color: #78350f;
-      transform: scale(0.96);
-      box-shadow: 0 0 0 rgba(0,0,0,0.2);
-    }
-
-    /* Motel 6 – blue */
-    .partner-card:nth-child(6) {
-      background: #e0ecff;
-      color: #1e3a8a;
-      border-color: #bfdbfe;
-    }
-    .partner-card:nth-child(6):active {
-      background: #60a5fa;
-      color: #0b1120;
-      transform: scale(0.96);
-      box-shadow: 0 0 0 rgba(0,0,0,0.2);
-    }
-
-    /* WHY TRAVELERS TRUST US */
-    .trust-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 10px;
-    }
-
-    .trust-card {
-      background: #f9fafb;
-      border-radius: var(--radius-lg);
-      padding: 10px 12px;
-      font-size: 0.88rem;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      border: 1px solid rgba(209, 213, 219, 0.9);
-      transition: background 0.12s ease, transform 0.12s ease;
-    }
-
-    .trust-card:active {
-      background: #e5edff;
-      transform: scale(0.97);
-    }
-
-    .trust-label {
-      font-weight: 600;
-    }
-
-    .trust-desc {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-    }
-
-    /* TRUSTED PARTNERS STRIP */
-    .trusted-strip {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-      justify-content: center;
-      padding-top: 6px;
-    }
-
-    .trusted-pill {
-      font-size: 0.8rem;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: #f3f4f6;
-      border: 1px solid #e5e7eb;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: background 0.12s ease, transform 0.12s ease;
-    }
-
-    .trusted-pill:active {
-      background: #e5edff;
-      transform: scale(0.97);
-    }
-
-    .trusted-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #22c55e;
-    }
-
-    .legal {
-      margin-top: 16px;
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    .legal strong {
-      color: #111827;
-    }
-
-    @media (min-width: 768px) {
-      .hero {
-        padding: 40px 16px 50px;
+    @media (max-width: 1024px) {
+      .city-grid,
+      .cta-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      main {
-        padding: 18px 20px 48px;
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .hero {
+        min-height: 500px;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .city-grid,
+      .cta-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .section {
+        padding: 56px 16px;
+      }
+
+      .hero-content {
+        padding: 64px 16px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <header class="hero">
-      <div class="hero-overlay">
-        <h1 class="hero-title">
-          Best Hotel Deals in France
-          <span class="hero-flag">🇫🇷</span>
-        </h1>
+
+  <header class="navbar">
+    <div class="nav-inner">
+      <a class="brand" href="https://giftcardzoneeu.com/">
+        <img src="/assets/gz-logo.png" alt="GiftCardZoneEU logo" />
+      </a>
+
+      <nav class="nav-links">
+        <a href="#top-destinations">Top Destinations</a>
+        <a href="#why-book">Why Book</a>
+        <a href="#compare-deals">Compare Deals</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-badge">France Travel Guide • Hotel Booking Deals</span>
+      <h1>Best Hotels in France for City Breaks, Riviera Escapes & Cultural Travel</h1>
+      <p>
+        Discover where to stay in France, from iconic Paris hotels to coastal stays in Nice,
+        historic neighborhoods in Lyon and vibrant harbor areas in Marseille. Compare hotel
+        deals and travel booking options in one place.
+      </p>
+      <div class="hero-actions">
+        <a href="#compare-deals" class="btn-primary">Compare Hotel Deals</a>
+        <a href="#top-destinations" class="btn-secondary">Explore Top Cities</a>
       </div>
-    </header>
+    </div>
+  </section>
 
-    <main>
-      <!-- TOP TRAVEL PARTNERS -->
-      <section class="section" aria-labelledby="top-partners">
-        <h2 id="top-partners" class="section-title">Top Travel Partners</h2>
-        <p class="section-subtitle">
-          Compare hotel prices across our trusted partners and grab the best deal for your France trip.
+  <section class="section">
+    <h2 class="section-title">Plan Your France Stay with Trusted Travel Partners</h2>
+    <p class="section-text">
+      France remains one of Europe’s most popular destinations for romantic trips, food travel,
+      luxury stays and cultural city breaks. Whether you want to stay near the Eiffel Tower,
+      relax along the French Riviera or explore historic old towns and port cities, comparing
+      accommodation options before booking can help you find better value for your trip.
+    </p>
+  </section>
+
+  <section class="section" id="top-destinations">
+    <h2 class="section-title">Top Hotel Destinations in France</h2>
+    <p class="section-text">
+      These four destinations are among the most searched places to stay in France, offering a
+      mix of landmarks, food, seaside escapes and classic European city experiences.
+    </p>
+
+    <div class="city-grid">
+      <article class="city-card">
+        <img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?w=600" alt="Paris France city view" loading="lazy" />
+        <div class="city-card-content">
+          <h3>Paris</h3>
+          <p>
+            Stay in the French capital for iconic landmarks, romantic neighborhoods, museums,
+            shopping streets and world-famous dining.
+          </p>
+        </div>
+      </article>
+
+      <article class="city-card">
+        <img src="https://images.unsplash.com/photo-1549144511-f099e773c147?w=600" alt="Nice France city square" loading="lazy" />
+        <div class="city-card-content">
+          <h3>Nice</h3>
+          <p>
+            Nice is ideal for Riviera getaways, sunny promenades, beachside hotels and easy
+            access to the Mediterranean coast.
+          </p>
+        </div>
+      </article>
+
+      <article class="city-card">
+        <img src="https://images.unsplash.com/photo-1522092787789-3f3c1b1a64b4?w=600" alt="Lyon France historic district" loading="lazy" />
+        <div class="city-card-content">
+          <h3>Lyon</h3>
+          <p>
+            Choose Lyon for food culture, riverside views, historic architecture and one of
+            France’s most rewarding city-break experiences.
+          </p>
+        </div>
+      </article>
+
+      <article class="city-card">
+        <img src="https://images.unsplash.com/photo-1506023914045-4a9c9b9d0c8d?w=600" alt="Marseille France harbor view" loading="lazy" />
+        <div class="city-card-content">
+          <h3>Marseille</h3>
+          <p>
+            Marseille combines port-city energy, Mediterranean views, cultural diversity and
+            easy access to coastal attractions in southern France.
+          </p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="why-book">
+    <div class="info-grid">
+      <div class="info-box">
+        <h2>Why Book France Hotels Through Comparison Pages?</h2>
+        <p>
+          Comparing hotel partners helps travelers review room options, price ranges, property
+          locations and booking flexibility before choosing where to stay. This is useful for
+          both short city breaks and longer multi-stop France trips.
         </p>
-        <div class="partner-grid">
-          <!-- palitan mo lahat ng tunay mong affiliate links -->
-          <a class="partner-card" href="YOUR_AGODA_AFFILIATE_LINK" target="_blank" rel="nofollow noopener">Agoda</a>
-          <a class="partner-card" href="YOUR_BOOKING_AFFILIATE_LINK" target="_blank" rel="nofollow noopener">Booking.com</a>
-          <a class="partner-card" href="YOUR_TRIPCOM_AFFILIATE_LINK" target="_blank" rel="nofollow noopener">Trip.com</a>
-          <a class="partner-card" href="YOUR_HOTELS_AFFILIATE_LINK" target="_blank" rel="nofollow noopener">Hotels.com</a>
-          <a class="partner-card" href="YOUR_ACCOR_AFFILIATE_LINK" target="_blank" rel="nofollow noopener">Accor</a>
-          <a class="partner-card" href="YOUR_MOTEL6_AFFILIATE_LINK" target="_blank" rel="nofollow noopener">Motel 6</a>
+        <ul>
+          <li>Compare hotel prices across major French destinations</li>
+          <li>Check city-center, business, luxury and budget stay options</li>
+          <li>Review accommodation choices before booking online</li>
+          <li>Explore trusted hotel platforms used by international travelers</li>
+        </ul>
+      </div>
+
+      <div class="trust-box">
+        <h2>France Travel Highlights</h2>
+        <p>
+          From Paris and Lyon to Nice and Marseille, France offers a strong mix of culture,
+          architecture, cuisine and coastal travel. It works well for couples, solo travelers,
+          families and business visitors.
+        </p>
+        <ul>
+          <li>Romantic city stays and luxury hotels</li>
+          <li>Historic old towns and museum districts</li>
+          <li>Mediterranean beach escapes</li>
+          <li>Food-focused travel and weekend breaks</li>
+        </ul>
+
+        <div class="partners-strip">
+          <span class="partner-pill">Hotels</span>
+          <span class="partner-pill">City Breaks</span>
+          <span class="partner-pill">Riviera Travel</span>
+          <span class="partner-pill">France Booking</span>
         </div>
-      </section>
+      </div>
+    </div>
+  </section>
 
-      <!-- WHY TRAVELERS TRUST US -->
-      <section class="section" aria-labelledby="why-trust">
-        <h2 id="why-trust" class="section-title">Why Travelers Trust Us</h2>
-        <div class="trust-grid">
-          <div class="trust-card">
-            <span class="trust-label">✔ GiftCardZoneEU Partner Verified</span>
-            <span class="trust-desc">We only feature travel brands we personally review and approve.</span>
-          </div>
-          <div class="trust-card">
-            <span class="trust-label">✔ SSL Secured</span>
-            <span class="trust-desc">Your browsing is protected with industry-standard encryption.</span>
-          </div>
-          <div class="trust-card">
-            <span class="trust-label">✔ Trusted Global Partners</span>
-            <span class="trust-desc">Work with some of the world’s largest hotel booking platforms.</span>
-          </div>
-          <div class="trust-card">
-            <span class="trust-label">✔ Safe Payment Redirects</span>
-            <span class="trust-desc">All payments happen directly on the official partner website.</span>
-          </div>
-          <div class="trust-card">
-            <span class="trust-label">✔ 24/7 Booking Support</span>
-            <span class="trust-desc">Customer support is provided by each hotel partner on your booking.</span>
-          </div>
-          <div class="trust-card">
-            <span class="trust-label">✔ Verified Travel Deals</span>
-            <span class="trust-desc">We highlight real discounts, seasonal promos and member-only prices.</span>
-          </div>
-          <div class="trust-card">
-            <span class="trust-label">✔ Privacy Protected</span>
-            <span class="trust-desc">We do not store your payment details; you book directly with partners.</span>
-          </div>
-        </div>
-      </section>
+  <section class="section" id="compare-deals">
+    <h2 class="section-title">Compare France Hotel Deals</h2>
+    <p class="section-text">
+      Use trusted travel booking platforms to compare hotel availability, prices and location
+      options for your France trip.
+    </p>
 
-      <!-- TRUSTED PARTNERS STRIP -->
-      <section class="section" aria-labelledby="trusted-partners">
-        <h2 id="trusted-partners" class="section-title">Trusted Partners</h2>
-        <div class="trusted-strip">
-          <div class="trusted-pill"><span class="trusted-dot"></span>Agoda</div>
-          <div class="trusted-pill"><span class="trusted-dot"></span>Booking.com</div>
-          <div class="trusted-pill"><span class="trusted-dot"></span>Trip.com</div>
-          <div class="trusted-pill"><span class="trusted-dot"></span>Hotels.com</div>
-          <div class="trusted-pill"><span class="trusted-dot"></span>Accor</div>
-          <div class="trusted-pill"><span class="trusted-dot"></span>Motel 6</div>
-        </div>
+    <div class="cta-grid">
+      <div class="cta-card">
+        <h3>Booking.com France</h3>
+        <p>
+          Browse hotel options across Paris, Nice, Lyon and Marseille with flexible choices for
+          city stays, weekend trips and longer holidays.
+        </p>
+        <a href="http://www.booking.com" rel="nofollow sponsored noopener noreferrer">Check France Hotels</a>
+      </div>
 
-        <p class="legal">
-  <strong>Affiliate Disclosure:</strong> Some links on this page are affiliate links.
-  This means we may earn a small commission when you book a hotel through our partners
-  at no extra cost to you. It helps keep GiftCardZoneEU running while we continue
-  to search for the best travel deals for you.
-  <br><br>
-  © <span id="year"></span> GiftCardZoneEU. All rights reserved.
-</p>
+      <div class="cta-card">
+        <h3>Agoda France</h3>
+        <p>
+          Compare hotel rates and accommodation deals for major French destinations, including
+          popular tourist zones and transport-friendly areas.
+        </p>
+        <a href="http://www.agoda.com" rel="nofollow sponsored noopener noreferrer">View Agoda Deals</a>
+      </div>
 
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-      </section>
-    </main>
-  </div>
+      <div class="cta-card">
+        <h3>Trip.com France</h3>
+        <p>
+          Explore France hotel bookings with options for city travel, business stays and
+          multi-destination itineraries.
+        </p>
+        <a href="https://www.jdoqocy.com/click-101586981-13761944 trip.com" rel="nofollow sponsored noopener noreferrer">Explore Trip.com</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    © <span id="year"></span> GiftCardZoneEU. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
 </body>
 </html>
