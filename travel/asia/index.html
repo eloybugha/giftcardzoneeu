@@ -1,4 +1,4 @@
-   <!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -257,6 +257,31 @@
       opacity:.96;
     }
 
+    .travel-info{
+      max-width:900px;
+      margin:3rem auto 0;
+      color:#e5e7eb;
+    }
+
+    .travel-info-block{
+      margin-bottom:1.6rem;
+      background:rgba(15,23,42,0.55);
+      border:1px solid rgba(148,163,184,0.22);
+      border-radius:1rem;
+      padding:1.2rem 1.1rem;
+      box-shadow:0 10px 30px rgba(0,0,0,.2);
+    }
+
+    .travel-info h2{
+      font-size:1.2rem;
+      margin-bottom:.55rem;
+    }
+
+    .travel-info p{
+      font-size:.96rem;
+      color:#d1d5db;
+    }
+
     .partners-section{
       max-width:1100px;
       margin:0 auto 3rem;
@@ -326,6 +351,10 @@
       .card-footer{
         flex-direction:column;
         align-items:flex-start;
+      }
+
+      .travel-info-block{
+        padding:1rem;
       }
     }
   </style>
@@ -428,40 +457,54 @@
         </article>
 
       </section>
+
+      <section class="travel-info">
+        <div class="travel-info-block">
+          <h2>Best Time to Visit Asia</h2>
+          <p>
+            Asia offers year-round travel opportunities, but the best months for many destinations are typically from November to April when the weather is cooler and drier. Major destinations such as Japan, Singapore, Thailand, and the Philippines attract travelers with a mix of modern cities, traditional culture, tropical escapes, and unforgettable local food experiences.
+          </p>
+        </div>
+
+        <div class="travel-info-block">
+          <h2>Popular Travel Destinations in Asia</h2>
+          <p>
+            Asia is home to some of the world’s most exciting travel destinations. Japan blends ancient traditions with modern cities like Tokyo, Kyoto, and Osaka. Singapore offers a futuristic skyline, premium shopping, and family-friendly attractions. Thailand is known for its beaches, nightlife, and island adventures, while the Philippines offers scenic coastlines, island hopping, and well-known destinations such as Boracay, Cebu, and Palawan.
+          </p>
+        </div>
+
+        <div class="travel-info-block">
+          <h2>Why Book Hotels Through Our Trusted Travel Partners</h2>
+          <p>
+            GiftCardZoneEU features travel partners such as Booking.com, Agoda, Trip.com, Hotels.com, Accor Hotels, and Motel 6 to help travelers compare accommodation options across Asia. These trusted platforms offer access to hotels, resorts, city stays, and vacation deals with secure booking systems, wide destination coverage, and flexible options for different travel budgets.
+          </p>
+        </div>
+      </section>
     </main>
 
     <section class="partners-section">
-      <h2 class="partners-title">🌏 Top Travel Partners</h2>
+  <h2 class="partners-title">🌏 Top Travel Partners</h2>
 
-      <div class="partners-grid">
+  <div class="partners-grid">
 
-        <a href="https://www.booking.com/" target="_blank" rel="nofollow sponsored noopener noreferrer" class="partner-card">
-          <h3>Booking.com</h3>
-          <p>Hotels & vacation rentals worldwide.</p>
-        </a>
+    <a href="https://www.booking.com/" target="_blank" rel="nofollow sponsored noopener noreferrer" class="partner-card">
+      <h3>Booking.com</h3>
+      <p>Hotels & vacation rentals worldwide.</p>
+    </a>
 
-        <a href="https://www.jdoqocy.com/click-101586981-13761944 trip.com" target="_blank" rel="nofollow sponsored noopener noreferrer" class="partner-card">
-          <h3>Trip.com</h3>
-          <p>Flights, hotels & travel packages.</p>
-        </a>
+    <a href="https://www.agoda.com/partners/partnersearch.aspx" target="_blank" rel="nofollow sponsored noopener noreferrer" class="partner-card">
+      <h3>Agoda</h3>
+      <p>Asia hotel deals, resorts, and city stays.</p>
+    </a>
 
-        <a href="https://www.hoteles.com" target="_blank" rel="nofollow sponsored noopener noreferrer" class="partner-card">
-          <h3>Hoteles.com</h3>
-          <p>Hotel rewards & discount stays.</p>
-        </a>
+    <a href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer" class="partner-card">
+      <h3>Trip.com</h3>
+      <p>Flights, hotels & travel packages.</p>
+    </a>
 
-        <a href="https://all.accor.com/usa/index.en.shtml" target="_blank" rel="nofollow sponsored noopener noreferrer" class="partner-card">
-          <h3>Accor Hotels</h3>
-          <p>Premium hotels in 110+ countries.</p>
-        </a>
+  </div>
+</section>
 
-        <a href="https://www.motel6.com/en/home.html" target="_blank" rel="nofollow sponsored noopener noreferrer" class="partner-card">
-          <h3>Motel 6</h3>
-          <p>Budget-friendly stays in Asia & beyond.</p>
-        </a>
-
-      </div>
-    </section>
 
     <footer class="footer">
       © <span id="year"></span> Part of
@@ -475,4 +518,5 @@
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
-</html>  
+</html>
+        
