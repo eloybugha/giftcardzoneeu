@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -6,13 +6,12 @@
 
   <title>Philippines Transport Booking with 12Go | GiftCardZoneEU</title>
   <meta name="description" content="Book buses, vans, ferries and airport transfers across the Philippines via 12Go. Compare routes, schedules, and operators easily." />
-
-  <!-- ✅ Indexable partner page -->
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://giftcardzoneeu.com/partners/12go-philippines/" />
+  <link rel="icon" href="/assets/gz-logo.png" />
 
-  <!-- ✅ Preload hero (LCP boost) -->
-  <link rel="preload" as="image" href="/partners/12go-philippines/12go-hero-ph.jpg">
+  <!-- Preload hero -->
+  <link rel="preload" as="image" href="/partners/12go-philippines/12go-hero-ph.jpg" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -39,9 +38,18 @@
       --text-muted: #9ca3af;
       --border-subtle: rgba(148, 163, 184, 0.45);
       --chip-bg: rgba(15, 23, 42, 0.92);
+      --link: #38bdf8;
     }
 
-    * { box-sizing: border-box; margin:0; padding:0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       min-height: 100vh;
@@ -53,171 +61,335 @@
     }
 
     .page {
-      max-width:1080px;
-      margin:0 auto;
-      padding:24px 16px 56px;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 24px 16px 56px;
     }
 
     header {
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      margin-bottom:18px;
-      gap:12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
-    .brand { display:flex; align-items:center; gap:10px; }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: inherit;
+    }
 
     .brandMark {
-      width:36px; height:36px; border-radius:12px;
-      background: conic-gradient(from 200deg, #00c3a3,#22c55e,#38bdf8,#00c3a3);
-      display:flex; align-items:center; justify-content:center;
-      box-shadow: 0 12px 40px rgba(15,118,110,0.6);
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      background: conic-gradient(from 200deg, #00c3a3, #22c55e, #38bdf8, #00c3a3);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 40px rgba(15, 118, 110, 0.6);
+      text-decoration: none;
+      flex-shrink: 0;
     }
 
-    .brandMark span { font-size:18px; font-weight:800; color:#0f172a; }
+    .brandMark span {
+      font-size: 18px;
+      font-weight: 800;
+      color: #0f172a;
+    }
 
-    .brandText small { display:block; font-size:12px; color:var(--text-muted); line-height:1.1; }
-    .brandText strong { display:block; font-size:14px; letter-spacing:.2px; }
+    .brandText small {
+      display: block;
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.1;
+    }
+
+    .brandText strong {
+      display: block;
+      font-size: 14px;
+      letter-spacing: 0.2px;
+    }
 
     .tag {
-      padding:6px 10px; border-radius:999px; font-size:11px;
-      display:inline-flex; align-items:center; gap:6px;
-      border:1px solid rgba(148,163,184,0.5);
-      background:radial-gradient(circle at top left,#1f2937,#020617);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: radial-gradient(circle at top left, #1f2937, #020617);
       color: var(--text-muted);
-      white-space:nowrap;
+      white-space: nowrap;
     }
 
     .tagDot {
-      width:7px; height:7px; border-radius:999px; background:#22c55e;
-      box-shadow: 0 0 0 5px rgba(34,197,94,0.2);
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.2);
     }
 
     .hero {
-      border-radius:22px; overflow:hidden;
-      border:1px solid rgba(148,163,184,0.4);
-      background:linear-gradient(145deg,#020617,#020617);
-      margin-bottom:26px; padding:24px 22px;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: linear-gradient(145deg, #020617, #020617);
+      margin-bottom: 26px;
+      padding: 24px 22px;
     }
 
-    .hero h1 { font-size:26px; margin-bottom:10px; }
-    .hero p { font-size:14px; color:var(--text-muted); margin-bottom:16px; }
+    .hero h1 {
+      font-size: 26px;
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
 
-    .btnRow { display:flex; gap:10px; flex-wrap:wrap; }
+    .hero p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      line-height: 1.6;
+      max-width: 760px;
+    }
+
+    .btnRow {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
 
     .btnPrimary {
-      background:linear-gradient(135deg,#00c3a3,#22c55e);
-      color:#020617; padding:10px 18px; border-radius:999px;
-      font-size:14px; font-weight:600; text-decoration:none;
-      display:inline-flex; align-items:center; gap:8px;
-      box-shadow:0 14px 40px rgba(16,185,129,0.5);
-      cursor:pointer;
+      background: linear-gradient(135deg, #00c3a3, #22c55e);
+      color: #020617;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 14px 40px rgba(16, 185, 129, 0.5);
+      cursor: pointer;
     }
 
     .btnGhost {
-      border-radius:999px; padding:9px 14px;
-      border:1px solid rgba(148,163,184,0.6);
-      background:rgba(15,23,42,0.9);
-      font-size:13px; text-decoration:none;
-      color:var(--text-muted); display:inline-flex; gap:6px;
-      align-items:center;
+      border-radius: 999px;
+      padding: 9px 14px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.9);
+      font-size: 13px;
+      text-decoration: none;
+      color: var(--text-muted);
+      display: inline-flex;
+      gap: 6px;
+      align-items: center;
     }
 
     .tinyNote {
-      margin-top:6px;
-      font-size:11px;
-      color:var(--text-muted);
+      margin-top: 6px;
+      font-size: 11px;
+      color: var(--text-muted);
     }
 
     .section {
-      border-radius:20px;
-      border:1px solid var(--border-subtle);
-      background:rgba(15,23,42,0.75);
-      padding:16px; margin-bottom:18px;
+      border-radius: 20px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(15, 23, 42, 0.75);
+      padding: 16px;
+      margin-bottom: 18px;
+      backdrop-filter: blur(3px);
     }
 
-    .sectionHeader h2 { font-size:17px; margin-bottom:4px; }
-    .sectionHeader p { font-size:13px; color:var(--text-muted); }
+    .sectionHeader h2 {
+      font-size: 17px;
+      margin-bottom: 4px;
+    }
+
+    .sectionHeader p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
 
     .routesGrid {
-      display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-      gap:10px; margin-top:10px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+      margin-top: 10px;
     }
 
     .routeCard {
-      border-radius:16px; background:#020617;
-      border:1px solid rgba(148,163,184,0.45);
-      padding:12px; display:flex; flex-direction:column; gap:6px;
+      border-radius: 16px;
+      background: #020617;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
     }
 
-    .routeTitle { font-size:14px; font-weight:600; }
-    .routeMeta { font-size:12px; color:var(--text-muted); }
-    .routeTagRow { display:flex; gap:6px; flex-wrap:wrap; margin-top:4px; }
+    .routeTitle {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .routeMeta {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .routeTagRow {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
     .routeTag {
-      font-size:11px; padding:4px 7px; border-radius:999px;
-      background:rgba(15,23,42,0.96);
-      border:1px dashed var(--border-subtle);
-      color:var(--text-muted);
+      font-size: 11px;
+      padding: 4px 7px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px dashed var(--border-subtle);
+      color: var(--text-muted);
     }
 
-    .routeLink { margin-top:6px; font-size:12px; color:#e0f2fe; text-decoration:none; }
-    .routeLink:hover { text-decoration:underline; }
+    .routeLink {
+      margin-top: 6px;
+      font-size: 12px;
+      color: #e0f2fe;
+      text-decoration: none;
+    }
 
-    /* ✅ Missing grid styles added */
-    .benefitsGrid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-      gap:10px;
-      margin-top:10px;
+    .routeLink:hover,
+    .inlineLink:hover,
+    .footerLink:hover {
+      text-decoration: underline;
     }
-    .benefitCard{
-      border-radius:16px;
-      background:#020617;
-      border:1px solid rgba(148,163,184,0.45);
-      padding:12px;
+
+    .benefitsGrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+      margin-top: 10px;
     }
-    .benefitTitle{ font-size:14px; font-weight:700; margin-bottom:6px; }
-    .benefitCard p{ font-size:12px; color:var(--text-muted); line-height:1.45; }
+
+    .benefitCard {
+      border-radius: 16px;
+      background: #020617;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      padding: 12px;
+    }
+
+    .benefitTitle {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .benefitCard p {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
 
     .trustRow {
-      margin-top:10px; font-size:11px;
-      color:var(--text-muted); display:flex; gap:8px; flex-wrap:wrap;
+      margin-top: 10px;
+      font-size: 11px;
+      color: var(--text-muted);
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
     }
 
     .trustBadge {
-      padding:5px 8px; border-radius:999px;
-      border:1px dashed var(--border-subtle);
-      background:rgba(15,23,42,0.8);
+      padding: 5px 8px;
+      border-radius: 999px;
+      border: 1px dashed var(--border-subtle);
+      background: rgba(15, 23, 42, 0.8);
     }
 
-    .disclosure { font-size:11px; color:var(--text-muted); line-height:1.5; }
+    .disclosure {
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
 
-    footer { margin-top:18px; font-size:11px; color:var(--text-muted); text-align:left; }
+    .extraLink {
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--text-main);
+      line-height: 1.6;
+    }
 
-    .footerRow{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-      justify-content:space-between;
-      margin-top:10px;
+    .inlineLink,
+    .footerLink {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    footer {
+      margin-top: 18px;
+      font-size: 11px;
+      color: var(--text-muted);
+      text-align: left;
+      line-height: 1.6;
+    }
+
+    .footerRow {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 640px) {
+      .hero h1 {
+        font-size: 22px;
+      }
+
+      .page {
+        padding: 18px 12px 42px;
+      }
+
+      .hero,
+      .section {
+        padding: 14px;
+      }
+
+      .footerRow {
+        justify-content: flex-start;
+      }
     }
   </style>
 </head>
 
 <body>
   <div class="page">
-
     <header>
-      <div class="brand">
-        <div class="brandMark"><span>GZ</span></div>
+      <a class="brand" href="https://giftcardzoneeu.com/" aria-label="GiftCardZoneEU homepage">
+        <span class="brandMark"><span>GZ</span></span>
         <div class="brandText">
           <small>Partners</small>
           <strong>Philippines</strong>
         </div>
+      </a>
+
+      <div class="tag">
+        <div class="tagDot"></div>
+        Official affiliate partner
       </div>
-      <div class="tag"><div class="tagDot"></div>Official affiliate partner</div>
     </header>
 
     <main>
@@ -226,17 +398,21 @@
         <p>Compare vans, buses, ferries, departure times, and airport or island transfers, then checkout securely on 12Go.</p>
 
         <div class="btnRow">
-          <a class="btnPrimary"
-             href="https://www.tkqlhce.com/click-101586981-17115164"
-             target="_blank"
-             rel="nofollow sponsored noopener noreferrer">
+          <a
+            class="btnPrimary"
+            href="https://www.tkqlhce.com/click-101586981-17115164"
+            target="_blank"
+            rel="nofollow sponsored noopener noreferrer"
+          >
             <span>Start booking Philippine routes</span> →
           </a>
 
-          <a class="btnGhost"
-             href="https://www.tkqlhce.com/click-101586981-17115164"
-             target="_blank"
-             rel="nofollow sponsored noopener noreferrer">
+          <a
+            class="btnGhost"
+            href="https://www.tkqlhce.com/click-101586981-17115164"
+            target="_blank"
+            rel="nofollow sponsored noopener noreferrer"
+          >
             View schedules
           </a>
         </div>
@@ -254,41 +430,69 @@
           <article class="routeCard">
             <div class="routeTitle">Manila → Leyte</div>
             <div class="routeMeta">Bus + ferry combos available.</div>
-            <div class="routeTagRow"><span class="routeTag">Aircon bus</span><span class="routeTag">Roro ferry</span></div>
-            <a class="routeLink"
-               href="https://www.tkqlhce.com/click-101586981-17115164"
-               target="_blank"
-               rel="nofollow sponsored noopener noreferrer">Check MNL–Leyte →</a>
+            <div class="routeTagRow">
+              <span class="routeTag">Aircon bus</span>
+              <span class="routeTag">Roro ferry</span>
+            </div>
+            <a
+              class="routeLink"
+              href="https://www.tkqlhce.com/click-101586981-17115164"
+              target="_blank"
+              rel="nofollow sponsored noopener noreferrer"
+            >
+              Check MNL–Leyte →
+            </a>
           </article>
 
           <article class="routeCard">
             <div class="routeTitle">Cebu → Bohol</div>
             <div class="routeMeta">Fast craft or ferry options.</div>
-            <div class="routeTagRow"><span class="routeTag">OceanJet</span><span class="routeTag">Fast seats</span></div>
-            <a class="routeLink"
-               href="https://www.tkqlhce.com/click-101586981-17115164"
-               target="_blank"
-               rel="nofollow sponsored noopener noreferrer">View CEB–Bohol →</a>
+            <div class="routeTagRow">
+              <span class="routeTag">OceanJet</span>
+              <span class="routeTag">Fast seats</span>
+            </div>
+            <a
+              class="routeLink"
+              href="https://www.tkqlhce.com/click-101586981-17115164"
+              target="_blank"
+              rel="nofollow sponsored noopener noreferrer"
+            >
+              View CEB–Bohol →
+            </a>
           </article>
 
           <article class="routeCard">
             <div class="routeTitle">Davao → Samal Island</div>
             <div class="routeMeta">Ferry transfers.</div>
-            <div class="routeTagRow"><span class="routeTag">Island hop</span><span class="routeTag">Port tickets</span></div>
-            <a class="routeLink"
-               href="https://www.tkqlhce.com/click-101586981-17115164"
-               target="_blank"
-               rel="nofollow sponsored noopener noreferrer">See DVO–Samal →</a>
+            <div class="routeTagRow">
+              <span class="routeTag">Island hop</span>
+              <span class="routeTag">Port tickets</span>
+            </div>
+            <a
+              class="routeLink"
+              href="https://www.tkqlhce.com/click-101586981-17115164"
+              target="_blank"
+              rel="nofollow sponsored noopener noreferrer"
+            >
+              See DVO–Samal →
+            </a>
           </article>
 
           <article class="routeCard">
             <div class="routeTitle">Palawan island connections</div>
             <div class="routeMeta">Ferry + van transfers.</div>
-            <div class="routeTagRow"><span class="routeTag">Taytay</span><span class="routeTag">El Nido</span></div>
-            <a class="routeLink"
-               href="https://www.tkqlhce.com/click-101586981-17115164"
-               target="_blank"
-               rel="nofollow sponsored noopener noreferrer">Discover Palawan transfers →</a>
+            <div class="routeTagRow">
+              <span class="routeTag">Taytay</span>
+              <span class="routeTag">El Nido</span>
+            </div>
+            <a
+              class="routeLink"
+              href="https://www.tkqlhce.com/click-101586981-17115164"
+              target="_blank"
+              rel="nofollow sponsored noopener noreferrer"
+            >
+              Discover Palawan transfers →
+            </a>
           </article>
         </div>
       </section>
@@ -329,26 +533,62 @@
       </section>
 
       <section class="section">
-        <div class="sectionHeader"><h2>Affiliate disclosure</h2></div>
-        <p class="disclosure">We may earn a small commission if you book via our link, at no extra cost to you.</p>
+        <div class="sectionHeader">
+          <h2>Affiliate disclosure</h2>
+        </div>
+
+        <p class="disclosure">
+          We may earn a small commission if you book via our link, at no extra cost to you.
+        </p>
+
+        <p class="extraLink">
+          Planning a trip? See our
+          <a class="inlineLink" href="https://giftcardzoneeu.com/travel/philippines/">
+            Philippines travel guide
+          </a>
+          for hotels, routes and travel tips.
+        </p>
       </section>
     </main>
 
     <footer>
       12Go is an independent company. For booking support please contact the 12Go Help Centre directly.
+
       <div class="footerRow">
         <div>© <span id="y"></span> GiftCardZoneEU</div>
+        <div>
+          <a class="footerLink" href="https://giftcardzoneeu.com/travel/philippines/">
+            Explore Philippines travel →
+          </a>
+        </div>
       </div>
     </footer>
-
   </div>
 
-  <!-- ✅ Auto-year -->
   <script>
-    (function(){
-      var el = document.getElementById('y');
-      if(el) el.textContent = new Date().getFullYear();
+    (function () {
+      var el = document.getElementById("y");
+      if (el) el.textContent = new Date().getFullYear();
     })();
   </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TravelAction",
+    "name": "Philippines Transport Booking with 12Go",
+    "description": "Compare buses, ferries, vans and island transfers across the Philippines via 12Go.",
+    "provider": {
+      "@type": "Organization",
+      "name": "12Go"
+    },
+    "agent": {
+      "@type": "Organization",
+      "name": "GiftCardZoneEU",
+      "url": "https://giftcardzoneeu.com"
+    },
+    "url": "https://giftcardzoneeu.com/partners/12go-philippines/"
+  }
+  </script>
 </body>
-</html>                  
+</html>
