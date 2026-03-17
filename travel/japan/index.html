@@ -1,477 +1,621 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Best Hotel Deals in Japan | GiftCardZoneEU</title>
-  <meta name="description" content="Find the best hotel deals in Japan — compare prices across trusted travel partners for Tokyo, Osaka, Kyoto, Sapporo and more." />
+  <title>Best Hotels in Japan | Where to Stay & Book Online</title>
+  <meta name="description" content="Find the best hotels in Japan including Tokyo, Osaka, Kyoto and Sapporo. Compare hotel deals with trusted travel partners like Booking.com, Agoda and Trip.com." />
+  <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://giftcardzoneeu.com/travel/japan/" />
+  <link rel="icon" href="/assets/gz-logo.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Best Hotels in Japan | GiftCardZoneEU" />
+  <meta property="og:description" content="Compare hotel deals across Japan including Tokyo, Osaka, Kyoto and Sapporo." />
+  <meta property="og:url" content="https://giftcardzoneeu.com/travel/japan/" />
+  <meta property="og:image" content="https://giftcardzoneeu.com/assets/travel/japan-hero.webp" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Best Hotels in Japan | GiftCardZoneEU" />
+  <meta name="twitter:description" content="Discover Japan's top cities and hotel deals with trusted travel partners." />
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/travel/japan-hero.webp" />
+
+  <!-- Basic Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Best Hotels in Japan | Where to Stay & Book Online",
+    "url": "https://giftcardzoneeu.com/travel/japan/",
+    "description": "Find the best hotels in Japan including Tokyo, Osaka, Kyoto and Sapporo. Compare hotel deals with trusted travel partners like Booking.com, Agoda and Trip.com."
+  }
+  </script>
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the best city to visit first in Japan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tokyo is often the top choice for first-time visitors because it offers major attractions, transport convenience, shopping, food and easy access to other parts of Japan."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Japan good for hotel deals?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, travelers can still find good hotel deals in Japan by comparing booking platforms, choosing the right area and booking early during busy travel seasons."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which cities in Japan are best for culture and history?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Kyoto is especially famous for temples, traditional culture and historic districts, while Tokyo and Osaka combine culture with modern city experiences, food and shopping."
+        }
+      }
+    ]
+  }
+  </script>
 
   <style>
-    * {
-      box-sizing: border-box;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
     }
 
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
-      background: #f5f7fa;
-      color: #111827;
-      -webkit-font-smoothing: antialiased;
+    html{
+      scroll-behavior:smooth;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+    body{
+      background:#08152f;
+      color:#ffffff;
+      line-height:1.6;
     }
 
-    /* HERO */
-
-    .hero {
-      position: relative;
-      height: 280px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 32px 10px 40px;
-      overflow: hidden;
-      background: #020617;
+    a{
+      text-decoration:none;
     }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    .nav{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:flex-start;
+      padding:14px 22px;
+      background:rgba(0,0,0,0.70);
+      backdrop-filter:blur(8px);
+      z-index:1000;
+      border-bottom:1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav img{
+      height:42px;
+      width:auto;
+    }
+
+    .hero{
+      min-height:70vh;
       background:
-        linear-gradient(
-          180deg,
-          rgba(15, 23, 42, 0.15),
-          rgba(15, 23, 42, 0.75)
-        ),
-        /* 👉 PALITAN ANG FILENAME NA ITO SA TOTOONG JAPAN IMAGE MO */
-        url("./IMG_20251122_182830.jpg") center/cover no-repeat;
-      filter: blur(3px);
-      transform: scale(1.03);
-      transform-origin: center;
+        linear-gradient(rgba(4,10,24,0.42), rgba(4,10,24,0.65)),
+        url("/assets/travel/japan-hero.webp");
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:110px 20px 36px;
     }
 
-    .hero-inner {
-      position: relative;
-      max-width: 720px;
-      color: #f9fafb;
-      padding: 16px 24px;
+    .hero-overlay{
+      width:100%;
+      max-width:960px;
+      background:rgba(0,0,0,0.42);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:20px;
+      padding:30px 24px;
+      box-shadow:0 16px 40px rgba(0,0,0,0.26);
     }
 
-    .hero-title {
-      font-size: 2rem;
-      font-weight: 700;
-      margin: 0 0 8px;
+    .hero h1{
+      font-size:clamp(2rem, 5vw, 4rem);
+      line-height:1.1;
+      margin-bottom:14px;
     }
 
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.9rem;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.75);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(148, 163, 184, 0.45);
-      margin-bottom: 8px;
+    .hero p{
+      font-size:clamp(1rem, 2.2vw, 1.2rem);
+      color:rgba(255,255,255,0.93);
+      max-width:760px;
+      margin:0 auto;
     }
 
-    .hero-subtitle {
-      font-size: 0.98rem;
-      max-width: 640px;
-      margin: 4px auto 0;
-      color: #e5e7eb;
+    .hero-partner{
+      margin-top:12px;
+      font-size:14px;
+      opacity:0.82;
+      letter-spacing:0.3px;
     }
 
-    /* LAYOUT WRAPPER */
-
-    .page {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 24px 16px 40px;
+    .hero-actions{
+      display:flex;
+      justify-content:center;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:22px;
     }
 
-    .section {
-      background: #ffffff;
-      border-radius: 18px;
-      padding: 20px 18px 22px;
-      margin-bottom: 20px;
-      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.06);
+    .container{
+      max-width:1180px;
+      margin:0 auto;
+      padding:44px 20px 60px;
     }
 
-    .section-header {
-      margin-bottom: 14px;
+    .section{
+      margin-bottom:56px;
     }
 
-    .section-title {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin: 0 0 4px;
-      color: #0f172a;
+    .section h2{
+      font-size:clamp(1.7rem, 3vw, 2.2rem);
+      color:#40bfff;
+      margin-bottom:16px;
     }
 
-    .section-sub {
-      font-size: 0.9rem;
-      color: #64748b;
-      margin: 0;
+    .section p{
+      color:rgba(255,255,255,0.92);
+      max-width:940px;
     }
 
-    /* TOP TRAVEL PARTNERS BUTTONS */
-
-    .partner-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 10px;
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:22px;
+      margin-top:22px;
     }
 
-    .partner-btn {
-      flex: 1 1 120px;
-      text-align: center;
-      font-size: 0.9rem;
-      font-weight: 600;
-      padding: 10px 14px;
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      background: #0f172a;
-      color: #f9fafb;
-      box-shadow: 0 10px 20px rgba(15, 23, 42, 0.15);
-      transition: transform 0.12s ease, box-shadow 0.12s ease,
-        background 0.12s ease, opacity 0.12s ease;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
+    .card{
+      background:#12213f;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:20px;
+      padding:24px;
+      box-shadow:0 12px 28px rgba(0,0,0,0.18);
+      transition:transform 0.25s ease, box-shadow 0.25s ease;
+      overflow:hidden;
     }
 
-    .partner-btn span {
-      font-size: 0.78rem;
-      font-weight: 500;
-      opacity: 0.9;
+    .card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 16px 34px rgba(0,0,0,0.24);
     }
 
-    .partner-btn.agoda {
-      background: #14b8a6;
+    .card img{
+      width:100%;
+      height:180px;
+      object-fit:cover;
+      border-radius:14px;
+      margin-bottom:14px;
+      transition:transform .4s ease;
     }
 
-    .partner-btn.booking {
-      background: #1d4ed8;
+    .card:hover img{
+      transform:scale(1.05);
     }
 
-    .partner-btn.trip {
-      background: #0369a1;
+    .card h3{
+      font-size:1.25rem;
+      margin-bottom:10px;
+      color:#ffffff;
     }
 
-    .partner-btn.hotels {
-      background: #b91c1c;
+    .card p{
+      color:rgba(255,255,255,0.88);
+      font-size:0.98rem;
     }
 
-    .partner-btn.accor {
-      background: #b45309;
+    .info-strip{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:16px;
+      margin-top:22px;
     }
 
-    .partner-btn.motel6 {
-      background: #111827;
+    .info-box{
+      background:rgba(64,191,255,0.10);
+      border:1px solid rgba(64,191,255,0.18);
+      border-radius:16px;
+      padding:18px;
     }
 
-    .partner-btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 14px 28px rgba(15, 23, 42, 0.2);
-      opacity: 0.97;
+    .info-box h3{
+      font-size:1.05rem;
+      margin-bottom:8px;
+      color:#ffffff;
     }
 
-    /* WHY TRAVELERS TRUST US */
-
-    .trust-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-      margin-top: 12px;
+    .info-box p{
+      font-size:0.95rem;
+      color:rgba(255,255,255,0.88);
     }
 
-    .trust-card {
-      background: #f9fafb;
-      border-radius: 14px;
-      padding: 10px 11px;
-      border: 1px solid #e5e7eb;
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      font-size: 0.88rem;
-      color: #0f172a;
+    .btn{
+      display:inline-block;
+      margin-top:16px;
+      padding:11px 18px;
+      border-radius:10px;
+      background:#40bfff;
+      color:#06111f;
+      font-weight:700;
+      transition:opacity 0.2s ease, transform 0.2s ease;
     }
 
-    .trust-icon {
-      font-size: 1rem;
-      margin-top: 1px;
+    .btn:hover{
+      opacity:0.92;
+      transform:translateY(-1px);
     }
 
-    .trust-label {
-      font-weight: 600;
-      margin-bottom: 2px;
+    .btn-secondary{
+      background:transparent;
+      color:#ffffff;
+      border:1px solid rgba(255,255,255,0.22);
     }
 
-    .trust-text {
-      font-size: 0.8rem;
-      color: #64748b;
+    .highlight-box{
+      background:linear-gradient(135deg, rgba(64,191,255,0.12), rgba(255,255,255,0.03));
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:22px;
+      padding:26px;
+      margin-top:20px;
     }
 
-    /* TRUSTED PARTNERS CHIPS */
-
-    .chips-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 8px;
+    .highlight-box h3{
+      font-size:1.3rem;
+      margin-bottom:10px;
     }
 
-    .chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: #f9fafb;
-      border: 1px solid #e5e7eb;
-      font-size: 0.8rem;
-      color: #0f172a;
+    .footer{
+      text-align:center;
+      padding:28px 20px 34px;
+      color:rgba(255,255,255,0.70);
+      font-size:14px;
+      border-top:1px solid rgba(255,255,255,0.06);
     }
 
-    .chip-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.25);
-    }
-
-    /* AFFILIATE DISCLOSURE */
-
-    .disclosure {
-      font-size: 0.78rem;
-      color: #64748b;
-      line-height: 1.5;
-    }
-
-    .disclosure strong {
-      color: #0f172a;
-    }
-
-    @media (min-width: 768px) {
-      .hero {
-        height: 300px;
+    @media (max-width:768px){
+      .nav{
+        padding:12px 16px;
       }
 
-      .hero-title {
-        font-size: 2.2rem;
+      .nav img{
+        height:38px;
       }
 
-      .page {
-        padding: 32px 20px 44px;
+      .hero{
+        min-height:60vh;
+        padding:96px 16px 24px;
       }
 
-      .section {
-        padding: 22px 22px 24px;
+      .hero-overlay{
+        padding:22px 16px;
+        border-radius:16px;
       }
 
-      .trust-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+      .hero h1{
+        font-size:clamp(1.9rem, 7vw, 3rem);
       }
-    }
 
-    @media (min-width: 1024px) {
-      .hero {
-        height: 320px;
+      .hero p{
+        font-size:1rem;
+      }
+
+      .hero-partner{
+        font-size:13px;
+      }
+
+      .container{
+        padding:34px 20px 54px;
+      }
+
+      .section{
+        margin-bottom:42px;
+      }
+
+      .card img{
+        height:170px;
       }
     }
   </style>
 </head>
 <body>
-  <!-- HERO -->
-  <header class="hero">
-    <div class="hero-inner">
-      <div class="hero-badge">
-        <span>Japan 🇯🇵</span>
-        <span>Tokyo · Osaka · Kyoto · Sapporo</span>
-      </div>
-      <h1 class="hero-title">Best Hotel Deals in Japan</h1>
-      <p class="hero-subtitle">
-        Compare hotel prices across our trusted travel partners and find
-        great-value stays in Japan — from neon city breaks in Tokyo to
-        traditional ryokans in Kyoto and snowy escapes in Sapporo.
+
+  <div class="nav">
+    <a href="https://giftcardzoneeu.com/" aria-label="GiftCardZoneEU Home">
+      <img src="/assets/gz-logo.png" alt="GiftCardZoneEU Logo" />
+    </a>
+  </div>
+
+  <section class="hero">
+    <div class="hero-overlay">
+      <h1>Explore Japan Travel Deals</h1>
+      <p>
+        Compare hotels and travel deals in Tokyo, Osaka, Kyoto, Sapporo and more.
+        Discover where to stay and book with trusted travel partners worldwide.
       </p>
+      <p class="hero-partner">GiftCardZoneEU × Trusted Travel Partners</p>
+
+      <div class="hero-actions">
+        <a href="#partners" class="btn">Compare Hotel Deals</a>
+        <a href="#cities" class="btn btn-secondary">Explore Top Cities</a>
+      </div>
     </div>
-  </header>
+  </section>
 
-  <main class="page">
-    <!-- TOP TRAVEL PARTNERS -->
+  <main class="container">
+
     <section class="section">
-      <div class="section-header">
-        <h2 class="section-title">Top Travel Partners</h2>
-        <p class="section-sub">
-          Compare hotel prices across our trusted partners and grab the best
-          deal for your trip to Japan.
-        </p>
-      </div>
+      <h2>Why Visit Japan?</h2>
+      <p>
+        Japan is one of Asia’s most exciting destinations, known for its mix of modern cities,
+        traditional culture, efficient transport, seasonal beauty and world-famous food. From the
+        fast-paced energy of Tokyo to the street food of Osaka, the temples of Kyoto and the snowy
+        scenery of Sapporo, Japan offers travelers a rich and memorable experience across every season.
+      </p>
 
-      <div class="partner-buttons">
-        <!-- TODO: palitan lahat ng href sa sariling affiliate links mo -->
-        <a class="partner-btn agoda" href="https://www.agoda.com" target="_blank" rel="nofollow noopener">
-          Agoda
-          <span>Compare Japan hotels</span>
-        </a>
-        <a class="partner-btn booking" href="https://www.booking.com" target="_blank" rel="nofollow noopener">
-          Booking.com
-          <span>Stays across Japan</span>
-        </a>
-        <a class="partner-btn trip" href="https://www.trip.com" target="_blank" rel="nofollow noopener">
-          Trip.com
-          <span>Deals for Tokyo & more</span>
-        </a>
-        <a class="partner-btn hotels" href="https://www.hotels.com" target="_blank" rel="nofollow noopener">
-          Hotels.com
-          <span>Reward nights & savings</span>
-        </a>
-        <a class="partner-btn accor" href="https://all.accor.com" target="_blank" rel="nofollow noopener">
-          Accor
-          <span>Brand hotels in Japan</span>
-        </a>
-        <a class="partner-btn motel6" href="https://www.motel6.com" target="_blank" rel="nofollow noopener">
-          Motel 6
-          <span>Budget-friendly stays</span>
-        </a>
-      </div>
-    </section>
-
-    <!-- WHY TRAVELERS TRUST US -->
-    <section class="section">
-      <div class="section-header">
-        <h2 class="section-title">Why Travelers Trust Us</h2>
-        <p class="section-sub">
-          Simple pages, direct partner links, and clear disclosures — so you can
-          book smarter and travel better.
-        </p>
-      </div>
-
-      <div class="trust-grid">
-        <div class="trust-card">
-          <div class="trust-icon">✔</div>
-          <div>
-            <div class="trust-label">GiftCardZoneEU Partner Verified</div>
-            <div class="trust-text">
-              We only feature reputable hotel partners for Japan travel.
-            </div>
-          </div>
+      <div class="info-strip">
+        <div class="info-box">
+          <h3>Best For</h3>
+          <p>City breaks, food trips, cultural travel, shopping, sightseeing and multi-city adventures.</p>
         </div>
-
-        <div class="trust-card">
-          <div class="trust-icon">✔</div>
-          <div>
-            <div class="trust-label">SSL Secured</div>
-            <div class="trust-text">
-              All bookings happen on secure, encrypted partner websites.
-            </div>
-          </div>
+        <div class="info-box">
+          <h3>Top Experiences</h3>
+          <p>Temples, neon city views, cherry blossom season, Japanese cuisine, trains and scenic districts.</p>
         </div>
-
-        <div class="trust-card">
-          <div class="trust-icon">✔</div>
-          <div>
-            <div class="trust-label">Trusted Global Partners</div>
-            <div class="trust-text">
-              Agoda, Booking.com, Trip.com, Hotels.com, Accor &amp; more.
-            </div>
-          </div>
-        </div>
-
-        <div class="trust-card">
-          <div class="trust-icon">✔</div>
-          <div>
-            <div class="trust-label">Safe Payment Redirects</div>
-            <div class="trust-text">
-              You are always redirected straight to official partner checkouts.
-            </div>
-          </div>
-        </div>
-
-        <div class="trust-card">
-          <div class="trust-icon">✔</div>
-          <div>
-            <div class="trust-label">24/7 Booking Support</div>
-            <div class="trust-text">
-              Customer support is handled directly by each hotel partner.
-            </div>
-          </div>
-        </div>
-
-        <div class="trust-card">
-          <div class="trust-icon">✔</div>
-          <div>
-            <div class="trust-label">Verified Travel Deals</div>
-            <div class="trust-text">
-              We focus on clean pages that highlight the best Japan hotel deals.
-            </div>
-          </div>
+        <div class="info-box">
+          <h3>Travel Style</h3>
+          <p>Great for solo travelers, couples, families and first-time Asia travelers looking for variety.</p>
         </div>
       </div>
     </section>
 
-    <!-- TRUSTED PARTNERS -->
     <section class="section">
-      <div class="section-header">
-        <h2 class="section-title">Trusted Partners</h2>
-        <p class="section-sub">
-          We compare prices across leading hotel and travel brands.
-        </p>
-      </div>
-
-      <div class="chips-row">
-        <div class="chip">
-          <span class="chip-dot"></span>
-          <span>Agoda</span>
-        </div>
-        <div class="chip">
-          <span class="chip-dot"></span>
-          <span>Booking.com</span>
-        </div>
-        <div class="chip">
-          <span class="chip-dot"></span>
-          <span>Trip.com</span>
-        </div>
-        <div class="chip">
-          <span class="chip-dot"></span>
-          <span>Hotels.com</span>
-        </div>
-        <div class="chip">
-          <span class="chip-dot"></span>
-          <span>Accor</span>
-        </div>
-        <div class="chip">
-          <span class="chip-dot"></span>
-          <span>Motel 6</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- AFFILIATE DISCLOSURE -->
-    <section class="section">
-      <p class="disclosure">
-        <strong>Affiliate Disclosure:</strong>
-        Some links on this page are affiliate links. This means we may earn a
-        small commission when you book a hotel through our partners at no extra
-        cost to you. This helps keep GiftCardZoneEU running while we continue
-        to search for the best travel deals for you.
+      <h2>Best Time to Visit Japan</h2>
+      <p>
+        Japan is a year-round destination, but spring and autumn are especially popular for mild
+        weather, sightseeing and beautiful seasonal scenery. Summer is lively for festivals and city
+        exploration, while winter is ideal for snowy destinations and seasonal travel experiences.
+        Travelers looking for better hotel availability and pricing can benefit from booking early and
+        comparing rates across trusted travel platforms.
       </p>
     </section>
+
+    <section class="section" id="cities">
+      <h2>Top Cities in Japan</h2>
+
+      <div class="grid">
+
+        <div class="card">
+          <img src="/assets/travel/japan/tokyo.webp" alt="Tokyo Japan" />
+          <h3>Tokyo</h3>
+          <p>
+            Tokyo is Japan’s dynamic capital, known for modern city life, shopping districts, food,
+            major attractions and easy transport links for first-time visitors.
+          </p>
+        </div>
+
+        <div class="card">
+          <img src="/assets/travel/japan/osaka.webp" alt="Osaka Japan" />
+          <h3>Osaka</h3>
+          <p>
+            Osaka is famous for street food, nightlife and a fun local atmosphere, making it a great
+            choice for travelers who enjoy energy, entertainment and easy city exploration.
+          </p>
+        </div>
+
+        <div class="card">
+          <img src="/assets/travel/japan/kyoto.webp" alt="Kyoto Japan" />
+          <h3>Kyoto</h3>
+          <p>
+            Kyoto is one of Japan’s best destinations for temples, historic streets, traditional
+            architecture and a deeper cultural travel experience.
+          </p>
+        </div>
+
+        <div class="card">
+          <img src="/assets/travel/japan/sapporo.webp" alt="Sapporo Japan" />
+          <h3>Sapporo</h3>
+          <p>
+            Sapporo offers a different side of Japan with seasonal scenery, winter appeal, open spaces
+            and a relaxed city feel compared with the country’s busier urban centers.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Where to Stay in Japan</h2>
+      <p>
+        Choosing where to stay in Japan depends on your itinerary and preferred travel style. Tokyo is
+        ideal for first-time visitors who want convenience and major attractions. Osaka is a strong
+        base for food, nightlife and easy access to nearby destinations. Kyoto is perfect for culture,
+        heritage and traditional atmosphere, while Sapporo suits travelers who want seasonal scenery and
+        a more relaxed northern city experience.
+      </p>
+
+      <div class="highlight-box">
+        <h3>Travel Planning Tip</h3>
+        <p>
+          Japan’s transport system makes it easier to combine multiple cities in one trip. When
+          comparing hotels, check access to train stations, neighborhood convenience and nearby
+          attractions to make your stay more efficient and enjoyable.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Hotel Booking Tips for Japan</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Compare Before Booking</h3>
+          <p>
+            Hotel rates, room size, cancellation policies and neighborhood convenience can vary between
+            platforms, so comparing deals first can help you choose the best overall value.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Choose the Right Area</h3>
+          <p>
+            In Japan, staying near transport hubs, shopping districts or major attractions can make
+            your trip easier and save time during busy travel days.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Book Early for Peak Seasons</h3>
+          <p>
+            Spring cherry blossom season, autumn foliage periods and major holidays can increase hotel
+            demand, so booking early often gives more options and better pricing.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="partners">
+      <h2>Book Hotels with Trusted Travel Partners</h2>
+      <div class="grid">
+
+        <div class="card">
+          <h3>Booking.com</h3>
+          <p>
+            Search hotels and accommodations across Japan with flexible booking options and a wide range
+            of city stays, business hotels and traveler-friendly properties.
+          </p>
+          <a href="https://www.booking.com/" class="btn" rel="nofollow sponsored noopener noreferrer">Search Hotels</a>
+        </div>
+
+        <div class="card">
+          <h3>Agoda</h3>
+          <p>
+            Compare hotel deals in Japan and explore room prices in top destinations like Tokyo, Osaka,
+            Kyoto and Sapporo.
+          </p>
+          <a href="https://www.agoda.com/" class="btn" rel="nofollow sponsored noopener noreferrer">View Deals</a>
+        </div>
+
+        <div class="card">
+          <h3>Trip.com</h3>
+          <p>
+            Plan your Japan stay more easily by comparing hotels and travel options for city breaks,
+            rail-connected trips and multi-destination travel across Japan.
+          </p>
+          <a href="https://www.trip.com/" class="btn" rel="nofollow sponsored noopener noreferrer">Find Hotels</a>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Why Book with Trusted Travel Partners?</h2>
+      <p>
+        Trusted travel platforms make it easier to compare hotel prices, room options, location
+        benefits, cancellation policies and traveler reviews in one place. Whether you are planning a
+        quick Japan getaway or a longer Asia itinerary, comparing hotel deals can help you choose a
+        stay that fits your budget and travel plans.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>What is the best city to visit first in Japan?</h3>
+          <p>
+            Tokyo is often the best first stop because it offers major attractions, food, shopping,
+            transport convenience and easy links to the rest of the country.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Is Japan good for hotel deals?</h3>
+          <p>
+            Yes. Travelers can still find good hotel deals in Japan by comparing booking platforms,
+            booking early and choosing the right city or neighborhood.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Which Japanese city is best for culture and history?</h3>
+          <p>
+            Kyoto is especially popular for temples, heritage sites and traditional atmosphere, while
+            Tokyo and Osaka offer strong mixes of culture with modern city experiences.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Explore More Travel Pages</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Travel Hub</h3>
+          <p>
+            Discover more destination pages, hotel guides and travel partner pages across the
+            GiftCardZoneEU travel section.
+          </p>
+          <a href="/travel/" class="btn">View Travel Hub</a>
+        </div>
+
+        <div class="card">
+          <h3>Belgium Travel</h3>
+          <p>
+            Explore another upgraded travel page format featuring city guides, hotel booking tips and
+            trusted travel partners.
+          </p>
+          <a href="/travel/belgium/" class="btn">Explore Belgium</a>
+        </div>
+
+        <div class="card">
+          <h3>Back to Home</h3>
+          <p>
+            Return to the main GiftCardZoneEU homepage and explore more travel, shopping and partner
+            pages across your growing site.
+          </p>
+          <a href="/" class="btn">Go Home</a>
+        </div>
+      </div>
+    </section>
+
   </main>
+
+  <div class="footer">
+    © <span id="year"></span> GiftCardZoneEU
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
 </body>
-</html>
+</html>   
