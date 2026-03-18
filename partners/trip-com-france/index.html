@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Trip.com France – Cheap Flights & Hotels (2026)</title>
+  <meta name="description" content="Explore France with Trip.com. Find cheap flights, hotels and travel deals for Paris, Nice, Lyon and Marseille with GiftCardZoneEU." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://giftcardzoneeu.com/partners/trip-com-france/" />
+  <link rel="icon" href="/assets/gz-logo.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Trip.com France – Cheap Flights & Hotels (2026)" />
+  <meta property="og:description" content="Discover France travel deals with Trip.com. Compare hotels, flights and city stays across Paris, Nice, Lyon and Marseille." />
+  <meta property="og:url" content="https://giftcardzoneeu.com/partners/trip-com-france/" />
+  <meta property="og:image" content="https://giftcardzoneeu.com/assets/partners/trip-france-hero.webp" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Trip.com France – Cheap Flights & Hotels (2026)" />
+  <meta name="twitter:description" content="Book France hotels and flights with Trip.com through GiftCardZoneEU." />
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/partners/trip-france-hero.webp" />
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    }
+
+    body{
+      background:#08152f;
+      color:#ffffff;
+      line-height:1.6;
+    }
+
+    a{
+      text-decoration:none;
+    }
+
+    .nav{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:flex-start;
+      padding:14px 22px;
+      background:rgba(0,0,0,0.70);
+      backdrop-filter:blur(8px);
+      z-index:1000;
+      border-bottom:1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav img{
+      height:42px;
+      width:auto;
+      display:block;
+    }
+
+    .hero{
+      min-height:65vh;
+      background:
+        linear-gradient(rgba(4,10,24,0.42), rgba(4,10,24,0.62)),
+        url("/assets/partners/trip-france-hero.webp");
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:100px 20px 28px;
+    }
+
+    .hero-overlay{
+      width:100%;
+      max-width:960px;
+      background:rgba(0,0,0,0.42);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:20px;
+      padding:28px 22px;
+      box-shadow:0 16px 40px rgba(0,0,0,0.26);
+    }
+
+    .hero h1{
+      font-size:clamp(2rem, 5vw, 4rem);
+      line-height:1.1;
+      margin-bottom:14px;
+    }
+
+    .hero p{
+      font-size:clamp(1rem, 2.2vw, 1.2rem);
+      color:rgba(255,255,255,0.93);
+      max-width:760px;
+      margin:0 auto;
+    }
+
+    .hero-partner{
+      margin-top:10px;
+      font-size:14px;
+      opacity:0.82;
+      letter-spacing:0.3px;
+    }
+
+    .container{
+      max-width:1180px;
+      margin:0 auto;
+      padding:44px 20px 60px;
+    }
+
+    .section{
+      margin-bottom:52px;
+    }
+
+    .section h2{
+      font-size:clamp(1.7rem, 3vw, 2.2rem);
+      color:#40bfff;
+      margin-bottom:16px;
+    }
+
+    .section p{
+      color:rgba(255,255,255,0.92);
+      max-width:920px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:22px;
+      margin-top:22px;
+    }
+
+    .card{
+      background:#12213f;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:20px;
+      padding:24px;
+      box-shadow:0 12px 28px rgba(0,0,0,0.18);
+      transition:transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 16px 34px rgba(0,0,0,0.24);
+    }
+
+    .card img{
+      width:100%;
+      height:170px;
+      object-fit:cover;
+      border-radius:14px;
+      margin-bottom:14px;
+      transition:transform .4s;
+    }
+
+    .card:hover img{
+      transform:scale(1.05);
+    }
+
+    .card h3{
+      font-size:1.25rem;
+      margin-bottom:10px;
+      color:#ffffff;
+    }
+
+    .card p{
+      color:rgba(255,255,255,0.88);
+      font-size:0.98rem;
+    }
+
+    .btn{
+      display:inline-block;
+      margin-top:16px;
+      padding:11px 18px;
+      border-radius:10px;
+      background:#40bfff;
+      color:#06111f;
+      font-weight:700;
+      transition:opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn:hover{
+      opacity:0.92;
+      transform:translateY(-1px);
+    }
+
+    .footer{
+      text-align:center;
+      padding:28px 20px 34px;
+      color:rgba(255,255,255,0.70);
+      font-size:14px;
+      border-top:1px solid rgba(255,255,255,0.06);
+    }
+
+    @media (max-width:768px){
+      .nav{
+        padding:12px 16px;
+      }
+
+      .nav img{
+        height:38px;
+      }
+
+      .hero{
+        min-height:58vh;
+        padding:92px 16px 22px;
+      }
+
+      .hero-overlay{
+        padding:22px 16px;
+        border-radius:16px;
+      }
+
+      .hero h1{
+        font-size:clamp(1.9rem, 7vw, 3rem);
+      }
+
+      .hero p{
+        font-size:1rem;
+      }
+
+      .hero-partner{
+        font-size:13px;
+      }
+
+      .container{
+        padding:34px 20px 54px;
+      }
+
+      .section{
+        margin-bottom:42px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="nav">
+    <a href="https://giftcardzoneeu.com/" aria-label="GiftCardZoneEU Home">
+      <img src="/assets/gz-logo.png" alt="GiftCardZoneEU Logo" />
+    </a>
+  </div>
+
+  <section class="hero">
+    <div class="hero-overlay">
+      <h1>Trip.com France Travel Deals</h1>
+      <p>
+        Find cheap flights, hotels and city stays in France with Trip.com.
+        Explore Paris, Nice, Lyon and Marseille with trusted travel booking options.
+      </p>
+      <p class="hero-partner">GiftCardZoneEU × Trip.com France</p>
+    </div>
+  </section>
+
+  <main class="container">
+
+    <section class="section">
+      <h2>Why Visit France</h2>
+      <p>
+        France is one of the world’s most iconic travel destinations, known for its famous landmarks,
+        food culture, art museums, scenic regions and stylish city breaks. From Parisian attractions
+        to Mediterranean coastal escapes, France offers memorable trips for leisure travelers,
+        couples, families and business visitors looking for convenient hotels, flights and transport connections.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Top Cities in France</h2>
+      <div class="grid">
+
+        <div class="card">
+          <img src="/assets/partners/trip-france/paris.webp" alt="Paris France" />
+          <h3>Paris</h3>
+          <p>
+            France’s capital is famous for the Eiffel Tower, museums, shopping, cafés and timeless city charm.
+          </p>
+        </div>
+
+        <div class="card">
+          <img src="/assets/partners/trip-france/nice.webp" alt="Nice France" />
+          <h3>Nice</h3>
+          <p>
+            Nice offers sunshine, beaches, coastal views and elegant French Riviera atmosphere for relaxing stays.
+          </p>
+        </div>
+
+        <div class="card">
+          <img src="/assets/partners/trip-france/lyon.webp" alt="Lyon France" />
+          <h3>Lyon</h3>
+          <p>
+            Lyon is known for food, culture, historic architecture and a central location for exploring France.
+          </p>
+        </div>
+
+        <div class="card">
+          <img src="/assets/partners/trip-france/marseille.webp" alt="Marseille France" />
+          <h3>Marseille</h3>
+          <p>
+            Marseille brings together port-city energy, Mediterranean views, local cuisine and vibrant urban life.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Why Book France with Trip.com</h2>
+      <p>
+        Trip.com helps travelers compare hotel stays, flight options and travel deals in one place.
+        Whether you are planning a romantic Paris getaway, a Riviera holiday or a multi-city France itinerary,
+        you can
+        <a href="https://www.jdoqocy.com/click-101586981-13761944" rel="nofollow sponsored noopener noreferrer">search France hotels on Trip.com</a>
+        and compare accommodation options before booking your trip.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Book France Hotels & Flights with Trip.com</h2>
+      <div class="grid">
+
+        <div class="card">
+          <h3>Hotels in France</h3>
+          <p>
+            Browse hotel options across Paris, Nice, Lyon, Marseille and other popular destinations in France.
+          </p>
+          <a href="https://www.jdoqocy.com/click-101586981-13761944" class="btn" rel="nofollow sponsored noopener noreferrer">Book with Trip.com</a>
+        </div>
+
+        <div class="card">
+          <h3>Flights & Travel Deals</h3>
+          <p>
+            Compare flights and travel deals for France and plan a smoother trip with one trusted booking platform.
+          </p>
+          <a href="https://www.jdoqocy.com/click-101586981-13761944" class="btn" rel="nofollow sponsored noopener noreferrer">Find Travel Deals</a>
+        </div>
+
+        <div class="card">
+          <h3>City Breaks & Holiday Stays</h3>
+          <p>
+            From weekend escapes to longer France holidays, Trip.com offers flexible booking options for your trip.
+          </p>
+          <a href="https://www.jdoqocy.com/click-101586981-13761944" class="btn" rel="nofollow sponsored noopener noreferrer">Explore France</a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <div class="footer">
+    © <span id="year"></span> GiftCardZoneEU
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
