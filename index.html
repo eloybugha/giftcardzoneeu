@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
   <title>GiftCardZoneEU • Global Travel Deals, Shopping Finds & Gift Card Guides</title>
-  <meta name="description" content="Discover travel deals, shopping finds, reward platforms, and gift card guides with GiftCardZoneEU. Explore trusted pages for hotels, flights, budget shopping, and global online deals." />
+  <meta name="description" content="Discover travel deals, shopping finds, reward platforms, survey sites, freelance opportunities, and gift card guides with GiftCardZoneEU. Explore trusted pages for hotels, flights, budget shopping, and global online deals." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://giftcardzoneeu.com/" />
   <link rel="icon" href="/assets/gz-logo.png" />
@@ -13,14 +13,16 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="GiftCardZoneEU • Global Travel Deals, Shopping Finds & Gift Card Guides" />
-  <meta property="og:description" content="Explore travel deals, budget shopping pages, gift card guides, and trusted reward platforms — all in one clean global hub." />
+  <meta property="og:description" content="Explore travel deals, budget shopping pages, gift card guides, survey sites, and trusted reward platforms — all in one clean global hub." />
   <meta property="og:url" content="https://giftcardzoneeu.com/" />
-  <meta property="og:image" content="https://giftcardzoneeu.com/assets/gz-home-hero.webp">
+  <meta property="og:image" content="https://giftcardzoneeu.com/assets/gz-home-hero.webp" />
+
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="GiftCardZoneEU • Global Travel Deals, Shopping Finds & Gift Card Guides" />
-  <meta name="twitter:description" content="Travel deals, shopping finds, reward platforms, and global gift card guides in one place." />
-<meta property="og:image" content="https://giftcardzoneeu.com/assets/gz-home-hero.webp">
+  <meta name="twitter:description" content="Travel deals, shopping finds, survey platforms, and global gift card guides in one place." />
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/gz-home-hero.webp" />
+
   <style>
     :root{
       --bg:#081120;
@@ -35,6 +37,8 @@
       --blue2:#0ea5e9;
       --green:#22c55e;
       --green2:#16a34a;
+      --orange:#f59e0b;
+      --orange2:#d97706;
       --shadow:0 18px 40px rgba(0,0,0,.28);
       --radius:22px;
       --max:1180px;
@@ -242,7 +246,7 @@
 
     .hero-stats{
       display:grid;
-      grid-template-columns:repeat(3,1fr);
+      grid-template-columns:repeat(4,1fr);
       gap:12px;
       margin-top:26px;
     }
@@ -256,7 +260,7 @@
 
     .stat strong{
       display:block;
-      font-size:1.35rem;
+      font-size:1.2rem;
       line-height:1.1;
       margin-bottom:4px;
     }
@@ -355,6 +359,8 @@
       box-shadow:var(--shadow);
       transition:.2s ease;
       min-height:100%;
+      display:flex;
+      flex-direction:column;
     }
 
     .card:hover{
@@ -372,6 +378,12 @@
       color:#d8f4ff;
       background:rgba(56,189,248,.12);
       border:1px solid rgba(56,189,248,.22);
+    }
+
+    .card .tag.orange{
+      color:#fff2d8;
+      background:rgba(245,158,11,.12);
+      border-color:rgba(245,158,11,.22);
     }
 
     .card h3{
@@ -642,6 +654,7 @@
       <nav class="nav" aria-label="Main navigation">
         <a href="#categories">Categories</a>
         <a href="#featured">Featured</a>
+        <a href="#earn">Earn</a>
         <a href="#popular">Popular</a>
         <a href="/travel/" class="nav-cta">Explore Deals</a>
       </nav>
@@ -653,16 +666,17 @@
       <div class="container hero-wrap">
         <div class="hero-main">
           <div class="eyebrow">Global deals hub • Trusted pages • Updated layouts</div>
-          <h1>Travel Deals, Shopping Finds & Gift Card Guides — All in One Place</h1>
+          <h1>Travel Deals, Shopping Finds, Reward Sites & Global Guides — All in One Place</h1>
           <p>
-            Explore trusted country pages, hotel booking guides, shopping deal hubs, reward platforms,
-            and gift card content with a cleaner, faster, and more organized GiftCardZoneEU homepage.
+            Explore trusted country pages, hotel booking guides, shopping deal hubs, survey sites,
+            reward platforms, freelance opportunities, and gift card content with a cleaner, faster,
+            and more organized GiftCardZoneEU homepage.
           </p>
 
           <div class="hero-actions">
             <a class="btn btn-primary" href="/travel/">Explore Travel Deals</a>
             <a class="btn btn-secondary" href="/shopping/">Shop Budget Finds</a>
-            <a class="btn btn-secondary" href="/country/us/">Claim Gift Card Guides</a>
+            <a class="btn btn-secondary" href="/country/us/">Gift Card Guides</a>
           </div>
 
           <div class="hero-stats">
@@ -672,11 +686,15 @@
             </div>
             <div class="stat">
               <strong>Shopping</strong>
-              <span>Budget finds and online store hubs</span>
+              <span>Budget finds and store hubs</span>
             </div>
             <div class="stat">
               <strong>Rewards</strong>
-              <span>Survey, cashback, and gift card pages</span>
+              <span>Survey and cashback pages</span>
+            </div>
+            <div class="stat">
+              <strong>Freelance</strong>
+              <span>Remote work and service platforms</span>
             </div>
           </div>
         </div>
@@ -684,13 +702,13 @@
         <aside class="hero-side">
           <div class="mini-card">
             <h3>Start with the strongest pages</h3>
-            <p>Browse your best-performing sections first and guide visitors quickly into your top categories.</p>
+            <p>Browse your key sections first and guide visitors quickly into your best categories and highest-intent pages.</p>
 
             <div class="mini-links">
               <a href="/travel/germany/"><span>Germany Travel</span><span>→</span></a>
               <a href="/partners/trip-com-germany/"><span>Trip.com Germany</span><span>→</span></a>
-              <a href="/travel/belgium/"><span>Belgium Travel</span><span>→</span></a>
               <a href="/shopping/temu-germany/"><span>Temu Germany</span><span>→</span></a>
+              <a href="/country/us/"><span>US Reward Guides</span><span>→</span></a>
             </div>
           </div>
 
@@ -698,7 +716,7 @@
             <h3>Built for cleaner navigation</h3>
             <p>
               This homepage structure helps users understand your site faster while giving search engines
-              stronger internal linking paths into your key pages.
+              stronger internal linking paths into your key pages and categories.
             </p>
           </div>
         </aside>
@@ -714,7 +732,7 @@
           </div>
         </div>
 
-        <div class="grid-3">
+        <div class="grid-4">
           <article class="card">
             <span class="tag">Travel</span>
             <h3>Hotels, Flights & Country Travel Pages</h3>
@@ -756,6 +774,19 @@
               <a class="pill-link" href="/country/de/">Germany</a>
             </div>
           </article>
+
+          <article class="card">
+            <span class="tag orange">Work Online</span>
+            <h3>Freelance Platforms & Service Pages</h3>
+            <p>
+              Add service-based earning paths through freelance and remote work opportunities that fit the wider
+              online earning side of your site.
+            </p>
+            <div class="card-links">
+              <a class="pill-link" href="/services/fiverr/">Fiverr Guide</a>
+              <a class="pill-link" href="/services/">Services Hub</a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -789,6 +820,60 @@
             <h3>12Go Philippines Transport Booking</h3>
             <p>Feature ferry, van, bus, and transfer booking content for transport-focused travel users.</p>
           </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="earn">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Ways to Earn Online</h2>
+            <p>Dito natin binalik yung dating earning-style homepage sections para hindi mawala ang old direction ng main page mo.</p>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <span class="tag">Survey Sites</span>
+            <h3>Reward Platforms & Survey Opportunities</h3>
+            <p>
+              Discover pages focused on surveys, rewards, and online earning opportunities that can support your
+              gift card and rewards category.
+            </p>
+            <div class="card-links">
+              <a class="pill-link" href="/country/us/">US Rewards</a>
+              <a class="pill-link" href="/country/nl/">NL Rewards</a>
+              <a class="pill-link" href="/country/de/">DE Rewards</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <span class="tag">Global Router</span>
+            <h3>Country-Based Entry Points</h3>
+            <p>
+              Route visitors into country-specific pages so they can find the most relevant deals, rewards,
+              and localized earning content faster.
+            </p>
+            <div class="card-links">
+              <a class="pill-link" href="/country/us/">United States</a>
+              <a class="pill-link" href="/country/nl/">Netherlands</a>
+              <a class="pill-link" href="/country/de/">Germany</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <span class="tag orange">Fiverr</span>
+            <h3>Freelance Services & Online Work</h3>
+            <p>
+              Bring back the freelance angle of the homepage through Fiverr-style earning paths and service-based
+              opportunities for remote work users.
+            </p>
+            <div class="card-links">
+              <a class="pill-link" href="/services/fiverr/">Fiverr</a>
+              <a class="pill-link" href="/services/">Services Hub</a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -872,7 +957,7 @@
           <div>
             <h2>Explore the strongest parts of the empire</h2>
             <p>
-              Start with travel pages, browse shopping finds, or open your reward guides.
+              Start with travel pages, browse shopping finds, open reward guides, or route users into survey and freelance paths.
               The homepage now pushes visitors into the right sections faster.
             </p>
           </div>
@@ -892,7 +977,8 @@
               <h3>GiftCardZoneEU</h3>
               <p>
                 A growing global hub for travel deals, shopping pages, gift card guides,
-                and reward-focused content built with a cleaner structure and stronger internal linking.
+                survey platforms, and reward-focused content built with a cleaner structure
+                and stronger internal linking.
               </p>
             </div>
           </a>
