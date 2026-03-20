@@ -1,11 +1,11 @@
-  <!doctype html>
+     <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
   <title>GiftCardZoneEU • Global Travel Deals, Shopping Finds & Gift Card Guides</title>
-  <meta name="description" content="Discover travel deals, shopping finds, reward platforms, survey sites, freelance opportunities, and gift card guides with GiftCardZoneEU. Explore trusted pages for hotels, flights, budget shopping, and global online deals." />
+  <meta name="description" content="Discover travel deals, shopping finds, reward platforms, survey sites, freelance opportunities, Adsterra CPM monetization content, and gift card guides with GiftCardZoneEU." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://giftcardzoneeu.com/" />
   <link rel="icon" href="/assets/gz-logo.png" />
@@ -13,14 +13,14 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="GiftCardZoneEU • Global Travel Deals, Shopping Finds & Gift Card Guides" />
-  <meta property="og:description" content="Explore travel deals, budget shopping pages, gift card guides, survey sites, and trusted reward platforms — all in one clean global hub." />
+  <meta property="og:description" content="Explore travel deals, budget shopping pages, reward platforms, CPM earning guides, and gift card content in one clean global hub." />
   <meta property="og:url" content="https://giftcardzoneeu.com/" />
   <meta property="og:image" content="https://giftcardzoneeu.com/assets/gz-home-hero.webp" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="GiftCardZoneEU • Global Travel Deals, Shopping Finds & Gift Card Guides" />
-  <meta name="twitter:description" content="Travel deals, shopping finds, survey platforms, and global gift card guides in one place." />
+  <meta name="twitter:description" content="Travel deals, shopping finds, rewards, Adsterra CPM guides, and global gift card content in one place." />
   <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/gz-home-hero.webp" />
 
   <style>
@@ -28,7 +28,6 @@
       --bg:#081120;
       --bg2:#0f1b31;
       --panel:rgba(255,255,255,.06);
-      --panel-strong:rgba(255,255,255,.09);
       --line:rgba(255,255,255,.12);
       --text:#f8fafc;
       --muted:#cbd5e1;
@@ -40,7 +39,6 @@
       --orange:#f59e0b;
       --orange2:#d97706;
       --shadow:0 18px 40px rgba(0,0,0,.28);
-      --radius:22px;
       --max:1180px;
     }
 
@@ -70,7 +68,7 @@
       top:0;
       z-index:50;
       backdrop-filter:blur(12px);
-      background:rgba(8,17,32,.75);
+      background:rgba(8,17,32,.78);
       border-bottom:1px solid rgba(255,255,255,.08);
     }
 
@@ -151,7 +149,7 @@
 
     .hero-wrap{
       display:grid;
-      grid-template-columns:1.15fr .85fr;
+      grid-template-columns:1.08fr .92fr;
       gap:26px;
       align-items:stretch;
     }
@@ -197,15 +195,17 @@
 
     .hero h1{
       margin:0 0 14px;
-      font-size:clamp(2.15rem, 4vw, 4rem);
+      font-size:clamp(2rem, 4vw, 4rem);
       line-height:1.08;
       letter-spacing:-.03em;
+      max-width:760px;
+      text-wrap:balance;
     }
 
     .hero p{
       margin:0;
       color:var(--muted);
-      font-size:1.06rem;
+      font-size:1.04rem;
       max-width:760px;
     }
 
@@ -226,6 +226,7 @@
       font-weight:800;
       transition:.2s ease;
       border:1px solid transparent;
+      text-align:center;
     }
 
     .btn-primary{
@@ -260,7 +261,7 @@
 
     .stat strong{
       display:block;
-      font-size:1.2rem;
+      font-size:1.1rem;
       line-height:1.1;
       margin-bottom:4px;
     }
@@ -272,10 +273,41 @@
     }
 
     .hero-side{
-      padding:22px;
+      padding:18px;
       display:grid;
       gap:14px;
       align-content:start;
+    }
+
+    .hero-image-card{
+      position:relative;
+      overflow:hidden;
+      border-radius:22px;
+      min-height:260px;
+      border:1px solid rgba(255,255,255,.08);
+      background:
+        linear-gradient(180deg, rgba(2,6,23,.12), rgba(2,6,23,.72)),
+        url('/assets/gz-home-hero.webp') center/cover no-repeat;
+      box-shadow:var(--shadow);
+      display:flex;
+      align-items:flex-end;
+    }
+
+    .hero-image-overlay{
+      width:100%;
+      padding:18px;
+      background:linear-gradient(180deg, rgba(0,0,0,0), rgba(2,6,23,.78));
+    }
+
+    .hero-image-overlay h3{
+      margin:0 0 6px;
+      font-size:1.08rem;
+    }
+
+    .hero-image-overlay p{
+      margin:0;
+      color:#dbe7f3;
+      font-size:.93rem;
     }
 
     .mini-card{
@@ -331,6 +363,7 @@
       margin:0;
       font-size:clamp(1.5rem,2.6vw,2.2rem);
       letter-spacing:-.02em;
+      text-wrap:balance;
     }
 
     .section-head p{
@@ -388,8 +421,9 @@
 
     .card h3{
       margin:0 0 8px;
-      font-size:1.18rem;
-      line-height:1.25;
+      font-size:1.14rem;
+      line-height:1.28;
+      text-wrap:balance;
     }
 
     .card p{
@@ -438,6 +472,7 @@
     .featured-card h3{
       margin:0 0 8px;
       font-size:1.16rem;
+      text-wrap:balance;
     }
 
     .featured-card p{
@@ -497,6 +532,7 @@
       color:var(--muted);
       font-weight:700;
       transition:.2s ease;
+      word-break:break-word;
     }
 
     .link-columns a:hover{
@@ -518,6 +554,7 @@
     .cta-band h2{
       margin:0 0 8px;
       font-size:clamp(1.4rem,2.5vw,2rem);
+      text-wrap:balance;
     }
 
     .cta-band p{
@@ -554,6 +591,7 @@
       border-radius:14px;
       background:rgba(255,255,255,.05);
       padding:5px;
+      flex-shrink:0;
     }
 
     .footer h3{
@@ -589,6 +627,10 @@
       .footer{
         grid-template-columns:1fr 1fr;
       }
+
+      .hero-stats{
+        grid-template-columns:repeat(2,1fr);
+      }
     }
 
     @media (max-width: 760px){
@@ -601,10 +643,16 @@
       .nav{
         width:100%;
         justify-content:flex-start;
+        gap:8px;
+      }
+
+      .nav a{
+        font-size:.88rem;
+        padding:9px 12px;
       }
 
       .hero{
-        padding-top:42px;
+        padding-top:32px;
       }
 
       .hero-wrap,
@@ -624,7 +672,44 @@
       .featured-card,
       .links-panel,
       .cta-band{
-        padding:20px;
+        padding:18px;
+      }
+
+      .hero-main{
+        padding:24px 18px;
+      }
+
+      .hero h1{
+        font-size:1.85rem;
+        line-height:1.14;
+        margin-bottom:12px;
+      }
+
+      .hero p{
+        font-size:.96rem;
+        line-height:1.65;
+      }
+
+      .eyebrow{
+        font-size:.74rem;
+        padding:7px 10px;
+        margin-bottom:14px;
+      }
+
+      .hero-actions{
+        flex-direction:column;
+      }
+
+      .hero-actions .btn{
+        width:100%;
+      }
+
+      .stat{
+        padding:14px;
+      }
+
+      .hero-image-card{
+        min-height:220px;
       }
 
       .cta-band{
@@ -635,6 +720,43 @@
       .section-head{
         align-items:flex-start;
         flex-direction:column;
+      }
+    }
+
+    @media (max-width: 420px){
+      .container{
+        width:min(var(--max), calc(100% - 22px));
+      }
+
+      .brand-text span:first-child{
+        font-size:.95rem;
+      }
+
+      .brand-text span:last-child{
+        font-size:.7rem;
+      }
+
+      .hero h1{
+        font-size:1.65rem;
+      }
+
+      .hero p,
+      .card p,
+      .featured-card p,
+      .mini-card p,
+      .cta-band p,
+      .section-head p{
+        font-size:.92rem;
+      }
+
+      .card h3,
+      .featured-card h3{
+        font-size:1.05rem;
+      }
+
+      .pill-link{
+        width:100%;
+        text-align:center;
       }
     }
   </style>
@@ -666,11 +788,11 @@
       <div class="container hero-wrap">
         <div class="hero-main">
           <div class="eyebrow">Global deals hub • Trusted pages • Updated layouts</div>
-          <h1>Travel Deals, Shopping Finds, Reward Sites & Global Guides — All in One Place</h1>
+          <h1>Unlock Travel Deals, Budget Finds, Reward Sites & CPM Earning Opportunities</h1>
           <p>
-            Explore trusted country pages, hotel booking guides, shopping deal hubs, survey sites,
-            reward platforms, freelance opportunities, and gift card content with a cleaner, faster,
-            and more organized GiftCardZoneEU homepage.
+            Explore trusted travel pages, budget shopping hubs, reward platforms, survey sites,
+            freelance opportunities, gift card guides, and CPM ad monetization paths like Adsterra
+            — all organized to help visitors discover deals and online earning opportunities faster.
           </p>
 
           <div class="hero-actions">
@@ -693,13 +815,20 @@
               <span>Survey and cashback pages</span>
             </div>
             <div class="stat">
-              <strong>Freelance</strong>
-              <span>Remote work and service platforms</span>
+              <strong>Ad Monetization</strong>
+              <span>CPM and publisher earning guides</span>
             </div>
           </div>
         </div>
 
         <aside class="hero-side">
+          <div class="hero-image-card">
+            <div class="hero-image-overlay">
+              <h3>Discover stronger entry points</h3>
+              <p>Travel, shopping, rewards, and CPM earning content organized in one cleaner homepage layout.</p>
+            </div>
+          </div>
+
           <div class="mini-card">
             <h3>Start with the strongest pages</h3>
             <p>Browse your key sections first and guide visitors quickly into your best categories and highest-intent pages.</p>
@@ -776,15 +905,16 @@
           </article>
 
           <article class="card">
-            <span class="tag orange">Work Online</span>
-            <h3>Freelance Platforms & Service Pages</h3>
+            <span class="tag orange">Ad Monetization</span>
+            <h3>CPM Ads, Adsterra & Publisher Earning Pages</h3>
             <p>
-              Add service-based earning paths through freelance and remote work opportunities that fit the wider
-              online earning side of your site.
+              Explore CPM-based earning content, Adsterra-focused guides, and publisher monetization
+              pages for users looking to grow traffic and earn from ads.
             </p>
             <div class="card-links">
+              <a class="pill-link" href="/ads/adsterra/">Adsterra Guide</a>
+              <a class="pill-link" href="/ads/">Ads Hub</a>
               <a class="pill-link" href="/services/fiverr/">Fiverr Guide</a>
-              <a class="pill-link" href="/services/">Services Hub</a>
             </div>
           </article>
         </div>
@@ -849,16 +979,16 @@
           </article>
 
           <article class="card">
-            <span class="tag">Global Router</span>
-            <h3>Country-Based Entry Points</h3>
+            <span class="tag">Adsterra CPM</span>
+            <h3>CPM Advertising & Website Monetization</h3>
             <p>
-              Route visitors into country-specific pages so they can find the most relevant deals, rewards,
-              and localized earning content faster.
+              Add Adsterra and CPM monetization content for publishers, bloggers, and site owners
+              who want more ways to earn from website traffic.
             </p>
             <div class="card-links">
-              <a class="pill-link" href="/country/us/">United States</a>
-              <a class="pill-link" href="/country/nl/">Netherlands</a>
-              <a class="pill-link" href="/country/de/">Germany</a>
+              <a class="pill-link" href="/ads/adsterra/">Adsterra</a>
+              <a class="pill-link" href="/ads/">Ads Hub</a>
+              <a class="pill-link" href="/partners/">Partner Pages</a>
             </div>
           </article>
 
@@ -894,7 +1024,7 @@
           </div>
           <div class="trust-item">
             <strong>Global Coverage</strong>
-            <span>Travel, shopping, and reward pages in one hub</span>
+            <span>Travel, shopping, rewards, and earning pages in one hub</span>
           </div>
           <div class="trust-item">
             <strong>Fast Navigation</strong>
@@ -941,10 +1071,11 @@
             </div>
 
             <div>
-              <h3>Reward Guides</h3>
+              <h3>Earning & Ads</h3>
+              <a href="/ads/adsterra/">Adsterra CPM Guide</a>
+              <a href="/ads/">Ads Hub</a>
+              <a href="/services/fiverr/">Fiverr Guide</a>
               <a href="/country/us/">US Gift Card Guide</a>
-              <a href="/country/nl/">Netherlands Rewards</a>
-              <a href="/country/de/">Germany Rewards</a>
             </div>
           </div>
         </div>
@@ -955,10 +1086,11 @@
       <div class="container">
         <div class="cta-band">
           <div>
-            <h2>Explore the strongest parts of the empire</h2>
+            <h2>Explore travel deals, shopping finds, rewards and CPM earning paths</h2>
             <p>
-              Start with travel pages, browse shopping finds, open reward guides, or route users into survey and freelance paths.
-              The homepage now pushes visitors into the right sections faster.
+              Start with travel pages, browse budget shopping finds, open reward guides, or direct users
+              into survey, freelance, and Adsterra CPM monetization paths. The homepage now pushes visitors
+              into the right sections faster.
             </p>
           </div>
           <a class="btn btn-primary" href="/travel/">Enter Travel Hub</a>
@@ -977,8 +1109,8 @@
               <h3>GiftCardZoneEU</h3>
               <p>
                 A growing global hub for travel deals, shopping pages, gift card guides,
-                survey platforms, and reward-focused content built with a cleaner structure
-                and stronger internal linking.
+                survey platforms, CPM monetization content, and reward-focused pages built
+                with a cleaner structure and stronger internal linking.
               </p>
             </div>
           </a>
@@ -990,7 +1122,7 @@
             <a href="/travel/">Travel</a>
             <a href="/shopping/">Shopping</a>
             <a href="/partners/">Partners</a>
-            <a href="/country/us/">Gift Card Guides</a>
+            <a href="/ads/">Ads Hub</a>
           </div>
         </div>
 
@@ -1016,4 +1148,4 @@
   </script>
 
 </body>
-</html>
+</html>            
