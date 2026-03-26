@@ -1,458 +1,190 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Best Hotel & Travel Deals in India | GiftCardZoneEU Travel</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description"
-        content="Compare hotel and travel prices in India — from Mumbai and New Delhi to Goa and Jaipur — with trusted global booking partners." />
-  <meta property="og:image" content="https://giftcardzoneeu.com/assets/india/india-hero.jpg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Best Hotels in India | Where to Stay & Book Online</title>
+  <meta name="description" content="Find the best hotels in India including Delhi, Mumbai, Jaipur and Goa. Compare hotel deals with trusted travel partners like Booking.com, Agoda and Trip.com." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://giftcardzoneeu.com/travel/india/" />
+  <link rel="icon" href="/assets/gz-logo.png" />
+
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Best Hotel & Travel Deals in India | GiftCardZoneEU Travel" />
-  <meta property="og:description"
-        content="Compare hotel and travel prices in India with trusted global booking partners." />
+  <meta property="og:title" content="Best Hotels in India | GiftCardZoneEU" />
+  <meta property="og:description" content="Compare hotel deals across India including Delhi, Mumbai, Jaipur and Goa." />
   <meta property="og:url" content="https://giftcardzoneeu.com/travel/india/" />
-  <meta property="og:image" content="https://giftcardzoneeu.com/travel/india-hero.jpg" />
+  <meta property="og:image" content="https://giftcardzoneeu.com/assets/travel/india/india-hero.webp" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Best Hotels in India | GiftCardZoneEU" />
+  <meta name="twitter:description" content="Find top places to stay in India and compare trusted hotel booking partners." />
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/travel/india/india-hero.webp" />
+
+  <link rel="preload" as="image" href="/assets/travel/india/india-hero.webp" />
 
   <style>
-    :root {
-      --bg: #020617;
-      --card: #020617;
-      --card-soft: #020617;
-      --accent: #2563eb;
-      --accent-soft: rgba(37, 99, 235, 0.14);
-      --text: #e5e7eb;
-      --muted: #94a3b8;
-      --radius-lg: 1.4rem;
-      --radius-xl: 1.7rem;
-      --border-subtle: rgba(148, 163, 184, 0.4);
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+    body{background:linear-gradient(180deg,#02142b 0%,#03224a 100%);color:#fff;line-height:1.7;}
+    a{text-decoration:none;}
+
+    .topbar{position:sticky;top:0;z-index:999;background:rgba(2,10,22,0.88);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.08);padding:12px 20px;}
+    .topbar-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;}
+    .logo-link img{height:42px;width:42px;border-radius:50%;}
+
+    .hero{
+      min-height:78vh;
+      background:
+        linear-gradient(rgba(0,15,35,0.55),rgba(0,15,35,0.75)),
+        url('/assets/travel/india/india-hero.webp') center/cover no-repeat;
+      display:flex;align-items:center;justify-content:center;text-align:center;padding:70px 20px;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    .hero h1{font-size:3rem;margin-bottom:18px;}
+    .hero p{font-size:1.15rem;max-width:760px;margin:0 auto 26px;}
 
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
-      color: var(--text);
-      min-height: 100vh;
-    }
+    .hero-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    .btn{padding:14px 22px;border-radius:10px;font-weight:bold;}
+    .btn-primary{background:#3db8ff;color:#06213d;}
+    .btn-secondary{border:1px solid rgba(255,255,255,0.25);color:#fff;}
 
-    .page-shell {
-      max-width: 1040px;
-      margin: 0 auto;
-      padding: 22px 16px 48px;
-    }
+    .container{max-width:1200px;margin:0 auto;padding:60px 20px;}
+    .section-title{font-size:2.2rem;margin-bottom:20px;color:#3db8ff;}
+    .section-text{margin-bottom:20px;}
 
-    /* Top tag (GiftCardZoneEU Travel · India) */
-    .page-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      color: var(--muted);
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.55);
-      margin-bottom: 14px;
-    }
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;margin-top:28px;}
 
-    .page-tag-dot {
-      width: 24px;
-      height: 24px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 25% 20%, #38bdf8, #0ea5e9 45%, #6366f1 80%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.7rem;
-      color: #0b1120;
-      font-weight: 700;
-    }
+    .card{background:rgba(19,40,82,0.88);border-radius:20px;padding:24px;}
+    .city-card img{width:100%;height:230px;object-fit:cover;border-radius:16px;margin-bottom:14px;}
 
-    /* Hero */
+    footer{text-align:center;padding:30px;color:#c8d8ea;}
 
-    .hero-card {
-  border-radius: 22px;
-  overflow: hidden;
-  position: relative;
-  background: linear-gradient(145deg,#111836,#060b1e);
-  padding: 26px;
-  margin-bottom: 22px;
-  border: 1px solid rgba(56, 189, 248, 0.35);
-  box-shadow: 0 22px 45px rgba(0,0,0,0.75);
-  min-height: 280px;
-}
-
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background: url('/assets/india/india-hero.jpg') center/cover no-repeat;
-  opacity: 0.18;
-  filter: saturate(1.1);
-}
-
-    .hero-inner {
-      position: relative;
-      z-index: 1;
-      max-width: 560px;
-    }
-
-    .hero-tags {
-      display: inline-flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 12px;
-    }
-
-    .hero-tag {
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      background: rgba(15, 23, 42, 0.85);
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      color: #cbd5f5;
-    }
-
-    h1 {
-      font-size: 1.9rem;
-      line-height: 1.2;
-      margin-bottom: 8px;
-      text-shadow: 0 16px 30px rgba(15, 23, 42, 0.95);
-    }
-
-    .hero-text {
-      font-size: 0.95rem;
-      color: #e5e7eb;
-      max-width: 34rem;
-      margin-bottom: 16px;
-      text-shadow: 0 12px 24px rgba(15, 23, 42, 0.95);
-    }
-
-    .hero-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 10px;
-    }
-
-    .hero-badge {
-      font-size: 0.75rem;
-      padding: 6px 11px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      background: rgba(15, 23, 42, 0.85);
-    }
-
-    .hero-note {
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-top: 2px;
-    }
-
-    .hero-note a {
-      color: #bfdbfe;
-      text-decoration: underline;
-      text-decoration-style: dotted;
-    }
-
-    .hero-cta {
-      margin-top: 10px;
-    }
-
-    .btn-main {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 9px 18px;
-      border-radius: 999px;
-      border: 0;
-      background: linear-gradient(135deg, #3b82f6, #2563eb);
-      color: #0b1120;
-      font-weight: 600;
-      font-size: 0.9rem;
-      cursor: pointer;
-      box-shadow: 0 18px 32px rgba(37, 99, 235, 0.7);
-    }
-
-    .btn-main span {
-      font-size: 1rem;
-    }
-
-    /* Sections */
-
-    .section-card {
-      border-radius: var(--radius-lg);
-      background: rgba(15, 23, 42, 0.95);
-      border: 1px solid var(--border-subtle);
-      padding: 18px 18px 16px;
-      margin-bottom: 18px;
-      box-shadow: 0 22px 40px rgba(15, 23, 42, 0.85);
-    }
-
-    .section-title {
-      font-size: 1.05rem;
-      margin-bottom: 4px;
-    }
-
-    .section-sub {
-      font-size: 0.88rem;
-      color: var(--muted);
-      margin-bottom: 10px;
-    }
-
-    /* Cities grid (same vibe as Thailand) */
-
-    .cities-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    @media (max-width: 900px) {
-      .cities-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 640px) {
-      .cities-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .city-card {
-      border-radius: 1rem;
-      background: radial-gradient(circle at top left, rgba(37, 99, 235, 0.22), #020617 65%);
-      border: 1px solid rgba(148, 163, 184, 0.55);
-      padding: 12px 12px 11px;
-    }
-
-    .city-name {
-      font-size: 0.96rem;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .city-text {
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-bottom: 10px;
-    }
-
-    .city-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 6px 11px;
-      border-radius: 999px;
-      border: 0;
-      font-size: 0.8rem;
-      background: #2563eb;
-      color: #eff6ff;
-      cursor: pointer;
-    }
-
-    /* Partners (pills style) */
-
-    .partner-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 8px;
-    }
-
-    .partner-chip {
-      padding: 6px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      font-size: 0.82rem;
-      background: rgba(15, 23, 42, 0.95);
-      color: #e5e7eb;
-    }
-
-    .partner-chip span {
-      font-size: 0.74rem;
-      color: var(--muted);
-      margin-left: 4px;
-    }
-
-    /* Explore more countries */
-
-    .country-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 8px;
-      font-size: 0.82rem;
-    }
-
-    .country-links a {
-      padding: 5px 11px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      color: var(--muted);
-      background: rgba(15, 23, 42, 0.95);
-    }
-
-    .country-links a:hover {
-      border-color: rgba(37, 99, 235, 0.95);
-      color: #e5e7eb;
-    }
-
-    footer {
-      margin-top: 18px;
-      font-size: 0.75rem;
-      color: var(--muted);
-      text-align: center;
-    }
+    @media(max-width:900px){.grid{grid-template-columns:1fr;}.hero h1{font-size:2.2rem;}}
   </style>
 </head>
+
 <body>
-  <div class="page-shell">
-    <!-- Top tag like Thailand -->
-    <div class="page-tag">
-      <div class="page-tag-dot">GZ</div>
-      <span>GiftCardZoneEU Travel · India</span>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://giftcardzoneeu.com/" class="logo-link">
+      <img src="/assets/gz-logo.png" alt="GZ Logo">
+    </a>
+  </div>
+</header>
+
+<section class="hero">
+  <div>
+    <h1>Best Hotels in India | Where to Stay & Book Online</h1>
+    <p>
+      Planning a trip to India? Discover top places to stay in Delhi, Mumbai, Jaipur and Goa.
+      Compare hotel deals and book smarter for your next travel experience.
+    </p>
+    <div class="hero-buttons">
+      <a href="#partners" class="btn btn-primary">Compare Hotel Deals</a>
+      <a href="#cities" class="btn btn-secondary">Explore Top Cities</a>
+    </div>
+  </div>
+</section>
+
+<main class="container">
+
+<section>
+  <h2 class="section-title">Why Visit India</h2>
+  <p class="section-text">
+    India is one of the most diverse travel destinations in the world, known for its rich culture,
+    historic landmarks, vibrant cities and unique traditions. From iconic monuments like the Taj Mahal
+    to bustling markets and scenic landscapes, India offers unforgettable experiences for every traveler.
+  </p>
+</section>
+
+<section>
+  <h2 class="section-title">Best Time to Visit India</h2>
+  <p class="section-text">
+    The best time to visit India is typically from October to March when the weather is cooler and more comfortable.
+    Summer months can be very hot, while monsoon season brings heavy rains in many regions.
+  </p>
+</section>
+
+<section>
+  <h2 class="section-title">How to Find the Best Hotel Deals in India</h2>
+  <p class="section-text">
+    Hotel prices in India vary depending on location and season. Comparing multiple booking platforms
+    helps you find better deals, flexible booking options and ideal locations.
+  </p>
+</section>
+
+<section id="cities">
+  <h2 class="section-title">Top Cities in India</h2>
+
+  <div class="grid">
+    <div class="card city-card">
+      <img src="/assets/travel/india/delhi.webp">
+      <h3>Delhi</h3>
+      <p>India’s capital offers history, culture and major landmarks like the Red Fort and India Gate.</p>
     </div>
 
-    <!-- Hero card -->
-    <section class="hero-card">
-      <div class="hero-bg" aria-hidden="true"></div>
-      <div class="hero-inner">
-        <div class="hero-tags">
-          <div class="hero-tag">India</div>
-          <div class="hero-tag">Mumbai</div>
-          <div class="hero-tag">New Delhi</div>
-          <div class="hero-tag">Goa</div>
-        </div>
+    <div class="card city-card">
+      <img src="/assets/travel/india/mumbai.webp">
+      <h3>Mumbai</h3>
+      <p>A vibrant city known for Bollywood, beaches and a fast-paced urban lifestyle.</p>
+    </div>
 
-        <h1>Best Hotel & Travel Deals in India</h1>
-        <p class="hero-text">
-          Compare hotel and travel prices in India — from the busy streets of Mumbai and New Delhi
-          to the heritage sites of Jaipur and the beaches of Goa.
-        </p>
+    <div class="card city-card">
+      <img src="/assets/travel/india/jaipur.webp">
+      <h3>Jaipur</h3>
+      <p>The Pink City is famous for palaces, forts and rich royal heritage.</p>
+    </div>
 
-        <div class="hero-badges">
-          <div class="hero-badge">Secure booking redirects</div>
-          <div class="hero-badge">Fast price compare</div>
-          <div class="hero-badge">Global travel brands</div>
-          <div class="hero-badge">Direct to official sites</div>
-        </div>
-
-        <p class="hero-note">
-          You book directly with our trusted partners — we simply help you compare deals in one place.
-        </p>
-
-        <div class="hero-cta">
-          <a href="#partners" class="btn-main">
-            Compare travel partners
-            <span>↗</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Key India cities -->
-    <section class="section-card">
-      <h2 class="section-title">Key India cities · pick a city to start browsing hotel deals</h2>
-      <p class="section-sub">
-        Popular destinations across India — from major business hubs to coastal escapes.
-      </p>
-
-      <div class="cities-grid">
-        <div class="city-card">
-          <div class="city-name">Mumbai</div>
-          <div class="city-text">City stays near markets, nightlife, and seaside promenades.</div>
-          <button class="city-btn">View Mumbai hotels</button>
-        </div>
-
-        <div class="city-card">
-          <div class="city-name">New Delhi</div>
-          <div class="city-text">Stay close to historic sites, embassies, and business districts.</div>
-          <button class="city-btn">View New Delhi hotels</button>
-        </div>
-
-        <div class="city-card">
-          <div class="city-name">Bangalore</div>
-          <div class="city-text">Business and tech hub with modern stays and cafés.</div>
-          <button class="city-btn">View Bangalore hotels</button>
-        </div>
-
-        <div class="city-card">
-          <div class="city-name">Goa</div>
-          <div class="city-text">Beachfront resorts and relaxed coastal stays.</div>
-          <button class="city-btn">View Goa hotels</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Partners -->
-    <section id="partners" class="section-card">
-      <h2 class="section-title">Top travel partners for India</h2>
-      <p class="section-sub">
-        Choose a trusted partner to compare India hotel and travel prices. You’ll book on the
-        official partner website.
-      </p>
-
-      <div class="partner-chips">
-        <a class="partner-chip" href="https://giftcardzoneeu.com/go/agoda/" target="_blank" rel="noopener noreferrer">
-          Agoda<span>Hotels & stays</span>
-        </a>
-        <a class="partner-chip" href="https://giftcardzoneeu.com/go/booking/" target="_blank" rel="noopener noreferrer">
-          Booking.com<span>Global stays</span>
-        </a>
-        <a class="partner-chip" href="https://giftcardzoneeu.com/go/trip/" target="_blank" rel="noopener noreferrer">
-          Trip.com<span>Flights & hotels</span>
-        </a>
-        <a class="partner-chip" href="https://giftcardzoneeu.com/go/hotels/" target="_blank" rel="noopener noreferrer">
-          Hotels.com<span>Hotel deals</span>
-        </a>
-        <a class="partner-chip" href="https://giftcardzoneeu.com/go/accor/" target="_blank" rel="noopener noreferrer">
-          Accor<span>Hotel brands</span>
-        </a>
-        <a class="partner-chip" href="https://giftcardzoneeu.com/go/motel6/" target="_blank" rel="noopener noreferrer">
-          Motel 6<span>Budget stays</span>
-        </a>
-      </div>
-    </section>
-
-    <!-- Explore more countries -->
-    <section class="section-card">
-      <h2 class="section-title">Explore more hotel deals with GiftCardZoneEU Travel</h2>
-      <p class="section-sub">
-        Browse more countries and compare hotel prices across our trusted travel partners.
-      </p>
-
-      <div class="country-links">
-        <a href="/travel/japan/">Japan</a>
-        <a href="/travel/germany/">Germany</a>
-        <a href="/travel/thailand/">Thailand</a>
-        <a href="/travel/italy/">Italy</a>
-        <a href="/travel/united-kingdom/">United Kingdom</a>
-        <a href="/travel/belgium/">Belgium</a>
-        <a href="/travel/usa/">USA</a>
-        <a href="/travel/canada/">Canada</a>
-        <a href="/travel/philippines/">Philippines</a>
-        <a href="/travel/brazil/">Brazil</a>
-      </div>
-    </section>
-
-    <footer>
-      © 2025 GiftCardZoneEU Travel — All Rights Reserved.
-    </footer>
+    <div class="card city-card">
+      <img src="/assets/travel/india/goa.webp">
+      <h3>Goa</h3>
+      <p>A top destination for beaches, nightlife and relaxing coastal stays.</p>
+    </div>
   </div>
+</section>
+
+<section>
+  <h2 class="section-title">Where to Stay in India</h2>
+  <p class="section-text">
+    Choose your destination based on your travel style. Delhi for culture, Mumbai for city life,
+    Jaipur for heritage, and Goa for beach relaxation.
+  </p>
+</section>
+
+<section id="partners">
+  <h2 class="section-title">Book Hotels with Trusted Travel Partners</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Booking.com</h3>
+      <a href="https://www.booking.com" class="btn btn-primary" target="_blank" rel="nofollow sponsored">Search Hotels</a>
+    </div>
+
+    <div class="card">
+      <h3>Agoda</h3>
+      <a href="https://www.agoda.com" class="btn btn-primary" target="_blank" rel="nofollow sponsored">View Deals</a>
+    </div>
+
+    <div class="card">
+      <h3>Trip.com</h3>
+      <a href="https://www.jdoqocy.com/click-101586981-13761944" class="btn btn-primary" target="_blank" rel="nofollow sponsored">Find Hotels</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>&copy; <span id="year"></span> GiftCardZoneEU</p>
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
-  
