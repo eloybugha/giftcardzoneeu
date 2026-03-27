@@ -27,42 +27,146 @@
 
   <style>
     *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
-    body{background:linear-gradient(180deg,#02142b 0%,#03224a 100%);color:#fff;line-height:1.7;}
+
+    body{
+      background:linear-gradient(180deg,#02142b 0%,#03224a 100%);
+      color:#fff;
+      line-height:1.7;
+    }
+
     a{text-decoration:none;}
 
-    .topbar{position:sticky;top:0;z-index:999;background:rgba(2,10,22,0.88);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.08);padding:12px 20px;}
-    .topbar-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;}
-    .logo-link img{height:42px;width:42px;border-radius:50%;}
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:999;
+      background:rgba(2,10,22,0.88);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+      padding:12px 20px;
+    }
+
+    .topbar-inner{
+      max-width:1200px;
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+    }
+
+    .logo-link img{
+      height:42px;
+      width:42px;
+      border-radius:50%;
+    }
 
     .hero{
       min-height:78vh;
       background:
         linear-gradient(rgba(0,15,35,0.55),rgba(0,15,35,0.75)),
         url('/assets/travel/thailand/thailand-hero.webp') center/cover no-repeat;
-      display:flex;align-items:center;justify-content:center;text-align:center;padding:70px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:70px 20px;
     }
 
-    .hero h1{font-size:3rem;margin-bottom:18px;}
-    .hero p{font-size:1.15rem;max-width:760px;margin:0 auto 26px;}
+    .hero h1{
+      font-size:3rem;
+      margin-bottom:18px;
+    }
 
-    .hero-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+    .hero p{
+      font-size:1.15rem;
+      max-width:760px;
+      margin:0 auto 26px;
+    }
 
-    .btn{padding:14px 22px;border-radius:10px;font-weight:bold;}
-    .btn-primary{background:#3db8ff;color:#06213d;}
-    .btn-secondary{border:1px solid rgba(255,255,255,0.25);color:#fff;}
+    .hero-buttons{
+      display:flex;
+      gap:14px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
 
-    .container{max-width:1200px;margin:0 auto;padding:60px 20px;}
-    .section-title{font-size:2.2rem;margin-bottom:20px;color:#3db8ff;}
-    .section-text{margin-bottom:20px;}
+    .btn{
+      padding:14px 22px;
+      border-radius:10px;
+      font-weight:bold;
+      display:inline-block;
+      margin-top:12px;
+    }
 
-    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;margin-top:28px;}
+    .btn-primary{
+      background:#3db8ff;
+      color:#06213d;
+      display:block;
+      text-align:center;
+    }
 
-    .card{background:rgba(19,40,82,0.88);border-radius:20px;padding:24px;}
-    .city-card img{width:100%;height:230px;object-fit:cover;border-radius:16px;margin-bottom:14px;}
+    .btn-secondary{
+      border:1px solid rgba(255,255,255,0.25);
+      color:#fff;
+    }
 
-    footer{text-align:center;padding:30px;color:#c8d8ea;}
+    .container{
+      max-width:1200px;
+      margin:0 auto;
+      padding:60px 20px;
+    }
 
-    @media(max-width:900px){.grid{grid-template-columns:1fr;}.hero h1{font-size:2.2rem;}}
+    .section-title{
+      font-size:2.2rem;
+      margin-bottom:20px;
+      color:#3db8ff;
+    }
+
+    .section-text{
+      margin-bottom:20px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:28px;
+      margin-top:28px;
+    }
+
+    .card{
+      background:rgba(19,40,82,0.88);
+      border-radius:20px;
+      padding:24px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+
+    .card h3{
+      margin-bottom:10px;
+    }
+
+    .card p{
+      flex-grow:1;
+    }
+
+    .city-card img{
+      width:100%;
+      height:230px;
+      object-fit:cover;
+      border-radius:16px;
+      margin-bottom:14px;
+    }
+
+    footer{
+      text-align:center;
+      padding:30px;
+      color:#c8d8ea;
+    }
+
+    @media(max-width:900px){
+      .grid{grid-template-columns:1fr;}
+      .hero h1{font-size:2.2rem;}
+    }
   </style>
 </head>
 
@@ -96,8 +200,7 @@
   <h2 class="section-title">Why Visit Thailand</h2>
   <p class="section-text">
     Thailand is one of Southeast Asia’s most popular destinations, known for its tropical beaches,
-    vibrant cities, rich culture and world-famous cuisine. From island getaways to cultural temples,
-    Thailand offers something for every traveler.
+    vibrant cities, rich culture and world-famous cuisine.
   </p>
 </section>
 
@@ -105,15 +208,6 @@
   <h2 class="section-title">Best Time to Visit Thailand</h2>
   <p class="section-text">
     The best time to visit Thailand is from November to February when the weather is cooler and dry.
-    Summer months can be hot, while monsoon season brings heavy rains in some regions.
-  </p>
-</section>
-
-<section>
-  <h2 class="section-title">How to Find the Best Hotel Deals in Thailand</h2>
-  <p class="section-text">
-    Hotel prices in Thailand vary depending on location and season. Comparing multiple booking platforms
-    helps you find better deals, flexible booking options and ideal locations.
   </p>
 </section>
 
@@ -121,58 +215,57 @@
   <h2 class="section-title">Top Cities in Thailand</h2>
 
   <div class="grid">
+
     <div class="card city-card">
       <img src="/assets/travel/thailand/bangkok.webp" alt="Bangkok skyline Thailand">
       <h3>Bangkok</h3>
-      <p>The capital city known for temples, nightlife, shopping and vibrant street life.</p>
+      <p>The capital city known for temples, nightlife and street food.</p>
     </div>
 
     <div class="card city-card">
       <img src="/assets/travel/thailand/phuket.webp" alt="Phuket beach Thailand">
       <h3>Phuket</h3>
-      <p>Thailand’s largest island, famous for beaches, resorts and tropical scenery.</p>
+      <p>Thailand’s largest island with world-class beaches and resorts.</p>
     </div>
 
     <div class="card city-card">
       <img src="/assets/travel/thailand/chiangmai.webp" alt="Chiang Mai temples Thailand">
       <h3>Chiang Mai</h3>
-      <p>A cultural city in northern Thailand known for temples, mountains and relaxed atmosphere.</p>
+      <p>A peaceful cultural city surrounded by mountains and temples.</p>
     </div>
 
     <div class="card city-card">
-      <img src="/assets/travel/thailand/pattaya.webp" alt="Pattaya beach nightlife Thailand">
+      <img src="/assets/travel/thailand/pattaya.webp" alt="Pattaya nightlife Thailand">
       <h3>Pattaya</h3>
-      <p>A coastal city known for nightlife, beaches and entertainment.</p>
+      <p>Known for nightlife, entertainment and coastal relaxation.</p>
     </div>
-  </div>
-</section>
 
-<section>
-  <h2 class="section-title">Where to Stay in Thailand</h2>
-  <p class="section-text">
-    Choose your destination based on your travel style. Bangkok for city life, Phuket for beach resorts,
-    Chiang Mai for culture and nature, and Pattaya for nightlife and coastal stays.
-  </p>
+  </div>
 </section>
 
 <section id="partners">
   <h2 class="section-title">Book Hotels with Trusted Travel Partners</h2>
 
   <div class="grid">
+
     <div class="card">
       <h3>Booking.com</h3>
+      <p>Compare thousands of hotels with flexible booking options worldwide.</p>
       <a href="https://www.booking.com" class="btn btn-primary" target="_blank" rel="nofollow sponsored noopener noreferrer">Search Hotels</a>
     </div>
 
     <div class="card">
       <h3>Agoda</h3>
+      <p>Find great hotel deals across Asia with competitive pricing.</p>
       <a href="https://www.agoda.com" class="btn btn-primary" target="_blank" rel="nofollow sponsored noopener noreferrer">View Deals</a>
     </div>
 
     <div class="card">
       <h3>Trip.com</h3>
+      <p>Book hotels, flights and travel packages with trusted global coverage.</p>
       <a href="https://www.jdoqocy.com/click-101586981-13761944" class="btn btn-primary" target="_blank" rel="nofollow sponsored noopener noreferrer">Find Hotels</a>
     </div>
+
   </div>
 </section>
 
