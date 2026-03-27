@@ -4,202 +4,300 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>USA Hotel Deals | GiftCardZoneEU × Agoda</title>
-  <meta name="description"
-    content="Find the best hotel deals in the USA — New York, Las Vegas, Los Angeles, Miami, Chicago and more via Agoda Partners." />ok
-  <meta property="og:image" content="https://giftcardzoneeu.com/assets/usa-hero.webp">
-<meta name="twitter:image" content="https://giftcardzoneeu.com/assets/usa-hero.webp">
-  <meta property="og:title" content="USA Hotel Deals | GiftCardZoneEU × Agoda">
-<meta property="og:description" content="Find the best hotel deals in the USA — New York, Las Vegas, Los Angeles, Miami, Chicago and more via Agoda Partners.">
-<meta name="twitter:card" content="summary_large_image">
- <link rel="canonical" href="https://giftcardzoneeu.com/travel/usa/" />
-  <meta name="robots" content="index, follow">
+  <title>Best Hotels in USA | Where to Stay & Book Online</title>
+  <meta name="description" content="Find the best hotels in USA including New York, Los Angeles, Las Vegas and Miami. Compare hotel deals with trusted travel partners like Booking.com, Agoda and Trip.com." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://giftcardzoneeu.com/travel/usa/" />
+  <link rel="icon" href="/assets/gz-logo.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Best Hotels in USA | GiftCardZoneEU" />
+  <meta property="og:description" content="Compare hotel deals across USA including New York, Los Angeles, Las Vegas and Miami." />
+  <meta property="og:url" content="https://giftcardzoneeu.com/travel/usa/" />
+  <meta property="og:image" content="https://giftcardzoneeu.com/assets/travel/usa/usa-hero.webp" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Best Hotels in USA | GiftCardZoneEU" />
+  <meta name="twitter:description" content="Find top places to stay in USA and compare trusted hotel booking partners." />
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/travel/usa/usa-hero.webp" />
+
+  <link rel="preload" as="image" href="/assets/travel/usa/usa-hero.webp" />
 
   <style>
-    :root {
-      --bg: #020617;
-      --card-bg: rgba(15, 23, 42, 0.96);
-      --card-border: rgba(148, 163, 184, 0.3);
-      --text: #f8fafc;
-      --accent: #38bdf8;
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+
+    body{
+      background:linear-gradient(180deg,#02142b 0%,#03224a 100%);
+      color:#fff;
+      line-height:1.7;
     }
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      background-image: url('/assets/usa-hero.webp');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
+    a{text-decoration:none;}
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:999;
+      background:rgba(2,10,22,0.88);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+      padding:12px 20px;
     }
 
-    .overlay {
-      background: rgba(0, 0, 0, 0.65);
-      backdrop-filter: blur(4px);
-      min-height: 100vh;
-      padding: 40px 15px;
+    .topbar-inner{
+      max-width:1200px;
+      margin:0 auto;
+      display:flex;
+      align-items:center;
     }
 
-    .container {
-      max-width: 1150px;
-      margin: auto;
+    .logo-link img{
+      height:42px;
+      width:42px;
+      border-radius:50%;
     }
 
-    h1 {
-      text-align: center;
-      font-size: 2.4rem;
-      margin-bottom: 10px;
+    .hero{
+      min-height:78vh;
+      background:
+        linear-gradient(rgba(0,15,35,0.55),rgba(0,15,35,0.75)),
+        url('/assets/travel/usa/usa-hero.webp') center/cover no-repeat;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:70px 20px;
     }
 
-    .sub {
-      text-align: center;
-      opacity: 0.9;
-      margin-bottom: 35px;
+    .hero h1{
+      font-size:3rem;
+      margin-bottom:18px;
     }
 
-    /* Trust badges */
-    .trust-row, .partners {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-bottom: 30px;
+    .hero p{
+      font-size:1.15rem;
+      max-width:760px;
+      margin:0 auto 26px;
     }
 
-    .trust-item, .partner {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      padding: 14px 20px;
-      border-radius: 12px;
-      font-size: 0.9rem;
+    .hero-buttons{
+      display:flex;
+      gap:14px;
+      justify-content:center;
+      flex-wrap:wrap;
     }
 
-    /* City cards */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-      margin-bottom: 50px;
+    .btn{
+      padding:14px 22px;
+      border-radius:10px;
+      font-weight:bold;
+      display:inline-block;
+      margin-top:12px;
     }
 
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 18px;
-      overflow: hidden;
+    .btn-primary{
+      background:#3db8ff;
+      color:#06213d;
+      display:block;
+      text-align:center;
     }
 
-    .card img {
-      width: 100%;
-      height: 155px;
-      object-fit: cover;
+    .btn-secondary{
+      border:1px solid rgba(255,255,255,0.25);
+      color:#fff;
     }
 
-    .card-content {
-      padding: 18px;
+    .container{
+      max-width:1200px;
+      margin:0 auto;
+      padding:60px 20px;
     }
 
-    .card h3 {
-      margin: 0 0 8px 0;
-      font-size: 1.2rem;
+    .section-title{
+      font-size:2.2rem;
+      margin-bottom:20px;
+      color:#3db8ff;
     }
 
-    .btn {
-      display: inline-block;
-      background: var(--accent);
-      padding: 10px 18px;
-      text-decoration: none;
-      color: black;
-      border-radius: 8px;
-      font-weight: bold;
+    .section-text{
+      margin-bottom:20px;
     }
 
-    footer {
-      text-align: center;
-      padding: 35px;
-      opacity: 0.8;
-      font-size: 0.9rem;
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:28px;
+      margin-top:28px;
+    }
+
+    .card{
+      background:rgba(19,40,82,0.88);
+      border-radius:20px;
+      padding:24px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+
+    .card h3{
+      margin-bottom:10px;
+    }
+
+    .card p{
+      flex-grow:1;
+    }
+
+    .city-card img{
+      width:100%;
+      height:230px;
+      object-fit:cover;
+      border-radius:16px;
+      margin-bottom:14px;
+    }
+
+    footer{
+      text-align:center;
+      padding:30px;
+      color:#c8d8ea;
+    }
+
+    @media(max-width:900px){
+      .grid{grid-template-columns:1fr;}
+      .hero h1{font-size:2.2rem;}
     }
   </style>
 </head>
 
 <body>
-  <div class="overlay">
-    <div class="container">
 
-      <h1>USA Hotel Deals</h1>
-      <p class="sub">Find the best hotel deals in the USA — New York, Las Vegas, Los Angeles, Miami & more.</p>
-
-      <!-- TRUST BADGES -->
-      <div class="trust-row">
-        <div class="trust-item">🔒 Secure Booking</div>
-        <div class="trust-item">⭐ Verified Partners</div>
-        <div class="trust-item">⚡ Fast Price Compare</div>
-        <div class="trust-item">🏨 Official Travel Sites</div>
-      </div>
-
-      <!-- PARTNER ROW -->
-      <div class="partners">
-        <div class="partner">Agoda</div>
-        <div class="partner">Booking.com</div>
-        <div class="partner">Trip.com</div>
-        <div class="partner">Hotels.com</div>
-        <div class="partner">Accor</div>
-        <div class="partner">Motel 6</div>
-      </div>
-
-      <!-- CITIES -->
-      <div class="grid">
-
-        <!-- NEW YORK -->
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1488747279002-c8523379faaa?auto=format&fit=crop&w=800&q=80">
-          <div class="card-content">
-            <h3>New York</h3>
-            <a class="btn" href="#" target="_blank" rel="nofollow sponsored noopener noreferrer">View Hotels</a>
-          </div>
-        </div>
-
-        <!-- LAS VEGAS -->
-<div class="card">
-  <img src="/assets/usa-hero.webp" alt="Las Vegas hotels">
-  <div class="card-content">
-    <h3>Las Vegas</h3>
-    <a class="btn" href="#" target="_blank" rel="nofollow sponsored noopener noreferrer">View Hotels</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://giftcardzoneeu.com/" class="logo-link">
+      <img src="/assets/gz-logo.png" alt="GZ Logo">
+    </a>
   </div>
-</div>
+</header>
 
-        <!-- LOS ANGELES -->
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=800&q=80">
-          <div class="card-content">
-            <h3>Los Angeles</h3>
-            <a class="btn" href="#" target="_blank" rel="nofollow sponsored noopener noreferrer">View Hotels</a>
-          </div>
-        </div>
+<section class="hero">
+  <div>
+    <h1>Best Hotels in USA | Where to Stay & Book Online</h1>
+    <p>
+      Planning a trip to the USA? Discover top places to stay in New York, Los Angeles, Las Vegas and Miami.
+      Compare hotel deals and book smarter for your next travel experience.
+    </p>
+    <div class="hero-buttons">
+      <a href="#partners" class="btn btn-primary">Compare Hotel Deals</a>
+      <a href="#cities" class="btn btn-secondary">Explore Top Cities</a>
+    </div>
+  </div>
+</section>
 
-        <!-- MIAMI -->
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=800&q=80">
-          <div class="card-content">
-            <h3>Miami</h3>
-            <a class="btn" href="#" target="_blank" rel="nofollow sponsored noopener noreferrer">View Hotels</a>
-          </div>
-        </div>
+<main class="container">
 
-      </div>
+<section>
+  <h2 class="section-title">Why Visit USA</h2>
+  <p class="section-text">
+    The United States offers world-famous cities, iconic landmarks, beautiful coastlines, national parks
+    and endless travel experiences. From city breaks and shopping trips to beaches and entertainment,
+    the USA has something for every kind of traveler.
+  </p>
+</section>
 
-      <footer>
-  © <span id="year"></span> GiftCardZoneEU — Travel Deals Worldwide
+<section>
+  <h2 class="section-title">Best Time to Visit USA</h2>
+  <p class="section-text">
+    The best time to visit the USA depends on the region, but spring and fall are often ideal for pleasant weather,
+    sightseeing and more comfortable travel conditions. Summer is popular for family vacations, while winter is great
+    for festive city trips and warm-weather escapes in southern destinations.
+  </p>
+</section>
+
+<section>
+  <h2 class="section-title">How to Find the Best Hotel Deals in USA</h2>
+  <p class="section-text">
+    Hotel prices in the USA can vary widely depending on city, season and major events. Comparing multiple booking platforms
+    helps you find better prices, flexible cancellation options and the right location for your trip.
+  </p>
+</section>
+
+<section id="cities">
+  <h2 class="section-title">Top Cities in USA</h2>
+
+  <div class="grid">
+
+    <div class="card city-card">
+      <img src="/assets/travel/usa/newyork.webp" alt="New York skyline USA">
+      <h3>New York</h3>
+      <p>The city that never sleeps, known for iconic landmarks, shopping, museums and Broadway.</p>
+    </div>
+
+    <div class="card city-card">
+      <img src="/assets/travel/usa/losangeles.webp" alt="Los Angeles city view USA">
+      <h3>Los Angeles</h3>
+      <p>Famous for Hollywood, sunny weather, beaches and a laid-back California lifestyle.</p>
+    </div>
+
+    <div class="card city-card">
+      <img src="/assets/travel/usa/lasvegas.webp" alt="Las Vegas skyline USA">
+      <h3>Las Vegas</h3>
+      <p>A top destination for entertainment, nightlife, resorts and unforgettable desert experiences.</p>
+    </div>
+
+    <div class="card city-card">
+      <img src="/assets/travel/usa/miami.webp" alt="Miami beach skyline USA">
+      <h3>Miami</h3>
+      <p>Known for beaches, nightlife, art deco style and vibrant coastal energy.</p>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Where to Stay in USA</h2>
+  <p class="section-text">
+    Choose your destination based on your travel style. New York is ideal for city breaks and culture,
+    Los Angeles for sunshine and entertainment, Las Vegas for nightlife and resorts, and Miami for beach stays
+    and tropical vibes.
+  </p>
+</section>
+
+<section id="partners">
+  <h2 class="section-title">Book Hotels with Trusted Travel Partners</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <h3>Booking.com</h3>
+      <p>Compare thousands of hotels with flexible booking options across major USA destinations.</p>
+      <a href="https://www.booking.com" class="btn btn-primary" target="_blank" rel="nofollow sponsored noopener noreferrer">Search Hotels</a>
+    </div>
+
+    <div class="card">
+      <h3>Agoda</h3>
+      <p>Explore hotel deals, city stays and vacation options with competitive pricing.</p>
+      <a href="https://www.agoda.com" class="btn btn-primary" target="_blank" rel="nofollow sponsored noopener noreferrer">View Deals</a>
+    </div>
+
+    <div class="card">
+      <h3>Trip.com</h3>
+      <p>Book hotels, flights and travel packages with trusted global coverage and convenient search tools.</p>
+      <a href="https://www.jdoqocy.com/click-101586981-13761944" class="btn btn-primary" target="_blank" rel="nofollow sponsored noopener noreferrer">Find Hotels</a>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>&copy; <span id="year"></span> GiftCardZoneEU</p>
 </footer>
 
 <script>
-  document.getElementById("year").textContent = new Date().getFullYear();
+document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 
-    </div>
-  </div>
 </body>
 </html>
