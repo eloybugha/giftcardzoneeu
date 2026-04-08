@@ -1,167 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Shopping Deals | Budget Finds & Online Deals Europe</title>
-<meta name="description" content="Discover budget shopping deals, gadgets, fashion and home essentials from trusted platforms like Temu and AliExpress." />
-<meta name="robots" content="index,follow" />
-<link rel="canonical" href="https://giftcardzoneeu.com/shopping/" />
+  <title>Shopping Deals | Budget Finds & Online Deals Europe</title>
+  <meta name="description" content="Discover budget shopping deals, gadgets, fashion and home essentials from trusted platforms like Temu and AliExpress." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://giftcardzoneeu.com/shopping/" />
+  <link rel="icon" href="/assets/gz-logo.png" />
 
-<link rel="icon" href="/assets/gz-logo.png" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Shopping Deals | GiftCardZoneEU" />
+  <meta property="og:description" content="Explore trending budget finds and online deals across trusted platforms." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://giftcardzoneeu.com/shopping/" />
+  <meta property="og:image" content="https://giftcardzoneeu.com/assets/gz-logo.png" />
 
-<!-- Open Graph -->
-<meta property="og:title" content="Shopping Deals | GiftCardZoneEU" />
-<meta property="og:description" content="Explore trending budget finds and online deals across trusted platforms." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://giftcardzoneeu.com/shopping/" />
-<meta property="og:image" content="https://giftcardzoneeu.com/assets/gz-logo.png" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Shopping Deals | GiftCardZoneEU" />
+  <meta name="twitter:description" content="Find budget gadgets, fashion and home deals online." />
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/gz-logo.png" />
 
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Shopping Deals | GiftCardZoneEU" />
-<meta name="twitter:description" content="Find budget gadgets, fashion and home deals online." />
-<meta name="twitter:image" content="https://giftcardzoneeu.com/assets/gz-logo.png" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-<style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0b1220;
-  color: #fff;
-}
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #081226;
+      color: #ffffff;
+    }
 
-/* NAVBAR */
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 15px 20px;
-  background: #0f172a;
-  position: sticky;
-  top: 0;
-}
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 20px;
+      background: #0f172a;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
 
-.navbar a {
-  color: #fff;
-  text-decoration: none;
-  margin: 0 10px;
-}
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 26px;
+    }
 
-/* HERO */
-.hero {
-  padding: 60px 20px;
-  text-align: center;
-}
+    .brand img {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+    }
 
-.hero h1 {
-  font-size: 36px;
-  margin-bottom: 10px;
-}
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
 
-.hero p {
-  color: #ccc;
-  max-width: 600px;
-  margin: auto;
-}
+    .nav-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+    }
 
-/* GRID */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-  gap: 20px;
-  padding: 40px 20px;
-}
+    .hero {
+      padding: 70px 20px 30px;
+      text-align: center;
+    }
 
-/* CARD */
-.card {
-  background: #1e293b;
-  padding: 20px;
-  border-radius: 12px;
-}
+    .hero h1 {
+      margin: 0 0 14px;
+      font-size: 52px;
+      line-height: 1.1;
+    }
 
-.card h3 {
-  margin-top: 0;
-}
+    .hero p {
+      margin: 0 auto;
+      max-width: 760px;
+      color: #cbd5e1;
+      font-size: 22px;
+      line-height: 1.6;
+    }
 
-.card p {
-  color: #bbb;
-}
+    .grid {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      padding: 40px 20px 24px;
+      align-items: stretch;
+    }
 
-.btn {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 15px;
-  background: #22c55e;
-  color: #fff;
-  border-radius: 8px;
-  text-decoration: none;
-}
+    .card {
+      background: #1e293b;
+      border-radius: 18px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+    }
 
-.footer {
-  text-align: center;
-  padding: 20px;
-  color: #aaa;
-}
-</style>
+    .card img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .card h3 {
+      margin: 0 0 12px;
+      font-size: 22px;
+      line-height: 1.3;
+    }
+
+    .card p {
+      margin: 0 0 18px;
+      color: #cbd5e1;
+      line-height: 1.6;
+      font-size: 17px;
+      flex-grow: 1;
+    }
+
+    .btn {
+      display: inline-block;
+      align-self: flex-start;
+      padding: 12px 20px;
+      background: #22c55e;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 16px;
+      margin-top: auto;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 28px 20px 34px;
+      color: #94a3b8;
+      font-size: 16px;
+    }
+
+    @media (max-width: 1024px) {
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      .hero p {
+        font-size: 20px;
+      }
+
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .brand {
+        font-size: 22px;
+      }
+
+      .brand img {
+        width: 40px;
+        height: 40px;
+      }
+
+      .nav-links {
+        justify-content: center;
+        gap: 14px;
+      }
+
+      .hero {
+        padding: 56px 18px 24px;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+        padding: 28px 18px 20px;
+      }
+
+      .card img {
+        height: 180px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<!-- NAVBAR -->
-<div class="navbar">
-  <a href="/"><strong>GZ</strong></a>
-  <div>
-    <a href="/">Home</a>
-    <a href="/travel/">Travel</a>
-    <a href="/partners/">Partners</a>
-    <a href="/shopping/">Shopping</a>
-  </div>
-</div>
+  <div class="navbar">
+    <a href="/" class="brand">
+      <img src="/assets/gz-logo.png" alt="GiftCardZoneEU logo" />
+      <span>GiftCardZoneEU</span>
+    </a>
 
-<!-- HERO -->
-<section class="hero">
-  <h1>Shop Online Deals in Europe</h1>
-  <p>Explore trending budget finds, gadgets, fashion and home essentials across trusted platforms.</p>
-</section>
-
-<!-- SHOPPING GRID -->
-<section class="grid">
-
-  <!-- TEMU -->
-  <div class="card">
-    <img src="/assets/shopping/temu.webp" alt="Temu Germany Deals" style="width:100%;border-radius:10px;margin-bottom:12px;">
-    <h3>Temu Germany</h3>
-    <p>Budget finds, gadgets, fashion and home essentials at low prices.</p>
-    <a href="/shopping/temu-germany/" class="btn">Explore Deals</a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/travel/">Travel</a>
+      <a href="/partners/">Partners</a>
+      <a href="/shopping/">Shopping</a>
+    </div>
   </div>
 
-  <!-- ALIEXPRESS -->
-  <div class="card">
-    <img src="/assets/shopping/aliexpress.webp" alt="AliExpress Deals" style="width:100%;border-radius:10px;margin-bottom:12px;">
-    <h3>AliExpress Deals</h3>
-    <p>Affordable electronics, accessories, fashion and more from global sellers.</p>
-    <a href="/shopping/aliexpress/" class="btn">Shop Now</a>
+  <section class="hero">
+    <h1>Shop Online Deals in Europe</h1>
+    <p>Explore trending budget finds, gadgets, fashion and home essentials across trusted platforms.</p>
+  </section>
+
+  <section class="grid">
+
+    <div class="card">
+      <img src="/assets/shopping/temu.webp" alt="Temu Germany Deals" />
+      <h3>Temu Germany</h3>
+      <p>Budget finds, gadgets, fashion and home essentials at low prices.</p>
+      <a href="/shopping/temu-germany/" class="btn">Explore Deals</a>
+    </div>
+
+    <div class="card">
+      <img src="/assets/shopping/aliexpress.webp" alt="AliExpress Deals" />
+      <h3>AliExpress Deals</h3>
+      <p>Affordable electronics, accessories, fashion and more from global sellers.</p>
+      <a href="/shopping/aliexpress/" class="btn">Shop Now</a>
+    </div>
+
+    <div class="card">
+      <h3>More Deals Coming</h3>
+      <p>We are adding more shopping platforms soon. Stay tuned for new budget finds.</p>
+      <a href="/" class="btn">Back to Home</a>
+    </div>
+
+  </section>
+
+  <div class="footer">
+    © <span id="year"></span> GiftCardZoneEU
   </div>
 
-  <!-- FUTURE (EXPANDABLE) -->
-  <div class="card">
-    <h3>More Deals Coming</h3>
-    <p>We are adding more shopping platforms soon. Stay tuned for new budget finds.</p>
-    <a href="/" class="btn">Back to Home</a>
-  </div>
-
-</section>
-
-<!-- FOOTER -->
-<div class="footer">
-  © <span id="year"></span> GiftCardZoneEU
-</div>
-
-<script>
-document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>
