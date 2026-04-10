@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
@@ -25,7 +25,114 @@
 <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/travel/italy-hero.webp" />
 
 <style>
-    .city-grid {
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f7fa;
+  color: #111827;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.logo-link img {
+  width: 55px;
+  border-radius: 50%;
+}
+
+.hero {
+  position: relative;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #ffffff;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)),
+    url("/assets/travel/italy-hero.webp") center/cover no-repeat;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  padding: 20px;
+}
+
+.hero h1 {
+  font-size: 44px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin: 0;
+}
+
+.wrapper {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+}
+
+.card,
+.section {
+  background: #ffffff;
+  padding: 22px 28px;
+  border-radius: 18px;
+  margin-bottom: 20px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+
+.partners {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.btn {
+  display: block;
+  text-align: center;
+  padding: 14px;
+  border-radius: 12px;
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.agoda {
+  background: #20a39e;
+}
+
+.booking {
+  background: #003580;
+}
+
+.trip {
+  background: #027aff;
+}
+
+.city-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
@@ -37,6 +144,7 @@
   background: #ffffff;
   border-radius: 18px;
   overflow: hidden;
+  border: 1px solid #e5e7eb;
   box-shadow: 0 4px 15px rgba(0,0,0,0.08);
   text-decoration: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -62,15 +170,21 @@
   color: #111827;
 }
 
-.section {
-  background: #ffffff;
-  border-radius: 22px;
-  padding: 28px;
-  margin: 28px 0;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #666;
 }
 
 @media (max-width: 768px) {
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
   .city-grid {
     grid-template-columns: 1fr;
   }
@@ -78,125 +192,11 @@
   .city-card img {
     height: 220px;
   }
-}
-*{box-sizing:border-box}
-body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#f5f7fa;
-color:#111827;
-}
 
-.topbar{
-position:sticky;
-top:0;
-z-index:1000;
-display:flex;
-justify-content:center;
-padding:12px;
-background:#ffffff;
-border-bottom:1px solid #e5e7eb;
-}
-
-.logo-link img{
-width:55px;
-border-radius:50%;
-}
-
-.hero{
-position:relative;
-min-height:420px;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-color:#fff;
-}
-
-.hero::before{
-content:"";
-position:absolute;
-inset:0;
-background:
-linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.7)),
-url("/assets/travel/italy-hero.webp") center/cover no-repeat;
-}
-
-.hero-content{
-position:relative;
-z-index:1;
-max-width:800px;
-padding:20px;
-}
-
-.hero h1{
-font-size:44px;
-margin-bottom:10px;
-}
-
-.wrapper{
-max-width:1100px;
-margin:auto;
-padding:20px;
-}
-
-.card{
-background:#fff;
-padding:22px;
-border-radius:18px;
-margin-bottom:20px;
-border:1px solid #e5e7eb;
-}
-
-.partners{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:12px;
-}
-
-.btn{
-display:block;
-text-align:center;
-padding:14px;
-border-radius:12px;
-color:#fff;
-font-weight:bold;
-}
-
-.agoda{background:#20a39e}
-.booking{background:#003580}
-.trip{background:#027aff}
-
-.city-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:15px;
-margin-top:15px;
-}
-
-.city-card{
-background:#fff;
-border-radius:16px;
-overflow:hidden;
-border:1px solid #e5e7eb;
-}
-
-.city-card img{
-width:100%;
-height:180px;
-object-fit:cover;
-}
-
-.city-card p{
-padding:12px;
-font-weight:bold;
-text-align:center;
-}
-
-footer{
-text-align:center;
-padding:20px;
-color:#666;
+  .card,
+  .section {
+    padding: 20px;
+  }
 }
 </style>
 </head>
@@ -204,110 +204,103 @@ color:#666;
 <body>
 
 <div class="topbar">
-<a class="logo-link" href="/">
-<img src="/assets/gz-logo.png">
-</a>
+  <a class="logo-link" href="/">
+    <img src="/assets/gz-logo.png" alt="GiftCardZoneEU Logo">
+  </a>
 </div>
 
 <section class="hero">
-<div class="hero-content">
-<h1>Best Hotels in Italy 🇮🇹</h1>
-<p>Compare hotel deals in Rome, Milan, Venice and Florence with trusted travel partners.</p>
-</div>
+  <div class="hero-content">
+    <h1>Best Hotels in Italy 🇮🇹</h1>
+    <p>Compare hotel deals in Rome, Milan, Venice and Florence with trusted travel partners.</p>
+  </div>
 </section>
 
 <div class="wrapper">
 
-<div class="card">
-<h2>Top Travel Partners</h2>
-<div class="partners">
+  <div class="card">
+    <h2>Top Travel Partners</h2>
+    <div class="partners">
 
-<a class="btn agoda"
-href="https://www.agoda.com"
-target="_blank"
-rel="nofollow sponsored noopener noreferrer">
-Agoda
-</a>
+      <a class="btn agoda"
+         href="https://www.agoda.com"
+         target="_blank"
+         rel="nofollow sponsored noopener noreferrer">
+        Agoda
+      </a>
 
-<a class="btn booking"
-href="https://www.booking.com"
-target="_blank"
-rel="nofollow sponsored noopener noreferrer">
-Booking.com
-</a>
+      <a class="btn booking"
+         href="https://www.booking.com"
+         target="_blank"
+         rel="nofollow sponsored noopener noreferrer">
+        Booking.com
+      </a>
 
-<a class="btn trip"
-href="https://www.jdoqcy.com/click-101586981-13761944"
-target="_blank"
-rel="nofollow sponsored noopener noreferrer">
-Trip.com
-</a>
+      <a class="btn trip"
+         href="https://www.jdoqcy.com/click-101586981-13761944"
+         target="_blank"
+         rel="nofollow sponsored noopener noreferrer">
+        Trip.com
+      </a>
 
-</div>
-</div>
-    <section class="section">
-  <h2>Top Cities in Italy</h2>
-
-  <div class="city-grid">
-
-    <a class="city-card" href="/travel/italy/rome/">
-      <img src="/assets/travel/italy/rome.webp" alt="Rome, Italy">
-      <div class="city-name">Rome</div>
-    </a>
-
-    <a class="city-card" href="/travel/italy/milan/">
-      <img src="/assets/travel/italy/milan.webp" alt="Milan, Italy">
-      <div class="city-name">Milan</div>
-    </a>
-
-    <a class="city-card" href="/travel/italy/venice/">
-      <img src="/assets/travel/italy/venice.webp" alt="Venice, Italy">
-      <div class="city-name">Venice</div>
-    </a>
-
-    <a class="city-card" href="/travel/italy/florence/">
-      <img src="/assets/travel/italy/florence.webp" alt="Florence, Italy">
-      <div class="city-name">Florence</div>
-    </a>
-
+    </div>
   </div>
-</section>
 
-<div class="city-card">
-<img src="/assets/travel/italy/florence.webp">
-<p>Florence</p>
-</div>
+  <section class="section">
+    <h2>Top Cities in Italy</h2>
 
-</div>
-</div>
+    <div class="city-grid">
 
-<div class="card">
-<h2>Why Visit Italy?</h2>
-<p>
-Italy is one of the most popular travel destinations in the world, known for its rich history,
-beautiful cities, world-class food, and iconic landmarks like the Colosseum, canals of Venice,
-and the art of Florence.
-</p>
-</div>
+      <a class="city-card" href="/travel/italy/rome/">
+        <img src="/assets/travel/italy/rome.webp" alt="Rome, Italy">
+        <div class="city-name">Rome</div>
+      </a>
 
-<div class="card">
-<h2>Booking Tips</h2>
-<p>
-✔ Book early for peak seasons (June–August)<br>
-✔ Compare prices across platforms<br>
-✔ Choose central locations for convenience<br>
-✔ Check reviews before booking
-</p>
-</div>
+      <a class="city-card" href="/travel/italy/milan/">
+        <img src="/assets/travel/italy/milan.webp" alt="Milan, Italy">
+        <div class="city-name">Milan</div>
+      </a>
+
+      <a class="city-card" href="/travel/italy/venice/">
+        <img src="/assets/travel/italy/venice.webp" alt="Venice, Italy">
+        <div class="city-name">Venice</div>
+      </a>
+
+      <a class="city-card" href="/travel/italy/florence/">
+        <img src="/assets/travel/italy/florence.webp" alt="Florence, Italy">
+        <div class="city-name">Florence</div>
+      </a>
+
+    </div>
+  </section>
+
+  <div class="card">
+    <h2>Why Visit Italy?</h2>
+    <p>
+      Italy is one of the most popular travel destinations in the world, known for its rich history,
+      beautiful cities, world-class food, and iconic landmarks like the Colosseum, canals of Venice,
+      and the art of Florence.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Booking Tips</h2>
+    <p>
+      ✔ Book early for peak seasons (June–August)<br>
+      ✔ Compare prices across platforms<br>
+      ✔ Choose central locations for convenience<br>
+      ✔ Check reviews before booking
+    </p>
+  </div>
 
 </div>
 
 <footer>
-© <span id="year"></span> GiftCardZoneEU
+  © <span id="year"></span> GiftCardZoneEU
 </footer>
 
 <script>
-document.getElementById("year").textContent=new Date().getFullYear();
+document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 
 </body>
