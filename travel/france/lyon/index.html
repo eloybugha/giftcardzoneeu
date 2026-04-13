@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Best Hotels in Lyon | Where to Stay & Book Online</title>
+  <meta name="description" content="Find the best hotels in Lyon, France. Compare hotel deals with trusted travel platforms and explore top areas to stay in Lyon." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://giftcardzoneeu.com/travel/france/lyon/" />
+  <link rel="icon" href="/assets/gz-logo.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Best Hotels in Lyon | Where to Stay & Book Online" />
+  <meta property="og:description" content="Explore where to stay in Lyon, France. Compare hotel deals and discover top areas like Old Town, Bellecour, Fourvière and Rhône riverside districts." />
+  <meta property="og:url" content="https://giftcardzoneeu.com/travel/france/lyon/" />
+  <meta property="og:image" content="https://giftcardzoneeu.com/assets/travel/france/lyon/old-town.webp" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Best Hotels in Lyon | Where to Stay & Book Online" />
+  <meta name="twitter:description" content="Compare Lyon hotel deals and find the best areas to stay in this historic French city." />
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/travel/france/lyon/old-town.webp" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f8fa;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .topbar-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #111827;
+      font-weight: 700;
+    }
+
+    .logo img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #374151;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .hero {
+      min-height: 78vh;
+      background:
+        linear-gradient(rgba(8, 18, 40, 0.56), rgba(8, 18, 40, 0.62)),
+        url('/assets/travel/france/lyon/old-town.webp') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .hero-content {
+      max-width: 860px;
+      color: #fff;
+    }
+
+    .hero-content .eyebrow {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.22);
+      font-size: 13px;
+      letter-spacing: 0.3px;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .hero-content p {
+      font-size: 1.05rem;
+      max-width: 720px;
+      margin: 0 auto 28px;
+      color: #e5e7eb;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: #00aa6c;
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: #008f5b;
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.14);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.24);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.22);
+    }
+
+    .section {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 70px 20px;
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 14px;
+      color: #111827;
+    }
+
+    .section-intro {
+      max-width: 760px;
+      color: #4b5563;
+      margin-bottom: 28px;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      border: 1px solid #eef2f7;
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 18px;
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: #111827;
+    }
+
+    .card p {
+      font-size: 0.96rem;
+      color: #4b5563;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+      margin-top: 20px;
+    }
+
+    .info-box {
+      background: #fff;
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+      border: 1px solid #eef2f7;
+    }
+
+    .info-box h3 {
+      margin-bottom: 10px;
+      color: #111827;
+      font-size: 1.15rem;
+    }
+
+    .partners {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 22px;
+      margin-top: 28px;
+    }
+
+    .partner-card {
+      background: #fff;
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+      border: 1px solid #eef2f7;
+    }
+
+    .partner-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.15rem;
+      color: #111827;
+    }
+
+    .partner-card p {
+      color: #4b5563;
+      margin-bottom: 16px;
+    }
+
+    .partner-card a {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: #00aa6c;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .partner-card a:hover {
+      background: #008f5b;
+    }
+
+    .internal-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .internal-links a {
+      display: inline-block;
+      padding: 11px 16px;
+      border-radius: 999px;
+      background: #eef6f2;
+      color: #0f766e;
+      font-weight: 700;
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px 20px;
+      background: #ffffff;
+      border-top: 1px solid #e5e7eb;
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .topbar-inner {
+        gap: 12px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero {
+        min-height: 72vh;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="logo" href="https://giftcardzoneeu.com/">
+        <img src="/assets/gz-logo.png" alt="GiftCardZoneEU Logo" />
+        <span>GiftCardZoneEU</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="https://giftcardzoneeu.com/">Home</a>
+        <a href="https://giftcardzoneeu.com/travel/">Travel</a>
+        <a href="https://giftcardzoneeu.com/travel/france/">France</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <span class="eyebrow">France Travel Guide</span>
+      <h1>Best Hotels in Lyon</h1>
+      <p>
+        Discover where to stay in Lyon, from charming old-town streets to elegant central districts
+        and scenic riverside areas. Compare hotel options and plan a comfortable stay in one of France’s top cultural cities.
+      </p>
+
+      <div class="hero-buttons">
+        <a class="btn btn-primary" href="#book-hotels">Explore Hotel Options</a>
+        <a class="btn btn-secondary" href="https://giftcardzoneeu.com/travel/france/">France Travel Page</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Why Stay in Lyon?</h2>
+    <p class="section-intro">
+      Lyon is known for its food culture, historic neighborhoods, elegant squares, and riverside charm.
+      It is a strong choice for travelers who want a more relaxed French city experience while still enjoying culture, architecture, and excellent dining.
+    </p>
+
+    <div class="info-grid">
+      <div class="info-box">
+        <h3>Historic Character</h3>
+        <p>Ideal for visitors who enjoy classic European streets, old-world architecture, and scenic walking areas.</p>
+      </div>
+      <div class="info-box">
+        <h3>Food & Culture</h3>
+        <p>Lyon is one of France’s best-known food cities, making it perfect for culinary trips and weekend escapes.</p>
+      </div>
+      <div class="info-box">
+        <h3>Comfortable City Break</h3>
+        <p>A great option for couples, solo travelers, and business visitors who want a balanced city stay.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Top Areas to Stay in Lyon</h2>
+    <p class="section-intro">
+      These are some of the most popular areas to explore when choosing hotels in Lyon.
+    </p>
+
+    <div class="content-grid">
+      <article class="card">
+        <img src="/assets/travel/france/lyon/old-town.webp" alt="Hotels in Lyon Old Town" />
+        <div class="card-body">
+          <h3>Old Town</h3>
+          <p>A favorite area for historic streets, charming buildings, and a classic Lyon atmosphere.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="/assets/travel/france/lyon/bellecour.webp" alt="Hotels near Place Bellecour Lyon" />
+        <div class="card-body">
+          <h3>Bellecour</h3>
+          <p>Great for central access, shopping, dining, and easy movement across the city.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="/assets/travel/france/lyon/fourviere.webp" alt="Hotels near Fourviere Lyon" />
+        <div class="card-body">
+          <h3>Fourvière</h3>
+          <p>Known for elevated views, landmark churches, and a quieter setting above the city.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="/assets/travel/france/lyon/rhone.webp" alt="Hotels near Rhone River Lyon" />
+        <div class="card-body">
+          <h3>Rhône Riverside</h3>
+          <p>Perfect for scenic walks, modern stays, and visitors who enjoy open city views by the water.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Hotel Booking Tips for Lyon</h2>
+    <div class="info-grid">
+      <div class="info-box">
+        <h3>Pick the Right Area</h3>
+        <p>Central zones are convenient for shopping and dining, while older districts offer more atmosphere and character.</p>
+      </div>
+      <div class="info-box">
+        <h3>Compare Before Booking</h3>
+        <p>Checking multiple hotel platforms can help you spot better pricing, room choices, and location advantages.</p>
+      </div>
+      <div class="info-box">
+        <h3>Plan for Walkability</h3>
+        <p>Lyon is enjoyable on foot in many areas, so hotel location can greatly improve the overall travel experience.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="book-hotels">
+    <h2>Book Hotels with Trusted Travel Partners</h2>
+    <p class="section-intro">
+      Compare Lyon hotel options through trusted booking platforms. Palitan mo na lang links mo kung approved na.
+    </p>
+
+    <div class="partners">
+      <div class="partner-card">
+        <h3>Booking.com</h3>
+        <p>Browse a wide selection of hotels, apartments, and city stays in Lyon.</p>
+        <a href="#" target="_blank" rel="nofollow sponsored noopener noreferrer">Check Lyon Hotels</a>
+      </div>
+
+      <div class="partner-card">
+        <h3>Agoda</h3>
+        <p>Compare deals and property options for city breaks, short stays, and flexible travel plans.</p>
+        <a href="#" target="_blank" rel="nofollow sponsored noopener noreferrer">View Hotel Deals</a>
+      </div>
+
+      <div class="partner-card">
+        <h3>Trip.com</h3>
+        <p>Explore hotel choices and travel booking options for your Lyon itinerary.</p>
+        <a href="#" target="_blank" rel="nofollow sponsored noopener noreferrer">Explore Lyon Stays</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Explore More Travel Pages</h2>
+    <p class="section-intro">
+      Strengthen internal linking by connecting this city page to your main France and travel hub pages.
+    </p>
+
+    <div class="internal-links">
+      <a href="https://giftcardzoneeu.com/travel/">Travel Hub</a>
+      <a href="https://giftcardzoneeu.com/travel/france/">France Travel Page</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© <span id="year"></span> GiftCardZoneEU.com. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
