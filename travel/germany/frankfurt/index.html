@@ -1,88 +1,475 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Best Hotels in Frankfurt | Where to Stay & Book Online</title>
-<meta name="description" content="Discover where to stay in Frankfurt, Germany. Explore top areas and compare hotel options for your trip." />
-<meta name="robots" content="index, follow" />
-<link rel="canonical" href="https://giftcardzoneeu.com/travel/germany/frankfurt/" />
+  <title>Best Hotels in Frankfurt | Where to Stay & Book Online</title>
+  <meta name="description" content="Discover where to stay in Frankfurt, Germany. Explore top areas, travel tips, and hotel booking options for your trip." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://giftcardzoneeu.com/travel/germany/frankfurt/" />
 
-<link rel="icon" href="/assets/gz-logo.png" />
+  <link rel="icon" href="/assets/gz-logo.png" />
 
-<meta property="og:title" content="Best Hotels in Frankfurt">
-<meta property="og:description" content="Top areas and hotel tips for Frankfurt, Germany.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://giftcardzoneeu.com/travel/germany/frankfurt/">
-<meta property="og:image" content="https://giftcardzoneeu.com/assets/travel/germany/frankfurt-hero.webp">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Best Hotels in Frankfurt | Where to Stay & Book Online" />
+  <meta property="og:description" content="Explore the best areas to stay in Frankfurt and compare trusted hotel booking options." />
+  <meta property="og:url" content="https://giftcardzoneeu.com/travel/germany/frankfurt/" />
+  <meta property="og:image" content="https://giftcardzoneeu.com/assets/travel/germany/frankfurt-hero.webp" />
 
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Best Hotels in Frankfurt">
-<meta name="twitter:description" content="Find the best places to stay in Frankfurt.">
-<meta name="twitter:image" content="https://giftcardzoneeu.com/assets/travel/germany/frankfurt-hero.webp">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Best Hotels in Frankfurt | Where to Stay & Book Online" />
+  <meta name="twitter:description" content="Find the best places to stay in Frankfurt, Germany." />
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/travel/germany/frankfurt-hero.webp" />
 
-<style>
-body{margin:0;font-family:Arial;background:#f5f5f5;color:#222;}
-header{
-  background:url('/assets/travel/germany/frankfurt-hero.webp') center/cover no-repeat;
-  height:70vh;display:flex;align-items:center;justify-content:center;
-  text-align:center;color:#fff;
-}
-header h1{background:rgba(0,0,0,0.5);padding:20px;border-radius:10px;}
-section{max-width:900px;margin:auto;padding:40px 20px;}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;}
-.card img{width:100%;border-radius:8px;}
-.btn{display:inline-block;margin-top:15px;padding:12px 18px;background:#22c55e;color:#fff;text-decoration:none;border-radius:6px;}
-footer{text-align:center;padding:20px;background:#222;color:#aaa;}
-</style>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #1f2937;
+      background: #f8fafc;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .topbar-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .brand img {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      border-radius: 50%;
+      background: #fff;
+      padding: 4px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #e5e7eb;
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      min-height: 78vh;
+      background:
+        linear-gradient(rgba(15,23,42,0.62), rgba(15,23,42,0.70)),
+        url('/assets/travel/germany/frankfurt-hero.webp') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      color: #fff;
+    }
+
+    .hero-kicker {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.14);
+      font-size: 0.9rem;
+      letter-spacing: 0.2px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 4.8vw, 4.2rem);
+      line-height: 1.1;
+      margin: 0 0 16px;
+    }
+
+    .hero p {
+      font-size: 1.08rem;
+      max-width: 760px;
+      margin: 0 auto 28px;
+      color: #e5e7eb;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 10px;
+      font-weight: 700;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      background: #22c55e;
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: #16a34a;
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.22);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    .section {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 64px 20px;
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      margin: 0 0 14px;
+      color: #0f172a;
+    }
+
+    .section-intro {
+      max-width: 820px;
+      color: #475569;
+      margin-bottom: 28px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .info-card {
+      background: #fff;
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.07);
+      border: 1px solid #e5e7eb;
+    }
+
+    .info-card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      color: #111827;
+      font-size: 1.14rem;
+    }
+
+    .info-card p {
+      margin: 0;
+      color: #475569;
+    }
+
+    .city-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .city-card {
+      background: #fff;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      border: 1px solid #e5e7eb;
+    }
+
+    .city-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .city-card-content {
+      padding: 20px;
+    }
+
+    .city-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.15rem;
+      color: #0f172a;
+    }
+
+    .city-card p {
+      margin: 0;
+      color: #475569;
+      font-size: 0.98rem;
+    }
+
+    .cta-panel {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #fff;
+      border-radius: 22px;
+      padding: 34px 28px;
+      box-shadow: 0 14px 40px rgba(15,23,42,0.22);
+    }
+
+    .cta-panel h2,
+    .cta-panel h3,
+    .cta-panel p {
+      color: #fff;
+    }
+
+    .cta-panel p {
+      color: #dbeafe;
+      max-width: 760px;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 24px;
+    }
+
+    .mini-card {
+      background: #fff;
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.07);
+      border: 1px solid #e5e7eb;
+    }
+
+    .mini-card h3 {
+      margin: 0 0 10px;
+      color: #0f172a;
+      font-size: 1.08rem;
+    }
+
+    .mini-card p {
+      margin: 0;
+      color: #475569;
+    }
+
+    .footer {
+      background: #0f172a;
+      color: #cbd5e1;
+      padding: 28px 20px;
+      text-align: center;
+      margin-top: 24px;
+    }
+
+    @media (max-width: 900px) {
+      .info-grid,
+      .city-grid,
+      .mini-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      .hero {
+        min-height: 72vh;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
-<h1>Best Hotels in Frankfurt</h1>
-</header>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="https://giftcardzoneeu.com/">
+        <img src="/assets/gz-logo.png" alt="GiftCardZoneEU Logo" />
+        <span>GiftCardZoneEU</span>
+      </a>
 
-<section>
-<h2>Why Visit Frankfurt?</h2>
-<p>Frankfurt is Germany’s financial hub with modern skyscrapers, historic old town, and a major international airport. It’s perfect for business trips and city breaks.</p>
-</section>
+      <div class="nav-links">
+        <a href="/travel/germany/">Germany Travel</a>
+        <a href="/partners/trip-com-frankfurt/">Trip.com Frankfurt</a>
+        <a href="#hotels">Hotel Tips</a>
+      </div>
+    </div>
+  </div>
 
-<section>
-<h2>Best Areas to Stay</h2>
-<ul>
-<li><strong>Altstadt</strong> – historic center</li>
-<li><strong>Bahnhofsviertel</strong> – near train station</li>
-<li><strong>Westend</strong> – quiet and upscale</li>
-</ul>
-</section>
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-kicker">GiftCardZoneEU × Frankfurt Travel</div>
+      <h1>Best Hotels in Frankfurt | Where to Stay & Book Online</h1>
+      <p>
+        Explore one of Germany’s most important city destinations. Discover the best areas to stay in Frankfurt,
+        get practical travel tips, and compare trusted hotel booking options for your next trip.
+      </p>
+      <div class="hero-buttons">
+        <a class="btn btn-primary" href="/partners/trip-com-frankfurt/">Check Hotels on Trip.com</a>
+        <a class="btn btn-secondary" href="/travel/germany/">View Germany Travel</a>
+      </div>
+    </div>
+  </section>
 
-<section>
-<h2>Top Areas</h2>
-<div class="grid">
-<div class="card"><img src="/assets/travel/germany/frankfurt/altstadt.webp"></div>
-<div class="card"><img src="/assets/travel/germany/frankfurt/bahnhof.webp"></div>
-<div class="card"><img src="/assets/travel/germany/frankfurt/westend.webp"></div>
-</div>
-</section>
+  <section class="section">
+    <h2>Why Visit Frankfurt?</h2>
+    <p class="section-intro">
+      Frankfurt is Germany’s financial hub, known for its modern skyline, historic old town, international airport,
+      and excellent transport connections. It works well for business trips, short city breaks, and travelers exploring more of Germany.
+    </p>
 
-<section>
-<h2>Book Hotels in Frankfurt</h2>
-<a class="btn" href="/partners/trip-com-frankfurt/">Check Hotels on Trip.com</a>
-</section>
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>Modern Skyline</h3>
+        <p>Frankfurt stands out for its skyscrapers and urban energy, giving it a different feel from many other German cities.</p>
+      </div>
+      <div class="info-card">
+        <h3>Strong Travel Access</h3>
+        <p>The city is easy to reach thanks to Frankfurt Airport, major rail connections, and a central location for wider Germany travel.</p>
+      </div>
+      <div class="info-card">
+        <h3>Great Hotel Choice</h3>
+        <p>Visitors can choose from central old-town stays, practical station-area hotels, and more refined neighborhoods like Westend.</p>
+      </div>
+    </div>
+  </section>
 
-<section>
-<a class="btn" href="/travel/germany/">Back to Germany</a>
-</section>
+  <section class="section">
+    <h2>Best Areas to Stay in Frankfurt</h2>
+    <p class="section-intro">
+      These popular areas can help you choose the right base depending on your budget, travel style, and trip purpose.
+    </p>
 
-<footer>
-<p>© <span id="year"></span> GiftCardZoneEU</p>
-</footer>
+    <div class="city-grid">
+      <div class="city-card">
+        <img src="/assets/travel/germany/frankfurt/altstadt.webp" alt="Altstadt Frankfurt" />
+        <div class="city-card-content">
+          <h3>Altstadt</h3>
+          <p>Best for classic city views, historic streets, sightseeing, and staying close to Frankfurt’s old-town atmosphere.</p>
+        </div>
+      </div>
 
-<script>
-document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+      <div class="city-card">
+        <img src="/assets/travel/germany/frankfurt/bahnhof.webp" alt="Bahnhofsviertel Frankfurt" />
+        <div class="city-card-content">
+          <h3>Bahnhofsviertel</h3>
+          <p>Convenient for rail access, quick stopovers, and travelers who want a practical base near the main station.</p>
+        </div>
+      </div>
+
+      <div class="city-card">
+        <img src="/assets/travel/germany/frankfurt/westend.webp" alt="Westend Frankfurt" />
+        <div class="city-card-content">
+          <h3>Westend</h3>
+          <p>A quieter and more upscale district, ideal for visitors who want a more relaxed stay with elegant surroundings.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="hotels">
+    <div class="cta-panel">
+      <h2>Book Hotels in Frankfurt</h2>
+      <p>
+        Ready to plan your stay? Compare hotel options and travel deals using a trusted booking platform for Frankfurt.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="/partners/trip-com-frankfurt/">Check Frankfurt Deals</a>
+        <a class="btn btn-secondary" href="/travel/germany/">Back to Germany Guide</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>More Frankfurt Travel Tips</h2>
+    <div class="mini-grid">
+      <div class="mini-card">
+        <h3>Best Time to Visit</h3>
+        <p>Spring and early autumn are good seasons for city walks, museum visits, and exploring Frankfurt in milder weather.</p>
+      </div>
+      <div class="mini-card">
+        <h3>Who This Page Helps</h3>
+        <p>Useful for business travelers, short-stay visitors, couples, and anyone comparing the best areas to stay in Frankfurt.</p>
+      </div>
+      <div class="mini-card">
+        <h3>Smart Booking Flow</h3>
+        <p>Use this guide first, then move to your Trip.com Frankfurt page when you are ready to compare hotel deals and book.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="cta-panel">
+      <h3>Explore More Germany Travel Pages</h3>
+      <p>
+        Keep exploring Germany with more destination guides, city pages, and partner booking pages across your travel cluster.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="/travel/germany/">Germany Travel Hub</a>
+        <a class="btn btn-secondary" href="/partners/trip-com-frankfurt/">Trip.com Frankfurt</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> GiftCardZoneEU. Travel • Shopping • Rewards</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>
