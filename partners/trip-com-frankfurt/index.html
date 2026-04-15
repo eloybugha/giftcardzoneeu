@@ -4,28 +4,91 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Trip.com Frankfurt Hotels & Deals | GiftCardZoneEU</title>
-<meta name="description" content="Book Frankfurt hotels with Trip.com. Compare deals and plan your stay." />
+<title>Trip.com Frankfurt Hotels & Travel Deals | GiftCardZoneEU</title>
+<meta name="description" content="Find the best Frankfurt hotel deals and book your stay with Trip.com. Compare options and explore top areas." />
+<meta name="robots" content="index, follow" />
 <link rel="canonical" href="https://giftcardzoneeu.com/partners/trip-com-frankfurt/" />
 
-<meta property="og:title" content="Trip.com Frankfurt Hotels">
-<meta property="og:image" content="https://giftcardzoneeu.com/assets/travel/germany/frankfurt-hero.webp">
+<link rel="icon" href="/assets/gz-logo.png" />
+
+<meta property="og:title" content="Trip.com Frankfurt Hotels & Travel Deals">
+<meta property="og:description" content="Compare Frankfurt hotels and book with Trip.com.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://giftcardzoneeu.com/partners/trip-com-frankfurt/">
+<meta property="og:image" content="https://giftcardzoneeu.com/assets/partners/trip-com-frankfurt/frankfurt-hero.webp">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Trip.com Frankfurt Hotels">
+<meta name="twitter:description" content="Find the best Frankfurt hotel deals.">
+<meta name="twitter:image" content="https://giftcardzoneeu.com/assets/partners/trip-com-frankfurt/frankfurt-hero.webp">
 
 <style>
-body{margin:0;font-family:Arial;background:#f5f5f5;text-align:center;}
-header{background:url('/assets/travel/germany/frankfurt-hero.webp') center/cover;height:60vh;display:flex;align-items:center;justify-content:center;color:#fff;}
-.btn{display:inline-block;margin-top:20px;padding:12px 20px;background:#22c55e;color:#fff;text-decoration:none;border-radius:6px;}
+body{margin:0;font-family:Arial;background:#f8fafc;color:#222;}
+.topbar{background:#111;color:#fff;padding:12px 20px;}
+.topbar a{color:#fff;margin-right:15px;text-decoration:none;}
+
+header{
+  background:url('/assets/partners/trip-com-frankfurt/frankfurt-hero.webp') center/cover no-repeat;
+  height:70vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#fff;
+}
+header h1{
+  background:rgba(0,0,0,0.5);
+  padding:20px;
+  border-radius:10px;
+}
+
+section{max-width:900px;margin:auto;padding:40px 20px;}
+
+.btn{
+  display:inline-block;
+  padding:12px 20px;
+  background:#22c55e;
+  color:#fff;
+  text-decoration:none;
+  border-radius:6px;
+  margin-top:10px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+
+.card{
+  background:#fff;
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.card img{width:100%;height:160px;object-fit:cover;}
+.card h3{padding:10px;margin:0;}
+
+footer{text-align:center;padding:20px;background:#222;color:#aaa;}
 </style>
 </head>
 
 <body>
 
+<div class="topbar">
+  <a href="/">GiftCardZoneEU</a>
+  <a href="/travel/germany/">Germany Travel</a>
+  <a href="/travel/germany/frankfurt/">Frankfurt Guide</a>
+</div>
+
 <header>
-<h1>Trip.com Frankfurt Hotels & Deals</h1>
+  <h1>Trip.com Frankfurt Hotels & Deals</h1>
 </header>
 
 <section>
-<p>Compare Frankfurt hotel prices and book your stay with Trip.com.</p>
+<h2>Book Hotels in Frankfurt</h2>
+<p>Compare Frankfurt hotel prices and book your stay with Trip.com. Find deals across top areas in the city.</p>
 
 <a class="btn" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">
 Check Hotels on Trip.com
@@ -33,8 +96,46 @@ Check Hotels on Trip.com
 </section>
 
 <section>
+<h2>Top Areas to Stay</h2>
+
+<div class="grid">
+  <div class="card">
+    <img src="/assets/travel/germany/frankfurt/altstadt.webp">
+    <h3>Altstadt</h3>
+  </div>
+
+  <div class="card">
+    <img src="/assets/travel/germany/frankfurt/bahnhof.webp">
+    <h3>Bahnhofsviertel</h3>
+  </div>
+
+  <div class="card">
+    <img src="/assets/travel/germany/frankfurt/westend.webp">
+    <h3>Westend</h3>
+  </div>
+</div>
+</section>
+
+<section>
+<h2>Why Use Trip.com?</h2>
+<ul>
+<li>Wide selection of hotels</li>
+<li>Competitive pricing</li>
+<li>Easy booking process</li>
+</ul>
+</section>
+
+<section>
 <a class="btn" href="/travel/germany/frankfurt/">Back to Frankfurt Guide</a>
 </section>
+
+<footer>
+<p>© <span id="year"></span> GiftCardZoneEU</p>
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
