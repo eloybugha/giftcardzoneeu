@@ -14,15 +14,15 @@
   <meta property="og:title" content="12Go France Transport Booking | GiftCardZoneEU" />
   <meta property="og:description" content="Compare and book trains, buses, ferries and airport transfers across France with 12Go." />
   <meta property="og:url" content="https://giftcardzoneeu.com/partners/12go-france/" />
-  <meta property="og:image" content="https://giftcardzoneeu.com/partners/12go-france/assets/12go-hero.jpg" />
+  <meta property="og:image" content="https://giftcardzoneeu.com/assets/partners/12go-france/12go-hero.webp" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="France Train, Bus & Ferry Tickets | GiftCardZoneEU × 12Go" />
   <meta name="twitter:description" content="Travel across France with 12Go. Book trains, buses and ferries starting from GiftCardZoneEU." />
-  <meta name="twitter:image" content="https://giftcardzoneeu.com/partners/12go-france/assets/12go-hero.jpg" />
-  <!-- Favicon (adjust path if needed) -->
-  <link rel="icon" href="https://giftcardzoneeu.com/assets/favicon.png" />
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/partners/12go-france/12go-hero.webp" />
+
+  <link rel="icon" href="/assets/gz-logo.png" />
 
   <style>
     :root {
@@ -56,6 +56,10 @@
       color: var(--text-main);
       background-color: #020617;
       -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
     }
 
     .page {
@@ -99,13 +103,14 @@
     .hero__bg {
       position: absolute;
       inset: 0;
-      background-image: url("./assets/12go-hero.jpg");
+      background-image: url("/assets/partners/12go-france/12go-hero.webp");
       background-size: cover;
       background-position: center;
       transform: scale(1.05);
       filter: saturate(1.1) contrast(1.05) brightness(0.92);
       opacity: 0.75;
       z-index: -2;
+      animation: zoomBg 20s ease-in-out infinite alternate;
     }
 
     .hero__overlay {
@@ -115,6 +120,11 @@
         radial-gradient(circle at top, rgba(15, 23, 42, 0.18), transparent 60%),
         linear-gradient(to bottom right, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.90));
       z-index: -1;
+    }
+
+    @keyframes zoomBg {
+      from { transform: scale(1.05); }
+      to { transform: scale(1.12); }
     }
 
     .hero__content {
@@ -152,25 +162,32 @@
       display: inline-flex;
       align-items: center;
       gap: 12px;
-      padding: 6px 10px;
+      padding: 8px 12px;
       border-radius: var(--radius-pill);
       background: rgba(15, 23, 42, 0.88);
       border: 1px solid rgba(148, 163, 184, 0.55);
       box-shadow: 0 10px 25px rgba(15, 23, 42, 0.75);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .brand-lockup:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.85);
     }
 
     .brand-lockup__logo {
-      width: 28px;
-      height: 28px;
-      border-radius: 0.9rem;
-      background:
-        radial-gradient(circle at 0% 0%, #ffffff, #e5f3ff 26%, #bae6fd 48%, #38bdf8 70%, #0f172a 100%);
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.6),
-                  0 14px 30px rgba(15, 23, 42, 0.9);
+      box-shadow:
+        0 0 0 1px rgba(15, 23, 42, 0.18),
+        0 10px 24px rgba(15, 23, 42, 0.55);
       overflow: hidden;
+      flex-shrink: 0;
     }
 
     .brand-lockup__logo img {
@@ -333,7 +350,6 @@
       font-size: 13px;
       font-weight: 600;
       letter-spacing: 0.02em;
-      text-decoration: none;
       color: #0b1120;
       background: radial-gradient(circle at 0% 0%, #e0f2fe, #38bdf8);
       box-shadow:
@@ -343,6 +359,7 @@
       cursor: pointer;
       position: relative;
       overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .primary-cta span {
@@ -552,6 +569,14 @@
       display: none;
     }
 
+    footer {
+      padding: 0 24px 24px;
+      text-align: center;
+      color: #94a3b8;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
     @media (max-width: 640px) {
       .badge-row {
         display: none;
@@ -575,13 +600,11 @@
       <div class="hero__overlay" aria-hidden="true"></div>
 
       <div class="hero__content">
-        <!-- LEFT: Main copy & CTA -->
         <div>
           <div class="badge-row">
-            <div class="brand-lockup">
+            <a href="https://giftcardzoneeu.com/" class="brand-lockup" aria-label="Go to GiftCardZoneEU homepage">
               <div class="brand-lockup__logo">
-                <!-- GZ logo (update src if different path) -->
-                <img src="/assets/brand/gz-logo.svg" alt="GiftCardZoneEU logo" />
+                <img src="/assets/gz-logo.png" alt="GiftCardZoneEU logo" />
               </div>
               <div class="brand-lockup__text">
                 <span class="brand-lockup__label">Travel booking, made simple</span>
@@ -592,7 +615,7 @@
                   <span class="brand-pill"><span>France</span> routes</span>
                 </div>
               </div>
-            </div>
+            </a>
 
             <div class="trust-chip">
               <span class="trust-chip__dot"></span>
@@ -601,9 +624,9 @@
           </div>
 
           <div class="badge-row-mobile-only">
-            <div class="brand-lockup">
+            <a href="https://giftcardzoneeu.com/" class="brand-lockup" aria-label="Go to GiftCardZoneEU homepage">
               <div class="brand-lockup__logo">
-                <img src="/assets/brand/gz-logo.svg" alt="GiftCardZoneEU logo" />
+                <img src="/assets/gz-logo.png" alt="GiftCardZoneEU logo" />
               </div>
               <div class="brand-lockup__text">
                 <span class="brand-lockup__label">GiftCardZoneEU × 12Go</span>
@@ -611,7 +634,7 @@
                   <span>France transport</span>
                 </div>
               </div>
-            </div>
+            </a>
 
             <div class="trust-chip">
               <span class="trust-chip__dot"></span>
@@ -651,7 +674,7 @@
               class="primary-cta"
               href="https://www.tkqlhce.com/click-101586981-17115150"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="nofollow sponsored noopener noreferrer"
             >
               <span>Book France tickets on 12Go</span>
             </a>
@@ -680,7 +703,6 @@
           </p>
         </div>
 
-        <!-- RIGHT: Routes & FAQ -->
         <aside class="hero__side" aria-label="Popular France routes and FAQ">
           <div class="side-card">
             <div class="side-card__header">
@@ -775,16 +797,16 @@
           </div>
         </aside>
       </div>
-      <footer>
-  <p>12Go is a separate company. For booking support please contact 12Go Help Centre.</p>
-  <p>© <span id="year"></span> GiftCardZoneEU. All rights reserved.</p>
-</footer>
 
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+      <footer>
+        <p>12Go is a separate company. For booking support please contact 12Go Help Centre.</p>
+        <p>© <span id="year"></span> GiftCardZoneEU. All rights reserved.</p>
+      </footer>
     </section>
   </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
-
