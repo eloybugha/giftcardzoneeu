@@ -18,118 +18,140 @@
 <link rel="icon" href="/assets/gz-logo.png">
 
 <style>
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: system-ui;
-  background: #0b1220; /* ✅ FIXED */
+  font-family: system-ui, sans-serif;
+  background: #0b1220;
   color: #fff;
 }
 
-/* HEADER */
 header {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
 }
 
 .brand {
-  display:flex;
-  gap:10px;
-  text-decoration:none;
-  color:white;
+  display: flex;
+  gap: 10px;
+  text-decoration: none;
+  color: white;
 }
 
 .brandMark {
-  width:40px;
-  height:40px;
-  border-radius:50%;
-  background:linear-gradient(135deg,#00c3a3,#22c55e);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:bold;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg,#00c3a3,#22c55e);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
 }
 
 .tag {
-  font-size:12px;
+  font-size: 12px;
 }
 
-/* HERO */
 .hero {
-  border-radius:20px;
-  overflow:hidden;
-  margin:10px;
-  border:1px solid rgba(255,255,255,0.1);
+  margin: 10px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: #111827;
 }
 
 .heroInner {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:20px;
-  padding:20px;
-  background:rgba(0,0,0,0.4);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 20px;
+  align-items: center;
 }
 
 .heroCopy h1 {
-  font-size:26px;
+  font-size: 30px;
+  line-height: 1.2;
+  margin: 0 0 12px;
 }
 
 .heroCopy p {
-  font-size:14px;
-  color:#ddd;
+  font-size: 15px;
+  color: #d1d5db;
+  margin: 0 0 18px;
 }
 
 .btn {
-  display:inline-block;
-  padding:10px 15px;
-  border-radius:999px;
-  text-decoration:none;
-  margin-top:10px;
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 999px;
+  text-decoration: none;
+  margin-top: 10px;
+  margin-right: 10px;
+  font-weight: 600;
 }
 
 .btnPrimary {
-  background:#00c3a3;
-  color:black;
+  background: #00c3a3;
+  color: #081018;
 }
 
 .btnGhost {
-  border:1px solid #fff;
-  color:#fff;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #fff;
 }
 
-/* IMAGE ONLY HERE */
 .heroVisual {
-  border-radius:15px;
-  background:
-    linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)),
-    url("/partners/12go/assets/12go-hero.webp") center/cover no-repeat;
-  min-height:220px;
+  min-height: 320px;
+  border-radius: 16px;
+  background-image: url("/partners/12go/assets/12go-hero.webp");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #1f2937;
 }
 
-/* SECTION */
 .section {
-  background:#111827;
-  margin:10px;
-  padding:15px;
-  border-radius:15px;
+  background: #111827;
+  margin: 10px;
+  padding: 15px;
+  border-radius: 15px;
 }
 
 .routesGrid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+  gap: 10px;
 }
 
 .routeCard {
-  background:#1f2937;
-  padding:10px;
-  border-radius:10px;
+  background: #1f2937;
+  padding: 12px;
+  border-radius: 10px;
 }
 
 footer {
-  padding:15px;
-  font-size:12px;
+  padding: 15px;
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .heroInner {
+    grid-template-columns: 1fr;
+  }
+
+  .heroVisual {
+    min-height: 260px;
+  }
+
+  .heroCopy h1 {
+    font-size: 24px;
+  }
 }
 </style>
 </head>
@@ -148,10 +170,8 @@ footer {
   <div class="tag">✔ Partner</div>
 </header>
 
-<!-- HERO -->
 <section class="hero">
   <div class="heroInner">
-
     <div class="heroCopy">
       <h1>Book trains, buses & ferries in one place</h1>
       <p>Compare routes, prices and schedules with 12Go.</p>
@@ -159,31 +179,25 @@ footer {
       <a href="https://www.tkqlhce.com/click-101586981-17115164"
          class="btn btnPrimary"
          target="_blank"
-         rel="nofollow sponsored">
+         rel="nofollow sponsored noopener noreferrer">
          Book Now →
       </a>
-
-      <br>
 
       <a href="https://www.tkqlhce.com/click-101586981-17115164"
          class="btn btnGhost"
          target="_blank"
-         rel="nofollow sponsored">
+         rel="nofollow sponsored noopener noreferrer">
          View Routes
       </a>
     </div>
 
     <div class="heroVisual"></div>
-
   </div>
 </section>
 
-<!-- ROUTES -->
 <section class="section">
   <h2>Popular Routes</h2>
-
   <div class="routesGrid">
-
     <div class="routeCard">
       <strong>Bangkok → Chiang Mai</strong><br>
       Trains & buses
@@ -198,7 +212,6 @@ footer {
       <strong>Singapore → Malaysia</strong><br>
       Cross-border trips
     </div>
-
   </div>
 </section>
 
