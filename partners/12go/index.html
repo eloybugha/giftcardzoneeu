@@ -63,15 +63,18 @@ header {
   border-radius: 20px;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,0.1);
-  background: #111827;
+  background:
+    linear-gradient(rgba(8,16,24,0.18), rgba(8,16,24,0.32)),
+    url("/partners/12go/assets/12go-hero.webp") center/cover no-repeat;
 }
 
 .heroInner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  padding: 20px;
-  align-items: center;
+  display: block;
+  padding: 28px 24px;
+}
+
+.heroCopy {
+  max-width: 560px;
 }
 
 .heroCopy h1 {
@@ -82,7 +85,7 @@ header {
 
 .heroCopy p {
   font-size: 15px;
-  color: #d1d5db;
+  color: #e5e7eb;
   margin: 0 0 18px;
 }
 
@@ -104,16 +107,11 @@ header {
 .btnGhost {
   border: 1px solid rgba(255,255,255,0.25);
   color: #fff;
+  background: rgba(255,255,255,0.06);
 }
 
 .heroVisual {
-  min-height: 320px;
-  border-radius: 16px;
-  background-image: url("/partners/12go/assets/12go-hero.webp");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: #1f2937;
+  display: none;
 }
 
 .section {
@@ -141,16 +139,12 @@ footer {
 }
 
 @media (max-width: 768px) {
-  .heroInner {
-    grid-template-columns: 1fr;
-  }
-
-  .heroVisual {
-    min-height: 260px;
-  }
-
   .heroCopy h1 {
     font-size: 24px;
+  }
+
+  .heroInner {
+    padding: 22px 18px;
   }
 }
 </style>
@@ -190,8 +184,6 @@ footer {
          View Routes
       </a>
     </div>
-
-    <div class="heroVisual"></div>
   </div>
 </section>
 
