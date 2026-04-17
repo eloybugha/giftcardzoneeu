@@ -351,23 +351,16 @@
   }
   </script>
 </head>
+
 <body>
 
-  <header class="topbar">
-    <div class="topbar-inner">
-      <a href="https://giftcardzoneeu.com/" class="logo-wrap">
-        <img src="/assets/gz-logo.png" alt="GiftCardZoneEU Logo" />
-        <div class="logo-text">GiftCardZoneEU</div>
-      </a>
+<div id="header"></div>
 
-      <nav class="nav-links">
-        <a href="https://giftcardzoneeu.com/">Home</a>
-        <a href="https://giftcardzoneeu.com/travel/">Travel</a>
-        <a href="https://giftcardzoneeu.com/travel/germany/">Germany</a>
-        <a href="https://giftcardzoneeu.com/partners/">Partners</a>
-      </nav>
-    </div>
-  </header>
+<script>
+fetch('/assets/header.html')
+  .then(res => res.text())
+  .then(data => document.getElementById('header').innerHTML = data);
+</script>
 
   <section class="hero">
     <div class="hero-content">
