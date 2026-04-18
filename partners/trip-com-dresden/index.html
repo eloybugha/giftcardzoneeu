@@ -36,6 +36,7 @@
       background: #f5f7fa;
       color: #111;
       line-height: 1.6;
+      padding-bottom: 100px;
     }
 
     .topbar {
@@ -115,6 +116,13 @@
       margin: 0 auto 18px;
       font-size: 18px;
       max-width: 700px;
+    }
+
+    .compare-note {
+      margin: 0 auto 10px;
+      max-width: 720px;
+      font-size: 15px;
+      color: rgba(255,255,255,0.92);
     }
 
     .trust-line {
@@ -278,6 +286,30 @@
       font-weight: 700;
     }
 
+    .sticky-cta {
+      position: fixed;
+      left: 50%;
+      bottom: 14px;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #ff7a00, #e86800);
+      color: #fff;
+      text-decoration: none;
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 15px;
+      z-index: 9999;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.25);
+      white-space: nowrap;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: translateX(-50%) scale(1); }
+      50% { transform: translateX(-50%) scale(1.04); }
+      100% { transform: translateX(-50%) scale(1); }
+    }
+
     footer {
       background: #ffffff;
       border-top: 1px solid #e5e7eb;
@@ -311,6 +343,13 @@
       .section h2 {
         font-size: 28px;
       }
+
+      .sticky-cta {
+        width: calc(100% - 24px);
+        text-align: center;
+        font-size: 15px;
+        padding: 14px 16px;
+      }
     }
   </style>
 </head>
@@ -331,26 +370,28 @@
   </header>
 
   <section class="hero">
-  <div class="hero-content">
+    <div class="hero-content">
+      <div class="eyebrow">GiftCardZoneEU × Trip.com</div>
 
-    <div class="eyebrow">GiftCardZoneEU × Trip.com</div>
+      <h1>Trip.com Dresden Hotels & Travel Deals</h1>
 
-    <h1>Trip.com Dresden Hotels & Travel Deals</h1>
+      <p>
+        Find hotel deals in Dresden, explore top areas to stay, and book your trip with Trip.com using one clear and easy booking path.
+      </p>
 
-    <p>
-      Find hotel deals in Dresden, explore top areas to stay, and book your trip with Trip.com using one clear and easy booking path.
-    </p>
+      <p class="compare-note">
+        Compare hotel options and check deal availability before choosing the stay that fits your Dresden trip best.
+      </p>
 
-    <a href="https://www.jdoqocy.com/click-101586981-13761944" class="btn" rel="nofollow sponsored noopener noreferrer">
-      Check Dresden Deals Now
-    </a>
+      <a href="https://www.jdoqocy.com/click-101586981-13761944" class="btn" rel="nofollow sponsored noopener noreferrer">
+        Check Dresden Deals Now
+      </a>
 
-    <div class="trust-line">
-      ✔ Easy hotel search • ✔ Fast booking flow • ✔ Trusted travel platform
+      <div class="trust-line">
+        ✔ Easy hotel search • ✔ Fast booking flow • ✔ Trusted travel platform
+      </div>
     </div>
-
-  </div>
-</section>
+  </section>
 
   <section class="section">
     <h2>Book Dresden Hotels with Trip.com</h2>
@@ -450,6 +491,12 @@
   <footer>
     © <span id="year"></span> GiftCardZoneEU. Travel • Shopping • Rewards
   </footer>
+
+  <a href="https://www.jdoqocy.com/click-101586981-13761944"
+     class="sticky-cta"
+     rel="nofollow sponsored noopener noreferrer">
+    Check Dresden Deals Now
+  </a>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
