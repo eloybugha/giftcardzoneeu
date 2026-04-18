@@ -1,59 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-<url>
-<loc>https://giftcardzoneeu.com/</loc>
-<lastmod>2026-04-18</lastmod>
-</url>
-
-<url>
-<loc>https://giftcardzoneeu.com/privacy.html</loc>
-</url>
-
-<url>
-<loc>https://giftcardzoneeu.com/terms.html</loc>
-</url>
-
-<url>
-<loc>https://giftcardzoneeu.com/country/nl/apps/</loc>
-</url>
-
-<url>
-<loc>https://giftcardzoneeu.com/country/ph/</loc>
-</url>
-
-<url>
-<loc>https://giftcardzoneeu.com/country/us/</loc>
-</url>
-
-<url>
-<loc>https://giftcardzoneeu.com/country/de/</loc>
-</url>
-
-<url>
-<loc>https://giftcardzoneeu.com/country/global/</loc>
-</url>
-
-<!-- TRAVEL PAGES -->
-
-<url>
-<loc>https://giftcardzoneeu.com/travel/germany/</loc>
-</url>
-
-<url>
-<loc>https://giftcardzoneeu.com/travel/singapore/</loc>
-</url>
-
-<url>
-<loc>https://giftcardzoneeu.com/travel/belgium/</loc>
-</url>
-
-<url>
-<loc>https://giftcardzoneeu.com/travel/australia/</loc>
-</url>
-
-<url>
-<loc>https://giftcardzoneeu.com/travel/netherlands/</loc>
-</url>
-
+  <url>
+    <loc>https://giftcardzoneeu.com/</loc>
+    <lastmod>2026-04-16</lastmod>
+  </url>
+  <url>
+    <loc>https://giftcardzoneeu.com/privacy.html</loc>
+    <lastmod>2025-10-28</lastmod>
+  </url>
+  <url>
+    <loc>https://giftcardzoneeu.com/terms.html</loc>
+    <lastmod>2025-10-28</lastmod>
+  </url>
+  <url>
+    <loc>https://giftcardzoneeu.com/country/nl/apps/</loc>
+  </url>
+  <url>
+    <loc>https://giftcardzoneeu.com/country/ph/</loc>
+    <lastmod>2025-10-28</lastmod>
+  </url>
+  <url>
+    <loc>https://giftcardzoneeu.com/country/us/</loc>
+    <lastmod>2026-03-17</lastmod>
+  </url>
+  <url>
+    <loc>https://giftcardzoneeu.com/country/de/</loc>
+    <lastmod>2025-10-28</lastmod>
+  </url>
+  <url>
+    <loc>https://giftcardzoneeu.com/country/global/</loc>
+    <lastmod>2026-02-12</lastmod>
+  </url>
+  <url>
+    <loc>https://giftcardzoneeu.com/travel/germany/</loc>
+    <lastmod>2026-03-17</lastmod>
+  </url>
+  <url>
+    <loc>https://giftcardzoneeu.com/travel/singapore/</loc>
+    <lastmod>2026-04-18</lastmod>
+  </url>
+  <url>
+    <loc>https://giftcardzoneeu.com/travel/belgium/</loc>
+    <lastmod>2026-03-14</lastmod>
+  </url>
+  <url>
+    <loc>https://giftcardzoneeu.com/travel/australia/</loc>
+    <lastmod>2026-03-14</lastmod>
+  </url>
+  <url>
+    <loc>https://giftcardzoneeu.com/travel/netherlands/</loc>
+    <lastmod>2026-03-26</lastmod>
+  </url>
 </urlset>
