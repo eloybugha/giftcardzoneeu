@@ -1,581 +1,190 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Best Hotel Deals in Singapore | GiftCardZoneEU</title>
-  <meta name="description"
-        content="Find the best hotel deals in Singapore. Compare prices from Agoda, Booking.com, Trip.com, Hotels.com, Accor, and Motel 6 in one trusted place." />
-  <link rel="canonical" href="https://giftcardzoneeu.com/travel/singapore/" />
-  <meta name="robots" content="index, follow" />
+<title>Best Hotels in Singapore | Where to Stay & Book Online</title>
+<meta name="description" content="Find the best hotels in Singapore. Compare prices in Marina Bay, Orchard Road, Sentosa and more with trusted booking partners." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://giftcardzoneeu.com/travel/singapore/" />
 
-  <style>
-    :root {
-      --bg-dark: #050816;
-      --bg-card: rgba(8, 16, 40, 0.92);
-      --accent: #18a4ff;
-      --accent-soft: rgba(24, 164, 255, 0.18);
-      --text-main: #f5f7ff;
-      --text-muted: #c2c7dd;
-      --border-subtle: rgba(255, 255, 255, 0.08);
-      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.7);
-      --radius-xl: 22px;
-      --radius-pill: 999px;
-    }
+<link rel="icon" href="/assets/gz-logo.png" />
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<!-- Open Graph -->
+<meta property="og:title" content="Best Hotels in Singapore | GiftCardZoneEU">
+<meta property="og:description" content="Compare hotel deals in Singapore with trusted travel partners.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://giftcardzoneeu.com/travel/singapore/">
+<meta property="og:image" content="https://giftcardzoneeu.com/assets/travel/singapore/singapore-hero.webp">
 
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Roboto, sans-serif;
-      background: var(--bg-dark);
-      color: var(--text-main);
-      min-height: 100vh;
-    }
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Best Hotels in Singapore">
+<meta name="twitter:description" content="Find and book hotels in Singapore with trusted platforms.">
+<meta name="twitter:image" content="https://giftcardzoneeu.com/assets/travel/singapore/singapore-hero.webp">
 
-    .page-shell {
-      min-height: 100vh;
-      display: flex;
-      align-items: stretch;
-      justify-content: center;
-      padding: 18px;
-      position: relative;
-      overflow: hidden;
-      isolation: isolate;
-    }
+<script src="/assets/ga.js"></script>
 
-    /* HERO BACKGROUND */
-    .hero-bg {
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      background: #020617;
-    }
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f5f7fa;color:#111827}
 
-    .hero-bg::before {
-      content: "";
-      position: absolute;
-      inset: -40px;
-      background-image: url("singapore-hero.jpg");
-      background-size: cover;
-      background-position: center;
-      filter: blur(0px) brightness(0.55);
-      transform: scale(1.03);
-    }
-
-    .hero-bg::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top, rgba(46, 164, 255, 0.45), transparent 55%),
-                  radial-gradient(circle at bottom, rgba(15, 23, 42, 0.95), #020617 70%);
-      mix-blend-mode: soft-light;
-    }
-
-    /* MAIN CARD */
-    .card {
-      width: 100%;
-      max-width: 1120px;
-      background: linear-gradient(
-          135deg,
-          rgba(15, 23, 42, 0.98),
-          rgba(15, 23, 55, 0.96)
-        );
-      border-radius: 28px;
-      border: 1px solid rgba(148, 163, 184, 0.45);
-      box-shadow: var(--shadow-soft);
-      padding: 22px 22px 24px;
-      display: grid;
-      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
-      gap: 20px;
-      backdrop-filter: blur(16px);
-    }
-
-    @media (max-width: 880px) {
-      .card {
-        grid-template-columns: minmax(0, 1fr);
-        padding: 18px 16px 20px;
-      }
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 4px 11px;
-      border-radius: 999px;
-      background: rgba(15, 118, 255, 0.08);
-      border: 1px solid rgba(56, 189, 248, 0.4);
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 10px;
-    }
-
-    .pill-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #22c55e;
-      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.18);
-    }
-
-    h1 {
-      font-size: clamp(26px, 3.2vw, 34px);
-      line-height: 1.1;
-      margin-bottom: 10px;
-    }
-
-    h1 span {
-      color: #38bdf8;
-    }
-
-    .sub {
-      font-size: 14px;
-      color: var(--text-muted);
-      max-width: 480px;
-      margin-bottom: 16px;
-    }
-
-    .badges-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 16px;
-    }
-
-    .badge {
-      font-size: 11px;
-      padding: 6px 10px;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      background: rgba(15, 23, 42, 0.85);
-      color: var(--text-muted);
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      white-space: nowrap;
-    }
-
-    .badge-icon {
-      width: 14px;
-      height: 14px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 0, #a5f3fc, #0ea5e9);
-    }
-
-    .partners-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--text-muted);
-      margin: 4px 0 8px;
-    }
-
-    .partners-row {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px;
-      margin-bottom: 18px;
-    }
-
-    @media (max-width: 640px) {
-      .partners-row {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    .partner-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  padding: 9px 10px;
-  border-radius: 999px;
-  background: rgba(15, 23, 42, 0.95);
-  border: 1px solid rgba(148, 163, 184, 0.7);
-  color: var(--text-main);
-  font-size: 12px;
-  font-weight: 500;
-  text-decoration: none;
-  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.8);
-  transition: transform 0.14s ease, box-shadow 0.14s ease,
-  border-color 0.14s ease, background 0.14s ease;
-}
-.partner-btn span.tag {
-  font-size: 9px;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--text-muted);
+.topbar{
+position:sticky;top:0;z-index:1000;
+display:flex;justify-content:center;
+padding:12px;background:#fff;border-bottom:1px solid #eee
 }
 
-/* BRAND COLORS */
-.btn-agoda:hover {
-  border-color: #f7c325;
-  background: rgba(247,195,37,0.18);
-  box-shadow: 0 0 14px rgba(247,195,37,0.55);
+.logo-link img{
+width:54px;height:54px;border-radius:50%;
+box-shadow:0 6px 18px rgba(0,0,0,0.1)
 }
 
-.btn-booking:hover {
-  border-color: #003b95;
-  background: rgba(0,59,149,0.20);
-  box-shadow: 0 0 16px rgba(0,59,149,0.55);
+.hero{
+position:relative;
+min-height:360px;
+display:flex;align-items:center;justify-content:center;
+text-align:center;color:#fff
 }
 
-.btn-trip:hover {
-  border-color: #ff6a00;
-  background: rgba(255,106,0,0.20);
-  box-shadow: 0 0 16px rgba(255,106,0,0.55);
+.hero::before{
+content:"";
+position:absolute;inset:0;
+background:
+linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.7)),
+url("/assets/travel/singapore/singapore-hero.webp") center/cover no-repeat;
+z-index:0
 }
 
-.btn-hotels:hover {
-  border-color: #d10000;
-  background: rgba(209,0,0,0.20);
-  box-shadow: 0 0 16px rgba(209,0,0,0.55);
+.hero-content{position:relative;z-index:1;padding:20px}
+
+.hero h1{font-size:42px;margin-bottom:10px}
+.hero p{max-width:600px;margin:auto}
+
+.wrapper{max-width:1100px;margin:auto;padding:30px 20px}
+
+.section{
+background:#fff;padding:22px;border-radius:18px;
+margin-bottom:20px;border:1px solid #eee
 }
 
-.btn-accor:hover {
-  border-color: #c4a96a;
-  background: rgba(196,169,106,0.20);
-  box-shadow: 0 0 16px rgba(196,169,106,0.55);
+.section h2{margin-top:0}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px
 }
 
-.btn-motel6:hover {
-  border-color: #006ad4;
-  background: rgba(0,106,212,0.20);
-  box-shadow: 0 0 16px rgba(0,106,212,0.55);
+.card{
+background:#fff;border:1px solid #eee;
+border-radius:16px;overflow:hidden;
+text-align:center;font-weight:600
 }
 
-    .partner-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #facc15;
-    }
+.card img{
+width:100%;height:170px;object-fit:cover
+}
 
-    .trust-strip {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      align-items: center;
-      font-size: 11px;
-      color: var(--text-muted);
-      margin-bottom: 4px;
-    }
+.card p{padding:12px}
 
-    .trust-pill {
-      padding: 4px 8px;
-      border-radius: 999px;
-      border: 1px dashed rgba(148, 163, 184, 0.6);
-      background: rgba(15, 23, 42, 0.9);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
+.btn{
+display:block;padding:14px;
+border-radius:14px;color:#fff;
+text-align:center;font-weight:700
+}
 
-    .trust-pill strong {
-      color: var(--text-main);
-      font-weight: 500;
-    }
+.agoda{background:#20a39e}
+.booking{background:#003580}
+.trip{background:#027aff}
 
-    .tiny-seal {
-      width: 14px;
-      height: 14px;
-      border-radius: 4px;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 9px;
-      background: radial-gradient(circle at 30% 0, rgba(56, 189, 248, 0.4), rgba(15, 23, 42, 1));
-    }
-
-    .footnote {
-      font-size: 10px;
-      color: var(--text-muted);
-      opacity: 0.9;
-    }
-
-    /* RIGHT COLUMN */
-    .side {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .mini-card {
-      border-radius: 20px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      background: radial-gradient(circle at top, rgba(56, 189, 248, 0.16), rgba(15, 23, 42, 0.96));
-      padding: 12px 13px;
-      font-size: 12px;
-      color: var(--text-muted);
-    }
-
-    .mini-card h2 {
-      font-size: 13px;
-      margin-bottom: 6px;
-      color: var(--text-main);
-    }
-
-    .steps {
-      list-style: none;
-      display: grid;
-      gap: 6px;
-    }
-
-    .steps li {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 8px;
-      align-items: flex-start;
-    }
-
-    .step-index {
-      width: 18px;
-      height: 18px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.9);
-      font-size: 11px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-main);
-      margin-top: 2px;
-    }
-
-    .mini-card p {
-      margin-bottom: 3px;
-    }
-
-    .faq-list {
-      list-style: none;
-      display: grid;
-      gap: 6px;
-      font-size: 11px;
-    }
-
-    .faq-q {
-      color: var(--text-main);
-      font-weight: 500;
-    }
-
-    .tips-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 6px;
-      font-size: 11px;
-    }
-
-    @media (max-width: 880px) {
-      .tips-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .tips-grid div {
-      padding: 7px 8px;
-      border-radius: 14px;
-      border: 1px solid rgba(148, 163, 184, 0.45);
-      background: rgba(15, 23, 42, 0.96);
-    }
-
-    .tips-label {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--text-muted);
-      margin-bottom: 4px;
-    }
-
-    .footer {
-      margin-top: 8px;
-      padding-top: 8px;
-      border-top: 1px solid rgba(30, 64, 175, 0.7);
-      font-size: 10px;
-      color: var(--text-muted);
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 6px;
-      opacity: 0.95;
-    }
-  </style>
+.footer{text-align:center;margin:20px;color:#666}
+</style>
 </head>
+
 <body>
-  <div class="hero-bg"></div>
 
-  <main class="page-shell">
-    <section class="card">
-      <!-- LEFT -->
-      <div>
-        <div class="pill">
-          <span class="pill-dot"></span>
-          <span>Live hotel deal scanner · Singapore</span>
-        </div>
-
-        <h1>Unlock smarter stays in <span>Singapore</span></h1>
-        <p class="sub">
-          One clean page to compare trusted hotel sites for Singapore.
-          No fake coupons, no random pop-ups – just direct links to
-          real partners you already know.
-        </p>
-
-        <div class="badges-row">
-          <div class="badge">
-            <span class="badge-icon"></span>
-            <span>GiftCardZoneEU · Travel partner hub</span>
-          </div>
-          <div class="badge">
-            <span class="badge-icon"></span>
-            <span>Official links only – no resellers</span>
-          </div>
-          <div class="badge">
-            <span class="badge-icon"></span>
-            <span>Global coverage · SGD, USD &amp; more</span>
-          </div>
-        </div>
-
-        <p class="partners-label">Choose your trusted booking site</p>
-
-        <div class="partners-row">
-
-  <a class="partner-btn btn-agoda" href="https://giftcardzoneeu.com/go/agoda/" target="_blank" rel="noopener noreferrer">
-    <span class="partner-dot"></span>
-    <span>Agoda</span>
-    <span class="tag">Hotels &amp; stays</span>
-  </a>
-
-  <a class="partner-btn btn-booking" href="https://giftcardzoneeu.com/go/booking/" target="_blank" rel="noopener noreferrer">
-    <span class="partner-dot"></span>
-    <span>Booking.com</span>
-    <span class="tag">Worldwide stays</span>
-  </a>
-
-  <a class="partner-btn btn-trip" href="https://giftcardzoneeu.com/go/trip/" target="_blank" rel="noopener noreferrer">
-    <span class="partner-dot"></span>
-    <span>Trip.com</span>
-    <span class="tag">Asia-friendly deals</span>
-  </a>
-
-  <a class="partner-btn btn-hotels" href="https://giftcardzoneeu.com/go/hotels/" target="_blank" rel="noopener noreferrer">
-    <span class="partner-dot"></span>
-    <span>Hotels.com</span>
-    <span class="tag">Nights &amp; rewards</span>
-  </a>
-
-  <a class="partner-btn btn-accor" href="https://giftcardzoneeu.com/go/accor/" target="_blank" rel="noopener noreferrer">
-    <span class="partner-dot"></span>
-    <span>Accor</span>
-    <span class="tag">Hotel brands</span>
-  </a>
-
-  <a class="partner-btn btn-motel6" href="https://giftcardzoneeu.com/go/motel6/" target="_blank" rel="noopener noreferrer">
-    <span class="partner-dot"></span>
-    <span>Motel 6</span>
-    <span class="tag">Budget-friendly</span>
-  </a>
-
+<div class="topbar">
+<a href="https://giftcardzoneeu.com/" class="logo-link">
+<img src="/assets/gz-logo.png" alt="GZ Logo">
+</a>
 </div>
 
-        <div class="trust-strip">
-          <div class="trust-pill">
-            <span class="tiny-seal">GZ</span>
-            <strong>GiftCardZoneEU Partner Hub</strong>
-          </div>
-          <span>We connect you only to the official websites of each partner.</span>
-        </div>
-        <p class="footnote">
-          *Prices, availability and promos are shown on the partner’s own site. Always double-check details before you book.
-        </p>
-      </div>
+<section class="hero">
+<div class="hero-content">
+<h1>Best Hotels in Singapore 🇸🇬</h1>
+<p>Compare hotel deals in Marina Bay, Orchard Road, Sentosa and more with trusted booking partners.</p>
+</div>
+</section>
 
-      <!-- RIGHT -->
-      <aside class="side">
-        <div class="mini-card">
-          <h2>How this page works</h2>
-          <ul class="steps">
-            <li>
-              <span class="step-index">1</span>
-              <div>
-                <strong>Pick a booking site.</strong>
-                <p>Tap any button to open the official website in a new tab.</p>
-              </div>
-            </li>
-            <li>
-              <span class="step-index">2</span>
-              <div>
-                <strong>Search Singapore stays.</strong>
-                <p>Type your dates, guests and area – Marina Bay, Sentosa, Orchard, or your preferred neighbourhood.</p>
-              </div>
-            </li>
-            <li>
-              <span class="step-index">3</span>
-              <div>
-                <strong>Compare &amp; lock in.</strong>
-                <p>Check total price, taxes, and cancellation rules before confirming your booking.</p>
-              </div>
-            </li>
-          </ul>
-        </div>
+<main class="wrapper">
 
-        <div class="mini-card">
-          <h2>Is GiftCardZoneEU safe?</h2>
-          <ul class="faq-list">
-            <li>
-              <div class="faq-q">Do I book with you?</div>
-              <div>You never pay on GiftCardZoneEU. We simply send you to the official sites like Agoda or Booking.com to complete your booking there.</div>
-            </li>
-            <li>
-              <div class="faq-q">Why are these links special?</div>
-              <div>
-                Some links are affiliate links. It’s the same price for you, but the partner may reward our travel hub for sending the visit.
-              </div>
-            </li>
-            <li>
-              <div class="faq-q">Any hidden fees?</div>
-              <div>
-                No hidden fees from us. Always review the final total on the partner page, especially taxes &amp; service charges in Singapore.
-              </div>
-            </li>
-          </ul>
-        </div>
+<div class="section">
+<h2>Top Travel Partners</h2>
 
-        <div class="mini-card">
-          <div class="tips-label">Quick tips for Singapore stays</div>
-          <div class="tips-grid">
-            <div>
-              <strong>Watch the dates.</strong>
-              <p>Prices jump during big events and holidays. Adjust your dates by 1–2 nights to see cheaper options.</p>
-            </div>
-            <div>
-              <strong>Location vs. budget.</strong>
-              <p>Marina Bay is iconic but pricey. For value, check areas like Bugis, Little India, or Chinatown with good MRT access.</p>
-            </div>
-            <div>
-              <strong>Filter by reviews.</strong>
-              <p>Use “8+ rating” or “Very good” filters to quickly find reliable properties.</p>
-            </div>
-            <div>
-              <strong>Check cancellation rules.</strong>
-              <p>Some promos are non-refundable. If your plans might change, choose flexible options when possible.</p>
-            </div>
-          </div>
-        </div>
+<div class="grid">
+<a class="btn agoda" href="https://www.agoda.com" target="_blank" rel="nofollow sponsored noopener">Agoda</a>
+<a class="btn booking" href="https://www.booking.com" target="_blank" rel="nofollow sponsored noopener">Booking.com</a>
+<a class="btn trip" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener">Trip.com</a>
+</div>
+</div>
 
-        <div class="footer">
-          <span>© GiftCardZoneEU · Travel Partner Page – Singapore</span>
-          <span>Independent comparison hub · Not a travel agency.</span>
-        </div>
-      </aside>
-    </section>
-  </main>
+<div class="section">
+<h2>Top Areas to Stay in Singapore</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="/assets/travel/singapore/marina-bay.webp">
+<p>Marina Bay</p>
+</div>
+
+<div class="card">
+<img src="/assets/travel/singapore/orchard.webp">
+<p>Orchard Road</p>
+</div>
+
+<div class="card">
+<img src="/assets/travel/singapore/sentosa.webp">
+<p>Sentosa Island</p>
+</div>
+
+<div class="card">
+<img src="/assets/travel/singapore/chinatown.webp">
+<p>Chinatown</p>
+</div>
+
+</div>
+</div>
+
+<div class="section">
+<h2>Why Visit Singapore?</h2>
+<p>Singapore is one of Asia’s top travel destinations known for its modern skyline, luxury shopping, clean environment, and world-class attractions like Marina Bay Sands, Gardens by the Bay, and Sentosa Island.</p>
+</div>
+
+<div class="section">
+<h2>Hotel Booking Tips</h2>
+<p>✔ Book early for best prices<br>
+✔ Compare Agoda, Booking, Trip.com<br>
+✔ Stay near MRT stations<br>
+✔ Check free cancellation options</p>
+</div>
+
+<div class="section">
+<strong>Affiliate Disclosure:</strong>
+We may earn a small commission when you book through our links at no extra cost to you.
+</div>
+
+</main>
+
+<div class="footer">
+© <span id="year"></span> GiftCardZoneEU
+</div>
+
+<script>
+document.getElementById("year").textContent=new Date().getFullYear();
+</script>
+
 </body>
 </html>
