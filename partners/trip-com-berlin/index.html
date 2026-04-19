@@ -10,6 +10,7 @@
   <link rel="canonical" href="https://giftcardzoneeu.com/partners/trip-com-berlin/" />
 
   <link rel="icon" href="/assets/gz-logo.png" />
+  <script src="/assets/ga.js"></script>
 
   <!-- Open Graph -->
   <meta property="og:title" content="Trip.com Berlin Hotels & Travel Deals | GiftCardZoneEU" />
@@ -41,6 +42,7 @@
       background: #0b1220;
       color: #e5e7eb;
       line-height: 1.6;
+      padding-bottom: 110px;
     }
 
     a {
@@ -315,6 +317,51 @@
       color: #bbf7d0;
     }
 
+    .sticky-cta {
+      position: fixed;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 32px);
+      max-width: 760px;
+      z-index: 9999;
+    }
+
+    .sticky-cta a {
+      display: block;
+      text-align: center;
+      background: linear-gradient(135deg, #0f766e, #14b8a6);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 16px 22px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.22);
+      transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+      animation: pulse 2.2s infinite;
+    }
+
+    .sticky-cta a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 34px rgba(0,0,0,0.28);
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.22);
+      }
+      50% {
+        transform: scale(1.04);
+        box-shadow: 0 14px 38px rgba(0,0,0,0.28);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.22);
+      }
+    }
+
     @media (max-width: 980px) {
       .intro-grid,
       .tips-grid,
@@ -339,6 +386,19 @@
 
       .nav-links {
         width: 100%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .sticky-cta {
+        width: calc(100% - 20px);
+        bottom: 12px;
+      }
+
+      .sticky-cta a {
+        font-size: .95rem;
+        padding: 15px 18px;
+        border-radius: 14px;
       }
     }
   </style>
@@ -583,6 +643,12 @@
       &copy; <span id="year"></span> <a href="https://giftcardzoneeu.com/">GiftCardZoneEU</a>. All rights reserved.
     </p>
   </footer>
+
+  <div class="sticky-cta">
+    <a href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">
+      Check Berlin Deals Now
+    </a>
+  </div>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
