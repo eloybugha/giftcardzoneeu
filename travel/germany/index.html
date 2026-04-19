@@ -1,146 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Best Hotels in Germany | Where to Stay & Book Online</title>
-<meta name="description" content="Find the best hotel deals in Germany — Berlin, Munich, Frankfurt, Hamburg, Cologne and more via trusted travel partners." />
-<meta name="robots" content="index,follow" />
+<meta name="description" content="Compare hotel deals in Germany. Find the best hotels in Berlin, Munich, Frankfurt, and Hamburg with trusted travel partners." />
+<meta name="robots" content="index, follow" />
 <link rel="canonical" href="https://giftcardzoneeu.com/travel/germany/" />
 
 <link rel="icon" href="/assets/gz-logo.png" />
 <script src="/assets/ga.js"></script>
 
-<meta property="og:title" content="Best Hotels in Germany | GiftCardZoneEU" />
-<meta property="og:description" content="Compare hotel deals in Germany with trusted partners." />
-<meta property="og:image" content="https://giftcardzoneeu.com/assets/travel/germany/germany-hero.webp" />
-<meta property="og:url" content="https://giftcardzoneeu.com/travel/germany/" />
+<!-- Open Graph -->
+<meta property="og:title" content="Best Hotels in Germany">
+<meta property="og:description" content="Compare Germany hotel deals and book with trusted platforms.">
+<meta property="og:image" content="https://giftcardzoneeu.com/assets/travel/germany/germany-hero.webp">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://giftcardzoneeu.com/travel/germany/">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Best Hotels in Germany">
+<meta name="twitter:description" content="Find top hotels and compare deals across Germany.">
+<meta name="twitter:image" content="https://giftcardzoneeu.com/assets/travel/germany/germany-hero.webp">
 
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial;background:#f5f7fa}
-
-.topbar{
-position:sticky;top:0;z-index:1000;
-display:flex;justify-content:center;
-padding:12px;background:#fff;border-bottom:1px solid #eee;
-}
-.logo-link img{width:54px;height:54px;border-radius:50%}
-
-.hero{
-position:relative;min-height:420px;
-display:flex;align-items:center;justify-content:center;
-text-align:center;color:#fff;
-}
-.hero::before{
-content:"";
-position:absolute;inset:0;
-background:
-linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.7)),
-url("/assets/travel/germany/germany-hero.webp") center/cover;
-}
-.hero-content{position:relative;z-index:1;padding:20px}
-.hero h1{font-size:42px}
-.hero p{font-size:18px}
-
-.wrapper{max-width:1100px;margin:auto;padding:30px 20px}
-
-.section{
-background:#fff;padding:24px;border-radius:18px;
-margin-bottom:20px;border:1px solid #eee;
+body {
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:#f5f6f8;
+  padding-bottom:110px;
 }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:16px;
+/* NAV */
+.nav {
+  position:sticky;
+  top:0;
+  background:#fff;
+  padding:12px;
+  text-align:center;
+  z-index:999;
+}
+.nav img {
+  width:42px;
 }
 
-.card{
-border-radius:16px;overflow:hidden;border:1px solid #eee;
+/* HERO */
+.hero {
+  height:300px;
+  background:url('/assets/travel/germany/germany-hero.webp') center/cover;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#fff;
 }
-.card img{width:100%;height:180px;object-fit:cover}
-.card p{text-align:center;font-weight:700;padding:12px}
+.hero h1 {
+  font-size:2rem;
+  margin:0;
+}
+.hero p {
+  margin-top:10px;
+}
 
-.partner-btn{
-display:flex;justify-content:center;align-items:center;
-height:52px;border-radius:12px;font-weight:700;color:#fff;
+/* SECTION */
+.section {
+  background:#fff;
+  margin:20px;
+  padding:20px;
+  border-radius:16px;
 }
-.partner-btn:nth-child(1){background:#20a39e}
-.partner-btn:nth-child(2){background:#003580}
-.partner-btn:nth-child(3){background:#027aff}
 
-/* 🔥 STICKY CTA */
-.sticky-cta{
-position:fixed;
-bottom:16px;
-left:50%;
-transform:translateX(-50%);
-z-index:9999;
-width:calc(100% - 32px);
-max-width:520px;
+/* BUTTONS */
+.btn {
+  display:inline-block;
+  padding:14px;
+  border-radius:10px;
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
+  text-align:center;
 }
-.sticky-cta a{
-display:flex;
-align-items:center;
-justify-content:center;
-height:58px;
-border-radius:16px;
-font-weight:800;
-background:linear-gradient(135deg,#027aff,#0056d6);
-color:#fff;
-box-shadow:0 12px 30px rgba(2,122,255,0.35);
+
+.agoda { background:#1abc9c; }
+.booking { background:#0a3d91; }
+.trip { background:#1e88ff; }
+
+/* GRID */
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:15px;
 }
+
+/* CARD */
+.card {
+  background:#fff;
+  border-radius:12px;
+  overflow:hidden;
+  text-align:center;
+  box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
+.card img {
+  width:100%;
+  height:120px;
+  object-fit:cover;
+}
+
+/* STICKY CTA */
+.sticky-cta {
+  position: fixed;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  width: min(92%, 720px);
+  z-index: 9999;
+}
+.sticky-cta a {
+  display:block;
+  text-align:center;
+  padding:18px;
+  border-radius:20px;
+  background: linear-gradient(90deg,#1e88ff,#0057d9);
+  color:#fff;
+  font-weight:800;
+  text-decoration:none;
+  box-shadow:0 10px 30px rgba(0,0,0,0.25);
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="topbar">
-<a class="logo-link" href="https://giftcardzoneeu.com/">
-<img src="/assets/gz-logo.png">
-</a>
+<!-- NAV -->
+<div class="nav">
+<a href="/"><img src="/assets/gz-logo.png"></a>
 </div>
 
-<section class="hero">
-<div class="hero-content">
+<!-- HERO -->
+<div class="hero">
+<div>
 <h1>Best Hotels in Germany 🇩🇪</h1>
 <p>Compare hotel deals in Berlin, Munich, Frankfurt, Hamburg and more.</p>
 </div>
-</section>
+</div>
 
-<div class="wrapper">
-
+<!-- PARTNERS -->
 <div class="section">
 <h2>Top Travel Partners</h2>
 <div class="grid">
-<a class="partner-btn" href="https://www.agoda.com" target="_blank">Agoda</a>
-<a class="partner-btn" href="https://www.booking.com" target="_blank">Booking.com</a>
-<a class="partner-btn" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank">Trip.com</a>
+<a href="#" class="btn agoda">Agoda</a>
+<a href="#" class="btn booking">Booking.com</a>
+<a href="#" class="btn trip">Trip.com</a>
 </div>
 </div>
 
+<!-- CITIES -->
 <div class="section">
 <h2>Top Cities</h2>
+
 <div class="grid">
 
-<a class="card" href="https://www.jdoqocy.com/click-101586981-13761944">
+<a href="/travel/germany/berlin/" class="card">
 <img src="/assets/travel/germany/berlin/berlin-hero.webp">
 <p>Berlin</p>
 </a>
 
-<a class="card" href="https://www.jdoqocy.com/click-101586981-13761944">
+<a href="/travel/germany/munich/" class="card">
 <img src="/assets/travel/germany/munich/munich-hero.webp">
 <p>Munich</p>
 </a>
 
-<a class="card" href="https://www.jdoqocy.com/click-101586981-13761944">
+<a href="/travel/germany/frankfurt/" class="card">
 <img src="/assets/travel/germany/frankfurt/frankfurt-hero.webp">
 <p>Frankfurt</p>
 </a>
 
-<a class="card" href="https://www.jdoqocy.com/click-101586981-13761944">
+<a href="/travel/germany/hamburg/" class="card">
 <img src="/assets/travel/germany/hamburg/hamburg-hero.webp">
 <p>Hamburg</p>
 </a>
@@ -148,22 +186,23 @@ box-shadow:0 12px 30px rgba(2,122,255,0.35);
 </div>
 </div>
 
+<!-- TIPS -->
+<div class="section">
+<h2>Hotel Booking Tips</h2>
+<p>
+✔ Book early for best prices<br>
+✔ Compare Agoda, Booking, Trip.com<br>
+✔ Stay near city center<br>
+✔ Choose free cancellation
+</p>
 </div>
 
-<!-- 🔥 STICKY CTA -->
+<!-- STICKY CTA -->
 <div class="sticky-cta">
-<a href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank">
+<a href="https://www.jdoqocy.com/click-101586981-13761944">
 🔎 Check Germany Deals Now
 </a>
 </div>
-
-<footer style="text-align:center;padding:20px;color:#666;">
-© <span id="year"></span> GiftCardZoneEU
-</footer>
-
-<script>
-document.getElementById("year").textContent=new Date().getFullYear();
-</script>
 
 </body>
 </html>
