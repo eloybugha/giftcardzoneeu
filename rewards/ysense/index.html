@@ -10,6 +10,7 @@
   <link rel="canonical" href="https://giftcardzoneeu.com/rewards/ysense/" />
 
   <link rel="icon" href="/assets/gz-logo.png" />
+  <script src="/assets/ga.js"></script>
 
   <meta property="og:title" content="ySense Review | Earn Money from Surveys, Tasks & Offers" />
   <meta property="og:description" content="Explore ySense and see how users earn from surveys, tasks, and online offers through a flexible global rewards platform." />
@@ -24,401 +25,446 @@
   <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/rewards/ysense-hero.webp" />
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
+    html{
+      scroll-behavior:smooth;
     }
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f7fb;
-      color: #1f2937;
-      line-height: 1.6;
+    body{
+      font-family:Arial,sans-serif;
+      background:#f5f7fb;
+      color:#1f2937;
+      line-height:1.6;
     }
 
-    a {
-      text-decoration: none;
+    a{
+      text-decoration:none;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
+    img{
+      max-width:100%;
+      display:block;
     }
 
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid #e5e7eb;
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(255,255,255,0.95);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid #e5e7eb;
     }
 
-    .topbar-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 14px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    .topbar-inner{
+      max-width:1200px;
+      margin:0 auto;
+      padding:14px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
     }
 
-    .logo-wrap {
-      display: flex;
-      align-items: center;
-      gap: 12px;
+    .logo-wrap{
+      display:flex;
+      align-items:center;
+      gap:12px;
     }
 
-    .logo-wrap img {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    .logo-wrap img{
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      object-fit:cover;
+      box-shadow:0 4px 12px rgba(0,0,0,0.12);
     }
 
-    .logo-text {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: #0f172a;
-      letter-spacing: 0.2px;
+    .logo-text{
+      font-size:1.05rem;
+      font-weight:700;
+      color:#0f172a;
+      letter-spacing:0.2px;
     }
 
-    .nav-links {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
+    .nav-links{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
     }
 
-    .nav-links a {
-      color: #334155;
-      font-size: 0.95rem;
-      font-weight: 600;
+    .nav-links a{
+      color:#334155;
+      font-size:0.95rem;
+      font-weight:600;
     }
 
-    .nav-links a:hover {
-      color: #16a34a;
+    .nav-links a:hover{
+      color:#16a34a;
     }
 
-    .hero {
-      min-height: 88vh;
+    .hero{
+      min-height:88vh;
       background:
-        linear-gradient(rgba(10, 20, 35, 0.70), rgba(10, 20, 35, 0.78)),
+        linear-gradient(rgba(10,20,35,0.70), rgba(10,20,35,0.80)),
         url('/assets/rewards/ysense-hero.webp') center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 80px 20px;
-      color: #fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:80px 20px;
+      color:#fff;
     }
 
-    .hero-content {
-      max-width: 860px;
+    .hero-content{
+      max-width:900px;
     }
 
-    .hero-badge {
-      display: inline-block;
-      background: rgba(255,255,255,0.15);
-      border: 1px solid rgba(255,255,255,0.25);
-      color: #fff;
-      padding: 8px 14px;
-      border-radius: 999px;
-      font-size: 0.9rem;
-      margin-bottom: 18px;
+    .hero-badge{
+      display:inline-block;
+      background:rgba(255,255,255,0.15);
+      border:1px solid rgba(255,255,255,0.25);
+      color:#fff;
+      padding:8px 14px;
+      border-radius:999px;
+      font-size:0.9rem;
+      margin-bottom:18px;
+      font-weight:600;
     }
 
-    .hero h1 {
-      font-size: clamp(2.2rem, 5vw, 4rem);
-      line-height: 1.15;
-      margin-bottom: 18px;
+    .hero h1{
+      font-size:clamp(2.2rem, 5vw, 4rem);
+      line-height:1.15;
+      margin-bottom:18px;
     }
 
-    .hero p {
-      font-size: 1.08rem;
-      max-width: 760px;
-      margin: 0 auto 28px;
-      color: #e5e7eb;
+    .hero p{
+      font-size:1.08rem;
+      max-width:760px;
+      margin:0 auto 28px;
+      color:#e5e7eb;
     }
 
-    .hero-buttons {
-      display: flex;
-      gap: 14px;
-      justify-content: center;
-      flex-wrap: wrap;
+    .trust-line{
+      margin:-8px 0 24px;
+      font-size:0.95rem;
+      color:#d1fae5;
+      font-weight:600;
     }
 
-    .btn {
-      display: inline-block;
-      padding: 14px 24px;
-      border-radius: 999px;
-      font-weight: 700;
-      transition: 0.25s ease;
+    .hero-buttons{
+      display:flex;
+      gap:14px;
+      justify-content:center;
+      flex-wrap:wrap;
     }
 
-    .btn-primary {
-      background: #16a34a;
-      color: #fff;
-      box-shadow: 0 10px 24px rgba(22,163,74,0.25);
+    .btn{
+      display:inline-block;
+      padding:14px 24px;
+      border-radius:999px;
+      font-weight:700;
+      transition:0.25s ease;
     }
 
-    .btn-primary:hover {
-      background: #15803d;
-      transform: translateY(-2px);
+    .btn-primary{
+      background:#16a34a;
+      color:#fff;
+      box-shadow:0 10px 24px rgba(22,163,74,0.25);
     }
 
-    .btn-secondary {
-      background: rgba(255,255,255,0.12);
-      color: #fff;
-      border: 1px solid rgba(255,255,255,0.25);
+    .btn-primary:hover{
+      background:#15803d;
+      transform:translateY(-2px);
     }
 
-    .btn-secondary:hover {
-      background: rgba(255,255,255,0.2);
+    .btn-secondary{
+      background:rgba(255,255,255,0.12);
+      color:#fff;
+      border:1px solid rgba(255,255,255,0.25);
     }
 
-    .section {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 70px 20px;
+    .btn-secondary:hover{
+      background:rgba(255,255,255,0.2);
     }
 
-    .section-title {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 14px;
-      color: #0f172a;
+    .section{
+      max-width:1200px;
+      margin:0 auto;
+      padding:70px 20px;
     }
 
-    .section-subtitle {
-      text-align: center;
-      color: #64748b;
-      max-width: 760px;
-      margin: 0 auto 42px;
+    .section-title{
+      text-align:center;
+      font-size:2rem;
+      margin-bottom:14px;
+      color:#0f172a;
     }
 
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+    .section-subtitle{
+      text-align:center;
+      color:#64748b;
+      max-width:760px;
+      margin:0 auto 42px;
     }
 
-    .card {
-      background: #fff;
-      border-radius: 20px;
-      padding: 28px;
-      box-shadow: 0 10px 30px rgba(15,23,42,0.06);
-      border: 1px solid #e5e7eb;
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:24px;
     }
 
-    .card h3 {
-      margin-bottom: 12px;
-      color: #111827;
-      font-size: 1.2rem;
+    .card{
+      background:#fff;
+      border-radius:20px;
+      padding:28px;
+      box-shadow:0 10px 30px rgba(15,23,42,0.06);
+      border:1px solid #e5e7eb;
     }
 
-    .card p {
-      color: #475569;
-      font-size: 0.98rem;
+    .card h3{
+      margin-bottom:12px;
+      color:#111827;
+      font-size:1.2rem;
     }
 
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+    .card p{
+      color:#475569;
+      font-size:0.98rem;
     }
 
-    .step-card {
-      background: #ffffff;
-      border-radius: 18px;
-      padding: 24px;
-      border: 1px solid #e5e7eb;
-      box-shadow: 0 8px 24px rgba(15,23,42,0.05);
+    .center-cta{
+      text-align:center;
+      margin-top:24px;
     }
 
-    .step-number {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: #16a34a;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      margin-bottom: 16px;
+    .steps{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:20px;
     }
 
-    .info-wrap {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 28px;
-      align-items: stretch;
+    .step-card{
+      background:#ffffff;
+      border-radius:18px;
+      padding:24px;
+      border:1px solid #e5e7eb;
+      box-shadow:0 8px 24px rgba(15,23,42,0.05);
     }
 
-    .highlight-box {
-      background: linear-gradient(135deg, #0f172a, #1e293b);
-      color: #fff;
-      border-radius: 24px;
-      padding: 34px;
-      box-shadow: 0 15px 35px rgba(15,23,42,0.18);
+    .step-number{
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      background:#16a34a;
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      margin-bottom:16px;
     }
 
-    .highlight-box h2 {
-      margin-bottom: 16px;
-      font-size: 1.9rem;
+    .step-card h3{
+      margin-bottom:10px;
+      color:#111827;
+      font-size:1.08rem;
     }
 
-    .highlight-box p {
-      color: #dbeafe;
-      margin-bottom: 20px;
+    .step-card p{
+      color:#475569;
     }
 
-    .highlight-list {
-      display: grid;
-      gap: 12px;
-      margin-bottom: 24px;
+    .info-wrap{
+      display:grid;
+      grid-template-columns:1.1fr 0.9fr;
+      gap:28px;
+      align-items:stretch;
     }
 
-    .highlight-list div {
-      background: rgba(255,255,255,0.08);
-      padding: 12px 14px;
-      border-radius: 12px;
-      color: #f8fafc;
+    .highlight-box{
+      background:linear-gradient(135deg, #0f172a, #1e293b);
+      color:#fff;
+      border-radius:24px;
+      padding:34px;
+      box-shadow:0 15px 35px rgba(15,23,42,0.18);
     }
 
-    .cta-box {
-      background: #ffffff;
-      border-radius: 24px;
-      padding: 34px;
-      border: 1px solid #e5e7eb;
-      box-shadow: 0 10px 30px rgba(15,23,42,0.06);
+    .highlight-box h2{
+      margin-bottom:16px;
+      font-size:1.9rem;
     }
 
-    .cta-box h3 {
-      font-size: 1.7rem;
-      margin-bottom: 14px;
-      color: #0f172a;
+    .highlight-box p{
+      color:#dbeafe;
+      margin-bottom:20px;
     }
 
-    .cta-box p {
-      color: #475569;
-      margin-bottom: 22px;
+    .highlight-list{
+      display:grid;
+      gap:12px;
+      margin-bottom:24px;
     }
 
-    .mini-note {
-      margin-top: 14px;
-      font-size: 0.9rem;
-      color: #64748b;
+    .highlight-list div{
+      background:rgba(255,255,255,0.08);
+      padding:12px 14px;
+      border-radius:12px;
+      color:#f8fafc;
     }
 
-    .faq {
-      display: grid;
-      gap: 16px;
-      max-width: 900px;
-      margin: 0 auto;
+    .cta-box{
+      background:#ffffff;
+      border-radius:24px;
+      padding:34px;
+      border:1px solid #e5e7eb;
+      box-shadow:0 10px 30px rgba(15,23,42,0.06);
     }
 
-    .faq-item {
-      background: #fff;
-      border-radius: 18px;
-      padding: 22px 24px;
-      border: 1px solid #e5e7eb;
-      box-shadow: 0 8px 24px rgba(15,23,42,0.04);
+    .cta-box h3{
+      font-size:1.7rem;
+      margin-bottom:14px;
+      color:#0f172a;
     }
 
-    .faq-item h3 {
-      margin-bottom: 10px;
-      font-size: 1.08rem;
-      color: #111827;
+    .cta-box p{
+      color:#475569;
+      margin-bottom:22px;
     }
 
-    .faq-item p {
-      color: #475569;
+    .mini-note{
+      margin-top:14px;
+      font-size:0.9rem;
+      color:#64748b;
     }
 
-    .related-links {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+    .faq{
+      display:grid;
+      gap:16px;
+      max-width:900px;
+      margin:0 auto;
     }
 
-    .related-card {
-      background: #fff;
-      border: 1px solid #e5e7eb;
-      border-radius: 18px;
-      padding: 22px;
-      box-shadow: 0 8px 24px rgba(15,23,42,0.04);
+    .faq-item{
+      background:#fff;
+      border-radius:18px;
+      padding:22px 24px;
+      border:1px solid #e5e7eb;
+      box-shadow:0 8px 24px rgba(15,23,42,0.04);
     }
 
-    .related-card h3 {
-      margin-bottom: 10px;
-      color: #111827;
+    .faq-item h3{
+      margin-bottom:10px;
+      font-size:1.08rem;
+      color:#111827;
     }
 
-    .related-card p {
-      color: #475569;
-      margin-bottom: 12px;
-      font-size: 0.96rem;
+    .faq-item p{
+      color:#475569;
     }
 
-    .related-card a {
-      font-weight: 700;
-      color: #16a34a;
+    .related-links{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:20px;
     }
 
-    .footer {
-      background: #0f172a;
-      color: #cbd5e1;
-      text-align: center;
-      padding: 28px 20px;
-      margin-top: 40px;
+    .related-card{
+      background:#fff;
+      border:1px solid #e5e7eb;
+      border-radius:18px;
+      padding:22px;
+      box-shadow:0 8px 24px rgba(15,23,42,0.04);
     }
 
-    .footer a {
-      color: #86efac;
-      font-weight: 600;
+    .related-card h3{
+      margin-bottom:10px;
+      color:#111827;
     }
 
-    @media (max-width: 980px) {
+    .related-card p{
+      color:#475569;
+      margin-bottom:12px;
+      font-size:0.96rem;
+    }
+
+    .related-card a{
+      font-weight:700;
+      color:#16a34a;
+    }
+
+    .footer{
+      background:#0f172a;
+      color:#cbd5e1;
+      text-align:center;
+      padding:28px 20px 110px;
+      margin-top:40px;
+    }
+
+    .footer a{
+      color:#86efac;
+      font-weight:600;
+    }
+
+    .sticky-cta{
+      position:fixed;
+      bottom:15px;
+      left:50%;
+      transform:translateX(-50%);
+      z-index:9999;
+      width:92%;
+      max-width:520px;
+    }
+
+    .sticky-cta a{
+      display:block;
+      background:#16a34a;
+      color:#fff;
+      text-align:center;
+      padding:16px;
+      border-radius:50px;
+      font-weight:700;
+      font-size:16px;
+      box-shadow:0 8px 25px rgba(0,0,0,0.25);
+    }
+
+    @media (max-width:980px){
       .grid-3,
       .steps,
       .info-wrap,
-      .related-links {
-        grid-template-columns: 1fr;
+      .related-links{
+        grid-template-columns:1fr;
       }
 
-      .topbar-inner {
-        flex-direction: column;
-        gap: 12px;
+      .topbar-inner{
+        flex-direction:column;
       }
 
-      .nav-links {
-        justify-content: center;
+      .nav-links{
+        justify-content:center;
       }
     }
 
-    @media (max-width: 640px) {
-      .hero {
-        min-height: auto;
-        padding: 90px 18px 70px;
+    @media (max-width:640px){
+      .hero{
+        min-height:auto;
+        padding:90px 18px 70px;
       }
 
-      .hero h1 {
-        font-size: 2rem;
+      .hero h1{
+        font-size:2rem;
       }
 
-      .hero p {
-        font-size: 1rem;
+      .hero p{
+        font-size:1rem;
       }
 
-      .section {
-        padding: 56px 16px;
+      .section{
+        padding:56px 16px;
       }
 
       .card,
@@ -426,8 +472,12 @@
       .cta-box,
       .highlight-box,
       .faq-item,
-      .related-card {
-        padding: 22px;
+      .related-card{
+        padding:22px;
+      }
+
+      .footer{
+        padding-bottom:120px;
       }
     }
   </style>
@@ -453,12 +503,13 @@
   <section class="hero">
     <div class="hero-content">
       <div class="hero-badge">GiftCardZoneEU × Rewards</div>
-      <h1>ySense Review: Earn Money from Surveys, Tasks, and Online Offers</h1>
+      <h1>ySense Review: Earn Money from Surveys, Tasks & Offers</h1>
       <p>
-        ySense is a global rewards platform that lets users earn money through surveys,
-        microtasks, and online offers. It is a flexible option for people looking for
-        extra income opportunities from simple online activities.
+        Start earning online with flexible surveys, tasks, and offers. Compare earning methods and find the best way to maximize your rewards with ySense.
       </p>
+      <div class="trust-line">
+        ✔ Free to join • ✔ Global access • ✔ Multiple earning options
+      </div>
       <div class="hero-buttons">
         <a class="btn btn-primary" href="https://www.ysense.com/?rb=223744277" target="_blank" rel="nofollow sponsored noopener noreferrer">Join ySense</a>
         <a class="btn btn-secondary" href="#how-it-works">How It Works</a>
@@ -493,6 +544,10 @@
           The platform includes offer-based earning options that add variety for users who want more than one reward method.
         </p>
       </div>
+    </div>
+
+    <div class="center-cta">
+      <a class="btn btn-primary" href="https://www.ysense.com/?rb=223744277" target="_blank" rel="nofollow sponsored noopener noreferrer">Start Earning Today</a>
     </div>
   </section>
 
@@ -620,11 +675,22 @@
   </section>
 
   <footer class="footer">
-    <p>&copy; <span id="year"></span> <a href="https://giftcardzoneeu.com/">GiftCardZoneEU</a>. All rights reserved.</p>
+    <p>&copy; <span id="year">2026</span> <a href="https://giftcardzoneeu.com/">GiftCardZoneEU</a>. All rights reserved.</p>
   </footer>
 
+  <div class="sticky-cta">
+    <a href="https://www.ysense.com/?rb=223744277" target="_blank" rel="nofollow sponsored noopener noreferrer">
+      💰 Start Earning with ySense Now
+    </a>
+  </div>
+
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    document.addEventListener("DOMContentLoaded", function(){
+      var yearEl = document.getElementById("year");
+      if(yearEl){
+        yearEl.textContent = new Date().getFullYear();
+      }
+    });
   </script>
 
 </body>
