@@ -1,149 +1,368 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>UAE Hotel Deals | GiftCardZoneEU × Agoda</title>
-  <meta name="description" content="Find the best hotel deals in the UAE — Dubai, Abu Dhabi, Sharjah, and Ajman via Agoda Partners." />
-  <link rel="canonical" href="https://giftcardzoneeu.com/travel/uae/" />
+<title>Best Hotels in UAE | Where to Stay & Book Online</title>
+<meta name="description" content="Find the best hotels in the UAE. Compare prices in Dubai, Abu Dhabi, Sharjah, Ras Al Khaimah and more with trusted booking partners." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://giftcardzoneeu.com/travel/uae/" />
 
-  <style>
-    :root {
-      --bg: #020617;
-      --card-bg: rgba(15, 23, 42, 0.96);
-      --card-border: rgba(148, 163, 184, 0.4);
-      --text-main: #e5e7eb;
-      --text-muted: #9ca3af;
-      --accent: #38bdf8;
-      --accent-soft: rgba(56, 189, 248, 0.14);
-    }
+<link rel="icon" href="/assets/gz-logo.png" />
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+<!-- Open Graph -->
+<meta property="og:title" content="Best Hotels in UAE | GiftCardZoneEU">
+<meta property="og:description" content="Compare hotel deals in the UAE with trusted travel partners.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://giftcardzoneeu.com/travel/uae/">
+<meta property="og:image" content="https://giftcardzoneeu.com/assets/travel/uae/uae-hero.webp">
 
-    body {
-      background: var(--bg) url('https://images.unsplash.com/photo-1504275080171-4079d1c7a5f3?auto=format&fit=crop&w=1600&q=80') no-repeat center/cover;
-      color: var(--text-main);
-      font-family: system-ui, sans-serif;
-      min-height: 100vh;
-      padding-bottom: 60px;
-    }
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Best Hotels in UAE">
+<meta name="twitter:description" content="Find and book hotels in the UAE with trusted platforms.">
+<meta name="twitter:image" content="https://giftcardzoneeu.com/assets/travel/uae/uae-hero.webp">
 
-    .overlay {
-      background: rgba(2, 6, 23, 0.78);
-      min-height: 100vh;
-      padding: 25px;
-    }
+<script src="/assets/ga.js"></script>
 
-    header {
-      text-align: center;
-      margin: 20px 0 30px;
-    }
-    header h1 {
-      font-size: 2.4rem;
-      margin-bottom: 10px;
-    }
-    header p {
-      font-size: 1rem;
-      color: var(--text-muted);
-    }
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#f5f7fa;
+color:#111827;
+line-height:1.6
+}
 
-    .grid {
-      display: grid;
-      gap: 22px;
-      max-width: 880px;
-      margin: 0 auto;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    }
+a{text-decoration:none;color:inherit}
 
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      padding: 22px;
-      border-radius: 18px;
-      backdrop-filter: blur(4px);
-      transition: transform 0.25s ease;
-    }
-    .card:hover {
-      transform: translateY(-6px);
-    }
+.topbar{
+position:sticky;
+top:0;
+z-index:1000;
+display:flex;
+justify-content:center;
+padding:12px;
+background:#fff;
+border-bottom:1px solid #eee;
+box-shadow:0 2px 10px rgba(0,0,0,0.04)
+}
 
-    .card h3 {
-      font-size: 1.25rem;
-      margin-bottom: 12px;
-      color: var(--accent);
-    }
-    .card p {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      margin-bottom: 18px;
-      line-height: 1.45;
-    }
+.logo-link img{
+width:54px;
+height:54px;
+border-radius:50%;
+box-shadow:0 6px 18px rgba(0,0,0,0.1)
+}
 
-    a.button {
-      display: inline-block;
-      background: var(--accent-soft);
-      border: 1px solid var(--accent);
-      padding: 10px 16px;
-      color: var(--text-main);
-      border-radius: 10px;
-      text-decoration: none;
-      transition: background 0.25s;
-    }
-    a.button:hover {
-      background: var(--accent);
-    }
+.hero{
+position:relative;
+min-height:420px;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:#fff
+}
 
-    footer {
-      text-align: center;
-      margin-top: 45px;
-      color: var(--text-muted);
-      font-size: 0.85rem;
-    }
-  </style>
+.hero::before{
+content:"";
+position:absolute;
+inset:0;
+background:
+linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.7)),
+url("/assets/travel/uae/uae-hero.webp") center/cover no-repeat;
+z-index:0
+}
+
+.hero-content{
+position:relative;
+z-index:1;
+padding:20px;
+max-width:760px
+}
+
+.hero h1{
+font-size:42px;
+margin-bottom:12px;
+line-height:1.15
+}
+
+.hero p{
+max-width:680px;
+margin:0 auto 16px;
+font-size:17px
+}
+
+.hero-badge{
+display:inline-block;
+background:rgba(255,255,255,0.16);
+border:1px solid rgba(255,255,255,0.28);
+padding:8px 14px;
+border-radius:999px;
+font-size:14px;
+font-weight:700;
+margin-bottom:16px
+}
+
+.hero-cta{
+display:inline-block;
+margin-top:8px;
+background:#ff5a00;
+color:#fff;
+padding:14px 24px;
+border-radius:999px;
+font-weight:700;
+box-shadow:0 10px 25px rgba(0,0,0,0.2)
+}
+
+.wrapper{
+max-width:1100px;
+margin:auto;
+padding:30px 20px 100px
+}
+
+.section{
+background:#fff;
+padding:22px;
+border-radius:18px;
+margin-bottom:20px;
+border:1px solid #eee;
+box-shadow:0 6px 18px rgba(0,0,0,0.04)
+}
+
+.section h2{
+margin-top:0;
+margin-bottom:12px;
+font-size:26px
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px
+}
+
+.card{
+background:#fff;
+border:1px solid #eee;
+border-radius:16px;
+overflow:hidden;
+text-align:center;
+font-weight:600;
+transition:transform .2s ease, box-shadow .2s ease
+}
+
+.card:hover{
+transform:translateY(-4px);
+box-shadow:0 10px 22px rgba(0,0,0,0.08)
+}
+
+.card img{
+width:100%;
+height:170px;
+object-fit:cover;
+display:block
+}
+
+.card p{
+padding:12px;
+margin:0
+}
+
+.btn{
+display:block;
+padding:15px;
+border-radius:14px;
+color:#fff;
+text-align:center;
+font-weight:700;
+transition:opacity .2s ease, transform .2s ease
+}
+
+.btn:hover{
+opacity:.95;
+transform:translateY(-2px)
+}
+
+.agoda{background:#20a39e}
+.booking{background:#003580}
+.trip{background:#027aff}
+
+.tips-list{
+padding-left:18px;
+margin:0
+}
+
+.tips-list li{
+margin-bottom:8px
+}
+
+.disclosure{
+font-size:15px;
+color:#374151
+}
+
+.footer{
+text-align:center;
+margin:20px;
+color:#666
+}
+
+.sticky-cta{
+position:fixed;
+bottom:15px;
+left:50%;
+transform:translateX(-50%);
+z-index:9999;
+width:92%;
+max-width:520px
+}
+
+.sticky-cta a{
+display:block;
+background:#ff5a00;
+color:#fff;
+text-align:center;
+padding:16px;
+border-radius:50px;
+font-weight:700;
+font-size:16px;
+box-shadow:0 8px 25px rgba(0,0,0,0.22)
+}
+
+@media (max-width:768px){
+.hero{min-height:360px}
+.hero h1{font-size:32px}
+.hero p{font-size:15px}
+.section h2{font-size:22px}
+}
+</style>
 </head>
 
 <body>
-<div class="overlay">
-  
-  <header>
-    <h1>United Arab Emirates Hotel Deals</h1>
-    <p>Compare hotels in Dubai, Abu Dhabi, Sharjah and Ajman via Agoda Partners.</p>
-  </header>
 
-  <div class="grid">
+<div class="topbar">
+<a href="https://giftcardzoneeu.com/" class="logo-link">
+<img src="/assets/gz-logo.png" alt="GiftCardZoneEU Logo">
+</a>
+</div>
 
-    <div class="card">
-      <h3>Dubai</h3>
-      <p>Explore hotels near Burj Khalifa, Dubai Marina, Downtown, and top luxury shopping areas.</p>
-      <a class="button" href="https://www.agoda.com/partners/affiliate-search.html?cid=YOURID&city=Dubai">View Dubai deals →</a>
-    </div>
+<section class="hero">
+<div class="hero-content">
+<div class="hero-badge">GiftCardZoneEU × Trusted Travel Partners</div>
+<h1>Best Hotels in UAE 🇦🇪</h1>
+<p>Compare hotel prices across multiple platforms and find the best deals in Dubai, Abu Dhabi, Sharjah, Ras Al Khaimah and more.</p>
+<a href="https://www.jdoqocy.com/click-101586981-13761944" class="hero-cta" target="_blank" rel="nofollow sponsored noopener noreferrer">Compare UAE Hotel Deals</a>
+</div>
+</section>
 
-    <div class="card">
-      <h3>Abu Dhabi</h3>
-      <p>Find stays near the Corniche, Yas Island, Ferrari World, and major cultural attractions.</p>
-      <a class="button" href="https://www.agoda.com/partners/affiliate-search.html?cid=YOURID&city=Abu%20Dhabi">View Abu Dhabi deals →</a>
-    </div>
+<main class="wrapper">
 
-    <div class="card">
-      <h3>Sharjah</h3>
-      <p>Book hotels near museums, lagoon views, traditional markets and cultural heritage sites.</p>
-      <a class="button" href="https://www.agoda.com/partners/affiliate-search.html?cid=YOURID&city=Sharjah">View Sharjah deals →</a>
-    </div>
+<div class="section">
+<h2>Top Travel Partners</h2>
+<div class="grid">
+<a class="btn agoda" href="https://www.agoda.com" target="_blank" rel="nofollow sponsored noopener noreferrer">View Agoda Deals</a>
+<a class="btn booking" href="https://www.booking.com" target="_blank" rel="nofollow sponsored noopener noreferrer">Search on Booking.com</a>
+<a class="btn trip" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">Find Hotels on Trip.com</a>
+</div>
+</div>
 
-    <div class="card">
-      <h3>Ajman</h3>
-      <p>Compare Ajman beach resorts, quiet city stays, and family-friendly coastal hotels.</p>
-      <a class="button" href="https://www.agoda.com/partners/affiliate-search.html?cid=YOURID&city=Ajman">View Ajman deals →</a>
-    </div>
+<div class="section">
+<h2>Top Areas to Stay in UAE</h2>
+<div class="grid">
 
-  </div>
+<div class="card">
+<img src="/assets/travel/uae/dubai.webp" alt="Dubai hotels">
+<p>Dubai</p>
+</div>
 
-  <footer>
-    All bookings are securely processed on Agoda’s website.
-  </footer>
+<div class="card">
+<img src="/assets/travel/uae/abu-dhabi.webp" alt="Abu Dhabi hotels">
+<p>Abu Dhabi</p>
+</div>
+
+<div class="card">
+<img src="/assets/travel/uae/sharjah.webp" alt="Sharjah hotels">
+<p>Sharjah</p>
+</div>
+
+<div class="card">
+<img src="/assets/travel/uae/ras-al-khaimah.webp" alt="Ras Al Khaimah hotels">
+<p>Ras Al Khaimah</p>
+</div>
 
 </div>
+</div>
+
+<div class="section">
+<h2>Why Visit UAE?</h2>
+<p>The United Arab Emirates is known for its luxury hotels, modern skyline, desert adventures, shopping destinations, and iconic attractions like Burj Khalifa, Palm Jumeirah, Sheikh Zayed Grand Mosque, and world-class beach resorts.</p>
+<p><strong>Tip:</strong> Hotel prices in the UAE can vary depending on the platform and season. Compare Agoda, Booking.com, and Trip.com before booking to get the best deal.</p>
+</div>
+
+<div class="section">
+<h2>Hotel Booking Tips</h2>
+<ul class="tips-list">
+<li>Book early during peak seasons and holidays for better rates</li>
+<li>Compare Agoda, Booking.com, and Trip.com before choosing</li>
+<li>Stay near metro stations or major attractions for convenience</li>
+<li>Check free cancellation and breakfast inclusions</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>Best Time to Visit UAE</h2>
+<p>The best time to visit the UAE is from November to March when the weather is cooler and more comfortable for sightseeing, shopping, and outdoor activities. This is also the busiest season, so booking early is a smart move.</p>
+</div>
+
+<div class="section">
+<h2>Explore More Travel Pages</h2>
+
+<div class="grid">
+
+<a class="card" href="/travel/germany/">
+<p>🇩🇪 Germany Travel Guide</p>
+</a>
+
+<a class="card" href="/travel/belgium/">
+<p>🇧🇪 Belgium Travel Guide</p>
+</a>
+
+<a class="card" href="/travel/australia/">
+<p>🇦🇺 Australia Travel Guide</p>
+</a>
+
+<a class="card" href="/travel/singapore/">
+<p>🇸🇬 Singapore Travel Guide</p>
+</a>
+
+</div>
+</div>
+
+<div class="section disclosure">
+<strong>Affiliate Disclosure:</strong>
+We may earn a small commission when you book through our links at no extra cost to you.
+</div>
+
+</main>
+
+<div class="footer">
+© <span id="year"></span> GiftCardZoneEU
+</div>
+
+<div class="sticky-cta">
+<a href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">
+🔥 Check UAE Hotel Deals Now
+</a>
+</div>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
-
