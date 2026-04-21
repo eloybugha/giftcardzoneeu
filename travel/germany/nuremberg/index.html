@@ -10,232 +10,699 @@
 <link rel="canonical" href="https://giftcardzoneeu.com/travel/germany/nuremberg/" />
 
 <link rel="icon" href="/assets/gz-logo.png" />
-
 <script src="/assets/ga.js"></script>
 
 <!-- Open Graph -->
-<meta property="og:title" content="Nuremberg Travel Guide | Hotels & Tips">
-<meta property="og:description" content="Explore Nuremberg, Germany. Find hotels, travel tips, and best areas to stay.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://giftcardzoneeu.com/travel/germany/nuremberg/">
-<meta property="og:image" content="https://giftcardzoneeu.com/assets/travel/germany/nuremberg/nuremberg-hero.webp">
+<meta property="og:title" content="Nuremberg Travel Guide | Hotels & Tips" />
+<meta property="og:description" content="Explore Nuremberg, Germany. Find hotels, travel tips, and best areas to stay." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://giftcardzoneeu.com/travel/germany/nuremberg/" />
+<meta property="og:image" content="https://giftcardzoneeu.com/assets/travel/germany/nuremberg/nuremberg-hero.webp" />
+<meta property="og:site_name" content="GiftCardZoneEU" />
 
 <!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Nuremberg Travel Guide">
-<meta name="twitter:description" content="Find where to stay in Nuremberg and plan your Germany trip.">
-<meta name="twitter:image" content="https://giftcardzoneeu.com/assets/travel/germany/nuremberg/nuremberg-hero.webp">
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Nuremberg Travel Guide" />
+<meta name="twitter:description" content="Find where to stay in Nuremberg and plan your Germany trip." />
+<meta name="twitter:image" content="https://giftcardzoneeu.com/assets/travel/germany/nuremberg/nuremberg-hero.webp" />
 
 <style>
-body{margin:0;font-family:Arial;background:#0f172a;color:#fff}
-a{text-decoration:none}
+  *{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+  }
 
-.topbar{position:sticky;top:0;background:#0f172a;padding:12px 20px;z-index:999}
-.topbar img{height:40px}
+  html{
+    scroll-behavior:smooth;
+  }
 
-.hero{
-min-height:90vh;
-display:flex;
-align-items:center;
-background:
-linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),
-url('/assets/travel/germany/nuremberg/nuremberg-hero.webp') center/cover;
-}
+  body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#081535;
+    color:#ffffff;
+    line-height:1.6;
+  }
 
-.hero-inner{max-width:1100px;margin:auto;padding:40px}
-.hero h1{font-size:48px;margin-bottom:10px}
-.hero p{color:#ddd;margin-bottom:20px}
+  a{
+    text-decoration:none;
+  }
 
-.btn{
-display:inline-block;
-padding:14px 22px;
-border-radius:30px;
-font-weight:bold;
-}
+  img{
+    max-width:100%;
+    display:block;
+  }
 
-.btn-main{background:#22c55e;color:#000}
-.btn-alt{background:#1e293b;color:#fff;border:1px solid #334155}
+  .topbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(8,21,53,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
 
-.section{padding:60px 20px}
-.container{max-width:1100px;margin:auto}
+  .topbar-inner{
+    max-width:1200px;
+    margin:0 auto;
+    padding:14px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+  }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
+  .logo-wrap{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    color:#ffffff;
+    font-weight:700;
+  }
 
-.card{
-background:#fff;color:#000;border-radius:15px;overflow:hidden
-}
+  .logo-wrap img{
+    width:46px;
+    height:46px;
+    object-fit:contain;
+  }
 
-.card img{width:100%;height:200px;object-fit:cover}
-.card-content{padding:15px}
+  .top-links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:18px;
+  }
 
-.cta{
-background:#020617;
-text-align:center;
-padding:60px 20px;
-}
+  .top-links a{
+    color:#dbeafe;
+    font-size:0.95rem;
+  }
 
-footer{
-background:#020617;
-padding:20px;
-text-align:center;
-color:#aaa
-}
+  .top-links a:hover{
+    color:#ffffff;
+  }
+
+  .hero{
+    min-height:90vh;
+    display:flex;
+    align-items:center;
+    background:
+      linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.62)),
+      url('/assets/travel/germany/nuremberg/nuremberg-hero.webp') center/cover no-repeat;
+  }
+
+  .hero-inner{
+    max-width:1200px;
+    margin:0 auto;
+    width:100%;
+    padding:80px 20px;
+  }
+
+  .hero-content{
+    max-width:760px;
+  }
+
+  .eyebrow{
+    display:inline-block;
+    margin-bottom:16px;
+    padding:8px 14px;
+    border-radius:999px;
+    background:rgba(255,255,255,0.12);
+    color:#dbeafe;
+    font-size:0.9rem;
+    font-weight:700;
+  }
+
+  .hero h1{
+    font-size:clamp(2.4rem,5vw,4.6rem);
+    line-height:1.1;
+    margin-bottom:14px;
+  }
+
+  .hero p{
+    font-size:1.12rem;
+    color:#e5e7eb;
+    margin-bottom:26px;
+    max-width:700px;
+  }
+
+  .hero-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    margin-bottom:24px;
+  }
+
+  .btn{
+    display:inline-block;
+    padding:14px 22px;
+    border-radius:999px;
+    font-weight:700;
+    transition:0.25s ease;
+  }
+
+  .btn-main{
+    background:#22c55e;
+    color:#052e16;
+  }
+
+  .btn-main:hover{
+    background:#4ade80;
+    transform:translateY(-2px);
+  }
+
+  .btn-alt{
+    background:#1e3a5f;
+    color:#ffffff;
+    border:1px solid rgba(255,255,255,0.16);
+  }
+
+  .btn-alt:hover{
+    background:#27456f;
+    transform:translateY(-2px);
+  }
+
+  .hero-points{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:14px;
+    max-width:760px;
+  }
+
+  .hero-point{
+    background:rgba(255,255,255,0.10);
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:18px;
+    padding:14px 16px;
+    color:#f8fafc;
+    font-size:0.96rem;
+  }
+
+  .section{
+    padding:72px 20px;
+  }
+
+  .container{
+    max-width:1200px;
+    margin:0 auto;
+  }
+
+  .section h2{
+    font-size:clamp(1.9rem,3vw,2.8rem);
+    margin-bottom:16px;
+  }
+
+  .section-intro{
+    max-width:760px;
+    color:#dbeafe;
+    opacity:0.95;
+    margin-bottom:34px;
+    font-size:1.03rem;
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+  }
+
+  .card{
+    background:#ffffff;
+    color:#0f172a;
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:0 14px 40px rgba(0,0,0,0.20);
+  }
+
+  .card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+  }
+
+  .card-content{
+    padding:22px;
+  }
+
+  .card-content h3{
+    font-size:1.22rem;
+    margin-bottom:10px;
+  }
+
+  .card-content p{
+    color:#334155;
+    font-size:0.98rem;
+  }
+
+  .info-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+  }
+
+  .info-box{
+    background:#ffffff;
+    color:#0f172a;
+    padding:24px;
+    border-radius:22px;
+    box-shadow:0 12px 32px rgba(0,0,0,0.16);
+  }
+
+  .info-box h3{
+    margin-bottom:10px;
+    font-size:1.12rem;
+  }
+
+  .info-box p{
+    color:#334155;
+    font-size:0.98rem;
+  }
+
+  .cta-wrap{
+    background:#020817;
+    border-radius:28px;
+    padding:58px 26px;
+    text-align:center;
+    box-shadow:0 18px 50px rgba(0,0,0,0.24);
+  }
+
+  .cta-wrap h2{
+    margin-bottom:14px;
+  }
+
+  .cta-wrap p{
+    max-width:700px;
+    margin:0 auto 26px;
+    color:#e2e8f0;
+  }
+
+  .cta-buttons{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:14px;
+  }
+
+  .related-links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+  }
+
+  .related-links a{
+    background:rgba(255,255,255,0.10);
+    color:#ffffff;
+    padding:12px 18px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,0.14);
+  }
+
+  .related-links a:hover{
+    background:rgba(255,255,255,0.16);
+  }
+
+  footer{
+    background:#020617;
+    color:#cbd5e1;
+    padding:28px 20px 110px;
+    border-top:1px solid rgba(255,255,255,0.08);
+  }
+
+  .footer-inner{
+    max-width:1200px;
+    margin:0 auto;
+    display:flex;
+    justify-content:space-between;
+    gap:18px;
+    flex-wrap:wrap;
+    font-size:0.95rem;
+  }
+
+  .footer-inner a{
+    color:#ffffff;
+  }
+
+  /* STICKY CTA */
+  .sticky-cta{
+    position:fixed;
+    left:50%;
+    bottom:18px;
+    transform:translateX(-50%);
+    z-index:9999;
+    width:calc(100% - 24px);
+    max-width:720px;
+    background:rgba(2,6,23,0.92);
+    border:1px solid rgba(255,255,255,0.10);
+    box-shadow:0 12px 30px rgba(0,0,0,0.28);
+    backdrop-filter:blur(10px);
+    border-radius:18px;
+    padding:12px;
+  }
+
+  .sticky-cta-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+  }
+
+  .sticky-cta-text{
+    color:#ffffff;
+    font-size:0.95rem;
+    line-height:1.4;
+  }
+
+  .sticky-cta-text strong{
+    display:block;
+    font-size:1rem;
+    margin-bottom:2px;
+  }
+
+  .sticky-cta-btn{
+    display:inline-block;
+    white-space:nowrap;
+    background:#22c55e;
+    color:#052e16;
+    font-weight:700;
+    padding:14px 20px;
+    border-radius:999px;
+    transition:0.25s ease;
+  }
+
+  .sticky-cta-btn:hover{
+    background:#4ade80;
+    transform:translateY(-2px);
+  }
+
+  @media (max-width:1024px){
+    .grid,
+    .info-grid{
+      grid-template-columns:1fr 1fr;
+    }
+  }
+
+  @media (max-width:640px){
+    .topbar-inner{
+      flex-direction:column;
+      align-items:flex-start;
+    }
+
+    .hero{
+      min-height:auto;
+    }
+
+    .hero-inner{
+      padding:64px 20px;
+    }
+
+    .grid,
+    .info-grid{
+      grid-template-columns:1fr;
+    }
+
+    .hero-buttons,
+    .cta-buttons,
+    .related-links{
+      flex-direction:column;
+      align-items:stretch;
+    }
+
+    .btn,
+    .related-links a{
+      text-align:center;
+    }
+
+    .sticky-cta{
+      bottom:10px;
+      width:calc(100% - 16px);
+      padding:10px;
+      border-radius:16px;
+    }
+
+    .sticky-cta-inner{
+      flex-direction:column;
+      align-items:stretch;
+    }
+
+    .sticky-cta-text{
+      font-size:0.92rem;
+      text-align:center;
+    }
+
+    .sticky-cta-btn{
+      text-align:center;
+      width:100%;
+    }
+
+    footer{
+      padding-bottom:130px;
+    }
+  }
 </style>
 
-</head>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebPage",
+  "name":"Nuremberg Travel Guide | Hotels, Tips & Where to Stay",
+  "url":"https://giftcardzoneeu.com/travel/germany/nuremberg/",
+  "description":"Plan your Nuremberg trip. Discover where to stay, best time to visit, top attractions, and compare hotel deals with trusted travel partners.",
+  "publisher":{
+    "@type":"Organization",
+    "name":"GiftCardZoneEU",
+    "url":"https://giftcardzoneeu.com/"
+  },
+  "mainEntity":{
+    "@type":"Place",
+    "name":"Nuremberg",
+    "address":{
+      "@type":"PostalAddress",
+      "addressCountry":"DE"
+    }
+  }
+}
+</script>
 
+</head>
 <body>
 
-<!-- TOPBAR -->
-<div class="topbar">
-<a href="https://giftcardzoneeu.com/">
-<img src="/assets/gz-logo.png">
-</a>
-</div>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="logo-wrap" href="https://giftcardzoneeu.com/">
+      <img src="/assets/gz-logo.png" alt="GiftCardZoneEU logo">
+      <span>GiftCardZoneEU</span>
+    </a>
 
-<!-- HERO -->
+    <nav class="top-links">
+      <a href="https://giftcardzoneeu.com/">Home</a>
+      <a href="https://giftcardzoneeu.com/travel/">Travel</a>
+      <a href="https://giftcardzoneeu.com/travel/germany/">Germany Travel</a>
+    </nav>
+  </div>
+</header>
+
 <section class="hero">
-<div class="hero-inner">
-<h1>Nuremberg Travel Guide</h1>
-<p>Explore medieval charm, history, and top travel spots in Nuremberg, Germany.</p>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="eyebrow">GiftCardZoneEU × Nuremberg Travel</div>
+      <h1>Nuremberg Travel Guide</h1>
+      <p>
+        Explore medieval charm, history, and top travel spots in Nuremberg, Germany.
+        Find where to stay, what to see, and compare hotel deals for your trip.
+      </p>
 
-<a href="#hotels" class="btn btn-main">Check Nuremberg Deals</a>
-<a href="#areas" class="btn btn-alt">Explore Areas</a>
-</div>
+      <div class="hero-buttons">
+        <a href="#hotels" class="btn btn-main">Check Nuremberg Deals</a>
+        <a href="#areas" class="btn btn-alt">Explore Areas</a>
+      </div>
+
+      <div class="hero-points">
+        <div class="hero-point">Historic old town atmosphere</div>
+        <div class="hero-point">Great for Christmas market trips</div>
+        <div class="hero-point">Strong Germany cluster destination</div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- WHY VISIT -->
 <section class="section">
-<div class="container">
-<h2>Why Visit Nuremberg?</h2>
-<p>
-Nuremberg is one of Germany’s most historic cities, known for its medieval old town,
-castle views, and famous Christmas markets. It offers a mix of culture, history,
-and walkable streets perfect for travelers.
-</p>
-</div>
+  <div class="container">
+    <h2>Why Visit Nuremberg?</h2>
+    <p class="section-intro">
+      Nuremberg is one of Germany’s most historic cities, known for its medieval old town,
+      castle views, and famous Christmas markets. It offers a mix of culture, history,
+      and walkable streets perfect for travelers.
+    </p>
+
+    <div class="info-grid">
+      <div class="info-box">
+        <h3>Historic Appeal</h3>
+        <p>Nuremberg stands out for its medieval charm, old walls, and cultural landmarks that make it one of Germany’s most memorable city breaks.</p>
+      </div>
+
+      <div class="info-box">
+        <h3>Easy to Explore</h3>
+        <p>The city center is very walkable, making it convenient for first-time visitors who want sightseeing, food, and shopping close together.</p>
+      </div>
+
+      <div class="info-box">
+        <h3>Evergreen Travel Intent</h3>
+        <p>This page strengthens your Germany travel cluster with a destination that has both year-round appeal and seasonal search potential.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- BEST TIME -->
 <section class="section">
-<div class="container">
-<h2>Best Time to Visit</h2>
-<p>
-✔ December – Christmas Market season (peak travel)<br>
-✔ Spring & Fall – best weather + fewer crowds<br>
-✔ Summer – festivals and outdoor exploring
-</p>
-</div>
+  <div class="container">
+    <h2>Best Time to Visit</h2>
+    <p class="section-intro">
+      Nuremberg is worth visiting throughout the year, but some seasons are especially popular depending on your travel style.
+    </p>
+
+    <div class="info-grid">
+      <div class="info-box">
+        <h3>December</h3>
+        <p>Christmas Market season brings festive lights, seasonal food, and one of the most famous holiday markets in Europe.</p>
+      </div>
+
+      <div class="info-box">
+        <h3>Spring &amp; Fall</h3>
+        <p>These months are ideal for comfortable weather, pleasant walking conditions, and fewer crowds than peak summer travel.</p>
+      </div>
+
+      <div class="info-box">
+        <h3>Summer</h3>
+        <p>Great for outdoor exploring, sightseeing, and longer city breaks when you want more daylight for your itinerary.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- AREAS -->
 <section id="areas" class="section">
-<div class="container">
-<h2>Best Areas to Stay in Nuremberg</h2>
+  <div class="container">
+    <h2>Best Areas to Stay in Nuremberg</h2>
+    <p class="section-intro">
+      Choosing the right area can improve your trip. These neighborhoods are popular for convenience, sightseeing, and local atmosphere.
+    </p>
 
-<div class="grid">
+    <div class="grid">
+      <div class="card">
+        <img src="/assets/travel/germany/nuremberg/altstadt.webp" alt="Altstadt Nuremberg" />
+        <div class="card-content">
+          <h3>Altstadt (Old Town)</h3>
+          <p>Best for first-time visitors. Close to landmarks, restaurants, and shopping.</p>
+        </div>
+      </div>
 
-<div class="card">
-<img src="/assets/travel/germany/nuremberg/altstadt.webp">
-<div class="card-content">
-<h3>Altstadt (Old Town)</h3>
-<p>Best for first-time visitors. Close to landmarks, restaurants, and shopping.</p>
-</div>
-</div>
+      <div class="card">
+        <img src="/assets/travel/germany/nuremberg/mitte.webp" alt="Mitte Nuremberg" />
+        <div class="card-content">
+          <h3>Mitte</h3>
+          <p>Central location with easy access to transport and attractions.</p>
+        </div>
+      </div>
 
-<div class="card">
-<img src="/assets/travel/germany/nuremberg/mitte.webp">
-<div class="card-content">
-<h3>Mitte</h3>
-<p>Central location with easy access to transport and attractions.</p>
-</div>
-</div>
-
-<div class="card">
-<img src="/assets/travel/germany/nuremberg/gostenhof.webp">
-<div class="card-content">
-<h3>Gostenhof</h3>
-<p>Creative district with cafes, local vibe, and nightlife.</p>
-</div>
-</div>
-
-</div>
-
-</div>
+      <div class="card">
+        <img src="/assets/travel/germany/nuremberg/gostenhof.webp" alt="Gostenhof Nuremberg" />
+        <div class="card-content">
+          <h3>Gostenhof</h3>
+          <p>Creative district with cafés, local atmosphere, and nightlife.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- HIGHLIGHTS -->
 <section class="section">
-<div class="container">
-<h2>Top Things to Do</h2>
+  <div class="container">
+    <h2>Top Things to Do</h2>
+    <p class="section-intro">
+      Nuremberg combines classic landmarks, festive culture, and museums that help make it one of Germany’s strongest city destinations.
+    </p>
 
-<div class="grid">
+    <div class="grid">
+      <div class="card">
+        <img src="/assets/travel/germany/nuremberg/castle.webp" alt="Nuremberg Castle" />
+        <div class="card-content">
+          <h3>Nuremberg Castle</h3>
+          <p>Iconic landmark with amazing city views.</p>
+        </div>
+      </div>
 
-<div class="card">
-<img src="/assets/travel/germany/nuremberg/castle.webp">
-<div class="card-content">
-<h3>Nuremberg Castle</h3>
-<p>Iconic landmark with amazing city views.</p>
-</div>
-</div>
+      <div class="card">
+        <img src="/assets/travel/germany/nuremberg/market.webp" alt="Nuremberg Christmas Market" />
+        <div class="card-content">
+          <h3>Christmas Market</h3>
+          <p>One of the most famous markets in Europe.</p>
+        </div>
+      </div>
 
-<div class="card">
-<img src="/assets/travel/germany/nuremberg/market.webp">
-<div class="card-content">
-<h3>Christmas Market</h3>
-<p>One of the most famous markets in Europe.</p>
-</div>
-</div>
-
-<div class="card">
-<img src="/assets/travel/germany/nuremberg/museum.webp">
-<div class="card-content">
-<h3>Historical Museums</h3>
-<p>Explore Germany’s deep history and culture.</p>
-</div>
-</div>
-
-</div>
-
-</div>
+      <div class="card">
+        <img src="/assets/travel/germany/nuremberg/museum.webp" alt="Nuremberg museum" />
+        <div class="card-content">
+          <h3>Historical Museums</h3>
+          <p>Explore Germany’s deep history and culture.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- HOTEL CTA -->
-<section id="hotels" class="cta">
-<h2>Compare Nuremberg Hotel Deals</h2>
-<p>Find the best hotel prices using trusted travel platforms.</p>
+<section id="hotels" class="section">
+  <div class="container">
+    <div class="cta-wrap">
+      <h2>Compare Nuremberg Hotel Deals</h2>
+      <p>
+        Find the best hotel prices using trusted travel platforms and compare options for your Germany trip.
+      </p>
 
-<br>
-
-<a href="#" class="btn btn-main">Search Hotels (Booking)</a>
-<a href="#" class="btn btn-main">View Deals (Agoda)</a>
-<a href="https://www.jdoqocy.com/click-101586981-13761944" class="btn btn-main">Find Hotels (Trip.com)</a>
-
+      <div class="cta-buttons">
+        <a href="#" class="btn btn-main" rel="nofollow sponsored noopener noreferrer">Search Hotels (Booking)</a>
+        <a href="#" class="btn btn-main" rel="nofollow sponsored noopener noreferrer">View Deals (Agoda)</a>
+        <a href="https://www.jdoqocy.com/click-101586981-13761944" class="btn btn-main" target="_blank" rel="nofollow sponsored noopener noreferrer">Find Hotels (Trip.com)</a>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- MORE LINKS -->
 <section class="section">
-<div class="container">
-<h2>Explore More</h2>
+  <div class="container">
+    <h2>Explore More</h2>
+    <p class="section-intro">
+      Continue exploring Germany travel destinations and related booking pages from GiftCardZoneEU.
+    </p>
 
-<a href="/travel/germany/">Germany Travel</a><br>
-<a href="/travel/germany/berlin/">Berlin</a><br>
-<a href="/travel/germany/munich/">Munich</a>
-
-</div>
+    <div class="related-links">
+      <a href="https://giftcardzoneeu.com/travel/germany/">Germany Travel</a>
+      <a href="https://giftcardzoneeu.com/travel/germany/berlin/">Berlin</a>
+      <a href="https://giftcardzoneeu.com/travel/germany/munich/">Munich</a>
+      <a href="https://giftcardzoneeu.com/travel/">Travel Hub</a>
+    </div>
+  </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-© <span id="year"></span> GiftCardZoneEU
+  <div class="footer-inner">
+    <div>© <span id="year"></span> GiftCardZoneEU</div>
+    <div><a href="https://giftcardzoneeu.com/">Back to Homepage</a></div>
+  </div>
 </footer>
 
+<!-- STICKY CTA -->
+<div class="sticky-cta">
+  <div class="sticky-cta-inner">
+    <div class="sticky-cta-text">
+      <strong>Compare Nuremberg hotel prices</strong>
+      Check trusted travel deals for your Germany trip.
+    </div>
+    <a href="https://www.jdoqocy.com/click-101586981-13761944" class="sticky-cta-btn" target="_blank" rel="nofollow sponsored noopener noreferrer">
+      Check Nuremberg Deals Now
+    </a>
+  </div>
+</div>
+
 <script>
-document.getElementById("year").textContent = new Date().getFullYear();
+  document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 
 </body>
