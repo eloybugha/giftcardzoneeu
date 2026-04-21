@@ -14,209 +14,718 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="Best Hotels in Germany | Where to Stay & Book Online" />
-  <meta property="og:description" content="Compare hotel deals in Germany and find top places to stay." />
+  <meta property="og:description" content="Compare hotel deals in Germany and find top places to stay in Berlin, Munich, Frankfurt, and Hamburg." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://giftcardzoneeu.com/travel/germany/" />
   <meta property="og:image" content="https://giftcardzoneeu.com/assets/travel/germany/germany-hero.webp" />
 
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Best Hotels in Germany | Where to Stay & Book Online" />
+  <meta name="twitter:description" content="Compare Germany hotel deals and discover top cities to stay." />
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/travel/germany/germany-hero.webp" />
+
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: #f3f5f8;
       color: #1f2937;
+      line-height: 1.6;
       padding-bottom: 120px;
     }
 
-    a { text-decoration: none; }
+    a {
+      text-decoration: none;
+    }
 
     .navbar {
       position: sticky;
       top: 0;
-      background: #fff;
-      padding: 12px;
+      z-index: 1000;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #e5e7eb;
+      padding: 12px 20px;
       text-align: center;
-      border-bottom: 1px solid #eee;
     }
 
-    .navbar img { width: 44px; }
+    .navbar img {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      display: inline-block;
+      vertical-align: middle;
+    }
 
     .hero {
-      min-height: 420px;
+      position: relative;
+      min-height: 440px;
       background:
-        linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.6)),
-        url('/assets/travel/germany/germany-hero.webp') center/cover;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      color:#fff;
-      padding:40px;
+        linear-gradient(rgba(18, 24, 38, 0.45), rgba(18, 24, 38, 0.60)),
+        url('/assets/travel/germany/germany-hero.webp') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      padding: 60px 20px;
     }
 
-    .hero h1 { font-size:2.5rem; margin-bottom:10px; }
+    .hero-content {
+      max-width: 900px;
+    }
+
+    .hero h1 {
+      margin: 0 0 14px;
+      font-size: 3rem;
+      line-height: 1.15;
+      font-weight: 800;
+    }
+
+    .hero p {
+      margin: 0 auto 24px;
+      max-width: 760px;
+      font-size: 1.15rem;
+      opacity: 0.98;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .hero-btn {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .hero-btn:hover {
+      transform: translateY(-2px);
+      opacity: 0.96;
+    }
+
+    .hero-btn.primary {
+      background: linear-gradient(90deg, #1677ff, #0057d9);
+      color: #fff;
+      box-shadow: 0 10px 24px rgba(0, 87, 217, 0.28);
+    }
+
+    .hero-btn.secondary {
+      background: rgba(255,255,255,0.16);
+      border: 1px solid rgba(255,255,255,0.32);
+      color: #fff;
+    }
 
     .container {
-      max-width:1100px;
-      margin:auto;
-      padding:20px;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 28px 18px 0;
     }
 
     .section {
-      background:#fff;
-      padding:24px;
-      border-radius:18px;
-      margin-bottom:20px;
-      box-shadow:0 6px 18px rgba(0,0,0,.05);
+      background: #fff;
+      border-radius: 22px;
+      padding: 28px;
+      margin-bottom: 22px;
+      box-shadow: 0 8px 28px rgba(15, 23, 42, 0.06);
     }
 
-    /* 🔥 PROMO BANNER */
-    .promo-banner{
-      display:block;
-      position:relative;
-      border-radius:18px;
-      overflow:hidden;
-      box-shadow:0 10px 25px rgba(0,0,0,.12);
-      margin:20px 0;
+    .section h2 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 2rem;
+      color: #111827;
     }
 
-    .promo-banner img{
-      width:100%;
-      display:block;
+    .section p {
+      margin-top: 0;
+      color: #4b5563;
     }
 
-    .promo-overlay{
-      position:absolute;
-      bottom:0;
-      left:0;
-      right:0;
-      padding:18px;
-      background:linear-gradient(180deg, transparent, rgba(0,0,0,.75));
-      color:#fff;
+    .partners-grid,
+    .cities-grid,
+    .info-grid,
+    .explore-grid {
+      display: grid;
+      gap: 18px;
     }
 
-    .promo-badge{
-      background:#ff5f8f;
-      padding:6px 12px;
-      border-radius:999px;
-      font-size:12px;
-      font-weight:bold;
+    .partners-grid {
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 18px;
     }
 
-    .promo-overlay h3{
-      margin:8px 0 4px;
-      font-size:1.2rem;
+    .partner-btn {
+      display: block;
+      text-align: center;
+      padding: 18px 16px;
+      border-radius: 16px;
+      color: #fff;
+      font-weight: 800;
+      font-size: 1.02rem;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.10);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .promo-btn{
-      display:inline-block;
-      background:#ff5f8f;
-      padding:10px 16px;
-      border-radius:999px;
-      font-weight:bold;
-      font-size:14px;
+    .partner-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 26px rgba(0,0,0,0.14);
     }
 
-    /* Partners */
-    .partners {
-      display:flex;
-      gap:10px;
+    .agoda {
+      background: linear-gradient(90deg, #20b2aa, #1f9d97);
     }
 
-    .partners a{
-      flex:1;
-      text-align:center;
-      padding:14px;
-      border-radius:12px;
-      color:#fff;
-      font-weight:bold;
+    .booking {
+      background: linear-gradient(90deg, #0a3d91, #0b4fb8);
     }
 
-    .agoda{background:#20b2aa;}
-    .booking{background:#0a3d91;}
-    .trip{background:#1e88ff;}
-
-    /* Sticky CTA */
-    .sticky-cta{
-      position:fixed;
-      bottom:15px;
-      left:50%;
-      transform:translateX(-50%);
-      width:90%;
-      max-width:600px;
+    .trip {
+      background: linear-gradient(90deg, #1e88ff, #0a63e8);
     }
 
-    .sticky-cta a{
-      display:block;
-      text-align:center;
-      padding:16px;
-      border-radius:16px;
-      background:#1e88ff;
-      color:#fff;
-      font-weight:bold;
+    .cities-grid {
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: 18px;
     }
 
+    .city-card {
+      display: block;
+      background: #fff;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      color: inherit;
+    }
+
+    .city-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 28px rgba(15, 23, 42, 0.12);
+    }
+
+    .city-card img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      display: block;
+      background: #e5e7eb;
+    }
+
+    .city-card-content {
+      padding: 16px 16px 18px;
+    }
+
+    .city-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.15rem;
+      color: #111827;
+    }
+
+    .city-card p {
+      margin: 0;
+      font-size: 0.96rem;
+      color: #6b7280;
+    }
+
+    .info-grid {
+      grid-template-columns: repeat(2, 1fr);
+      margin-top: 10px;
+    }
+
+    .info-card {
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-radius: 18px;
+      padding: 20px;
+    }
+
+    .info-card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+      color: #111827;
+    }
+
+    .info-card p,
+    .info-card ul {
+      margin: 0;
+      color: #4b5563;
+    }
+
+    .info-card ul {
+      padding-left: 18px;
+    }
+
+    .explore-grid {
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 18px;
+    }
+
+    .explore-card {
+      display: block;
+      background: linear-gradient(180deg, #ffffff, #f8fafc);
+      border: 1px solid #e5e7eb;
+      border-radius: 18px;
+      padding: 20px;
+      color: inherit;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .explore-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.10);
+    }
+
+    .explore-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.08rem;
+      color: #111827;
+    }
+
+    .explore-card p {
+      margin: 0;
+      color: #6b7280;
+      font-size: 0.95rem;
+    }
+
+    /* Compact Travel Banner */
+    .compact-banner {
+      display: block;
+      position: relative;
+      margin-bottom: 22px;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 8px 28px rgba(15, 23, 42, 0.08);
+      min-height: 180px;
+      background:
+        linear-gradient(90deg, rgba(255,245,248,0.98) 0%, rgba(255,240,245,0.94) 55%, rgba(255,233,240,0.78) 100%),
+        url('/assets/banners/neck-massager-banner.webp') center/cover no-repeat;
+      border: 1px solid #f4d9e2;
+    }
+
+    .compact-banner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(255,248,250,0.98) 0%, rgba(255,245,248,0.86) 45%, rgba(255,240,245,0.15) 75%, rgba(255,240,245,0.05) 100%);
+      pointer-events: none;
+    }
+
+    .compact-banner-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 22px 26px;
+      min-height: 180px;
+    }
+
+    .compact-banner-copy {
+      max-width: 620px;
+    }
+
+    .compact-badge {
+      display: inline-block;
+      margin-bottom: 10px;
+      background: #ff6b9a;
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      padding: 7px 12px;
+      border-radius: 999px;
+      letter-spacing: 0.2px;
+    }
+
+    .compact-banner h3 {
+      margin: 0 0 8px;
+      font-size: 2rem;
+      line-height: 1.1;
+      color: #7d2445;
+    }
+
+    .compact-banner p {
+      margin: 0;
+      color: #6f4a59;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .compact-banner-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .compact-banner-features span {
+      font-size: 0.84rem;
+      color: #87475e;
+      background: rgba(255,255,255,0.65);
+      border: 1px solid rgba(255,255,255,0.85);
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+
+    .compact-banner-cta {
+      flex-shrink: 0;
+      display: inline-block;
+      background: linear-gradient(90deg, #ff5f8f, #ff4c84);
+      color: #fff;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 1rem;
+      box-shadow: 0 10px 22px rgba(255, 95, 143, 0.28);
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .compact-banner:hover .compact-banner-cta {
+      transform: translateY(-2px);
+      opacity: 0.96;
+    }
+
+    .footer {
+      text-align: center;
+      color: #6b7280;
+      padding: 18px 20px 26px;
+      font-size: 0.95rem;
+    }
+
+    .footer a {
+      color: #0a63e8;
+      font-weight: 700;
+    }
+
+    .sticky-cta {
+      position: fixed;
+      left: 50%;
+      bottom: 16px;
+      transform: translateX(-50%);
+      width: min(92%, 760px);
+      z-index: 9999;
+    }
+
+    .sticky-cta a {
+      display: block;
+      text-align: center;
+      padding: 18px 22px;
+      border-radius: 20px;
+      background: linear-gradient(90deg, #1e88ff, #0057d9);
+      color: #fff;
+      font-size: 1.08rem;
+      font-weight: 800;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.22);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .sticky-cta a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 34px rgba(0,0,0,0.28);
+    }
+
+    @media (max-width: 1024px) {
+      .cities-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .explore-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .compact-banner h3 {
+        font-size: 1.7rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding-bottom: 108px;
+      }
+
+      .hero {
+        min-height: 360px;
+        padding: 44px 16px;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .section {
+        padding: 22px 18px;
+        border-radius: 18px;
+      }
+
+      .section h2 {
+        font-size: 1.6rem;
+      }
+
+      .partners-grid,
+      .cities-grid,
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .city-card img {
+        height: 180px;
+      }
+
+      .compact-banner {
+        min-height: auto;
+      }
+
+      .compact-banner-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 18px;
+        min-height: auto;
+      }
+
+      .compact-banner-copy {
+        max-width: 100%;
+      }
+
+      .compact-banner h3 {
+        font-size: 1.45rem;
+      }
+
+      .compact-banner p {
+        font-size: 0.95rem;
+      }
+
+      .compact-banner-features {
+        gap: 8px;
+      }
+
+      .compact-banner-features span {
+        font-size: 0.78rem;
+        padding: 6px 9px;
+      }
+
+      .compact-banner-cta {
+        padding: 12px 18px;
+        font-size: 0.95rem;
+      }
+
+      .sticky-cta {
+        width: calc(100% - 24px);
+        bottom: 12px;
+      }
+
+      .sticky-cta a {
+        font-size: 1rem;
+        padding: 16px 18px;
+        border-radius: 18px;
+      }
+    }
   </style>
 </head>
-
 <body>
 
-<div class="navbar">
-  <a href="/"><img src="/assets/gz-logo.png"></a>
-</div>
-
-<section class="hero">
-  <div>
-    <h1>Best Hotels in Germany 🇩🇪</h1>
-    <p>Compare hotel deals and find where to stay.</p>
-  </div>
-</section>
-
-<div class="container">
-
-  <div class="section">
-    <h2>Why Visit Germany?</h2>
-    <p>Germany offers historic cities, modern lifestyle, and amazing travel experiences.</p>
+  <div class="navbar">
+    <a href="/" aria-label="GiftCardZoneEU Home">
+      <img src="/assets/gz-logo.png" alt="GiftCardZoneEU Logo" />
+    </a>
   </div>
 
-  <!-- 🔥 BANNER HERE -->
-  <a href="https://s.click.aliexpress.com/e/_c407TFfx" target="_blank" rel="nofollow sponsored noopener noreferrer" class="promo-banner">
-    
-    <img src="/assets/banners/neck-massager-banner.webp" alt="Neck Massager">
-
-    <div class="promo-overlay">
-      <span class="promo-badge">Travel Essential ✈️</span>
-      <h3>Relax Anywhere – Neck Massager</h3>
-      <p>Perfect for long flights & trips</p>
-      <span class="promo-btn">View Deal</span>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Best Hotels in Germany 🇩🇪</h1>
+      <p>Compare hotel deals in Berlin, Munich, Frankfurt, Hamburg and more. Explore trusted travel partners and discover where to stay for your next Germany trip.</p>
+      <div class="hero-buttons">
+        <a href="#partners" class="hero-btn primary">Compare Hotel Partners</a>
+        <a href="#cities" class="hero-btn secondary">Explore Top Cities</a>
+      </div>
     </div>
+  </section>
 
-  </a>
+  <div class="container">
 
-  <div class="section">
-    <h2>Top Travel Partners</h2>
+    <section class="section">
+      <h2>Why Visit Germany?</h2>
+      <p>Germany offers a mix of historic cities, modern business hubs, scenic countryside, castles, culture, and great transport connections. Whether you want museums in Berlin, luxury shopping in Munich, skyline views in Frankfurt, or a harbor city vibe in Hamburg, Germany gives travelers plenty of strong hotel and travel options.</p>
+    </section>
 
-    <div class="partners">
-      <a href="#" class="agoda">Agoda</a>
-      <a href="#" class="booking">Booking</a>
-      <a href="https://www.jdoqocy.com/click-101586981-13761944" class="trip">Trip.com</a>
-    </div>
+    <a href="https://s.click.aliexpress.com/e/_c407TFfx" target="_blank" rel="nofollow sponsored noopener noreferrer" class="compact-banner" aria-label="View neck and shoulder massager deal">
+      <div class="compact-banner-inner">
+        <div class="compact-banner-copy">
+          <span class="compact-badge">Travel Essential ✈️</span>
+          <h3>Relax Anywhere<br>Neck &amp; Shoulder Massager</h3>
+          <p>Perfect for flights, long trips, and hotel stays without overpowering the main travel page.</p>
+          <div class="compact-banner-features">
+            <span>Deep Kneading</span>
+            <span>Soothing Heat</span>
+            <span>Ergonomic Fit</span>
+            <span>Low Noise</span>
+          </div>
+        </div>
+        <span class="compact-banner-cta">View Deal</span>
+      </div>
+    </a>
+
+    <section class="section" id="partners">
+      <h2>Top Travel Partners</h2>
+      <p>Compare hotel deals with trusted booking platforms for Germany trips. Keep the layout premium and consistent, then replace links anytime if needed.</p>
+
+      <div class="partners-grid">
+        <a href="#" class="partner-btn agoda">Agoda</a>
+        <a href="#" class="partner-btn booking">Booking.com</a>
+        <a href="https://www.jdoqocy.com/click-101586981-13761944" class="partner-btn trip">Trip.com</a>
+      </div>
+    </section>
+
+    <section class="section" id="cities">
+      <h2>Top Cities in Germany</h2>
+      <p>These are some of the most popular places to stay when planning a trip across Germany.</p>
+
+      <div class="cities-grid">
+
+        <a href="/travel/germany/berlin/" class="city-card">
+          <img src="/assets/travel/germany/berlin/berlin-hero.webp" alt="Berlin Germany" />
+          <div class="city-card-content">
+            <h3>Berlin</h3>
+            <p>Germany’s capital with history, nightlife, landmarks, and cultural attractions.</p>
+          </div>
+        </a>
+
+        <a href="/travel/germany/munich/" class="city-card">
+          <img src="/assets/travel/germany/munich/munich-hero.webp" alt="Munich Germany" />
+          <div class="city-card-content">
+            <h3>Munich</h3>
+            <p>Known for elegant streets, Bavarian charm, business travel, and premium stays.</p>
+          </div>
+        </a>
+
+        <a href="/travel/germany/frankfurt/" class="city-card">
+          <img src="/assets/travel/germany/frankfurt/frankfurt-hero.webp" alt="Frankfurt Germany" />
+          <div class="city-card-content">
+            <h3>Frankfurt</h3>
+            <p>A major financial hub with convenient transport, skyline hotels, and airport access.</p>
+          </div>
+        </a>
+
+        <a href="/travel/germany/hamburg/" class="city-card">
+          <img src="/assets/travel/germany/hamburg/hamburg-hero.webp" alt="Hamburg Germany" />
+          <div class="city-card-content">
+            <h3>Hamburg</h3>
+            <p>A stylish harbor city with shopping, architecture, canals, and modern hotel districts.</p>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Best Time to Visit Germany</h2>
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>Spring & Summer</h3>
+          <p>Great for city walks, sightseeing, festivals, beer gardens, and outdoor attractions. This is a strong period for Berlin, Munich, and Hamburg.</p>
+        </div>
+        <div class="info-card">
+          <h3>Autumn & Winter</h3>
+          <p>Perfect for Christmas markets, cooler weather, cozy hotels, and fewer crowds in some areas. Winter can also be ideal for seasonal city breaks.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Where to Stay in Germany</h2>
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>For First-Time Visitors</h3>
+          <p>Stay in central districts near major train stations, attractions, and walkable neighborhoods. Berlin Mitte, central Munich, and central Hamburg are strong choices.</p>
+        </div>
+        <div class="info-card">
+          <h3>For Business & Convenience</h3>
+          <p>Frankfurt is ideal for quick transport and business trips. Airport-connected areas and city-center business hotels are often practical for shorter stays.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Hotel Booking Tips for Germany</h2>
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>How to Save More</h3>
+          <ul>
+            <li>Book early for better rates in major cities.</li>
+            <li>Compare Agoda, Booking.com, and Trip.com before choosing.</li>
+            <li>Check free cancellation options for flexibility.</li>
+            <li>Stay near public transport for easier travel.</li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <h3>What to Check Before Booking</h3>
+          <ul>
+            <li>Distance from train stations or airports.</li>
+            <li>Breakfast inclusion and cancellation rules.</li>
+            <li>Room size, air conditioning, and family options.</li>
+            <li>Guest reviews for cleanliness and location.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Explore More Travel Pages</h2>
+      <div class="explore-grid">
+        <a href="/travel/asia/" class="explore-card">
+          <h3>Asia Travel</h3>
+          <p>Discover more hotel and destination ideas across Asia.</p>
+        </a>
+
+        <a href="/partners/trip-com-germany/" class="explore-card">
+          <h3>Trip.com Germany</h3>
+          <p>See the Germany partner page focused on Trip.com travel deals.</p>
+        </a>
+
+        <a href="/travel/" class="explore-card">
+          <h3>Travel Hub</h3>
+          <p>Browse more country pages and booking guides on GiftCardZoneEU.</p>
+        </a>
+      </div>
+    </section>
 
   </div>
 
-</div>
+  <footer class="footer">
+    <p>&copy; <span id="year"></span> <a href="/">GiftCardZoneEU</a>. Travel • Shopping • Rewards</p>
+  </footer>
 
-<div class="sticky-cta">
-  <a href="https://www.jdoqocy.com/click-101586981-13761944">
-    🔎 Check Germany Deals Now
-  </a>
-</div>
+  <div class="sticky-cta">
+    <a href="https://www.jdoqocy.com/click-101586981-13761944" rel="nofollow sponsored noopener noreferrer">🔎 Check Germany Deals Now</a>
+  </div>
 
-<script>
-document.querySelector(".promo-banner")?.addEventListener("click",()=>{
-  console.log("Banner clicked");
-});
-</script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>
