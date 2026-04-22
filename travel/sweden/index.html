@@ -11,7 +11,7 @@
 
 <link rel="icon" href="/assets/gz-logo.png" />
 
-<!-- Open Graph -->
+<!-- OG -->
 <meta property="og:title" content="Best Hotels in Sweden | GiftCardZoneEU">
 <meta property="og:description" content="Compare hotel deals in Sweden with trusted travel partners.">
 <meta property="og:type" content="website">
@@ -45,7 +45,7 @@ box-shadow:0 6px 18px rgba(0,0,0,0.1)
 /* HERO */
 .hero{
 position:relative;
-min-height:380px;
+min-height:400px;
 display:flex;align-items:center;justify-content:center;
 text-align:center;color:#fff
 }
@@ -62,7 +62,26 @@ z-index:0
 .hero-content{position:relative;z-index:1;padding:20px}
 
 .hero h1{font-size:42px;margin-bottom:10px}
-.hero p{max-width:620px;margin:auto}
+.hero p{max-width:620px;margin:auto;margin-bottom:20px}
+
+/* HERO BUTTONS */
+.hero-buttons{
+display:flex;
+gap:10px;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+.hero-btn{
+padding:12px 18px;
+border-radius:12px;
+font-weight:700;
+color:#fff;
+text-decoration:none;
+}
+
+.btn-main{background:#ff7a00}
+.btn-alt{background:#003580}
 
 /* WRAPPER */
 .wrapper{max-width:1100px;margin:auto;padding:30px 20px}
@@ -96,21 +115,18 @@ width:100%;height:170px;object-fit:cover
 
 .card p{padding:12px}
 
-/* CTA BUTTONS */
+/* BUTTONS */
 .btn{
 display:block;padding:14px;
 border-radius:14px;color:#fff;
 text-align:center;font-weight:700;
-transition:0.3s
 }
-
-.btn:hover{opacity:0.9}
 
 .agoda{background:#20a39e}
 .booking{background:#003580}
 .trip{background:#027aff}
 
-/* STICKY CTA (20/10 UPGRADE) */
+/* STICKY CTA */
 .sticky-cta{
 position:fixed;
 bottom:15px;
@@ -121,21 +137,45 @@ color:#fff;
 padding:14px 22px;
 border-radius:50px;
 font-weight:700;
-box-shadow:0 8px 25px rgba(0,0,0,0.2);
 z-index:999
 }
 
-/* FOOTER */
+/* SIDE BANNER */
+.side-banner{
+position:fixed;
+right:12px;
+top:50%;
+transform:translateY(-50%);
+width:120px;
+z-index:998;
+}
+
+.side-banner img{
+width:100%;
+border-radius:12px;
+box-shadow:0 8px 25px rgba(0,0,0,0.2);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+.side-banner{display:none}
+}
+
 .footer{text-align:center;margin:20px;color:#666}
 </style>
 </head>
 
 <body>
 
+<!-- SIDE BANNER -->
+<a href="https://s.click.aliexpress.com/e/_c3TppLH5" target="_blank" rel="nofollow sponsored noopener" class="side-banner">
+<img src="/assets/banners/travel-backpack.webp" alt="Travel Backpack">
+</a>
+
 <!-- TOPBAR -->
 <div class="topbar">
 <a href="https://giftcardzoneeu.com/" class="logo-link">
-<img src="/assets/gz-logo.png" alt="GZ Logo">
+<img src="/assets/gz-logo.png">
 </a>
 </div>
 
@@ -143,120 +183,77 @@ z-index:999
 <section class="hero">
 <div class="hero-content">
 <h1>Best Hotels in Sweden 🇸🇪</h1>
-<p>Compare hotel deals in Stockholm, Gothenburg, Malmö and more with trusted booking platforms.</p>
+<p>Compare hotel deals in Stockholm, Gothenburg, Malmö and more.</p>
+
+<div class="hero-buttons">
+<a href="https://www.jdoqocy.com/click-101586981-13761944" class="hero-btn btn-main" target="_blank">🔥 Compare Hotel Deals</a>
+<a href="#cities" class="hero-btn btn-alt">Explore Cities</a>
+</div>
+
 </div>
 </section>
 
 <main class="wrapper">
 
-<!-- PARTNERS -->
 <div class="section">
 <h2>Compare Hotel Deals (Best Prices)</h2>
 
 <div class="grid">
-<a class="btn agoda" href="https://www.agoda.com" target="_blank" rel="nofollow sponsored noopener">View Deals on Agoda</a>
-<a class="btn booking" href="https://www.booking.com" target="_blank" rel="nofollow sponsored noopener">Search Hotels on Booking</a>
-<a class="btn trip" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener">Find Hotels on Trip.com</a>
+<a class="btn agoda" href="https://www.agoda.com" target="_blank">Agoda Deals</a>
+<a class="btn booking" href="https://www.booking.com" target="_blank">Booking.com</a>
+<a class="btn trip" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank">Trip.com</a>
 </div>
 </div>
 
-<!-- TOP CITIES -->
-<div class="section">
+<div class="section" id="cities">
 <h2>Top Cities in Sweden</h2>
 
 <div class="grid">
 
 <div class="card">
 <img src="/assets/travel/sweden/stockholm.webp">
-<p>Stockholm</p>
+<p>Stockholm – Culture & Waterfront</p>
 </div>
 
 <div class="card">
 <img src="/assets/travel/sweden/gothenburg.webp">
-<p>Gothenburg</p>
+<p>Gothenburg – Relaxed City Vibes</p>
 </div>
 
 <div class="card">
 <img src="/assets/travel/sweden/malmo.webp">
-<p>Malmö</p>
+<p>Malmö – Modern & Coastal</p>
 </div>
 
 <div class="card">
 <img src="/assets/travel/sweden/uppsala.webp">
-<p>Uppsala</p>
+<p>Uppsala – Historic Charm</p>
 </div>
 
 </div>
 </div>
 
-<!-- WHY VISIT -->
 <div class="section">
 <h2>Why Visit Sweden?</h2>
-<p>
-Sweden offers stunning nature, clean cities, and a high quality of life. From the beautiful archipelago of Stockholm to the northern lights in Lapland, it's a perfect destination for both city lovers and nature explorers.
-</p>
+<p>Sweden offers clean cities, nature, and unique experiences from summer daylight to northern lights.</p>
 </div>
 
-<!-- BEST TIME -->
-<div class="section">
-<h2>Best Time to Visit</h2>
-<p>
-✔ Summer (June–August): Best weather & long daylight<br>
-✔ Winter (Dec–Feb): Snow & Northern Lights<br>
-✔ Spring/Fall: Fewer crowds, cheaper hotels
-</p>
-</div>
-
-<!-- TIPS -->
 <div class="section">
 <h2>Hotel Booking Tips</h2>
 <p>
-✔ Compare prices across Agoda, Booking, Trip.com<br>
-✔ Stay near public transport<br>
-✔ Book early for summer travel<br>
-✔ Choose free cancellation when possible
+✔ Compare Agoda, Booking, Trip.com<br>
+✔ Book early<br>
+✔ Stay near transport
 </p>
-</div>
-
-<!-- MORE PAGES -->
-<div class="section">
-<h2>Explore More Travel Pages</h2>
-
-<div class="grid">
-
-<a class="card" href="/travel/germany/">
-<p>🇩🇪 Germany Travel Guide</p>
-</a>
-
-<a class="card" href="/travel/belgium/">
-<p>🇧🇪 Belgium Travel Guide</p>
-</a>
-
-<a class="card" href="/travel/australia/">
-<p>🇦🇺 Australia Travel Guide</p>
-</a>
-
-<a class="card" href="/travel/netherlands/">
-<p>🇳🇱 Netherlands Travel Guide</p>
-</a>
-
-</div>
-</div>
-
-<!-- DISCLOSURE -->
-<div class="section">
-<strong>Affiliate Disclosure:</strong>
-We may earn a small commission when you book through our links at no extra cost to you.
 </div>
 
 </main>
 
 <!-- STICKY CTA -->
-<a class="sticky-cta" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener">
-🔥 Check Sweden Hotel Deals Now
+<a class="sticky-cta" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank">
+🔥 Check Sweden Hotel Deals
 </a>
 
-<!-- FOOTER -->
 <div class="footer">
 © <span id="year"></span> GiftCardZoneEU
 </div>
