@@ -1,662 +1,269 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Sweden Hotel Deals | GiftCardZoneEU × Agoda</title>
-  <meta name="description" content="Find the best hotel deals in Sweden — Stockholm, Gothenburg, Malmö, Uppsala and more via Agoda partners with GiftCardZoneEU Travel." />
-  <link rel="canonical" href="https://giftcardzoneeu.com/travel/sweden/" />
+<title>Best Hotels in Sweden | Where to Stay & Book Online</title>
+<meta name="description" content="Find the best hotels in Sweden. Compare prices in Stockholm, Gothenburg, Malmö and more with trusted booking partners." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://giftcardzoneeu.com/travel/sweden/" />
 
-  <!-- Basic OG -->
-  <meta property="og:title" content="Sweden Hotel Deals | GiftCardZoneEU Travel" />
-  <meta property="og:description" content="Compare hotel prices in Stockholm, Gothenburg, Malmö, Uppsala and more via Agoda travel partners." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://giftcardzoneeu.com/travel/sweden/" />
+<link rel="icon" href="/assets/gz-logo.png" />
 
-  <style>
-    :root {
-      --bg: #020617;
-      --overlay: rgba(15, 23, 42, 0.90);
-      --card-bg: rgba(15, 23, 42, 0.96);
-      --card-border: rgba(148, 163, 184, 0.35);
-      --accent: #38bdf8;
-      --accent-soft: rgba(56, 189, 248, 0.18);
-      --text-main: #e5e7eb;
-      --text-muted: #9ca3af;
-    }
+<!-- Open Graph -->
+<meta property="og:title" content="Best Hotels in Sweden | GiftCardZoneEU">
+<meta property="og:description" content="Compare hotel deals in Sweden with trusted travel partners.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://giftcardzoneeu.com/travel/sweden/">
+<meta property="og:image" content="https://giftcardzoneeu.com/assets/travel/sweden/sweden-hero.webp">
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Best Hotels in Sweden">
+<meta name="twitter:description" content="Find and book hotels in Sweden with trusted platforms.">
+<meta name="twitter:image" content="https://giftcardzoneeu.com/assets/travel/sweden/sweden-hero.webp">
 
-    body {
-      min-height: 100vh;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-        "Segoe UI", sans-serif;
-      color: var(--text-main);
-      background:
-        radial-gradient(circle at top, #0f172a 0, #020617 55%, #020617 100%),
-        url("https://images.unsplash.com/photo-1504274066651-8d31a536b11a?auto=format&fit=crop&w=1600&q=80")
-          center/cover fixed no-repeat;
-      background-attachment: fixed;
-    }
+<script src="/assets/ga.js"></script>
 
-    .backdrop {
-      min-height: 100vh;
-      background: linear-gradient(
-        to bottom,
-        rgba(15, 23, 42, 0.86),
-        rgba(15, 23, 42, 0.94)
-      );
-      display: flex;
-      flex-direction: column;
-    }
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f5f7fa;color:#111827}
 
-    /* HEADER / TOP TRAVEL BAR */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: blur(18px);
-      background: linear-gradient(
-        to right,
-        rgba(15, 23, 42, 0.96),
-        rgba(15, 23, 42, 0.90)
-      );
-      border-bottom: 1px solid rgba(148, 163, 184, 0.45);
-    }
+/* TOPBAR */
+.topbar{
+position:sticky;top:0;z-index:1000;
+display:flex;justify-content:center;
+padding:12px;background:#fff;border-bottom:1px solid #eee
+}
 
-    .nav-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0.85rem 1.25rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
+.logo-link img{
+width:54px;height:54px;border-radius:50%;
+box-shadow:0 6px 18px rgba(0,0,0,0.1)
+}
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      font-size: 0.95rem;
-    }
+/* HERO */
+.hero{
+position:relative;
+min-height:380px;
+display:flex;align-items:center;justify-content:center;
+text-align:center;color:#fff
+}
 
-    .brand span.logo {
-      width: 32px;
-      height: 32px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.78rem;
-      background: radial-gradient(circle at 20% 0, #38bdf8, #0f172a 58%, #020617);
-    }
+.hero::before{
+content:"";
+position:absolute;inset:0;
+background:
+linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.75)),
+url("/assets/travel/sweden/sweden-hero.webp") center/cover no-repeat;
+z-index:0
+}
 
-    .brand small {
-      display: block;
-      font-size: 0.72rem;
-      font-weight: 400;
-      color: var(--text-muted);
-    }
+.hero-content{position:relative;z-index:1;padding:20px}
 
-    .nav-tags {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      font-size: 0.78rem;
-    }
+.hero h1{font-size:42px;margin-bottom:10px}
+.hero p{max-width:620px;margin:auto}
 
-    .nav-pill {
-      padding: 0.18rem 0.7rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      color: var(--text-muted);
-      white-space: nowrap;
-    }
+/* WRAPPER */
+.wrapper{max-width:1100px;margin:auto;padding:30px 20px}
 
-    .nav-pill strong {
-      color: #e5e7eb;
-      font-weight: 600;
-    }
+.section{
+background:#fff;padding:22px;border-radius:18px;
+margin-bottom:20px;border:1px solid #eee
+}
 
-    .nav-link {
-      text-decoration: none;
-      color: var(--text-muted);
-      border-radius: 999px;
-      padding: 0.18rem 0.7rem;
-      border: 1px solid transparent;
-    }
+.section h2{margin-top:0}
 
-    .nav-link:hover {
-      border-color: rgba(148, 163, 184, 0.7);
-      color: #e5e7eb;
-      background: rgba(15, 23, 42, 0.9);
-    }
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px
+}
 
-    /* MAIN CONTENT */
-    main {
-      flex: 1;
-    }
+.card{
+background:#fff;border:1px solid #eee;
+border-radius:16px;overflow:hidden;
+text-align:center;font-weight:600;
+transition:0.3s
+}
 
-    .shell {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 1.8rem 1.25rem 2.2rem;
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.4fr);
-      gap: 1.6rem;
-      align-items: flex-start;
-    }
+.card:hover{transform:translateY(-4px)}
 
-    @media (max-width: 900px) {
-      .shell {
-        grid-template-columns: minmax(0, 1fr);
-        padding-top: 1.4rem;
-      }
-    }
+.card img{
+width:100%;height:170px;object-fit:cover
+}
 
-    .hero {
-      padding: 1.25rem 1.3rem 1.4rem;
-      border-radius: 1.15rem;
-      border: 1px solid rgba(148, 163, 184, 0.55);
-      background: radial-gradient(circle at top left, rgba(56,189,248,0.12), transparent 55%)
-        , rgba(15, 23, 42, 0.96);
-      box-shadow:
-        0 18px 40px rgba(15, 23, 42, 0.85),
-        0 0 0 1px rgba(15, 23, 42, 0.8);
-    }
+.card p{padding:12px}
 
-    .pill-top {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.78rem;
-      padding: 0.20rem 0.65rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.96);
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      color: var(--text-muted);
-      margin-bottom: 0.7rem;
-    }
+/* CTA BUTTONS */
+.btn{
+display:block;padding:14px;
+border-radius:14px;color:#fff;
+text-align:center;font-weight:700;
+transition:0.3s
+}
 
-    .pill-top span.dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 0 3px rgba(34,197,94,0.35);
-    }
+.btn:hover{opacity:0.9}
 
-    h1.page-title {
-      font-size: 1.9rem;
-      line-height: 1.2;
-      margin-bottom: 0.45rem;
-      letter-spacing: 0.02em;
-    }
+.agoda{background:#20a39e}
+.booking{background:#003580}
+.trip{background:#027aff}
 
-    .hero-sub {
-      font-size: 0.98rem;
-      color: var(--text-muted);
-      margin-bottom: 0.9rem;
-    }
+/* STICKY CTA (20/10 UPGRADE) */
+.sticky-cta{
+position:fixed;
+bottom:15px;
+left:50%;
+transform:translateX(-50%);
+background:#ff7a00;
+color:#fff;
+padding:14px 22px;
+border-radius:50px;
+font-weight:700;
+box-shadow:0 8px 25px rgba(0,0,0,0.2);
+z-index:999
+}
 
-    .city-line {
-      font-size: 0.85rem;
-      color: #cbd5e1;
-      margin-bottom: 1rem;
-    }
-
-    .trust-block {
-      margin-bottom: 1.1rem;
-    }
-
-    .trust-main {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(15, 23, 42, 0.98);
-      border-radius: 999px;
-      padding: 0.4rem 0.75rem;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      font-size: 0.82rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .trust-main span.icon {
-      font-size: 1rem;
-    }
-
-    .trust-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-      font-size: 0.8rem;
-    }
-
-    .trust-pill {
-      padding: 0.25rem 0.6rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.45);
-      background: rgba(15, 23, 42, 0.96);
-      color: var(--text-muted);
-    }
-
-    .cta-stack {
-      display: flex;
-      flex-direction: column;
-      gap: 0.45rem;
-      margin-top: 0.8rem;
-    }
-
-    .btn-main {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.45rem;
-      padding: 0.55rem 0.85rem;
-      border-radius: 0.7rem;
-      background: var(--accent);
-      color: #0f172a;
-      font-weight: 600;
-      font-size: 0.9rem;
-      text-decoration: none;
-      border: 1px solid rgba(8, 47, 73, 0.95);
-    }
-
-    .btn-main span.icon {
-      font-size: 1rem;
-    }
-
-    .btn-main:hover {
-      filter: brightness(1.04);
-    }
-
-    .cta-note {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-    }
-
-    /* GRID SIDE */
-    .grid-panel {
-      padding: 1.1rem 1.1rem 1.25rem;
-      border-radius: 1.15rem;
-      border: 1px solid rgba(148, 163, 184, 0.55);
-      background: rgba(15, 23, 42, 0.96);
-      box-shadow:
-        0 18px 40px rgba(15, 23, 42, 0.9),
-        0 0 0 1px rgba(15, 23, 42, 0.8);
-    }
-
-    .grid-header {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 0.7rem;
-      margin-bottom: 0.9rem;
-    }
-
-    .grid-title {
-      font-size: 0.98rem;
-      font-weight: 600;
-    }
-
-    .grid-caption {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-    }
-
-    .hotel-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 0.85rem;
-      margin-bottom: 0.55rem;
-    }
-
-    .card {
-      position: relative;
-      padding: 0.75rem 0.8rem 0.8rem;
-      border-radius: 0.9rem;
-      border: 1px solid var(--card-border);
-      background: radial-gradient(circle at top left, rgba(56,189,248,0.12), transparent 55%)
-        , rgba(15,23,42,0.98);
-      transition: 0.18s ease-out;
-    }
-
-    .card:hover {
-      border-color: var(--accent);
-      box-shadow: 0 14px 32px rgba(15,23,42,0.9);
-      transform: translateY(-2px);
-    }
-
-    .card-label {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.09em;
-      color: var(--text-muted);
-      margin-bottom: 0.35rem;
-    }
-
-    .card h3 {
-      font-size: 0.98rem;
-      margin-bottom: 0.25rem;
-    }
-
-    .card p {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-bottom: 0.55rem;
-    }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.25rem;
-      margin-bottom: 0.55rem;
-    }
-
-    .pill {
-      font-size: 0.72rem;
-      padding: 0.18rem 0.45rem;
-      border-radius: 999px;
-      background: rgba(15,23,42,0.98);
-      border: 1px solid rgba(148,163,184,0.55);
-      color: var(--text-muted);
-    }
-
-    .card a.btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      padding: 0.48rem 0.65rem;
-      border-radius: 0.6rem;
-      border: 1px solid rgba(56, 189, 248, 0.92);
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: 0.82rem;
-      font-weight: 600;
-      text-decoration: none;
-      gap: 0.3rem;
-    }
-
-    .card a.btn:hover {
-      background: var(--accent);
-      color: #0f172a;
-    }
-
-    .all-link {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      text-align: right;
-      margin-top: 0.2rem;
-    }
-
-    .all-link a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    .all-link a:hover {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 640px) {
-      header .nav-inner {
-        padding-inline: 1rem;
-      }
-      .hero {
-        padding-inline: 1rem;
-      }
-      .grid-panel {
-        padding-inline: 1rem;
-      }
-    }
-
-    /* FOOTER */
-    footer {
-      margin-top: 0.6rem;
-      padding: 1.6rem 1rem 2rem 1rem;
-      text-align: center;
-      background: rgba(2,6,23,0.78);
-      border-top: 1px solid rgba(148,163,184,0.4);
-      color: #cbd5e1;
-      font-size: 0.9rem;
-    }
-
-    footer a {
-      color: #38bdf8;
-      margin: 0 0.75rem;
-      text-decoration: none;
-      font-size: 0.86rem;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
+/* FOOTER */
+.footer{text-align:center;margin:20px;color:#666}
+</style>
 </head>
+
 <body>
-<div class="backdrop">
 
-  <header>
-    <div class="nav-inner">
-      <div class="brand">
-        <span class="logo">GCZ</span>
-        <div>
-          GiftCardZoneEU Travel
-          <small>Sweden Hotel Deals</small>
-        </div>
-      </div>
-      <div class="nav-tags">
-        <div class="nav-pill"><strong>Travel</strong> · Agoda Partners</div>
-        <a class="nav-link" href="/travel/">All Countries</a>
-        <a class="nav-link" href="/">GiftCardZoneEU.com</a>
-      </div>
-    </div>
-  </header>
+<!-- TOPBAR -->
+<div class="topbar">
+<a href="https://giftcardzoneeu.com/" class="logo-link">
+<img src="/assets/gz-logo.png" alt="GZ Logo">
+</a>
+</div>
 
-  <main>
-    <section class="shell">
+<!-- HERO -->
+<section class="hero">
+<div class="hero-content">
+<h1>Best Hotels in Sweden 🇸🇪</h1>
+<p>Compare hotel deals in Stockholm, Gothenburg, Malmö and more with trusted booking platforms.</p>
+</div>
+</section>
 
-      <!-- LEFT: HERO / TRUST -->
-      <div class="hero">
-        <div class="pill-top">
-          <span class="dot"></span>
-          <span>Live hotel price comparison · Sweden</span>
-        </div>
+<main class="wrapper">
 
-        <h1 class="page-title">Sweden Hotel Deals</h1>
-        <p class="hero-sub">
-          Compare hotels in Stockholm, Gothenburg, Malmö, Uppsala and more
-          with official Agoda travel partners.
-        </p>
-        <p class="city-line">
-          Popular areas: Stockholm City Centre · Gamla Stan · Gothenburg Central · Malmö Old Town
-        </p>
+<!-- PARTNERS -->
+<div class="section">
+<h2>Compare Hotel Deals (Best Prices)</h2>
 
-        <div class="trust-block">
-          <div class="trust-main">
-            <span class="icon">⭐</span>
-            <span>GiftCardZoneEU Travel — Trusted worldwide booking partner</span>
-          </div>
-          <div class="trust-row">
-            <span class="trust-pill">✔ Secure booking on Agoda</span>
-            <span class="trust-pill">✔ No extra platform fees</span>
-            <span class="trust-pill">✔ Best price finder</span>
-            <span class="trust-pill">✔ Fast & safe checkout</span>
-          </div>
-        </div>
+<div class="grid">
+<a class="btn agoda" href="https://www.agoda.com" target="_blank" rel="nofollow sponsored noopener">View Deals on Agoda</a>
+<a class="btn booking" href="https://www.booking.com" target="_blank" rel="nofollow sponsored noopener">Search Hotels on Booking</a>
+<a class="btn trip" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener">Find Hotels on Trip.com</a>
+</div>
+</div>
 
-        <div class="cta-stack">
-          <a class="btn-main"
-             href="https://www.agoda.com/search?city=17072"
-             target="_blank" rel="noopener">
-            <span class="icon">🔍</span>
-            <span>Open Sweden hotel search</span>
-          </a>
-          <p class="cta-note">
-            You’ll book directly on Agoda’s secure website. GiftCardZoneEU may earn a small commission at no extra cost to you.
-          </p>
-        </div>
-      </div>
+<!-- TOP CITIES -->
+<div class="section">
+<h2>Top Cities in Sweden</h2>
 
-      <!-- RIGHT: GRID CARDS -->
-      <div class="grid-panel">
-        <div class="grid-header">
-          <div class="grid-title">Featured cities in Sweden</div>
-          <div class="grid-caption">Tap a city to view hotels powered by Agoda.</div>
-        </div>
+<div class="grid">
 
-        <div class="hotel-grid">
+<div class="card">
+<img src="/assets/travel/sweden/stockholm.webp">
+<p>Stockholm</p>
+</div>
 
-          <article class="card">
-            <div class="card-label">Capital City</div>
-            <h3>Stockholm</h3>
-            <p>
-              Stay close to Gamla Stan, Stockholm City Centre, waterfront views and major attractions.
-            </p>
-            <div class="pill-row">
-              <span class="pill">Gamla Stan</span>
-              <span class="pill">City Centre</span>
-              <span class="pill">Waterfront</span>
-            </div>
-            <a class="btn"
-               href="https://www.agoda.com/search?city=17072"
-               target="_blank" rel="noopener">
-              View Stockholm deals →
-            </a>
-          </article>
+<div class="card">
+<img src="/assets/travel/sweden/gothenburg.webp">
+<p>Gothenburg</p>
+</div>
 
-          <article class="card">
-            <div class="card-label">Coastal City</div>
-            <h3>Gothenburg</h3>
-            <p>
-              Hotels near Liseberg amusement park, harbour areas, and main shopping streets.
-            </p>
-            <div class="pill-row">
-              <span class="pill">Liseberg</span>
-              <span class="pill">Harbour</span>
-              <span class="pill">Shopping</span>
-            </div>
-            <a class="btn"
-               href="https://www.agoda.com/search?city=17152"
-               target="_blank" rel="noopener">
-              View Gothenburg deals →
-            </a>
-          </article>
+<div class="card">
+<img src="/assets/travel/sweden/malmo.webp">
+<p>Malmö</p>
+</div>
 
-          <article class="card">
-            <div class="card-label">Southern Hub</div>
-            <h3>Malmö</h3>
-            <p>
-              Find stays close to Turning Torso, beaches and Malmö Central Station.
-            </p>
-            <div class="pill-row">
-              <span class="pill">Turning Torso</span>
-              <span class="pill">Near beach</span>
-              <span class="pill">Central Station</span>
-            </div>
-            <a class="btn"
-               href="https://www.agoda.com/search?city=17075"
-               target="_blank" rel="noopener">
-              View Malmö deals →
-            </a>
-          </article>
-
-          <article class="card">
-            <div class="card-label">University City</div>
-            <h3>Uppsala</h3>
-            <p>
-              Hotels near Uppsala Cathedral, riverfront walks and university area.
-            </p>
-            <div class="pill-row">
-              <span class="pill">Cathedral</span>
-              <span class="pill">Riverside</span>
-              <span class="pill">University</span>
-            </div>
-            <a class="btn"
-               href="https://www.agoda.com/search?city=17164"
-               target="_blank" rel="noopener">
-              View Uppsala deals →
-            </a>
-          </article>
-
-          <article class="card">
-            <div class="card-label">Northern Experience</div>
-            <h3>Kiruna & Lapland</h3>
-            <p>
-              Explore Sweden's north: winter stays, aurora viewing and arctic adventures.
-            </p>
-            <div class="pill-row">
-              <span class="pill">Northern lights</span>
-              <span class="pill">Snow stays</span>
-              <span class="pill">Lapland</span>
-            </div>
-            <a class="btn"
-               href="https://www.agoda.com/search?city=17136"
-               target="_blank" rel="noopener">
-              View Lapland deals →
-            </a>
-          </article>
-
-          <article class="card">
-            <div class="card-label">All Sweden</div>
-            <h3>All Sweden Hotels</h3>
-            <p>
-              Browse every region in Sweden — city breaks, countryside cabins and more in one search.
-            </p>
-            <div class="pill-row">
-              <span class="pill">All cities</span>
-              <span class="pill">Map view</span>
-              <span class="pill">Filters & deals</span>
-            </div>
-            <a class="btn"
-               href="https://www.agoda.com/search?country=SE"
-               target="_blank" rel="noopener">
-              View all Sweden hotels →
-            </a>
-          </article>
-
-        </div>
-
-        <div class="all-link">
-          Or open the full list: <a href="https://www.agoda.com/search?country=SE" target="_blank" rel="noopener">Sweden hotel search on Agoda</a>.
-        </div>
-      </div>
-
-    </section>
-  </main>
-
-  <footer>
-    <h3 style="font-size:1rem;margin-bottom:0.5rem;">GiftCardZoneEU Travel</h3>
-    <p style="max-width:640px;margin:0 auto 1.25rem;">
-      GiftCardZoneEU Travel compares hotel prices using official Agoda partner links.
-      All bookings are processed securely on Agoda or other partner websites — no extra
-      fees from GiftCardZoneEU.com.
-    </p>
-
-    <div>
-      <a href="/privacy/">Privacy Policy</a>
-      <a href="/terms/">Terms</a>
-      <a href="/contact/">Contact</a>
-    </div>
-
-    <p style="font-size:0.82rem;margin-top:1rem;opacity:0.8;">
-      © 2025 GiftCardZoneEU.com — All Rights Reserved.
-    </p>
-  </footer>
+<div class="card">
+<img src="/assets/travel/sweden/uppsala.webp">
+<p>Uppsala</p>
+</div>
 
 </div>
+</div>
+
+<!-- WHY VISIT -->
+<div class="section">
+<h2>Why Visit Sweden?</h2>
+<p>
+Sweden offers stunning nature, clean cities, and a high quality of life. From the beautiful archipelago of Stockholm to the northern lights in Lapland, it's a perfect destination for both city lovers and nature explorers.
+</p>
+</div>
+
+<!-- BEST TIME -->
+<div class="section">
+<h2>Best Time to Visit</h2>
+<p>
+✔ Summer (June–August): Best weather & long daylight<br>
+✔ Winter (Dec–Feb): Snow & Northern Lights<br>
+✔ Spring/Fall: Fewer crowds, cheaper hotels
+</p>
+</div>
+
+<!-- TIPS -->
+<div class="section">
+<h2>Hotel Booking Tips</h2>
+<p>
+✔ Compare prices across Agoda, Booking, Trip.com<br>
+✔ Stay near public transport<br>
+✔ Book early for summer travel<br>
+✔ Choose free cancellation when possible
+</p>
+</div>
+
+<!-- MORE PAGES -->
+<div class="section">
+<h2>Explore More Travel Pages</h2>
+
+<div class="grid">
+
+<a class="card" href="/travel/germany/">
+<p>🇩🇪 Germany Travel Guide</p>
+</a>
+
+<a class="card" href="/travel/belgium/">
+<p>🇧🇪 Belgium Travel Guide</p>
+</a>
+
+<a class="card" href="/travel/australia/">
+<p>🇦🇺 Australia Travel Guide</p>
+</a>
+
+<a class="card" href="/travel/netherlands/">
+<p>🇳🇱 Netherlands Travel Guide</p>
+</a>
+
+</div>
+</div>
+
+<!-- DISCLOSURE -->
+<div class="section">
+<strong>Affiliate Disclosure:</strong>
+We may earn a small commission when you book through our links at no extra cost to you.
+</div>
+
+</main>
+
+<!-- STICKY CTA -->
+<a class="sticky-cta" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener">
+🔥 Check Sweden Hotel Deals Now
+</a>
+
+<!-- FOOTER -->
+<div class="footer">
+© <span id="year"></span> GiftCardZoneEU
+</div>
+
+<script>
+document.getElementById("year").textContent=new Date().getFullYear();
+</script>
+
 </body>
 </html>
