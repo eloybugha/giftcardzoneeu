@@ -1,230 +1,182 @@
-    <!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Best Hotel Deals in the Philippines | GiftCardZoneEU Travel</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <style>
-    body {
-      margin: 0;
-      background: #f3f4f6;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    }
+<title>Best Hotels in Philippines | Where to Stay & Book Online</title>
+<meta name="description" content="Compare hotel deals in the Philippines. Discover where to stay in Manila, Cebu, Boracay, and Palawan with trusted travel partners." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://giftcardzoneeu.com/travel/philippines/" />
 
-    .page-wrapper {
-      max-width: 900px;
-      margin: 32px auto 40px;
-      padding: 0 16px 32px;
-    }
+<link rel="icon" href="/assets/gz-logo.png" />
 
-    header {
-      margin-bottom: 18px;
-    }
+<!-- OG -->
+<meta property="og:title" content="Best Hotels in Philippines | GiftCardZoneEU">
+<meta property="og:description" content="Compare hotel deals in the Philippines with trusted booking platforms.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://giftcardzoneeu.com/travel/philippines/">
+<meta property="og:image" content="https://giftcardzoneeu.com/assets/travel/philippines/philippines-hero.webp">
 
-    .logo-text {
-      font-size: 16px;
-      font-weight: bold;
-      color: #111827;
-    }
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Best Hotels in Philippines">
+<meta name="twitter:description" content="Find hotels in the Philippines with the best prices.">
+<meta name="twitter:image" content="https://giftcardzoneeu.com/assets/travel/philippines/philippines-hero.webp">
 
-    /* --- HERO SECTION (Japan V2 Format) --- */
-    .hero {
-      position: relative;
-      height: 300px;
-      border-radius: 24px;
-      overflow: hidden;
-      background: url("philippines-hero.jpg") center/cover no-repeat;
-    }
+<script src="/assets/ga.js"></script>
 
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.15);
-      backdrop-filter: blur(1.5px);
-      z-index: 0;
-    }
+<style>
+/* SAME STYLE AS SWEDEN (LOCKED TEMPLATE) */
+/* (di ko na pinaikli para safe copy paste mo — identical structure) */
 
-    .hero-content {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1;
-    }
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial;background:#f3f5f9;color:#111827}
+a{text-decoration:none}
 
-    .hero-title {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 28px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.75);
-      color: #ffffff;
-      font-size: 28px;
-      font-weight: bold;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    }
+/* TOPBAR */
+.topbar{position:sticky;top:0;z-index:1000;display:flex;justify-content:center;padding:12px;background:#fff;border-bottom:1px solid #e5e7eb}
+.logo-link img{width:54px;border-radius:50%}
 
-    .hero-flag {
-      font-size: 20px;
-    }
+/* HERO */
+.hero{position:relative;min-height:520px;color:#fff;display:flex;align-items:center}
+.hero::before{
+content:"";
+position:absolute;inset:0;
+background:
+linear-gradient(90deg, rgba(0,0,0,.8), rgba(0,0,0,.2)),
+url("/assets/travel/philippines/philippines-hero.webp") center/cover no-repeat;
+}
+.hero-inner{position:relative;z-index:1;max-width:1200px;margin:auto;padding:40px}
+.hero h1{font-size:60px;margin-bottom:10px}
+.hero p{font-size:20px;margin-bottom:20px}
 
-    /* --- SECTIONS --- */
-    .section {
-      background: #ffffff;
-      border-radius: 24px;
-      padding: 24px 20px 24px;
-      margin-top: 26px;
-    }
+/* BUTTONS */
+.hero-btn{padding:14px 20px;border-radius:12px;font-weight:bold}
+.primary{background:#ff6f1a;color:#fff}
+.secondary{background:rgba(255,255,255,.2);color:#fff}
 
-    h2 {
-      margin: 0 0 10px 0;
-      font-size: 20px;
-      font-weight: 700;
-      color: #111827;
-    }
+/* SECTION */
+.wrapper{max-width:1200px;margin:auto;padding:20px}
+.section{background:#fff;padding:20px;border-radius:18px;margin-bottom:20px}
 
-    p {
-      margin: 0 0 18px 0;
-      color: #374151;
-    }
+/* PARTNERS */
+.partners{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.partner{padding:18px;border-radius:14px;color:#fff;font-weight:bold}
+.trip{background:#1780ff}
+.booking{background:#063f96}
+.agoda{background:#1e9c9c}
 
-    /* PARTNER BUTTONS */
-    .top-partner-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
+/* CITY GRID */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{background:#fff;border-radius:14px;overflow:hidden}
+.card img{width:100%;height:180px;object-fit:cover}
+.card h3{padding:10px}
 
-    .partner-btn {
-      padding: 10px 18px;
-      border-radius: 999px;
-      color: #fff;
-      font-size: 14px;
-      font-weight: 600;
-      text-decoration: none;
-      display: inline-block;
-    }
+/* STICKY CTA */
+.sticky{
+position:fixed;
+bottom:15px;
+left:50%;
+transform:translateX(-50%);
+background:#ff6f1a;
+color:#fff;
+padding:16px 25px;
+border-radius:50px;
+font-weight:800;
+}
 
-    .agoda { background: #00aaff; }
-    .booking { background: #003580; }
-    .trip { background: #2e8b57; }
-    .hotels { background: #d50000; }
-    .accor { background: #c99b4e; }
-    .motel6 { background: #1b2546; }
-
-    /* TRUST GRID */
-    .trust-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 12px;
-    }
-
-    .trust-card {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 14px;
-      border-radius: 18px;
-      background: #ffffff;
-      border: 1px solid #e5e7eb;
-    }
-
-    .trust-check {
-      color: #059669;
-      font-weight: bold;
-    }
-  </style>
+/* FOOTER */
+.footer{text-align:center;padding:40px 20px;color:#6b7280}
+</style>
 </head>
 
 <body>
-  <div class="page-wrapper">
-    <header>
-      <div class="logo-text">GiftCardZoneEU Travel</div>
-    </header>
 
-    <!-- HERO -->
-    <div class="hero">
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <h1 class="hero-title">
-          Best Hotel Deals in the Philippines
-          <span class="hero-flag">🇵🇭</span>
-        </h1>
-      </div>
-    </div>
+<div class="topbar">
+<a href="https://giftcardzoneeu.com/" class="logo-link">
+<img src="/assets/gz-logo.png">
+</a>
+</div>
 
-    <!-- TOP TRAVEL PARTNERS -->
-    <section class="section">
-      <h2>Top Travel Partners</h2>
-      <p>Compare hotel prices across our trusted partners and grab the best deal for your trip to the Philippines.</p>
+<section class="hero">
+<div class="hero-inner">
+<h1>Best Hotels in Philippines 🇵🇭</h1>
+<p>Compare hotel deals in Manila, Cebu, Boracay, and Palawan with trusted booking partners.</p>
 
-      <div class="top-partner-buttons">
-        <a href="#" class="partner-btn agoda">Agoda</a>
-        <a href="#" class="partner-btn booking">Booking.com</a>
-        <a href="#" class="partner-btn trip">Trip.com</a>
-        <a href="#" class="partner-btn hotels">Hotels.com</a>
-        <a href="#" class="partner-btn accor">Accor</a>
-        <a href="#" class="partner-btn motel6">Motel 6</a>
-      </div>
-    </section>
+<a class="hero-btn primary" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">🔥 Compare Hotel Deals</a>
+</div>
+</section>
 
-    <!-- WHY TRAVELERS TRUST US -->
-    <section class="section">
-      <h2>Why Travelers Trust Us</h2>
+<div class="wrapper">
 
-      <div class="trust-grid">
-        <div class="trust-card">
-          <span class="trust-check">✔</span>
-          <span>GiftCardZoneEU Partner Verified</span>
-        </div>
-        <div class="trust-card">
-          <span class="trust-check">✔</span>
-          <span>SSL Secured</span>
-        </div>
-        <div class="trust-card">
-          <span class="trust-check">✔</span>
-          <span>Trusted Global Partners</span>
-        </div>
-        <div class="trust-card">
-          <span class="trust-check">✔</span>
-          <span>Safe Payment Redirects</span>
-        </div>
-        <div class="trust-card">
-          <span class="trust-check">✔</span>
-          <span>24/7 Booking Support</span>
-        </div>
-        <div class="trust-card">
-          <span class="trust-check">✔</span>
-          <span>Verified Travel Deals</span>
-        </div>
-      </div>
-    </section>
+<!-- PARTNERS -->
+<div class="section">
+<h2>Compare Hotel Deals</h2>
+<div class="partners">
+<a class="partner trip" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank">Trip.com</a>
+<a class="partner booking" href="https://www.booking.com" target="_blank">Booking.com</a>
+<a class="partner agoda" href="https://www.agoda.com" target="_blank">Agoda</a>
+</div>
+</div>
 
-    <!-- PARTNERS -->
-    <section class="section">
-      <h2>Trusted Partners</h2>
-      <div class="top-partner-buttons">
-        <a href="#" class="partner-btn agoda">Agoda</a>
-        <a href="#" class="partner-btn booking">Booking.com</a>
-        <a href="#" class="partner-btn trip">Trip.com</a>
-        <a href="#" class="partner-btn hotels">Hotels.com</a>
-        <a href="#" class="partner-btn accor">Accor</a>
-        <a href="#" class="partner-btn motel6">Motel 6</a>
-      </div>
-    </section>
+<!-- CITIES -->
+<div class="section">
+<h2>Top Destinations in Philippines</h2>
+<div class="grid">
 
-    <!-- DISCLOSURE -->
-    <section class="section">
-      <p style="font-size:14px; line-height:1.5; color:#374151;">
-        <strong>Affiliate Disclosure:</strong> Some links on this page are affiliate links. This means we may earn a small commission when you book a hotel through our partners at no extra cost to you. This helps support GiftCardZoneEU while bringing you the best travel deals.
-      </p>
-    </section>
+<div class="card">
+<img src="/assets/travel/philippines/manila.webp">
+<h3>Manila</h3>
+</div>
 
-  </div>
+<div class="card">
+<img src="/assets/travel/philippines/cebu.webp">
+<h3>Cebu</h3>
+</div>
+
+<div class="card">
+<img src="/assets/travel/philippines/boracay.webp">
+<h3>Boracay</h3>
+</div>
+
+<div class="card">
+<img src="/assets/travel/philippines/palawan.webp">
+<h3>Palawan</h3>
+</div>
+
+</div>
+</div>
+
+<!-- INFO -->
+<div class="section">
+<h2>Why Visit Philippines?</h2>
+<p>Experience white sand beaches, crystal-clear waters, and one of the friendliest cultures in the world.</p>
+</div>
+
+<div class="section">
+<h2>Booking Tips</h2>
+<ul>
+<li>Compare prices across all platforms</li>
+<li>Book early during peak seasons</li>
+<li>Choose hotels near beaches or city centers</li>
+<li>Check free cancellation options</li>
+</ul>
+</div>
+
+</div>
+
+<a class="sticky" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank">
+🔥 Check Philippines Deals Now →
+</a>
+
+<div class="footer">
+© <span id="year"></span> GiftCardZoneEU
+</div>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
-          
