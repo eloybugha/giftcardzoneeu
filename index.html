@@ -1,167 +1,470 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GiftCardZoneEU • Travel, Shopping & Rewards</title>
-<meta name="description" content="GiftCardZoneEU helps visitors find travel deals, shopping finds, reward sites, and online earning guides.">
-<link rel="canonical" href="https://giftcardzoneeu.com/">
-<meta name="robots" content="index,follow">
-<script src="/assets/ga.js"></script>
-<style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f7f8fc;color:#111}
-a{color:inherit;text-decoration:none}
-.wrap,main{max-width:1180px;margin:auto;padding:18px}
-.hero{background:linear-gradient(135deg,#2563eb,#9333ea,#f97316);color:white;padding:48px 18px;border-radius:0 0 30px 30px}
-.hero h1{font-size:clamp(34px,6vw,70px);margin:10px 0}
-.hero p{font-size:18px;max-width:720px}
-.logo{display:inline-flex;align-items:center;gap:10px;font-weight:800}
-.logo img{width:42px;height:42px;border-radius:12px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
-.card{background:white;border-radius:24px;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,.10);display:block;position:relative}
-.card img{width:100%;height:230px;object-fit:cover;display:block}
-.card-body{padding:18px}
-.card h3{margin:0 0 8px;font-size:21px}
-.card p{margin:0;color:#555;line-height:1.5}
-.flag{position:absolute;top:14px;left:14px;background:white;border-radius:999px;padding:6px 10px;font-size:20px;z-index:2}
-.arrow{position:absolute;right:18px;bottom:18px;background:#111;color:white;border-radius:999px;padding:7px 12px}
-.section-head h2{font-size:30px;margin:34px 0 18px}
-.shop-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-.shop-btn{background:#ff6a00;color:white;padding:10px 14px;border-radius:999px;font-weight:700}
-.shop-btn.alt{background:#111}
-.earn{max-width:1180px;margin:22px auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;padding:0 18px}
-.earn a{background:white;border-radius:18px;padding:16px;display:flex;gap:12px;align-items:center;box-shadow:0 8px 22px rgba(0,0,0,.08)}
-.earn span{font-size:28px}
-.earn small{display:block;color:#666;margin-top:4px}
-.trust{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-.trust div{background:white;border-radius:20px;padding:18px;box-shadow:0 8px 22px rgba(0,0,0,.08)}
-footer{padding:28px 0;text-align:center;color:#555}
-@media(max-width:600px){.card img{height:210px}.hero{padding-top:34px}}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>GiftCardZoneEU • Travel, Shopping & Rewards</title>
+  <meta name="description" content="GiftCardZoneEU helps visitors find travel deals, shopping finds, reward sites, gift card guides, and online earning options worldwide." />
+  <link rel="canonical" href="https://giftcardzoneeu.com/" />
+  <meta name="robots" content="index,follow" />
+
+  <meta property="og:title" content="GiftCardZoneEU • Travel, Shopping & Rewards" />
+  <meta property="og:description" content="Explore travel deals, shopping finds, reward platforms, and online earning guides in one place." />
+  <meta property="og:image" content="https://giftcardzoneeu.com/assets/gz-logo.png" />
+  <meta property="og:url" content="https://giftcardzoneeu.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <script src="/assets/ga.js"></script>
+
+  <style>
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,Arial,sans-serif;
+      background:#f4f6fb;
+      color:#111827;
+    }
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    .wrap{max-width:1180px;margin:auto;padding:0 18px}
+
+    .hero{
+      background:
+        radial-gradient(circle at 15% 20%,rgba(255,255,255,.22),transparent 25%),
+        linear-gradient(135deg,#1455ff 0%,#7c3aed 42%,#ff7a1a 100%);
+      color:#fff;
+      border-radius:0 0 42px 42px;
+      padding:38px 0 72px;
+      box-shadow:0 20px 55px rgba(31,41,55,.18);
+    }
+    .nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      margin-bottom:56px;
+    }
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:900;
+      font-size:22px;
+    }
+    .logo img{
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      object-fit:cover;
+    }
+    .nav-links{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .nav-links a{
+      background:rgba(255,255,255,.16);
+      border:1px solid rgba(255,255,255,.22);
+      padding:10px 14px;
+      border-radius:999px;
+      font-weight:800;
+      font-size:14px;
+    }
+    .hero h1{
+      font-size:clamp(42px,7vw,86px);
+      line-height:1.05;
+      margin:0 0 20px;
+      letter-spacing:-2px;
+      max-width:900px;
+    }
+    .hero p{
+      font-size:clamp(17px,2.8vw,25px);
+      line-height:1.45;
+      margin:0 0 26px;
+      max-width:860px;
+      color:rgba(255,255,255,.92);
+    }
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      border-radius:999px;
+      padding:14px 20px;
+      font-weight:900;
+      box-shadow:0 14px 30px rgba(0,0,0,.18);
+    }
+    .btn.primary{background:#fff;color:#111827}
+    .btn.dark{background:#111827;color:#fff}
+
+    section{padding:52px 0 0}
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap:16px;
+      margin-bottom:22px;
+    }
+    h2{
+      margin:0;
+      font-size:clamp(30px,4vw,48px);
+      letter-spacing:-1px;
+    }
+    .section-head p{
+      margin:8px 0 0;
+      color:#5b6475;
+      font-size:17px;
+      max-width:620px;
+      line-height:1.55;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:24px;
+    }
+    .card{
+      position:relative;
+      overflow:hidden;
+      background:#fff;
+      border-radius:30px;
+      box-shadow:0 18px 45px rgba(17,24,39,.10);
+      min-height:100%;
+      transition:.2s ease;
+    }
+    .card:hover{transform:translateY(-3px)}
+    .card img{
+      width:100%;
+      height:265px;
+      object-fit:cover;
+      background:#e5e7eb;
+    }
+    .card-body{padding:24px}
+    .card h3{
+      margin:0 0 10px;
+      font-size:clamp(23px,3vw,34px);
+      line-height:1.15;
+      letter-spacing:-.5px;
+    }
+    .card p{
+      margin:0;
+      color:#5b6475;
+      font-size:18px;
+      line-height:1.45;
+    }
+    .flag{
+      position:absolute;
+      top:18px;
+      left:18px;
+      background:#fff;
+      border-radius:999px;
+      padding:8px 13px;
+      font-size:25px;
+      z-index:3;
+      box-shadow:0 10px 22px rgba(0,0,0,.14);
+    }
+    .arrow{
+      position:absolute;
+      right:22px;
+      bottom:22px;
+      width:54px;
+      height:54px;
+      border-radius:999px;
+      background:#050505;
+      color:#fff;
+      display:grid;
+      place-items:center;
+      font-size:24px;
+      font-weight:900;
+    }
+
+    .shop-links{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:18px;
+    }
+    .shop-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      background:#ff6b00;
+      color:#fff;
+      padding:13px 18px;
+      border-radius:999px;
+      font-weight:900;
+      font-size:17px;
+    }
+    .shop-btn.alt{background:#111827}
+
+    .earn{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:18px;
+      margin-top:28px;
+    }
+    .earn a{
+      background:#fff;
+      border-radius:24px;
+      padding:22px;
+      display:flex;
+      gap:15px;
+      align-items:center;
+      box-shadow:0 16px 35px rgba(17,24,39,.08);
+    }
+    .earn span{font-size:36px}
+    .earn strong{
+      display:block;
+      font-size:20px;
+      margin-bottom:5px;
+    }
+    .earn small{
+      color:#6b7280;
+      font-size:15px;
+      line-height:1.35;
+    }
+
+    .trust{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:18px;
+      margin-bottom:56px;
+    }
+    .trust div{
+      background:#fff;
+      border-radius:26px;
+      padding:24px;
+      box-shadow:0 16px 35px rgba(17,24,39,.08);
+    }
+    .trust b{
+      display:block;
+      font-size:19px;
+      margin-bottom:12px;
+    }
+    .trust p{
+      margin:0;
+      color:#374151;
+      line-height:1.55;
+      font-size:16px;
+    }
+
+    footer{
+      text-align:center;
+      color:#6b7280;
+      padding:34px 18px 44px;
+      font-size:16px;
+    }
+
+    @media(max-width:800px){
+      .hero{padding-bottom:54px}
+      .nav{align-items:flex-start;margin-bottom:42px}
+      .nav-links{display:none}
+      .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+      .card{border-radius:24px}
+      .card img{height:210px}
+      .card-body{padding:18px}
+      .card h3{font-size:24px}
+      .card p{font-size:16px}
+      .arrow{width:46px;height:46px;right:16px;bottom:16px}
+      .earn{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .trust{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+
+    @media(max-width:520px){
+      .wrap{padding:0 14px}
+      .hero{border-radius:0 0 30px 30px}
+      .hero h1{letter-spacing:-1px}
+      .grid{gap:14px}
+      .card img{height:170px}
+      .card h3{font-size:20px}
+      .card p{font-size:15px}
+      .card-body{padding:15px}
+      .shop-btn{font-size:14px;padding:10px 13px}
+      .earn{gap:14px}
+      .earn a{padding:16px;border-radius:18px}
+      .earn span{font-size:28px}
+      .earn strong{font-size:17px}
+      .trust{gap:14px}
+      .trust div{padding:18px;border-radius:20px}
+    }
+  </style>
 </head>
+
 <body>
+  <header class="hero">
+    <div class="wrap">
+      <nav class="nav">
+        <a class="logo" href="/">
+          <img src="/assets/gz-logo.png" alt="GiftCardZoneEU logo">
+          <span>GiftCardZoneEU</span>
+        </a>
 
-<header class="hero">
-  <div class="wrap">
-    <a class="logo" href="/">
-      <img src="/assets/gz-logo.png" alt="GiftCardZoneEU logo">
-      GiftCardZoneEU
-    </a>
-    <h1>Travel, Shopping & Rewards in One Place</h1>
-    <p>Explore trusted travel pages, shopping finds, reward platforms, and online earning guides built for visitors worldwide.</p>
-  </div>
-</header>
-
-<main>
-  <section id="travel">
-    <div class="section-head"><h2>Featured Travel & Deals</h2></div>
-    <div class="grid">
-
-      <a class="card" href="/travel/">
-        <img src="/assets/travel/australia/australia-hero.webp" alt="Travel deals">
-        <div class="card-body">
-          <h3>Explore Travel Deals</h3>
-<p>Find the best travel deals & bookings</p>
+        <div class="nav-links">
+          <a href="/travel/">Travel</a>
+          <a href="/shopping/">Shopping</a>
+          <a href="#earn">Rewards</a>
         </div>
-        <span class="arrow">→</span>
-      </a>
+      </nav>
 
-      <a class="card" href="/travel/belgium/">
-        <span class="flag">🇧🇪</span>
-        <img src="/assets/travel/belgium/belgium-hero.webp" alt="Belgium hotels">
-        <div class="card-body">
-          <h3>Best Hotels in Belgium</h3>
-          <p>Explore hotel deals & booking options</p>
+      <h1>Travel, Shopping & Rewards in One Place</h1>
+      <p>Explore trusted travel pages, shopping finds, reward platforms, and online earning guides built for visitors worldwide.</p>
+
+      <div class="hero-actions">
+        <a class="btn primary" href="/travel/">Explore Travel Deals →</a>
+        <a class="btn dark" href="#earn">Ways to Earn Online</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="travel">
+      <div class="section-head">
+        <div>
+          <h2>Featured Travel & Deals</h2>
+          <p>Start with useful travel pages, booking guides, shopping finds, and reward options.</p>
         </div>
-        <span class="arrow">→</span>
-      </a>
+      </div>
 
-      <a class="card" href="/partners/12go-philippines/">
-        <img src="/assets/partners/12go-philippines/12go-philippines-hero.webp" alt="12Go Philippines">
-        <div class="card-body">
-          <h3>12Go Philippines Transport Booking</h3>
-          <p>Ferry, van, bus & transfer bookings</p>
-        </div>
-        <span class="arrow">→</span>
-      </a>
+      <div class="grid">
+        <a class="card" href="/travel/">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop" alt="Travel deals">
+          <div class="card-body">
+            <h3>Explore Travel Deals</h3>
+            <p>Find hotel guides, city pages, and useful travel booking options.</p>
+          </div>
+          <span class="arrow">→</span>
+        </a>
 
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=1200&auto=format&fit=crop" alt="Shopping deals">
-        <div class="card-body">
-          <h3>Best Shopping Deals</h3>
-          <p>Choose where to shop and find the best deals</p>
-          <div class="shop-links">
-            <a href="/shopping/temu-germany/" class="shop-btn">🛒 Temu</a>
-            <a href="https://s.click.aliexpress.com/e/_c2z5AqwL" target="_blank" rel="nofollow sponsored noopener noreferrer" class="shop-btn alt">🔥 AliExpress</a>
+        <a class="card" href="/travel/belgium/">
+          <span class="flag">🇧🇪</span>
+          <img src="/assets/travel/belgium/belgium-hero.webp" alt="Belgium hotels">
+          <div class="card-body">
+            <h3>Best Hotels in Belgium</h3>
+            <p>Explore hotel deals and booking options for Belgium trips.</p>
+          </div>
+          <span class="arrow">→</span>
+        </a>
+
+        <a class="card" href="/partners/12go-philippines/">
+          <img src="/assets/partners/12go-philippines/12go-philippines-hero.webp" alt="12Go Philippines transport booking">
+          <div class="card-body">
+            <h3>12Go Philippines Transport Booking</h3>
+            <p>Ferry, van, bus, and transfer bookings for Philippine travel.</p>
+          </div>
+          <span class="arrow">→</span>
+        </a>
+
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=1200&auto=format&fit=crop" alt="Shopping deals">
+          <div class="card-body">
+            <h3>Best Shopping Deals</h3>
+            <p>Choose where to shop and discover useful online deals.</p>
+
+            <div class="shop-links">
+              <a href="/shopping/temu-germany/" class="shop-btn">🛒 Temu</a>
+              <a href="https://s.click.aliexpress.com/e/_c2z5AqwL" target="_blank" rel="nofollow sponsored noopener noreferrer" class="shop-btn alt">🔥 AliExpress</a>
+            </div>
           </div>
         </div>
-      </div>
 
-      <a class="card" href="https://www.prizerebel.com/index.php?r=7372635" target="_blank" rel="nofollow sponsored noopener noreferrer">
-        <img src="https://images.unsplash.com/photo-1607083206869-4c7672e72a8a?q=80&w=1200&auto=format&fit=crop" alt="Rewards online">
-        <div class="card-body">
-          <h3>Earn Rewards Online</h3>
-          <p>Surveys, tasks & gift cards</p>
+        <a class="card" href="https://www.prizerebel.com/index.php?r=7372635" target="_blank" rel="nofollow sponsored noopener noreferrer">
+          <img src="https://images.unsplash.com/photo-1607083206869-4c7672e72a8a?q=80&w=1200&auto=format&fit=crop" alt="Earn rewards online">
+          <div class="card-body">
+            <h3>Earn Rewards Online</h3>
+            <p>Explore survey sites, reward platforms, and gift card options.</p>
+          </div>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="earn">
+      <div class="section-head">
+        <div>
+          <h2>Ways to Earn Online</h2>
+          <p>Quick links to reward platforms, survey sites, ad earning, and freelance work.</p>
         </div>
-        <span class="arrow">→</span>
-      </a>
-    </div>
-  </section>
-
-  <div id="earn" class="earn">
-    <a href="https://www.prizerebel.com/index.php?r=7372635" target="_blank" rel="nofollow sponsored noopener noreferrer">
-      <span>📋</span>
-      <div>
-        <strong>Survey Sites</strong>
-        <small>Earn with surveys</small>
       </div>
-    </a>
 
-    <a href="https://www.swagbucks.com/p/register?rb=223743499&rp=1" target="_blank" rel="nofollow sponsored noopener noreferrer">
-      <span>🎁</span>
-      <div>
-        <strong>Reward Platforms</strong>
-        <small>Gift cards & cashback</small>
+      <div class="earn">
+        <a href="https://www.prizerebel.com/index.php?r=7372635" target="_blank" rel="nofollow sponsored noopener noreferrer">
+          <span>📋</span>
+          <div>
+            <strong>Survey Sites</strong>
+            <small>Answer surveys and explore gift card rewards.</small>
+          </div>
+        </a>
+
+        <a href="https://www.swagbucks.com/p/register?rb=223743499&rp=1" target="_blank" rel="nofollow sponsored noopener noreferrer">
+          <span>🎁</span>
+          <div>
+            <strong>Reward Platforms</strong>
+            <small>Gift cards, cashback, offers, and online tasks.</small>
+          </div>
+        </a>
+
+        <a href="https://millionairelucidlytransmitted.com/r213cbb9mr?key=260fe979627d3329490b55e190d439de" target="_blank" rel="nofollow sponsored noopener noreferrer">
+          <span>📈</span>
+          <div>
+            <strong>CPM Earning</strong>
+            <small>Start earning with Adsterra ads and traffic monetization.</small>
+          </div>
+        </a>
+
+        <a href="https://www.fiverr.com/pe/WEKNLwd" target="_blank" rel="nofollow sponsored noopener noreferrer">
+          <span>💻</span>
+          <div>
+            <strong>Freelance Work</strong>
+            <small>Find online services and freelance opportunities.</small>
+          </div>
+        </a>
       </div>
-    </a>
+    </section>
 
-    <a href="https://millionairelucidlytransmitted.com/r213cbb9mr?key=260fe979627d3329490b55e190d439de" target="_blank" rel="nofollow sponsored noopener noreferrer">
-      <span>📈</span>
-      <div>
-        <strong>CPM Earning</strong>
-        <small>Start earning with Adsterra ads</small>
+    <section id="popular">
+      <div class="section-head">
+        <div>
+          <h2>Why Visitors Trust GiftCardZoneEU</h2>
+          <p>Built as a growing global hub for travel, shopping, rewards, and useful online guides.</p>
+        </div>
       </div>
-    </a>
 
-    <a href="https://www.fiverr.com/pe/WEKNLwd" target="_blank" rel="nofollow sponsored noopener noreferrer">
-      <span>💻</span>
-      <div>
-        <strong>Freelance Work</strong>
-        <small>Earn online with Fiverr</small>
+      <div class="trust">
+        <div>
+          <b>🛡️ Trusted & Safe</b>
+          <p>Pages are built with clear guides, useful links, and transparent recommendations.</p>
+        </div>
+
+        <div>
+          <b>⭐ Quality Content</b>
+          <p>Travel, shopping, and rewards pages are improved regularly for better user experience.</p>
+        </div>
+
+        <div>
+          <b>🌍 Global Coverage</b>
+          <p>Country and city pages help visitors find useful options worldwide.</p>
+        </div>
+
+        <div>
+          <b>🔄 Regular Updates</b>
+          <p>New pages and improvements are added as the website continues to grow.</p>
+        </div>
       </div>
-    </a>
-  </div>
+    </section>
+  </main>
 
-  <section id="popular">
-    <div class="section-head"><h2>Why Visitors Trust GiftCardZoneEU</h2></div>
-    <div class="trust">
-      <div><b>🛡️ Trusted & Safe</b><p>Pages are built with clear guides, useful links, and transparent recommendations.</p></div>
-      <div><b>⭐ Quality Content</b><p>Travel, shopping, and rewards pages are improved regularly.</p></div>
-      <div><b>🌍 Global Coverage</b><p>Country and city pages help visitors find useful options worldwide.</p></div>
-      <div><b>🔄 Regular Updates</b><p>New pages and improvements are added as the site grows.</p></div>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="wrap">
+  <footer>
     © <span id="year"></span> GiftCardZoneEU. Travel • Shopping • Rewards.
-  </div>
-</footer>
+  </footer>
 
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
