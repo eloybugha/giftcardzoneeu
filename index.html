@@ -2,1175 +2,247 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>GiftCardZoneEU • Global Travel Deals, Shopping Finds & Gift Card Guides</title>
-  <meta name="description" content="Discover travel deals, shopping finds, reward platforms, survey sites, freelance opportunities, Adsterra CPM monetization content, and gift card guides with GiftCardZoneEU." />
-  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <title>GiftCardZoneEU • Travel, Shopping & Rewards</title>
+  <meta name="description" content="GiftCardZoneEU helps you find travel deals, shopping finds, reward sites, and online earning guides in one trusted place." />
   <link rel="canonical" href="https://giftcardzoneeu.com/" />
-  <link rel="icon" href="/assets/gz-logo.png" />
+  <meta name="robots" content="index,follow" />
 
-  <!-- Performance -->
-  <link rel="preload" as="image" href="/assets/gz-home-hero.webp" fetchpriority="high" />
-  <link rel="preconnect" href="https://millionairelucidlytransmitted.com" crossorigin />
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="GiftCardZoneEU • Global Travel Deals, Shopping Finds & Gift Card Guides" />
-  <meta property="og:description" content="Explore travel deals, budget shopping pages, reward platforms, CPM earning guides, and global gift card content in one clean global hub." />
+  <meta property="og:title" content="GiftCardZoneEU • Travel, Shopping & Rewards" />
+  <meta property="og:description" content="Explore travel deals, shopping finds, rewards, and online earning guides." />
+  <meta property="og:image" content="https://giftcardzoneeu.com/assets/gz-logo.png" />
   <meta property="og:url" content="https://giftcardzoneeu.com/" />
-  <meta property="og:image" content="https://giftcardzoneeu.com/assets/gz-home-hero.webp" />
-
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="GiftCardZoneEU • Global Travel Deals, Shopping Finds & Gift Card Guides" />
-  <meta name="twitter:description" content="Travel deals, shopping finds, rewards, Adsterra CPM guides, and global gift card content in one place." />
-  <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/gz-home-hero.webp" />
+
+  <script src="/assets/ga.js"></script>
 
   <style>
-    :root{
-      --bg:#081120;
-      --bg2:#0f1b31;
-      --panel:rgba(255,255,255,.06);
-      --line:rgba(255,255,255,.12);
-      --text:#f8fafc;
-      --muted:#cbd5e1;
-      --soft:#94a3b8;
-      --blue:#38bdf8;
-      --blue2:#0ea5e9;
-      --green:#22c55e;
-      --green2:#16a34a;
-      --orange:#f59e0b;
-      --orange2:#d97706;
-      --shadow:0 18px 40px rgba(0,0,0,.28);
-      --max:1180px;
-    }
-
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family:Arial,Helvetica,sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(1200px 700px at 10% -10%, rgba(56,189,248,.18), transparent 50%),
-        radial-gradient(1000px 650px at 100% 0%, rgba(34,197,94,.12), transparent 42%),
-        linear-gradient(180deg, #081120 0%, #0b1424 45%, #081120 100%);
-      line-height:1.6;
-      text-rendering:optimizeLegibility;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-    }
-
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
-
-    .container{
-      width:min(var(--max), calc(100% - 32px));
-      margin:0 auto;
-    }
-
-    .topbar{
-      position:sticky;
-      top:0;
-      z-index:50;
-      backdrop-filter:blur(12px);
-      -webkit-backdrop-filter:blur(12px);
-      background:rgba(8,17,32,.78);
-      border-bottom:1px solid rgba(255,255,255,.08);
-    }
-
-    .topbar-inner{
-      min-height:74px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      font-weight:800;
-      letter-spacing:.2px;
-    }
-
-    .brand img{
-      width:44px;
-      height:44px;
-      object-fit:contain;
-      border-radius:12px;
-      background:rgba(255,255,255,.04);
-      padding:4px;
-      box-shadow:0 8px 20px rgba(0,0,0,.2);
-    }
-
-    .brand-text{
-      display:flex;
-      flex-direction:column;
-      line-height:1.1;
-    }
-
-    .brand-text span:first-child{
-      font-size:1rem;
-      font-weight:800;
-    }
-
-    .brand-text span:last-child{
-      font-size:.76rem;
-      color:var(--soft);
-      font-weight:600;
-    }
-
-    .nav{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-    }
-
-    .nav a{
-      padding:10px 14px;
-      border-radius:999px;
-      color:var(--muted);
-      font-size:.95rem;
-      font-weight:700;
-      transition:background-color .2s ease,color .2s ease,transform .2s ease;
-    }
-
-    .nav a:hover{
-      background:rgba(255,255,255,.07);
+      font-family:Inter,Arial,sans-serif;
+      background:#061426;
       color:#fff;
     }
-
-    .nav .nav-cta{
-      background:linear-gradient(135deg,var(--blue),var(--blue2));
-      color:#03131d;
-      box-shadow:0 10px 22px rgba(14,165,233,.22);
+    a{text-decoration:none;color:inherit}
+    .wrap{max-width:1180px;margin:auto;padding:0 22px}
+    header{
+      position:sticky;top:0;z-index:20;
+      background:rgba(4,14,29,.88);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{width:54px;height:54px;border-radius:16px}
+    .brand strong{font-size:1.35rem}
+    .brand span{display:block;color:#9fb0c8;font-size:.95rem;margin-top:3px}
+    .menu{display:flex;gap:28px;align-items:center;color:#aebad0;font-weight:700}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:14px 24px;border-radius:20px;
+      background:linear-gradient(90deg,#20e64b,#0066ff);
+      color:#fff;font-weight:900;
+      box-shadow:0 14px 35px rgba(0,102,255,.28);
     }
 
     .hero{
-      padding:72px 0 42px;
+      display:grid;grid-template-columns:1fr 1fr;gap:35px;
+      align-items:center;padding:52px 0 38px;
     }
+    h1{font-size:3rem;line-height:1.08;margin:0 0 22px}
+    .grad{
+      background:linear-gradient(90deg,#22e64b,#00c9ff,#8b5cf6);
+      -webkit-background-clip:text;color:transparent;
+    }
+    .hero p{font-size:1.25rem;line-height:1.55;color:#b8c6da;max-width:520px}
+    .orb-area{
+      min-height:330px;position:relative;border-radius:34px;
+      background:radial-gradient(circle at 40% 40%,rgba(0,255,140,.18),transparent 35%),
+                 radial-gradient(circle at 70% 35%,rgba(0,149,255,.22),transparent 35%),
+                 radial-gradient(circle at 80% 75%,rgba(255,132,0,.20),transparent 30%);
+    }
+    .orb{
+      position:absolute;border-radius:50%;display:flex;align-items:center;justify-content:center;
+      font-size:3.8rem;font-weight:900;
+      box-shadow:0 18px 45px rgba(0,0,0,.32), inset 0 0 0 4px rgba(255,255,255,.18);
+    }
+    .o1{width:190px;height:190px;left:190px;top:0;background:linear-gradient(135deg,#09d7ff,#006dff)}
+    .o2{width:160px;height:160px;left:60px;top:135px;background:linear-gradient(135deg,#10d94c,#006d5f)}
+    .o3{width:145px;height:145px;right:70px;bottom:15px;background:linear-gradient(135deg,#ffb000,#ff6900)}
+    .o4{width:110px;height:110px;right:95px;top:78px;background:linear-gradient(135deg,#a855f7,#ec42ff)}
 
-    .hero-wrap{
-      display:grid;
-      grid-template-columns:1.08fr .92fr;
-      gap:26px;
-      align-items:stretch;
+    .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:18px 0}
+    .cat{
+      text-align:center;padding:26px 18px;border-radius:22px;
+      background:rgba(255,255,255,.045);
+      border:1px solid rgba(255,255,255,.09);
+      box-shadow:0 18px 35px rgba(0,0,0,.18);
     }
-
-    .hero-main,
-    .hero-side{
-      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
-      border:1px solid var(--line);
-      border-radius:28px;
-      box-shadow:var(--shadow);
+    .icon{
+      width:80px;height:80px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+      margin:0 auto 15px;font-size:2.3rem;
+      background:linear-gradient(135deg,#009dff,#003bff);
+      box-shadow:0 0 24px rgba(0,153,255,.45);
     }
-
-    .hero-main{
-      padding:38px 34px;
-      position:relative;
-      overflow:hidden;
-    }
-
-    .hero-main::before{
-      content:"";
-      position:absolute;
-      inset:auto -80px -100px auto;
-      width:240px;
-      height:240px;
-      border-radius:50%;
-      background:radial-gradient(circle, rgba(56,189,248,.22), transparent 70%);
-      pointer-events:none;
-    }
-
-    .eyebrow{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      background:rgba(56,189,248,.12);
-      border:1px solid rgba(56,189,248,.2);
-      color:#c8f1ff;
-      font-weight:800;
-      font-size:.82rem;
-      padding:8px 12px;
-      border-radius:999px;
-      margin-bottom:18px;
-    }
-
-    .hero h1{
-      margin:0 0 14px;
-      font-size:clamp(2rem, 4vw, 4rem);
-      line-height:1.08;
-      letter-spacing:-.03em;
-      max-width:760px;
-      text-wrap:balance;
-    }
-
-    .hero p{
-      margin:0;
-      color:var(--muted);
-      font-size:1.04rem;
-      max-width:760px;
-    }
-
-    .hero-actions{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-top:24px;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-height:50px;
-      padding:0 18px;
-      border-radius:14px;
-      font-weight:800;
-      transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease;
-      border:1px solid transparent;
-      text-align:center;
-    }
-
-    .btn-primary{
-      background:linear-gradient(135deg,var(--green),var(--green2));
-      color:#04110a;
-      box-shadow:0 12px 24px rgba(34,197,94,.22);
-    }
-
-    .btn-secondary{
-      background:rgba(255,255,255,.06);
-      border-color:rgba(255,255,255,.1);
-      color:#fff;
-    }
-
-    .btn:hover{
-      transform:translateY(-2px);
-    }
-
-    .hero-stats{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:12px;
-      margin-top:26px;
-    }
-
-    .stat{
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:18px;
-      padding:16px 14px;
-    }
-
-    .stat strong{
-      display:block;
-      font-size:1.1rem;
-      line-height:1.1;
-      margin-bottom:4px;
-    }
-
-    .stat span{
-      font-size:.88rem;
-      color:var(--soft);
-      font-weight:700;
-    }
-
-    .hero-side{
-      padding:18px;
-      display:grid;
-      gap:14px;
-      align-content:start;
-    }
-
-    .hero-image-card{
-      position:relative;
-      overflow:hidden;
-      border-radius:22px;
-      min-height:260px;
-      border:1px solid rgba(255,255,255,.08);
-      background:
-        linear-gradient(180deg, rgba(2,6,23,.12), rgba(2,6,23,.72)),
-        url('/assets/gz-home-hero.webp') center/cover no-repeat;
-      box-shadow:var(--shadow);
-      display:flex;
-      align-items:flex-end;
-    }
-
-    .hero-image-overlay{
-      width:100%;
-      padding:18px;
-      background:linear-gradient(180deg, rgba(0,0,0,0), rgba(2,6,23,.78));
-    }
-
-    .hero-image-overlay h3{
-      margin:0 0 6px;
-      font-size:1.08rem;
-    }
-
-    .hero-image-overlay p{
-      margin:0;
-      color:#dbe7f3;
-      font-size:.93rem;
-    }
-
-    .mini-card{
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:20px;
-      padding:18px;
-    }
-
-    .mini-card h3{
-      margin:0 0 8px;
-      font-size:1.06rem;
-    }
-
-    .mini-card p{
-      margin:0;
-      color:var(--muted);
-      font-size:.95rem;
-    }
-
-    .mini-links{
-      margin-top:14px;
-      display:grid;
-      gap:10px;
-    }
-
-    .mini-links a{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      padding:12px 14px;
-      border-radius:14px;
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.08);
-      color:#fff;
-      font-weight:700;
-      transition:background-color .2s ease,transform .2s ease,border-color .2s ease;
-    }
-
-    .mini-links a:hover,
-    .pill-link:hover,
-    .footer-links a:hover,
-    .link-columns a:hover{
-      transform:translateY(-1px);
-    }
+    .cat h3{margin:0 0 8px;font-size:1.35rem}
+    .cat p{margin:0;color:#aebad0;line-height:1.45}
+    .cat b{display:block;margin-top:14px;color:#00a8ff}
 
     section{
-      padding:30px 0;
+      margin:32px 0;padding:22px 10px;border-radius:24px;
+      background:rgba(255,255,255,.035);
+      border:1px solid rgba(255,255,255,.07);
     }
-
-    .section-head{
-      display:flex;
-      align-items:end;
-      justify-content:space-between;
-      gap:18px;
-      margin-bottom:18px;
-    }
-
-    .section-head h2{
-      margin:0;
-      font-size:clamp(1.5rem,2.6vw,2.2rem);
-      letter-spacing:-.02em;
-      text-wrap:balance;
-    }
-
-    .section-head p{
-      margin:0;
-      color:var(--soft);
-      max-width:760px;
-    }
-
-    .grid-3{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:18px;
-    }
-
-    .grid-4{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:18px;
-    }
-
+    .section-head{display:flex;justify-content:space-between;align-items:center;margin:0 0 16px}
+    .section-head h2{margin:0;font-size:1.55rem}
+    .view{color:#a9b5ff;font-weight:800}
+    .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
     .card{
-      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
-      border:1px solid var(--line);
-      border-radius:24px;
-      padding:22px;
-      box-shadow:var(--shadow);
-      transition:transform .2s ease,border-color .2s ease;
-      min-height:100%;
-      display:flex;
-      flex-direction:column;
+      min-height:230px;border-radius:18px;overflow:hidden;position:relative;
+      background:#10243c;border:1px solid rgba(255,255,255,.1);
+    }
+    .card img{width:100%;height:110px;object-fit:cover;display:block;filter:brightness(.78)}
+    .card .flag{position:absolute;top:12px;left:14px;font-size:2.2rem}
+    .card-body{padding:14px}
+    .card h3{margin:0 0 8px;font-size:1.17rem;line-height:1.25}
+    .card p{margin:0;color:#aab8cc;line-height:1.45}
+    .arrow{
+      position:absolute;right:14px;bottom:14px;
+      width:38px;height:38px;border-radius:50%;
+      background:rgba(255,255,255,.12);
+      display:flex;align-items:center;justify-content:center;
+      color:#dce8ff;font-size:1.4rem;
     }
 
-    .card:hover{
-      transform:translateY(-4px);
-      border-color:rgba(56,189,248,.28);
+    .earn{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .earn a{
+      display:flex;gap:13px;align-items:center;padding:18px;border-radius:16px;
+      background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.08);
     }
+    .earn span{font-size:2rem}
+    .earn strong{display:block}
+    .earn small{color:#aebad0}
 
-    .card .tag{
-      display:inline-block;
-      margin-bottom:10px;
-      padding:6px 10px;
-      border-radius:999px;
-      font-size:.78rem;
-      font-weight:800;
-      color:#d8f4ff;
-      background:rgba(56,189,248,.12);
-      border:1px solid rgba(56,189,248,.22);
+    .trust{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .trust div{padding:20px;border-radius:18px;background:rgba(255,255,255,.04)}
+    .trust b{display:block;margin-bottom:7px}
+    .trust p{margin:0;color:#aebad0;line-height:1.45}
+
+    footer{padding:35px 0;color:#98a9c3;text-align:center}
+
+    @media(max-width:850px){
+      .menu{display:none}
+      .hero{grid-template-columns:1fr;padding-top:34px}
+      h1{font-size:2.35rem}
+      .orb-area{min-height:280px}
+      .o1{width:145px;height:145px;left:46%;top:0}
+      .o2{width:125px;height:125px;left:8%;top:115px}
+      .o3{width:120px;height:120px;right:7%;bottom:8px}
+      .o4{width:90px;height:90px;right:8%;top:70px}
+      .grid4,.cards,.earn,.trust{grid-template-columns:1fr 1fr}
     }
-
-    .card .tag.orange{
-      color:#fff2d8;
-      background:rgba(245,158,11,.12);
-      border-color:rgba(245,158,11,.22);
-    }
-
-    .card h3{
-      margin:0 0 8px;
-      font-size:1.14rem;
-      line-height:1.28;
-      text-wrap:balance;
-    }
-
-    .card p{
-      margin:0 0 16px;
-      color:var(--muted);
-      font-size:.96rem;
-    }
-
-    .card .card-links{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top:auto;
-    }
-
-    .pill-link{
-      padding:10px 13px;
-      border-radius:999px;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.08);
-      font-size:.9rem;
-      font-weight:800;
-      color:#fff;
-      transition:background-color .2s ease,transform .2s ease,border-color .2s ease;
-    }
-
-    .featured-grid{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:18px;
-    }
-
-    .featured-card{
-      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
-      border:1px solid var(--line);
-      border-radius:24px;
-      padding:22px;
-      box-shadow:var(--shadow);
-      transition:transform .2s ease,border-color .2s ease;
-    }
-
-    .featured-card:hover{
-      transform:translateY(-4px);
-      border-color:rgba(34,197,94,.28);
-    }
-
-    .featured-card h3{
-      margin:0 0 8px;
-      font-size:1.16rem;
-      text-wrap:balance;
-    }
-
-    .featured-card p{
-      margin:0 0 16px;
-      color:var(--muted);
-    }
-
-    .trust{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:16px;
-    }
-
-    .trust-item{
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:20px;
-      padding:18px;
-      text-align:center;
-      box-shadow:var(--shadow);
-    }
-
-    .trust-item strong{
-      display:block;
-      font-size:1rem;
-      margin-bottom:6px;
-    }
-
-    .trust-item span{
-      display:block;
-      color:var(--soft);
-      font-size:.93rem;
-    }
-
-    .links-panel{
-      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
-      border:1px solid var(--line);
-      border-radius:28px;
-      padding:24px;
-      box-shadow:var(--shadow);
-    }
-
-    .link-columns{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:18px;
-    }
-
-    .link-columns h3{
-      margin:0 0 10px;
-      font-size:1rem;
-    }
-
-    .link-columns a{
-      display:block;
-      padding:8px 0;
-      color:var(--muted);
-      font-weight:700;
-      transition:color .2s ease,transform .2s ease;
-      word-break:break-word;
-    }
-
-    .link-columns a:hover{
-      color:#fff;
-    }
-
-    .cta-band{
-      background:linear-gradient(135deg, rgba(56,189,248,.15), rgba(34,197,94,.12));
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:28px;
-      padding:28px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-      box-shadow:var(--shadow);
-    }
-
-    .cta-band h2{
-      margin:0 0 8px;
-      font-size:clamp(1.4rem,2.5vw,2rem);
-      text-wrap:balance;
-    }
-
-    .cta-band p{
-      margin:0;
-      color:var(--muted);
-      max-width:700px;
-    }
-
-    footer{
-      padding:34px 0 46px;
-    }
-
-    .footer{
-      display:grid;
-      grid-template-columns:1.2fr .9fr .9fr;
-      gap:20px;
-      padding:26px;
-      border-radius:26px;
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.08);
-      box-shadow:var(--shadow);
-    }
-
-    .footer-brand{
-      display:flex;
-      gap:14px;
-      align-items:flex-start;
-    }
-
-    .footer-brand img{
-      width:52px;
-      height:52px;
-      object-fit:contain;
-      border-radius:14px;
-      background:rgba(255,255,255,.05);
-      padding:5px;
-      flex-shrink:0;
-    }
-
-    .footer h3{
-      margin:0 0 10px;
-      font-size:1rem;
-    }
-
-    .footer p,
-    .footer a{
-      color:var(--muted);
-      font-size:.95rem;
-    }
-
-    .footer-links{
-      display:grid;
-      gap:8px;
-    }
-
-    .copyright{
-      margin-top:14px;
-      color:var(--soft);
-      font-size:.92rem;
-      text-align:center;
-    }
-
-    @media (max-width: 1080px){
-      .hero-wrap,
-      .grid-3,
-      .grid-4,
-      .featured-grid,
-      .trust,
-      .link-columns,
-      .footer{
-        grid-template-columns:1fr 1fr;
-      }
-
-      .hero-stats{
-        grid-template-columns:repeat(2,1fr);
-      }
-    }
-
-    @media (max-width: 760px){
-      .topbar-inner{
-        align-items:flex-start;
-        padding:14px 0;
-        flex-direction:column;
-      }
-
-      .nav{
-        width:100%;
-        justify-content:flex-start;
-        gap:8px;
-      }
-
-      .nav a{
-        font-size:.88rem;
-        padding:9px 12px;
-      }
-
-      .hero{
-        padding-top:32px;
-      }
-
-      .hero-wrap,
-      .grid-3,
-      .grid-4,
-      .featured-grid,
-      .trust,
-      .link-columns,
-      .footer,
-      .hero-stats{
-        grid-template-columns:1fr;
-      }
-
-      .hero-main,
-      .hero-side,
-      .card,
-      .featured-card,
-      .links-panel,
-      .cta-band{
-        padding:18px;
-      }
-
-      .hero-main{
-        padding:24px 18px;
-      }
-
-      .hero h1{
-        font-size:1.85rem;
-        line-height:1.14;
-        margin-bottom:12px;
-      }
-
-      .hero p{
-        font-size:.96rem;
-        line-height:1.65;
-      }
-
-      .eyebrow{
-        font-size:.74rem;
-        padding:7px 10px;
-        margin-bottom:14px;
-      }
-
-      .hero-actions{
-        flex-direction:column;
-      }
-
-      .hero-actions .btn{
-        width:100%;
-      }
-
-      .stat{
-        padding:14px;
-      }
-
-      .hero-image-card{
-        min-height:220px;
-      }
-
-      .cta-band{
-        align-items:flex-start;
-        flex-direction:column;
-      }
-
-      .section-head{
-        align-items:flex-start;
-        flex-direction:column;
-      }
-    }
-
-    @media (max-width: 420px){
-      .container{
-        width:min(var(--max), calc(100% - 22px));
-      }
-
-      .brand-text span:first-child{
-        font-size:.95rem;
-      }
-
-      .brand-text span:last-child{
-        font-size:.7rem;
-      }
-
-      .hero h1{
-        font-size:1.65rem;
-      }
-
-      .hero p,
-      .card p,
-      .featured-card p,
-      .mini-card p,
-      .cta-band p,
-      .section-head p{
-        font-size:.92rem;
-      }
-
-      .card h3,
-      .featured-card h3{
-        font-size:1.05rem;
-      }
-
-      .pill-link{
-        width:100%;
-        text-align:center;
-      }
+    @media(max-width:520px){
+      .grid4,.cards,.earn,.trust{grid-template-columns:1fr}
+      .brand strong{font-size:1.1rem}
     }
   </style>
 </head>
+
 <body>
-
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <a href="/" class="brand" aria-label="GiftCardZoneEU homepage">
-        <img src="/assets/gz-logo.png" alt="GiftCardZoneEU logo" width="44" height="44" fetchpriority="high" decoding="async" />
-        <div class="brand-text">
-          <span>GiftCardZoneEU</span>
-          <span>Travel • Shopping • Rewards</span>
-        </div>
-      </a>
-
-      <nav class="nav" aria-label="Main navigation">
-        <a href="#categories">Categories</a>
-        <a href="#featured">Featured</a>
-        <a href="#earn">Earn</a>
-        <a href="#popular">Popular</a>
-        <a href="/travel/" class="nav-cta">Explore Deals</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="container hero-wrap">
-        <div class="hero-main">
-          <div class="eyebrow">Global deals hub • Trusted pages • Updated layouts</div>
-          <h1>Unlock Travel Deals, Budget Finds, Reward Sites & CPM Earning Opportunities</h1>
-          <p>
-            Explore trusted travel pages, budget shopping hubs, reward platforms, survey sites,
-            freelance opportunities, gift card guides, and CPM ad monetization paths like Adsterra
-            — all organized to help visitors discover deals and online earning opportunities faster.
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="/travel/">Explore Travel Deals</a>
-            <a class="btn btn-secondary" href="/shopping/">Shop Budget Finds</a>
-            <a class="btn btn-secondary" href="/country/us/">Gift Card Guides</a>
-          </div>
-
-          <div class="hero-stats">
-            <div class="stat">
-              <strong>Travel</strong>
-              <span>Hotel, flight, and destination pages</span>
-            </div>
-            <div class="stat">
-              <strong>Shopping</strong>
-              <span>Budget finds and store hubs</span>
-            </div>
-            <div class="stat">
-              <strong>Rewards</strong>
-              <span>Survey and cashback pages</span>
-            </div>
-            <div class="stat">
-              <strong>Ad Monetization</strong>
-              <span>CPM and publisher earning guides</span>
-            </div>
-          </div>
-        </div>
-
-        <aside class="hero-side">
-          <div class="hero-image-card">
-            <div class="hero-image-overlay">
-              <h3>Discover stronger entry points</h3>
-              <p>Travel, shopping, rewards, and CPM earning content organized in one cleaner homepage layout.</p>
-            </div>
-          </div>
-
-          <div class="mini-card">
-            <h3>Start with the strongest pages</h3>
-            <p>Browse your key sections first and guide visitors quickly into your best categories and highest-intent pages.</p>
-
-            <div class="mini-links">
-              <a href="/travel/germany/"><span>Germany Travel</span><span>→</span></a>
-              <a href="/partners/trip-com-germany/"><span>Trip.com Germany</span><span>→</span></a>
-              <a href="/shopping/temu-germany/"><span>Temu Germany</span><span>→</span></a>
-              <a href="/country/us/"><span>US Reward Guides</span><span>→</span></a>
-            </div>
-          </div>
-
-          <div class="mini-card">
-            <h3>Built for cleaner navigation</h3>
-            <p>
-              This homepage structure helps users understand your site faster while giving search engines
-              stronger internal linking paths into your key pages and categories.
-            </p>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section id="categories">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Main Categories</h2>
-            <p>Clear homepage sections help users click faster and help search engines understand what your site covers.</p>
-          </div>
-        </div>
-
-        <div class="grid-4">
-          <article class="card">
-            <span class="tag">Travel</span>
-            <h3>Hotels, Flights & Country Travel Pages</h3>
-            <p>
-              Discover destination pages, travel partner hubs, hotel booking guides, and city-based recommendations
-              across your growing travel cluster.
-            </p>
-            <div class="card-links">
-              <a class="pill-link" href="/travel/">Travel Hub</a>
-              <a class="pill-link" href="/travel/germany/">Germany</a>
-              <a class="pill-link" href="/travel/belgium/">Belgium</a>
-              <a class="pill-link" href="/travel/new-zealand/">New Zealand</a>
-            </div>
-          </article>
-
-          <article class="card">
-            <span class="tag">Shopping</span>
-            <h3>Budget Finds & Online Shopping Pages</h3>
-            <p>
-              Explore shopping-focused pages for affordable products, online deals, and future e-commerce
-              affiliate pages under a cleaner shopping category.
-            </p>
-            <div class="card-links">
-              <a class="pill-link" href="/shopping/">Shopping Hub</a>
-              <a class="pill-link" href="/shopping/temu-germany/">Temu Germany</a>
-            </div>
-          </article>
-
-          <article class="card">
-  <span class="tag">Rewards</span>
-  <h3>Survey Sites, Gift Cards & Reward Platforms</h3>
-
-  <p>
-    Explore reward platforms, survey sites, and online earning opportunities across different countries.
-    These pages help users discover gift card rewards, cashback-style offers, and simple ways to earn online.
-  </p>
-
-  <ul style="margin:0 0 14px; padding-left:18px; color:#b8c5e3; font-size:0.95rem;">
-    <li>Survey and rewards pages by country</li>
-    <li>Gift card and PayPal earning opportunities</li>
-    <li>Easy path into US, NL, and DE reward hubs</li>
-  </ul>
-
-  <div class="card-links">
-    <a class="pill-link" href="/country/us/">🇺🇸 US Rewards</a>
-    <a class="pill-link" href="/country/nl/">🇳🇱 NL Rewards</a>
-    <a class="pill-link" href="/country/de/">🇩🇪 DE Rewards</a>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/">
+      <img src="/assets/gz-logo.png" alt="GiftCardZoneEU logo">
+      <div><strong>GiftCardZoneEU</strong><span>Travel • Shopping • Rewards</span></div>
+    </a>
+    <nav class="menu">
+      <a href="#categories">Categories</a>
+      <a href="#featured">Featured</a>
+      <a href="#earn">Earn</a>
+      <a href="#popular">Popular</a>
+      <a class="btn" href="#featured">Explore Deals</a>
+    </nav>
   </div>
-</article>
+</header>
 
-          <article class="card">
-            <span class="tag orange">Ad Monetization</span>
-            <h3>CPM Ads, Adsterra & Publisher Earning Pages</h3>
-            <p>
-              Explore CPM-based earning content, Adsterra-focused guides, and publisher monetization
-              pages for users looking to grow traffic and earn from ads.
-            </p>
-            <div class="card-links">
-              <a class="pill-link" href="https://millionairelucidlytransmitted.com/r213cbb9mr?key=260fe979627d3329490b55e190d439de" target="_blank" rel="nofollow sponsored noopener noreferrer">Adsterra Guide</a>
-              <a class="pill-link" href="https://millionairelucidlytransmitted.com/r213cbb9mr?key=260fe979627d3329490b55e190d439de" target="_blank" rel="nofollow sponsored noopener noreferrer">Ads Hub</a>
-              <a class="pill-link" href="/services/fiverr/">Fiverr Guide</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="featured">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Featured Pages</h2>
-            <p>These cards give your homepage stronger direction and push users into your most important destinations and partner pages.</p>
-          </div>
-        </div>
-
-        <div class="featured-grid">
-          <a class="featured-card" href="/travel/germany/">
-            <h3>Best Hotel Deals in Germany</h3>
-            <p>Explore hotel pages, city coverage, and trusted travel partner links for one of your strongest travel markets.</p>
-          </a>
-
-          <a class="featured-card" href="/partners/trip-com-germany/">
-            <h3>Trip.com Germany – Cheap Flights & Hotels</h3>
-            <p>A focused partner page built for travel discovery, bookings, and stronger affiliate intent.</p>
-          </a>
-
-          <a class="featured-card" href="/travel/belgium/">
-            <h3>Best Hotels in Belgium</h3>
-            <p>Connect visitors to Belgium hotel content, city cards, and trusted booking pages.</p>
-          </a>
-
-          <a class="featured-card" href="/partners/12go-philippines/">
-            <h3>12Go Philippines Transport Booking</h3>
-            <p>Feature ferry, van, bus, and transfer booking content for transport-focused travel users.</p>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section id="earn">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Ways to Earn Online</h2>
-            <p>Dito natin binalik yung dating earning-style homepage sections para hindi mawala ang old direction ng main page mo.</p>
-          </div>
-        </div>
-
-        <div class="grid-3">
-          <article class="card">
-            <span class="tag">Survey Sites</span>
-            <h3>Reward Platforms & Survey Opportunities</h3>
-            <p>
-              Discover pages focused on surveys, rewards, and online earning opportunities that can support your
-              gift card and rewards category.
-            </p>
-            <div class="card-links">
-              <a class="pill-link" href="/country/us/">US Rewards</a>
-              <a class="pill-link" href="/country/nl/">NL Rewards</a>
-              <a class="pill-link" href="/country/de/">DE Rewards</a>
-            </div>
-          </article>
-
-          <article class="card">
-            <span class="tag">Adsterra CPM</span>
-            <h3>CPM Advertising & Website Monetization</h3>
-            <p>
-              Add Adsterra and CPM monetization content for publishers, bloggers, and site owners
-              who want more ways to earn from website traffic.
-            </p>
-            <div class="card-links">
-              <a class="pill-link" href="/ads/adsterra/">Adsterra</a>
-              <a class="pill-link" href="/ads/">Ads Hub</a>
-              <a class="pill-link" href="/partners/">Partner Pages</a>
-            </div>
-          </article>
-
-          <article class="card">
-            <span class="tag orange">Fiverr</span>
-            <h3>Freelance Services & Online Work</h3>
-            <p>
-              Bring back the freelance angle of the homepage through Fiverr-style earning paths and service-based
-              opportunities for remote work users.
-            </p>
-            <div class="card-links">
-              <a class="pill-link" href="/services/fiverr/">Fiverr</a>
-              <a class="pill-link" href="/services/">Services Hub</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Why Visitors Trust GiftCardZoneEU</h2>
-            <p>A homepage trust section makes the site feel more complete and supports affiliate-friendly presentation.</p>
-          </div>
-        </div>
-
-        <div class="trust">
-          <div class="trust-item">
-            <strong>Trusted Page Structure</strong>
-            <span>Clean layouts with clearer category flow</span>
-          </div>
-          <div class="trust-item">
-            <strong>Global Coverage</strong>
-            <span>Travel, shopping, rewards, and earning pages in one hub</span>
-          </div>
-          <div class="trust-item">
-            <strong>Fast Navigation</strong>
-            <span>Users can reach top pages in fewer clicks</span>
-          </div>
-          <div class="trust-item">
-            <strong>Growing Content Hub</strong>
-            <span>Built for scalable internal linking and expansion</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="popular">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Popular Links</h2>
-            <p>This section acts like a mini sitemap on the homepage and helps distribute internal link strength deeper into the site.</p>
-          </div>
-        </div>
-
-        <div class="links-panel">
-          <div class="link-columns">
-            <div>
-              <h3>Travel Pages</h3>
-              <a href="/travel/">Travel Hub</a>
-              <a href="/travel/germany/">Germany Travel</a>
-              <a href="/travel/belgium/">Belgium Travel</a>
-              <a href="/travel/new-zealand/">New Zealand Travel</a>
-            </div>
-
-            <div>
-              <h3>Partner Pages</h3>
-              <a href="/partners/trip-com-germany/">Trip.com Germany</a>
-              <a href="/partners/12go-philippines/">12Go Philippines</a>
-              <a href="/partners/">All Partners</a>
-            </div>
-
-            <div>
-              <h3>Shopping Pages</h3>
-              <a href="/shopping/">Shopping Hub</a>
-              <a href="/shopping/temu-germany/">Temu Germany</a>
-            </div>
-
-            <div>
-              <h3>Earning & Ads</h3>
-              <a href="/ads/adsterra/">Adsterra CPM Guide</a>
-              <a href="/ads/">Ads Hub</a>
-              <a href="/services/fiverr/">Fiverr Guide</a>
-              <a href="/country/us/">US Gift Card Guide</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="cta-band">
-          <div>
-            <h2>Explore travel deals, shopping finds, rewards and CPM earning paths</h2>
-            <p>
-              Start with travel pages, browse budget shopping finds, open reward guides, or direct users
-              into survey, freelance, and Adsterra CPM monetization paths. The homepage now pushes visitors
-              into the right sections faster.
-            </p>
-          </div>
-          <a class="btn btn-primary" href="/travel/">Enter Travel Hub</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <div class="footer">
-        <div>
-          <a href="/" class="footer-brand" aria-label="GiftCardZoneEU homepage">
-            <img src="/assets/gz-logo.png" alt="GiftCardZoneEU logo" width="52" height="52" loading="lazy" decoding="async" />
-            <div>
-              <h3>GiftCardZoneEU</h3>
-              <p>
-                A growing global hub for travel deals, shopping pages, gift card guides,
-                survey platforms, CPM monetization content, and reward-focused pages built
-                with a cleaner structure and stronger internal linking.
-              </p>
-            </div>
-          </a>
-        </div>
-
-        <div>
-          <h3>Quick Links</h3>
-          <div class="footer-links">
-            <a href="/travel/">Travel</a>
-            <a href="/shopping/">Shopping</a>
-            <a href="/partners/">Partners</a>
-            <a href="/ads/">Ads Hub</a>
-          </div>
-        </div>
-
-        <div>
-          <h3>Top Pages</h3>
-          <div class="footer-links">
-            <a href="/travel/germany/">Germany Travel</a>
-            <a href="/travel/belgium/">Belgium Travel</a>
-            <a href="/partners/trip-com-germany/">Trip.com Germany</a>
-            <a href="/shopping/temu-germany/">Temu Germany</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="copyright">
-        © <span id="year"></span> GiftCardZoneEU. All rights reserved.
-      </div>
+<main class="wrap">
+  <section class="hero">
+    <div>
+      <h1>Everything You Need,<br><span class="grad">All in One Place</span></h1>
+      <p>Find the best travel deals, shop smart, discover rewards, and explore legit ways to earn online.</p>
+      <a class="btn" href="#featured">Explore Top Deals →</a>
     </div>
-  </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+    <div class="orb-area">
+      <div class="orb o1">✈️</div>
+      <div class="orb o2">💳</div>
+      <div class="orb o3">📈</div>
+      <div class="orb o4">🛍️</div>
+    </div>
+  </section>
 
+  <div id="categories" class="grid4">
+    <a class="cat" href="/travel/"><div class="icon">✈️</div><h3>Travel</h3><p>Hotels, flights & destination pages</p><b>Explore →</b></a>
+    <a class="cat" href="/shopping/"><div class="icon">🛍️</div><h3>Shopping</h3><p>Budget finds & online shopping</p><b>Explore →</b></a>
+    <a class="cat" href="/rewards/"><div class="icon">🎁</div><h3>Rewards</h3><p>Survey sites & reward platforms</p><b>Explore →</b></a>
+    <a class="cat" href="/ad-monetization/"><div class="icon">📈</div><h3>Ad Monetization</h3><p>CPM guides & earning strategies</p><b>Explore →</b></a>
+  </div>
+
+  <section id="featured">
+    <div class="section-head"><h2>Featured Pages</h2><a class="view" href="/travel/">View All →</a></div>
+    <div class="cards">
+      <a class="card" href="/travel/germany/">
+        <span class="flag">🇩🇪</span>
+        <img src="/assets/travel/germany/germany-hero.webp" alt="Germany travel">
+        <div class="card-body"><h3>Best Hotel Deals in Germany</h3><p>Top hotels, cities & travel guides</p></div><span class="arrow">→</span>
+      </a>
+      <a class="card" href="/partners/trip-com-germany/">
+        <img src="/assets/partners/trip-com-germany/trip-com-germany-hero.webp" alt="Trip.com Germany">
+        <div class="card-body"><h3>Trip.com Germany Cheap Flights & Hotels</h3><p>Find the best travel deals & bookings</p></div><span class="arrow">→</span>
+      </a>
+      <a class="card" href="/travel/belgium/">
+        <span class="flag">🇧🇪</span>
+        <img src="/assets/travel/belgium/belgium-hero.webp" alt="Belgium hotels">
+        <div class="card-body"><h3>Best Hotels in Belgium</h3><p>Explore hotel deals & booking options</p></div><span class="arrow">→</span>
+      </a>
+      <a class="card" href="/partners/12go-philippines/">
+        <img src="/assets/partners/12go-philippines/12go-philippines-hero.webp" alt="12Go Philippines">
+        <div class="card-body"><h3>12Go Philippines Transport Booking</h3><p>Ferry, van, bus & transfer bookings</p></div><span class="arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <section id="earn">
+    <div class="section-head"><h2>Ways to Earn Online</h2><a class="view" href="/rewards/">View All →</a></div>
+    <div class="earn">
+      <a href="/rewards/survey-sites/"><span>📋</span><div><strong>Survey Sites</strong><small>Earn with surveys</small></div></a>
+      <a href="/partners/prizerebel/"><span>🎁</span><div><strong>Reward Platforms</strong><small>Gift cards & cashback</small></div></a>
+      <a href="/ad-monetization/"><span>📈</span><div><strong>CPM Earning</strong><small>Monetize your traffic</small></div></a>
+      <a href="/online-work/"><span>💻</span><div><strong>Freelance Work</strong><small>Work online & earn</small></div></a>
+    </div>
+  </section>
+
+  <section id="popular">
+    <div class="section-head"><h2>Why Visitors Trust GiftCardZoneEU</h2></div>
+    <div class="trust">
+      <div><b>🛡️ Trusted & Safe</b><p>Pages are built with clear guides, useful links, and transparent recommendations.</p></div>
+      <div><b>⭐ Quality Content</b><p>Travel, shopping, and rewards pages are improved regularly.</p></div>
+      <div><b>🌍 Global Coverage</b><p>Country and city pages help visitors find useful options worldwide.</p></div>
+      <div><b>🔄 Regular Updates</b><p>New pages and improvements are added as the site grows.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    © <span id="year"></span> GiftCardZoneEU. Travel • Shopping • Rewards.
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
