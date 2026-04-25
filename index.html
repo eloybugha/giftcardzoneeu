@@ -19,113 +19,56 @@
 
   <style>
     *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:Inter,Arial,sans-serif;
-      background:#061426;
-      color:#fff;
-    }
+    body{margin:0;font-family:Inter,Arial,sans-serif;background:#061426;color:#fff}
     a{text-decoration:none;color:inherit}
     .wrap{max-width:1180px;margin:auto;padding:0 22px}
-    header{
-      position:sticky;top:0;z-index:20;
-      background:rgba(4,14,29,.88);
-      backdrop-filter:blur(16px);
-      border-bottom:1px solid rgba(255,255,255,.08);
-    }
+    header{position:sticky;top:0;z-index:20;background:rgba(4,14,29,.88);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.08)}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
     .brand{display:flex;align-items:center;gap:12px}
     .brand img{width:54px;height:54px;border-radius:16px}
     .brand strong{font-size:1.35rem}
     .brand span{display:block;color:#9fb0c8;font-size:.95rem;margin-top:3px}
     .menu{display:flex;gap:28px;align-items:center;color:#aebad0;font-weight:700}
-    .btn{
-      display:inline-flex;align-items:center;gap:10px;
-      padding:14px 24px;border-radius:20px;
-      background:linear-gradient(90deg,#20e64b,#0066ff);
-      color:#fff;font-weight:900;
-      box-shadow:0 14px 35px rgba(0,102,255,.28);
-    }
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:20px;background:linear-gradient(90deg,#20e64b,#0066ff);color:#fff;font-weight:900;box-shadow:0 14px 35px rgba(0,102,255,.28)}
 
-    .hero{
-      display:grid;grid-template-columns:1fr 1fr;gap:35px;
-      align-items:center;padding:52px 0 38px;
-    }
+    .hero{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center;padding:52px 0 38px}
     h1{font-size:3rem;line-height:1.08;margin:0 0 22px}
-    .grad{
-      background:linear-gradient(90deg,#22e64b,#00c9ff,#8b5cf6);
-      -webkit-background-clip:text;color:transparent;
-    }
+    .grad{background:linear-gradient(90deg,#22e64b,#00c9ff,#8b5cf6);-webkit-background-clip:text;color:transparent}
     .hero p{font-size:1.25rem;line-height:1.55;color:#b8c6da;max-width:520px}
-    .orb-area{
-      min-height:330px;position:relative;border-radius:34px;
-      background:radial-gradient(circle at 40% 40%,rgba(0,255,140,.18),transparent 35%),
-                 radial-gradient(circle at 70% 35%,rgba(0,149,255,.22),transparent 35%),
-                 radial-gradient(circle at 80% 75%,rgba(255,132,0,.20),transparent 30%);
-    }
-    .orb img {
-  width: 32px;
-  height: 32px;
-  object-fit: contain;
-}
-    .orb{
-      position:absolute;border-radius:50%;display:flex;align-items:center;justify-content:center;
-      font-size:3.8rem;font-weight:900;
-      box-shadow:0 18px 45px rgba(0,0,0,.32), inset 0 0 0 4px rgba(255,255,255,.18);
-    }
+    .orb-area{min-height:330px;position:relative;border-radius:34px;background:radial-gradient(circle at 40% 40%,rgba(0,255,140,.18),transparent 35%),radial-gradient(circle at 70% 35%,rgba(0,149,255,.22),transparent 35%),radial-gradient(circle at 80% 75%,rgba(255,132,0,.20),transparent 30%)}
+    .orb{position:absolute;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:3.8rem;font-weight:900;box-shadow:0 18px 45px rgba(0,0,0,.32), inset 0 0 0 4px rgba(255,255,255,.18)}
     .o1{width:190px;height:190px;left:190px;top:0;background:linear-gradient(135deg,#09d7ff,#006dff)}
     .o2{width:160px;height:160px;left:60px;top:135px;background:linear-gradient(135deg,#10d94c,#006d5f)}
     .o3{width:145px;height:145px;right:70px;bottom:15px;background:linear-gradient(135deg,#ffb000,#ff6900)}
     .o4{width:110px;height:110px;right:95px;top:78px;background:linear-gradient(135deg,#a855f7,#ec42ff)}
 
     .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:18px 0}
-    .cat{
-      text-align:center;padding:26px 18px;border-radius:22px;
-      background:rgba(255,255,255,.045);
-      border:1px solid rgba(255,255,255,.09);
-      box-shadow:0 18px 35px rgba(0,0,0,.18);
-    }
-    .icon{
-      width:80px;height:80px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-      margin:0 auto 15px;font-size:2.3rem;
-      background:linear-gradient(135deg,#009dff,#003bff);
-      box-shadow:0 0 24px rgba(0,153,255,.45);
-    }
+    .cat{text-align:center;padding:26px 18px;border-radius:22px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);box-shadow:0 18px 35px rgba(0,0,0,.18)}
+    .icon{width:80px;height:80px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 15px;font-size:2.3rem;background:linear-gradient(135deg,#009dff,#003bff);box-shadow:0 0 24px rgba(0,153,255,.45)}
     .cat h3{margin:0 0 8px;font-size:1.35rem}
     .cat p{margin:0;color:#aebad0;line-height:1.45}
     .cat b{display:block;margin-top:14px;color:#00a8ff}
 
-    section{
-      margin:32px 0;padding:22px 10px;border-radius:24px;
-      background:rgba(255,255,255,.035);
-      border:1px solid rgba(255,255,255,.07);
-    }
+    section{margin:32px 0;padding:22px 10px;border-radius:24px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07)}
     .section-head{display:flex;justify-content:space-between;align-items:center;margin:0 0 16px}
     .section-head h2{margin:0;font-size:1.55rem}
     .view{color:#a9b5ff;font-weight:800}
     .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-    .card{
-      min-height:230px;border-radius:18px;overflow:hidden;position:relative;
-      background:#10243c;border:1px solid rgba(255,255,255,.1);
-    }
+    .card{min-height:230px;border-radius:18px;overflow:hidden;position:relative;background:#10243c;border:1px solid rgba(255,255,255,.1);transition:.25s;cursor:pointer}
+    .card:hover{transform:translateY(-5px);box-shadow:0 20px 40px rgba(0,0,0,.35);border-color:rgba(0,153,255,.55)}
     .card img{width:100%;height:110px;object-fit:cover;display:block;filter:brightness(.78)}
     .card .flag{position:absolute;top:12px;left:14px;font-size:2.2rem}
     .card-body{padding:14px}
     .card h3{margin:0 0 8px;font-size:1.17rem;line-height:1.25}
     .card p{margin:0;color:#aab8cc;line-height:1.45}
-    .arrow{
-      position:absolute;right:14px;bottom:14px;
-      width:38px;height:38px;border-radius:50%;
-      background:rgba(255,255,255,.12);
-      display:flex;align-items:center;justify-content:center;
-      color:#dce8ff;font-size:1.4rem;
-    }
+    .arrow{position:absolute;right:14px;bottom:14px;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;color:#dce8ff;font-size:1.4rem}
+
+    .shop-links{display:flex;gap:8px;margin-top:12px}
+    .shop-btn{flex:1;padding:9px;border-radius:10px;font-size:.8rem;font-weight:900;text-align:center;background:linear-gradient(90deg,#00c853,#0091ff);color:#fff}
+    .shop-btn.alt{background:linear-gradient(90deg,#ff6a00,#ff0000)}
 
     .earn{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-    .earn a{
-      display:flex;gap:13px;align-items:center;padding:18px;border-radius:16px;
-      background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.08);
-    }
+    .earn a{display:flex;gap:13px;align-items:center;padding:18px;border-radius:16px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.08)}
     .earn span{font-size:2rem}
     .earn strong{display:block}
     .earn small{color:#aebad0}
@@ -134,7 +77,6 @@
     .trust div{padding:20px;border-radius:18px;background:rgba(255,255,255,.04)}
     .trust b{display:block;margin-bottom:7px}
     .trust p{margin:0;color:#aebad0;line-height:1.45}
-
     footer{padding:35px 0;color:#98a9c3;text-align:center}
 
     @media(max-width:850px){
@@ -189,118 +131,136 @@
   </section>
 
   <div id="categories" class="grid4">
- <a class="cat" href="/travel/">
-    <div class="icon">✈️</div>
-    <h3>Travel Deals</h3>
-    <p>Find hotel, flight, and city travel guides before you book.</p>
-    <b>Explore Travel →</b>
-  </a>
+    <a class="cat" href="/travel/">
+      <div class="icon">✈️</div>
+      <h3>Travel Deals</h3>
+      <p>Find hotel, flight, and city travel guides before you book.</p>
+      <b>Explore Travel →</b>
+    </a>
 
-  <a class="cat" href="/shopping/">
-    <div class="icon">🛍️</div>
-    <h3>Shopping Finds</h3>
-    <p>Discover budget-friendly picks, useful gadgets, and online deals.</p>
-    <b>Shop Smart →</b>
-  </a>
+    <a class="cat" href="/shopping/">
+      <div class="icon">🛍️</div>
+      <h3>Shopping Finds</h3>
+      <p>Discover budget-friendly picks, useful gadgets, and online deals.</p>
+      <b>Shop Smart →</b>
+    </a>
 
-  <a class="cat" href="https://www.prizerebel.com/index.php?r=7372635"
-     target="_blank" rel="nofollow sponsored noopener noreferrer">
-    <div class="icon">🎁</div>
-    <h3>Rewards & Surveys</h3>
-    <p>Answer surveys, complete simple tasks, and collect gift card rewards.</p>
-    <b>Start Earning →</b>
-  </a>
+    <a class="cat" href="https://www.prizerebel.com/index.php?r=7372635" target="_blank" rel="nofollow sponsored noopener noreferrer">
+      <div class="icon">🎁</div>
+      <h3>Rewards & Surveys</h3>
+      <p>Answer surveys, complete simple tasks, and collect gift card rewards.</p>
+      <b>Start Earning →</b>
+    </a>
 
-  <a class="cat" href="https://millionairelucidlytransmitted.com/r213cbb9mr?key=260fe979627d3329490b55e190d439de"
-     target="_blank" rel="nofollow sponsored noopener noreferrer">
-    <div class="icon">📈</div>
-    <h3>CPM Ads</h3>
-    <p>Monetize traffic with display ads and grow website income over time.</p>
-    <b>Explore Ads →</b>
-  </a>
-
-</div>
+    <a class="cat" href="https://millionairelucidlytransmitted.com/r213cbb9mr?key=260fe979627d3329490b55e190d439de" target="_blank" rel="nofollow sponsored noopener noreferrer">
+      <div class="icon">📈</div>
+      <h3>CPM Ads</h3>
+      <p>Monetize traffic with display ads and grow website income over time.</p>
+      <b>Explore Ads →</b>
+    </a>
+  </div>
 
   <section id="featured">
-    <div class="section-head"><h2>Featured Pages</h2><a class="view" href="/travel/">View All →</a></div>
+    <div class="section-head">
+      <h2>Featured Pages</h2>
+      <a class="view" href="/travel/">View All →</a>
+    </div>
+
     <div class="cards">
       <a class="card" href="/travel/germany/">
         <span class="flag">🇩🇪</span>
         <img src="/assets/travel/germany/germany-hero.webp" alt="Germany travel">
-        <div class="card-body"><h3>Best Hotel Deals in Germany</h3><p>Top hotels, cities & travel guides</p></div><span class="arrow">→</span>
+        <div class="card-body">
+          <h3>Best Hotel Deals in Germany</h3>
+          <p>Top hotels, cities & travel guides</p>
+        </div>
+        <span class="arrow">→</span>
       </a>
+
       <a class="card" href="/partners/trip-com-germany/">
         <img src="/assets/partners/trip-com-germany/trip-com-germany-hero.webp" alt="Trip.com Germany">
-        <div class="card-body"><h3>Trip.com Germany Cheap Flights & Hotels</h3><p>Find the best travel deals & bookings</p></div><span class="arrow">→</span>
+        <div class="card-body">
+          <h3>Trip.com Germany Cheap Flights & Hotels</h3>
+          <p>Find the best travel deals & bookings</p>
+        </div>
+        <span class="arrow">→</span>
       </a>
+
       <a class="card" href="/travel/belgium/">
         <span class="flag">🇧🇪</span>
         <img src="/assets/travel/belgium/belgium-hero.webp" alt="Belgium hotels">
-        <div class="card-body"><h3>Best Hotels in Belgium</h3><p>Explore hotel deals & booking options</p></div><span class="arrow">→</span>
+        <div class="card-body">
+          <h3>Best Hotels in Belgium</h3>
+          <p>Explore hotel deals & booking options</p>
+        </div>
+        <span class="arrow">→</span>
       </a>
+
       <a class="card" href="/partners/12go-philippines/">
         <img src="/assets/partners/12go-philippines/12go-philippines-hero.webp" alt="12Go Philippines">
-        <div class="card-body"><h3>12Go Philippines Transport Booking</h3><p>Ferry, van, bus & transfer bookings</p></div><span class="arrow">→</span>
-        <a class="card" href="/shopping/">
-  <img src="/assets/shopping/shopping-hero.webp" alt="Shopping">
-  <div class="card-body">
-    <h3>Best Shopping Deals</h3>
-    <p>Find trending products & budget deals</p>
-  </div>
-  <span class="arrow">→</span>
-</a>
+        <div class="card-body">
+          <h3>12Go Philippines Transport Booking</h3>
+          <p>Ferry, van, bus & transfer bookings</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
 
-<a class="card" href="https://www.prizerebel.com/index.php?r=7372635" target="_blank" rel="nofollow sponsored">
-  <img src="/assets/rewards/rewards-hero.webp" alt="Rewards">
-  <div class="card-body">
-    <h3>Earn Rewards Online</h3>
-    <p>Surveys, tasks & gift cards</p>
-  </div>
-  <span class="arrow">→</span>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=1200&auto=format&fit=crop" alt="Shopping deals">
+        <div class="card-body">
+          <h3>Best Shopping Deals</h3>
+          <p>Choose where to shop and find the best deals</p>
+          <div class="shop-links">
+            <a href="/shopping/temu-germany/" class="shop-btn">🛒 Temu</a>
+            <a href="https://s.click.aliexpress.com/e/_c2z5AqwL" target="_blank" rel="nofollow sponsored noopener noreferrer" class="shop-btn alt">🔥 AliExpress</a>
+          </div>
+        </div>
+      </div>
+
+      <a class="card" href="https://www.prizerebel.com/index.php?r=7372635" target="_blank" rel="nofollow sponsored noopener noreferrer">
+        <img src="https://images.unsplash.com/photo-1607083206869-4c7672e72a8a?q=80&w=1200&auto=format&fit=crop" alt="Rewards online">
+        <div class="card-body">
+          <h3>Earn Rewards Online</h3>
+          <p>Surveys, tasks & gift cards</p>
+        </div>
+        <span class="arrow">→</span>
       </a>
     </div>
   </section>
 
-  <div class="earn">
+  <div id="earn" class="earn">
+    <a href="https://www.prizerebel.com/index.php?r=7372635" target="_blank" rel="nofollow sponsored noopener noreferrer">
+      <span>📋</span>
+      <div>
+        <strong>Survey Sites</strong>
+        <small>Earn with surveys</small>
+      </div>
+    </a>
 
-  <!-- Survey / Rewards (safe muna sa internal page) -->
-  <a href="https://www.prizerebel.com/index.php?r=7372635">
-    <span>📋</span>
-    <div>
-      <strong>Survey Sites</strong>
-      <small>Earn with surveys</small>
-    </div>
-  </a>
+    <a href="https://www.swagbucks.com/p/register?rb=223743499&rp=1" target="_blank" rel="nofollow sponsored noopener noreferrer">
+      <span>🎁</span>
+      <div>
+        <strong>Reward Platforms</strong>
+        <small>Gift cards & cashback</small>
+      </div>
+    </a>
 
-  <a href="https://www.swagbucks.com/p/register?rb=223743499&rp=1">
-    <span>🎁</span>
-    <div>
-      <strong>Reward Platforms</strong>
-      <small>Gift cards & cashback</small>
-    </div>
-  </a>
+    <a href="https://millionairelucidlytransmitted.com/r213cbb9mr?key=260fe979627d3329490b55e190d439de" target="_blank" rel="nofollow sponsored noopener noreferrer">
+      <span>📈</span>
+      <div>
+        <strong>CPM Earning</strong>
+        <small>Start earning with Adsterra ads</small>
+      </div>
+    </a>
 
-  <!-- Adsterra (DIRECT LINK) -->
-  <a href="https://millionairelucidlytransmitted.com/r213cbb9mr?key=260fe979627d3329490b55e190d439de" 
-     rel="nofollow sponsored noopener noreferrer" target="_blank">
-    <span>📈</span>
-    <div>
-      <strong>CPM Earning</strong>
-      <small>Start earning with Adsterra ads</small>
-    </div>
-  </a>
-
-  <!-- Fiverr (DIRECT LINK) -->
-  <a href="https://www.fiverr.com/pe/WEKNLwd" 
-     rel="nofollow sponsored noopener noreferrer" target="_blank">
-    <span>💻</span>
-    <div>
-      <strong>Freelance Work</strong>
-      <small>Earn online with Fiverr</small>
-    </div>
-  </a>
-
-</div>
+    <a href="https://www.fiverr.com/pe/WEKNLwd" target="_blank" rel="nofollow sponsored noopener noreferrer">
+      <span>💻</span>
+      <div>
+        <strong>Freelance Work</strong>
+        <small>Earn online with Fiverr</small>
+      </div>
+    </a>
+  </div>
 
   <section id="popular">
     <div class="section-head"><h2>Why Visitors Trust GiftCardZoneEU</h2></div>
