@@ -27,8 +27,6 @@
       --text:#0f172a;
       --muted:#64748b;
       --line:#e5e7eb;
-      --bg:#f8fbff;
-      --card:#ffffff;
       --blue:#2563eb;
       --orange:#f97316;
       --green:#16a34a;
@@ -180,16 +178,8 @@
       font-size:20px;
     }
 
-    .trust-mini strong{
-      display:block;
-      font-size:14px;
-    }
-
-    .trust-mini span{
-      display:block;
-      color:#64748b;
-      font-size:13px;
-    }
+    .trust-mini strong{display:block;font-size:14px}
+    .trust-mini span{display:block;color:#64748b;font-size:13px}
 
     .section{
       max-width:1180px;
@@ -197,9 +187,7 @@
       padding:36px 18px;
     }
 
-    .section-head{
-      margin-bottom:22px;
-    }
+    .section-head{margin-bottom:22px}
 
     .section-head h2{
       margin:0;
@@ -236,6 +224,7 @@
       padding:24px;
       box-shadow:var(--shadow);
       transition:.2s ease;
+      overflow:hidden;
     }
 
     .card:hover{
@@ -243,12 +232,41 @@
       box-shadow:0 22px 55px rgba(15,23,42,.12);
     }
 
+    .partner-img-wrap{
+      width:100%;
+      height:130px;
+      border-radius:20px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin-bottom:18px;
+      border:1px solid #eef2f7;
+      background:linear-gradient(135deg,#f8fafc,#ffffff);
+      overflow:hidden;
+    }
+
+    .partner-img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .partner-logo{
+      max-width:170px;
+      max-height:80px;
+      width:auto;
+      height:auto;
+      object-fit:contain;
+      padding:18px;
+    }
+
     .brand{
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:12px;
-      margin-bottom:18px;
+      margin-bottom:14px;
     }
 
     .brand-name{
@@ -368,11 +386,10 @@
       .navlinks{display:none}
       .hero{grid-template-columns:1fr;padding-top:30px}
       .hero-art{min-height:240px}
-      .trust-row,.grid-3,.grid-2,.info-grid{
-        grid-template-columns:1fr;
-      }
+      .trust-row,.grid-3,.grid-2,.info-grid{grid-template-columns:1fr}
       h1{font-size:42px}
       .brand-name{font-size:26px}
+      .partner-img-wrap{height:145px}
       .foot{display:block;text-align:center}
       .foot a{display:inline-block;margin:8px}
     }
@@ -470,6 +487,9 @@
 
       <div class="grid-3">
         <article class="card">
+          <div class="partner-img-wrap">
+            <img class="partner-img" src="/assets/partners/tripcom.webp" alt="Trip.com travel booking deals" loading="lazy">
+          </div>
           <div class="brand">
             <div class="brand-name trip">Trip.com</div>
             <span class="tag">Top Partner</span>
@@ -484,6 +504,9 @@
         </article>
 
         <article class="card">
+          <div class="partner-img-wrap">
+            <img class="partner-img" src="/assets/partners/12go.webp" alt="12Go bus train ferry transport booking" loading="lazy">
+          </div>
           <div class="brand">
             <div class="brand-name go">12Go</div>
           </div>
@@ -497,6 +520,9 @@
         </article>
 
         <article class="card">
+          <div class="partner-img-wrap">
+            <img class="partner-img" src="/assets/partners/mytrip.webp" alt="MyTrip flight deals and travel booking" loading="lazy">
+          </div>
           <div class="brand">
             <div class="brand-name mytrip">mytrip</div>
           </div>
@@ -519,6 +545,9 @@
 
       <div class="grid-2">
         <article class="card">
+          <div class="partner-img-wrap">
+            <img class="partner-img" src="/assets/partners/aliexpress.webp" alt="AliExpress shopping deals and budget finds" loading="lazy">
+          </div>
           <div class="brand">
             <div class="brand-name ali">AliExpress</div>
           </div>
@@ -532,6 +561,9 @@
         </article>
 
         <article class="card">
+          <div class="partner-img-wrap">
+            <img class="partner-img" src="/assets/partners/temu.webp" alt="Temu Europe shopping deals" loading="lazy">
+          </div>
           <div class="brand">
             <div class="brand-name temu">TEMU</div>
           </div>
@@ -554,6 +586,9 @@
 
       <div class="grid-2">
         <article class="card">
+          <div class="partner-img-wrap">
+            <img class="partner-img" src="/assets/partners/nordvpn.webp" alt="NordVPN online security and private browsing" loading="lazy">
+          </div>
           <div class="brand">
             <div class="brand-name nord">NordVPN</div>
           </div>
@@ -567,6 +602,9 @@
         </article>
 
         <article class="card">
+          <div class="partner-img-wrap">
+            <img class="partner-img" src="/assets/partners/surfshark.webp" alt="Surfshark VPN privacy and online security" loading="lazy">
+          </div>
           <div class="brand">
             <div class="brand-name surf">Surfshark</div>
           </div>
