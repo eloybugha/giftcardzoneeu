@@ -1,412 +1,262 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
 
-  <title>Best Hotel Deals in Canada | GiftCardZoneEU Travel Partners</title>
-  <meta name="description" content="Find the best hotel deals in Canada — Toronto, Vancouver, Montreal, Calgary and more via our trusted partners Agoda, Booking.com, Trip.com, Hotels.com, Accor and Motel 6." />
-  <link rel="canonical" href="https://giftcardzoneeu.com/travel/canada" />
+<title>Best Hotels in Canada | Where to Stay & Book Online</title>
+<meta name="description" content="Find the best hotel deals in Canada with Trip.com. Explore Toronto, Vancouver, Montreal, and Calgary with trusted booking partners."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://giftcardzoneeu.com/travel/canada/"/>
 
-  <style>
-    :root {
-      --bg: #f5f5f7;
-      --text-main: #111827;
-      --text-muted: #6b7280;
-      --radius-lg: 18px;
-      --shadow-soft: 0 10px 25px rgba(15, 23, 42, 0.09);
-    }
+<link rel="icon" href="/assets/gz-logo.png"/>
 
-    * {
-      box-sizing: border-box;
-    }
+<!-- OG -->
+<meta property="og:title" content="Best Hotels in Canada | GiftCardZoneEU"/>
+<meta property="og:description" content="Compare hotel deals in Canada and book with Trip.com."/>
+<meta property="og:image" content="https://giftcardzoneeu.com/assets/travel/canada/canada-hero.webp"/>
+<meta property="og:url" content="https://giftcardzoneeu.com/travel/canada/"/>
 
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bg);
-      color: var(--text-main);
-    }
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Best Hotels in Canada"/>
+<meta name="twitter:description" content="Book hotels in Canada with Trip.com."/>
+<meta name="twitter:image" content="https://giftcardzoneeu.com/assets/travel/canada/canada-hero.webp"/>
 
-    .page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+<script src="/assets/ga.js"></script>
 
-    /* HERO WITH YOUR LUXURY IMAGE */
-    .hero {
-      position: relative;
-      padding: 32px 16px 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      overflow: hidden;
-      background: #020617; /* fallback color */
-    }
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f3f5f9;color:#111}
+a{text-decoration:none}
 
-    .hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
+/* TOPBAR */
+.topbar{position:sticky;top:0;display:flex;justify-content:center;padding:12px;background:#fff;border-bottom:1px solid #eee;z-index:1000}
+.topbar img{width:54px;border-radius:50%}
+
+/* HERO */
+.hero{
+  min-height:560px;
+  display:flex;
+  align-items:center;
+  color:#fff;
   background:
-    linear-gradient(to bottom, rgba(15,23,42,0.45), rgba(15,23,42,0.25)),
-    url("IMG_20251122_130753.jpg") center/cover no-repeat;
-  filter: blur(0.7px);
-  transform: scale(1.02);
-  opacity: 0.97;
-  z-index: 0;
+  linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
+  url("/assets/travel/canada/canada-hero.webp") center/cover;
+}
+.hero-inner{max-width:1200px;margin:auto;padding:50px 20px;display:flex;gap:30px;align-items:center}
+.hero-left{flex:1}
+.hero h1{font-size:56px;margin:0 0 15px}
+.hero p{font-size:20px;margin-bottom:20px}
+
+.btn{padding:14px 22px;border-radius:12px;font-weight:800;display:inline-block;margin-right:10px}
+.primary{background:#ff6f1a;color:#fff}
+.secondary{background:#ffffff22;color:#fff}
+
+/* TRUST */
+.trust{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+.trust div{background:#ffffff22;padding:10px 14px;border-radius:20px;font-size:14px}
+
+/* BANNER */
+.banner{
+  width:260px;background:#fff;border-radius:15px;padding:10px;color:#000
+}
+.banner img{width:100%;border-radius:10px}
+
+/* SECTION */
+.section{max-width:1200px;margin:20px auto;background:#fff;padding:20px;border-radius:20px}
+
+/* PARTNERS */
+.partners{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.partner{padding:20px;border-radius:15px;color:#fff;font-weight:bold}
+.trip{background:#1780ff}
+.booking{background:#063f96}
+.agoda{background:#1e9c9c}
+
+/* CITIES */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{border:1px solid #eee;border-radius:15px;overflow:hidden;background:#fff}
+.card img{width:100%;height:180px;object-fit:cover}
+.card-content{padding:15px}
+.badge{padding:6px 10px;border-radius:20px;font-size:12px;margin-bottom:10px;display:inline-block}
+
+/* INFO */
+.info{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.box{background:#fff;border:1px solid #eee;border-radius:15px;padding:20px}
+
+/* LINKS */
+.links{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.link{padding:15px;background:#fff;border-radius:12px;border:1px solid #eee}
+
+/* CTA */
+.sticky{
+position:fixed;
+bottom:15px;
+left:50%;
+transform:translateX(-50%);
+background:#ff6f1a;
+color:#fff;
+padding:16px 28px;
+border-radius:50px;
+font-weight:800;
+z-index:999;
 }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at top left, rgba(59,130,246,0.35), transparent 60%),
-        radial-gradient(circle at bottom right, rgba(239,68,68,0.25), transparent 60%);
-      mix-blend-mode: soft-light;
-      z-index: 0;
-    }
+/* FOOTER */
+.footer{text-align:center;padding:30px;color:#777}
 
-    .hero-overlay {
-      position: relative;
-      z-index: 1;
-      max-width: 720px;
-      padding: 18px 20px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.55);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.5);
-    }
-
-    .hero-title {
-      margin: 0;
-      font-size: clamp(1.6rem, 3vw, 2rem);
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      color: #f9fafb;
-      text-shadow: 0 4px 16px rgba(0,0,0,0.55);
-    }
-
-    .hero-flag {
-      margin-left: 8px;
-    }
-
-    main {
-      flex: 1;
-      padding: 10px 16px 40px;
-      max-width: 1080px;
-      margin: 0 auto;
-    }
-
-    .section {
-      margin-top: 20px;
-      background: rgba(255,255,255,0.9);
-      border-radius: 24px;
-      padding: 18px 18px 20px;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .section + .section {
-      margin-top: 16px;
-    }
-
-    .section-title {
-      margin: 0 0 14px;
-      font-size: 1.1rem;
-      font-weight: 700;
-    }
-
-    .section-subtitle {
-      margin-top: 4px;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    /* TOP TRAVEL PARTNERS – brand colors + click color */
-    .partner-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 10px;
-    }
-
-    .partner-card {
-      border-radius: var(--radius-lg);
-      padding: 12px 10px;
-      text-align: center;
-      font-weight: 600;
-      font-size: 0.95rem;
-      cursor: pointer;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid transparent;
-      transition:
-        transform 0.16s ease,
-        box-shadow 0.16s ease,
-        background 0.16s ease,
-        color 0.16s ease,
-        border-color 0.16s ease;
-    }
-
-    .partner-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.25);
-    }
-
-    /* Agoda – purple */
-    .partner-card:nth-child(1) {
-      background: #f3e8ff;
-      color: #4c1d95;
-      border-color: #e9d5ff;
-    }
-    .partner-card:nth-child(1):active {
-      background: #c4b5fd;
-      color: #1e1b4b;
-      transform: scale(0.96);
-      box-shadow: 0 0 0 rgba(0,0,0,0.2);
-    }
-
-    /* Booking.com – blue */
-    .partner-card:nth-child(2) {
-      background: #dbeafe;
-      color: #1d4ed8;
-      border-color: #bfdbfe;
-    }
-    .partner-card:nth-child(2):active {
-      background: #93c5fd;
-      color: #0b1f5f;
-      transform: scale(0.96);
-      box-shadow: 0 0 0 rgba(0,0,0,0.2);
-    }
-
-    /* Trip.com – teal */
-    .partner-card:nth-child(3) {
-      background: #e0f2fe;
-      color: #0369a1;
-      border-color: #bae6fd;
-    }
-    .partner-card:nth-child(3):active {
-      background: #7dd3fc;
-      color: #0f172a;
-      transform: scale(0.96);
-      box-shadow: 0 0 0 rgba(0,0,0,0.2);
-    }
-
-    /* Hotels.com – red */
-    .partner-card:nth-child(4) {
-      background: #fee2e2;
-      color: #b91c1c;
-      border-color: #fecaca;
-    }
-    .partner-card:nth-child(4):active {
-      background: #fca5a5;
-      color: #7f1d1d;
-      transform: scale(0.96);
-      box-shadow: 0 0 0 rgba(0,0,0,0.2);
-    }
-
-    /* Accor – gold */
-    .partner-card:nth-child(5) {
-      background: #fef3c7;
-      color: #92400e;
-      border-color: #fde68a;
-    }
-    .partner-card:nth-child(5):active {
-      background: #facc15;
-      color: #78350f;
-      transform: scale(0.96);
-      box-shadow: 0 0 0 rgba(0,0,0,0.2);
-    }
-
-    /* Motel 6 – blue */
-    .partner-card:nth-child(6) {
-      background: #e0ecff;
-      color: #1e3a8a;
-      border-color: #bfdbfe;
-    }
-    .partner-card:nth-child(6):active {
-      background: #60a5fa;
-      color: #0b1120;
-      transform: scale(0.96);
-      box-shadow: 0 0 0 rgba(0,0,0,0.2);
-    }
-
-    /* WHY TRAVELERS TRUST US */
-    .trust-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 10px;
-    }
-
-    .trust-card {
-      background: #f9fafb;
-      border-radius: var(--radius-lg);
-      padding: 10px 12px;
-      font-size: 0.88rem;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      border: 1px solid rgba(209, 213, 219, 0.9);
-      transition: background 0.12s ease, transform 0.12s ease;
-    }
-
-    .trust-card:active {
-      background: #e5edff;
-      transform: scale(0.97);
-    }
-
-    .trust-label {
-      font-weight: 600;
-    }
-
-    .trust-desc {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-    }
-
-    /* TRUSTED PARTNERS STRIP */
-    .trusted-strip {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-      justify-content: center;
-      padding-top: 6px;
-    }
-
-    .trusted-pill {
-      font-size: 0.8rem;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: #f3f4f6;
-      border: 1px solid #e5e7eb;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: background 0.12s ease, transform 0.12s ease;
-    }
-
-    .trusted-pill:active {
-      background: #e5edff;
-      transform: scale(0.97);
-    }
-
-    .trusted-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #22c55e;
-    }
-
-    .legal {
-      margin-top: 16px;
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    .legal strong {
-      color: #111827;
-    }
-
-    @media (min-width: 768px) {
-      .hero {
-        padding: 40px 16px 50px;
-      }
-
-      main {
-        padding: 18px 20px 48px;
-      }
-    }
-  </style>
+@media(max-width:900px){
+.hero-inner{flex-direction:column}
+.grid{grid-template-columns:1fr}
+.partners{grid-template-columns:1fr}
+.links{grid-template-columns:1fr}
+.info{grid-template-columns:1fr}
+.banner{display:none}
+}
+</style>
 </head>
+
 <body>
-  <div class="page">
-    <header class="hero">
-      <div class="hero-overlay">
-        <h1 class="hero-title">
-          Best Hotel Deals in Canada
-          <span class="hero-flag">🇨🇦</span>
-        </h1>
-      </div>
-    </header>
 
-    <main>
-      <!-- TOP TRAVEL PARTNERS -->
-      <section class="section" aria-labelledby="top-partners">
-        <h2 id="top-partners" class="section-title">Top Travel Partners</h2>
-        <p class="section-subtitle">
-          Compare hotel prices across our trusted partners and grab the best deal for your Canada trip.
-        </p>
-        <div class="partner-grid">
-          <a class="partner-card" href="YOUR_AGODA_AFFILIATE_LINK" target="_blank" rel="nofollow noopener">Agoda</a>
-          <a class="partner-card" href="YOUR_BOOKING_AFFILIATE_LINK" target="_blank" rel="nofollow noopener">Booking.com</a>
-          <a class="partner-card" href="YOUR_TRIPCOM_AFFILIATE_LINK" target="_blank" rel="nofollow noopener">Trip.com</a>
-          <a class="partner-card" href="YOUR_HOTELS_AFFILIATE_LINK" target="_blank" rel="nofollow noopener">Hotels.com</a>
-          <a class="partner-card" href="YOUR_ACCOR_AFFILIATE_LINK" target="_blank" rel="nofollow noopener">Accor</a>
-          <a class="partner-card" href="YOUR_MOTEL6_AFFILIATE_LINK" target="_blank" rel="nofollow noopener">Motel 6</a>
-        </div>
-      </section>
+<!-- TOP -->
+<div class="topbar">
+<a href="https://giftcardzoneeu.com/">
+<img src="/assets/gz-logo.png">
+</a>
+</div>
 
-      <!-- WHY TRAVELERS TRUST US -->
-      <section class="section" aria-labelledby="why-trust">
-        <h2 id="why-trust" class="section-title">Why Travelers Trust Us</h2>
-        <div class="trust-grid">
-          <div class="trust-card">
-            <span class="trust-label">✔ GiftCardZoneEU Partner Verified</span>
-            <span class="trust-desc">We only feature travel brands we personally review and approve.</span>
-          </div>
-          <div class="trust-card">
-            <span class="trust-label">✔ SSL Secured</span>
-            <span class="trust-desc">Your browsing is protected with industry-standard encryption.</span>
-          </div>
-          <div class="trust-card">
-            <span class="trust-label">✔ Trusted Global Partners</span>
-            <span class="trust-desc">Work with some of the world’s largest hotel booking platforms.</span>
-          </div>
-          <div class="trust-card">
-            <span class="trust-label">✔ Safe Payment Redirects</span>
-            <span class="trust-desc">All payments happen directly on the official partner website.</span>
-          </div>
-          <div class="trust-card">
-            <span class="trust-label">✔ 24/7 Booking Support</span>
-            <span class="trust-desc">Customer support is provided by each hotel partner on your booking.</span>
-          </div>
-          <div class="trust-card">
-            <span class="trust-label">✔ Verified Travel Deals</span>
-            <span class="trust-desc">We highlight real discounts, seasonal promos and member-only prices.</span>
-          </div>
-          <div class="trust-card">
-            <span class="trust-label">✔ Privacy Protected</span>
-            <span class="trust-desc">We do not store your payment details; you book directly with partners.</span>
-          </div>
-        </div>
-      </section>
+<!-- HERO -->
+<section class="hero">
+<div class="hero-inner">
 
-      <!-- TRUSTED PARTNERS STRIP -->
-      <section class="section" aria-labelledby="trusted-partners">
-        <h2 id="trusted-partners" class="section-title">Trusted Partners</h2>
-        <div class="trusted-strip">
-          <div class="trusted-pill"><span class="trusted-dot"></span>Agoda</div>
-          <div class="trusted-pill"><span class="trusted-dot"></span>Booking.com</div>
-          <div class="trusted-pill"><span class="trusted-dot"></span>Trip.com</div>
-          <div class="trusted-pill"><span class="trusted-dot"></span>Hotels.com</div>
-          <div class="trusted-pill"><span class="trusted-dot"></span>Accor</div>
-          <div class="trusted-pill"><span class="trusted-dot"></span>Motel 6</div>
-        </div>
+<div class="hero-left">
+<h1>Best Hotels in Canada 🇨🇦</h1>
+<p>Find the best hotel deals in Canada with Trip.com — compare prices and book instantly.</p>
 
-        <p class="legal">
-          <strong>Affiliate Disclosure:</strong> Some links on this page are affiliate links. This means
-          we may earn a small commission when you book a hotel through our partners at no extra cost to you.
-          It helps keep GiftCardZoneEU running while we continue to search for the best travel deals for you.
-        </p>
-      </section>
-    </main>
-  </div>
+<a class="btn primary" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">
+🔥 Check Canada Deals on Trip.com
+</a>
+
+<a class="btn secondary" href="#cities">Explore Cities</a>
+
+<div class="trust">
+<div>🏷️ Best Price</div>
+<div>🔒 Secure Booking</div>
+<div>🔄 Free Cancellation</div>
+<div>🛡️ Trusted</div>
+</div>
+</div>
+
+<div class="banner">
+<img src="/assets/banners/travel-backpack.webp">
+<p><b>Travel Essentials</b><br>Up to 70% OFF</p>
+</div>
+
+</div>
+</section>
+
+<!-- PARTNERS -->
+<div class="section">
+<h2>Compare Hotel Deals</h2>
+<div class="partners">
+
+<a class="partner trip" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">
+Trip.com (Best Deals 🔥)
+</a>
+
+<a class="partner booking" href="#">Booking.com</a>
+<a class="partner agoda" href="#">Agoda</a>
+
+</div>
+</div>
+
+<!-- CITIES -->
+<div class="section" id="cities">
+<h2>Top Cities in Canada</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="/assets/travel/canada/toronto.webp">
+<div class="card-content">
+<h3>Toronto</h3>
+<span class="badge">City & Skyline</span>
+<p>Canada’s biggest city with shopping and nightlife.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="/assets/travel/canada/vancouver.webp">
+<div class="card-content">
+<h3>Vancouver</h3>
+<span class="badge">Nature & City</span>
+<p>Mountains, ocean, and modern lifestyle.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="/assets/travel/canada/montreal.webp">
+<div class="card-content">
+<h3>Montreal</h3>
+<span class="badge">Culture & Food</span>
+<p>French vibes and festivals.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="/assets/travel/canada/calgary.webp">
+<div class="card-content">
+<h3>Calgary</h3>
+<span class="badge">Adventure</span>
+<p>Gateway to mountains and nature.</p>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- INFO -->
+<div class="section info">
+<div class="box">
+<h3>Why Visit Canada?</h3>
+<p>Canada offers stunning landscapes, modern cities, and unforgettable experiences.</p>
+</div>
+
+<div class="box">
+<h3>Booking Tips</h3>
+<ul>
+<li>Compare prices</li>
+<li>Book early</li>
+<li>Choose central hotels</li>
+<li>Use flexible booking</li>
+</ul>
+</div>
+</div>
+
+<!-- LINKS -->
+<div class="section">
+<h2>Explore More</h2>
+<div class="links">
+<a class="link" href="/travel/germany/">Germany</a>
+<a class="link" href="/travel/belgium/">Belgium</a>
+<a class="link" href="/travel/netherlands/">Netherlands</a>
+<a class="link" href="/travel/sweden/">Sweden</a>
+</div>
+</div>
+
+<!-- CTA -->
+<a class="sticky" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">
+🔥 Check Canada Deals on Trip.com →
+</a>
+
+<!-- FOOTER -->
+<div class="footer">
+© <span id="year"></span> GiftCardZoneEU
+</div>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
