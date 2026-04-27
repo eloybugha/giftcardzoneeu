@@ -1,245 +1,396 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Brazil Hotel Deals | GiftCardZoneEU × Agoda</title>
-  <meta name="description" content="Find the best hotel deals in Brazil — Rio de Janeiro, São Paulo, Salvador, Brasília and more via Agoda Partners." />
+  <title>Brazil Travel Guide | Best Places, Hotels & Deals (2026)</title>
+  <meta name="description" content="Plan your Brazil trip with GiftCardZoneEU. Discover Rio de Janeiro, São Paulo, Salvador, top travel tips, hotels, flights, and trusted booking partners." />
+  <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://giftcardzoneeu.com/travel/brazil/" />
 
+  <meta property="og:title" content="Brazil Travel Guide | GiftCardZoneEU" />
+  <meta property="og:description" content="Explore Brazil hotels, flights, city guides, travel tips, and trusted booking partners." />
+  <meta property="og:image" content="https://giftcardzoneeu.com/assets/travel/brazil/brazil-hero.webp" />
+  <meta property="og:url" content="https://giftcardzoneeu.com/travel/brazil/" />
+  <meta property="og:type" content="website" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Brazil Travel Guide | GiftCardZoneEU" />
+  <meta name="twitter:description" content="Plan your Brazil trip with hotel tips, destination ideas, and trusted travel partners." />
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/travel/brazil/brazil-hero.webp" />
+
+  <link rel="preload" as="image" href="/assets/travel/brazil/brazil-hero.webp" />
+  <script src="/assets/ga.js"></script>
+
   <style>
-    :root {
-      --bg: #020617;
-      --card-bg: rgba(15, 23, 42, 0.92);
-      --card-border: rgba(148, 163, 184, 0.4);
-      --accent: #38bdf8;
-      --accent-soft: rgba(56, 189, 248, 0.14);
-      --text-main: #e5e7eb;
-      --text-muted: #9ca3af;
+    :root{
+      --text:#172033;
+      --muted:#64748b;
+      --blue:#2563eb;
+      --orange:#f97316;
+      --green:#16a34a;
+      --yellow:#facc15;
+      --line:#e5e7eb;
+      --card:#ffffff;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text-main);
-      line-height: 1.6;
-      background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1600&q=80');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:linear-gradient(180deg,#ecfeff 0%,#fff7ed 40%,#ffffff 100%);
+      color:var(--text);
+      line-height:1.6;
     }
+    a{text-decoration:none;color:inherit}
 
-    .overlay {
-      background: rgba(2, 6, 23, 0.72);
-      min-height: 100vh;
-      padding: 40px 0;
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(255,255,255,.94);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--line);
     }
-
-    .container {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 0 1.4rem;
+    .nav{
+      max-width:1160px;
+      margin:auto;
+      padding:12px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
     }
-
-    h1 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-      font-weight: 800;
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:900;
+      color:#111827;
     }
+    .logo img{width:42px;height:42px;border-radius:12px}
+    .navlinks{display:flex;gap:14px;flex-wrap:wrap;font-size:14px;color:#475569}
 
-    .sub {
-      text-align: center;
-      font-size: 1rem;
-      color: var(--text-muted);
-      margin-bottom: 1.2rem;
+    .hero{
+      min-height:640px;
+      display:flex;
+      align-items:center;
+      color:white;
+      padding:86px 18px;
+      background:
+        radial-gradient(circle at 18% 20%,rgba(250,204,21,.35),transparent 30%),
+        linear-gradient(135deg,rgba(2,44,34,.82),rgba(22,163,74,.52),rgba(37,99,235,.42),rgba(249,115,22,.35)),
+        url('/assets/travel/brazil/brazil-hero.webp') center/cover no-repeat;
     }
-
-    /* BRAND TRUST BADGE */
-    .brand-trust {
-      text-align:center;
-      margin-bottom:1.8rem;
+    .hero-inner{max-width:1160px;margin:auto;width:100%}
+    .badge-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}
+    .badge{
+      background:rgba(255,255,255,.18);
+      border:1px solid rgba(255,255,255,.35);
+      padding:8px 13px;
+      border-radius:999px;
+      font-size:14px;
+      backdrop-filter:blur(8px);
     }
-
-    .brand-trust span {
-      background: var(--card-bg);
-      padding: 0.55rem 1.1rem;
-      border-radius: 0.7rem;
-      border: 1px solid var(--card-border);
-      font-size: 0.9rem;
-      display: inline-block;
-      color: var(--text-main);
+    h1{
+      font-size:clamp(42px,7vw,82px);
+      line-height:1.02;
+      margin:0 0 18px;
+      max-width:930px;
+      letter-spacing:-1.5px;
     }
-
-    /* Trust Badges */
-    .badges {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-bottom: 2.5rem;
-      flex-wrap: wrap;
+    .hero p{max-width:760px;font-size:19px;color:#f8fafc;margin:0 0 30px}
+    .cta-row{display:flex;flex-wrap:wrap;gap:14px}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 22px;
+      border-radius:999px;
+      font-weight:900;
+      box-shadow:0 12px 30px rgba(0,0,0,.18);
+      transition:.2s ease;
     }
+    .btn:hover{transform:translateY(-2px)}
+    .btn-main{background:linear-gradient(135deg,var(--orange),#fb923c);color:white}
+    .btn-blue{background:white;color:#1d4ed8}
+    .btn-dark{background:#111827;color:white}
+    .btn-expedia{background:linear-gradient(135deg,#2563eb,#3b82f6);color:white}
 
-    .badge {
-      background: var(--card-bg);
-      padding: 0.7rem 1rem;
-      border-radius: 0.7rem;
-      border: 1px solid var(--card-border);
-      font-size: 0.85rem;
+    .section{max-width:1160px;margin:auto;padding:64px 18px}
+    .trust{margin-top:-42px;position:relative;z-index:5}
+    .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .trust-card{
+      background:white;
+      padding:20px;
+      border-radius:22px;
+      border:1px solid var(--line);
+      box-shadow:0 18px 40px rgba(15,23,42,.08);
     }
+    .trust-card strong{display:block;font-size:18px;margin-bottom:4px;color:#0f172a}
+    .trust-card span{color:#64748b;font-size:14px}
 
-    /* City Cards */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 3rem;
+    .section-title{text-align:center;max-width:790px;margin:0 auto 34px}
+    .section-title h2{font-size:clamp(28px,4vw,46px);margin:0 0 12px;color:#0f172a;letter-spacing:-.8px}
+    .section-title p{color:var(--muted);margin:0;font-size:17px}
+
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .card{
+      background:white;
+      border-radius:26px;
+      padding:24px;
+      border:1px solid var(--line);
+      box-shadow:0 18px 45px rgba(15,23,42,.08);
     }
+    .card img{width:100%;border-radius:18px;margin-bottom:14px;aspect-ratio:16/10;object-fit:cover}
+    .card h3{margin:0 0 10px;font-size:22px;color:#111827}
+    .card p{margin:0 0 18px;color:#64748b}
+    .pill{display:inline-block;background:#eff6ff;color:#1d4ed8;padding:7px 12px;border-radius:999px;font-size:13px;font-weight:900;margin-bottom:14px}
+    .pill.green{background:#dcfce7;color:#15803d}
+    .pill.orange{background:#ffedd5;color:#c2410c}
 
-    .card {
-      background: var(--card-bg);
-      padding: 1.2rem;
-      border-radius: 1rem;
-      border: 1px solid var(--card-border);
-      transition: 0.2s ease;
+    .highlight{
+      background:linear-gradient(135deg,#0f766e,#16a34a,#2563eb);
+      color:white;
+      border-radius:34px;
+      padding:44px;
+      box-shadow:0 22px 55px rgba(22,163,74,.24);
+      overflow:hidden;
+      position:relative;
     }
-
-    .card:hover {
-      border-color: var(--accent);
-      background: rgba(15, 23, 42, 0.85);
-      transform: translateY(-3px);
+    .highlight:after{
+      content:"";
+      position:absolute;
+      right:-80px;
+      top:-80px;
+      width:220px;
+      height:220px;
+      background:rgba(250,204,21,.25);
+      border-radius:999px;
     }
+    .highlight h2{margin:0 0 12px;font-size:38px;position:relative;z-index:1}
+    .highlight p{color:#ecfeff;max-width:850px;position:relative;z-index:1}
+    .highlight .cta-row{position:relative;z-index:1}
 
-    .card h3 {
-      font-size: 1.1rem;
-      margin-bottom: 0.6rem;
-      font-weight: 700;
+    .partner-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:22px;
     }
-
-    .card p {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-bottom: 1rem;
+    .partner.main{
+      background:linear-gradient(135deg,#ffedd5,#ffffff);
+      border:2px solid #fed7aa;
     }
-
-    .btn {
-      display: inline-block;
-      width: 100%;
-      text-align: center;
-      padding: 0.6rem 0.8rem;
-      border-radius: 0.6rem;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-weight: 600;
-      border: 1px solid var(--accent);
-      text-decoration: none;
-      transition: 0.2s;
+    .partner.expedia{
+      background:linear-gradient(135deg,#eff6ff,#ffffff);
+      border:2px solid #bfdbfe;
+      box-shadow:0 18px 45px rgba(37,99,235,.15);
     }
+    .tag{display:inline-block;background:#f97316;color:white;padding:7px 12px;border-radius:999px;font-size:13px;font-weight:900;margin-bottom:12px}
+    .tag.blue{background:#2563eb;box-shadow:0 4px 12px rgba(37,99,235,.35)}
+    .disclosure{background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;border-radius:22px;padding:18px 20px;font-size:14px;margin-top:24px}
 
-    .btn:hover {
-      background: var(--accent);
-      color: #0f172a;
+    .city-links{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .city-link{background:white;padding:18px;border-radius:20px;border:1px solid var(--line);font-weight:900;color:#15803d;box-shadow:0 10px 25px rgba(15,23,42,.06)}
+
+    .faq{max-width:850px;margin:auto}
+    details{background:white;border:1px solid var(--line);border-radius:18px;padding:18px 20px;margin-bottom:12px;box-shadow:0 8px 22px rgba(15,23,42,.05)}
+    summary{cursor:pointer;font-weight:900;color:#111827}
+    details p{color:#64748b;margin-bottom:0}
+
+    footer{background:#0f172a;color:#cbd5e1;padding:38px 18px 92px;text-align:center}
+    footer a{color:white;font-weight:900}
+
+    .sticky-cta{position:fixed;bottom:0;left:0;right:0;z-index:80;background:rgba(255,255,255,.96);border-top:1px solid var(--line);box-shadow:0 -12px 35px rgba(15,23,42,.12);padding:12px 16px}
+    .sticky-inner{max-width:1160px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .sticky-inner strong{color:#111827}
+    .sticky-inner span{color:#64748b;font-size:14px}
+
+    @media(max-width:950px){.partner-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:850px){
+      .navlinks{display:none}
+      .hero{min-height:560px;padding:65px 18px}
+      .trust-grid,.grid,.partner-grid,.city-links{grid-template-columns:1fr}
+      .highlight{padding:30px}
+      .sticky-inner{flex-direction:column;align-items:stretch;text-align:center}
+      .sticky-inner .btn{width:100%}
     }
-
-    /* Top Travel Partners */
-    .partners-title {
-      font-size: 1.4rem;
-      text-align: center;
-      margin-bottom: 1.2rem;
-      font-weight: 700;
-    }
-
-    .partners-grid {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-bottom: 3rem;
-    }
-
-    .partner-card {
-      background: #f9fafb;
-      color: #111827;
-      padding: 0.8rem 1.2rem;
-      border-radius: 0.8rem;
-      font-size: 0.9rem;
-      font-weight: 600;
-      border: 1px solid #e5e7eb;
-      text-decoration: none;
-      transition: 0.2s;
-    }
-
-    .partner-card:hover {
-      background: #e2e8f0;
-    }
-
   </style>
 </head>
 
 <body>
-<div class="overlay">
-  <div class="container">
-
-    <h1>Brazil Hotel Deals</h1>
-    <p class="sub">Rio de Janeiro • São Paulo • Salvador • Brasília • Fortaleza</p>
-
-    <!-- BRAND TRUST BADGE -->
-    <div class="brand-trust">
-      <span>⭐ GiftCardZoneEU Travel — Trusted Worldwide Booking Partner</span>
-    </div>
-
-    <!-- Trust Badges -->
-    <div class="badges">
-      <div class="badge">✔ Secure Booking</div>
-      <div class="badge">✔ Agoda Travel Partner</div>
-      <div class="badge">✔ Best Price Finder</div>
-      <div class="badge">✔ Fast & Safe</div>
-    </div>
-
-    <!-- Top Travel Partners -->
-    <h2 class="partners-title">🌍 Top Travel Partners</h2>
-    <div class="partners-grid">
-      <a class="partner-card" href="https://www.agoda.com/" target="_blank">Agoda</a>
-      <a class="partner-card" href="https://www.booking.com/" target="_blank">Booking.com</a>
-      <a class="partner-card" href="https://www.trip.com/" target="_blank">Trip.com</a>
-      <a class="partner-card" href="https://www.expedia.com/" target="_blank">Expedia</a>
-      <a class="partner-card" href="https://www.hotels.com/" target="_blank">Hotels.com</a>
-    </div>
-
-    <!-- City Cards -->
-    <div class="grid">
-
-      <div class="card">
-        <h3>Rio de Janeiro</h3>
-        <p>Hotels near Copacabana Beach, Christ the Redeemer, and Sugarloaf Mountain.</p>
-        <a class="btn" href="YOUR_AGODA_LINK" target="_blank">View Hotels</a>
+  <header class="topbar">
+    <nav class="nav">
+      <a class="logo" href="/">
+        <img src="/assets/gz-logo.png" alt="GiftCardZoneEU logo">
+        <span>GiftCardZoneEU</span>
+      </a>
+      <div class="navlinks">
+        <a href="/travel/">Travel</a>
+        <a href="/shopping/">Shopping</a>
+        <a href="/rewards/">Rewards</a>
       </div>
+    </nav>
+  </header>
 
-      <div class="card">
-        <h3>São Paulo</h3>
-        <p>Book stays in the largest city in Brazil — business hubs and nightlife areas.</p>
-        <a class="btn" href="YOUR_AGODA_LINK" target="_blank">View Hotels</a>
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="badge-row">
+          <span class="badge">Brazil Travel Guide</span>
+          <span class="badge">Hotels • Flights • Packages</span>
+          <span class="badge">Trip.com + Expedia Deals</span>
+        </div>
+        <h1>Brazil Travel Guide</h1>
+        <p>Plan your Brazil trip with colorful city escapes, beach stays, cultural highlights, hotel tips, flight ideas, and trusted booking partners for Rio de Janeiro, São Paulo, Salvador, and more.</p>
+        <div class="cta-row">
+          <a class="btn btn-main" href="https://www.trip.com/" target="_blank" rel="nofollow sponsored noopener noreferrer">Check Brazil Deals</a>
+          <a class="btn btn-blue" href="#partners">Compare Partners</a>
+          <a class="btn btn-dark" href="/travel/">Back to Travel Hub</a>
+        </div>
       </div>
+    </section>
 
-      <div class="card">
-        <h3>Salvador</h3>
-        <p>Discover hotel deals near beaches, cultural centers, and historic sites.</p>
-        <a class="btn" href="YOUR_AGODA_LINK" target="_blank">View Hotels</a>
+    <section class="section trust">
+      <div class="trust-grid">
+        <div class="trust-card"><strong>Beach Escapes</strong><span>Rio, Florianópolis, Recife, and coastal stays.</span></div>
+        <div class="trust-card"><strong>Big Cities</strong><span>São Paulo, Rio, Brasília, and business trips.</span></div>
+        <div class="trust-card"><strong>Culture & Food</strong><span>Music, festivals, local food, and history.</span></div>
+        <div class="trust-card"><strong>Hotel Deals</strong><span>Compare trusted partners before booking.</span></div>
       </div>
+    </section>
 
-      <div class="card">
-        <h3>Brasília</h3>
-        <p>Find hotels in the modern capital of Brazil near iconic architectural sites.</p>
-        <a class="btn" href="YOUR_AGODA_LINK" target="_blank">View Hotels</a>
+    <section class="section">
+      <div class="section-title">
+        <h2>Why Visit Brazil?</h2>
+        <p>Brazil is one of the most exciting destinations for travelers who want beaches, culture, city life, nature, nightlife, food, and unforgettable landmarks in one trip.</p>
       </div>
+      <div class="grid">
+        <article class="card">
+          <img src="/assets/travel/brazil/rio-de-janeiro.webp" alt="Rio de Janeiro Brazil">
+          <span class="pill green">Best for first-time visitors</span>
+          <h3>Rio de Janeiro</h3>
+          <p>Explore Copacabana, Ipanema, Sugarloaf Mountain, Christ the Redeemer, beach views, and lively city experiences.</p>
+        </article>
+        <article class="card">
+          <img src="/assets/travel/brazil/sao-paulo.webp" alt="Sao Paulo Brazil city">
+          <span class="pill">Best for city travel</span>
+          <h3>São Paulo</h3>
+          <p>Brazil’s largest city is great for food, shopping, nightlife, events, business travel, museums, and modern hotel options.</p>
+        </article>
+        <article class="card">
+          <img src="/assets/travel/brazil/salvador.webp" alt="Salvador Brazil colorful streets">
+          <span class="pill orange">Best for culture</span>
+          <h3>Salvador</h3>
+          <p>Enjoy colorful streets, Afro-Brazilian culture, music, historic neighborhoods, beaches, and unique local food.</p>
+        </article>
+      </div>
+    </section>
 
+    <section class="section">
+      <div class="highlight">
+        <h2>Where to Stay in Brazil</h2>
+        <p>For first-time travelers, Rio de Janeiro is strong for beaches and sightseeing, São Paulo is better for business, shopping, and food, while Salvador is perfect for culture and coastal charm. Compare hotel areas before booking because Brazil trips can change a lot by city, season, and event dates.</p>
+        <div class="cta-row">
+          <a class="btn btn-main" href="https://www.trip.com/" target="_blank" rel="nofollow sponsored noopener noreferrer">Compare Brazil Hotels</a>
+          <a class="btn btn-blue" href="#partners">See Travel Partners</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <h2>Brazil Travel Tips</h2>
+        <p>Simple tips to help users plan faster and stay longer on the page before clicking a booking partner.</p>
+      </div>
+      <div class="grid">
+        <article class="card"><h3>Choose your city style</h3><p>Pick Rio for beaches and landmarks, São Paulo for food and business, and Salvador for culture, music, and coastal history.</p></article>
+        <article class="card"><h3>Book early for events</h3><p>Hotels can become expensive during holidays, festivals, concerts, major events, and peak beach seasons.</p></article>
+        <article class="card"><h3>Compare hotels and packages</h3><p>Check flights, hotels, and bundles because package-style deals can sometimes be better for long-haul Brazil trips.</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="partners">
+      <div class="section-title">
+        <h2>Trusted Travel Partners</h2>
+        <p>Trip.com stays the priority booking partner, while Expedia is highlighted as a strong secondary option for Brazil hotels, flights, and packages.</p>
+      </div>
+      <div class="partner-grid">
+        <article class="card partner main">
+          <span class="tag">Priority Partner</span>
+          <h3>Trip.com Brazil</h3>
+          <p>Search Brazil hotels, flights, and travel deals with Trip.com. A strong option for city breaks, beach stays, and flexible planning.</p>
+          <a class="btn btn-main" href="https://www.trip.com/" target="_blank" rel="nofollow sponsored noopener noreferrer">Check Trip.com Deals</a>
+        </article>
+
+        <article class="card partner expedia">
+          <span class="pill">Secondary Partner</span>
+          <span class="tag blue">Strong Deals</span>
+          <h3>Expedia Brazil</h3>
+          <p>Compare Brazil hotels, flights, and travel packages. Ideal for bundled deals, flexible bookings, and popular destinations like Rio and São Paulo.</p>
+          <a class="btn btn-expedia" href="https://www.tkqlhce.com/click-101586981-15261175" target="_blank" rel="nofollow sponsored noopener noreferrer">Check Expedia Deals</a>
+        </article>
+
+        <article class="card partner">
+          <span class="pill">More Options</span>
+          <h3>Booking.com</h3>
+          <p>Useful for checking hotel availability, guest reviews, and different accommodation styles in Brazil.</p>
+          <a class="btn btn-dark" href="https://www.booking.com/" target="_blank" rel="nofollow sponsored noopener noreferrer">Visit Booking.com</a>
+        </article>
+
+        <article class="card partner">
+          <span class="pill">More Options</span>
+          <h3>Agoda</h3>
+          <p>Another option for hotel comparison when checking different prices and deals across Brazil destinations.</p>
+          <a class="btn btn-dark" href="https://www.agoda.com/" target="_blank" rel="nofollow sponsored noopener noreferrer">Visit Agoda</a>
+        </article>
+      </div>
+      <div class="disclosure">Disclosure: Some links on this page may be affiliate or sponsored links. GiftCardZoneEU may earn a commission when you book through selected partners, at no extra cost to you.</div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <h2>Explore More Brazil Guides</h2>
+        <p>Use this section later when you create city pages for Brazil cluster growth.</p>
+      </div>
+      <div class="city-links">
+        <a class="city-link" href="/travel/brazil/rio-de-janeiro/">Rio de Janeiro</a>
+        <a class="city-link" href="/travel/brazil/sao-paulo/">São Paulo</a>
+        <a class="city-link" href="/travel/brazil/salvador/">Salvador</a>
+        <a class="city-link" href="/travel/brazil/brasilia/">Brasília</a>
+        <a class="city-link" href="/travel/brazil/florianopolis/">Florianópolis</a>
+        <a class="city-link" href="/travel/brazil/recife/">Recife</a>
+        <a class="city-link" href="/travel/brazil/fortaleza/">Fortaleza</a>
+        <a class="city-link" href="/travel/">Travel Hub</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title"><h2>Brazil FAQ</h2><p>Quick answers for travelers planning a Brazil trip.</p></div>
+      <div class="faq">
+        <details><summary>Is Brazil good for first-time travelers?</summary><p>Yes. Brazil is great for first-time travelers who want beaches, city life, landmarks, food, music, and culture. Rio de Janeiro and São Paulo are common starting points.</p></details>
+        <details><summary>What is the best city to visit in Brazil?</summary><p>Rio de Janeiro is popular for beaches and landmarks, São Paulo is strong for food and city life, while Salvador is excellent for culture and historic neighborhoods.</p></details>
+        <details><summary>Should I compare hotels and flights before booking?</summary><p>Yes. Brazil trips can vary by city, dates, and season. Comparing hotels, flights, and package-style deals can help travelers find better options.</p></details>
+        <details><summary>Is Expedia useful for Brazil travel?</summary><p>Expedia can be useful for comparing Brazil hotels, flights, and bundled travel packages, especially for travelers looking for flexible booking choices.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> GiftCardZoneEU • Brazil Travel Guide</p>
+    <p><a href="/">Home</a> · <a href="/travel/">Travel</a> · <a href="/shopping/">Shopping</a></p>
+  </footer>
+
+  <div class="sticky-cta">
+    <div class="sticky-inner">
+      <div><strong>Planning Brazil?</strong><br><span>Compare hotels, flights, and travel deals with our priority partner.</span></div>
+      <a class="btn btn-main" href="https://www.trip.com/" target="_blank" rel="nofollow sponsored noopener noreferrer">Check Trip.com Deals</a>
     </div>
-
   </div>
-</div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
-
