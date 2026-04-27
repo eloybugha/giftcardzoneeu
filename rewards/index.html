@@ -1,91 +1,663 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>GiftCardZoneEU — Rewards Center</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <meta name="description" content="Browse verified gift card rewards matched to your country. Fresh, safe, and frequently updated." />
-  <meta name="keywords" content="gift card rewards, free rewards, gift cards, promos" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://giftcardzoneeu.com/rewards/" />
+  <title>Rewards Center | Earn Gift Cards Online</title>
+  <meta name="description" content="Explore trusted ways to earn gift cards online through surveys, reward platforms, CPM traffic monetization, and freelance opportunities.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://giftcardzoneeu.com/rewards/">
 
-  <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="GiftCardZoneEU — Rewards Center" />
-  <meta property="og:description" content="Browse verified gift card rewards matched to your country." />
-  <meta property="og:url" content="https://giftcardzoneeu.com/rewards/" />
-  <meta property="og:image" content="https://eloybugha.github.io/giftcardzoneeu/c77867b0-ac71-4878-8e23-508c8d0bb88a.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://eloybugha.github.io/giftcardzoneeu/c77867b0-ac71-4878-8e23-508c8d0bb88a.png" />
+  <meta property="og:title" content="Rewards Center | Earn Gift Cards Online">
+  <meta property="og:description" content="Discover trusted reward platforms, surveys, CPM earning options, and freelance opportunities on GiftCardZoneEU.">
+  <meta property="og:image" content="https://giftcardzoneeu.com/assets/gz-logo.png">
+  <meta property="og:url" content="https://giftcardzoneeu.com/rewards/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="GiftCardZoneEU">
 
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎁</text></svg>">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Rewards Center | Earn Gift Cards Online">
+  <meta name="twitter:description" content="Find trusted ways to earn gift cards online with surveys, CPM earning, and freelance work.">
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/gz-logo.png">
+
+  <script src="/assets/ga.js"></script>
+
   <style>
-    :root{--brand:#e11d48;--ink:#111827;--muted:#6b7280;--bg:#fafafa;--card:#ffffff}
-    *{box-sizing:border-box} body{margin:0;background:var(--bg);font:16px/1.55 system-ui,Segoe UI,Arial}
-    a{color:var(--brand);text-decoration:none} a:hover{text-decoration:underline}
-    header{position:sticky;top:0;background:#fff;border-bottom:1px solid #eee;z-index:2}
-    .wrap{max-width:980px;margin:auto;padding:16px}
-    .nav{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
-    .logo{font-weight:800;color:var(--ink)} .logo span{color:var(--brand)}
-    .nav a{color:var(--ink)} .cta{margin-left:auto;background:var(--brand);color:#fff;padding:8px 12px;border-radius:8px}
-    main{padding:28px 0}
-    h1{margin:0 0 8px;color:var(--ink)} p.lead{color:var(--muted);margin:0 0 24px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-    .card{background:var(--card);border:1px solid #eee;border-radius:14px;padding:18px}
-    footer{margin-top:40px;border-top:1px solid #eee;background:#fff}
-    .foot{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between;color:var(--muted)}
-    ul.inline{display:flex;gap:14px;padding:0;margin:0;list-style:none}
+    :root{
+      --brand:#f97316;
+      --blue:#2563eb;
+      --purple:#7c3aed;
+      --dark:#0f172a;
+      --text:#111827;
+      --muted:#64748b;
+      --line:#e5e7eb;
+      --card:#ffffff;
+      --bg:#f8fafc;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:linear-gradient(180deg,#fff7ed 0%,#eef6ff 45%,#ffffff 100%);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    a{text-decoration:none;color:inherit}
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(255,255,255,.92);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav{
+      max-width:1150px;
+      margin:auto;
+      padding:12px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:900;
+      color:#111827;
+    }
+
+    .logo img{
+      width:42px;
+      height:42px;
+      border-radius:12px;
+    }
+
+    .navlinks{
+      display:flex;
+      gap:14px;
+      font-size:14px;
+      color:#475569;
+      flex-wrap:wrap;
+    }
+
+    .hero{
+      min-height:560px;
+      color:white;
+      display:flex;
+      align-items:center;
+      padding:80px 18px;
+      background:
+        radial-gradient(circle at 20% 20%,rgba(249,115,22,.55),transparent 30%),
+        radial-gradient(circle at 80% 30%,rgba(37,99,235,.6),transparent 32%),
+        linear-gradient(135deg,#0f172a,#312e81,#7c2d12);
+    }
+
+    .hero-inner{
+      max-width:1150px;
+      margin:auto;
+      width:100%;
+    }
+
+    .badge-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-bottom:22px;
+    }
+
+    .badge{
+      background:rgba(255,255,255,.16);
+      border:1px solid rgba(255,255,255,.28);
+      padding:8px 13px;
+      border-radius:999px;
+      font-size:14px;
+      backdrop-filter:blur(8px);
+    }
+
+    h1{
+      font-size:clamp(38px,7vw,76px);
+      line-height:1.02;
+      margin:0 0 18px;
+      max-width:900px;
+      letter-spacing:-1.4px;
+    }
+
+    .hero p{
+      max-width:740px;
+      font-size:19px;
+      color:#f8fafc;
+      margin-bottom:30px;
+    }
+
+    .cta-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 22px;
+      border-radius:999px;
+      font-weight:900;
+      box-shadow:0 12px 30px rgba(0,0,0,.16);
+      transition:.2s ease;
+    }
+
+    .btn:hover{transform:translateY(-2px)}
+
+    .btn-main{
+      background:linear-gradient(135deg,var(--brand),#fb923c);
+      color:white;
+    }
+
+    .btn-blue{
+      background:white;
+      color:#1d4ed8;
+    }
+
+    .btn-dark{
+      background:#111827;
+      color:white;
+    }
+
+    .section{
+      max-width:1150px;
+      margin:auto;
+      padding:64px 18px;
+    }
+
+    .trust{
+      margin-top:-42px;
+      position:relative;
+      z-index:5;
+    }
+
+    .trust-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
+    }
+
+    .trust-card{
+      background:white;
+      padding:20px;
+      border-radius:22px;
+      border:1px solid var(--line);
+      box-shadow:0 18px 40px rgba(15,23,42,.08);
+    }
+
+    .trust-card strong{
+      display:block;
+      font-size:18px;
+      margin-bottom:4px;
+    }
+
+    .section-title{
+      text-align:center;
+      max-width:780px;
+      margin:0 auto 34px;
+    }
+
+    .section-title h2{
+      font-size:clamp(28px,4vw,46px);
+      margin:0 0 12px;
+      color:#0f172a;
+      letter-spacing:-.8px;
+    }
+
+    .section-title p{
+      color:var(--muted);
+      margin:0;
+      font-size:17px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px;
+    }
+
+    .card{
+      background:white;
+      border-radius:26px;
+      padding:24px;
+      border:1px solid var(--line);
+      box-shadow:0 18px 45px rgba(15,23,42,.08);
+    }
+
+    .card h3{
+      margin:0 0 10px;
+      font-size:23px;
+      color:#111827;
+    }
+
+    .card p{
+      margin:0 0 18px;
+      color:#64748b;
+    }
+
+    .pill{
+      display:inline-block;
+      background:#eff6ff;
+      color:#1d4ed8;
+      padding:7px 12px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:900;
+      margin-bottom:14px;
+    }
+
+    .earn-card.main{
+      background:linear-gradient(135deg,#ffedd5,#ffffff);
+      border:2px solid #fed7aa;
+    }
+
+    .tag{
+      display:inline-block;
+      background:#f97316;
+      color:white;
+      padding:7px 12px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:900;
+      margin-bottom:12px;
+    }
+
+    .highlight{
+      background:linear-gradient(135deg,#1d4ed8,#7c3aed);
+      color:white;
+      border-radius:34px;
+      padding:44px;
+      box-shadow:0 22px 55px rgba(29,78,216,.25);
+    }
+
+    .highlight h2{
+      margin:0 0 12px;
+      font-size:38px;
+    }
+
+    .highlight p{
+      color:#e0e7ff;
+      max-width:820px;
+    }
+
+    .steps{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px;
+      counter-reset:step;
+    }
+
+    .step{
+      counter-increment:step;
+      position:relative;
+    }
+
+    .step:before{
+      content:counter(step);
+      display:inline-flex;
+      width:38px;
+      height:38px;
+      align-items:center;
+      justify-content:center;
+      border-radius:999px;
+      background:#f97316;
+      color:white;
+      font-weight:900;
+      margin-bottom:12px;
+    }
+
+    .disclosure{
+      background:#fff7ed;
+      border:1px solid #fed7aa;
+      color:#9a3412;
+      border-radius:22px;
+      padding:18px 20px;
+      font-size:14px;
+      margin-top:24px;
+    }
+
+    .faq{
+      max-width:850px;
+      margin:auto;
+    }
+
+    details{
+      background:white;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px 20px;
+      margin-bottom:12px;
+      box-shadow:0 8px 22px rgba(15,23,42,.05);
+    }
+
+    summary{
+      cursor:pointer;
+      font-weight:900;
+      color:#111827;
+    }
+
+    details p{
+      color:#64748b;
+      margin-bottom:0;
+    }
+
+    footer{
+      background:#0f172a;
+      color:#cbd5e1;
+      padding:38px 18px 92px;
+      text-align:center;
+    }
+
+    footer a{
+      color:white;
+      font-weight:800;
+    }
+
+    .sticky-cta{
+      position:fixed;
+      bottom:0;
+      left:0;
+      right:0;
+      z-index:80;
+      background:rgba(255,255,255,.96);
+      border-top:1px solid var(--line);
+      box-shadow:0 -12px 35px rgba(15,23,42,.12);
+      padding:12px 16px;
+    }
+
+    .sticky-inner{
+      max-width:1150px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+
+    .sticky-inner strong{
+      color:#111827;
+    }
+
+    .sticky-inner span{
+      color:#64748b;
+      font-size:14px;
+    }
+
+    @media(max-width:850px){
+      .navlinks{display:none}
+      .hero{min-height:540px;padding:62px 18px}
+      .trust-grid,.grid,.steps{
+        grid-template-columns:1fr;
+      }
+      .highlight{padding:30px}
+      .sticky-inner{
+        flex-direction:column;
+        align-items:stretch;
+        text-align:center;
+      }
+      .sticky-inner .btn{
+        width:100%;
+      }
+    }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "name":"Rewards Center | Earn Gift Cards Online",
+    "description":"A rewards guide from GiftCardZoneEU featuring survey platforms, CPM earning options, freelance opportunities, and trusted ways to earn gift cards online.",
+    "url":"https://giftcardzoneeu.com/rewards/",
+    "publisher":{
+      "@type":"Organization",
+      "name":"GiftCardZoneEU",
+      "logo":"https://giftcardzoneeu.com/assets/gz-logo.png"
+    }
+  }
+  </script>
 </head>
+
 <body>
-<header>
-  <div class="wrap nav">
-    <a class="logo" href="/">🎯 <span>GiftCardZoneEU</span></a>
-    <a href="/rewards/">Rewards</a>
-    <a href="/offers/">Offers</a>
-    <a href="/how-it-works/">How it works</a>
-    <a href="/faq/">FAQ</a>
-    <a href="/privacy/">Privacy</a>
-    <a class="cta" href="/contact/">Contact</a>
+  <header class="topbar">
+    <nav class="nav">
+      <a class="logo" href="/">
+        <img src="/assets/gz-logo.png" alt="GiftCardZoneEU logo">
+        <span>GiftCardZoneEU</span>
+      </a>
+      <div class="navlinks">
+        <a href="/travel/">Travel</a>
+        <a href="/shopping/">Shopping</a>
+        <a href="/rewards/">Rewards</a>
+        <a href="/partners/">Partners</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="badge-row">
+          <span class="badge">Rewards Center</span>
+          <span class="badge">Gift Card Guides</span>
+          <span class="badge">Online Earning Ideas</span>
+        </div>
+
+        <h1>Earn Gift Cards & Extra Rewards Online</h1>
+        <p>
+          Explore trusted ways to earn rewards online through survey platforms,
+          CPM traffic monetization, and freelance opportunities. Start with simple
+          methods and choose the option that fits your country and goals.
+        </p>
+
+        <div class="cta-row">
+          <a class="btn btn-main" href="#top-methods">Start Earning Now</a>
+          <a class="btn btn-blue" href="/shopping/">Explore Shopping Deals</a>
+          <a class="btn btn-dark" href="/">Back to Home</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section trust">
+      <div class="trust-grid">
+        <div class="trust-card">
+          <strong>Surveys</strong>
+          <span>Simple reward platforms for gift cards.</span>
+        </div>
+        <div class="trust-card">
+          <strong>CPM Earning</strong>
+          <span>Monetize traffic with ad networks.</span>
+        </div>
+        <div class="trust-card">
+          <strong>Freelance</strong>
+          <span>Use skills to earn from online work.</span>
+        </div>
+        <div class="trust-card">
+          <strong>Country Match</strong>
+          <span>Availability may depend on your location.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="top-methods">
+      <div class="section-title">
+        <h2>Top Ways to Earn Rewards Online</h2>
+        <p>
+          Choose from beginner-friendly reward platforms, traffic monetization options,
+          and freelance opportunities. Each method has different earning potential.
+        </p>
+      </div>
+
+      <div class="grid">
+        <article class="card earn-card main">
+          <span class="tag">Traffic Monetization</span>
+          <h3>CPM Earning with Adsterra</h3>
+          <p>
+            If you own a website, blog, or traffic source, CPM ads can help you
+            monetize visits and turn page views into extra online income.
+          </p>
+          <a class="btn btn-main" href="https://millionairelucidlytransmitted.com/r213cbb9mr?key=260fe979627d3329490b55e190d439de" target="_blank" rel="nofollow sponsored noopener noreferrer">
+            Start with Adsterra
+          </a>
+        </article>
+
+        <article class="card earn-card">
+          <span class="pill">Gift Card Rewards</span>
+          <h3>Surveys & Tasks</h3>
+          <p>
+            Survey and reward platforms can be useful for earning gift cards through
+            simple tasks, questionnaires, and brand feedback opportunities.
+          </p>
+          <a class="btn btn-dark" href="https://www.prizerebel.com/" target="_blank" rel="nofollow sponsored noopener noreferrer">
+            Visit PrizeRebel
+          </a>
+        </article>
+
+        <article class="card earn-card">
+          <span class="pill">Online Work</span>
+          <h3>Freelance with Fiverr</h3>
+          <p>
+            Freelancing is a stronger long-term earning method if you can offer
+            services like writing, design, editing, virtual assistance, or marketing.
+          </p>
+          <a class="btn btn-dark" href="https://www.fiverr.com/pe/WEKNLwd" target="_blank" rel="nofollow sponsored noopener noreferrer">
+            Start Freelancing
+          </a>
+        </article>
+      </div>
+
+      <div class="disclosure">
+        Disclosure: Some links on this page may be affiliate or sponsored links.
+        GiftCardZoneEU may earn a commission when you sign up or use selected partners,
+        at no extra cost to you.
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="highlight">
+        <h2>Best Option for Beginners</h2>
+        <p>
+          If you are just starting, survey and reward platforms are the easiest to try.
+          If you already have a website or traffic source, CPM earning can become more scalable.
+          If you have a skill, freelancing can offer higher long-term income potential.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-main" href="#top-methods">Compare Methods</a>
+          <a class="btn btn-blue" href="/shopping/">Find Shopping Deals</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <h2>How It Works</h2>
+        <p>Start simple, choose a platform, and focus on one earning method first.</p>
+      </div>
+
+      <div class="steps">
+        <article class="card step">
+          <h3>Choose a Method</h3>
+          <p>
+            Pick surveys, CPM traffic monetization, or freelancing based on what
+            you already have: time, traffic, or skills.
+          </p>
+        </article>
+
+        <article class="card step">
+          <h3>Join a Platform</h3>
+          <p>
+            Sign up with the platform that matches your goal and check availability
+            in your country before spending time on it.
+          </p>
+        </article>
+
+        <article class="card step">
+          <h3>Track Your Results</h3>
+          <p>
+            Focus on what works. Compare clicks, sign-ups, earnings, and time spent
+            so you can choose the best method for your situation.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <h2>Rewards FAQ</h2>
+        <p>Quick answers before you start using reward and earning platforms.</p>
+      </div>
+
+      <div class="faq">
+        <details>
+          <summary>Can I really earn gift cards online?</summary>
+          <p>
+            Yes, some platforms allow users to earn gift cards through surveys, offers,
+            tasks, or other reward activities. Availability and earnings vary by country.
+          </p>
+        </details>
+
+        <details>
+          <summary>Which method is best for beginners?</summary>
+          <p>
+            Surveys and simple reward platforms are usually the easiest starting point.
+            CPM earning is better if you already have website traffic, while freelancing
+            is better if you have a marketable skill.
+          </p>
+        </details>
+
+        <details>
+          <summary>Are these earnings guaranteed?</summary>
+          <p>
+            No. Earnings depend on your country, time, traffic, platform rules, skills,
+            and available offers. Always treat rewards as extra income, not guaranteed income.
+          </p>
+        </details>
+
+        <details>
+          <summary>Why does GiftCardZoneEU use affiliate links?</summary>
+          <p>
+            Affiliate links help support the site. If you use selected links, GiftCardZoneEU
+            may earn a commission at no extra cost to you.
+          </p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> GiftCardZoneEU • Rewards Center</p>
+    <p>
+      <a href="/">Home</a> ·
+      <a href="/travel/">Travel</a> ·
+      <a href="/shopping/">Shopping</a> ·
+      <a href="/rewards/">Rewards</a>
+    </p>
+  </footer>
+
+  <div class="sticky-cta">
+    <div class="sticky-inner">
+      <div>
+        <strong>Start earning rewards online</strong><br>
+        <span>Compare surveys, CPM earning, and freelance options.</span>
+      </div>
+      <a class="btn btn-main" href="#top-methods">Explore Reward Methods</a>
+    </div>
   </div>
-</header>
 
-<main class="wrap">
-  <h1>Rewards Center</h1>
-  <p class="lead">Hand-picked gift card rewards from trusted partners. Availability varies by country.</p>
-
-  <section class="grid" aria-label="Reward categories">
-    <article class="card">
-      <h3>Popular Stores</h3>
-      <p>Amazon, PlayStation, Netflix, Google Play, Apple, Steam.</p>
-      <a href="/offers/">See current offers →</a>
-    </article>
-    <article class="card">
-      <h3>Survey & Tasks</h3>
-      <p>Light tasks and brand surveys that convert into gift cards.</p>
-      <a href="/how-it-works/">How redemption works →</a>
-    </article>
-    <article class="card">
-      <h3>Country-Matched</h3>
-      <p>We route you to the best available geo-matched deal pages.</p>
-      <a href="/faq/#countries">Supported countries →</a>
-    </article>
-  </section>
-</main>
-
-<footer>
-  <div class="wrap foot">
-    <ul class="inline">
-      <li><a href="/rewards/">Rewards</a></li>
-      <li><a href="/offers/">Offers</a></li>
-      <li><a href="/how-it-works/">How it works</a></li>
-      <li><a href="/faq/">FAQ</a></li>
-      <li><a href="/privacy/">Privacy</a></li>
-      <li><a href="/contact/">Contact</a></li>
-    </ul>
-    <small>© <span id="y"></span> GiftCardZoneEU</small>
-  </div>
-</footer>
-<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
