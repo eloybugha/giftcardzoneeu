@@ -1,262 +1,435 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-<title>Best Hotels in Canada | Where to Stay & Book Online</title>
-<meta name="description" content="Find the best hotel deals in Canada with Trip.com. Explore Toronto, Vancouver, Montreal, and Calgary with trusted booking partners."/>
-<meta name="robots" content="index, follow"/>
-<link rel="canonical" href="https://giftcardzoneeu.com/travel/canada/"/>
+  <title>Canada Travel Guide | Best Places to Visit & Book Hotels</title>
+  <meta name="description" content="Explore Canada travel ideas, best cities to visit, hotel booking tips, and travel deals with Trip.com." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://giftcardzoneeu.com/travel/canada/" />
 
-<link rel="icon" href="/assets/gz-logo.png"/>
+  <meta property="og:title" content="Canada Travel Guide | GiftCardZoneEU" />
+  <meta property="og:description" content="Discover Canada’s top cities, nature escapes, hotel tips, and travel booking options." />
+  <meta property="og:url" content="https://giftcardzoneeu.com/travel/canada/" />
+  <meta property="og:image" content="https://giftcardzoneeu.com/assets/travel/canada/canada-hero.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-<!-- OG -->
-<meta property="og:title" content="Best Hotels in Canada | GiftCardZoneEU"/>
-<meta property="og:description" content="Compare hotel deals in Canada and book with Trip.com."/>
-<meta property="og:image" content="https://giftcardzoneeu.com/assets/travel/canada/canada-hero.webp"/>
-<meta property="og:url" content="https://giftcardzoneeu.com/travel/canada/"/>
+  <script src="/assets/ga.js"></script>
 
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Best Hotels in Canada"/>
-<meta name="twitter:description" content="Book hotels in Canada with Trip.com."/>
-<meta name="twitter:image" content="https://giftcardzoneeu.com/assets/travel/canada/canada-hero.webp"/>
+  <style>
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Arial,Helvetica,sans-serif;
+      background:#f4f6fb;
+      color:#111827;
+      line-height:1.6;
+    }
+    a{text-decoration:none;color:inherit}
+    .topbar{
+      background:#fff;
+      padding:22px 18px;
+      text-align:center;
+      border-bottom:1px solid #eee;
+    }
+    .logo{
+      width:54px;
+      height:54px;
+      border-radius:50%;
+    }
+    .hero{
+      min-height:520px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:60px 22px;
+      background:
+        linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.45)),
+        url("/assets/travel/canada/canada-hero.webp") center/cover no-repeat;
+      color:#fff;
+      border-radius:0 0 34px 34px;
+    }
+    .hero-inner{
+      max-width:880px;
+    }
+    .badge{
+      display:inline-block;
+      background:rgba(255,255,255,.18);
+      border:1px solid rgba(255,255,255,.35);
+      padding:8px 16px;
+      border-radius:999px;
+      font-size:14px;
+      margin-bottom:16px;
+      backdrop-filter:blur(8px);
+    }
+    h1{
+      font-size:clamp(34px,7vw,66px);
+      line-height:1.05;
+      margin:0 0 18px;
+    }
+    .hero p{
+      font-size:18px;
+      max-width:680px;
+      margin:0 auto 28px;
+    }
+    .hero-btn{
+      display:inline-block;
+      background:#ff6b1a;
+      color:#fff;
+      padding:15px 26px;
+      border-radius:999px;
+      font-weight:800;
+      box-shadow:0 12px 28px rgba(255,107,26,.35);
+    }
+    .wrap{
+      max-width:1120px;
+      margin:auto;
+      padding:34px 18px 110px;
+    }
+    .section{
+      background:#fff;
+      border-radius:28px;
+      padding:28px;
+      margin:24px 0;
+      box-shadow:0 10px 30px rgba(15,23,42,.05);
+      border:1px solid #eef0f4;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+    }
+    .city-card{
+      overflow:hidden;
+      background:#fff;
+      border-radius:22px;
+      border:1px solid #eee;
+      box-shadow:0 8px 24px rgba(0,0,0,.06);
+    }
+    .city-card img{
+      width:100%;
+      height:170px;
+      object-fit:cover;
+      display:block;
+    }
+    .city-card div{
+      padding:18px;
+    }
+    .city-card h3{
+      margin:0 0 8px;
+      font-size:20px;
+    }
+    .city-card p{
+      margin:0;
+      color:#4b5563;
+      font-size:14px;
+    }
+    .info-flex{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:22px;
+    }
+    .info-box{
+      background:#fff;
+      border:1px solid #edf0f5;
+      border-radius:24px;
+      padding:26px;
+      box-shadow:0 8px 24px rgba(0,0,0,.04);
+    }
+    .info-box h2{
+      margin-top:0;
+    }
+    .tips li{
+      margin-bottom:8px;
+    }
 
-<script src="/assets/ga.js"></script>
+    .explore h2{
+      margin:0 0 8px;
+      font-size:30px;
+    }
+    .explore-line{
+      width:74px;
+      height:5px;
+      background:#7c3aed;
+      border-radius:999px;
+      margin-bottom:22px;
+    }
+    .explore-list{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+    .explore-card{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      min-height:92px;
+      padding:18px 22px;
+      border-radius:20px;
+      border:1px solid rgba(0,0,0,.06);
+      transition:.25s ease;
+      overflow:hidden;
+      position:relative;
+    }
+    .explore-card:hover{
+      transform:translateY(-3px);
+      box-shadow:0 12px 26px rgba(15,23,42,.08);
+    }
+    .explore-card h3{
+      margin:0;
+      font-size:23px;
+      font-weight:900;
+    }
+    .explore-card p{
+      margin:4px 0 0;
+      color:#4b5563;
+      font-size:15px;
+    }
+    .arrow{
+      font-size:30px;
+      font-weight:900;
+    }
+    .germany{
+      background:linear-gradient(135deg,#f4efff,#fff);
+      color:#6d28d9;
+    }
+    .belgium{
+      background:linear-gradient(135deg,#fff3df,#fff);
+      color:#f97316;
+    }
+    .netherlands{
+      background:linear-gradient(135deg,#eaffef,#fff);
+      color:#16a34a;
+    }
+    .sweden{
+      background:linear-gradient(135deg,#e7f4ff,#fff);
+      color:#0284c7;
+    }
+    .canada{
+      background:linear-gradient(135deg,#fff1f2,#fff);
+      color:#dc2626;
+    }
 
-<style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f3f5f9;color:#111}
-a{text-decoration:none}
-
-/* TOPBAR */
-.topbar{position:sticky;top:0;display:flex;justify-content:center;padding:12px;background:#fff;border-bottom:1px solid #eee;z-index:1000}
-.topbar img{width:54px;border-radius:50%}
-
-/* HERO */
-.hero{
-  min-height:560px;
-  display:flex;
-  align-items:center;
-  color:#fff;
-  background:
-  linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
-  url("/assets/travel/canada/canada-hero.webp") center/cover;
-}
-.hero-inner{max-width:1200px;margin:auto;padding:50px 20px;display:flex;gap:30px;align-items:center}
-.hero-left{flex:1}
-.hero h1{font-size:56px;margin:0 0 15px}
-.hero p{font-size:20px;margin-bottom:20px}
-
-.btn{padding:14px 22px;border-radius:12px;font-weight:800;display:inline-block;margin-right:10px}
-.primary{background:#ff6f1a;color:#fff}
-.secondary{background:#ffffff22;color:#fff}
-
-/* TRUST */
-.trust{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
-.trust div{background:#ffffff22;padding:10px 14px;border-radius:20px;font-size:14px}
-
-/* BANNER */
-.banner{
-  width:260px;background:#fff;border-radius:15px;padding:10px;color:#000
-}
-.banner img{width:100%;border-radius:10px}
-
-/* SECTION */
-.section{max-width:1200px;margin:20px auto;background:#fff;padding:20px;border-radius:20px}
-
-/* PARTNERS */
-.partners{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
-.partner{padding:20px;border-radius:15px;color:#fff;font-weight:bold}
-.trip{background:#1780ff}
-.booking{background:#063f96}
-.agoda{background:#1e9c9c}
-
-/* CITIES */
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.card{border:1px solid #eee;border-radius:15px;overflow:hidden;background:#fff}
-.card img{width:100%;height:180px;object-fit:cover}
-.card-content{padding:15px}
-.badge{padding:6px 10px;border-radius:20px;font-size:12px;margin-bottom:10px;display:inline-block}
-
-/* INFO */
-.info{display:grid;grid-template-columns:1fr 1fr;gap:15px}
-.box{background:#fff;border:1px solid #eee;border-radius:15px;padding:20px}
-
-/* LINKS */
-.links{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.link{padding:15px;background:#fff;border-radius:12px;border:1px solid #eee}
-
-/* CTA */
-.sticky{
-position:fixed;
-bottom:15px;
-left:50%;
-transform:translateX(-50%);
-background:#ff6f1a;
-color:#fff;
-padding:16px 28px;
-border-radius:50px;
-font-weight:800;
-z-index:999;
-}
-
-/* FOOTER */
-.footer{text-align:center;padding:30px;color:#777}
-
-@media(max-width:900px){
-.hero-inner{flex-direction:column}
-.grid{grid-template-columns:1fr}
-.partners{grid-template-columns:1fr}
-.links{grid-template-columns:1fr}
-.info{grid-template-columns:1fr}
-.banner{display:none}
-}
-</style>
+    .partners{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+    .partner-card{
+      border-radius:22px;
+      padding:22px;
+      background:#f8fafc;
+      border:1px solid #e5e7eb;
+    }
+    .partner-card.primary{
+      background:linear-gradient(135deg,#fff7ed,#ffedd5);
+      border-color:#fed7aa;
+    }
+    .partner-card a{
+      display:inline-block;
+      margin-top:12px;
+      padding:12px 18px;
+      border-radius:999px;
+      background:#ff6b1a;
+      color:#fff;
+      font-weight:800;
+    }
+    .sticky-cta{
+      position:fixed;
+      left:50%;
+      bottom:18px;
+      transform:translateX(-50%);
+      z-index:99;
+      background:#ff6b1a;
+      color:#fff;
+      padding:15px 28px;
+      border-radius:999px;
+      font-weight:900;
+      box-shadow:0 12px 30px rgba(255,107,26,.4);
+      white-space:nowrap;
+    }
+    footer{
+      text-align:center;
+      padding:34px 18px;
+      color:#6b7280;
+      font-size:14px;
+    }
+    @media(max-width:850px){
+      .grid,.info-flex,.partners{
+        grid-template-columns:1fr;
+      }
+      .hero{
+        min-height:440px;
+      }
+      .section{
+        padding:22px;
+        border-radius:24px;
+      }
+      .city-card img{
+        height:210px;
+      }
+      .sticky-cta{
+        width:86%;
+        text-align:center;
+        font-size:14px;
+        padding:14px 18px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- TOP -->
-<div class="topbar">
-<a href="https://giftcardzoneeu.com/">
-<img src="/assets/gz-logo.png">
-</a>
-</div>
+  <header class="topbar">
+    <a href="/">
+      <img class="logo" src="/assets/gz-logo.png" alt="GiftCardZoneEU logo">
+    </a>
+  </header>
 
-<!-- HERO -->
-<section class="hero">
-<div class="hero-inner">
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="badge">Canada Travel Guide</span>
+      <h1>Explore Canada’s Cities, Mountains & Nature Escapes</h1>
+      <p>Plan a memorable Canada trip with beautiful city breaks, scenic landscapes, booking tips, and hotel deal options.</p>
+      <a class="hero-btn" href="https://www.tkqlhce.com/click-101586981-11999712" rel="nofollow sponsored noopener noreferrer" target="_blank">
+        Check Canada Deals on Trip.com →
+      </a>
+    </div>
+  </section>
 
-<div class="hero-left">
-<h1>Best Hotels in Canada 🇨🇦</h1>
-<p>Find the best hotel deals in Canada with Trip.com — compare prices and book instantly.</p>
+  <main class="wrap">
 
-<a class="btn primary" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">
-🔥 Check Canada Deals on Trip.com
-</a>
+    <section class="section">
+      <h2>Best Places to Visit in Canada</h2>
+      <div class="grid">
+        <article class="city-card">
+          <img src="/assets/travel/canada/toronto.webp" alt="Toronto Canada skyline">
+          <div>
+            <h3>Toronto</h3>
+            <p>Modern city life, shopping, food spots, and iconic skyline views.</p>
+          </div>
+        </article>
 
-<a class="btn secondary" href="#cities">Explore Cities</a>
+        <article class="city-card">
+          <img src="/assets/travel/canada/vancouver.webp" alt="Vancouver Canada">
+          <div>
+            <h3>Vancouver</h3>
+            <p>A beautiful mix of ocean views, mountains, nature, and city comfort.</p>
+          </div>
+        </article>
 
-<div class="trust">
-<div>🏷️ Best Price</div>
-<div>🔒 Secure Booking</div>
-<div>🔄 Free Cancellation</div>
-<div>🛡️ Trusted</div>
-</div>
-</div>
+        <article class="city-card">
+          <img src="/assets/travel/canada/montreal.webp" alt="Montreal Canada street view">
+          <div>
+            <h3>Montreal</h3>
+            <p>Culture, cafes, historic streets, festivals, and European-style charm.</p>
+          </div>
+        </article>
 
-<div class="banner">
-<img src="/assets/banners/travel-backpack.webp">
-<p><b>Travel Essentials</b><br>Up to 70% OFF</p>
-</div>
+        <article class="city-card">
+          <img src="/assets/travel/canada/banff.webp" alt="Banff Canada mountains">
+          <div>
+            <h3>Banff</h3>
+            <p>Gateway to mountains, lakes, nature, hiking, and scenic adventures.</p>
+          </div>
+        </article>
+      </div>
+    </section>
 
-</div>
-</section>
+    <section class="info-flex">
+      <div class="info-box">
+        <h2>Why Visit Canada?</h2>
+        <p>Canada offers stunning landscapes, modern cities, friendly travel experiences, scenic road trips, and unforgettable nature escapes.</p>
+      </div>
 
-<!-- PARTNERS -->
-<div class="section">
-<h2>Compare Hotel Deals</h2>
-<div class="partners">
+      <div class="info-box">
+        <h2>Booking Tips</h2>
+        <ul class="tips">
+          <li>Compare hotel and flight prices before booking.</li>
+          <li>Book early during summer and holiday seasons.</li>
+          <li>Choose central hotels for easier sightseeing.</li>
+          <li>Use flexible booking when plans may change.</li>
+        </ul>
+      </div>
+    </section>
 
-<a class="partner trip" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">
-Trip.com (Best Deals 🔥)
-</a>
+    <section class="section">
+      <h2>Book Canada Travel Deals</h2>
+      <div class="partners">
+        <div class="partner-card primary">
+          <h3>Trip.com</h3>
+          <p>Recommended option for flights, hotels, and Canada travel deals.</p>
+          <a href="https://www.tkqlhce.com/click-101586981-11999712" rel="nofollow sponsored noopener noreferrer" target="_blank">Check Deals</a>
+        </div>
 
-<a class="partner booking" href="#">Booking.com</a>
-<a class="partner agoda" href="#">Agoda</a>
+        <div class="partner-card">
+          <h3>Agoda</h3>
+          <p>Good for hotel comparison and accommodation options.</p>
+          <a href="#" rel="nofollow sponsored noopener noreferrer">Compare Hotels</a>
+        </div>
 
-</div>
-</div>
+        <div class="partner-card">
+          <h3>Booking.com</h3>
+          <p>Useful for browsing hotels, apartments, and stays.</p>
+          <a href="#" rel="nofollow sponsored noopener noreferrer">Browse Stays</a>
+        </div>
+      </div>
+    </section>
 
-<!-- CITIES -->
-<div class="section" id="cities">
-<h2>Top Cities in Canada</h2>
+    <section class="section explore">
+      <h2>Explore More</h2>
+      <div class="explore-line"></div>
 
-<div class="grid">
+      <div class="explore-list">
+        <a class="explore-card germany" href="/travel/germany/">
+          <div>
+            <h3>Germany</h3>
+            <p>History, culture & charming cities</p>
+          </div>
+          <span class="arrow">›</span>
+        </a>
 
-<div class="card">
-<img src="/assets/travel/canada/toronto.webp">
-<div class="card-content">
-<h3>Toronto</h3>
-<span class="badge">City & Skyline</span>
-<p>Canada’s biggest city with shopping and nightlife.</p>
-</div>
-</div>
+        <a class="explore-card belgium" href="/travel/belgium/">
+          <div>
+            <h3>Belgium</h3>
+            <p>Historic towns & delicious chocolate</p>
+          </div>
+          <span class="arrow">›</span>
+        </a>
 
-<div class="card">
-<img src="/assets/travel/canada/vancouver.webp">
-<div class="card-content">
-<h3>Vancouver</h3>
-<span class="badge">Nature & City</span>
-<p>Mountains, ocean, and modern lifestyle.</p>
-</div>
-</div>
+        <a class="explore-card netherlands" href="/travel/netherlands/">
+          <div>
+            <h3>Netherlands</h3>
+            <p>Windmills, tulips & vibrant cities</p>
+          </div>
+          <span class="arrow">›</span>
+        </a>
 
-<div class="card">
-<img src="/assets/travel/canada/montreal.webp">
-<div class="card-content">
-<h3>Montreal</h3>
-<span class="badge">Culture & Food</span>
-<p>French vibes and festivals.</p>
-</div>
-</div>
+        <a class="explore-card sweden" href="/travel/sweden/">
+          <div>
+            <h3>Sweden</h3>
+            <p>Nature, design & Scandinavian charm</p>
+          </div>
+          <span class="arrow">›</span>
+        </a>
+      </div>
+    </section>
 
-<div class="card">
-<img src="/assets/travel/canada/calgary.webp">
-<div class="card-content">
-<h3>Calgary</h3>
-<span class="badge">Adventure</span>
-<p>Gateway to mountains and nature.</p>
-</div>
-</div>
+  </main>
 
-</div>
-</div>
+  <a class="sticky-cta" href="https://www.tkqlhce.com/click-101586981-11999712" rel="nofollow sponsored noopener noreferrer" target="_blank">
+    🔥 Check Canada Deals on Trip.com →
+  </a>
 
-<!-- INFO -->
-<div class="section info">
-<div class="box">
-<h3>Why Visit Canada?</h3>
-<p>Canada offers stunning landscapes, modern cities, and unforgettable experiences.</p>
-</div>
+  <footer>
+    © <span id="year"></span> GiftCardZoneEU. Some links may be affiliate links.
+  </footer>
 
-<div class="box">
-<h3>Booking Tips</h3>
-<ul>
-<li>Compare prices</li>
-<li>Book early</li>
-<li>Choose central hotels</li>
-<li>Use flexible booking</li>
-</ul>
-</div>
-</div>
-
-<!-- LINKS -->
-<div class="section">
-<h2>Explore More</h2>
-<div class="links">
-<a class="link" href="/travel/germany/">Germany</a>
-<a class="link" href="/travel/belgium/">Belgium</a>
-<a class="link" href="/travel/netherlands/">Netherlands</a>
-<a class="link" href="/travel/sweden/">Sweden</a>
-</div>
-</div>
-
-<!-- CTA -->
-<a class="sticky" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">
-🔥 Check Canada Deals on Trip.com →
-</a>
-
-<!-- FOOTER -->
-<div class="footer">
-© <span id="year"></span> GiftCardZoneEU
-</div>
-
-<script>
-document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>
