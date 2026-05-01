@@ -14,17 +14,19 @@
   <meta property="og:title" content="Best Hotels in Paris | Where to Stay & Compare Deals" />
   <meta property="og:description" content="Compare Paris hotel deals and find the best areas to stay including Eiffel Tower, Louvre and central districts." />
   <meta property="og:url" content="https://giftcardzoneeu.com/travel/france/paris/" />
-  <meta property="og:image" content="https://giftcardzoneeu.com/assets/travel/france/paris.webp" />
+  <meta property="og:image" content="https://giftcardzoneeu.com/assets/travel/france/paris/paris-hero.webp" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Best Hotels in Paris | GiftCardZoneEU" />
   <meta name="twitter:description" content="Find where to stay in Paris and compare hotel deals online." />
-  <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/travel/france/paris.webp" />
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/travel/france/paris/paris-hero.webp" />
 
   <style>
     *{box-sizing:border-box}
     body{margin:0;font-family:Arial,sans-serif;background:#f8fafc;color:#1f2937;line-height:1.6}
     a{text-decoration:none}
+    img{max-width:100%;display:block}
+
     .navbar{position:sticky;top:0;background:#0f172a;padding:14px 20px;z-index:1000}
     .nav-inner{max-width:1150px;margin:auto;display:flex;align-items:center;justify-content:space-between}
     .brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:800}
@@ -34,15 +36,16 @@
 
     .hero{
       min-height:560px;
-      background:linear-gradient(rgba(0,0,0,.58),rgba(0,0,0,.62)),url('/assets/travel/france/paris.webp') center/cover no-repeat;
+      background:linear-gradient(rgba(0,0,0,.58),rgba(0,0,0,.62)),url('/assets/travel/france/paris/paris-hero.webp') center/cover no-repeat;
       display:flex;align-items:center;color:#fff
     }
+
     .hero-content{max-width:1150px;margin:auto;padding:70px 20px;width:100%}
     .badge{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.2);padding:8px 14px;border-radius:999px;font-weight:800;margin-bottom:18px}
     h1{font-size:50px;line-height:1.1;margin:0 0 18px;max-width:800px}
     .hero p{max-width:680px;font-size:18px;color:#f1f5f9;margin:0 0 26px}
+
     .btn{display:inline-block;background:#ffcc19;color:#0f172a;padding:14px 22px;border-radius:12px;font-weight:900}
-    .btn.dark{background:#0f172a;color:#fff}
     .btn.green{background:#16a34a;color:#fff}
 
     .section{max-width:1150px;margin:auto;padding:65px 20px}
@@ -50,11 +53,13 @@
     .lead{color:#475569;font-size:17px;max-width:850px;margin:0}
 
     .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:30px}
-    .card{background:#fff;padding:26px;border-radius:22px;box-shadow:0 10px 26px rgba(15,23,42,.08);border:1px solid #e5e7eb}
+    .card{background:#fff;border-radius:22px;box-shadow:0 10px 26px rgba(15,23,42,.08);border:1px solid #e5e7eb;overflow:hidden}
+    .card img{width:100%;height:210px;object-fit:cover}
+    .card-body{padding:26px}
     .card h3{margin:0 0 10px;font-size:22px;color:#0f172a}
     .card p{color:#475569;margin:0 0 18px}
 
-    .trip-card{background:linear-gradient(180deg,#0f172a,#172554);color:#fff}
+    .trip-card{background:linear-gradient(180deg,#0f172a,#172554);color:#fff;padding:26px}
     .trip-card h3{color:#fff}
     .trip-card p{color:#dbeafe}
 
@@ -114,18 +119,27 @@
 
   <div class="grid">
     <article class="card">
-      <h3>Eiffel Tower Area</h3>
-      <p>Best for iconic views, romantic stays and first-time Paris visitors.</p>
+      <img src="/assets/travel/france/paris/eiffel-area.webp" alt="Eiffel Tower area in Paris" loading="lazy">
+      <div class="card-body">
+        <h3>Eiffel Tower Area</h3>
+        <p>Best for iconic views, romantic stays and first-time Paris visitors.</p>
+      </div>
     </article>
 
     <article class="card">
-      <h3>Louvre & Central Paris</h3>
-      <p>Great for museums, landmarks, restaurants and walkable sightseeing.</p>
+      <img src="/assets/travel/france/paris/louvre-area.webp" alt="Louvre area in Paris" loading="lazy">
+      <div class="card-body">
+        <h3>Louvre & Central Paris</h3>
+        <p>Great for museums, landmarks, restaurants and walkable sightseeing.</p>
+      </div>
     </article>
 
     <article class="card">
-      <h3>Champs-Élysées</h3>
-      <p>Ideal for luxury hotels, shopping, nightlife and premium Paris stays.</p>
+      <img src="/assets/travel/france/paris/champs-area.webp" alt="Champs Elysees area in Paris" loading="lazy">
+      <div class="card-body">
+        <h3>Champs-Élysées</h3>
+        <p>Ideal for luxury hotels, shopping, nightlife and premium Paris stays.</p>
+      </div>
     </article>
   </div>
 </section>
@@ -144,15 +158,19 @@
     </article>
 
     <article class="card">
-      <h3>Expedia France</h3>
-      <p>Explore France hotel and travel package options through our Expedia France partner page.</p>
-      <a class="btn green" href="/partners/expedia-france/">View Expedia France →</a>
+      <div class="card-body">
+        <h3>Expedia France</h3>
+        <p>Explore France hotel and travel package options through our Expedia France partner page.</p>
+        <a class="btn green" href="/partners/expedia-france/">View Expedia France →</a>
+      </div>
     </article>
 
     <article class="card">
-      <h3>France Travel Guide</h3>
-      <p>See more France destinations including Paris, Nice, Lyon and Marseille.</p>
-      <a class="btn green" href="/travel/france/">Explore France →</a>
+      <div class="card-body">
+        <h3>France Travel Guide</h3>
+        <p>See more France destinations including Paris, Nice, Lyon and Marseille.</p>
+        <a class="btn green" href="/travel/france/">Explore France →</a>
+      </div>
     </article>
   </div>
 </section>
