@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Expedia France – Cheap Flights & Hotels</title>
+  <meta name="description" content="Compare hotels, flights, and vacation packages in France. Book with Expedia and save more on your next trip." />
+  <link rel="canonical" href="https://giftcardzoneeu.com/partners/expedia-france/" />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:title" content="Expedia France – Cheap Flights & Hotels" />
+  <meta property="og:description" content="Compare France hotels, flights, and travel packages with Expedia." />
+  <meta property="og:image" content="https://giftcardzoneeu.com/assets/partners/expedia-france/france.webp" />
+  <meta property="og:url" content="https://giftcardzoneeu.com/partners/expedia-france/" />
+  <meta property="og:type" content="website" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Expedia France – Cheap Flights & Hotels" />
+  <meta name="twitter:description" content="Compare France hotels, flights, and travel packages with Expedia." />
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/partners/expedia-france/france.webp" />
+
+  <script src="/assets/ga.js"></script>
+
+  <style>
+    :root{
+      --navy:#071a33;
+      --blue:#0b2d57;
+      --yellow:#ffd21f;
+      --text:#0f172a;
+      --muted:#64748b;
+      --white:#ffffff;
+      --shadow:0 18px 45px rgba(2,8,23,.14);
+      --radius:22px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:Arial, sans-serif;
+      background:#f4f7fb;
+      color:var(--text);
+      line-height:1.6;
+      padding-bottom:78px;
+    }
+
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(255,255,255,.94);
+      backdrop-filter:blur(12px);
+      box-shadow:0 4px 18px rgba(15,23,42,.08);
+    }
+
+    .nav{
+      max-width:1180px;
+      margin:auto;
+      padding:14px 22px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:18px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:900;
+      color:var(--navy);
+    }
+
+    .brand img{
+      width:44px;
+      height:44px;
+      object-fit:contain;
+    }
+
+    .navlinks{
+      display:flex;
+      gap:22px;
+      font-size:14px;
+      font-weight:700;
+      color:#334155;
+    }
+
+    .hero{
+      max-width:1180px;
+      margin:22px auto 0;
+      min-height:560px;
+      border-radius:30px;
+      overflow:hidden;
+      position:relative;
+      background:
+        linear-gradient(90deg, rgba(7,26,51,.92), rgba(7,26,51,.58), rgba(7,26,51,.18)),
+        url('/assets/partners/expedia-france/france.webp') center/cover no-repeat;
+      box-shadow:var(--shadow);
+      color:white;
+    }
+
+    .hero-content{
+      max-width:660px;
+      padding:76px 34px;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      background:rgba(255,210,31,.16);
+      border:1px solid rgba(255,210,31,.55);
+      color:#ffe985;
+      padding:8px 14px;
+      border-radius:999px;
+      font-weight:800;
+      margin-bottom:18px;
+    }
+
+    h1{
+      font-size:clamp(40px,6vw,76px);
+      line-height:1.02;
+      letter-spacing:-2px;
+      margin-bottom:18px;
+    }
+
+    .yellow{color:var(--yellow)}
+
+    .hero p{
+      font-size:20px;
+      max-width:560px;
+      color:#e2e8f0;
+      margin-bottom:28px;
+    }
+
+    .btn{
+      display:inline-flex;
+      justify-content:center;
+      align-items:center;
+      gap:10px;
+      padding:15px 22px;
+      border-radius:14px;
+      font-weight:900;
+      border:none;
+      cursor:pointer;
+      transition:.2s;
+    }
+
+    .btn-primary{
+      background:var(--yellow);
+      color:#071a33;
+      box-shadow:0 12px 26px rgba(255,210,31,.28);
+    }
+
+    .btn-primary:hover{transform:translateY(-2px)}
+
+    .btn-dark{
+      background:var(--navy);
+      color:white;
+    }
+
+    .trust-row{
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:0;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:1px;
+      background:rgba(255,255,255,.14);
+      backdrop-filter:blur(10px);
+    }
+
+    .trust-item{
+      padding:18px;
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content:center;
+      font-weight:800;
+      color:white;
+      background:rgba(7,26,51,.30);
+    }
+
+    .wrap{
+      max-width:1180px;
+      margin:auto;
+      padding:30px 22px;
+    }
+
+    .section-title{
+      text-align:center;
+      font-size:34px;
+      line-height:1.15;
+      color:var(--navy);
+      margin:18px 0 24px;
+      letter-spacing:-.7px;
+    }
+
+    .grid-4,.grid-3{
+      display:grid;
+      gap:20px;
+    }
+
+    .grid-4{grid-template-columns:repeat(4,1fr)}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+
+    .card{
+      background:white;
+      border-radius:var(--radius);
+      box-shadow:0 12px 30px rgba(15,23,42,.08);
+      overflow:hidden;
+      border:1px solid #e5e7eb;
+    }
+
+    .benefit{
+      padding:28px 20px;
+      text-align:center;
+    }
+
+    .icon{
+      width:52px;
+      height:52px;
+      margin:0 auto 14px;
+      border-radius:50%;
+      background:var(--yellow);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:24px;
+      font-weight:900;
+      color:var(--navy);
+    }
+
+    .card h3{
+      font-size:21px;
+      color:var(--navy);
+      margin-bottom:8px;
+    }
+
+    .card p{
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .city img{
+      width:100%;
+      height:190px;
+      object-fit:cover;
+    }
+
+    .city-body{
+      padding:20px;
+      text-align:center;
+    }
+
+    .mini-link{
+      display:inline-flex;
+      margin-top:12px;
+      font-weight:900;
+      color:var(--blue);
+    }
+
+    .book-card{
+      min-height:260px;
+      padding:28px;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      background-size:cover;
+      background-position:center;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .book-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(90deg,rgba(255,255,255,.96),rgba(255,255,255,.78),rgba(255,255,255,.15));
+    }
+
+    .book-card > *{position:relative;z-index:1}
+
+    .book-card.hotels{background-image:url('/assets/partners/expedia-france/hotels.webp')}
+    .book-card.flights{background-image:url('/assets/partners/expedia-france/flights.webp')}
+    .book-card.packages{background-image:url('/assets/partners/expedia-france/packages.webp')}
+
+    .cta-block{
+      margin-top:30px;
+      border-radius:26px;
+      overflow:hidden;
+      background:
+        linear-gradient(90deg,rgba(7,26,51,.96),rgba(7,26,51,.80)),
+        url('/assets/partners/expedia-france/france.webp') center/cover no-repeat;
+      color:white;
+      padding:42px 28px;
+      text-align:center;
+      box-shadow:var(--shadow);
+    }
+
+    .cta-block h2{
+      font-size:34px;
+      margin-bottom:10px;
+    }
+
+    .cta-block p{
+      color:#dbeafe;
+      margin-bottom:22px;
+      font-size:18px;
+    }
+
+    .links-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
+      margin-top:18px;
+    }
+
+    .internal-link{
+      background:white;
+      border:1px solid #e5e7eb;
+      border-radius:16px;
+      padding:16px;
+      font-weight:900;
+      color:var(--blue);
+      box-shadow:0 10px 20px rgba(15,23,42,.06);
+    }
+
+    .note{
+      background:#fff7d1;
+      border:1px solid #ffe27a;
+      border-radius:20px;
+      padding:18px;
+      margin-top:24px;
+      color:#3f3000;
+      font-weight:700;
+    }
+
+    .sticky-cta{
+      position:fixed;
+      left:0;
+      right:0;
+      bottom:0;
+      z-index:100;
+      background:var(--yellow);
+      border-top:1px solid rgba(7,26,51,.14);
+      box-shadow:0 -10px 30px rgba(15,23,42,.18);
+    }
+
+    .sticky-inner{
+      max-width:1180px;
+      margin:auto;
+      padding:12px 20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+    }
+
+    .sticky-inner strong{
+      color:var(--navy);
+      font-size:18px;
+    }
+
+    footer{
+      background:var(--navy);
+      color:white;
+      margin-top:40px;
+    }
+
+    .footer-inner{
+      max-width:1180px;
+      margin:auto;
+      padding:36px 22px;
+      display:grid;
+      grid-template-columns:2fr 1fr 1fr 1fr;
+      gap:24px;
+    }
+
+    footer img{
+      width:50px;
+      margin-bottom:10px;
+    }
+
+    footer a, footer p{
+      display:block;
+      color:#cbd5e1;
+      margin:7px 0;
+      font-size:14px;
+    }
+
+    .copyright{
+      text-align:center;
+      border-top:1px solid rgba(255,255,255,.12);
+      padding:14px;
+      color:#94a3b8;
+      font-size:13px;
+    }
+
+    @media(max-width:900px){
+      .navlinks{display:none}
+      .hero{border-radius:0;margin-top:0}
+      .hero-content{padding:58px 22px 150px}
+      .trust-row{grid-template-columns:repeat(2,1fr)}
+      .grid-4,.grid-3,.links-grid,.footer-inner{grid-template-columns:1fr}
+      .sticky-inner{flex-direction:column;text-align:center}
+      .sticky-inner .btn{width:100%}
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topbar">
+    <nav class="nav">
+      <a href="/" class="brand">
+        <img src="/assets/gz-logo.png" alt="Gift Card Zone logo">
+        <span>GiftCardZoneEU</span>
+      </a>
+
+      <div class="navlinks">
+        <a href="/">Home</a>
+        <a href="/travel/">Travel</a>
+        <a href="/shopping/">Shopping</a>
+        <a href="/partners/">Partners</a>
+        <a href="/blog/">Blog</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="hero-content">
+        <span class="eyebrow">Expedia France Partner Page</span>
+        <h1>Book France Hotels & Flights with <span class="yellow">Expedia</span></h1>
+        <p>Compare deals, save more, and plan your perfect France trip today.</p>
+        <p>Paris is one of the most visited cities in Europe, offering luxury hotels, budget stays, and iconic attractions like the Eiffel Tower.</p>
+
+        <a class="btn btn-primary expedia-link" href="https://www.tkqlhce.com/click-101586981-15261175" rel="nofollow sponsored noopener noreferrer" target="_blank">
+          Check France Deals on Expedia →
+        </a>
+      </div>
+
+      <div class="trust-row">
+        <div class="trust-item">🛡 Best Price Options</div>
+        <div class="trust-item">📅 Flexible Booking</div>
+        <div class="trust-item">🏷 Travel Deals</div>
+        <div class="trust-item">🌍 Trusted Worldwide</div>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <h2 class="section-title">Why Book France with Expedia?</h2>
+
+      <div class="grid-4">
+        <article class="card benefit">
+          <div class="icon">€</div>
+          <h3>Compare Packages</h3>
+          <p>Search hotel and flight deals in one place for easier France trip planning.</p>
+        </article>
+
+        <article class="card benefit">
+          <div class="icon">🏷</div>
+          <h3>Travel Discounts</h3>
+          <p>Find seasonal offers, hotel deals, and bundle savings for France.</p>
+        </article>
+
+        <article class="card benefit">
+          <div class="icon">📅</div>
+          <h3>Flexible Options</h3>
+          <p>Compare stays, flights, and packages based on your travel needs.</p>
+        </article>
+
+        <article class="card benefit">
+          <div class="icon">✓</div>
+          <h3>Trusted Platform</h3>
+          <p>Book with a globally recognized travel marketplace.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <h2 class="section-title">Top Cities in France</h2>
+
+      <div class="grid-4">
+        <article class="card city">
+          <img src="/assets/partners/expedia-france/paris.webp" alt="Paris France">
+          <div class="city-body">
+            <h3>Paris</h3>
+            <p>Explore France’s capital with hotels, flights, museums, and city deals.</p>
+            <a class="mini-link expedia-link" href="https://www.tkqlhce.com/click-101586981-15261175" rel="nofollow sponsored noopener noreferrer" target="_blank">View Deals →</a>
+          </div>
+        </article>
+
+        <article class="card city">
+          <img src="/assets/partners/expedia-france/nice.webp" alt="Nice France">
+          <div class="city-body">
+            <h3>Nice</h3>
+            <p>Discover French Riviera beaches, seaside hotels, and vacation deals.</p>
+            <a class="mini-link expedia-link" href="https://www.tkqlhce.com/click-101586981-15261175" rel="nofollow sponsored noopener noreferrer" target="_blank">View Deals →</a>
+          </div>
+        </article>
+
+        <article class="card city">
+          <img src="/assets/partners/expedia-france/lyon.webp" alt="Lyon France">
+          <div class="city-body">
+            <h3>Lyon</h3>
+            <p>Find hotels near historic streets, food spots, and cultural attractions.</p>
+            <a class="mini-link expedia-link" href="https://www.tkqlhce.com/click-101586981-15261175" rel="nofollow sponsored noopener noreferrer" target="_blank">View Deals →</a>
+          </div>
+        </article>
+
+        <article class="card city">
+          <img src="/assets/partners/expedia-france/marseille.webp" alt="Marseille France">
+          <div class="city-body">
+            <h3>Marseille</h3>
+            <p>Compare coastal city hotels, flights, and Mediterranean trip deals.</p>
+            <a class="mini-link expedia-link" href="https://www.tkqlhce.com/click-101586981-15261175" rel="nofollow sponsored noopener noreferrer" target="_blank">View Deals →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <h2 class="section-title">Find Cheap Hotels and Flights in France</h2>
+      <p style="max-width:700px;margin:auto;text-align:center;">
+        Looking for the best deals in France? Expedia lets you compare hotels, flights, and travel packages in one place.
+        Whether you're visiting Paris, Nice, Lyon, or Marseille, you can find budget to luxury options that fit your travel needs.
+      </p>
+    </section>
+
+    <section class="wrap">
+      <h2 class="section-title">What You Can Book with Expedia</h2>
+
+      <div class="grid-3">
+        <article class="card book-card hotels">
+          <h3>Hotels</h3>
+          <p>Find budget to luxury hotels across France.</p>
+          <a class="mini-link expedia-link" href="https://www.tkqlhce.com/click-101586981-15261175" rel="nofollow sponsored noopener noreferrer" target="_blank">Search Deals →</a>
+        </article>
+
+        <article class="card book-card flights">
+          <h3>Flights</h3>
+          <p>Compare cheap flights to France and nearby cities.</p>
+          <a class="mini-link expedia-link" href="https://www.tkqlhce.com/click-101586981-15261175" rel="nofollow sponsored noopener noreferrer" target="_blank">Search Deals →</a>
+        </article>
+
+        <article class="card book-card packages">
+          <h3>Packages</h3>
+          <p>Save more with hotel and flight bundle options.</p>
+          <a class="mini-link expedia-link" href="https://www.tkqlhce.com/click-101586981-15261175" rel="nofollow sponsored noopener noreferrer" target="_blank">Search Deals →</a>
+        </article>
+      </div>
+
+      <div class="cta-block">
+        <h2>Ready to Save on Your France Trip?</h2>
+        <p>Compare prices, find deals, and book instantly with Expedia.</p>
+
+        <a class="btn btn-primary expedia-link" href="https://www.tkqlhce.com/click-101586981-15261175" rel="nofollow sponsored noopener noreferrer" target="_blank">
+          Check Expedia France Deals Now →
+        </a>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <h2 class="section-title">Explore More</h2>
+
+      <div class="links-grid">
+        <a class="internal-link" href="/travel/france/">France Travel Guide →</a>
+        <a class="internal-link" href="/travel/france/paris/">Best Hotels in Paris →</a>
+        <a class="internal-link" href="/travel/france/nice/">Nice Travel Guide →</a>
+        <a class="internal-link" href="/partners/trip-com-france/">Trip.com France →</a>
+      </div>
+
+      <div class="note">
+        Disclosure: This page may contain affiliate links. If you book through our links, Gift Card Zone may earn a commission at no extra cost to you.
+      </div>
+    </section>
+
+  </main>
+
+  <div class="sticky-cta">
+    <div class="sticky-inner">
+      <strong>Expedia France Deals</strong>
+      <a class="btn btn-dark expedia-link" href="https://www.tkqlhce.com/click-101586981-15261175" rel="nofollow sponsored noopener noreferrer" target="_blank">
+        View Deals Now →
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <img src="/assets/gz-logo.png" alt="Gift Card Zone logo">
+        <h3>Gift Card Zone</h3>
+        <p>Your trusted source for travel deals, shopping finds, and partner offers.</p>
+      </div>
+
+      <div>
+        <h4>Useful Links</h4>
+        <a href="/">Home</a>
+        <a href="/travel/">Travel</a>
+        <a href="/shopping/">Shopping</a>
+        <a href="/partners/">Partners</a>
+      </div>
+
+      <div>
+        <h4>Partner Pages</h4>
+        <a href="/partners/trip-com-germany/">Trip.com Germany</a>
+        <a href="/partners/expedia-germany/">Expedia Germany</a>
+        <a href="/partners/expedia-france/">Expedia France</a>
+        <a href="/partners/12go/">12Go</a>
+      </div>
+
+      <div>
+        <h4>Legal</h4>
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms & Conditions</a>
+      </div>
+    </div>
+
+    <div class="copyright">
+      © <span id="year"></span> Gift Card Zone. All Rights Reserved.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const EXPEDIA_AFF = "https://www.tkqlhce.com/click-101586981-15261175";
+
+    document.querySelectorAll("a.expedia-link").forEach(function(link){
+      link.href = EXPEDIA_AFF;
+      link.setAttribute("rel", "nofollow sponsored noopener noreferrer");
+      link.setAttribute("target", "_blank");
+    });
+  </script>
+
+</body>
+</html>
