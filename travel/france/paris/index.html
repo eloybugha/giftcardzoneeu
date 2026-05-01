@@ -4,113 +4,76 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Best Hotels in Paris | Where to Stay & Book Online</title>
-  <meta name="description" content="Find the best hotels in Paris, France. Compare hotel deals in top areas like Eiffel Tower, Louvre and Champs-Élysées with Booking.com, Agoda and Trip.com." />
+  <title>Best Hotels in Paris | Where to Stay & Compare Deals</title>
+  <meta name="description" content="Find the best hotels in Paris, France. Compare Paris hotel deals near the Eiffel Tower, Louvre and Champs-Élysées with Trip.com and trusted travel partners." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://giftcardzoneeu.com/travel/france/paris/" />
   <link rel="icon" href="/assets/gz-logo.png" />
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Best Hotels in Paris | Where to Stay & Book Online" />
-  <meta property="og:description" content="Compare hotel deals in Paris and find the best areas to stay including Eiffel Tower, Louvre and central districts." />
+  <meta property="og:title" content="Best Hotels in Paris | Where to Stay & Compare Deals" />
+  <meta property="og:description" content="Compare Paris hotel deals and find the best areas to stay including Eiffel Tower, Louvre and central districts." />
   <meta property="og:url" content="https://giftcardzoneeu.com/travel/france/paris/" />
   <meta property="og:image" content="https://giftcardzoneeu.com/assets/travel/france/paris.webp" />
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Best Hotels in Paris | Where to Stay & Book Online" />
-  <meta name="twitter:description" content="Find top hotels in Paris and compare deals with trusted booking platforms." />
+  <meta name="twitter:title" content="Best Hotels in Paris | GiftCardZoneEU" />
+  <meta name="twitter:description" content="Find where to stay in Paris and compare hotel deals online." />
   <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/travel/france/paris.webp" />
 
   <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f8fafc;
-      color: #1f2937;
-      line-height: 1.6;
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,sans-serif;background:#f8fafc;color:#1f2937;line-height:1.6}
+    a{text-decoration:none}
+    .navbar{position:sticky;top:0;background:#0f172a;padding:14px 20px;z-index:1000}
+    .nav-inner{max-width:1150px;margin:auto;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:800}
+    .brand img{width:36px;height:36px}
+    .nav-links{display:flex;gap:16px}
+    .nav-links a{color:#e5e7eb;font-weight:700;font-size:14px}
+
+    .hero{
+      min-height:560px;
+      background:linear-gradient(rgba(0,0,0,.58),rgba(0,0,0,.62)),url('/assets/travel/france/paris.webp') center/cover no-repeat;
+      display:flex;align-items:center;color:#fff
     }
+    .hero-content{max-width:1150px;margin:auto;padding:70px 20px;width:100%}
+    .badge{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.2);padding:8px 14px;border-radius:999px;font-weight:800;margin-bottom:18px}
+    h1{font-size:50px;line-height:1.1;margin:0 0 18px;max-width:800px}
+    .hero p{max-width:680px;font-size:18px;color:#f1f5f9;margin:0 0 26px}
+    .btn{display:inline-block;background:#ffcc19;color:#0f172a;padding:14px 22px;border-radius:12px;font-weight:900}
+    .btn.dark{background:#0f172a;color:#fff}
+    .btn.green{background:#16a34a;color:#fff}
 
-    a { text-decoration: none; }
+    .section{max-width:1150px;margin:auto;padding:65px 20px}
+    h2{font-size:34px;margin:0 0 16px;color:#0f172a;line-height:1.2}
+    .lead{color:#475569;font-size:17px;max-width:850px;margin:0}
 
-    .navbar {
-      position: sticky;
-      top: 0;
-      background: #0f172a;
-      padding: 14px 20px;
-      z-index: 1000;
-    }
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:30px}
+    .card{background:#fff;padding:26px;border-radius:22px;box-shadow:0 10px 26px rgba(15,23,42,.08);border:1px solid #e5e7eb}
+    .card h3{margin:0 0 10px;font-size:22px;color:#0f172a}
+    .card p{color:#475569;margin:0 0 18px}
 
-    .navbar a {
-      color: #fff;
-      font-weight: bold;
-    }
+    .trip-card{background:linear-gradient(180deg,#0f172a,#172554);color:#fff}
+    .trip-card h3{color:#fff}
+    .trip-card p{color:#dbeafe}
 
-    .hero {
-      min-height: 520px;
-      background:
-        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-        url('/assets/travel/france/paris.webp') center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      color: #fff;
-    }
+    .links-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:26px}
+    .internal-link{background:#fff;color:#0f172a;border:1px solid #e5e7eb;border-radius:16px;padding:16px;font-weight:800;box-shadow:0 8px 18px rgba(15,23,42,.06)}
 
-    .hero-content {
-      max-width: 1100px;
-      margin: auto;
-      padding: 60px 20px;
-    }
+    .note{background:#fff7cc;border:1px solid #fde68a;border-radius:16px;padding:18px;font-weight:700;color:#3b2f06;margin-top:28px}
+    footer{background:#0f172a;color:#cbd5e1;text-align:center;padding:28px 20px;margin-bottom:74px}
 
-    .hero h1 {
-      font-size: 42px;
-      margin-bottom: 15px;
-    }
+    .sticky-cta{position:fixed;left:0;right:0;bottom:0;background:#ffcc19;padding:13px 18px;z-index:9999;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 -8px 22px rgba(0,0,0,.16)}
+    .sticky-cta strong{color:#0f172a}
+    .sticky-cta a{background:#0f172a;color:#fff;padding:12px 18px;border-radius:12px;font-weight:900}
 
-    .hero p {
-      max-width: 600px;
-      margin-bottom: 20px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 12px 18px;
-      background: #16a34a;
-      color: #fff;
-      border-radius: 8px;
-      font-weight: bold;
-      margin-right: 10px;
-    }
-
-    .section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 60px 20px;
-    }
-
-    .grid {
-      display: grid;
-      gap: 20px;
-    }
-
-    .grid-3 {
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-
-    .card {
-      background: #fff;
-      padding: 20px;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-    }
-
-    .footer {
-      background: #0f172a;
-      color: #fff;
-      text-align: center;
-      padding: 20px;
+    @media(max-width:850px){
+      h1{font-size:38px}
+      .grid,.links-grid{grid-template-columns:1fr}
+      .nav-links{display:none}
+      .hero-content{padding:64px 18px}
+      .section{padding:54px 18px}
     }
   </style>
 </head>
@@ -118,70 +81,113 @@
 <body>
 
 <header class="navbar">
-  <a href="https://giftcardzoneeu.com/">GiftCardZoneEU</a>
+  <div class="nav-inner">
+    <a class="brand" href="/">
+      <img src="/assets/gz-logo.png" alt="GiftCardZoneEU logo">
+      <span>GiftCardZoneEU</span>
+    </a>
+    <nav class="nav-links">
+      <a href="/travel/">Travel</a>
+      <a href="/travel/france/">France</a>
+      <a href="/partners/expedia-france/">Expedia France</a>
+    </nav>
+  </div>
 </header>
 
 <section class="hero">
   <div class="hero-content">
-    <h1>Best Hotels in Paris</h1>
+    <span class="badge">Paris Hotel Guide • Trip.com Deals</span>
+    <h1>Best Hotels in Paris – Where to Stay & Compare Deals</h1>
     <p>
-      Discover where to stay in Paris including Eiffel Tower, Louvre and central districts.
-      Compare hotel deals and book with trusted platforms.
+      Discover where to stay in Paris including the Eiffel Tower, Louvre and Champs-Élysées.
+      Compare Paris hotel deals and book online with Trip.com as the primary travel partner.
     </p>
-
-    <a class="btn" href="https://www.anrdoezrs.net/click-101586981-15210466" target="_blank" rel="nofollow sponsored noopener noreferrer">Check Hotels</a>
+    <a class="btn" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">
+      Compare Paris Deals on Trip.com →
+    </a>
   </div>
 </section>
 
 <section class="section">
   <h2>Top Areas to Stay in Paris</h2>
+  <p class="lead">Paris offers many hotel areas for first-time visitors, couples, shoppers and cultural travelers.</p>
 
-  <div class="grid grid-3">
-    <div class="card">
+  <div class="grid">
+    <article class="card">
       <h3>Eiffel Tower Area</h3>
-      <p>Perfect for iconic views and first-time visitors.</p>
-    </div>
+      <p>Best for iconic views, romantic stays and first-time Paris visitors.</p>
+    </article>
 
-    <div class="card">
-      <h3>Louvre</h3>
-      <p>Central location near museums, shops and landmarks.</p>
-    </div>
+    <article class="card">
+      <h3>Louvre & Central Paris</h3>
+      <p>Great for museums, landmarks, restaurants and walkable sightseeing.</p>
+    </article>
 
-    <div class="card">
+    <article class="card">
       <h3>Champs-Élysées</h3>
-      <p>Best for shopping, luxury stays and nightlife.</p>
-    </div>
+      <p>Ideal for luxury hotels, shopping, nightlife and premium Paris stays.</p>
+    </article>
   </div>
 </section>
 
 <section class="section">
   <h2>Compare Booking Platforms</h2>
+  <p class="lead">Trip.com is the primary booking option on this page, with other platforms included for comparison.</p>
 
-  <div class="grid grid-3">
-    <div class="card">
-      <h3>Booking.com</h3>
-      <a class="btn" href="https://www.booking.com" target="_blank" rel="nofollow sponsored noopener noreferrer">View Deals</a>
-    </div>
+  <div class="grid">
+    <article class="card trip-card">
+      <h3>🔥 Best Deals – Trip.com Paris</h3>
+      <p>Compare Paris hotels, city stays and travel deals with Trip.com.</p>
+      <a class="btn" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">
+        Check Cheapest Deals →
+      </a>
+    </article>
 
-    <div class="card">
-      <h3>Agoda</h3>
-      <a class="btn" href="https://www.agoda.com" target="_blank" rel="nofollow sponsored noopener noreferrer">View Agoda</a>
-    </div>
+    <article class="card">
+      <h3>Expedia France</h3>
+      <p>Explore France hotel and travel package options through our Expedia France partner page.</p>
+      <a class="btn green" href="/partners/expedia-france/">View Expedia France →</a>
+    </article>
 
-    <div class="card">
-      <h3>Trip.com</h3>
-      <a class="btn" href="https://www.jdoqcy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">View Trip.com</a>
-    </div>
+    <article class="card">
+      <h3>France Travel Guide</h3>
+      <p>See more France destinations including Paris, Nice, Lyon and Marseille.</p>
+      <a class="btn green" href="/travel/france/">Explore France →</a>
+    </article>
   </div>
 </section>
 
-<footer class="footer">
-  © <span id="year"></span> GiftCardZoneEU
+<section class="section">
+  <h2>Explore More</h2>
+
+  <div class="links-grid">
+    <a class="internal-link" href="/travel/france/">France Travel Guide →</a>
+    <a class="internal-link" href="/partners/expedia-france/">Expedia France →</a>
+    <a class="internal-link" href="/travel/germany/berlin/">Best Hotels in Berlin →</a>
+    <a class="internal-link" href="/partners/trip-com-germany/">Trip.com Germany →</a>
+  </div>
+
+  <div class="note">
+    Disclosure: This page may contain affiliate links. If you book through our links, Gift Card Zone may earn a commission at no extra cost to you.
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> GiftCardZoneEU. All rights reserved.
 </footer>
 
+<div class="sticky-cta">
+  <strong>Paris Hotel Deals</strong>
+  <a href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">
+    Compare Deals →
+  </a>
+</div>
+
 <script>
-document.getElementById("year").textContent = new Date().getFullYear();
+  document.getElementById("year").textContent = new Date().getFullYear();
 </script>
+
+<script src="/assets/ga.js"></script>
 
 </body>
 </html>
