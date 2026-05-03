@@ -1,340 +1,94 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Best Hotels in Hamburg | Where to Stay & Book Online</title>
-  <meta name="description" content="Discover where to stay in Hamburg, Germany. Explore top areas, travel tips, and hotel booking options for your Hamburg trip." />
+  <meta name="description" content="Discover where to stay in Hamburg, Germany. Compare top areas, hotel booking options, Trip.com deals, and Expedia packages for your Hamburg trip." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://giftcardzoneeu.com/travel/germany/hamburg/" />
-
   <link rel="icon" href="/assets/gz-logo.png" />
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Best Hotels in Hamburg | Where to Stay & Book Online" />
-  <meta property="og:description" content="Explore the best areas to stay in Hamburg and plan your Germany city trip with trusted hotel booking options." />
+  <meta property="og:description" content="Explore the best areas to stay in Hamburg and compare trusted hotel booking options." />
   <meta property="og:url" content="https://giftcardzoneeu.com/travel/germany/hamburg/" />
   <meta property="og:image" content="https://giftcardzoneeu.com/assets/travel/germany/hamburg-hero.webp" />
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Best Hotels in Hamburg | Where to Stay & Book Online" />
   <meta name="twitter:description" content="Find the best places to stay in Hamburg, Germany." />
   <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/travel/germany/hamburg-hero.webp" />
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Arial,sans-serif;color:#1f2937;background:#f8fafc;line-height:1.6}
+    a{text-decoration:none}
 
-    html {
-      scroll-behavior: smooth;
-    }
+    .topbar{position:sticky;top:0;z-index:1000;background:rgba(15,23,42,.94);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.08)}
+    .topbar-inner{max-width:1180px;margin:0 auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+    .brand{display:inline-flex;align-items:center;gap:12px;color:#fff;font-weight:700;font-size:1rem}
+    .brand img{width:44px;height:44px;object-fit:contain;border-radius:50%;background:#fff;padding:4px;box-shadow:0 6px 18px rgba(0,0,0,.18)}
+    .nav-links{display:flex;gap:18px;flex-wrap:wrap}
+    .nav-links a{color:#e5e7eb;font-size:.95rem}
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      color: #1f2937;
-      background: #f8fafc;
-      line-height: 1.6;
-    }
+    .hero{min-height:78vh;background:linear-gradient(rgba(15,23,42,.62),rgba(15,23,42,.72)),url('/assets/travel/germany/hamburg-hero.webp') center/cover no-repeat;display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 20px}
+    .hero-content{max-width:920px;color:#fff}
+    .hero-kicker{display:inline-block;margin-bottom:14px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.14);font-size:.9rem}
+    .hero h1{font-size:clamp(2.2rem,4.8vw,4.2rem);line-height:1.1;margin:0 0 16px}
+    .hero p{font-size:1.08rem;max-width:780px;margin:0 auto 28px;color:#e5e7eb}
+    .hero-buttons,.cta-row{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
 
-    a {
-      text-decoration: none;
-    }
+    .btn{display:inline-block;padding:13px 22px;border-radius:12px;font-weight:800;transition:.25s ease}
+    .btn-primary{background:#22c55e;color:#fff}
+    .btn-primary:hover{background:#16a34a}
+    .btn-expedia{background:#f97316;color:#fff}
+    .btn-expedia:hover{background:#ea580c}
+    .btn-secondary{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.22)}
+    .btn-secondary:hover{background:rgba(255,255,255,.2)}
 
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(15, 23, 42, 0.92);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
+    .section{max-width:1180px;margin:0 auto;padding:64px 20px}
+    .section h2{font-size:2rem;margin:0 0 14px;color:#0f172a}
+    .section-intro{max-width:820px;color:#475569;margin-bottom:28px}
 
-    .topbar-inner {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 14px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-    }
+    .info-grid,.city-grid,.mini-grid,.compare-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+    .compare-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .info-card,.mini-card,.compare-card{background:#fff;border-radius:18px;padding:24px;box-shadow:0 10px 30px rgba(15,23,42,.07);border:1px solid #e5e7eb}
+    .info-card h3,.mini-card h3,.compare-card h3{margin-top:0;margin-bottom:10px;color:#111827;font-size:1.14rem}
+    .info-card p,.mini-card p,.compare-card p{margin:0;color:#475569}
 
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      color: #fff;
-      font-weight: 700;
-      font-size: 1rem;
-    }
+    .city-card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 10px 30px rgba(15,23,42,.08);border:1px solid #e5e7eb}
+    .city-card img{width:100%;height:220px;object-fit:cover;display:block}
+    .city-card-content{padding:20px}
+    .city-card h3{margin:0 0 8px;font-size:1.15rem;color:#0f172a}
+    .city-card p{margin:0;color:#475569;font-size:.98rem}
 
-    .brand img {
-      width: 44px;
-      height: 44px;
-      object-fit: contain;
-      border-radius: 50%;
-      background: #fff;
-      padding: 4px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
-    }
+    .cta-panel{background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff;border-radius:22px;padding:34px 28px;box-shadow:0 14px 40px rgba(15,23,42,.22)}
+    .cta-panel h2,.cta-panel h3,.cta-panel p{color:#fff}
+    .cta-panel p{color:#dbeafe;max-width:780px}
 
-    .nav-links {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
+    .trust-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:20px}
+    .trust-badge{background:#ecfdf5;color:#065f46;border:1px solid #bbf7d0;border-radius:999px;padding:8px 13px;font-weight:700;font-size:.9rem}
 
-    .nav-links a {
-      color: #e5e7eb;
-      font-size: 0.95rem;
-    }
+    .affiliate-note{font-size:.9rem;color:#64748b;margin-top:18px}
+    .footer{background:#0f172a;color:#cbd5e1;padding:28px 20px;text-align:center;margin-top:24px}
+    .footer a{color:#86efac}
 
-    .hero {
-      min-height: 78vh;
-      background:
-        linear-gradient(rgba(15,23,42,0.62), rgba(15,23,42,0.70)),
-        url('/assets/travel/germany/hamburg-hero.webp') center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 80px 20px;
-    }
+    .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:1200;background:rgba(15,23,42,.96);backdrop-filter:blur(10px);padding:10px 14px;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+    .sticky-cta a{padding:11px 16px;border-radius:999px;font-size:.92rem}
 
-    .hero-content {
-      max-width: 900px;
-      color: #fff;
-    }
-
-    .hero-kicker {
-      display: inline-block;
-      margin-bottom: 14px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.14);
-      font-size: 0.9rem;
-      letter-spacing: 0.2px;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.2rem, 4.8vw, 4.2rem);
-      line-height: 1.1;
-      margin: 0 0 16px;
-    }
-
-    .hero p {
-      font-size: 1.08rem;
-      max-width: 760px;
-      margin: 0 auto 28px;
-      color: #e5e7eb;
-    }
-
-    .hero-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 13px 22px;
-      border-radius: 10px;
-      font-weight: 700;
-      transition: 0.25s ease;
-    }
-
-    .btn-primary {
-      background: #22c55e;
-      color: #fff;
-    }
-
-    .btn-primary:hover {
-      background: #16a34a;
-    }
-
-    .btn-secondary {
-      background: rgba(255,255,255,0.12);
-      color: #fff;
-      border: 1px solid rgba(255,255,255,0.22);
-    }
-
-    .btn-secondary:hover {
-      background: rgba(255,255,255,0.2);
-    }
-
-    .section {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 64px 20px;
-    }
-
-    .section h2 {
-      font-size: 2rem;
-      margin: 0 0 14px;
-      color: #0f172a;
-    }
-
-    .section-intro {
-      max-width: 820px;
-      color: #475569;
-      margin-bottom: 28px;
-    }
-
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-    }
-
-    .info-card {
-      background: #fff;
-      border-radius: 18px;
-      padding: 24px;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.07);
-      border: 1px solid #e5e7eb;
-    }
-
-    .info-card h3 {
-      margin-top: 0;
-      margin-bottom: 10px;
-      color: #111827;
-      font-size: 1.14rem;
-    }
-
-    .info-card p {
-      margin: 0;
-      color: #475569;
-    }
-
-    .city-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-    }
-
-    .city-card {
-      background: #fff;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
-      border: 1px solid #e5e7eb;
-    }
-
-    .city-card img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .city-card-content {
-      padding: 20px;
-    }
-
-    .city-card h3 {
-      margin: 0 0 8px;
-      font-size: 1.15rem;
-      color: #0f172a;
-    }
-
-    .city-card p {
-      margin: 0;
-      color: #475569;
-      font-size: 0.98rem;
-    }
-
-    .cta-panel {
-      background: linear-gradient(135deg, #0f172a, #1e293b);
-      color: #fff;
-      border-radius: 22px;
-      padding: 34px 28px;
-      box-shadow: 0 14px 40px rgba(15,23,42,0.22);
-    }
-
-    .cta-panel h2,
-    .cta-panel h3,
-    .cta-panel p {
-      color: #fff;
-    }
-
-    .cta-panel p {
-      color: #dbeafe;
-      max-width: 760px;
-    }
-
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 20px;
-    }
-
-    .mini-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-      margin-top: 24px;
-    }
-
-    .mini-card {
-      background: #fff;
-      border-radius: 18px;
-      padding: 22px;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.07);
-      border: 1px solid #e5e7eb;
-    }
-
-    .mini-card h3 {
-      margin: 0 0 10px;
-      color: #0f172a;
-      font-size: 1.08rem;
-    }
-
-    .mini-card p {
-      margin: 0;
-      color: #475569;
-    }
-
-    .footer {
-      background: #0f172a;
-      color: #cbd5e1;
-      padding: 28px 20px;
-      text-align: center;
-      margin-top: 24px;
-    }
-
-    .footer a {
-      color: #86efac;
-    }
-
-    @media (max-width: 900px) {
-      .info-grid,
-      .city-grid,
-      .mini-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .topbar-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .nav-links {
-        gap: 12px;
-      }
-
-      .hero {
-        min-height: 72vh;
-      }
+    @media(max-width:900px){
+      .info-grid,.city-grid,.mini-grid,.compare-grid{grid-template-columns:1fr}
+      .topbar-inner{flex-direction:column;align-items:flex-start}
+      .nav-links{gap:12px}
+      .hero{min-height:72vh}
+      body{padding-bottom:76px}
     }
   </style>
 </head>
+
 <body>
 
   <div class="topbar">
@@ -343,10 +97,10 @@
         <img src="/assets/gz-logo.png" alt="GiftCardZoneEU Logo" />
         <span>GiftCardZoneEU</span>
       </a>
-
       <div class="nav-links">
         <a href="/travel/germany/">Germany Travel</a>
         <a href="/partners/trip-com-hamburg/">Trip.com Hamburg</a>
+        <a href="#compare">Compare Deals</a>
         <a href="#hotels">Hotel Tips</a>
       </div>
     </div>
@@ -358,11 +112,16 @@
       <h1>Best Hotels in Hamburg | Where to Stay & Book Online</h1>
       <p>
         Explore one of Germany’s most exciting port cities. Discover the best areas to stay in Hamburg,
-        get practical travel tips, and compare trusted hotel booking options for your next trip.
+        compare hotel booking options, and check trusted travel deals before you book.
       </p>
       <div class="hero-buttons">
         <a class="btn btn-primary" href="/partners/trip-com-hamburg/">Check Hotels on Trip.com</a>
-        <a class="btn btn-secondary" href="/travel/germany/">View Germany Travel</a>
+        <a class="btn btn-expedia" href="https://www.tkqlhce.com/click-101586981-15261175" rel="nofollow sponsored noopener noreferrer" target="_blank">Compare on Expedia</a>
+      </div>
+      <div class="trust-row">
+        <span class="trust-badge">Hotel Deals</span>
+        <span class="trust-badge">City Break Friendly</span>
+        <span class="trust-badge">Packages Available</span>
       </div>
     </div>
   </section>
@@ -370,23 +129,23 @@
   <section class="section">
     <h2>Why Visit Hamburg?</h2>
     <p class="section-intro">
-      Hamburg is one of Germany’s most exciting city destinations, known for its waterfront views,
-      historic warehouse district, modern architecture, shopping streets, and vibrant nightlife.
-      It is a strong choice for travelers who want a mix of culture, city energy, and easy sightseeing.
+      Hamburg is known for its waterfront views, historic warehouse district, modern architecture,
+      shopping streets, and nightlife. It is a strong choice for travelers who want culture,
+      city energy, and easy sightseeing in one Germany destination.
     </p>
 
     <div class="info-grid">
       <div class="info-card">
         <h3>Harbor City Atmosphere</h3>
-        <p>Hamburg stands out for its port, canals, bridges, and scenic waterfront areas that make the city feel unique in Germany.</p>
+        <p>Hamburg stands out for its port, canals, bridges, and scenic waterfront areas.</p>
       </div>
       <div class="info-card">
         <h3>Easy for City Breaks</h3>
-        <p>It works well for short breaks, weekend trips, and stopovers thanks to its transport links, central attractions, and compact layout.</p>
+        <p>Great for short breaks, weekend trips, and stopovers with central attractions.</p>
       </div>
       <div class="info-card">
         <h3>Good Hotel Variety</h3>
-        <p>Visitors can find modern waterfront stays, central hotels near the old town, and lively areas suited for nightlife-focused trips.</p>
+        <p>Find waterfront hotels, central stays, budget options, and nightlife-friendly areas.</p>
       </div>
     </div>
   </section>
@@ -394,7 +153,8 @@
   <section class="section">
     <h2>Best Areas to Stay in Hamburg</h2>
     <p class="section-intro">
-      Different travelers prefer different parts of Hamburg. These popular areas can help you choose the right base before booking your stay.
+      Choose your Hamburg base depending on your travel style — sightseeing, waterfront views,
+      shopping, nightlife, or easy transport.
     </p>
 
     <div class="city-grid">
@@ -402,7 +162,7 @@
         <img src="/assets/partners/trip-com-hamburg/hafencity.webp" alt="HafenCity Hamburg" />
         <div class="city-card-content">
           <h3>HafenCity</h3>
-          <p>Modern waterfront district with stylish hotels, scenic walks, and easy access to the Elbphilharmonie.</p>
+          <p>Modern waterfront district with stylish hotels, scenic walks, and access to the Elbphilharmonie.</p>
         </div>
       </div>
 
@@ -410,7 +170,7 @@
         <img src="/assets/partners/trip-com-hamburg/altstadt.webp" alt="Altstadt Hamburg" />
         <div class="city-card-content">
           <h3>Altstadt</h3>
-          <p>Central and convenient for sightseeing, shopping, public transport, and classic Hamburg city views.</p>
+          <p>Central and convenient for sightseeing, shopping, public transport, and classic Hamburg views.</p>
         </div>
       </div>
 
@@ -418,21 +178,50 @@
         <img src="/assets/partners/trip-com-hamburg/st-pauli.webp" alt="St. Pauli Hamburg" />
         <div class="city-card-content">
           <h3>St. Pauli</h3>
-          <p>Best for nightlife, entertainment, and travelers who want a more energetic local atmosphere.</p>
+          <p>Best for nightlife, entertainment, and travelers who want a lively local atmosphere.</p>
         </div>
       </div>
     </div>
+  </section>
+
+  <section class="section" id="compare">
+    <h2>Compare Hotel Deals in Hamburg</h2>
+    <p class="section-intro">
+      Before booking your Hamburg stay, compare trusted options. Trip.com is a strong choice for hotel deals,
+      while Expedia can be useful for hotel, flight, and package combinations.
+    </p>
+
+    <div class="compare-grid">
+      <div class="compare-card">
+        <h3>Trip.com Hamburg</h3>
+        <p>Best for checking hotel deals, city stays, and travel options for Hamburg.</p>
+        <br />
+        <a class="btn btn-primary" href="/partners/trip-com-hamburg/">Check Trip.com Deals</a>
+      </div>
+
+      <div class="compare-card">
+        <h3>Expedia Hamburg</h3>
+        <p>Useful for comparing hotels, flights, and package-style travel deals in one place.</p>
+        <br />
+        <a class="btn btn-expedia" href="https://www.tkqlhce.com/click-101586981-15261175" rel="nofollow sponsored noopener noreferrer" target="_blank">Check Expedia Deals</a>
+      </div>
+    </div>
+
+    <p class="affiliate-note">
+      Disclosure: Some links may be affiliate links. GiftCardZoneEU may earn a commission if you book through them, at no extra cost to you.
+    </p>
   </section>
 
   <section class="section" id="hotels">
     <div class="cta-panel">
       <h2>Book Hotels in Hamburg</h2>
       <p>
-        Ready to plan your stay? Compare hotel options and travel deals using a trusted booking platform for Hamburg.
+        Ready to plan your stay? Compare Hamburg hotel options using trusted booking platforms
+        and choose the stay that fits your budget, location, and travel style.
       </p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="/partners/trip-com-hamburg/">Check Hamburg Deals</a>
-        <a class="btn btn-secondary" href="/travel/germany/">Back to Germany Guide</a>
+        <a class="btn btn-primary" href="/partners/trip-com-hamburg/">Check Hamburg Hotels on Trip.com</a>
+        <a class="btn btn-expedia" href="https://www.tkqlhce.com/click-101586981-15261175" rel="nofollow sponsored noopener noreferrer" target="_blank">Compare Hamburg on Expedia</a>
       </div>
     </div>
   </section>
@@ -445,12 +234,12 @@
         <p>Spring and early autumn are ideal for city walks, harbor views, and exploring Hamburg with milder weather.</p>
       </div>
       <div class="mini-card">
-        <h3>Who This Page Helps</h3>
-        <p>Great for solo travelers, couples, weekend visitors, and anyone comparing the best areas to stay in Hamburg.</p>
+        <h3>Best For</h3>
+        <p>Great for solo travelers, couples, weekend visitors, nightlife trips, and Germany city breaks.</p>
       </div>
       <div class="mini-card">
         <h3>Smart Booking Flow</h3>
-        <p>Use this guide first, then move to your Trip.com Hamburg page when you are ready to compare hotel deals and book.</p>
+        <p>Pick your area first, then compare hotels on Trip.com and Expedia before booking.</p>
       </div>
     </div>
   </section>
@@ -459,7 +248,7 @@
     <div class="cta-panel">
       <h3>Explore More Germany Travel Pages</h3>
       <p>
-        Keep exploring Germany with more destination guides, city pages, and hotel booking options across your travel cluster.
+        Keep exploring Germany with more destination guides, city pages, and hotel booking options across the GiftCardZoneEU travel cluster.
       </p>
       <div class="cta-row">
         <a class="btn btn-primary" href="/travel/germany/">Germany Travel Hub</a>
@@ -472,9 +261,15 @@
     <p>© <span id="year"></span> GiftCardZoneEU. Travel • Shopping • Rewards</p>
   </footer>
 
+  <div class="sticky-cta">
+    <a class="btn btn-primary" href="/partners/trip-com-hamburg/">Trip.com Hamburg</a>
+    <a class="btn btn-expedia" href="https://www.tkqlhce.com/click-101586981-15261175" rel="nofollow sponsored noopener noreferrer" target="_blank">Expedia Deals</a>
+  </div>
+
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+  <script src="/assets/ga.js"></script>
 
 </body>
-</html>    
+</html>
