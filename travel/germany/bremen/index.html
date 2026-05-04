@@ -338,20 +338,66 @@
     }
 
     .link-card{
-      display:block;
-      padding:20px;
-      border-radius:22px;
-      background:#fff;
-      color:#111827;
-      box-shadow:0 12px 30px rgba(15,23,42,.08);
-      border:1px solid var(--border);
-      transition:.2s ease;
-    }
+  display:block;
+  padding:20px;
+  border-radius:22px;
+  background:linear-gradient(135deg,#ffffff,#f8fafc);
+  text-decoration:none;
+  color:#111827;
+  box-shadow:0 12px 30px rgba(15,23,42,.08);
+  border:1px solid rgba(15,23,42,.08);
+  transition:.25s ease;
+  position:relative;
+  overflow:hidden;
+}
 
-    .link-card:hover{
-      transform:translateY(-4px);
-      box-shadow:0 18px 40px rgba(15,23,42,.14);
-    }
+/* LEFT COLOR ACCENT */
+.link-card::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  width:6px;
+  height:100%;
+  background:linear-gradient(180deg,#f97316,#fb923c);
+}
+
+/* HOVER EFFECT */
+.link-card:hover{
+  transform:translateY(-6px) scale(1.02);
+  box-shadow:0 20px 50px rgba(15,23,42,.18);
+  background:linear-gradient(135deg,#fff7ed,#ffffff);
+}
+
+/* TITLE */
+.link-card span{
+  display:block;
+  font-weight:900;
+  margin-bottom:6px;
+  color:#111827;
+}
+
+/* DESCRIPTION */
+.link-card small{
+  color:#6b7280;
+  line-height:1.5;
+}
+
+/* ADD ARROW ICON */
+.link-card::after{
+  content:"→";
+  position:absolute;
+  right:18px;
+  bottom:16px;
+  font-weight:900;
+  color:#f97316;
+  font-size:1.2rem;
+  transition:.2s;
+}
+
+.link-card:hover::after{
+  transform:translateX(4px);
+}
 
     .link-card span{
       display:block;
