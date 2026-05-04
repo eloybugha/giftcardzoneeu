@@ -338,76 +338,77 @@
     }
 
     .link-card{
-  display:block;
-  padding:20px;
-  border-radius:22px;
-  background:linear-gradient(135deg,#ffffff,#f8fafc);
-  text-decoration:none;
-  color:#111827;
-  box-shadow:0 12px 30px rgba(15,23,42,.08);
-  border:1px solid rgba(15,23,42,.08);
-  transition:.25s ease;
-  position:relative;
-  overflow:hidden;
-}
+      display:block;
+      padding:20px;
+      border-radius:22px;
+      background:linear-gradient(135deg,#ffffff,#f8fafc);
+      text-decoration:none;
+      color:#111827;
+      box-shadow:0 12px 30px rgba(15,23,42,.08);
+      border:1px solid rgba(15,23,42,.08);
+      transition:.3s ease;
+      position:relative;
+      overflow:hidden;
+    }
 
-/* LEFT COLOR ACCENT */
-.link-card::before{
-  content:"";
-  position:absolute;
-  left:0;
-  top:0;
-  width:6px;
-  height:100%;
-  background:linear-gradient(180deg,#f97316,#fb923c);
-}
+    .link-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      border-radius:22px;
+      padding:1px;
+      background:linear-gradient(135deg,#f97316,#fb923c,#2563eb);
+      -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite:xor;
+      mask-composite:exclude;
+      opacity:0;
+      transition:.3s ease;
+      pointer-events:none;
+    }
 
-/* HOVER EFFECT */
-.link-card:hover{
-  transform:translateY(-6px) scale(1.02);
-  box-shadow:0 20px 50px rgba(15,23,42,.18);
-  background:linear-gradient(135deg,#fff7ed,#ffffff);
-}
+    .link-card:hover::before{
+      opacity:1;
+    }
 
-/* TITLE */
-.link-card span{
-  display:block;
-  font-weight:900;
-  margin-bottom:6px;
-  color:#111827;
-}
-
-/* DESCRIPTION */
-.link-card small{
-  color:#6b7280;
-  line-height:1.5;
-}
-
-/* ADD ARROW ICON */
-.link-card::after{
-  content:"→";
-  position:absolute;
-  right:18px;
-  bottom:16px;
-  font-weight:900;
-  color:#f97316;
-  font-size:1.2rem;
-  transition:.2s;
-}
-
-.link-card:hover::after{
-  transform:translateX(4px);
-}
+    .link-card:hover{
+      transform:translateY(-6px) scale(1.03);
+      box-shadow:0 25px 60px rgba(249,115,22,.25);
+      background:linear-gradient(135deg,#fff7ed,#ffffff);
+    }
 
     .link-card span{
       display:block;
       font-weight:900;
       margin-bottom:8px;
+      color:#111827;
+      text-shadow:0 0 6px rgba(249,115,22,.18);
+      position:relative;
+      z-index:1;
     }
 
     .link-card small{
       color:#6b7280;
       line-height:1.5;
+      position:relative;
+      z-index:1;
+    }
+
+    .link-card::after{
+      content:"→";
+      position:absolute;
+      right:18px;
+      bottom:16px;
+      font-weight:900;
+      color:#f97316;
+      font-size:1.2rem;
+      transition:.2s;
+      z-index:1;
+    }
+
+    .link-card:hover::after{
+      transform:translateX(4px);
     }
 
     .disclosure{
@@ -557,7 +558,7 @@
 
         <div class="grid">
           <article class="card">
-            <img src="/assets/travel/germany/bremenbremen-altstadt.webp" alt="Bremen Altstadt Old Town">
+            <img src="/assets/travel/germany/bremen-altstadt.webp" alt="Bremen Altstadt Old Town">
             <div class="card-body">
               <span class="pill">Best for first-timers</span>
               <h3>Altstadt / Old Town</h3>
