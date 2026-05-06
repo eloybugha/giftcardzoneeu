@@ -4,74 +4,282 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Flights & Hotels in Vietnam | GiftCardZoneEU × MyTrip</title>
-  <meta name="description" content="Find affordable flights and hotel deals in Vietnam with MyTrip. Explore Hanoi, Ho Chi Minh City, Da Nang, Ha Long Bay and more. Compare options and book securely." />
-
+  <title>MyTrip Vietnam – Cheap Flights & Hotels | GiftCardZoneEU</title>
+  <meta name="description" content="Search Vietnam flights and hotels with MyTrip. Compare travel deals for Hanoi, Ho Chi Minh City, Da Nang, Ha Long Bay and more." />
+  <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://giftcardzoneeu.com/partners/mytrip-vietnam/" />
 
-  <meta property="og:title" content="Book Flights & Hotels in Vietnam | MyTrip × GZEU" />
-  <meta property="og:description" content="Search cheap flights and hotel deals across Hanoi, Ho Chi Minh City, Da Nang, Ha Long Bay and other top destinations in Vietnam." />
+  <meta property="og:title" content="MyTrip Vietnam – Cheap Flights & Hotels" />
+  <meta property="og:description" content="Find Vietnam flight and hotel deals for Hanoi, Ho Chi Minh City, Da Nang, Ha Long Bay and more." />
   <meta property="og:image" content="https://giftcardzoneeu.com/partners/mytrip-vietnam/assets/mytrip-hero.jpg" />
+  <meta property="og:url" content="https://giftcardzoneeu.com/partners/mytrip-vietnam/" />
+  <meta property="og:type" content="website" />
 
   <meta name="twitter:card" content="summary_large_image" />
 
-  <link rel="stylesheet" href="./style.css" />
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:Inter,Arial,sans-serif;
+      background:#f7f8fc;
+      color:#172033;
+      line-height:1.6;
+    }
+    a{text-decoration:none;color:inherit}
+    .topbar{
+      position:sticky;top:0;z-index:20;
+      display:flex;justify-content:space-between;align-items:center;
+      padding:14px 6%;
+      background:rgba(255,255,255,.92);
+      backdrop-filter:blur(14px);
+      box-shadow:0 8px 25px rgba(0,0,0,.07);
+    }
+    .brand{
+      display:flex;align-items:center;gap:10px;font-weight:900;
+    }
+    .brand img{width:42px;height:42px;border-radius:14px}
+    .badge{
+      background:#fff0d8;
+      color:#9a5a00;
+      padding:8px 14px;
+      border-radius:999px;
+      font-weight:800;
+      font-size:.85rem;
+    }
+    .hero{
+      min-height:78vh;
+      background:
+        linear-gradient(120deg,rgba(5,22,45,.78),rgba(7,86,91,.58)),
+        url("./assets/mytrip-hero.jpg") center/cover no-repeat;
+      color:white;
+      display:flex;
+      align-items:center;
+      padding:80px 6%;
+    }
+    .hero-box{max-width:760px}
+    .eyebrow{
+      display:inline-block;
+      background:rgba(255,255,255,.18);
+      border:1px solid rgba(255,255,255,.28);
+      padding:8px 14px;
+      border-radius:999px;
+      font-weight:800;
+      margin-bottom:18px;
+    }
+    h1{
+      font-size:clamp(2.4rem,6vw,5rem);
+      line-height:1.02;
+      margin-bottom:20px;
+      letter-spacing:-.05em;
+    }
+    .hero p{
+      font-size:1.18rem;
+      max-width:650px;
+      opacity:.95;
+      margin-bottom:28px;
+    }
+    .cta-row{display:flex;gap:14px;flex-wrap:wrap}
+    .btn{
+      display:inline-block;
+      padding:15px 24px;
+      border-radius:18px;
+      font-weight:900;
+      box-shadow:0 12px 28px rgba(0,0,0,.18);
+    }
+    .primary{background:#ffb703;color:#16202f}
+    .secondary{background:white;color:#172033}
+    section{padding:70px 6%}
+    .section-title{
+      font-size:clamp(1.8rem,4vw,3rem);
+      margin-bottom:12px;
+      letter-spacing:-.04em;
+    }
+    .section-sub{max-width:760px;color:#5f697a;margin-bottom:30px}
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+      gap:22px;
+    }
+    .card{
+      background:white;
+      border-radius:28px;
+      padding:26px;
+      box-shadow:0 14px 35px rgba(17,32,60,.08);
+      border:1px solid #edf0f7;
+    }
+    .card h3{font-size:1.25rem;margin-bottom:10px}
+    .card p{color:#606b7c}
+    .city{
+      min-height:220px;
+      color:white;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      overflow:hidden;
+      position:relative;
+    }
+    .city::before{
+      content:"";
+      position:absolute;inset:0;
+      background:linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.74));
+    }
+    .city > *{position:relative}
+    .city.hanoi{background:url("./assets/hanoi.webp") center/cover no-repeat}
+    .city.hcm{background:url("./assets/ho-chi-minh-city.webp") center/cover no-repeat}
+    .city.danang{background:url("./assets/da-nang.webp") center/cover no-repeat}
+    .city.halong{background:url("./assets/ha-long-bay.webp") center/cover no-repeat}
+    .deal-box{
+      background:linear-gradient(135deg,#073b4c,#118ab2);
+      color:white;
+      border-radius:34px;
+      padding:42px;
+      display:grid;
+      grid-template-columns:1.4fr .8fr;
+      gap:24px;
+      align-items:center;
+      box-shadow:0 18px 45px rgba(7,59,76,.22);
+    }
+    .deal-box p{opacity:.92;margin-top:10px}
+    .deal-actions{text-align:right}
+    .disclosure{
+      background:#fff8e8;
+      border:1px solid #ffe0a3;
+      color:#6f4a00;
+      border-radius:22px;
+      padding:18px;
+      font-size:.95rem;
+      margin-top:24px;
+    }
+    footer{
+      text-align:center;
+      padding:34px 6%;
+      color:#6b7280;
+      background:#fff;
+    }
+    .sticky-cta{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:50;
+      background:#ff7a00;
+      color:white;
+      padding:14px 20px;
+      border-radius:999px;
+      font-weight:900;
+      box-shadow:0 12px 34px rgba(255,122,0,.35);
+    }
+    @media(max-width:760px){
+      .topbar{padding:12px 4%}
+      .badge{display:none}
+      .hero{padding:70px 5%}
+      section{padding:54px 5%}
+      .deal-box{grid-template-columns:1fr}
+      .deal-actions{text-align:left}
+      .sticky-cta{left:16px;right:16px;text-align:center}
+    }
+  </style>
 </head>
 
 <body>
-  <div class="hero">
-    <div class="overlay"></div>
 
-    <header class="gz-header">
-      <div class="gz-brand-pill">
-        <div class="gz-avatar">GZ</div>
-        <div class="gz-brand-text">
-          <span class="gz-brand-main">GiftCardZoneEU • Partners</span>
-          <span class="gz-brand-sub">MyTrip Vietnam</span>
+  <header class="topbar">
+    <a class="brand" href="/">
+      <img src="/assets/gz-logo.png" alt="GiftCardZoneEU logo">
+      <span>GiftCardZoneEU</span>
+    </a>
+    <div class="badge">MyTrip Vietnam Partner Page</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-box">
+        <span class="eyebrow">Vietnam flights + hotel deals</span>
+        <h1>Book Flights & Hotels in Vietnam with MyTrip</h1>
+        <p>
+          Search affordable flights, compare hotel options, and plan your Vietnam trip across Hanoi,
+          Ho Chi Minh City, Da Nang, Ha Long Bay, Nha Trang and more.
+        </p>
+        <div class="cta-row">
+          <a class="btn primary" href="https://www.kqzyfj.com/click-101586981-17066582" rel="nofollow sponsored noopener noreferrer" target="_blank">Search Vietnam Deals</a>
+          <a class="btn secondary" href="/travel/">Explore Travel Guides</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Why Use MyTrip for Vietnam?</h2>
+      <p class="section-sub">
+        MyTrip is useful for travelers who want to compare routes, flights and stays in one place before booking.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>✈️ Flight Search</h3>
+          <p>Compare flights to major Vietnam gateways like Hanoi, Ho Chi Minh City and Da Nang.</p>
+        </div>
+        <div class="card">
+          <h3>🏨 Hotel Options</h3>
+          <p>Look for stays near Old Quarter, Ben Thanh Market, My Khe Beach and Ha Long Bay.</p>
+        </div>
+        <div class="card">
+          <h3>🌴 Flexible Trips</h3>
+          <p>Plan city breaks, beach holidays, food trips and multi-city Vietnam itineraries.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Popular Vietnam Destinations</h2>
+      <p class="section-sub">Start with these traveler-favorite places when planning your Vietnam route.</p>
+
+      <div class="grid">
+        <div class="card city hanoi">
+          <h3>Hanoi</h3>
+          <p>Old Quarter, lakes, cafés and northern Vietnam culture.</p>
+        </div>
+        <div class="card city hcm">
+          <h3>Ho Chi Minh City</h3>
+          <p>Markets, nightlife, museums and southern city energy.</p>
+        </div>
+        <div class="card city danang">
+          <h3>Da Nang</h3>
+          <p>Beach stays, bridges, cafés and easy access to Hoi An.</p>
+        </div>
+        <div class="card city halong">
+          <h3>Ha Long Bay</h3>
+          <p>Scenic cruises, limestone views and relaxing stays.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="deal-box">
+        <div>
+          <h2 class="section-title">Ready to compare Vietnam travel deals?</h2>
+          <p>Check available flights and hotels through MyTrip before choosing your final route.</p>
+        </div>
+        <div class="deal-actions">
+          <a class="btn primary" href="https://www.kqzyfj.com/click-101586981-17066582" rel="nofollow sponsored noopener noreferrer" target="_blank">Start Booking</a>
         </div>
       </div>
 
-      <div class="gz-partner-badge">
-        Official affiliate partner
+      <div class="disclosure">
+        Affiliate disclosure: GiftCardZoneEU may earn a commission when you book through partner links, at no extra cost to you.
       </div>
-    </header>
+    </section>
+  </main>
 
-    <div class="hero-content">
-      <h1>Book Flights & Hotels in Vietnam</h1>
-      <p>Discover great travel deals across Hanoi, Ho Chi Minh City, Da Nang, Ha Long Bay and more beautiful destinations in Vietnam.</p>
-      <a href="https://www.kqzyfj.com/click-101586981-17066582" class="cta">Search Deals</a>
-    </div>
-  </div>
-
-  <section class="features">
-    <h2>Why Book with MyTrip?</h2>
-
-    <div class="grid">
-      <div class="card">
-        <h3>🌇 North to South Routes</h3>
-        <p>Compare flights between Hanoi, Ho Chi Minh City, Da Nang, Nha Trang and other major Vietnamese hubs.</p>
-      </div>
-
-      <div class="card">
-        <h3>🏨 Stays Near Key Spots</h3>
-        <p>Book hotels near Old Quarter, Ben Thanh Market, My Khe Beach, Ha Long Bay and more must-see areas.</p>
-      </div>
-
-      <div class="card">
-        <h3>🌴 Easy Trip Planning</h3>
-        <p>Bundle flights and hotels to save more on your Vietnam adventure, from city breaks to island escapes.</p>
-      </div>
-    </div>
-
-    <div class="center-btn">
-      <a href="https://www.kqzyfj.com/click-101586981-17066582" class="cta secondary">Start Booking</a>
-    </div>
-  </section>
+  <a class="sticky-cta" href="https://www.kqzyfj.com/click-101586981-17066582" rel="nofollow sponsored noopener noreferrer" target="_blank">
+    Search MyTrip Deals
+  </a>
 
   <footer>
-    <p>© 2025 GiftCardZoneEU. All Rights Reserved.</p>
+    <p>© <span id="year"></span> GiftCardZoneEU. All Rights Reserved.</p>
   </footer>
 
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <script src="/assets/ga.js"></script>
 </body>
 </html>
-
