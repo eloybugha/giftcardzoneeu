@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Austria Travel Guide | Best Hotels, Cities & Where to Stay</title>
+  <meta name="description" content="Plan your Austria trip with hotel guides for Vienna, Salzburg, and more. Compare city stays, travel areas, and book hotels online with Trip.com." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://giftcardzoneeu.com/travel/austria/" />
+
+  <meta property="og:title" content="Austria Travel Guide | Best Hotels & Where to Stay" />
+  <meta property="og:description" content="Explore Austria city stays, hotel areas, and travel planning guides." />
+  <meta property="og:image" content="https://giftcardzoneeu.com/assets/travel/austria/austria-hero.webp" />
+  <meta property="og:url" content="https://giftcardzoneeu.com/travel/austria/" />
+  <meta property="og:type" content="website" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Austria Travel Guide | Best Hotels & Where to Stay" />
+  <meta name="twitter:description" content="Plan Austria city breaks with hotel guides for Vienna, Salzburg, and more." />
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/travel/austria/austria-hero.webp" />
+
+  <link rel="icon" href="/assets/favicon.ico" />
+
+  <style>
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Arial,Helvetica,sans-serif;
+      color:#111827;
+      background:#fff;
+      line-height:1.6;
+    }
+    a{text-decoration:none;color:inherit}
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:#fff;
+      border-bottom:1px solid #e5e7eb;
+    }
+    .nav{
+      max-width:1180px;
+      margin:auto;
+      padding:14px 22px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:800;
+    }
+    .brand img{
+      width:34px;
+      height:34px;
+      border-radius:50%;
+    }
+    .links{
+      display:flex;
+      gap:20px;
+      font-size:14px;
+      font-weight:700;
+      color:#374151;
+      flex-wrap:wrap;
+    }
+    .hero{
+      min-height:520px;
+      background:
+        linear-gradient(90deg,rgba(15,23,42,.82),rgba(15,23,42,.42)),
+        url('/assets/travel/austria/austria-hero.webp') center/cover no-repeat;
+      color:#fff;
+      display:flex;
+      align-items:center;
+    }
+    .hero-inner{
+      max-width:1180px;
+      margin:auto;
+      padding:80px 22px;
+      width:100%;
+    }
+    .badge{
+      display:inline-block;
+      background:#ff7a1a;
+      color:#fff;
+      padding:8px 14px;
+      border-radius:999px;
+      font-weight:800;
+      font-size:13px;
+      margin-bottom:18px;
+    }
+    h1{
+      font-size:clamp(42px,7vw,76px);
+      line-height:1.02;
+      margin:0 0 18px;
+      max-width:850px;
+    }
+    .hero p{
+      max-width:720px;
+      font-size:19px;
+      color:#e5e7eb;
+      margin-bottom:28px;
+    }
+    .cta-row{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-block;
+      padding:14px 22px;
+      border-radius:999px;
+      font-weight:800;
+    }
+    .primary{background:#ff7a1a;color:#fff}
+    .secondary{background:#fff;color:#111827}
+
+    section{
+      max-width:1180px;
+      margin:auto;
+      padding:70px 22px;
+    }
+    .eyebrow{
+      color:#f97316;
+      text-transform:uppercase;
+      font-weight:900;
+      letter-spacing:.08em;
+      font-size:13px;
+    }
+    h2{
+      font-size:clamp(32px,4vw,48px);
+      line-height:1.12;
+      margin:8px 0 14px;
+    }
+    .muted{color:#6b7280;max-width:760px}
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:24px;
+      margin-top:34px;
+    }
+    .card{
+      background:#fff;
+      border:1px solid #e5e7eb;
+      border-radius:24px;
+      overflow:hidden;
+      box-shadow:0 20px 50px rgba(15,23,42,.08);
+    }
+    .card img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+      display:block;
+    }
+    .card-body{padding:24px}
+    .card h3{
+      font-size:24px;
+      margin:0 0 10px;
+    }
+    .pill{
+      display:inline-block;
+      margin-top:14px;
+      color:#f97316;
+      font-weight:900;
+    }
+    .why{
+      background:#f8fafc;
+      max-width:none;
+    }
+    .why-inner{
+      max-width:1180px;
+      margin:auto;
+      padding:70px 22px;
+    }
+    .why-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:20px;
+      margin-top:30px;
+    }
+    .why-box{
+      background:#fff;
+      border:1px solid #e5e7eb;
+      border-radius:22px;
+      padding:24px;
+      box-shadow:0 15px 35px rgba(15,23,42,.06);
+    }
+    .more{
+      background:linear-gradient(120deg,#fff7ed,#eff6ff);
+      max-width:none;
+    }
+    .more-inner{
+      max-width:1180px;
+      margin:auto;
+      padding:70px 22px 120px;
+    }
+    .link-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:20px;
+      margin-top:30px;
+    }
+    .link-card{
+      background:#fff;
+      border:1px solid #e5e7eb;
+      border-radius:22px;
+      padding:22px;
+      min-height:140px;
+      box-shadow:0 15px 35px rgba(15,23,42,.08);
+      font-weight:800;
+    }
+    .link-card span{
+      display:block;
+      color:#f97316;
+      margin-top:14px;
+      font-size:22px;
+    }
+    .sticky{
+      position:fixed;
+      left:0;
+      right:0;
+      bottom:0;
+      z-index:60;
+      background:#0f172a;
+      color:#fff;
+      padding:12px 18px;
+      display:flex;
+      justify-content:center;
+    }
+    .sticky-inner{
+      width:min(960px,100%);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      background:#111827;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:999px;
+      padding:12px 14px 12px 24px;
+    }
+    .sticky a{
+      background:#ff7a1a;
+      color:#fff;
+      padding:12px 20px;
+      border-radius:999px;
+      font-weight:900;
+      white-space:nowrap;
+    }
+    footer{
+      background:#0f172a;
+      color:#cbd5e1;
+      padding:34px 22px 90px;
+      text-align:center;
+      font-size:14px;
+    }
+    @media(max-width:900px){
+      .grid,.why-grid,.link-grid{grid-template-columns:1fr}
+      .links{gap:12px;font-size:13px}
+      .hero{min-height:480px}
+      .sticky-inner{
+        border-radius:20px;
+        align-items:flex-start;
+        flex-direction:column;
+      }
+      .sticky a{width:100%;text-align:center}
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <nav class="nav">
+      <a class="brand" href="/">
+        <img src="/assets/gz-logo.png" alt="GiftCardZoneEU logo">
+        <span>GiftCardZoneEU</span>
+      </a>
+      <div class="links">
+        <a href="/travel/">Travel</a>
+        <a href="/travel/austria/">Austria</a>
+        <a href="/travel/austria/vienna/">Vienna</a>
+        <a href="/travel/germany/">Germany</a>
+        <a href="/shopping/">Shopping</a>
+        <a href="/rewards/">Rewards</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <span class="badge">AUSTRIA TRAVEL GUIDE</span>
+        <h1>Best Places to Stay in Austria</h1>
+        <p>Plan a beautiful Austria trip with city guides, hotel areas, alpine scenery, culture, and easy booking options for Vienna, Salzburg, and more.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="https://www.jdoqocy.com/click-101586981-13761944" rel="nofollow sponsored noopener noreferrer" target="_blank">Search Austria Hotels</a>
+          <a class="btn secondary" href="/travel/austria/vienna/">Explore Vienna Guide</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <p class="eyebrow">Featured Austria stays</p>
+      <h2>Start with Austria’s most popular city breaks</h2>
+      <p class="muted">Austria is perfect for historic city stays, romantic old towns, museums, music, mountain views, and easy train-based travel around Central Europe.</p>
+
+      <div class="grid">
+        <a class="card" href="/travel/austria/vienna/">
+          <img src="/assets/travel/austria/vienna-hero.webp" alt="Vienna Austria hotels and city guide">
+          <div class="card-body">
+            <h3>Best Hotels in Vienna</h3>
+            <p class="muted">Austria’s elegant capital with palaces, museums, coffee houses, shopping streets, and strong hotel choices.</p>
+            <span class="pill">Explore Vienna →</span>
+          </div>
+        </a>
+
+        <a class="card" href="/travel/austria/salzburg/">
+          <img src="/assets/travel/austria/salzburg-hero.webp" alt="Salzburg Austria hotels and old town guide">
+          <div class="card-body">
+            <h3>Best Hotels in Salzburg</h3>
+            <p class="muted">A beautiful city for old town charm, music history, mountain scenery, and easy day trips.</p>
+            <span class="pill">Explore Salzburg →</span>
+          </div>
+        </a>
+
+        <a class="card" href="https://www.jdoqocy.com/click-101586981-13761944" rel="nofollow sponsored noopener noreferrer" target="_blank">
+          <img src="/assets/travel/austria/austria-hotels.webp" alt="Austria hotel booking deals">
+          <div class="card-body">
+            <h3>Compare Austria Hotels</h3>
+            <p class="muted">Search hotel deals across Austria and compare stays for city breaks, family trips, and scenic routes.</p>
+            <span class="pill">Search Trip.com →</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="why">
+      <div class="why-inner">
+        <p class="eyebrow">Why visit Austria?</p>
+        <h2>Easy, scenic, and perfect for Europe travel</h2>
+        <p class="muted">Austria works well for first-time Europe travelers because major cities are clean, walkable, scenic, and connected by reliable train routes.</p>
+
+        <div class="why-grid">
+          <div class="why-box">
+            <h3>🏛️ Historic cities</h3>
+            <p class="muted">Vienna and Salzburg offer palaces, old towns, museums, churches, cafés, and classic European streets.</p>
+          </div>
+          <div class="why-box">
+            <h3>🏔️ Alpine scenery</h3>
+            <p class="muted">Austria is known for mountain landscapes, lakes, scenic towns, and relaxing countryside escapes.</p>
+          </div>
+          <div class="why-box">
+            <h3>🚆 Great connections</h3>
+            <p class="muted">Austria connects easily with Germany, Switzerland, Italy, Czech Republic, Hungary, and nearby Europe hubs.</p>
+          </div>
+          <div class="why-box">
+            <h3>🏨 Strong hotel options</h3>
+            <p class="muted">Choose from central hotels, old town stays, family-friendly areas, luxury hotels, and budget-friendly options.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="more">
+      <div class="more-inner">
+        <p class="eyebrow">Explore more Europe stays</p>
+        <h2>Plan more trips near Austria</h2>
+        <p class="muted">Continue your Austria and Europe travel planning with nearby country hubs and popular hotel guides.</p>
+
+        <div class="link-grid">
+          <a class="link-card" href="/travel/austria/vienna/">🏛️ Best Hotels in Vienna <span>→</span></a>
+          <a class="link-card" href="/travel/austria/salzburg/">🎻 Best Hotels in Salzburg <span>→</span></a>
+          <a class="link-card" href="/travel/germany/munich/">🍺 Best Hotels in Munich <span>→</span></a>
+          <a class="link-card" href="/travel/germany/nuremberg/">🏰 Best Hotels in Nuremberg <span>→</span></a>
+          <a class="link-card" href="/travel/germany/stuttgart/">🚗 Best Hotels in Stuttgart <span>→</span></a>
+          <a class="link-card" href="/travel/germany/">🇩🇪 Germany Travel Guide <span>→</span></a>
+          <a class="link-card" href="/travel/">🌍 Travel Hub <span>→</span></a>
+          <a class="link-card" href="/shopping/">🛍️ Shopping Deals <span>→</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="sticky">
+    <div class="sticky-inner">
+      <strong>Ready to compare Austria hotel deals?</strong>
+      <a href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">Search Trip.com</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>Affiliate disclosure: Some links may earn us a commission at no extra cost to you.</p>
+    <p>© <span id="year"></span> GiftCardZoneEU. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <script src="/assets/ga.js"></script>
+</body>
+</html>
