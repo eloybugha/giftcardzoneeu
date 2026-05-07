@@ -238,28 +238,66 @@
     }
 
     .connect-grid{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:14px;
-    }
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
 
-    .connect-card{
-      background:#101b2f;
-      border:1px solid var(--border);
-      border-radius:20px;
-      padding:18px;
-    }
+.connect-card{
+  position:relative;
+  overflow:hidden;
+  min-height:150px;
+  border-radius:24px;
+  padding:20px;
+  color:#fff;
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 14px 34px rgba(0,0,0,.28);
+  transition:.25s ease;
+}
 
-    .connect-card strong{
-      display:block;
-      margin-bottom:6px;
-      color:#fff;
-    }
+.connect-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 18px 42px rgba(0,0,0,.38);
+}
 
-    .connect-card span{
-      color:#aebfd3;
-      font-size:14px;
-    }
+.connect-card strong{
+  display:block;
+  margin-bottom:8px;
+  color:#fff;
+  font-size:18px;
+}
+
+.connect-card span{
+  color:rgba(255,255,255,.88);
+  font-size:14px;
+}
+
+.connect-card::after{
+  content:"Tap to open →";
+  position:absolute;
+  bottom:14px;
+  right:16px;
+  font-size:13px;
+  font-weight:900;
+  color:#fff;
+  opacity:.9;
+}
+
+.connect-card:nth-child(1){
+  background:linear-gradient(135deg,#10b981,#22c55e);
+}
+
+.connect-card:nth-child(2){
+  background:linear-gradient(135deg,#f59e0b,#ef4444);
+}
+
+.connect-card:nth-child(3){
+  background:linear-gradient(135deg,#38bdf8,#2563eb);
+}
+
+.connect-card:nth-child(4){
+  background:linear-gradient(135deg,#a855f7,#ec4899);
+}
 
     details{
       background:#101b2f;
