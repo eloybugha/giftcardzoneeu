@@ -1,24 +1,319 @@
-<!doctype html><html lang="en"><head>
+<!doctype html>
+<html lang="en">
+<head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
+
 <title>Global Deals • GiftCardZoneEU</title>
-<meta name="description" content="Global deals page: worldwide offers and rewards curated by GiftCardZoneEU." />
+
+<meta name="description" content="Global deals page: worldwide offers, rewards, shopping, travel, and curated opportunities by GiftCardZoneEU." />
+
 <link rel="canonical" href="https://giftcardzoneeu.com/country/global/" />
-  <meta name="robots" content="noindex, follow">
+
+<meta name="robots" content="noindex, follow" />
+
 <meta property="og:title" content="Global Deals • GiftCardZoneEU" />
-<meta property="og:description" content="Temporarily redirecting while the page is updated." />
+<meta property="og:description" content="Global deals and rewards by GiftCardZoneEU. Redirecting while the page is updated." />
 <meta property="og:type" content="website" />
+<meta property="og:url" content="https://giftcardzoneeu.com/country/global/" />
+<meta property="og:image" content="https://giftcardzoneeu.com/assets/gz-logo.png" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Global Deals • GiftCardZoneEU" />
+<meta name="twitter:description" content="Worldwide deals, rewards, shopping, and travel opportunities curated by GiftCardZoneEU." />
+<meta name="twitter:image" content="https://giftcardzoneeu.com/assets/gz-logo.png" />
+
+<meta name="theme-color" content="#0b0e14" />
+
+<link rel="icon" href="/assets/gz-logo.png" />
+
 <meta http-equiv="refresh" content="3;url=/" />
+
 <style>
-body{margin:0;font:600 16px/1.4 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;background:#0b0e14;color:#e8eefc;display:grid;place-items:center;height:100dvh}
-.box{max-width:720px;padding:24px;border:1px solid #1b2234;background:#111623;border-radius:14px;text-align:center}
-a{color:#9fb0d1}.muted{opacity:.8}
+:root{
+  --bg:#0b0e14;
+  --card:#111827;
+  --soft:#1f2937;
+  --line:#243041;
+  --text:#f8fafc;
+  --muted:#94a3b8;
+  --orange:#f97316;
+  --orange2:#fb923c;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  background:
+    radial-gradient(circle at top right, rgba(249,115,22,.16), transparent 30%),
+    radial-gradient(circle at bottom left, rgba(59,130,246,.12), transparent 28%),
+    var(--bg);
+  color:var(--text);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+}
+
+.card{
+  width:100%;
+  max-width:760px;
+  background:rgba(17,24,39,.96);
+  border:1px solid var(--line);
+  border-radius:28px;
+  padding:42px 32px;
+  text-align:center;
+  box-shadow:0 30px 70px rgba(0,0,0,.45);
+  backdrop-filter:blur(12px);
+  position:relative;
+  overflow:hidden;
+}
+
+.card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(135deg,rgba(249,115,22,.08),transparent 35%);
+  pointer-events:none;
+}
+
+.logo{
+  width:76px;
+  height:76px;
+  border-radius:22px;
+  display:block;
+  margin:0 auto 22px;
+  box-shadow:0 12px 35px rgba(249,115,22,.28);
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:9px 14px;
+  border-radius:999px;
+  background:rgba(249,115,22,.12);
+  border:1px solid rgba(249,115,22,.24);
+  color:#fdba74;
+  font-weight:800;
+  font-size:.88rem;
+  margin-bottom:18px;
+}
+
+h1{
+  margin:0 0 16px;
+  font-size:clamp(2rem,5vw,3.8rem);
+  line-height:1.05;
+}
+
+.desc{
+  margin:0 auto 28px;
+  max-width:620px;
+  color:var(--muted);
+  font-size:1.05rem;
+  line-height:1.7;
+}
+
+.notice{
+  margin:0 auto 28px;
+  max-width:520px;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:20px;
+  padding:18px;
+  color:#dbeafe;
+  font-weight:700;
+}
+
+.count{
+  color:#fdba74;
+  font-weight:900;
+}
+
+.btn-row{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:14px;
+  margin-bottom:28px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 22px;
+  border-radius:999px;
+  font-weight:900;
+  text-decoration:none;
+  transition:.25s ease;
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+}
+
+.primary{
+  background:linear-gradient(135deg,var(--orange),var(--orange2));
+  color:#fff;
+  box-shadow:0 16px 35px rgba(249,115,22,.28);
+}
+
+.secondary{
+  background:#1e293b;
+  color:#fff;
+  border:1px solid rgba(255,255,255,.08);
+}
+
+.links{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:14px;
+  margin-top:10px;
+}
+
+.link-box{
+  background:linear-gradient(135deg,#111827,#1f2937);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:20px;
+  padding:18px;
+  text-decoration:none;
+  color:#fff;
+  transition:.25s ease;
+}
+
+.link-box:hover{
+  transform:translateY(-5px);
+  border-color:rgba(249,115,22,.45);
+  box-shadow:0 18px 45px rgba(249,115,22,.16);
+}
+
+.link-box strong{
+  display:block;
+  margin-bottom:8px;
+  font-size:1rem;
+}
+
+.link-box span{
+  color:var(--muted);
+  font-size:.92rem;
+  line-height:1.5;
+}
+
+.footer{
+  margin-top:28px;
+  color:#64748b;
+  font-size:.92rem;
+}
+
+@media(max-width:640px){
+
+  .card{
+    padding:34px 22px;
+  }
+
+  .btn-row{
+    flex-direction:column;
+  }
+
+  .btn{
+    width:100%;
+  }
+
+}
 </style>
-</head><body>
-<div class="box">
-<h1>🌍 Global Deals</h1>
-<p class="muted">Redirecting to <a href="/">homepage</a> in ~3 seconds…</p>
-<p><a href="/">Go now</a> · <a href="/deals/germany/">Germany Deals</a></p>
+</head>
+
+<body>
+
+<div class="card">
+
+  <a href="/">
+    <img src="/assets/gz-logo.png" alt="GiftCardZoneEU Logo" class="logo">
+  </a>
+
+  <div class="badge">
+    🌍 Global Access
+  </div>
+
+  <h1>Global Deals</h1>
+
+  <p class="desc">
+    Worldwide travel, rewards, shopping, and special offers curated by GiftCardZoneEU.
+    This page is currently being refreshed and optimized.
+  </p>
+
+  <div class="notice">
+    Redirecting to homepage in
+    <span class="count" id="count">3</span>
+    seconds...
+  </div>
+
+  <div class="btn-row">
+    <a class="btn primary" href="/">
+      Go to Homepage
+    </a>
+
+    <a class="btn secondary" href="/travel/">
+      Explore Travel
+    </a>
+  </div>
+
+  <div class="links">
+
+    <a class="link-box" href="/deals/germany/">
+      <strong>🇩🇪 Germany Deals</strong>
+      <span>Explore Germany offers and travel opportunities.</span>
+    </a>
+
+    <a class="link-box" href="/travel/">
+      <strong>✈️ Travel Hub</strong>
+      <span>Hotels, flights, and destination booking pages.</span>
+    </a>
+
+    <a class="link-box" href="/shopping/">
+      <strong>🛍️ Shopping</strong>
+      <span>Budget finds, deals, and online shopping pages.</span>
+    </a>
+
+    <a class="link-box" href="/rewards/">
+      <strong>💰 Rewards</strong>
+      <span>Rewards, surveys, and earning opportunities.</span>
+    </a>
+
+  </div>
+
+  <div class="footer">
+    © <span id="year"></span> GiftCardZoneEU
+  </div>
+
 </div>
-<script>setTimeout(()=>location.href='/',3000)</script>
-</body></html>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+let time = 3;
+const count = document.getElementById("count");
+
+setInterval(() => {
+  time--;
+  if(time >= 0){
+    count.textContent = time;
+  }
+}, 1000);
+
+setTimeout(() => {
+  location.href = "/";
+}, 3000);
+</script>
+
+<script src="/assets/ga.js"></script>
+
+</body>
+</html>
