@@ -4,58 +4,202 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>NL Apps • GiftCardZoneEU</title>
-  <meta name="description" content="Top Netherlands apps and offers by GiftCardZoneEU. Page temporarily under update." />
+  <title>Netherlands Hub • GiftCardZoneEU</title>
+
+  <meta name="description" content="Explore Netherlands travel, shopping, rewards, and app offers on GiftCardZoneEU. This section is currently being updated." />
 
   <link rel="canonical" href="https://giftcardzoneeu.com/country/nl/" />
+
   <meta name="robots" content="noindex, follow">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="NL Apps • GiftCardZoneEU" />
-  <meta property="og:description" content="This page is currently being updated. Redirecting to homepage." />
+  <meta property="og:title" content="Netherlands Hub • GiftCardZoneEU" />
+  <meta property="og:description" content="This Netherlands section is currently being improved. Redirecting to the homepage." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://giftcardzoneeu.com/country/nl/" />
+  <meta property="og:image" content="https://giftcardzoneeu.com/assets/gz-logo.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Netherlands Hub • GiftCardZoneEU" />
+  <meta name="twitter:description" content="GiftCardZoneEU Netherlands section is being updated." />
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/gz-logo.png" />
 
   <!-- Redirect -->
-  <meta http-equiv="refresh" content="2; url=/" />
+  <meta http-equiv="refresh" content="4; url=/" />
 
   <style>
-    body {
-      margin: 0;
-      font: 600 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial;
-      background: #0b0e14;
-      color: #e8eefc;
-      display: grid;
-      place-items: center;
-      height: 100dvh;
+    *{
+      box-sizing:border-box;
     }
-    .box {
-      max-width: 720px;
-      padding: 28px;
-      border: 1px solid #1b2234;
-      background: #111623;
-      border-radius: 16px;
-      text-align: center;
+
+    body{
+      margin:0;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:
+        linear-gradient(rgba(8,12,20,.82), rgba(8,12,20,.88)),
+        url('/assets/travel/netherlands/netherlands-hero.webp') center/cover no-repeat;
+      color:#fff;
     }
-    a {
-      color: #9fb0d1;
-      text-decoration: none;
+
+    .card{
+      width:100%;
+      max-width:760px;
+      background:rgba(17,22,35,.88);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:28px;
+      padding:42px;
+      backdrop-filter:blur(10px);
+      box-shadow:0 20px 60px rgba(0,0,0,.45);
+      text-align:center;
     }
-    a:hover {
-      text-decoration: underline;
+
+    .logo{
+      width:72px;
+      height:72px;
+      object-fit:contain;
+      margin-bottom:18px;
     }
-    .muted {
-      opacity: 0.8;
+
+    h1{
+      margin:0 0 14px;
+      font-size:clamp(2rem,5vw,3.2rem);
+      line-height:1.1;
+    }
+
+    p{
+      margin:0;
+      color:#cfd7ea;
+      font-size:1.05rem;
+      line-height:1.7;
+    }
+
+    .sub{
+      margin-top:12px;
+      opacity:.9;
+    }
+
+    .buttons{
+      margin-top:34px;
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 24px;
+      border-radius:14px;
+      text-decoration:none;
+      font-weight:700;
+      transition:.2s ease;
+    }
+
+    .primary{
+      background:#ff7a18;
+      color:#fff;
+      box-shadow:0 8px 24px rgba(255,122,24,.35);
+    }
+
+    .primary:hover{
+      transform:translateY(-2px);
+      opacity:.95;
+    }
+
+    .secondary{
+      background:#1a2336;
+      color:#dce6ff;
+      border:1px solid rgba(255,255,255,.08);
+    }
+
+    .secondary:hover{
+      background:#222e47;
+    }
+
+    .footer{
+      margin-top:26px;
+      font-size:.92rem;
+      color:#96a3c4;
+    }
+
+    .pulse{
+      display:inline-block;
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:#31d158;
+      margin-right:8px;
+      box-shadow:0 0 12px #31d158;
+      animation:pulse 1.5s infinite;
+    }
+
+    @keyframes pulse{
+      0%{transform:scale(1);opacity:1;}
+      50%{transform:scale(1.35);opacity:.6;}
+      100%{transform:scale(1);opacity:1;}
+    }
+
+    @media (max-width:640px){
+      .card{
+        padding:30px 22px;
+      }
+
+      .buttons{
+        flex-direction:column;
+      }
+
+      .btn{
+        width:100%;
+      }
     }
   </style>
 </head>
 
 <body>
-  <div class="box">
-    <h1>🇳🇱 Netherlands Page</h1>
-    <p class="muted">This section is currently being updated.</p>
-    <p>Redirecting to <a href="/">homepage</a> in 2 seconds…</p>
-    <p><a href="/">Go now</a> · <a href="/country/de/">Germany Hub</a></p>
+
+  <div class="card">
+
+    <a href="/">
+      <img src="/assets/gz-logo.png" alt="GiftCardZoneEU Logo" class="logo">
+    </a>
+
+    <h1>🇳🇱 Netherlands Hub</h1>
+
+    <p>
+      The Netherlands section of GiftCardZoneEU is currently being upgraded with
+      new travel, shopping, rewards, and app content.
+    </p>
+
+    <p class="sub">
+      <span class="pulse"></span>
+      Redirecting to homepage in a few seconds...
+    </p>
+
+    <div class="buttons">
+      <a href="/" class="btn primary">🏠 Go to Homepage</a>
+      <a href="/travel/germany/" class="btn secondary">🇩🇪 Germany Travel Hub</a>
+    </div>
+
+    <div class="footer">
+      © <span id="year"></span> GiftCardZoneEU
+    </div>
+
   </div>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+  <script src="/assets/ga.js"></script>
+
 </body>
 </html>
