@@ -1,229 +1,564 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Best Flights, Hotels & Transport in Germany (2026) | GiftCardZoneEU</title>
-  <meta name="description" content="Compare trusted booking platforms for Germany travel. Find flights, hotels and train tickets for Berlin, Munich, Frankfurt and more in one organized hub." />
+<title>Best Flights, Hotels & Transport in Germany | GiftCardZoneEU</title>
+<meta name="description" content="Compare trusted booking platforms for Germany travel. Find flights, hotels, train tickets and city travel deals for Berlin, Munich, Frankfurt and more." />
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="https://giftcardzoneeu.com/germany/" />
+<link rel="icon" href="/assets/gz-logo.png" />
 
-  <!-- LOCKED: Canonical trailing slash (folder structure) -->
-  <link rel="canonical" href="https://giftcardzoneeu.com/germany/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Germany Travel Hub: Flights, Hotels & Transport | GiftCardZoneEU" />
+<meta property="og:description" content="Compare flights, hotels and transport options across Germany in one organized travel hub." />
+<meta property="og:url" content="https://giftcardzoneeu.com/germany/" />
+<meta property="og:image" content="https://giftcardzoneeu.com/assets/travel/germany/germany-hero.webp" />
 
-  <!-- LOCKED: Robots -->
-  <meta name="robots" content="index,follow" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Germany Travel Hub | GiftCardZoneEU" />
+<meta name="twitter:description" content="Flights, hotels and transport in Germany — compare trusted platforms in one place." />
+<meta name="twitter:image" content="https://giftcardzoneeu.com/assets/travel/germany/germany-hero.webp" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Germany Travel Hub: Flights, Hotels & Transport | GiftCardZoneEU" />
-  <meta property="og:description" content="Compare flights, hotels and transport options across Germany in one hub. Secure booking, trusted platforms and updated 2026." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://giftcardzoneeu.com/germany/" />
-  <meta property="og:image" content="https://giftcardzoneeu.com/germany/germany-hero.webp" />
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebPage",
+  "name":"Best Flights, Hotels & Transport in Germany | GiftCardZoneEU",
+  "url":"https://giftcardzoneeu.com/germany/",
+  "description":"Compare trusted booking platforms for Germany travel. Find flights, hotels, train tickets and city travel deals for Berlin, Munich, Frankfurt and more."
+}
+</script>
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Germany Travel Hub (2026) | GiftCardZoneEU" />
-  <meta name="twitter:description" content="Flights, hotels and transport in Germany — compare trusted platforms in one place." />
-  <meta name="twitter:image" content="https://giftcardzoneeu.com/germany/germany-hero.webp" />
-
-  <link rel="stylesheet" href="./style.css?v=1" />
-
-  <!-- Optional: Simple JSON-LD (safe, general) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"WebPage",
-    "name":"Best Flights, Hotels & Transport in Germany (2026) | GiftCardZoneEU",
-    "url":"https://giftcardzoneeu.com/germany/",
-    "description":"Compare trusted booking platforms for Germany travel. Find flights, hotels and train tickets for Berlin, Munich, Frankfurt and more in one organized hub."
-  }
-  </script>
+<style>
+:root{
+  --bg:#07111f;
+  --card:#ffffff;
+  --text:#0f172a;
+  --muted:#64748b;
+  --line:#e5e7eb;
+  --blue:#2563eb;
+  --orange:#f97316;
+  --green:#16a34a;
+  --dark:#020617;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:#f8fafc;
+  color:var(--text);
+}
+a{text-decoration:none;color:inherit}
+.navbar{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  max-width:1180px;
+  margin:auto;
+  padding:12px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:900;
+}
+.brand img{
+  width:38px;
+  height:38px;
+  border-radius:12px;
+}
+.nav-links{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  font-size:14px;
+  color:#334155;
+  font-weight:700;
+}
+.nav-links a:hover{color:var(--blue)}
+.hero{
+  min-height:620px;
+  position:relative;
+  display:flex;
+  align-items:center;
+  color:#fff;
+  background:
+    linear-gradient(90deg,rgba(2,6,23,.86),rgba(2,6,23,.35)),
+    url("/assets/travel/germany/germany-hero.webp") center/cover no-repeat;
+}
+.hero-inner{
+  max-width:1180px;
+  width:100%;
+  margin:auto;
+  padding:80px 18px 110px;
+}
+.kicker{
+  display:inline-flex;
+  padding:8px 14px;
+  border-radius:999px;
+  background:rgba(255,255,255,.16);
+  border:1px solid rgba(255,255,255,.25);
+  font-weight:900;
+  margin-bottom:18px;
+}
+.hero h1{
+  font-size:clamp(38px,6vw,72px);
+  line-height:1.02;
+  max-width:850px;
+  margin:0 0 18px;
+  letter-spacing:-.04em;
+}
+.hero p{
+  max-width:720px;
+  font-size:19px;
+  line-height:1.7;
+  color:#e2e8f0;
+}
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  margin-top:28px;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 20px;
+  border-radius:16px;
+  font-weight:900;
+  transition:.2s;
+}
+.btn-primary{
+  background:linear-gradient(135deg,var(--orange),#fb923c);
+  color:#fff;
+  box-shadow:0 18px 35px rgba(249,115,22,.32);
+}
+.btn-secondary{
+  background:#fff;
+  color:#0f172a;
+}
+.btn:hover{transform:translateY(-2px)}
+.trust-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:26px;
+}
+.trust-row span{
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.22);
+  padding:9px 12px;
+  border-radius:999px;
+  font-weight:800;
+  font-size:14px;
+}
+.section{
+  max-width:1180px;
+  margin:auto;
+  padding:72px 18px;
+}
+.section h2{
+  font-size:clamp(30px,4vw,46px);
+  margin:0 0 12px;
+  letter-spacing:-.03em;
+}
+.lead{
+  color:var(--muted);
+  font-size:18px;
+  line-height:1.7;
+  max-width:780px;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+  margin-top:30px;
+}
+.card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:28px;
+  padding:26px;
+  box-shadow:0 18px 45px rgba(15,23,42,.08);
+}
+.card h3{
+  margin:0 0 10px;
+  font-size:22px;
+}
+.card p{
+  color:var(--muted);
+  line-height:1.65;
+}
+.card .btn{
+  margin-top:12px;
+  width:100%;
+}
+.badge{
+  display:inline-flex;
+  background:#eff6ff;
+  color:#1d4ed8;
+  padding:7px 11px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:900;
+  margin-bottom:12px;
+}
+.city-card{
+  overflow:hidden;
+  padding:0;
+}
+.city-card img{
+  width:100%;
+  height:190px;
+  object-fit:cover;
+  display:block;
+}
+.city-body{padding:22px}
+.info-box{
+  background:linear-gradient(135deg,#0f172a,#1e293b);
+  color:#fff;
+  border-radius:30px;
+  padding:34px;
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:24px;
+  align-items:center;
+}
+.info-box p{color:#cbd5e1;line-height:1.7}
+.footer{
+  background:#020617;
+  color:#cbd5e1;
+  padding:34px 18px 110px;
+}
+.footer-inner{
+  max-width:1180px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  gap:18px;
+  flex-wrap:wrap;
+}
+.small{font-size:13px;color:#94a3b8;max-width:600px}
+.sticky-cta{
+  position:fixed;
+  left:16px;
+  right:16px;
+  bottom:16px;
+  z-index:99;
+  max-width:760px;
+  margin:auto;
+  background:rgba(15,23,42,.96);
+  color:#fff;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:22px;
+  padding:12px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  box-shadow:0 20px 60px rgba(0,0,0,.35);
+}
+.sticky-cta strong{display:block}
+.sticky-cta span{font-size:13px;color:#cbd5e1}
+.sticky-cta a{
+  background:linear-gradient(135deg,var(--orange),#fb923c);
+  color:#fff;
+  padding:12px 16px;
+  border-radius:15px;
+  font-weight:900;
+  white-space:nowrap;
+}
+@media(max-width:900px){
+  .grid{grid-template-columns:1fr}
+  .info-box{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .hero{min-height:560px}
+}
+</style>
 </head>
 
 <body>
 
-  <!-- STICKY NAV -->
-  <nav class="navbar" aria-label="Germany hub navigation">
-    <a href="#flights">Flights</a>
-    <a href="#transport">Transport</a>
-    <a href="#hotels">Hotels</a>
-    <a href="#why">Why Hub?</a>
-  </nav>
+<nav class="navbar">
+  <div class="nav-inner">
+    <a class="brand" href="/">
+      <img src="/assets/gz-logo.png" alt="GiftCardZoneEU Logo">
+      <span>GiftCardZoneEU</span>
+    </a>
+    <div class="nav-links">
+      <a href="#flights">Flights</a>
+      <a href="#hotels">Hotels</a>
+      <a href="#transport">Transport</a>
+      <a href="#cities">Cities</a>
+      <a href="#why">Why This Hub?</a>
+    </div>
+  </div>
+</nav>
 
-  <!-- HERO -->
-  <header class="hero">
-    <div class="overlay" aria-hidden="true"></div>
+<header class="hero">
+  <div class="hero-inner">
+    <div class="kicker">Germany Travel Hub</div>
+    <h1>Flights, Hotels & Transport for Germany in One Smart Hub</h1>
+    <p>
+      Plan Germany faster with trusted travel partners. Compare flights, hotels, train routes,
+      city stays and travel deals for Berlin, Munich, Frankfurt, Hamburg and more.
+    </p>
 
-    <!-- GZ pill (always visible) -->
-    <div class="gz-header">
-      <div class="gz-brand-pill">
-        <img src="/assets/gz-logo.png" class="gz-logo" alt="GiftCardZoneEU Logo" />
-        <span>GiftCardZoneEU</span>
-      </div>
+    <div class="hero-actions">
+      <a class="btn btn-primary"
+         href="https://www.jdoqocy.com/click-101586981-13761944"
+         target="_blank"
+         rel="nofollow sponsored noopener noreferrer">
+        Search Germany Deals on Trip.com
+      </a>
+      <a class="btn btn-secondary" href="#cities">Explore Germany Cities</a>
     </div>
 
-    <!-- Main hero logo (controlled size) -->
+    <div class="trust-row">
+      <span>✓ Secure booking options</span>
+      <span>✓ Trip.com priority partner</span>
+      <span>✓ Hotels + flights + transport</span>
+      <span>✓ Updated <span id="yearBadge"></span></span>
+    </div>
+  </div>
+</header>
 
-    <div class="hero-content">
-      <div class="kicker">Germany Travel Hub</div>
+<main>
 
-      <h1>Travel Germany: Flights, Hotels & Transport in One Hub</h1>
+<section class="section" id="flights">
+  <h2>Flights to Germany</h2>
+  <p class="lead">
+    Compare flights to major German airports including Berlin, Munich, Frankfurt, Hamburg, Cologne and Düsseldorf.
+  </p>
 
+  <div class="grid">
+    <article class="card">
+      <span class="badge">Primary Partner</span>
+      <h3>Trip.com Flights</h3>
+      <p>Search international flights, compare fares and look for flight + hotel bundle options for Germany.</p>
+      <a class="btn btn-primary"
+         href="https://www.jdoqocy.com/click-101586981-13761944"
+         target="_blank"
+         rel="nofollow sponsored noopener noreferrer">Search Flights on Trip.com</a>
+    </article>
+
+    <article class="card">
+      <span class="badge">Flight Deals</span>
+      <h3>MyTrip Flights</h3>
+      <p>Explore flexible flight options and compare routes for Germany travel.</p>
+      <a class="btn btn-primary"
+         href="https://www.anrdoezrs.net/click-101586981-17066590"
+         target="_blank"
+         rel="nofollow sponsored noopener noreferrer">View Flights on MyTrip</a>
+    </article>
+
+    <article class="card">
+      <span class="badge">Travel Tip</span>
+      <h3>Best Arrival Cities</h3>
+      <p>Frankfurt and Munich are strong international entry points, while Berlin is ideal for city breaks.</p>
+      <a class="btn btn-secondary" href="#cities">See Top Cities</a>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="hotels">
+  <h2>Hotels in Germany</h2>
+  <p class="lead">
+    Find hotels near old towns, train stations, museums, shopping streets and business districts.
+  </p>
+
+  <div class="grid">
+    <article class="card">
+      <span class="badge">Best Overall</span>
+      <h3>Trip.com Hotels</h3>
+      <p>Compare hotel deals across Germany and book city stays for your travel dates.</p>
+      <a class="btn btn-primary"
+         href="https://www.jdoqocy.com/click-101586981-13761944"
+         target="_blank"
+         rel="nofollow sponsored noopener noreferrer">Search Hotels on Trip.com</a>
+    </article>
+
+    <article class="card">
+      <span class="badge">Secondary Option</span>
+      <h3>MyTrip Hotels</h3>
+      <p>Search hotel options and compare rates for Germany city stays.</p>
+      <a class="btn btn-primary"
+         href="https://www.anrdoezrs.net/click-101586981-17066590"
+         target="_blank"
+         rel="nofollow sponsored noopener noreferrer">View Hotels on MyTrip</a>
+    </article>
+
+    <article class="card">
+      <span class="badge">Smart Planning</span>
+      <h3>Stay Near Transport</h3>
+      <p>For Germany, hotels near central stations are often convenient for city-to-city routes.</p>
+      <a class="btn btn-secondary" href="#transport">Check Transport</a>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="transport">
+  <h2>Train & Ground Transport in Germany</h2>
+  <p class="lead">
+    Plan city-to-city travel with transport search options for trains, buses and local routes.
+  </p>
+
+  <div class="grid">
+    <article class="card">
+      <span class="badge">Transport Search</span>
+      <h3>12GO Germany Routes</h3>
+      <p>Check available transport options and compare route choices for Germany travel.</p>
+      <a class="btn btn-primary"
+         href="https://www.dpbolvw.net/click-101586981-17115158"
+         target="_blank"
+         rel="nofollow sponsored noopener noreferrer">Explore Transport on 12GO</a>
+    </article>
+
+    <article class="card">
+      <span class="badge">Trip Planning</span>
+      <h3>Trip.com Transport</h3>
+      <p>Use Trip.com as your main travel booking partner for flights, hotels and local options.</p>
+      <a class="btn btn-primary"
+         href="https://www.jdoqocy.com/click-101586981-13761944"
+         target="_blank"
+         rel="nofollow sponsored noopener noreferrer">Check Trip.com</a>
+    </article>
+
+    <article class="card">
+      <span class="badge">Route Idea</span>
+      <h3>Popular Germany Route</h3>
+      <p>Berlin → Dresden → Munich is a strong route for culture, old towns and classic Germany travel.</p>
+      <a class="btn btn-secondary" href="#cities">Explore City Pages</a>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="cities">
+  <h2>Top Germany City Travel Pages</h2>
+  <p class="lead">
+    Explore destination pages for Germany’s most searched cities and hotel areas.
+  </p>
+
+  <div class="grid">
+    <article class="card city-card">
+      <img src="/assets/travel/germany/berlin-hero.webp" alt="Berlin Germany travel">
+      <div class="city-body">
+        <h3>Berlin</h3>
+        <p>Culture, museums, nightlife and central hotel areas.</p>
+        <a class="btn btn-secondary" href="/travel/germany/berlin/">View Berlin Hotels</a>
+      </div>
+    </article>
+
+    <article class="card city-card">
+      <img src="/assets/travel/germany/munich-hero.webp" alt="Munich Germany travel">
+      <div class="city-body">
+        <h3>Munich</h3>
+        <p>Bavarian charm, old town stays and premium hotels.</p>
+        <a class="btn btn-secondary" href="/travel/germany/munich/">View Munich Hotels</a>
+      </div>
+    </article>
+
+    <article class="card city-card">
+      <img src="/assets/travel/germany/frankfurt-hero.webp" alt="Frankfurt Germany travel">
+      <div class="city-body">
+        <h3>Frankfurt</h3>
+        <p>Business travel, airport hotels and city breaks.</p>
+        <a class="btn btn-secondary" href="/travel/germany/frankfurt/">View Frankfurt Hotels</a>
+      </div>
+    </article>
+
+    <article class="card city-card">
+      <img src="/assets/travel/germany/hamburg-hero.webp" alt="Hamburg Germany travel">
+      <div class="city-body">
+        <h3>Hamburg</h3>
+        <p>Harbor views, city center hotels and weekend trips.</p>
+        <a class="btn btn-secondary" href="/travel/germany/hamburg/">View Hamburg Hotels</a>
+      </div>
+    </article>
+
+    <article class="card city-card">
+      <img src="/assets/travel/germany/dresden-hero.webp" alt="Dresden Germany travel">
+      <div class="city-body">
+        <h3>Dresden</h3>
+        <p>Old town beauty, river views and cultural stays.</p>
+        <a class="btn btn-secondary" href="/travel/germany/dresden/">View Dresden Hotels</a>
+      </div>
+    </article>
+
+    <article class="card city-card">
+      <img src="/assets/travel/germany/cologne-hero.webp" alt="Cologne Germany travel">
+      <div class="city-body">
+        <h3>Cologne</h3>
+        <p>Cathedral views, central stays and Rhine travel.</p>
+        <a class="btn btn-secondary" href="/travel/germany/cologne/">View Cologne Hotels</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="why">
+  <div class="info-box">
+    <div>
+      <h2>Why Use This Germany Travel Hub?</h2>
       <p>
-        Planning a trip to Germany? Whether you're visiting Berlin, exploring Bavaria,
-        or traveling between Munich and Frankfurt, this page centralizes trusted booking
-        platforms to help you compare flights, hotels and train tickets efficiently.
+        This page groups flights, hotels and transport options in one place so travelers can compare faster,
+        plan smoother routes and jump into trusted booking platforms without searching from scratch.
       </p>
-
-      <div class="trust-bar" role="list" aria-label="Trust highlights">
-        <span role="listitem">✓ Secure Booking</span>
-        <span role="listitem">✓ Trusted Platforms</span>
-        <span role="listitem">✓ No Hidden Fees</span>
-        <span role="listitem">✓ Updated <span id="yearBadge"></span></span>
-      </div>
     </div>
-  </header>
-
-  <!-- MAIN -->
-  <main>
-
-    <!-- FLIGHTS -->
-    <section class="section" id="flights">
-      <h2>✈️ Flights to Germany</h2>
-      <p class="lead">Compare flights to top destinations like Berlin, Munich, Frankfurt, Hamburg and Cologne.</p>
-
-      <div class="grid">
-        <article class="card">
-          <h3>Trip.com – Flights & Bundles</h3>
-          <p>Search international flights, compare prices, and bundle flights + hotels for more value.</p>
-
-          <!-- LOCKED: affiliate rel -->
-          <a class="btn"
-             href="https://www.jdoqocy.com/click-101586981-13761944"
-             target="_blank"
-             rel="nofollow sponsored noopener noreferrer">
-             Search Flights on Trip.com
-          </a>
-        </article>
-
-        <article class="card">
-          <h3>MyTrip – Flight Deals</h3>
-          <p>Explore flight deals and flexible options for Germany travel.</p>
-
-          <a class="btn"
-             href="https://www.anrdoezrs.net/click-101586981-17066590"
-             target="_blank"
-             rel="nofollow sponsored noopener noreferrer">
-             View Flights on MyTrip
-          </a>
-        </article>
-      </div>
-    </section>
-
-    <!-- TRANSPORT -->
-    <section class="section" id="transport">
-      <h2>🚆 Train & Ground Transport in Germany</h2>
-      <p class="lead">Compare trains, buses, and ground transport options for routes across Germany.</p>
-
-      <div class="grid">
-        <article class="card">
-          <h3>12GO – Transport Search</h3>
-          <p>Check route options and compare available transport services quickly.</p>
-
-          <a class="btn"
-             href="https://www.dpbolvw.net/click-101586981-17115158"
-             target="_blank"
-             rel="nofollow sponsored noopener noreferrer">
-             Explore Transport on 12GO
-          </a>
-        </article>
-
-        <article class="card">
-          <h3>Trip.com – Rail & Local Options</h3>
-          <p>Find transport options and plan city-to-city routes efficiently.</p>
-
-          <a class="btn"
-             href="https://www.jdoqocy.com/click-101586981-13761944"
-             target="_blank"
-             rel="nofollow sponsored noopener noreferrer">
-             Check Transport on Trip.com
-          </a>
-        </article>
-      </div>
-    </section>
-
-    <!-- HOTELS -->
-    <section class="section" id="hotels">
-      <h2>🏨 Hotels in Germany</h2>
-      <p class="lead">Compare hotels in Berlin, Munich, Frankfurt, Düsseldorf, Stuttgart and more.</p>
-
-      <div class="grid">
-        <article class="card">
-          <h3>MyTrip – Hotels & Stays</h3>
-          <p>Search hotels, compare nightly rates, and book secure stays for your itinerary.</p>
-
-          <a class="btn"
-             href="https://www.anrdoezrs.net/click-101586981-17066590"
-             target="_blank"
-             rel="nofollow sponsored noopener noreferrer">
-             Search Hotels on MyTrip
-          </a>
-        </article>
-
-        <article class="card">
-          <h3>Trip.com – Hotels & Deals</h3>
-          <p>Explore hotel deals and discounts across Germany destinations.</p>
-
-          <a class="btn"
-             href="https://www.jdoqocy.com/click-101586981-13761944"
-             target="_blank"
-             rel="nofollow sponsored noopener noreferrer">
-             View Hotels on Trip.com
-          </a>
-        </article>
-      </div>
-    </section>
-
-    <!-- WHY -->
-    <section class="section" id="why">
-      <h2>Why Use a Central Travel Hub?</h2>
-
-      <div class="grid">
-        <article class="card">
-          <h3>Compare Faster</h3>
-          <p>Instead of visiting multiple sites, this hub groups trusted platforms for quick comparison.</p>
-        </article>
-
-        <article class="card">
-          <h3>Plan Smarter</h3>
-          <p>Use flights + hotels + transport in one place to build a smoother Germany itinerary.</p>
-        </article>
-
-        <article class="card">
-          <h3>Transparent Links</h3>
-          <p>Some links may be affiliate links. You won’t pay extra — it supports GiftCardZoneEU.</p>
-        </article>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <div>© <span id="year"></span> GiftCardZoneEU. All rights reserved.</div>
-      <div class="small">
-        Disclaimer: Some outbound links may be affiliate links. This helps support the site at no extra cost to you.
-      </div>
+    <div>
+      <a class="btn btn-primary"
+         href="https://www.jdoqocy.com/click-101586981-13761944"
+         target="_blank"
+         rel="nofollow sponsored noopener noreferrer">
+        Start with Trip.com Germany
+      </a>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <!-- LOCKED: Auto year script -->
-  <script>
-    const y = new Date().getFullYear();
-    document.getElementById("year").textContent = y;
-    document.getElementById("yearBadge").textContent = y;
-  </script>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>© <span id="year"></span> GiftCardZoneEU. All rights reserved.</div>
+    <div class="small">
+      Disclaimer: Some outbound links may be affiliate links. This means GiftCardZoneEU may earn a commission at no extra cost to you.
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <div>
+    <strong>Germany travel deals</strong>
+    <span>Compare flights, hotels and transport</span>
+  </div>
+  <a href="https://www.jdoqocy.com/click-101586981-13761944"
+     target="_blank"
+     rel="nofollow sponsored noopener noreferrer">
+    Search Trip.com
+  </a>
+</div>
+
+<script>
+const y = new Date().getFullYear();
+document.getElementById("year").textContent = y;
+document.getElementById("yearBadge").textContent = y;
+</script>
+
+<script src="/assets/ga.js"></script>
 
 </body>
 </html>
