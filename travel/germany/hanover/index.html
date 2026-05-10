@@ -99,6 +99,27 @@
       color:#fff;
       padding:84px 20px;
     }
+    .hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 70% 35%, rgba(255,180,80,.18), transparent 18%),
+    radial-gradient(circle at 62% 40%, rgba(255,210,120,.12), transparent 20%);
+  animation: glowMove 6s ease-in-out infinite alternate;
+  pointer-events:none;
+}
+
+@keyframes glowMove{
+  from{
+    opacity:.55;
+    transform:translateY(0px);
+  }
+  to{
+    opacity:.9;
+    transform:translateY(-4px);
+  }
+}
 
     .hero-inner{
       max-width:1180px;
