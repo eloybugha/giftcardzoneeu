@@ -99,33 +99,30 @@
       color:#fff;
       padding:84px 20px;
     }
-    .hero::after{
+    .hero::before{
   content:"";
   position:absolute;
-  inset:0;
-  background:
-    radial-gradient(circle at 70% 35%, rgba(255,180,80,.18), transparent 18%),
-    radial-gradient(circle at 62% 40%, rgba(255,210,120,.12), transparent 20%);
-  animation: glowMove 6s ease-in-out infinite alternate;
+  inset:-30%;
+  background:linear-gradient(
+    120deg,
+    transparent 35%,
+    rgba(255,255,255,.18) 50%,
+    transparent 65%
+  );
+  animation: lightSweep 7s ease-in-out infinite;
   pointer-events:none;
+  z-index:1;
 }
 
-@keyframes glowMove{
-  from{
-    opacity:.55;
-    transform:translateY(0px);
-  }
-  to{
-    opacity:.9;
-    transform:translateY(-4px);
-  }
+@keyframes lightSweep{
+  from{transform:translateX(-45%);}
+  to{transform:translateX(45%);}
 }
 
-    .hero-inner{
-      max-width:1180px;
-      margin:auto;
-      width:100%;
-    }
+.hero-inner{
+  position:relative;
+  z-index:2;
+}
 
     .badge{
       display:inline-flex;
