@@ -102,6 +102,27 @@
       box-shadow:0 0 18px rgba(249,115,22,.28);
       transform:translateY(-2px);
     }
+    .navlinks a{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+.navlinks a::before{
+  display:block;
+  font-size:1.25rem;
+  line-height:1;
+  margin-bottom:6px;
+}
+
+.navlinks a:nth-child(1)::before{content:"✈️";}
+.navlinks a:nth-child(2)::before{content:"🇩🇪";}
+.navlinks a:nth-child(3)::before{content:"🏙️";}
+.navlinks a:nth-child(4)::before{content:"🌆";}
+.navlinks a:nth-child(5)::before{content:"🏛️";}
+.navlinks a:nth-child(6)::before{content:"🛍️";}
+.navlinks a:nth-child(7)::before{content:"🎁";}
 
     .hero{
       min-height:74vh;
