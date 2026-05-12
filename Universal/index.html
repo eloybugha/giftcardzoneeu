@@ -3,85 +3,256 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>🎁 Exclusive Access — Limited Offer</title>
-  <link rel="canonical" href="https://giftcardzoneeu.com/Universal/" />
+
+<title>Sponsored Access Gateway | GiftCardZoneEU</title>
+<link rel="canonical" href="https://giftcardzoneeu.com/Universal/" />
 <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<link rel="icon" href="/assets/gz-logo.png">
 
 <style>
 :root{
-  --bg:#0b0d17;--card:#111827;--txt:#f9fafb;--muted:#9ca3af;
-  --a:#3b82f6;--b:#2563eb;--border:rgba(255,255,255,.08)
+  --bg:#0b0d17;
+  --card:#111827;
+  --txt:#f9fafb;
+  --muted:#a7b0c0;
+  --a:#3b82f6;
+  --b:#2563eb;
+  --gold:#facc15;
+  --border:rgba(255,255,255,.10);
 }
-*{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,Arial}
+*{box-sizing:border-box;margin:0;padding:0}
 body{
-  background:radial-gradient(900px 600px at 70% -20%,#1e3a8a 0%,#0b0d17 60%,#0b0d17 100%);
-  color:var(--txt);display:flex;flex-direction:column;align-items:center;
-  justify-content:center;min-height:100vh;text-align:center;padding:20px
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:
+    radial-gradient(900px 600px at 70% -20%,#1e3a8a 0%,#0b0d17 58%,#0b0d17 100%);
+  color:var(--txt);
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:20px;
+}
+.logo{
+  width:72px;
+  height:72px;
+  border-radius:20px;
+  margin:0 auto 14px;
+  display:block;
+  box-shadow:0 12px 35px rgba(0,0,0,.35);
 }
 .card{
-  background:var(--card);border:1px solid var(--border);border-radius:20px;
-  max-width:420px;width:100%;padding:28px 24px;box-shadow:0 0 20px rgba(0,0,0,.4)
+  background:linear-gradient(180deg,rgba(17,24,39,.96),rgba(15,23,42,.96));
+  border:1px solid var(--border);
+  border-radius:24px;
+  max-width:430px;
+  width:100%;
+  padding:28px 24px;
+  box-shadow:0 20px 60px rgba(0,0,0,.45);
 }
-h1{font-size:1.45rem;margin-bottom:8px}
-p{color:var(--muted);margin-bottom:18px;font-size:.95rem}
-.fake{
-  width:100%;height:210px;border-radius:12px;border:1px solid var(--border);
-  background:radial-gradient(120% 100% at 80% 0%, #1f2937 0%, #0b0d17 60%);
-  position:relative;margin-bottom:18px
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:7px 12px;
+  border-radius:999px;
+  background:rgba(59,130,246,.14);
+  border:1px solid rgba(59,130,246,.35);
+  color:#bfdbfe;
+  font-size:.82rem;
+  font-weight:800;
+  margin-bottom:12px;
 }
-.play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  background:rgba(255,255,255,.12);border:3px solid #fff;border-radius:50%;
-  width:70px;height:70px;display:flex;align-items:center;justify-content:center}
-.play::before{content:'';border-style:solid;border-width:12px 0 12px 18px;
-  border-color:transparent transparent transparent #fff;margin-left:4px}
-.count{font-weight:700;color:var(--a);margin-bottom:8px}
+h1{
+  font-size:1.55rem;
+  line-height:1.18;
+  margin-bottom:9px;
+}
+p{
+  color:var(--muted);
+  margin-bottom:18px;
+  font-size:.96rem;
+  line-height:1.55;
+}
+.preview{
+  width:100%;
+  min-height:210px;
+  border-radius:16px;
+  border:1px solid var(--border);
+  background:
+    linear-gradient(rgba(2,6,23,.22),rgba(2,6,23,.76)),
+    radial-gradient(120% 100% at 80% 0%,#334155 0%,#0b0d17 62%);
+  position:relative;
+  margin-bottom:18px;
+  overflow:hidden;
+}
+.preview::after{
+  content:"Sponsored Offer";
+  position:absolute;
+  left:16px;
+  bottom:16px;
+  font-size:.85rem;
+  font-weight:800;
+  color:#fff;
+  background:rgba(15,23,42,.72);
+  border:1px solid rgba(255,255,255,.14);
+  padding:8px 11px;
+  border-radius:999px;
+}
+.play{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  background:rgba(255,255,255,.12);
+  border:3px solid rgba(255,255,255,.92);
+  border-radius:50%;
+  width:72px;
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  backdrop-filter:blur(6px);
+}
+.play::before{
+  content:'';
+  border-style:solid;
+  border-width:12px 0 12px 19px;
+  border-color:transparent transparent transparent #fff;
+  margin-left:5px;
+}
+.count{
+  font-weight:800;
+  color:#bfdbfe;
+  margin-bottom:10px;
+}
 button{
-  width:100%;padding:14px 0;border:none;border-radius:12px;
-  background:linear-gradient(90deg,var(--a),var(--b));color:#fff;
-  font-weight:800;font-size:1.05rem;cursor:pointer;transition:transform .1s
+  width:100%;
+  padding:15px 0;
+  border:none;
+  border-radius:14px;
+  background:linear-gradient(90deg,var(--a),var(--b));
+  color:#fff;
+  font-weight:900;
+  font-size:1.05rem;
+  cursor:pointer;
+  transition:.15s ease;
+  box-shadow:0 12px 28px rgba(37,99,235,.30);
 }
-button:active{transform:scale(.96)}
-.note{font-size:.9rem;color:var(--muted);margin-top:12px}
-footer{margin-top:24px;font-size:.8rem;color:var(--muted)}
+button:disabled{
+  opacity:.65;
+  cursor:not-allowed;
+}
+button:not(:disabled):hover{
+  transform:translateY(-1px);
+}
+button:active{
+  transform:scale(.97);
+}
+.note{
+  font-size:.88rem;
+  color:var(--muted);
+  margin-top:13px;
+  line-height:1.5;
+}
+.note a{
+  color:var(--gold);
+  font-weight:900;
+  text-decoration:none;
+}
+.disclaimer{
+  margin-top:16px;
+  padding-top:14px;
+  border-top:1px solid var(--border);
+  font-size:.78rem;
+  color:#94a3b8;
+  line-height:1.45;
+}
+footer{
+  margin-top:22px;
+  font-size:.8rem;
+  color:#94a3b8;
+}
 </style>
 </head>
+
 <body>
+
 <div class="card">
-  <h1 id="headline">🎁 Congratulations!</h1>
-  <p id="subtitle">You’ve been selected for today’s exclusive access.</p>
+  <img src="/assets/gz-logo.png" alt="GiftCardZoneEU logo" class="logo">
 
-  <div class="fake"><div class="play"></div></div>
+  <div class="badge">🌍 Sponsored Gateway</div>
 
-  <div class="count">Unlocking in <span id="t">5</span> seconds…</div>
-  <button id="btn" disabled>Preparing access...</button>
-  <div class="note">If it doesn’t open, try again 👇<br>
-    <a href="#" id="backup" style="color:#facc15;font-weight:700;">Backup Link</a>
+  <h1 id="headline">Continue to Sponsored Access</h1>
+  <p id="subtitle">Checking available promotional access for your region.</p>
+
+  <div class="preview">
+    <div class="play"></div>
+  </div>
+
+  <div class="count">Access button unlocks in <span id="t">5</span> seconds…</div>
+
+  <button id="btn" disabled>Preparing secure access...</button>
+
+  <div class="note">
+    If the button does not open, use this instead:<br>
+    <a href="#" id="backup">Open Backup Link</a>
+  </div>
+
+  <div class="disclaimer">
+    This page may redirect to a third-party sponsored offer. Availability may vary by country.
   </div>
 </div>
 
-<footer>©2025 Universal Gateway | Promotional Access</footer>
+<footer>© <span id="year"></span> GiftCardZoneEU • Sponsored Access</footer>
 
 <script>
-const PRIMARY_URL="https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";
-let t=5;
-const timer=document.getElementById("t"),btn=document.getElementById("btn");
-const tick=setInterval(()=>{t--;timer.textContent=t;
-  if(t<=0){clearInterval(tick);btn.disabled=false;btn.textContent="👉 Continue";}
-},1000);
-btn.onclick=()=>location.href=PRIMARY_URL;
-document.getElementById("backup").onclick=e=>{e.preventDefault();location.href=BACKUP_URL;};
+const PRIMARY_URL = "https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";
+const BACKUP_URL = PRIMARY_URL;
 
-// 🌍 GEO personalize (simple lookup)
+let t = 5;
+const timer = document.getElementById("t");
+const btn = document.getElementById("btn");
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+const tick = setInterval(() => {
+  t--;
+  timer.textContent = t;
+
+  if (t <= 0) {
+    clearInterval(tick);
+    btn.disabled = false;
+    btn.textContent = "👉 Continue to Sponsored Offer";
+  }
+}, 1000);
+
+btn.onclick = () => {
+  if (!btn.disabled) location.href = PRIMARY_URL;
+};
+
+document.getElementById("backup").onclick = e => {
+  e.preventDefault();
+  location.href = BACKUP_URL;
+};
+
 fetch("https://ipapi.co/json/")
-  .then(r=>r.json())
-  .then(d=>{
-    const c=d.country_name||"your country";
-    const f=d.country_code||"";
+  .then(r => r.json())
+  .then(d => {
+    const c = d.country_name || "your region";
+    const f = d.country_code || "";
     const flag = f ? `https://flagcdn.com/24x18/${f.toLowerCase()}.png` : "";
-    const sub=document.getElementById("subtitle");
-    sub.innerHTML=`Now trending in <b>${c}</b> ${flag ? `<img src="${flag}" alt="${f}" style="vertical-align:middle;border-radius:3px">`:''}`;
+    const sub = document.getElementById("subtitle");
+
+    sub.innerHTML = `Checking sponsored access available in <b>${c}</b> ${
+      flag ? `<img src="${flag}" alt="${f}" style="vertical-align:middle;border-radius:3px;margin-left:4px">` : ""
+    }.`;
   })
-  .catch(()=>{});
+  .catch(() => {});
 </script>
+
+<script src="/assets/ga.js"></script>
+
 </body>
 </html>
