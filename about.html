@@ -3,65 +3,172 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About GiftCardZoneEU</title>
 
-  <meta name="description" content="GiftCardZoneEU connects users worldwide to trusted offers, exclusive gift card deals, and country-matched rewards — fast, safe, and always updated.">
+  <title>About GiftCardZoneEU</title>
+  <meta name="description" content="GiftCardZoneEU connects users worldwide to trusted offers, travel deals, exclusive gift card opportunities, and country-matched rewards.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://giftcardzoneeu.com/about.html">
+  <link rel="canonical" href="https://giftcardzoneeu.com/about/" />
+  <link rel="icon" href="/assets/gz-logo.png">
+
+  <meta property="og:title" content="About GiftCardZoneEU">
+  <meta property="og:description" content="Global rewards, verified offers, travel deals, and country-matched opportunities.">
+  <meta property="og:image" content="https://giftcardzoneeu.com/assets/about/about-hero.webp">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://giftcardzoneeu.com/about/">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About GiftCardZoneEU">
+  <meta name="twitter:description" content="Worldwide rewards, travel deals, and verified online offers.">
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/about/about-hero.webp">
 
   <style>
-    body {
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial;
-      background: #0b1220;
-      color: #e8f0ff;
-      padding: 40px;
-      line-height: 1.7;
-      max-width: 800px;
-      margin: auto;
+    *{box-sizing:border-box;margin:0;padding:0}
+
+    body{
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+      color:#e8f0ff;
+      line-height:1.75;
+      padding:40px 20px;
+      min-height:100vh;
+      background:
+        linear-gradient(rgba(5,10,20,.78), rgba(5,10,20,.92)),
+        url('/assets/about/about-hero.webp') center/cover fixed no-repeat;
     }
-    h1, h2 { color: #22c55e; }
-    a { color: #38bdf8; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .tagline {
-      font-size: 1.1rem;
-      color: #9fb3da;
-      margin-top: -8px;
-      margin-bottom: 24px;
-    }
-    .logo {
-      display:block;
+
+    .container{
+      max-width:880px;
       margin:auto;
-      width:90px;
-      border-radius:14px;
-      box-shadow:0 6px 16px rgba(0,0,0,.3);
+      background:rgba(15,23,42,.84);
+      border:1px solid rgba(148,163,184,.22);
+      border-radius:28px;
+      padding:42px 30px;
+      box-shadow:0 24px 70px rgba(0,0,0,.45);
+      backdrop-filter:blur(10px);
+    }
+
+    .logo{
+      display:block;
+      margin:0 auto 22px;
+      width:92px;
+      border-radius:20px;
+      box-shadow:0 12px 30px rgba(34,197,94,.22);
+    }
+
+    h1{
+      text-align:center;
+      font-size:2.2rem;
+      color:#22c55e;
+      margin-bottom:10px;
+    }
+
+    .tagline{
+      text-align:center;
+      font-size:1.05rem;
+      color:#b8c7e6;
+      margin-bottom:34px;
+    }
+
+    h2{
+      color:#38bdf8;
+      margin-top:32px;
+      margin-bottom:14px;
+      font-size:1.35rem;
+    }
+
+    p{margin-bottom:18px;color:#dbe7ff}
+    ul{padding-left:20px;margin-bottom:20px}
+    li{margin-bottom:10px;color:#dbe7ff}
+
+    a{
+      color:#38bdf8;
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    a:hover{text-decoration:underline}
+
+    .footer{
+      margin-top:40px;
+      padding-top:24px;
+      border-top:1px solid rgba(148,163,184,.18);
+      text-align:center;
+      font-size:.92rem;
+      color:#94a3b8;
+    }
+
+    @media(max-width:640px){
+      body{
+        padding:22px 14px;
+        background:
+          linear-gradient(rgba(5,10,20,.82), rgba(5,10,20,.95)),
+          url('/assets/about/about-hero.webp') center/cover no-repeat;
+      }
+
+      .container{
+        padding:32px 22px;
+        border-radius:22px;
+      }
+
+      h1{font-size:1.8rem}
+      .tagline{font-size:.98rem}
     }
   </style>
 </head>
 
 <body>
-  <img src="https://giftcardzoneeu.com/logo.png" alt="GiftCardZoneEU Logo" class="logo">
-  <h1>About GiftCardZoneEU</h1>
-  <p class="tagline">Unlock global deals. Experience rewards that match your world.</p>
+  <div class="container">
 
-  <p><strong>GiftCardZoneEU</strong> is a worldwide offer portal that helps users discover verified promotions, exclusive online rewards, and gift card opportunities tailored by country. Our goal is to make accessing trusted deals simple, secure, and rewarding for everyone.</p>
+    <img src="/assets/gz-logo.png" alt="GiftCardZoneEU Logo" class="logo">
 
-  <h2>Our Mission</h2>
-  <p>To connect global users with the best verified offers while maintaining transparency, safety, and reliability. Whether you're in the US, Brazil, the Philippines, or anywhere in between — GiftCardZoneEU ensures that every offer is country-matched and relevant.</p>
+    <h1>About GiftCardZoneEU</h1>
 
-  <h2>Why Choose Us</h2>
-  <ul>
-    <li>🌍 Worldwide verified offers</li>
-    <li>⚡ Fast and secure redirects</li>
-    <li>🎁 Real rewards from trusted partners</li>
-    <li>🛡️ Privacy-friendly browsing (no personal data collection)</li>
-  </ul>
+    <p class="tagline">
+      Unlock global deals. Experience rewards that match your world.
+    </p>
 
-  <p>We believe in keeping your experience smooth and transparent — that’s why we only feature legitimate affiliate offers and verified ad networks.</p>
+    <p>
+      <strong>GiftCardZoneEU</strong> is a worldwide platform focused on helping users discover verified online offers, travel opportunities, exclusive rewards, and country-matched gift card deals.
+    </p>
 
-  <p>To learn how we handle privacy, visit our <a href="https://giftcardzoneeu.com/privacy.html">Privacy Policy</a>.</p>
+    <p>
+      Our mission is simple: make discovering trusted offers easier, safer, and more accessible for users worldwide — whether you're browsing from Europe, Asia, the Americas, or anywhere else.
+    </p>
 
-  <p style="margin-top:30px;font-size:0.9rem;opacity:0.7;">
-    © 2025 GiftCardZoneEU — All rights reserved.
-  </p>
+    <h2>Our Mission</h2>
+
+    <p>
+      We aim to build a global rewards and travel ecosystem that connects users with legitimate affiliate offers, booking platforms, shopping opportunities, and digital rewards while maintaining transparency and user trust.
+    </p>
+
+    <h2>Why Users Choose GiftCardZoneEU</h2>
+
+    <ul>
+      <li>🌍 Worldwide travel and reward access</li>
+      <li>⚡ Fast-loading and mobile-friendly pages</li>
+      <li>🎁 Verified affiliate offers and promotions</li>
+      <li>🛡️ Privacy-friendly browsing experience</li>
+      <li>🏨 Travel deals, booking guides, and global discovery</li>
+    </ul>
+
+    <p>
+      GiftCardZoneEU continuously expands its global travel and rewards network to provide users with more relevant experiences, better destination discovery, and access to trusted online opportunities.
+    </p>
+
+    <p>
+      To learn how we handle user privacy and transparency, visit our
+      <a href="/privacy/">Privacy Policy</a>.
+    </p>
+
+    <div class="footer">
+      © <span id="year"></span> GiftCardZoneEU — All rights reserved.
+    </div>
+
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+  <script src="/assets/ga.js"></script>
 </body>
 </html>
