@@ -1,531 +1,650 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Best Hotels in the Netherlands | Where to Stay & Book Online</title>
-  <meta name="description" content="Find the best hotels in the Netherlands including Amsterdam, Rotterdam, Utrecht and The Hague. Compare hotel deals with trusted travel partners like Booking.com, Agoda and Trip.com." />
-  <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://giftcardzoneeu.com/travel/netherlands/" />
-  <link rel="icon" href="/assets/gz-logo.png" />
+<title>Best Hotels in the Netherlands | Where to Stay & Book Online</title>
+<meta name="description" content="Find the best hotels in the Netherlands including Amsterdam, Rotterdam, Utrecht and The Hague. Compare hotel deals, explore top Dutch cities, and book trusted travel stays online." />
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="https://giftcardzoneeu.com/travel/netherlands/" />
+<link rel="icon" href="/assets/gz-logo.png" />
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Best Hotels in the Netherlands | GiftCardZoneEU" />
-  <meta property="og:description" content="Compare hotel deals across the Netherlands including Amsterdam, Rotterdam, Utrecht and The Hague." />
-  <meta property="og:url" content="https://giftcardzoneeu.com/travel/netherlands/" />
-  <meta property="og:image" content="https://giftcardzoneeu.com/assets/travel/netherlands/netherlands-hero.webp" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Best Hotels in the Netherlands | GiftCardZoneEU" />
+<meta property="og:description" content="Compare Netherlands hotel deals and explore Amsterdam, Rotterdam, Utrecht and The Hague with trusted travel partners." />
+<meta property="og:url" content="https://giftcardzoneeu.com/travel/netherlands/" />
+<meta property="og:image" content="https://giftcardzoneeu.com/assets/travel/netherlands/netherlands-hero.webp" />
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Best Hotels in the Netherlands | GiftCardZoneEU" />
-  <meta name="twitter:description" content="Find top places to stay in the Netherlands and compare trusted hotel booking partners." />
-  <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/travel/netherlands/netherlands-hero.webp" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Best Hotels in the Netherlands | GiftCardZoneEU" />
+<meta name="twitter:description" content="Find top places to stay in the Netherlands and compare trusted hotel booking options." />
+<meta name="twitter:image" content="https://giftcardzoneeu.com/assets/travel/netherlands/netherlands-hero.webp" />
 
-  <!-- Preload Hero -->
-  <link rel="preload" as="image" href="/assets/travel/netherlands/netherlands-hero.webp" />
+<link rel="preload" as="image" href="/assets/travel/netherlands/netherlands-hero.webp" />
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+<style>
+:root{
+  --bg:#f8fafc;
+  --text:#111827;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --line:#e5e7eb;
+  --orange:#ff7a1a;
+  --orange2:#ff9b3d;
+  --dark:#111827;
+  --blue:#2563eb;
+}
 
-    body {
-      background: linear-gradient(180deg, #02142b 0%, #03224a 100%);
-      color: #ffffff;
-      line-height: 1.7;
-    }
+*{margin:0;padding:0;box-sizing:border-box}
 
-    a {
-      text-decoration: none;
-    }
+body{
+  font-family:Arial, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.65;
+}
 
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      background: rgba(2, 10, 22, 0.88);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      padding: 12px 20px;
-    }
+a{text-decoration:none;color:inherit}
 
-    .topbar-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-    }
+.topbar{
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+  position:sticky;
+  top:0;
+  z-index:999;
+}
 
-    .logo-link img {
-      height: 42px;
-      width: 42px;
-      object-fit: contain;
-      border-radius: 50%;
-      box-shadow: 0 0 14px rgba(0, 255, 140, 0.25);
-    }
+.nav{
+  max-width:1180px;
+  margin:auto;
+  padding:18px 22px;
+}
 
-    .hero {
-      min-height: 78vh;
-      background:
-        linear-gradient(rgba(0, 15, 35, 0.55), rgba(0, 15, 35, 0.75)),
-        url('/assets/travel/netherlands/netherlands-hero.webp') center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 70px 20px;
-    }
+.brand{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:22px;
+}
 
-    .hero-content {
-      max-width: 900px;
-    }
+.brand img{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  box-shadow:0 0 16px rgba(22,163,74,.28);
+}
 
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 18px;
-      color: #ffffff;
-      text-shadow: 0 2px 12px rgba(0,0,0,0.35);
-    }
+.brand strong{
+  font-size:1.35rem;
+}
 
-    .hero p {
-      font-size: 1.15rem;
-      max-width: 760px;
-      margin: 0 auto 26px;
-      color: #e8f3ff;
-    }
+.navlinks{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+}
 
-    .hero-buttons {
-      display: flex;
-      gap: 14px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
+.navlinks a{
+  background:#fffaf5;
+  border:1px solid #fff0df;
+  box-shadow:0 10px 28px rgba(249,115,22,.08);
+  border-radius:20px;
+  min-width:112px;
+  padding:14px 18px;
+  text-align:center;
+  font-weight:700;
+  color:#374151;
+}
 
-    .btn {
-      display: inline-block;
-      padding: 14px 22px;
-      border-radius: 10px;
-      font-weight: bold;
-      transition: 0.25s ease;
-    }
+.navlinks span{
+  display:block;
+  font-size:1.5rem;
+  margin-bottom:4px;
+}
 
-    .btn-primary {
-      background: #3db8ff;
-      color: #06213d;
-    }
+.hero{
+  min-height:78vh;
+  display:flex;
+  align-items:center;
+  background:
+    linear-gradient(90deg,rgba(8,13,28,.78),rgba(8,13,28,.42),rgba(8,13,28,.72)),
+    url('/assets/travel/netherlands/netherlands-hero.webp') center/cover no-repeat;
+  color:white;
+}
 
-    .btn-primary:hover {
-      background: #69caff;
-      transform: translateY(-2px);
-    }
+.hero-inner{
+  max-width:1180px;
+  width:100%;
+  margin:auto;
+  padding:86px 22px;
+}
 
-    .btn-secondary {
-      background: transparent;
-      color: #ffffff;
-      border: 1px solid rgba(255,255,255,0.25);
-    }
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:11px 18px;
+  border:1px solid rgba(255,255,255,.32);
+  background:rgba(255,255,255,.14);
+  border-radius:999px;
+  backdrop-filter:blur(8px);
+  font-weight:800;
+  margin-bottom:24px;
+}
 
-    .btn-secondary:hover {
-      background: rgba(255,255,255,0.08);
-    }
+.hero h1{
+  max-width:900px;
+  font-size:clamp(2.4rem,6vw,5rem);
+  line-height:1.05;
+  letter-spacing:-.05em;
+  margin-bottom:24px;
+}
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 60px 20px;
-    }
+.hero p{
+  max-width:790px;
+  font-size:1.22rem;
+  color:#f3f4f6;
+  margin-bottom:30px;
+}
 
-    .section-title {
-      font-size: 2.25rem;
-      margin-bottom: 20px;
-      color: #3db8ff;
-    }
+.actions{
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+}
 
-    .section-text {
-      font-size: 1.12rem;
-      color: #eef6ff;
-      margin-bottom: 20px;
-    }
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:999px;
+  padding:15px 24px;
+  font-weight:900;
+  transition:.25s ease;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 28px;
-      margin-top: 28px;
-    }
+.btn-primary{
+  background:linear-gradient(135deg,var(--orange),var(--orange2));
+  color:white;
+  box-shadow:0 16px 34px rgba(249,115,22,.32);
+}
 
-    .card {
-      background: rgba(19, 40, 82, 0.88);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 22px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
-      padding: 24px;
-    }
+.btn-secondary{
+  background:white;
+  color:#111827;
+}
 
-    .city-card {
-      padding: 22px;
-    }
+.btn:hover{transform:translateY(-2px)}
 
-    .city-card img {
-      width: 100%;
-      height: 230px;
-      object-fit: cover;
-      border-radius: 18px;
-      margin-bottom: 18px;
-      display: block;
-    }
+.section{
+  max-width:1180px;
+  margin:auto;
+  padding:72px 22px;
+}
 
-    .card h3 {
-      font-size: 1.2rem;
-      margin-bottom: 12px;
-      color: #ffffff;
-    }
+.kicker{
+  color:#ea580c;
+  text-transform:uppercase;
+  font-weight:900;
+  letter-spacing:.08em;
+  margin-bottom:10px;
+}
 
-    .card p {
-      color: #edf5ff;
-      font-size: 1rem;
-    }
+h2{
+  font-size:clamp(2rem,4vw,3rem);
+  line-height:1.15;
+  letter-spacing:-.035em;
+  margin-bottom:16px;
+}
 
-    .tip-box {
-      background: rgba(19, 40, 82, 0.88);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 22px;
-      padding: 32px;
-      margin-top: 24px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
-    }
+.lead{
+  max-width:880px;
+  font-size:1.12rem;
+  color:var(--muted);
+  margin-bottom:32px;
+}
 
-    .partner-card .btn {
-      margin-top: 18px;
-    }
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
 
-    .footer-links .card {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
+.grid.two{
+  grid-template-columns:repeat(2,1fr);
+}
 
-    footer {
-      text-align: center;
-      padding: 28px 20px 40px;
-      color: #c8d8ea;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      margin-top: 20px;
-    }
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:28px;
+  overflow:hidden;
+  box-shadow:0 16px 40px rgba(15,23,42,.07);
+}
 
-    @media (max-width: 900px) {
-      .hero h1 {
-        font-size: 2.3rem;
-      }
+.card-body{
+  padding:28px;
+}
 
-      .grid {
-        grid-template-columns: 1fr;
-      }
+.card img{
+  width:100%;
+  height:245px;
+  object-fit:cover;
+  display:block;
+}
 
-      .city-card img {
-        height: 220px;
-      }
-    }
+.card h3{
+  font-size:1.45rem;
+  margin-bottom:10px;
+}
 
-    @media (max-width: 600px) {
-      .hero {
-        min-height: 72vh;
-      }
+.card p{
+  color:var(--muted);
+  margin-bottom:18px;
+}
 
-      .hero h1 {
-        font-size: 2rem;
-      }
+.tag{
+  display:inline-block;
+  background:#fff1df;
+  color:#c2410c;
+  padding:8px 14px;
+  border-radius:999px;
+  font-size:.9rem;
+  font-weight:900;
+  margin-bottom:16px;
+}
 
-      .hero p,
-      .section-text,
-      .card p {
-        font-size: 1rem;
-      }
+.text-link{
+  color:var(--blue);
+  font-weight:900;
+}
 
-      .section-title {
-        font-size: 1.95rem;
-      }
+.dark-panel{
+  background:linear-gradient(135deg,#111827,#1f2937);
+  color:white;
+  border-radius:32px;
+  padding:36px;
+  box-shadow:0 20px 44px rgba(15,23,42,.18);
+}
 
-      .topbar {
-        padding: 10px 16px;
-      }
+.dark-panel p{color:#d1d5db}
 
-      .logo-link img {
-        height: 38px;
-        width: 38px;
-      }
-    }
-  </style>
+.partner{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:24px;
+  align-items:stretch;
+}
+
+.partner-card{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:30px;
+  padding:34px;
+  box-shadow:0 16px 40px rgba(15,23,42,.07);
+}
+
+.feature-list{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.feature{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:24px;
+  padding:26px;
+}
+
+.feature h3{
+  margin-bottom:10px;
+  font-size:1.25rem;
+}
+
+.feature p{
+  color:var(--muted);
+}
+
+.sticky-cta{
+  position:fixed;
+  left:50%;
+  bottom:18px;
+  transform:translateX(-50%);
+  width:min(92%,780px);
+  background:#111827;
+  color:white;
+  border-radius:24px;
+  padding:18px;
+  z-index:9999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+  box-shadow:0 18px 42px rgba(0,0,0,.28);
+}
+
+.sticky-cta span{
+  font-size:1.05rem;
+  font-weight:700;
+}
+
+.sticky-cta a{
+  background:linear-gradient(135deg,var(--orange),var(--orange2));
+  color:white;
+  padding:12px 22px;
+  border-radius:999px;
+  font-weight:900;
+  white-space:nowrap;
+}
+
+footer{
+  text-align:center;
+  padding:40px 20px 110px;
+  color:var(--muted);
+  border-top:1px solid var(--line);
+}
+
+@media(max-width:900px){
+  .grid,
+  .grid.two,
+  .partner,
+  .feature-list{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    min-height:70vh;
+  }
+
+  .card img{
+    height:220px;
+  }
+
+  .sticky-cta{
+    flex-direction:column;
+    gap:10px;
+    text-align:center;
+  }
+}
+
+@media(max-width:560px){
+  .navlinks a{
+    min-width:92px;
+    padding:12px 14px;
+  }
+
+  .hero-inner{
+    padding:68px 22px;
+  }
+
+  .actions .btn{
+    width:100%;
+  }
+
+  .section{
+    padding:54px 22px;
+  }
+}
+</style>
 </head>
+
 <body>
 
-  <header class="topbar">
-    <div class="topbar-inner">
-      <a href="https://giftcardzoneeu.com/" class="logo-link" aria-label="GiftCardZoneEU Home">
-        <img src="/assets/gz-logo.png" alt="GiftCardZoneEU Logo" />
-      </a>
-    </div>
-  </header>
+<header class="topbar">
+  <nav class="nav">
+    <a class="brand" href="https://giftcardzoneeu.com/" aria-label="GiftCardZoneEU Home">
+      <img src="/assets/gz-logo.png" alt="GiftCardZoneEU Logo">
+      <strong>GiftCardZoneEU</strong>
+    </a>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Best Hotels in the Netherlands | Where to Stay &amp; Book Online</h1>
+    <div class="navlinks">
+      <a href="/travel/"><span>✈️</span>Travel</a>
+      <a href="/travel/netherlands/"><span>🇳🇱</span>Netherlands</a>
+      <a href="/travel/netherlands/amsterdam/"><span>🏙️</span>Amsterdam</a>
+      <a href="/travel/netherlands/rotterdam/"><span>🌉</span>Rotterdam</a>
+      <a href="/travel/germany/"><span>🇩🇪</span>Germany</a>
+      <a href="/shopping/"><span>🛍️</span>Shopping</a>
+      <a href="/rewards/"><span>🎁</span>Rewards</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="badge">🇳🇱 Netherlands Hotel Guide</div>
+    <h1>Best Hotels in the Netherlands – Where to Stay + Top Deals</h1>
+    <p>
+      Explore Amsterdam canals, Rotterdam architecture, Utrecht’s historic center, and The Hague’s elegant coastal culture.
+      Compare trusted hotel deals and plan a smarter Netherlands city break.
+    </p>
+    <div class="actions">
+      <a class="btn btn-primary" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">Search Netherlands Hotels on Trip.com</a>
+      <a class="btn btn-secondary" href="https://www.tkqlhce.com/click-101586981-15261175" target="_blank" rel="nofollow sponsored noopener noreferrer">Compare on Expedia</a>
+    </div>
+  </div>
+</section>
+
+<main>
+
+<section class="section">
+  <div class="kicker">Where to stay</div>
+  <h2>Best Cities to Stay in the Netherlands</h2>
+  <p class="lead">
+    The Netherlands is compact, scenic, and easy to explore by train. Choose Amsterdam for iconic canals, Rotterdam for modern design,
+    Utrecht for relaxed historic charm, and The Hague for museums, elegant streets, and beach access.
+  </p>
+
+  <div class="grid">
+    <article class="card">
+      <img src="/assets/travel/netherlands/amsterdam.webp" alt="Amsterdam canals and city view">
+      <div class="card-body">
+        <span class="tag">Best for first-timers</span>
+        <h3>Amsterdam</h3>
+        <p>Classic canals, museums, cafés, shopping streets, nightlife, and the most iconic Netherlands city break experience.</p>
+        <a class="text-link" href="/travel/netherlands/amsterdam/">View Amsterdam hotels →</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="/assets/travel/netherlands/rotterdam.webp" alt="Rotterdam skyline and Erasmus Bridge">
+      <div class="card-body">
+        <span class="tag">Best for modern stays</span>
+        <h3>Rotterdam</h3>
+        <p>Bold architecture, waterfront views, shopping, food halls, and a stylish city atmosphere with a contemporary feel.</p>
+        <a class="text-link" href="/travel/netherlands/rotterdam/">View Rotterdam hotels →</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="/assets/travel/netherlands/utrecht.webp" alt="Utrecht canal and historic buildings">
+      <div class="card-body">
+        <span class="tag">Best for charm</span>
+        <h3>Utrecht</h3>
+        <p>A beautiful canal city with a local feel, walkable old town, cafés, and easy train connections across the country.</p>
+        <a class="text-link" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">Search Utrecht hotels →</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="dark-panel">
+    <div class="kicker">Smart travel planning</div>
+    <h2>Why Visit the Netherlands?</h2>
+    <p>
+      The Netherlands is one of Europe’s easiest countries for multi-city travel. You can enjoy canals, museums,
+      historic neighborhoods, modern architecture, scenic countryside, cycling streets, cafés, shopping, and nightlife
+      without needing long transfers between major destinations.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="kicker">Hotel areas</div>
+  <h2>Best Types of Places to Stay</h2>
+  <p class="lead">
+    For a smoother trip, choose your hotel area based on how you want to travel: central sightseeing, station access,
+    canal views, nightlife, museums, or a quieter neighborhood atmosphere.
+  </p>
+
+  <div class="feature-list">
+    <div class="feature">
+      <h3>Canal-side stays</h3>
+      <p>Best for romantic city breaks, classic Dutch views, boutique hotels, and walkable neighborhoods.</p>
+    </div>
+    <div class="feature">
+      <h3>City center hotels</h3>
+      <p>Best for first-time visitors who want shops, restaurants, attractions, and transport nearby.</p>
+    </div>
+    <div class="feature">
+      <h3>Near train stations</h3>
+      <p>Best for multi-city trips where you plan to visit Amsterdam, Rotterdam, Utrecht, The Hague, or nearby countries.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="kicker">Compare deals</div>
+  <h2>Book Netherlands Hotels with Trusted Travel Partners</h2>
+  <p class="lead">
+    Compare hotels before booking because prices, cancellation policies, room types, and location benefits can vary by platform.
+  </p>
+
+  <div class="partner">
+    <div class="partner-card">
+      <span class="tag">Primary choice</span>
+      <h3>Trip.com Netherlands Hotels</h3>
       <p>
-        Planning a trip to the Netherlands? Discover top places to stay in Amsterdam, Rotterdam, Utrecht and The Hague.
-        Compare hotel deals, city stays and trusted travel booking options so you can save money and book smarter for your next trip.
+        Search hotels across Amsterdam, Rotterdam, Utrecht, The Hague, and other Netherlands destinations.
+        Good for city breaks, multi-city travel, and flexible booking options.
       </p>
-      <div class="hero-buttons">
-        <a href="#partners" class="btn btn-primary">Compare Hotel Deals</a>
-        <a href="#cities" class="btn btn-secondary">Explore Top Cities</a>
+      <a class="btn btn-primary" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">Search on Trip.com</a>
+    </div>
+
+    <div class="partner-card">
+      <span class="tag">Strong comparison</span>
+      <h3>Expedia Netherlands Hotels</h3>
+      <p>
+        Compare hotel stays, travel bundles, and destination options for Netherlands trips and wider Europe itineraries.
+      </p>
+      <a class="btn btn-primary" href="https://www.tkqlhce.com/click-101586981-15261175" target="_blank" rel="nofollow sponsored noopener noreferrer">Compare on Expedia</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="kicker">Travel tips</div>
+  <h2>Netherlands Hotel Booking Tips</h2>
+
+  <div class="grid">
+    <div class="card">
+      <div class="card-body">
+        <h3>Book early for Amsterdam</h3>
+        <p>Amsterdam is one of the busiest city break destinations in Europe, so better locations can sell out faster during peak seasons.</p>
       </div>
     </div>
-  </section>
 
-  <main class="container">
-    <section>
-      <h2 class="section-title">Why Visit the Netherlands</h2>
-      <p class="section-text">
-        The Netherlands is one of Europe’s most unique travel destinations, known for its canal cities, historic architecture,
-        modern design and scenic countryside. From Amsterdam’s world-famous canals to Rotterdam’s cutting-edge skyline,
-        the country offers a mix of tradition and innovation that appeals to both first-time visitors and returning travelers.
-        With efficient public transport, compact cities and diverse attractions, it is an easy and rewarding destination to explore.
-      </p>
-    </section>
-
-    <section>
-      <h2 class="section-title">Best Time to Visit the Netherlands</h2>
-      <p class="section-text">
-        The Netherlands is a year-round destination, but spring and early autumn are often the most comfortable
-        seasons for city travel. Spring is especially popular for tulip season, canal walks and mild weather,
-        while summer brings longer daylight hours and lively outdoor terraces. Autumn is ideal for relaxed city breaks,
-        and winter can be a great time for festive markets and lower hotel rates in some destinations.
-      </p>
-    </section>
-
-    <section>
-      <h2 class="section-title">How to Find the Best Hotel Deals in the Netherlands</h2>
-      <p class="section-text">
-        Finding the best hotel in the Netherlands is easier when you compare multiple booking platforms.
-        Prices can vary depending on demand, season and availability, so checking trusted travel partners
-        can help you find better deals, flexible cancellation options and the right location for your trip.
-        This is especially useful if you are visiting popular destinations like Amsterdam or planning a multi-city stay.
-      </p>
-    </section>
-
-    <section id="cities">
-      <h2 class="section-title">Top Cities in the Netherlands</h2>
-
-      <div class="grid">
-        <div class="card city-card">
-          <img src="/assets/travel/netherlands/amsterdam.webp" alt="Amsterdam canals and city view" />
-          <h3>Amsterdam</h3>
-          <p>
-            Amsterdam is famous for canals, museums, historic houses and vibrant neighborhoods. It is one of the
-            most popular first stops for travelers looking for culture, nightlife, shopping and iconic Dutch scenery.
-          </p>
-        </div>
-
-        <div class="card city-card">
-          <img src="/assets/travel/netherlands/rotterdam.webp" alt="Rotterdam skyline and Erasmus Bridge" />
-          <h3>Rotterdam</h3>
-          <p>
-            Rotterdam offers a more modern city experience with bold architecture, waterfront views, shopping areas
-            and a dynamic urban atmosphere. It is perfect for travelers who want a stylish and contemporary stay.
-          </p>
-        </div>
-
-        <div class="card city-card">
-          <img src="/assets/travel/netherlands/utrecht.webp" alt="Utrecht canal and historic buildings" />
-          <h3>Utrecht</h3>
-          <p>
-            Utrecht combines historic charm with a relaxed local feel. Its canals, cafes, central location and
-            walkable old town make it a strong choice for travelers who want a beautiful city without the larger crowds.
-          </p>
-        </div>
-
-        <div class="card city-card">
-          <img src="/assets/travel/netherlands/the-hague.webp" alt="The Hague city center and historic buildings" />
-          <h3>The Hague</h3>
-          <p>
-            The Hague is known for government landmarks, elegant streets, museums and easy access to the coast.
-            It suits travelers who want culture, a polished city atmosphere and a slightly quieter Dutch base.
-          </p>
-        </div>
+    <div class="card">
+      <div class="card-body">
+        <h3>Use trains for multi-city trips</h3>
+        <p>Dutch cities are well connected by train, making it easy to stay in one city and visit another during the same trip.</p>
       </div>
-    </section>
+    </div>
 
-    <section>
-      <h2 class="section-title">Where to Stay in the Netherlands</h2>
-      <p class="section-text">
-        Choosing where to stay in the Netherlands depends on your itinerary and travel style. Amsterdam is ideal
-        for first-time visitors who want famous attractions and easy transport links. Rotterdam is excellent for modern
-        city breaks, design and nightlife. Utrecht is great for travelers who want a central location with historic
-        charm, while The Hague works well for culture, museums and convenient access to both the city and the seaside.
-      </p>
-
-      <div class="tip-box">
-        <h3 style="margin-bottom:12px;">Travel Planning Tip</h3>
-        <p class="section-text" style="margin-bottom:0;">
-          Dutch cities are well connected by train, so many travelers combine two or more destinations in one trip.
-          When comparing hotels, check proximity to train stations, city centers and major attractions to make your stay
-          more convenient and budget-friendly.
-        </p>
+    <div class="card">
+      <div class="card-body">
+        <h3>Check location carefully</h3>
+        <p>Hotels near stations, canal districts, old towns, museums, or central squares can save time and transport costs.</p>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <section>
-      <h2 class="section-title">Hotel Booking Tips for the Netherlands</h2>
+<section class="section">
+  <div class="kicker">More guides</div>
+  <h2>Explore More Travel Pages</h2>
 
-      <div class="grid">
-        <div class="card">
-          <h3>Compare Before Booking</h3>
-          <p>
-            Hotel rates, room options and cancellation policies can vary between booking platforms, so comparing deals
-            first can help you find the best overall value.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Choose Your City Carefully</h3>
-          <p>
-            Each Dutch city offers a different experience, so choosing the right base can improve your trip and better
-            match your budget, travel style and sightseeing plans.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Stay Near the Center or Station</h3>
-          <p>
-            In the Netherlands, hotels near major stations, canal districts or old-town areas can make it much easier
-            to explore the city without spending extra time on transport.
-          </p>
-        </div>
+  <div class="grid">
+    <article class="card">
+      <div class="card-body">
+        <h3>Amsterdam Hotel Guide</h3>
+        <p>Explore canal stays, city center hotels, museum areas, and trusted Amsterdam booking options.</p>
+        <a class="text-link" href="/travel/netherlands/amsterdam/">Open Amsterdam guide →</a>
       </div>
-    </section>
+    </article>
 
-    <section id="partners">
-      <h2 class="section-title">Book Hotels with Trusted Travel Partners</h2>
-
-      <div class="grid">
-        <div class="card partner-card">
-          <h3>Booking.com</h3>
-          <p>
-            Search hotels and accommodations across the Netherlands with flexible booking options and a wide range of
-            stays in Amsterdam, Rotterdam, Utrecht, The Hague and more.
-          </p>
-          <a href="https://www.booking.com" class="btn btn-primary" rel="nofollow sponsored noopener noreferrer" target="_blank">Search Hotels</a>
-        </div>
-
-        <div class="card partner-card">
-          <h3>Agoda</h3>
-          <p>
-            Compare hotel deals in the Netherlands and explore room prices in top destinations with trusted filters
-            and booking options for city breaks and longer stays.
-          </p>
-          <a href="https://www.agoda.com" class="btn btn-primary" rel="nofollow sponsored noopener noreferrer" target="_blank">View Deals</a>
-        </div>
-
-        <div class="card partner-card">
-          <h3>Trip.com (Recommended)</h3>
-          <p>
-            Compare hotels across the Netherlands with competitive prices, exclusive deals and easy booking options.
-            Ideal for multi-city trips, budget-friendly stays and flexible travel planning.
-          </p>
-          <a href="https://www.jdoqocy.com/click-101586981-13761944" class="btn btn-primary" rel="nofollow sponsored noopener noreferrer" target="_blank">Find Hotels</a>
-        </div>
+    <article class="card">
+      <div class="card-body">
+        <h3>Germany Travel</h3>
+        <p>Compare Germany city stays including Berlin, Frankfurt, Munich, Hamburg, Cologne, and more.</p>
+        <a class="text-link" href="/travel/germany/">Explore Germany →</a>
       </div>
-    </section>
+    </article>
 
-    <section>
-      <h2 class="section-title">Why Book with Trusted Travel Partners?</h2>
-      <p class="section-text">
-        Trusted travel platforms make it easier to compare hotel prices, room types, cancellation policies,
-        location benefits and traveler reviews in one place. Whether you are planning a short Netherlands city break
-        or a wider Europe itinerary, comparing hotel deals can help you choose a stay that fits your budget and travel plans.
-      </p>
-    </section>
-
-    <section>
-      <h2 class="section-title">Frequently Asked Questions</h2>
-
-      <div class="grid">
-        <div class="card">
-          <h3>What is the best city to visit first in the Netherlands?</h3>
-          <p>
-            Amsterdam is often the best first stop because it is iconic, easy to reach and packed with museums,
-            canals, neighborhoods and transport connections.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Is the Netherlands good for hotel deals?</h3>
-          <p>
-            Yes. Travelers can often find good hotel deals in the Netherlands by comparing platforms, booking early
-            and choosing cities that match their preferred budget and travel season.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Which Dutch city is best for history and charm?</h3>
-          <p>
-            Utrecht is especially popular for historic charm and canal-side atmosphere, while Amsterdam also offers
-            classic architecture and iconic Dutch city scenery.
-          </p>
-        </div>
+    <article class="card">
+      <div class="card-body">
+        <h3>Travel Hub</h3>
+        <p>Browse more hotel guides, city pages, travel partners, and destination ideas across GiftCardZoneEU.</p>
+        <a class="text-link" href="/travel/">View travel hub →</a>
       </div>
-    </section>
+    </article>
+  </div>
+</section>
 
-    <section class="footer-links">
-      <h2 class="section-title">Explore More Travel Pages</h2>
+<section class="section">
+  <div class="kicker">FAQ</div>
+  <h2>Frequently Asked Questions</h2>
 
-      <div class="grid">
-        <div class="card">
-          <div>
-            <h3>Travel Hub</h3>
-            <p>
-              Discover more destination pages, hotel guides and travel partner pages across the GiftCardZoneEU travel section.
-            </p>
-          </div>
-          <a href="https://giftcardzoneeu.com/travel/" class="btn btn-primary" style="width: fit-content;" rel="noopener">View Travel Hub</a>
-        </div>
-
-        <div class="card">
-          <div>
-            <h3>Belgium Travel</h3>
-            <p>
-              Explore another upgraded travel page format featuring city guides, hotel booking tips and trusted travel partners.
-            </p>
-          </div>
-          <a href="https://giftcardzoneeu.com/travel/belgium/" class="btn btn-primary" style="width: fit-content;" rel="noopener">Explore Belgium</a>
-        </div>
-
-        <div class="card">
-          <div>
-            <h3>Back to Home</h3>
-            <p>
-              Return to the main GiftCardZoneEU homepage and explore more travel, shopping and partner pages across your growing site.
-            </p>
-          </div>
-          <a href="https://giftcardzoneeu.com/" class="btn btn-primary" style="width: fit-content;" rel="noopener">Go Home</a>
-        </div>
+  <div class="grid two">
+    <div class="card">
+      <div class="card-body">
+        <h3>What is the best city to visit first in the Netherlands?</h3>
+        <p>Amsterdam is usually the best first stop because it has iconic canals, museums, restaurants, shopping, nightlife, and easy transport links.</p>
       </div>
-    </section>
+    </div>
 
-  </main>
+    <div class="card">
+      <div class="card-body">
+        <h3>Is Rotterdam worth staying in?</h3>
+        <p>Yes. Rotterdam is great for modern architecture, waterfront hotels, shopping, nightlife, and a more contemporary Netherlands city experience.</p>
+      </div>
+    </div>
 
-  <footer>
-    <p>&copy; <span id="year"></span> GiftCardZoneEU</p>
-  </footer>
+    <div class="card">
+      <div class="card-body">
+        <h3>Is the Netherlands easy for multi-city travel?</h3>
+        <p>Yes. Major Dutch cities are well connected by train, so travelers can combine Amsterdam, Rotterdam, Utrecht, and The Hague in one trip.</p>
+      </div>
+    </div>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+    <div class="card">
+      <div class="card-body">
+        <h3>Where should first-time visitors stay?</h3>
+        <p>First-time visitors usually do best near a city center, major train station, canal district, or museum area depending on their itinerary.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div class="sticky-cta">
+  <span>Ready to compare Netherlands hotel deals?</span>
+  <a href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">Search Trip.com</a>
+</div>
+
+<footer>
+  <p>&copy; <span id="year"></span> GiftCardZoneEU. Some links may be sponsored affiliate links.</p>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+<script src="/assets/ga.js"></script>
 
 </body>
 </html>
