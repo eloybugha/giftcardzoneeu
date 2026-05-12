@@ -4,9 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>Sponsored Access Gateway | GiftCardZoneEU</title>
+<title>Sponsored Access | GiftCardZoneEU</title>
+
 <link rel="canonical" href="https://giftcardzoneeu.com/access/" />
 <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+
 <link rel="icon" href="/assets/gz-logo.png">
 
 <style>
@@ -20,7 +22,13 @@
   --gold:#facc15;
   --border:rgba(255,255,255,.10);
 }
-*{box-sizing:border-box;margin:0;padding:0}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
 body{
   font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
   background:
@@ -34,145 +42,173 @@ body{
   text-align:center;
   padding:20px;
 }
-.logo{
-  width:72px;
-  height:72px;
-  border-radius:20px;
-  margin:0 auto 14px;
-  display:block;
-  box-shadow:0 12px 35px rgba(0,0,0,.35);
-}
+
 .card{
   background:linear-gradient(180deg,rgba(17,24,39,.96),rgba(15,23,42,.96));
   border:1px solid var(--border);
-  border-radius:24px;
+  border-radius:26px;
   max-width:430px;
   width:100%;
   padding:28px 24px;
   box-shadow:0 20px 60px rgba(0,0,0,.45);
 }
+
+.logo{
+  width:74px;
+  height:74px;
+  border-radius:20px;
+  display:block;
+  margin:0 auto 14px;
+  box-shadow:0 12px 35px rgba(0,0,0,.35);
+}
+
 .badge{
   display:inline-flex;
   align-items:center;
   gap:7px;
-  padding:7px 12px;
+  padding:7px 13px;
   border-radius:999px;
   background:rgba(59,130,246,.14);
   border:1px solid rgba(59,130,246,.35);
   color:#bfdbfe;
   font-size:.82rem;
   font-weight:800;
-  margin-bottom:12px;
+  margin-bottom:14px;
 }
+
 h1{
-  font-size:1.55rem;
-  line-height:1.18;
-  margin-bottom:9px;
+  font-size:1.6rem;
+  line-height:1.15;
+  margin-bottom:10px;
 }
+
 p{
   color:var(--muted);
+  line-height:1.5;
   margin-bottom:18px;
-  font-size:.96rem;
-  line-height:1.55;
 }
+
 .preview{
   width:100%;
-  min-height:210px;
-  border-radius:16px;
-  border:1px solid var(--border);
-  background:
-    linear-gradient(rgba(2,6,23,.22),rgba(2,6,23,.76)),
-    radial-gradient(120% 100% at 80% 0%,#334155 0%,#0b0d17 62%);
+  height:260px;
   position:relative;
-  margin-bottom:18px;
+  display:block;
   overflow:hidden;
+  border-radius:18px;
+  border:1px solid var(--border);
+  margin-bottom:18px;
+  background:#000;
+  text-decoration:none;
 }
+
+.preview img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  position:absolute;
+  inset:0;
+}
+
 .preview::after{
   content:"Sponsored Offer";
   position:absolute;
   left:16px;
   bottom:16px;
-  font-size:.85rem;
-  font-weight:800;
+  background:rgba(0,0,0,.72);
   color:#fff;
-  background:rgba(15,23,42,.72);
-  border:1px solid rgba(255,255,255,.14);
-  padding:8px 11px;
+  font-size:.9rem;
+  font-weight:800;
+  padding:10px 14px;
   border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  z-index:3;
 }
+
 .play{
   position:absolute;
   top:50%;
   left:50%;
   transform:translate(-50%,-50%);
-  background:rgba(255,255,255,.12);
-  border:3px solid rgba(255,255,255,.92);
+  width:88px;
+  height:88px;
   border-radius:50%;
-  width:72px;
-  height:72px;
+  border:4px solid rgba(255,255,255,.95);
+  background:rgba(255,255,255,.10);
+  backdrop-filter:blur(5px);
   display:flex;
   align-items:center;
   justify-content:center;
-  backdrop-filter:blur(6px);
+  z-index:4;
 }
+
 .play::before{
   content:'';
   border-style:solid;
-  border-width:12px 0 12px 19px;
+  border-width:15px 0 15px 23px;
   border-color:transparent transparent transparent #fff;
-  margin-left:5px;
+  margin-left:6px;
 }
+
 .count{
   font-weight:800;
   color:#bfdbfe;
-  margin-bottom:10px;
+  margin-bottom:12px;
+  font-size:1rem;
 }
+
 button{
   width:100%;
-  padding:15px 0;
   border:none;
-  border-radius:14px;
+  border-radius:15px;
+  padding:15px 0;
   background:linear-gradient(90deg,var(--a),var(--b));
   color:#fff;
+  font-size:1.08rem;
   font-weight:900;
-  font-size:1.05rem;
   cursor:pointer;
   transition:.15s ease;
-  box-shadow:0 12px 28px rgba(37,99,235,.30);
+  box-shadow:0 12px 30px rgba(37,99,235,.32);
 }
+
 button:disabled{
   opacity:.65;
   cursor:not-allowed;
 }
+
 button:not(:disabled):hover{
   transform:translateY(-1px);
 }
+
 button:active{
   transform:scale(.97);
 }
+
 .note{
-  font-size:.88rem;
+  margin-top:14px;
+  font-size:.9rem;
   color:var(--muted);
-  margin-top:13px;
   line-height:1.5;
 }
+
 .note a{
   color:var(--gold);
   font-weight:900;
   text-decoration:none;
 }
+
 .disclaimer{
-  margin-top:16px;
-  padding-top:14px;
+  margin-top:18px;
+  padding-top:15px;
   border-top:1px solid var(--border);
   font-size:.78rem;
   color:#94a3b8;
-  line-height:1.45;
+  line-height:1.5;
 }
+
 footer{
-  margin-top:22px;
-  font-size:.8rem;
+  margin-top:24px;
   color:#94a3b8;
+  font-size:.82rem;
 }
 </style>
 </head>
@@ -180,20 +216,29 @@ footer{
 <body>
 
 <div class="card">
-  <img src="/assets/gz-logo.png" alt="GiftCardZoneEU logo" class="logo">
 
-  <div class="badge">🌍 Sponsored Gateway</div>
+  <img src="/assets/gz-logo.png" alt="GiftCardZoneEU" class="logo">
 
-  <h1 id="headline">Continue to Sponsored Access</h1>
-  <p id="subtitle">Checking available promotional access for your region.</p>
+  <div class="badge">🌍 Sponsored Access</div>
 
-  <div class="preview">
+  <h1>Continue to Sponsored Offer</h1>
+
+  <p id="subtitle">
+    Checking sponsored access available in your region.
+  </p>
+
+  <a href="#" class="preview" id="previewLink">
+    <img src="/assets/access/sponsored-girl.webp" alt="Sponsored Offer">
     <div class="play"></div>
+  </a>
+
+  <div class="count">
+    Access unlocks in <span id="t">5</span> seconds...
   </div>
 
-  <div class="count">Access button unlocks in <span id="t">5</span> seconds…</div>
-
-  <button id="btn" disabled>Preparing secure access...</button>
+  <button id="btn" disabled>
+    Preparing secure access...
+  </button>
 
   <div class="note">
     If the button does not open, use this instead:<br>
@@ -201,55 +246,89 @@ footer{
   </div>
 
   <div class="disclaimer">
-    This page may redirect to a third-party sponsored offer. Availability may vary by country.
+    This page may redirect to a third-party sponsored offer.
+    Availability may vary depending on your country.
   </div>
+
 </div>
 
-<footer>© <span id="year"></span> GiftCardZoneEU • Sponsored Access</footer>
+<footer>
+  © <span id="year"></span> GiftCardZoneEU • Sponsored Access
+</footer>
 
 <script>
-const PRIMARY_URL = "https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";
+const PRIMARY_URL =
+"https://moundconclusive.com/qng7ic9mmn?key=7aafa190a2f78bc6cb6fd084e1fa9c4c";
+
 const BACKUP_URL = PRIMARY_URL;
 
 let t = 5;
+
 const timer = document.getElementById("t");
 const btn = document.getElementById("btn");
 
-document.getElementById("year").textContent = new Date().getFullYear();
+document.getElementById("year").textContent =
+new Date().getFullYear();
 
 const tick = setInterval(() => {
+
   t--;
   timer.textContent = t;
 
-  if (t <= 0) {
+  if(t <= 0){
     clearInterval(tick);
+
     btn.disabled = false;
-    btn.textContent = "👉 Continue to Sponsored Offer";
+    btn.innerHTML = "👉 Continue to Sponsored Offer";
   }
-}, 1000);
+
+},1000);
 
 btn.onclick = () => {
-  if (!btn.disabled) location.href = PRIMARY_URL;
+
+  if(!btn.disabled){
+    location.href = PRIMARY_URL;
+  }
+
+};
+
+document.getElementById("previewLink").onclick = e => {
+
+  e.preventDefault();
+
+  if(!btn.disabled){
+    location.href = PRIMARY_URL;
+  }
+
 };
 
 document.getElementById("backup").onclick = e => {
+
   e.preventDefault();
   location.href = BACKUP_URL;
+
 };
 
 fetch("https://ipapi.co/json/")
-  .then(r => r.json())
-  .then(d => {
-    const c = d.country_name || "your region";
-    const f = d.country_code || "";
-    const flag = f ? `https://flagcdn.com/24x18/${f.toLowerCase()}.png` : "";
-    const sub = document.getElementById("subtitle");
+.then(r => r.json())
+.then(d => {
 
-    sub.innerHTML = `Checking sponsored access available in <b>${c}</b> ${
-      flag ? `<img src="${flag}" alt="${f}" style="vertical-align:middle;border-radius:3px;margin-left:4px">` : ""
-    }.`;
-  })
-  .catch(() => {});
+  const c = d.country_name || "your region";
+  const f = d.country_code || "";
+
+  const flag =
+  f ? `https://flagcdn.com/24x18/${f.toLowerCase()}.png` : "";
+
+  document.getElementById("subtitle").innerHTML =
+  `Checking sponsored access available in <b>${c}</b>
+  ${flag ? `<img src="${flag}"
+  alt="${f}"
+  style="vertical-align:middle;
+  border-radius:3px;
+  margin-left:4px">` : ""}`;
+
+})
+.catch(()=>{});
 </script>
 
 <script src="/assets/ga.js"></script>
