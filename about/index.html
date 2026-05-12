@@ -25,15 +25,22 @@
     *{box-sizing:border-box;margin:0;padding:0}
 
     body{
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
-      color:#e8f0ff;
-      line-height:1.75;
-      padding:40px 20px;
-      min-height:100vh;
-      background:
-        linear-gradient(rgba(5,10,20,.78), rgba(5,10,20,.92)),
-        url('/assets/about/about-hero.webp') center/cover fixed no-repeat;
-    }
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:#eaf2ff;
+  background:
+    linear-gradient(135deg, rgba(2,6,23,.55), rgba(15,23,42,.72)),
+    url("/assets/about/about-hero.webp") center/cover fixed no-repeat;
+}
+
+.page{
+  max-width:1100px;
+  margin:auto;
+  background:rgba(8,15,35,.72);
+  border:1px solid rgba(56,189,248,.25);
+  box-shadow:0 0 40px rgba(34,197,94,.18);
+  backdrop-filter:blur(6px);
+}
 
     .container{
       max-width:880px;
