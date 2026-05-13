@@ -50,21 +50,18 @@ a{text-decoration:none;color:inherit}
 .topbar{
   background:linear-gradient(
     to bottom,
-    rgba(10,15,25,.22)
-    rgba(10,15,25,.06)
+    rgba(10,15,25,.22),
+    rgba(10,15,25,.06),
     rgba(10,15,25,0)
   );
-
   backdrop-filter:blur(6px);
--webkit-backdrop-filter:blur(6px);
-
+  -webkit-backdrop-filter:blur(6px);
   border-bottom:none;
   box-shadow:none;
 
-  position:absolute;
-top:0;
-left:0;
-width:100%;
+  position:sticky;
+  top:0;
+  z-index:999;
 }
 
 .nav{
@@ -150,7 +147,7 @@ width:100%;
   max-width:1180px;
   width:100%;
   margin:auto;
-  padding:220px 22px 86px;
+  padding:86px 22px;
 }
 
 .badge{
