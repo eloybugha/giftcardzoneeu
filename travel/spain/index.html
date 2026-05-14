@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -7,7 +7,18 @@
   <title>Best Hotel Deals in Spain | GiftCardZoneEU Travel</title>
   <meta name="description" content="Compare the best hotel deals in Spain — from Barcelona and Madrid to Seville and Valencia. Book securely via our trusted travel partners with GiftCardZoneEU Travel." />
   <link rel="canonical" href="https://giftcardzoneeu.com/travel/spain/" />
-    <meta name="robots" content="index, follow" />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:title" content="Best Hotel Deals in Spain | GiftCardZoneEU Travel" />
+  <meta property="og:description" content="Compare hotel deals in Spain across Barcelona, Madrid, Seville and Valencia with trusted travel partners." />
+  <meta property="og:url" content="https://giftcardzoneeu.com/travel/spain/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://giftcardzoneeu.com/assets/travel/spain/spain-hero.webp" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Best Hotel Deals in Spain | GiftCardZoneEU Travel" />
+  <meta name="twitter:description" content="Compare Spain hotel deals from trusted travel partners." />
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/travel/spain/spain-hero.webp" />
 
   <style>
     :root {
@@ -34,11 +45,64 @@
     }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-        "Segoe UI", sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
       background: radial-gradient(circle at top, #0f172a 0, #020617 55%, #020617 100%);
       color: var(--text-main);
       min-height: 100vh;
+    }
+
+    .topnav {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 18px;
+      backdrop-filter: blur(14px);
+      background: rgba(2, 6, 23, 0.82);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+    }
+
+    .topnav .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #f8fafc;
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .topnav img {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: #fff;
+      padding: 4px;
+      object-fit: contain;
+    }
+
+    .topnav nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .topnav nav a {
+      color: #dbeafe;
+      text-decoration: none;
+      font-size: 13px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.28);
+    }
+
+    .topnav nav a:hover {
+      background: var(--accent-soft);
+      border-color: var(--accent-strong);
     }
 
     .page-shell {
@@ -47,28 +111,25 @@
       padding: 24px 16px 40px;
     }
 
-    /* HERO WRAPPER */
-
     .hero {
-  position: relative;
-  overflow: hidden;
-  border-radius: 32px;
-  background: radial-gradient(circle at top left, #0b1120 0, #020617 55%, #020617 100%);
-  padding: 20px 22px 20px;
-  box-shadow: var(--shadow-soft);
-  margin-bottom: 18px;
-  isolation: isolate;
-}
+      position: relative;
+      overflow: hidden;
+      border-radius: 32px;
+      background: radial-gradient(circle at top left, #0b1120 0, #020617 55%, #020617 100%);
+      padding: 20px 22px;
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 18px;
+      isolation: isolate;
+    }
 
     .hero::before {
       content: "";
       position: absolute;
       inset: -40px;
-      background-image: url("/travel/spain/spain-hero.jpg");
+      background-image: url("/assets/travel/spain/spain-hero.webp");
       background-size: cover;
       background-position: center;
-      opacity: 0.35;
-      filter: blur(0px);
+      opacity: 0.38;
       transform: scale(1.04);
       z-index: -2;
     }
@@ -77,12 +138,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(
-        circle at top left,
-        rgba(15, 23, 42, 0.2) 0,
-        rgba(15, 23, 42, 0.92) 55%,
-        #020617 100%
-      );
+      background: radial-gradient(circle at top left, rgba(15,23,42,.16) 0, rgba(15,23,42,.9) 56%, #020617 100%);
       z-index: -1;
     }
 
@@ -106,12 +162,8 @@
       margin-bottom: 10px;
     }
 
-    .eyebrow span.flag {
-      font-size: 15px;
-    }
-
     .hero-title {
-      font-size: clamp(28px, 4.1vw, 34px);
+      font-size: clamp(28px, 4.1vw, 36px);
       letter-spacing: -0.04em;
       margin-bottom: 8px;
     }
@@ -119,7 +171,7 @@
     .hero-subtitle {
       font-size: 14px;
       color: var(--text-muted);
-      max-width: 420px;
+      max-width: 430px;
       line-height: 1.5;
       margin-bottom: 14px;
     }
@@ -139,7 +191,7 @@
 
     .trust-banner span.label {
       color: #fef9c3;
-      font-weight: 500;
+      font-weight: 600;
     }
 
     .trust-chips {
@@ -162,15 +214,11 @@
       white-space: nowrap;
     }
 
-    .trust-chip span.icon {
-      font-size: 13px;
-    }
-
     .partners-block {
       background: rgba(15, 23, 42, 0.9);
       border-radius: 24px;
       border: 1px solid rgba(148, 163, 184, 0.6);
-      padding: 14px 14px 10px;
+      padding: 14px;
       box-shadow: 0 18px 40px rgba(15, 23, 42, 0.8);
     }
 
@@ -209,12 +257,8 @@
       color: #e5e7eb;
       display: inline-flex;
       align-items: center;
-      justify-content: center;
       gap: 6px;
       text-decoration: none;
-      cursor: pointer;
-      transition: background 0.12s ease, transform 0.08s ease,
-        box-shadow 0.12s ease, border-color 0.12s ease;
       box-shadow: 0 12px 30px rgba(15, 23, 42, 0.7);
     }
 
@@ -229,16 +273,14 @@
       background: var(--accent-soft);
       border-color: var(--accent-strong);
       transform: translateY(-1px);
-      box-shadow: 0 18px 40px rgba(56, 189, 248, 0.4);
+      box-shadow: 0 18px 40px rgba(56, 189, 248, 0.32);
     }
-
-    /* CITY SIDE */
 
     .city-panel {
       background: var(--bg-soft);
       border-radius: 26px;
       border: 1px solid rgba(148, 163, 184, 0.5);
-      padding: 14px 14px 12px;
+      padding: 14px;
       box-shadow: var(--shadow-card);
     }
 
@@ -277,6 +319,13 @@
       flex-direction: column;
       justify-content: space-between;
       gap: 6px;
+      transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+    }
+
+    .city-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent-strong);
+      box-shadow: 0 18px 38px rgba(14,165,233,.18);
     }
 
     .city-card h3 {
@@ -295,11 +344,8 @@
       padding: 8px 10px;
       border-radius: 999px;
       background: linear-gradient(135deg, var(--accent-strong), #0369a1);
-      border: none;
-      outline: none;
-      cursor: pointer;
       font-size: 12px;
-      font-weight: 500;
+      font-weight: 600;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -307,21 +353,8 @@
       color: #f9fafb;
       text-decoration: none;
       box-shadow: 0 14px 32px rgba(8, 47, 73, 0.9);
-      transition: transform 0.08s ease, box-shadow 0.08s ease, filter 0.08s ease;
       white-space: nowrap;
     }
-
-    .city-card a.btn span.arrow {
-      font-size: 13px;
-    }
-
-    .city-card a.btn:hover {
-      transform: translateY(-1px);
-      filter: brightness(1.04);
-      box-shadow: 0 18px 40px rgba(8, 47, 73, 1);
-    }
-
-    /* MAIN BODY */
 
     main {
       margin-top: 18px;
@@ -367,24 +400,14 @@
       color: #e5e7eb;
       display: inline-flex;
       align-items: center;
-      justify-content: center;
       gap: 6px;
       text-decoration: none;
-      cursor: pointer;
-      transition: background 0.12s ease, transform 0.08s ease, box-shadow 0.12s ease,
-        border-color 0.12s ease;
     }
 
     .country-pill:hover {
       background: var(--accent-soft);
       border-color: var(--accent-strong);
       transform: translateY(-1px);
-      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.7);
-    }
-
-    .country-pill span.chevron {
-      font-size: 12px;
-      color: var(--text-muted);
     }
 
     .country-pill.active {
@@ -392,12 +415,6 @@
       border-color: var(--accent-strong);
       color: #f9fafb;
     }
-
-    .country-pill.active span.chevron {
-      color: #e0f2fe;
-    }
-
-    /* TRUST GRID */
 
     .trust-grid {
       display: grid;
@@ -437,13 +454,11 @@
       line-height: 1.55;
     }
 
-    /* TRUSTED PARTNERS */
-
     .trusted-partners {
       border-radius: 24px;
       border: 1px solid rgba(148, 163, 184, 0.7);
       background: radial-gradient(circle at top, #020617 0, #020617 55%, #020617 100%);
-      padding: 14px 14px 12px;
+      padding: 14px;
       box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
     }
 
@@ -493,8 +508,6 @@
       box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.25);
     }
 
-    /* FOOTER */
-
     footer {
       margin-top: 22px;
       padding-top: 14px;
@@ -513,53 +526,67 @@
       text-decoration: none;
     }
 
-    footer a:hover {
-      text-decoration: underline;
-    }
-
     .footer-links {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
+      margin-bottom: 8px;
     }
-
-    /* RESPONSIVE */
 
     @media (max-width: 960px) {
       .hero-inner {
         grid-template-columns: minmax(0, 1fr);
       }
-      .city-panel {
-        order: 2;
-      }
     }
 
     @media (max-width: 720px) {
+      .topnav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
       .page-shell {
         padding: 20px 14px 34px;
       }
+
       .hero {
-        padding: 18px 16px 18px;
+        padding: 18px 16px;
         border-radius: 26px;
       }
-      .partners-heading {
+
+      .partners-heading,
+      .trusted-header {
         flex-direction: column;
         align-items: flex-start;
       }
-      .city-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
+
+      .city-grid,
       .trust-grid {
         grid-template-columns: minmax(0, 1fr);
       }
     }
   </style>
 </head>
+
 <body>
+
+  <header class="topnav">
+    <a class="brand" href="/">
+      <img src="/assets/gz-logo.png" alt="GiftCardZoneEU Logo">
+      <span>GiftCardZoneEU</span>
+    </a>
+
+    <nav>
+      <a href="/travel/">Travel</a>
+      <a href="/shopping/">Shopping</a>
+      <a href="/rewards/">Rewards</a>
+      <a href="/travel/spain/">Spain</a>
+    </nav>
+  </header>
+
   <div class="page-shell">
     <header class="hero">
       <div class="hero-inner">
-        <!-- LEFT -->
         <div>
           <div class="eyebrow">
             <span class="flag">🇪🇸</span>
@@ -578,22 +605,10 @@
           </div>
 
           <div class="trust-chips">
-            <div class="trust-chip">
-              <span class="icon">🔐</span>
-              <span>Secure Booking</span>
-            </div>
-            <div class="trust-chip">
-              <span class="icon">⚡</span>
-              <span>Fast Price Compare</span>
-            </div>
-            <div class="trust-chip">
-              <span class="icon">🌍</span>
-              <span>Global Travel Brands</span>
-            </div>
-            <div class="trust-chip">
-              <span class="icon">💳</span>
-              <span>Direct to Official Sites</span>
-            </div>
+            <div class="trust-chip"><span>🔐</span><span>Secure Booking</span></div>
+            <div class="trust-chip"><span>⚡</span><span>Fast Price Compare</span></div>
+            <div class="trust-chip"><span>🌍</span><span>Global Travel Brands</span></div>
+            <div class="trust-chip"><span>💳</span><span>Direct to Official Sites</span></div>
           </div>
 
           <div class="partners-block">
@@ -601,45 +616,31 @@
               <h2>Top Travel Partners</h2>
               <span class="note">Choose a trusted partner to compare Spain hotel prices.</span>
             </div>
+
             <div class="partner-row">
-              <!-- replace # with Spain-specific affiliate links if meron -->
-              <a href="#" class="partner-pill" target="_blank" rel="noopener noreferrer">
-                <span class="dot"></span><span>Agoda</span>
-              </a>
-              <a href="#" class="partner-pill" target="_blank" rel="noopener noreferrer">
-                <span class="dot"></span><span>Booking.com</span>
-              </a>
-              <a href="#" class="partner-pill" target="_blank" rel="noopener noreferrer">
-                <span class="dot"></span><span>Trip.com</span>
-              </a>
-              <a href="#" class="partner-pill" target="_blank" rel="noopener noreferrer">
-                <span class="dot"></span><span>Hotels.com</span>
-              </a>
-              <a href="#" class="partner-pill" target="_blank" rel="noopener noreferrer">
-                <span class="dot"></span><span>Accor</span>
-              </a>
-              <a href="#" class="partner-pill" target="_blank" rel="noopener noreferrer">
-                <span class="dot"></span><span>Motel 6</span>
-              </a>
+              <a href="#" class="partner-pill" target="_blank" rel="nofollow sponsored noopener noreferrer"><span class="dot"></span><span>Agoda</span></a>
+              <a href="#" class="partner-pill" target="_blank" rel="nofollow sponsored noopener noreferrer"><span class="dot"></span><span>Booking.com</span></a>
+              <a href="#" class="partner-pill" target="_blank" rel="nofollow sponsored noopener noreferrer"><span class="dot"></span><span>Trip.com</span></a>
+              <a href="#" class="partner-pill" target="_blank" rel="nofollow sponsored noopener noreferrer"><span class="dot"></span><span>Hotels.com</span></a>
+              <a href="#" class="partner-pill" target="_blank" rel="nofollow sponsored noopener noreferrer"><span class="dot"></span><span>Accor</span></a>
+              <a href="#" class="partner-pill" target="_blank" rel="nofollow sponsored noopener noreferrer"><span class="dot"></span><span>Motel 6</span></a>
             </div>
           </div>
         </div>
 
-        <!-- RIGHT: CITY CARDS -->
         <aside class="city-panel">
           <div class="city-panel-header">
             <h2>Key Spain Cities</h2>
             <span>Pick a city to start browsing hotel deals.</span>
           </div>
+
           <div class="city-grid">
             <article class="city-card">
               <div>
                 <h3>Barcelona</h3>
                 <p>Stay near La Rambla, Sagrada Família, beachfront promenades and scenic viewpoints.</p>
               </div>
-              <a href="#" class="btn" target="_blank" rel="noopener noreferrer">
-                <span>View Barcelona hotels</span><span class="arrow">↗</span>
-              </a>
+              <a href="#" class="btn" target="_blank" rel="nofollow sponsored noopener noreferrer">View Barcelona hotels ↗</a>
             </article>
 
             <article class="city-card">
@@ -647,9 +648,7 @@
                 <h3>Madrid</h3>
                 <p>Book hotels around Gran Vía, royal palaces, museums and lively tapas streets.</p>
               </div>
-              <a href="#" class="btn" target="_blank" rel="noopener noreferrer">
-                <span>View Madrid hotels</span><span class="arrow">↗</span>
-              </a>
+              <a href="#" class="btn" target="_blank" rel="nofollow sponsored noopener noreferrer">View Madrid hotels ↗</a>
             </article>
 
             <article class="city-card">
@@ -657,9 +656,7 @@
                 <h3>Seville</h3>
                 <p>Find stays near plazas, cathedrals, flamenco venues and historic neighbourhoods.</p>
               </div>
-              <a href="#" class="btn" target="_blank" rel="noopener noreferrer">
-                <span>View Seville hotels</span><span class="arrow">↗</span>
-              </a>
+              <a href="#" class="btn" target="_blank" rel="nofollow sponsored noopener noreferrer">View Seville hotels ↗</a>
             </article>
 
             <article class="city-card">
@@ -667,9 +664,7 @@
                 <h3>Valencia</h3>
                 <p>Explore hotels close to beaches, old town squares and modern arts & science districts.</p>
               </div>
-              <a href="#" class="btn" target="_blank" rel="noopener noreferrer">
-                <span>View Valencia hotels</span><span class="arrow">↗</span>
-              </a>
+              <a href="#" class="btn" target="_blank" rel="nofollow sponsored noopener noreferrer">View Valencia hotels ↗</a>
             </article>
           </div>
         </aside>
@@ -677,27 +672,26 @@
     </header>
 
     <main>
-      <!-- OTHER DESTINATIONS -->
       <section>
         <div class="section-eyebrow">More travel destinations</div>
         <h2 class="section-title">Explore more hotel deals with GiftCardZoneEU Travel</h2>
         <p class="section-lede">
           Browse more countries and compare hotel prices across our trusted travel partners. You’ll always be redirected to official booking pages to complete your reservation securely.
         </p>
+
         <div class="pill-grid">
-          <a href="/travel/japan/" class="country-pill"><span>Japan</span><span class="chevron">↗</span></a>
-          <a href="/travel/germany/" class="country-pill"><span>Germany</span><span class="chevron">↗</span></a>
-          <a href="/travel/italy/" class="country-pill"><span>Italy</span><span class="chevron">↗</span></a>
-          <a href="/travel/united-kingdom/" class="country-pill"><span>United Kingdom</span><span class="chevron">↗</span></a>
-          <a href="/travel/belgium/" class="country-pill"><span>Belgium</span><span class="chevron">↗</span></a>
-          <a href="/travel/canada/" class="country-pill"><span>Canada</span><span class="chevron">↗</span></a>
-          <a href="/travel/usa/" class="country-pill"><span>USA</span><span class="chevron">↗</span></a>
-          <a href="/travel/philippines/" class="country-pill"><span>Philippines</span><span class="chevron">↗</span></a>
-          <span class="country-pill active"><span>Spain</span><span class="chevron">●</span></span>
+          <a href="/travel/japan/" class="country-pill">Japan ↗</a>
+          <a href="/travel/germany/" class="country-pill">Germany ↗</a>
+          <a href="/travel/italy/" class="country-pill">Italy ↗</a>
+          <a href="/travel/united-kingdom/" class="country-pill">United Kingdom ↗</a>
+          <a href="/travel/belgium/" class="country-pill">Belgium ↗</a>
+          <a href="/travel/canada/" class="country-pill">Canada ↗</a>
+          <a href="/travel/usa/" class="country-pill">USA ↗</a>
+          <a href="/travel/philippines/" class="country-pill">Philippines ↗</a>
+          <span class="country-pill active">Spain ●</span>
         </div>
       </section>
 
-      <!-- WHY TRAVELERS TRUST US -->
       <section>
         <div class="section-eyebrow">Why travelers trust us</div>
         <h2 class="section-title">Book smarter with trusted Spain hotel partners</h2>
@@ -711,26 +705,31 @@
             <h3>Secure redirects only</h3>
             <p>Every “View hotels” button sends you straight to official partner booking pages using secure HTTPS links.</p>
           </article>
+
           <article class="trust-card">
             <div class="trust-icon">🌍</div>
             <h3>Global hotel coverage</h3>
             <p>From big cities to coastal towns, our partners list thousands of stays across Spain.</p>
           </article>
+
           <article class="trust-card">
             <div class="trust-icon">💳</div>
             <h3>No extra mark-ups</h3>
             <p>We don’t add hidden fees. You see live prices and promotions directly from Agoda, Booking.com, Trip.com and more.</p>
           </article>
+
           <article class="trust-card">
             <div class="trust-icon">⭐</div>
             <h3>Verified partners only</h3>
             <p>We only feature trusted, long-running travel brands with reviews, secure payment systems and clear policies.</p>
           </article>
+
           <article class="trust-card">
             <div class="trust-icon">⏱️</div>
             <h3>Fast hotel comparisons</h3>
             <p>Quickly scan multiple partners to see where you can find the best deal for your Spain dates and cities.</p>
           </article>
+
           <article class="trust-card">
             <div class="trust-icon">🧾</div>
             <h3>Simple disclosures</h3>
@@ -739,32 +738,20 @@
         </div>
       </section>
 
-      <!-- TRUSTED PARTNERS -->
       <section>
         <div class="trusted-partners">
           <div class="trusted-header">
             <h3>Trusted partners</h3>
             <span>We compare hotel deals across leading global booking brands.</span>
           </div>
+
           <div class="partner-dot-row">
-            <div class="partner-dot">
-              <span class="indicator"></span><span>Agoda</span>
-            </div>
-            <div class="partner-dot">
-              <span class="indicator"></span><span>Booking.com</span>
-            </div>
-            <div class="partner-dot">
-              <span class="indicator"></span><span>Trip.com</span>
-            </div>
-            <div class="partner-dot">
-              <span class="indicator"></span><span>Hotels.com</span>
-            </div>
-            <div class="partner-dot">
-              <span class="indicator"></span><span>Accor</span>
-            </div>
-            <div class="partner-dot">
-              <span class="indicator"></span><span>Motel 6</span>
-            </div>
+            <div class="partner-dot"><span class="indicator"></span><span>Agoda</span></div>
+            <div class="partner-dot"><span class="indicator"></span><span>Booking.com</span></div>
+            <div class="partner-dot"><span class="indicator"></span><span>Trip.com</span></div>
+            <div class="partner-dot"><span class="indicator"></span><span>Hotels.com</span></div>
+            <div class="partner-dot"><span class="indicator"></span><span>Accor</span></div>
+            <div class="partner-dot"><span class="indicator"></span><span>Motel 6</span></div>
           </div>
         </div>
       </section>
@@ -775,17 +762,22 @@
         All hotel bookings are completed on our partners’ official websites. GiftCardZoneEU Travel does not handle your payment or reservation — we simply connect you to trusted booking brands.
       </p>
       <p>
-        This page contains affiliate links. If you book a hotel through these partners, we may earn a small commission at no extra cost to you. This helps keep GiftCardZoneEU online while we continue to search for the best travel deals.
+        This page contains affiliate links. If you book a hotel through these partners, we may earn a small commission at no extra cost to you.
       </p>
+
       <div class="footer-links">
         <a href="/privacy-policy/">Privacy Policy</a>
         <a href="/disclaimer/">Website Disclaimer</a>
-          </div>
+      </div>
+
       <p>© <span id="year"></span> GiftCardZoneEU. All rights reserved.</p>
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
     </footer>
   </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+  <script src="/assets/ga.js"></script>
 </body>
 </html>
