@@ -1,783 +1,688 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Best Hotel Deals in Spain | GiftCardZoneEU Travel</title>
-  <meta name="description" content="Compare the best hotel deals in Spain — from Barcelona and Madrid to Seville and Valencia. Book securely via our trusted travel partners with GiftCardZoneEU Travel." />
-  <link rel="canonical" href="https://giftcardzoneeu.com/travel/spain/" />
-  <meta name="robots" content="index, follow" />
-
-  <meta property="og:title" content="Best Hotel Deals in Spain | GiftCardZoneEU Travel" />
-  <meta property="og:description" content="Compare hotel deals in Spain across Barcelona, Madrid, Seville and Valencia with trusted travel partners." />
-  <meta property="og:url" content="https://giftcardzoneeu.com/travel/spain/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://giftcardzoneeu.com/assets/travel/spain/spain-hero.webp" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Best Hotel Deals in Spain | GiftCardZoneEU Travel" />
-  <meta name="twitter:description" content="Compare Spain hotel deals from trusted travel partners." />
-  <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/travel/spain/spain-hero.webp" />
-
-  <style>
-    :root {
-      --bg-page: #020617;
-      --bg-card: rgba(15, 23, 42, 0.9);
-      --bg-soft: rgba(15, 23, 42, 0.7);
-      --border-subtle: rgba(148, 163, 184, 0.4);
-      --text-main: #e5e7eb;
-      --text-muted: #9ca3af;
-      --accent: #38bdf8;
-      --accent-soft: rgba(56, 189, 248, 0.12);
-      --accent-strong: #0ea5e9;
-      --badge-bg: rgba(15, 23, 42, 0.86);
-      --radius-lg: 20px;
-      --radius-xl: 26px;
-      --shadow-soft: 0 22px 60px rgba(15, 23, 42, 0.7);
-      --shadow-card: 0 18px 40px rgba(15, 23, 42, 0.75);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #0f172a 0, #020617 55%, #020617 100%);
-      color: var(--text-main);
-      min-height: 100vh;
-    }
-
-    .topnav {
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 14px;
-      padding: 12px 18px;
-      backdrop-filter: blur(14px);
-      background: rgba(2, 6, 23, 0.82);
-      border-bottom: 1px solid rgba(148, 163, 184, 0.14);
-    }
-
-    .topnav .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: #f8fafc;
-      text-decoration: none;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-    }
-
-    .topnav img {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      background: #fff;
-      padding: 4px;
-      object-fit: contain;
-    }
-
-    .topnav nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .topnav nav a {
-      color: #dbeafe;
-      text-decoration: none;
-      font-size: 13px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.85);
-      border: 1px solid rgba(148, 163, 184, 0.28);
-    }
-
-    .topnav nav a:hover {
-      background: var(--accent-soft);
-      border-color: var(--accent-strong);
-    }
-
-    .page-shell {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 24px 16px 40px;
-    }
-
-    .hero {
-      position: relative;
-      overflow: hidden;
-      border-radius: 32px;
-      background: radial-gradient(circle at top left, #0b1120 0, #020617 55%, #020617 100%);
-      padding: 20px 22px;
-      box-shadow: var(--shadow-soft);
-      margin-bottom: 18px;
-      isolation: isolate;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: -40px;
-      background-image: url("/assets/travel/spain/spain-hero.webp");
-      background-size: cover;
-      background-position: center;
-      opacity: 0.38;
-      transform: scale(1.04);
-      z-index: -2;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top left, rgba(15,23,42,.16) 0, rgba(15,23,42,.9) 56%, #020617 100%);
-      z-index: -1;
-    }
-
-    .hero-inner {
-      display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.9fr);
-      gap: 20px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.55);
-      background: rgba(15, 23, 42, 0.88);
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-bottom: 10px;
-    }
-
-    .hero-title {
-      font-size: clamp(28px, 4.1vw, 36px);
-      letter-spacing: -0.04em;
-      margin-bottom: 8px;
-    }
-
-    .hero-subtitle {
-      font-size: 14px;
-      color: var(--text-muted);
-      max-width: 430px;
-      line-height: 1.5;
-      margin-bottom: 14px;
-    }
-
-    .trust-banner {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 7px 13px;
-      border-radius: 999px;
-      background: rgba(251, 191, 36, 0.16);
-      border: 1px solid rgba(245, 158, 11, 0.6);
-      color: #facc15;
-      font-size: 12px;
-      margin-bottom: 12px;
-    }
-
-    .trust-banner span.label {
-      color: #fef9c3;
-      font-weight: 600;
-    }
-
-    .trust-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 18px;
-    }
-
-    .trust-chip {
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: var(--badge-bg);
-      border: 1px solid rgba(148, 163, 184, 0.55);
-      font-size: 12px;
-      color: var(--text-muted);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      white-space: nowrap;
-    }
-
-    .partners-block {
-      background: rgba(15, 23, 42, 0.9);
-      border-radius: 24px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      padding: 14px;
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.8);
-    }
-
-    .partners-heading {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-
-    .partners-heading h2 {
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--text-muted);
-    }
-
-    .partners-heading span.note {
-      font-size: 11px;
-      color: var(--text-muted);
-    }
-
-    .partner-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .partner-pill {
-      padding: 7px 13px;
-      border-radius: 999px;
-      background: #020617;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      font-size: 12px;
-      color: #e5e7eb;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      text-decoration: none;
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.7);
-    }
-
-    .partner-pill span.dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: #22c55e;
-    }
-
-    .partner-pill:hover {
-      background: var(--accent-soft);
-      border-color: var(--accent-strong);
-      transform: translateY(-1px);
-      box-shadow: 0 18px 40px rgba(56, 189, 248, 0.32);
-    }
-
-    .city-panel {
-      background: var(--bg-soft);
-      border-radius: 26px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      padding: 14px;
-      box-shadow: var(--shadow-card);
-    }
-
-    .city-panel-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 8px;
-      margin-bottom: 8px;
-    }
-
-    .city-panel-header h2 {
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--text-muted);
-    }
-
-    .city-panel-header span {
-      font-size: 11px;
-      color: var(--text-muted);
-    }
-
-    .city-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    .city-card {
-      background: rgba(15, 23, 42, 0.98);
-      border-radius: 18px;
-      padding: 16px 18px;
-      border: 1px solid rgba(148, 163, 184, 0.55);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 6px;
-      transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
-    }
-
-    .city-card:hover {
-      transform: translateY(-2px);
-      border-color: var(--accent-strong);
-      box-shadow: 0 18px 38px rgba(14,165,233,.18);
-    }
-
-    .city-card h3 {
-      font-size: 14px;
-      margin-bottom: 1px;
-    }
-
-    .city-card p {
-      font-size: 12px;
-      color: var(--text-muted);
-      line-height: 1.45;
-    }
-
-    .city-card a.btn {
-      margin-top: 4px;
-      padding: 8px 10px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--accent-strong), #0369a1);
-      font-size: 12px;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      color: #f9fafb;
-      text-decoration: none;
-      box-shadow: 0 14px 32px rgba(8, 47, 73, 0.9);
-      white-space: nowrap;
-    }
-
-    main {
-      margin-top: 18px;
-    }
-
-    section {
-      margin-bottom: 22px;
-    }
-
-    .section-eyebrow {
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--text-muted);
-      margin-bottom: 6px;
-    }
-
-    .section-title {
-      font-size: 20px;
-      margin-bottom: 12px;
-    }
-
-    .section-lede {
-      font-size: 14px;
-      color: var(--text-muted);
-      max-width: 640px;
-      line-height: 1.6;
-      margin-bottom: 16px;
-    }
-
-    .pill-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .country-pill {
-      padding: 7px 13px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      background: #020617;
-      font-size: 12px;
-      color: #e5e7eb;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      text-decoration: none;
-    }
-
-    .country-pill:hover {
-      background: var(--accent-soft);
-      border-color: var(--accent-strong);
-      transform: translateY(-1px);
-    }
-
-    .country-pill.active {
-      background: var(--accent-strong);
-      border-color: var(--accent-strong);
-      color: #f9fafb;
-    }
-
-    .trust-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .trust-card {
-      border-radius: 20px;
-      background: radial-gradient(circle at top left, #020617 0, #020617 40%, #020617 100%);
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      padding: 16px 18px;
-      font-size: 13px;
-      box-shadow: 0 18px 44px rgba(15, 23, 42, 0.9);
-    }
-
-    .trust-icon {
-      width: 26px;
-      height: 26px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 8px;
-      font-size: 15px;
-    }
-
-    .trust-card h3 {
-      font-size: 14px;
-      margin-bottom: 4px;
-    }
-
-    .trust-card p {
-      color: var(--text-muted);
-      line-height: 1.55;
-    }
-
-    .trusted-partners {
-      border-radius: 24px;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      background: radial-gradient(circle at top, #020617 0, #020617 55%, #020617 100%);
-      padding: 14px;
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
-    }
-
-    .trusted-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-
-    .trusted-header h3 {
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--text-muted);
-    }
-
-    .trusted-header span {
-      font-size: 11px;
-      color: var(--text-muted);
-    }
-
-    .partner-dot-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .partner-dot {
-      padding: 6px 11px;
-      border-radius: 999px;
-      background: #020617;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      font-size: 12px;
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      color: #e5e7eb;
-    }
-
-    .partner-dot span.indicator {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.25);
-    }
-
-    footer {
-      margin-top: 22px;
-      padding-top: 14px;
-      border-top: 1px solid rgba(51, 65, 85, 0.9);
-      font-size: 11px;
-      color: var(--text-muted);
-    }
-
-    footer p {
-      margin-bottom: 8px;
-      line-height: 1.6;
-    }
-
-    footer a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 8px;
-    }
-
-    @media (max-width: 960px) {
-      .hero-inner {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    @media (max-width: 720px) {
-      .topnav {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .page-shell {
-        padding: 20px 14px 34px;
-      }
-
-      .hero {
-        padding: 18px 16px;
-        border-radius: 26px;
-      }
-
-      .partners-heading,
-      .trusted-header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .city-grid,
-      .trust-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Best Hotel Deals in Spain | GiftCardZoneEU Travel</title>
+<meta name="description" content="Compare hotel deals in Spain — Barcelona, Madrid, Seville and Valencia. Book through Trip.com or Expedia with GiftCardZoneEU Travel." />
+<link rel="canonical" href="https://giftcardzoneeu.com/travel/spain/" />
+<meta name="robots" content="index, follow" />
+
+<meta property="og:title" content="Best Hotel Deals in Spain | GiftCardZoneEU Travel" />
+<meta property="og:description" content="Compare Spain hotel deals through Trip.com and Expedia." />
+<meta property="og:url" content="https://giftcardzoneeu.com/travel/spain/" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://giftcardzoneeu.com/assets/travel/spain/spain-hero.webp" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://giftcardzoneeu.com/assets/travel/spain/spain-hero.webp" />
+
+<style>
+:root{
+  --bg:#020617;
+  --card:rgba(15,23,42,.92);
+  --soft:rgba(15,23,42,.72);
+  --border:rgba(148,163,184,.42);
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --accent:#0ea5e9;
+  --accent2:#38bdf8;
+  --gold:#facc15;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:radial-gradient(circle at top,#0f172a 0,#020617 55%,#020617 100%);
+  color:var(--text);
+  min-height:100vh;
+}
+
+a{text-decoration:none;color:inherit}
+
+.topnav{
+  position:sticky;
+  top:0;
+  z-index:999;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:14px;
+  padding:12px 18px;
+  background:rgba(2,6,23,.84);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(148,163,184,.16);
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:900;
+}
+
+.brand img{
+  width:42px;
+  height:42px;
+  border-radius:12px;
+  background:#fff;
+  padding:4px;
+  object-fit:contain;
+}
+
+.topnav nav{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.topnav nav a{
+  font-size:13px;
+  padding:8px 12px;
+  border-radius:999px;
+  background:rgba(15,23,42,.9);
+  border:1px solid rgba(148,163,184,.28);
+  color:#dbeafe;
+}
+
+.topnav nav a:hover{
+  background:rgba(14,165,233,.16);
+  border-color:var(--accent);
+}
+
+.page-shell{
+  max-width:1120px;
+  margin:0 auto;
+  padding:24px 16px 42px;
+}
+
+.hero{
+  position:relative;
+  overflow:hidden;
+  border-radius:32px;
+  padding:22px;
+  margin-bottom:20px;
+  box-shadow:0 22px 60px rgba(0,0,0,.55);
+  isolation:isolate;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:-36px;
+  background:url("/assets/travel/spain/spain-hero.webp") center/cover no-repeat;
+  opacity:.42;
+  transform:scale(1.04);
+  z-index:-2;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at top left,rgba(15,23,42,.25),rgba(15,23,42,.88) 58%,#020617 100%);
+  z-index:-1;
+}
+
+.hero-inner{
+  display:grid;
+  grid-template-columns:1.08fr .92fr;
+  gap:20px;
+  align-items:center;
+}
+
+.eyebrow{
+  display:inline-flex;
+  gap:8px;
+  align-items:center;
+  padding:7px 12px;
+  border-radius:999px;
+  background:rgba(15,23,42,.88);
+  border:1px solid rgba(148,163,184,.55);
+  color:var(--muted);
+  font-size:13px;
+  margin-bottom:10px;
+}
+
+.hero-title{
+  font-size:clamp(29px,4.4vw,40px);
+  line-height:1.05;
+  letter-spacing:-.04em;
+  margin-bottom:10px;
+}
+
+.hero-subtitle{
+  color:#cbd5e1;
+  font-size:15px;
+  line-height:1.55;
+  max-width:510px;
+  margin-bottom:14px;
+}
+
+.trust-banner{
+  display:inline-flex;
+  flex-wrap:wrap;
+  gap:8px;
+  align-items:center;
+  padding:8px 13px;
+  border-radius:999px;
+  background:rgba(251,191,36,.16);
+  border:1px solid rgba(245,158,11,.6);
+  color:var(--gold);
+  font-size:12px;
+  margin-bottom:12px;
+}
+
+.trust-banner .label{color:#fef9c3;font-weight:700}
+
+.trust-chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:18px;
+}
+
+.trust-chip{
+  padding:7px 12px;
+  border-radius:999px;
+  background:rgba(15,23,42,.9);
+  border:1px solid rgba(148,163,184,.48);
+  color:#cbd5e1;
+  font-size:12px;
+}
+
+.partners-block,
+.city-panel,
+.trusted-partners,
+.trust-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  box-shadow:0 18px 42px rgba(0,0,0,.42);
+}
+
+.partners-block{
+  border-radius:24px;
+  padding:15px;
+}
+
+.partners-heading,
+.city-panel-header,
+.trusted-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin-bottom:12px;
+}
+
+.partners-heading h2,
+.city-panel-header h2,
+.trusted-header h3{
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:.15em;
+  color:var(--muted);
+}
+
+.note,
+.city-panel-header span,
+.trusted-header span{
+  font-size:11px;
+  color:var(--muted);
+}
+
+.partner-row,
+.partner-dot-row,
+.pill-grid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+}
+
+.partner-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:10px 15px;
+  border-radius:999px;
+  background:#020617;
+  border:1px solid rgba(148,163,184,.65);
+  color:#e5e7eb;
+  font-size:13px;
+  font-weight:800;
+  box-shadow:0 12px 28px rgba(0,0,0,.35);
+}
+
+.partner-pill.primary{
+  background:linear-gradient(135deg,#2563eb,#0ea5e9);
+  border-color:rgba(191,219,254,.55);
+  color:#fff;
+}
+
+.partner-pill .dot,
+.partner-dot .indicator{
+  width:8px;
+  height:8px;
+  border-radius:999px;
+  background:#22c55e;
+  box-shadow:0 0 0 3px rgba(34,197,94,.22);
+}
+
+.partner-pill:hover,
+.country-pill:hover{
+  transform:translateY(-1px);
+  border-color:var(--accent);
+}
+
+.city-panel{
+  border-radius:26px;
+  padding:15px;
+}
+
+.city-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+}
+
+.city-card{
+  background:rgba(15,23,42,.98);
+  border-radius:18px;
+  padding:12px;
+  border:1px solid rgba(148,163,184,.52);
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  transition:.15s ease;
+}
+
+.city-card:hover{
+  transform:translateY(-2px);
+  border-color:var(--accent);
+  box-shadow:0 18px 38px rgba(14,165,233,.16);
+}
+
+.city-card img{
+  width:100%;
+  aspect-ratio:1.45/1;
+  object-fit:cover;
+  border-radius:14px;
+  border:1px solid rgba(148,163,184,.35);
+  background:#020617;
+}
+
+.city-card h3{
+  font-size:15px;
+}
+
+.city-card p{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.45;
+}
+
+.btn{
+  margin-top:auto;
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  padding:9px 11px;
+  border-radius:999px;
+  background:linear-gradient(135deg,#2563eb,#0ea5e9);
+  color:#fff;
+  font-size:12px;
+  font-weight:800;
+  box-shadow:0 14px 30px rgba(8,47,73,.72);
+}
+
+.btn.secondary{
+  background:linear-gradient(135deg,#f97316,#ea580c);
+}
+
+main{margin-top:20px}
+
+section{margin-bottom:24px}
+
+.section-eyebrow{
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  color:var(--muted);
+  margin-bottom:6px;
+}
+
+.section-title{
+  font-size:21px;
+  margin-bottom:10px;
+}
+
+.section-lede{
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.65;
+  max-width:690px;
+  margin-bottom:16px;
+}
+
+.country-pill{
+  padding:8px 13px;
+  border-radius:999px;
+  border:1px solid rgba(148,163,184,.55);
+  background:#020617;
+  color:#e5e7eb;
+  font-size:12px;
+}
+
+.country-pill.active{
+  background:var(--accent);
+  border-color:var(--accent);
+  color:#fff;
+}
+
+.trust-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+}
+
+.trust-card{
+  border-radius:20px;
+  padding:17px;
+}
+
+.trust-icon{
+  width:28px;
+  height:28px;
+  border-radius:999px;
+  background:rgba(15,23,42,.92);
+  border:1px solid rgba(148,163,184,.65);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:8px;
+}
+
+.trust-card h3{
+  font-size:14px;
+  margin-bottom:5px;
+}
+
+.trust-card p{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.55;
+}
+
+.trusted-partners{
+  border-radius:24px;
+  padding:15px;
+}
+
+.partner-dot{
+  padding:7px 12px;
+  border-radius:999px;
+  background:#020617;
+  border:1px solid rgba(148,163,184,.6);
+  font-size:12px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+}
+
+footer{
+  margin-top:22px;
+  padding-top:15px;
+  border-top:1px solid rgba(51,65,85,.9);
+  color:var(--muted);
+  font-size:11px;
+}
+
+footer p{
+  margin-bottom:8px;
+  line-height:1.6;
+}
+
+.footer-links{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:8px;
+}
+
+footer a{color:var(--accent2)}
+
+@media(max-width:960px){
+  .hero-inner{grid-template-columns:1fr}
+}
+
+@media(max-width:720px){
+  .topnav{align-items:flex-start;flex-direction:column}
+  .page-shell{padding:20px 14px 36px}
+  .hero{padding:18px 16px;border-radius:26px}
+  .partners-heading,
+  .city-panel-header,
+  .trusted-header{align-items:flex-start;flex-direction:column}
+  .city-grid,
+  .trust-grid{grid-template-columns:1fr}
+}
+</style>
 </head>
 
 <body>
 
-  <header class="topnav">
-    <a class="brand" href="/">
-      <img src="/assets/gz-logo.png" alt="GiftCardZoneEU Logo">
-      <span>GiftCardZoneEU</span>
-    </a>
+<header class="topnav">
+  <a class="brand" href="/">
+    <img src="/assets/gz-logo.png" alt="GiftCardZoneEU Logo">
+    <span>GiftCardZoneEU</span>
+  </a>
 
-    <nav>
-      <a href="/travel/">Travel</a>
-      <a href="/shopping/">Shopping</a>
-      <a href="/rewards/">Rewards</a>
-      <a href="/travel/spain/">Spain</a>
-    </nav>
-  </header>
+  <nav>
+    <a href="/travel/">Travel</a>
+    <a href="/shopping/">Shopping</a>
+    <a href="/rewards/">Rewards</a>
+    <a href="/travel/spain/">Spain</a>
+  </nav>
+</header>
 
-  <div class="page-shell">
-    <header class="hero">
-      <div class="hero-inner">
-        <div>
-          <div class="eyebrow">
-            <span class="flag">🇪🇸</span>
-            <span>Spain · Barcelona · Madrid · Seville · Valencia</span>
-          </div>
+<div class="page-shell">
 
-          <h1 class="hero-title">Best Hotel Deals in Spain</h1>
-          <p class="hero-subtitle">
-            Compare hotel prices in Spain — from sunset views in Barcelona and historic streets in Madrid to flamenco nights in Seville and beach escapes in Valencia.
-          </p>
+<header class="hero">
+  <div class="hero-inner">
 
-          <div class="trust-banner">
-            <span>⭐</span>
-            <span class="label">GiftCardZoneEU Travel</span>
-            <span>Trusted worldwide booking partner connections</span>
-          </div>
-
-          <div class="trust-chips">
-            <div class="trust-chip"><span>🔐</span><span>Secure Booking</span></div>
-            <div class="trust-chip"><span>⚡</span><span>Fast Price Compare</span></div>
-            <div class="trust-chip"><span>🌍</span><span>Global Travel Brands</span></div>
-            <div class="trust-chip"><span>💳</span><span>Direct to Official Sites</span></div>
-          </div>
-
-          <div class="partners-block">
-            <div class="partners-heading">
-              <h2>Top Travel Partners</h2>
-              <span class="note">Choose a trusted partner to compare Spain hotel prices.</span>
-            </div>
-
-            <div class="partner-row">
-              <a href="#" class="partner-pill" target="_blank" rel="nofollow sponsored noopener noreferrer"><span class="dot"></span><span>Agoda</span></a>
-              <a href="#" class="partner-pill" target="_blank" rel="nofollow sponsored noopener noreferrer"><span class="dot"></span><span>Booking.com</span></a>
-              <a href="#" class="partner-pill" target="_blank" rel="nofollow sponsored noopener noreferrer"><span class="dot"></span><span>Trip.com</span></a>
-              <a href="#" class="partner-pill" target="_blank" rel="nofollow sponsored noopener noreferrer"><span class="dot"></span><span>Hotels.com</span></a>
-              <a href="#" class="partner-pill" target="_blank" rel="nofollow sponsored noopener noreferrer"><span class="dot"></span><span>Accor</span></a>
-              <a href="#" class="partner-pill" target="_blank" rel="nofollow sponsored noopener noreferrer"><span class="dot"></span><span>Motel 6</span></a>
-            </div>
-          </div>
-        </div>
-
-        <aside class="city-panel">
-          <div class="city-panel-header">
-            <h2>Key Spain Cities</h2>
-            <span>Pick a city to start browsing hotel deals.</span>
-          </div>
-
-          <div class="city-grid">
-            <article class="city-card">
-              <div>
-                <h3>Barcelona</h3>
-                <p>Stay near La Rambla, Sagrada Família, beachfront promenades and scenic viewpoints.</p>
-              </div>
-              <a href="#" class="btn" target="_blank" rel="nofollow sponsored noopener noreferrer">View Barcelona hotels ↗</a>
-            </article>
-
-            <article class="city-card">
-              <div>
-                <h3>Madrid</h3>
-                <p>Book hotels around Gran Vía, royal palaces, museums and lively tapas streets.</p>
-              </div>
-              <a href="#" class="btn" target="_blank" rel="nofollow sponsored noopener noreferrer">View Madrid hotels ↗</a>
-            </article>
-
-            <article class="city-card">
-              <div>
-                <h3>Seville</h3>
-                <p>Find stays near plazas, cathedrals, flamenco venues and historic neighbourhoods.</p>
-              </div>
-              <a href="#" class="btn" target="_blank" rel="nofollow sponsored noopener noreferrer">View Seville hotels ↗</a>
-            </article>
-
-            <article class="city-card">
-              <div>
-                <h3>Valencia</h3>
-                <p>Explore hotels close to beaches, old town squares and modern arts & science districts.</p>
-              </div>
-              <a href="#" class="btn" target="_blank" rel="nofollow sponsored noopener noreferrer">View Valencia hotels ↗</a>
-            </article>
-          </div>
-        </aside>
-      </div>
-    </header>
-
-    <main>
-      <section>
-        <div class="section-eyebrow">More travel destinations</div>
-        <h2 class="section-title">Explore more hotel deals with GiftCardZoneEU Travel</h2>
-        <p class="section-lede">
-          Browse more countries and compare hotel prices across our trusted travel partners. You’ll always be redirected to official booking pages to complete your reservation securely.
-        </p>
-
-        <div class="pill-grid">
-          <a href="/travel/japan/" class="country-pill">Japan ↗</a>
-          <a href="/travel/germany/" class="country-pill">Germany ↗</a>
-          <a href="/travel/italy/" class="country-pill">Italy ↗</a>
-          <a href="/travel/united-kingdom/" class="country-pill">United Kingdom ↗</a>
-          <a href="/travel/belgium/" class="country-pill">Belgium ↗</a>
-          <a href="/travel/canada/" class="country-pill">Canada ↗</a>
-          <a href="/travel/usa/" class="country-pill">USA ↗</a>
-          <a href="/travel/philippines/" class="country-pill">Philippines ↗</a>
-          <span class="country-pill active">Spain ●</span>
-        </div>
-      </section>
-
-      <section>
-        <div class="section-eyebrow">Why travelers trust us</div>
-        <h2 class="section-title">Book smarter with trusted Spain hotel partners</h2>
-        <p class="section-lede">
-          GiftCardZoneEU Travel focuses on simple, transparent hotel pages. You compare prices here, then complete your stay directly on each partner’s secure checkout page.
-        </p>
-
-        <div class="trust-grid">
-          <article class="trust-card">
-            <div class="trust-icon">🔐</div>
-            <h3>Secure redirects only</h3>
-            <p>Every “View hotels” button sends you straight to official partner booking pages using secure HTTPS links.</p>
-          </article>
-
-          <article class="trust-card">
-            <div class="trust-icon">🌍</div>
-            <h3>Global hotel coverage</h3>
-            <p>From big cities to coastal towns, our partners list thousands of stays across Spain.</p>
-          </article>
-
-          <article class="trust-card">
-            <div class="trust-icon">💳</div>
-            <h3>No extra mark-ups</h3>
-            <p>We don’t add hidden fees. You see live prices and promotions directly from Agoda, Booking.com, Trip.com and more.</p>
-          </article>
-
-          <article class="trust-card">
-            <div class="trust-icon">⭐</div>
-            <h3>Verified partners only</h3>
-            <p>We only feature trusted, long-running travel brands with reviews, secure payment systems and clear policies.</p>
-          </article>
-
-          <article class="trust-card">
-            <div class="trust-icon">⏱️</div>
-            <h3>Fast hotel comparisons</h3>
-            <p>Quickly scan multiple partners to see where you can find the best deal for your Spain dates and cities.</p>
-          </article>
-
-          <article class="trust-card">
-            <div class="trust-icon">🧾</div>
-            <h3>Simple disclosures</h3>
-            <p>If you book through our affiliate links, we may earn a small commission — helping keep GiftCardZoneEU running.</p>
-          </article>
-        </div>
-      </section>
-
-      <section>
-        <div class="trusted-partners">
-          <div class="trusted-header">
-            <h3>Trusted partners</h3>
-            <span>We compare hotel deals across leading global booking brands.</span>
-          </div>
-
-          <div class="partner-dot-row">
-            <div class="partner-dot"><span class="indicator"></span><span>Agoda</span></div>
-            <div class="partner-dot"><span class="indicator"></span><span>Booking.com</span></div>
-            <div class="partner-dot"><span class="indicator"></span><span>Trip.com</span></div>
-            <div class="partner-dot"><span class="indicator"></span><span>Hotels.com</span></div>
-            <div class="partner-dot"><span class="indicator"></span><span>Accor</span></div>
-            <div class="partner-dot"><span class="indicator"></span><span>Motel 6</span></div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <p>
-        All hotel bookings are completed on our partners’ official websites. GiftCardZoneEU Travel does not handle your payment or reservation — we simply connect you to trusted booking brands.
-      </p>
-      <p>
-        This page contains affiliate links. If you book a hotel through these partners, we may earn a small commission at no extra cost to you.
-      </p>
-
-      <div class="footer-links">
-        <a href="/privacy-policy/">Privacy Policy</a>
-        <a href="/disclaimer/">Website Disclaimer</a>
+    <div>
+      <div class="eyebrow">
+        <span>🇪🇸</span>
+        <span>Spain · Barcelona · Madrid · Seville · Valencia</span>
       </div>
 
-      <p>© <span id="year"></span> GiftCardZoneEU. All rights reserved.</p>
-    </footer>
+      <h1 class="hero-title">Best Hotel Deals in Spain</h1>
+
+      <p class="hero-subtitle">
+        Compare Spain hotel prices through trusted travel partners — from Barcelona city breaks and Madrid stays to Seville culture trips and Valencia beach escapes.
+      </p>
+
+      <div class="trust-banner">
+        <span>⭐</span>
+        <span class="label">GiftCardZoneEU Travel</span>
+        <span>Trip.com + Expedia booking options</span>
+      </div>
+
+      <div class="trust-chips">
+        <div class="trust-chip">🔐 Secure Booking</div>
+        <div class="trust-chip">⚡ Fast Price Compare</div>
+        <div class="trust-chip">🌍 Global Travel Brands</div>
+        <div class="trust-chip">💳 Direct to Official Sites</div>
+      </div>
+
+      <div class="partners-block">
+        <div class="partners-heading">
+          <h2>Top Travel Partners</h2>
+          <span class="note">Approved partner focus for cleaner booking flow.</span>
+        </div>
+
+        <div class="partner-row">
+          <a href="https://www.jdoqocy.com/click-101586981-13761944" class="partner-pill primary" target="_blank" rel="nofollow sponsored noopener noreferrer">
+            <span class="dot"></span><span>Trip.com</span>
+          </a>
+
+          <a href="https://www.tkqlhce.com/click-101586981-15261175" class="partner-pill" target="_blank" rel="nofollow sponsored noopener noreferrer">
+            <span class="dot"></span><span>Expedia</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <aside class="city-panel">
+      <div class="city-panel-header">
+        <h2>Key Spain Cities</h2>
+        <span>Pick a city to start browsing hotel deals.</span>
+      </div>
+
+      <div class="city-grid">
+
+        <article class="city-card">
+          <img src="/assets/travel/spain/barcelona.webp" alt="Barcelona Spain hotels" loading="lazy">
+          <h3>Barcelona</h3>
+          <p>Stay near La Rambla, Sagrada Família, beachfront promenades and scenic viewpoints.</p>
+          <a href="https://www.jdoqocy.com/click-101586981-13761944" class="btn" target="_blank" rel="nofollow sponsored noopener noreferrer">View on Trip.com ↗</a>
+        </article>
+
+        <article class="city-card">
+          <img src="/assets/travel/spain/madrid.webp" alt="Madrid Spain hotels" loading="lazy">
+          <h3>Madrid</h3>
+          <p>Book hotels around Gran Vía, royal palaces, museums and lively tapas streets.</p>
+          <a href="https://www.jdoqocy.com/click-101586981-13761944" class="btn" target="_blank" rel="nofollow sponsored noopener noreferrer">View on Trip.com ↗</a>
+        </article>
+
+        <article class="city-card">
+          <img src="/assets/travel/spain/seville.webp" alt="Seville Spain hotels" loading="lazy">
+          <h3>Seville</h3>
+          <p>Find stays near plazas, cathedrals, flamenco venues and historic neighborhoods.</p>
+          <a href="https://www.tkqlhce.com/click-101586981-15261175" class="btn secondary" target="_blank" rel="nofollow sponsored noopener noreferrer">View on Expedia ↗</a>
+        </article>
+
+        <article class="city-card">
+          <img src="/assets/travel/spain/valencia.webp" alt="Valencia Spain hotels" loading="lazy">
+          <h3>Valencia</h3>
+          <p>Explore hotels close to beaches, old town squares and modern arts districts.</p>
+          <a href="https://www.tkqlhce.com/click-101586981-15261175" class="btn secondary" target="_blank" rel="nofollow sponsored noopener noreferrer">View on Expedia ↗</a>
+        </article>
+
+      </div>
+    </aside>
+
+  </div>
+</header>
+
+<main>
+
+<section>
+  <div class="section-eyebrow">More travel destinations</div>
+  <h2 class="section-title">Explore more hotel deals with GiftCardZoneEU Travel</h2>
+  <p class="section-lede">
+    Browse more countries and compare hotel prices through trusted travel partners. You’ll always be redirected to official booking pages to complete your reservation securely.
+  </p>
+
+  <div class="pill-grid">
+    <a href="/travel/japan/" class="country-pill">Japan ↗</a>
+    <a href="/travel/germany/" class="country-pill">Germany ↗</a>
+    <a href="/travel/italy/" class="country-pill">Italy ↗</a>
+    <a href="/travel/united-kingdom/" class="country-pill">United Kingdom ↗</a>
+    <a href="/travel/belgium/" class="country-pill">Belgium ↗</a>
+    <a href="/travel/canada/" class="country-pill">Canada ↗</a>
+    <a href="/travel/usa/" class="country-pill">USA ↗</a>
+    <a href="/travel/philippines/" class="country-pill">Philippines ↗</a>
+    <span class="country-pill active">Spain ●</span>
+  </div>
+</section>
+
+<section>
+  <div class="section-eyebrow">Why travelers trust us</div>
+  <h2 class="section-title">Book smarter with Spain hotel partners</h2>
+  <p class="section-lede">
+    GiftCardZoneEU Travel keeps the booking flow simple: compare options here, then complete your stay directly on Trip.com or Expedia.
+  </p>
+
+  <div class="trust-grid">
+    <article class="trust-card">
+      <div class="trust-icon">🔐</div>
+      <h3>Secure redirects only</h3>
+      <p>Every hotel button sends visitors to official partner booking pages using secure HTTPS links.</p>
+    </article>
+
+    <article class="trust-card">
+      <div class="trust-icon">🌍</div>
+      <h3>Global hotel coverage</h3>
+      <p>Trip.com and Expedia cover major cities, beach stays and travel routes across Spain.</p>
+    </article>
+
+    <article class="trust-card">
+      <div class="trust-icon">💳</div>
+      <h3>No hidden mark-ups</h3>
+      <p>GiftCardZoneEU does not process payments or add booking fees. Prices are handled by the partner site.</p>
+    </article>
+
+    <article class="trust-card">
+      <div class="trust-icon">⭐</div>
+      <h3>Focused partner setup</h3>
+      <p>Only approved priority partners are shown to keep the page cleaner and more conversion-focused.</p>
+    </article>
+
+    <article class="trust-card">
+      <div class="trust-icon">⏱️</div>
+      <h3>Fast hotel comparison</h3>
+      <p>Quickly jump from Spain city inspiration to booking partners without confusing extra choices.</p>
+    </article>
+
+    <article class="trust-card">
+      <div class="trust-icon">🧾</div>
+      <h3>Clear affiliate disclosure</h3>
+      <p>If visitors book through our links, we may earn a commission at no extra cost to them.</p>
+    </article>
+  </div>
+</section>
+
+<section>
+  <div class="trusted-partners">
+    <div class="trusted-header">
+      <h3>Trusted partners</h3>
+      <span>Approved travel partner focus.</span>
+    </div>
+
+    <div class="partner-dot-row">
+      <div class="partner-dot"><span class="indicator"></span><span>Trip.com</span></div>
+      <div class="partner-dot"><span class="indicator"></span><span>Expedia</span></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>
+    All hotel bookings are completed on our partners’ official websites. GiftCardZoneEU Travel does not handle payment or reservations.
+  </p>
+
+  <p>
+    This page contains affiliate links. If you book through Trip.com or Expedia, we may earn a small commission at no extra cost to you.
+  </p>
+
+  <div class="footer-links">
+    <a href="/privacy-policy/">Privacy Policy</a>
+    <a href="/disclaimer/">Website Disclaimer</a>
   </div>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+  <p>© <span id="year"></span> GiftCardZoneEU. All rights reserved.</p>
+</footer>
 
-  <script src="/assets/ga.js"></script>
+</div>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+<script src="/assets/ga.js"></script>
 </body>
 </html>
