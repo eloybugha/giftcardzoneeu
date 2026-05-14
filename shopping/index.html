@@ -321,21 +321,6 @@
       alt="Global Shopping Deals"
     >
 
-    <div class="hero-overlay">
-
-      <h1>Global Shopping Deals</h1>
-
-      <p>
-        Handpicked global deals on fashion, gadgets,
-        home essentials and more.
-      </p>
-
-      <a href="#shopping-grid" class="hero-btn">
-        Shop Trending Deals
-      </a>
-
-    </div>
-
   </section>
 
   <!-- SHOPPING GRID -->
@@ -677,9 +662,16 @@
         font-size:42px;
       }
 
-      .hero-overlay p{
-        font-size:18px;
-      }
+      .hero-overlay{
+  position:absolute;
+  inset:0;
+
+  background:linear-gradient(
+    to right,
+    rgba(0,0,0,.30),
+    rgba(0,0,0,.08)
+  );
+}
 
       .hero-btn{
         font-size:16px;
