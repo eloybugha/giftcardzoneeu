@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>EasyWebinar – Live & Automated Webinar Platform | GiftCardZoneEU</title>
+  <meta name="description" content="EasyWebinar is a webinar platform for creators, coaches, businesses, and online sellers who want to run live and automated webinar funnels.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://giftcardzoneeu.com/tools/easywebinar/">
+
+  <meta property="og:title" content="EasyWebinar – Live & Automated Webinar Platform">
+  <meta property="og:description" content="Create live and automated webinars for online business, coaching, courses, and digital sales funnels.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://giftcardzoneeu.com/tools/easywebinar/">
+  <meta property="og:image" content="https://giftcardzoneeu.com/assets/tools/easywebinar/easywebinar-hero.webp">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="EasyWebinar – Live & Automated Webinar Platform">
+  <meta name="twitter:description" content="A webinar platform for live events, automated funnels, creators, coaches, and online businesses.">
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/tools/easywebinar/easywebinar-hero.webp">
+
+  <script src="/assets/ga.js"></script>
+
+  <style>
+    :root{
+      --bg:#07111f;
+      --card:#ffffff;
+      --text:#132033;
+      --muted:#5d6b7e;
+      --brand:#ff7a1a;
+      --brand2:#2563eb;
+      --dark:#0b1728;
+      --soft:#eef5ff;
+      --line:#e7edf6;
+      --green:#16a34a;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:Inter,Arial,sans-serif;
+      color:var(--text);
+      background:#f6f9fe;
+      line-height:1.6;
+    }
+
+    a{text-decoration:none;color:inherit}
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(255,255,255,.92);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav{
+      max-width:1180px;
+      margin:auto;
+      padding:14px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:900;
+      color:#0f172a;
+    }
+
+    .logo img{
+      width:42px;
+      height:42px;
+      object-fit:contain;
+      border-radius:12px;
+    }
+
+    .navlinks{
+      display:flex;
+      gap:18px;
+      font-size:14px;
+      color:#334155;
+      font-weight:700;
+    }
+
+    .navcta{
+      background:var(--brand);
+      color:white;
+      padding:10px 16px;
+      border-radius:999px;
+      font-weight:900;
+      box-shadow:0 10px 25px rgba(255,122,26,.25);
+    }
+
+    .hero{
+      position:relative;
+      min-height:680px;
+      background:
+        linear-gradient(90deg,rgba(5,13,28,.88),rgba(5,13,28,.42),rgba(5,13,28,.12)),
+        url('/assets/tools/easywebinar/easywebinar-hero.webp') center/cover no-repeat;
+      color:white;
+      display:flex;
+      align-items:center;
+    }
+
+    .hero-inner{
+      max-width:1180px;
+      margin:auto;
+      padding:90px 20px;
+      width:100%;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.24);
+      color:white;
+      padding:8px 14px;
+      border-radius:999px;
+      font-weight:800;
+      font-size:14px;
+      margin-bottom:20px;
+    }
+
+    h1{
+      max-width:760px;
+      font-size:clamp(38px,6vw,72px);
+      line-height:1.02;
+      margin:0 0 20px;
+      letter-spacing:-.04em;
+    }
+
+    .hero p{
+      max-width:650px;
+      font-size:19px;
+      color:#eaf2ff;
+      margin:0 0 30px;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    .btn{
+      display:inline-flex;
+      justify-content:center;
+      align-items:center;
+      padding:15px 22px;
+      border-radius:999px;
+      font-weight:900;
+      transition:.2s ease;
+    }
+
+    .btn-primary{
+      background:var(--brand);
+      color:white;
+      box-shadow:0 18px 35px rgba(255,122,26,.3);
+    }
+
+    .btn-secondary{
+      background:white;
+      color:#0f172a;
+    }
+
+    .btn:hover{transform:translateY(-2px)}
+
+    .trust{
+      max-width:1180px;
+      margin:-46px auto 0;
+      padding:0 20px;
+      position:relative;
+      z-index:5;
+    }
+
+    .trust-grid{
+      background:white;
+      border-radius:28px;
+      box-shadow:0 20px 60px rgba(15,23,42,.12);
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      overflow:hidden;
+      border:1px solid var(--line);
+    }
+
+    .trust-item{
+      padding:24px;
+      border-right:1px solid var(--line);
+    }
+
+    .trust-item:last-child{border-right:0}
+
+    .trust-item strong{
+      display:block;
+      font-size:18px;
+      color:#0f172a;
+      margin-bottom:4px;
+    }
+
+    .trust-item span{
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    section{
+      max-width:1180px;
+      margin:auto;
+      padding:78px 20px;
+    }
+
+    .section-head{
+      max-width:760px;
+      margin-bottom:34px;
+    }
+
+    .eyebrow{
+      color:var(--brand);
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:13px;
+      margin-bottom:10px;
+    }
+
+    h2{
+      font-size:clamp(30px,4vw,48px);
+      line-height:1.1;
+      letter-spacing:-.03em;
+      margin:0 0 14px;
+      color:#0f172a;
+    }
+
+    .section-head p{
+      color:var(--muted);
+      font-size:18px;
+      margin:0;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px;
+    }
+
+    .card{
+      background:white;
+      border:1px solid var(--line);
+      border-radius:26px;
+      padding:28px;
+      box-shadow:0 10px 30px rgba(15,23,42,.06);
+    }
+
+    .icon{
+      width:48px;
+      height:48px;
+      border-radius:16px;
+      display:grid;
+      place-items:center;
+      background:var(--soft);
+      color:var(--brand2);
+      font-size:24px;
+      margin-bottom:18px;
+    }
+
+    .card h3{
+      font-size:21px;
+      margin:0 0 10px;
+      color:#0f172a;
+    }
+
+    .card p{
+      color:var(--muted);
+      margin:0;
+    }
+
+    .split{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:34px;
+      align-items:center;
+    }
+
+    .image-card{
+      border-radius:30px;
+      overflow:hidden;
+      box-shadow:0 20px 60px rgba(15,23,42,.14);
+      border:1px solid var(--line);
+      background:white;
+    }
+
+    .image-card img{
+      width:100%;
+      display:block;
+      min-height:380px;
+      object-fit:cover;
+    }
+
+    .list{
+      display:grid;
+      gap:14px;
+      margin-top:24px;
+    }
+
+    .list-item{
+      background:white;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:16px 18px;
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+    }
+
+    .check{
+      color:var(--green);
+      font-weight:900;
+      font-size:18px;
+    }
+
+    .cta-box{
+      background:
+        linear-gradient(135deg,rgba(37,99,235,.95),rgba(255,122,26,.94)),
+        url('/assets/tools/easywebinar/live-webinar.webp') center/cover no-repeat;
+      color:white;
+      border-radius:34px;
+      padding:54px;
+      display:grid;
+      grid-template-columns:1.3fr .7fr;
+      gap:26px;
+      align-items:center;
+      box-shadow:0 24px 70px rgba(37,99,235,.2);
+    }
+
+    .cta-box h2{color:white}
+    .cta-box p{color:#f8fbff;font-size:18px;margin:0}
+
+    .cta-actions{
+      display:flex;
+      justify-content:flex-end;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+
+    .disclosure{
+      background:#fff8ed;
+      border:1px solid #fed7aa;
+      border-radius:22px;
+      padding:20px;
+      color:#7c2d12;
+      font-size:14px;
+    }
+
+    footer{
+      background:#07111f;
+      color:#cbd5e1;
+      padding:44px 20px;
+      text-align:center;
+    }
+
+    footer a{
+      color:white;
+      font-weight:800;
+    }
+
+    .sticky-cta{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:60;
+      background:var(--brand);
+      color:white;
+      padding:14px 20px;
+      border-radius:999px;
+      font-weight:950;
+      box-shadow:0 18px 40px rgba(255,122,26,.35);
+    }
+
+    @media(max-width:900px){
+      .navlinks{display:none}
+      .trust-grid{grid-template-columns:1fr 1fr}
+      .trust-item{border-bottom:1px solid var(--line)}
+      .cards{grid-template-columns:1fr}
+      .split{grid-template-columns:1fr}
+      .cta-box{grid-template-columns:1fr;padding:34px}
+      .cta-actions{justify-content:flex-start}
+      .hero{min-height:620px}
+    }
+
+    @media(max-width:560px){
+      .trust-grid{grid-template-columns:1fr}
+      .trust-item{border-right:0}
+      .hero-inner{padding:70px 18px}
+      .btn{width:100%}
+      .sticky-cta{
+        left:14px;
+        right:14px;
+        text-align:center;
+        justify-content:center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <nav class="nav">
+    <a class="logo" href="/">
+      <img src="/assets/gz-logo.png" alt="GiftCardZoneEU logo">
+      <span>GiftCardZoneEU</span>
+    </a>
+
+    <div class="navlinks">
+      <a href="/tools/">Tools</a>
+      <a href="/shopping/">Shopping</a>
+      <a href="/travel/">Travel</a>
+      <a href="/earn/">Earn</a>
+    </div>
+
+    <a class="navcta" href="https://www.jdoqocy.com/click-101586981-17217345" target="_blank" rel="nofollow sponsored noopener noreferrer">
+      Visit EasyWebinar
+    </a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="badge">Webinar tool for creators, coaches & online businesses</div>
+      <h1>Run live and automated webinars with EasyWebinar.</h1>
+      <p>
+        EasyWebinar is built for people who want to host online presentations,
+        product demos, coaching sessions, courses, and evergreen webinar funnels
+        from one simple platform.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://www.jdoqocy.com/click-101586981-17217345" target="_blank" rel="nofollow sponsored noopener noreferrer">
+          Check EasyWebinar
+        </a>
+        <a class="btn btn-secondary" href="#features">
+          See Features
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <strong>Live webinars</strong>
+        <span>Host real-time online events and presentations.</span>
+      </div>
+      <div class="trust-item">
+        <strong>Automated funnels</strong>
+        <span>Create evergreen webinar systems for leads and sales.</span>
+      </div>
+      <div class="trust-item">
+        <strong>Creator friendly</strong>
+        <span>Useful for coaches, courses, creators, and businesses.</span>
+      </div>
+      <div class="trust-item">
+        <strong>Sales focused</strong>
+        <span>Use webinar CTAs, follow-ups, and conversion tools.</span>
+      </div>
+    </div>
+  </div>
+
+  <section id="features">
+    <div class="section-head">
+      <div class="eyebrow">Why EasyWebinar</div>
+      <h2>A webinar platform made for online growth.</h2>
+      <p>
+        Whether you are teaching, selling, launching, or building trust with your audience,
+        webinars can help turn attention into leads, appointments, and customers.
+      </p>
+    </div>
+
+    <div class="cards">
+      <article class="card">
+        <div class="icon">🎥</div>
+        <h3>Host live online events</h3>
+        <p>
+          Use webinars for workshops, product demos, training sessions,
+          coaching calls, and educational presentations.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="icon">⚙️</div>
+        <h3>Automate evergreen webinars</h3>
+        <p>
+          Build automated webinar experiences that can keep working even when
+          you are not presenting live every time.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="icon">📈</div>
+        <h3>Support your sales funnel</h3>
+        <p>
+          Webinars can help explain your offer better, build authority,
+          and guide visitors toward taking action.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <div class="split">
+      <div class="image-card">
+        <img src="/assets/tools/easywebinar/dashboard.webp" alt="EasyWebinar dashboard and online webinar setup">
+      </div>
+
+      <div>
+        <div class="eyebrow">Best for</div>
+        <h2>Good fit for creators, educators, and online sellers.</h2>
+        <p style="color:var(--muted);font-size:18px;margin:0">
+          EasyWebinar is useful when you need more than a simple video call.
+          It is better for structured presentations where you want sign-ups,
+          reminders, replay-style experiences, and conversion-focused webinar flows.
+        </p>
+
+        <div class="list">
+          <div class="list-item">
+            <span class="check">✓</span>
+            <div><strong>Course creators</strong><br><span style="color:var(--muted)">Teach lessons and promote paid programs.</span></div>
+          </div>
+
+          <div class="list-item">
+            <span class="check">✓</span>
+            <div><strong>Coaches and consultants</strong><br><span style="color:var(--muted)">Run workshops, discovery sessions, and training funnels.</span></div>
+          </div>
+
+          <div class="list-item">
+            <span class="check">✓</span>
+            <div><strong>Online businesses</strong><br><span style="color:var(--muted)">Use webinars to explain offers and build trust before purchase.</span></div>
+          </div>
+
+          <div class="list-item">
+            <span class="check">✓</span>
+            <div><strong>Digital product sellers</strong><br><span style="color:var(--muted)">Present products with stronger storytelling and timed CTAs.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div class="eyebrow">Use cases</div>
+      <h2>Ways you can use EasyWebinar.</h2>
+      <p>
+        A webinar page can support many types of online business strategies,
+        from simple education to full automated sales funnels.
+      </p>
+    </div>
+
+    <div class="cards">
+      <article class="card">
+        <div class="icon">🧑‍🏫</div>
+        <h3>Free training webinar</h3>
+        <p>
+          Offer value first, teach your audience something useful,
+          then introduce your service or product naturally.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="icon">🛒</div>
+        <h3>Product demo webinar</h3>
+        <p>
+          Show how your product works, answer common questions,
+          and give visitors a clear next step.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="icon">🔁</div>
+        <h3>Evergreen sales funnel</h3>
+        <p>
+          Turn a strong presentation into an automated funnel that can keep
+          collecting leads and sending people to your offer.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <div class="cta-box">
+      <div>
+        <h2>Ready to build your webinar funnel?</h2>
+        <p>
+          Visit EasyWebinar to see the platform, features, and current plan details.
+        </p>
+      </div>
+
+      <div class="cta-actions">
+        <a class="btn btn-secondary" href="https://www.jdoqocy.com/click-101586981-17217345" target="_blank" rel="nofollow sponsored noopener noreferrer">
+          Visit EasyWebinar
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="disclosure">
+      <strong>Affiliate disclosure:</strong>
+      This page may contain affiliate links. If you click through and purchase,
+      GiftCardZoneEU may earn a commission at no extra cost to you.
+    </div>
+  </section>
+
+</main>
+
+<a class="sticky-cta" href="https://www.jdoqocy.com/click-101586981-17217345" target="_blank" rel="nofollow sponsored noopener noreferrer">
+  Visit EasyWebinar
+</a>
+
+<footer>
+  <p>© <span id="year"></span> GiftCardZoneEU. All rights reserved.</p>
+  <p><a href="/">Home</a> · <a href="/tools/">Tools</a> · <a href="/privacy/">Privacy</a></p>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
