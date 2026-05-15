@@ -283,30 +283,39 @@
       margin:0;
     }
 
-    .split{
-  display:grid;
-  grid-template-columns:1.25fr .75fr;
-  gap:40px;
-  align-items:center;
-}
-.image-card{
-  border-radius:30px;
-  overflow:hidden;
-  box-shadow:0 20px 60px rgba(15,23,42,.14);
-  border:1px solid var(--line);
-  background:white;
-  padding:14px;
-}
+    .image-card{
+      border-radius:30px;
+      overflow:hidden;
+      box-shadow:0 20px 60px rgba(15,23,42,.14);
+      border:1px solid var(--line);
+      background:white;
+      padding:14px;
+      margin-bottom:38px;
+    }
+
     .image-card img{
-  width:100%;
-  display:block;
-  height:auto;
-  object-fit:contain;
-  background:#fff;
-}
+      width:100%;
+      display:block;
+      height:auto;
+      object-fit:contain;
+      background:#fff;
+      border-radius:22px;
+    }
+
+    .best-for-text{
+      max-width:880px;
+      margin-bottom:26px;
+    }
+
+    .best-for-text p{
+      color:var(--muted);
+      font-size:18px;
+      margin:0;
+    }
 
     .list{
       display:grid;
+      grid-template-columns:repeat(4,1fr);
       gap:14px;
       margin-top:24px;
     }
@@ -315,10 +324,11 @@
       background:white;
       border:1px solid var(--line);
       border-radius:18px;
-      padding:16px 18px;
+      padding:18px;
       display:flex;
       gap:12px;
       align-items:flex-start;
+      box-shadow:0 10px 25px rgba(15,23,42,.04);
     }
 
     .check{
@@ -390,7 +400,7 @@
       .trust-grid{grid-template-columns:1fr 1fr}
       .trust-item{border-bottom:1px solid var(--line)}
       .cards{grid-template-columns:1fr}
-      .split{grid-template-columns:1fr}
+      .list{grid-template-columns:1fr 1fr}
       .cta-box{grid-template-columns:1fr;padding:34px}
       .cta-actions{justify-content:flex-start}
       .hero{min-height:620px}
@@ -401,6 +411,8 @@
       .trust-item{border-right:0}
       .hero-inner{padding:70px 18px}
       .btn{width:100%}
+      .list{grid-template-columns:1fr}
+      .image-card{padding:8px}
       .sticky-cta{
         left:14px;
         right:14px;
@@ -518,41 +530,39 @@
   </section>
 
   <section>
-    <div class="split">
-      <div class="image-card">
-        <img src="/assets/tools/easywebinar/dashboard.webp" alt="EasyWebinar dashboard and online webinar setup">
+    <div class="image-card">
+      <img src="/assets/tools/easywebinar/dashboard.webp" alt="EasyWebinar dashboard and online webinar setup">
+    </div>
+
+    <div class="best-for-text">
+      <div class="eyebrow">Best for</div>
+      <h2>Good fit for creators, educators, and online sellers.</h2>
+      <p>
+        EasyWebinar is useful when you need more than a simple video call.
+        It is better for structured presentations where you want sign-ups,
+        reminders, replay-style experiences, and conversion-focused webinar flows.
+      </p>
+    </div>
+
+    <div class="list">
+      <div class="list-item">
+        <span class="check">✓</span>
+        <div><strong>Course creators</strong><br><span style="color:var(--muted)">Teach lessons and promote paid programs.</span></div>
       </div>
 
-      <div>
-        <div class="eyebrow">Best for</div>
-        <h2>Good fit for creators, educators, and online sellers.</h2>
-        <p style="color:var(--muted);font-size:18px;margin:0">
-          EasyWebinar is useful when you need more than a simple video call.
-          It is better for structured presentations where you want sign-ups,
-          reminders, replay-style experiences, and conversion-focused webinar flows.
-        </p>
+      <div class="list-item">
+        <span class="check">✓</span>
+        <div><strong>Coaches and consultants</strong><br><span style="color:var(--muted)">Run workshops, discovery sessions, and training funnels.</span></div>
+      </div>
 
-        <div class="list">
-          <div class="list-item">
-            <span class="check">✓</span>
-            <div><strong>Course creators</strong><br><span style="color:var(--muted)">Teach lessons and promote paid programs.</span></div>
-          </div>
+      <div class="list-item">
+        <span class="check">✓</span>
+        <div><strong>Online businesses</strong><br><span style="color:var(--muted)">Use webinars to explain offers and build trust before purchase.</span></div>
+      </div>
 
-          <div class="list-item">
-            <span class="check">✓</span>
-            <div><strong>Coaches and consultants</strong><br><span style="color:var(--muted)">Run workshops, discovery sessions, and training funnels.</span></div>
-          </div>
-
-          <div class="list-item">
-            <span class="check">✓</span>
-            <div><strong>Online businesses</strong><br><span style="color:var(--muted)">Use webinars to explain offers and build trust before purchase.</span></div>
-          </div>
-
-          <div class="list-item">
-            <span class="check">✓</span>
-            <div><strong>Digital product sellers</strong><br><span style="color:var(--muted)">Present products with stronger storytelling and timed CTAs.</span></div>
-          </div>
-        </div>
+      <div class="list-item">
+        <span class="check">✓</span>
+        <div><strong>Digital product sellers</strong><br><span style="color:var(--muted)">Present products with stronger storytelling and timed CTAs.</span></div>
       </div>
     </div>
   </section>
