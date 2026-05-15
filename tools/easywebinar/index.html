@@ -406,20 +406,26 @@
       .hero{min-height:620px}
     }
 
-    @media(max-width:560px){
-      .trust-grid{grid-template-columns:1fr}
-      .trust-item{border-right:0}
-      .hero-inner{padding:70px 18px}
-      .btn{width:100%}
-      .list{grid-template-columns:1fr}
-      .image-card{padding:8px}
-      .sticky-cta{
-        left:14px;
-        right:14px;
-        text-align:center;
-        justify-content:center;
-      }
-    }
+    @media(max-width:768px){
+  .nav-links{
+    display:flex;
+    gap:14px;
+    font-size:13px;
+  }
+
+  .menu-toggle{
+    display:none;
+  }
+
+  .nav{
+    gap:10px;
+  }
+
+  .nav-cta{
+    padding:10px 14px;
+    font-size:13px;
+  }
+}
   </style>
 </head>
 
