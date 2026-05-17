@@ -8,32 +8,38 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      # Auto-generate sitemap by scanning your repo
+      # Generate sitemap automatically
       - name: Generate sitemap.xml
         uses: cicirello/generate-sitemap@v1
         with:
           base-url: https://giftcardzoneeu.com
+          path-to-root: .
 
-          # optional excludes (ayaw mong i-index)
           exclude: |
             /404.html
             /congrats/
-          # root ng site mo
-          path-to-root: .
+            /neutral/
+            /country/global/
 
+      # Auto commit sitemap changes
       - name: Commit sitemap.xml
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore: update sitemap.xml (auto)"
+          commit_message: "chore: auto update sitemap"
           file_pattern: sitemap.xml
-      - name: Ping search engines
-        run: |
-          echo "🔄 Pinging Google, Bing, and Yandex..."
-          curl "https://www.google.com/ping?sitemap=https://giftcardzoneeu.com/sitemap.xml"
-          curl "https://www.bing.com/ping?sitemap=https://giftcardzoneeu.com/sitemap.xml"
-          curl "https://yandex.com/ping?sitemap=https://giftcardzoneeu.com/sitemap.xml"
 
+      # Notify search engines
+      - name: Notify Search Engines
+        run: |
+          echo "Submitting sitemap..."
+
+          curl -X GET "https://www.bing.com/ping?sitemap=https://giftcardzoneeu.com/sitemap.xml"
+
+          curl -X GET "https://yandex.com/ping?sitemap=https://giftcardzoneeu.com/sitemap.xml"
+
+          echo "Done."
