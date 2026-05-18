@@ -130,6 +130,184 @@ url('/assets/travel/belgium/ghent-hero.webp') 68% center/cover no-repeat;
   .card-body,.dark-panel,.info-panel{padding:24px}
   .sticky-cta{flex-direction:column;text-align:center;padding:16px;gap:12px}
 }
+  .vpn-panel{
+background:
+radial-gradient(circle at top left,#0f3b82 0%,#06152f 45%,#020817 100%);
+overflow:hidden;
+}
+
+.vpn-top-badge{
+display:inline-flex;
+align-items:center;
+gap:10px;
+padding:14px 22px;
+border-radius:999px;
+background:rgba(255,255,255,.08);
+border:1px solid rgba(255,255,255,.12);
+font-weight:900;
+font-size:.95rem;
+margin-bottom:24px;
+color:#ffb14a;
+backdrop-filter:blur(10px);
+}
+
+.vpn-intro{
+max-width:850px;
+font-size:1.12rem;
+line-height:1.8;
+margin-bottom:34px;
+color:#dbe4f0 !important;
+}
+
+.vpn-grid{
+display:grid;
+gap:28px;
+}
+
+.vpn-card{
+display:grid;
+grid-template-columns:280px 1fr;
+background:white;
+border-radius:34px;
+overflow:hidden;
+box-shadow:0 24px 60px rgba(0,0,0,.20);
+}
+
+.vpn-logo-side{
+padding:42px 26px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+.vpn-logo-side.nord{
+background:#eef4ff;
+}
+
+.vpn-logo-side.surf{
+background:#eefcff;
+}
+
+.vpn-logo-img{
+max-width:72px;
+max-height:72px;
+object-fit:contain;
+margin-bottom:18px;
+filter:drop-shadow(0 6px 16px rgba(0,0,0,.12));
+}
+
+.vpn-logo-side h3{
+font-size:2rem;
+margin-bottom:14px;
+color:#0f172a;
+}
+
+.vpn-stars{
+color:#16a34a;
+font-size:1.3rem;
+letter-spacing:3px;
+margin-bottom:10px;
+}
+
+.vpn-logo-side span{
+color:#475569;
+font-weight:600;
+}
+
+.vpn-content-side{
+padding:42px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+}
+
+.vpn-badge{
+display:inline-flex;
+align-items:center;
+gap:8px;
+padding:10px 18px;
+border-radius:999px;
+font-weight:900;
+font-size:.92rem;
+margin-bottom:22px;
+width:max-content;
+}
+
+.vpn-badge.green{
+background:#ecfdf3;
+color:#15803d;
+}
+
+.vpn-badge.blue{
+background:#eff6ff;
+color:#1d4ed8;
+}
+
+.vpn-content-side p{
+font-size:1.08rem;
+line-height:1.9;
+color:#334155;
+margin-bottom:26px;
+}
+
+.vpn-features{
+display:flex;
+flex-wrap:wrap;
+gap:18px;
+margin-bottom:30px;
+}
+
+.vpn-features span{
+font-weight:700;
+color:#0f172a;
+font-size:.95rem;
+}
+
+.vpn-btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:18px 32px;
+border-radius:999px;
+background:linear-gradient(135deg,#ff7a1a,#ff9b3d);
+color:white;
+font-weight:900;
+font-size:1rem;
+width:max-content;
+box-shadow:0 16px 34px rgba(249,115,22,.28);
+transition:.25s ease;
+}
+
+.vpn-btn:hover{
+transform:translateY(-2px);
+}
+
+@media(max-width:900px){
+
+.vpn-card{
+grid-template-columns:1fr;
+}
+
+.vpn-logo-side{
+padding:34px 20px;
+}
+
+.vpn-content-side{
+padding:30px 24px;
+}
+
+.vpn-features{
+flex-direction:column;
+gap:10px;
+}
+
+.vpn-btn{
+width:100%;
+}
+
+}
 </style>
 </head>
 
