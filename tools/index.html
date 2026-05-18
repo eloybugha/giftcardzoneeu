@@ -86,17 +86,24 @@ a{text-decoration:none;color:inherit}
   padding:58px 0 30px;
 }
 .hero-box{
-  padding:42px;
+  overflow:hidden;
   border:1px solid var(--line);
   border-radius:28px;
-
-  background:
-  linear-gradient(rgba(8,17,31,.72),rgba(8,17,31,.82)),
-  url('/assets/tools/tools-hub-hero.webp') center center/cover no-repeat;
-
+  background:#0d1728;
   box-shadow:0 24px 70px rgba(0,0,0,.35);
-  overflow:hidden;
-  position:relative;
+}
+
+.hero-image{
+  height:320px;
+  background:url('/assets/tools/tools-hub-hero.webp') center center/cover no-repeat;
+}
+
+.hero-content{
+  padding:34px;
+}
+
+.hero-content h1{
+  margin:14px 0 12px;
 }
 .badge{
   display:inline-block;
@@ -197,13 +204,21 @@ p{
 
   <section class="hero">
     <div class="hero-box">
-      <span class="badge">🧰 Digital Tools Hub</span>
-      <h1>Useful Tools & Online Resources</h1>
-      <p>
-        Explore creator tools, business platforms, online services, and digital resources
-        that can help with websites, content, marketing, freelancing, and online projects.
-      </p>
-    </div>
+
+  <div class="hero-image"></div>
+
+  <div class="hero-content">
+    <span class="badge">🧰 Digital Tools Hub</span>
+
+    <h1>Useful Tools & Online Resources</h1>
+
+    <p>
+      Explore creator tools, business platforms, online services, and digital resources
+      that can help with websites, content, marketing, freelancing, and online projects.
+    </p>
+  </div>
+
+</div>
   </section>
 
   <section class="grid">
