@@ -293,9 +293,9 @@ h1{
 <footer class="footer">
   <div class="wrap">
     <p>
-      GiftCardZoneEU may earn a referral reward when you join through our invite link.
-      Fiverr rewards and eligibility may change. Always check Fiverr’s official terms.
-    </p>
+  © <span id="year"></span> GiftCardZoneEU. GiftCardZoneEU may earn a referral reward when you join through our invite link.
+  Fiverr rewards and eligibility may change. Always check Fiverr’s official terms.
+</p>
     <p>
       <a href="/">Home</a> · <a href="/travel/">Travel</a> · <a href="/shopping/">Shopping</a> · <a href="/rewards/">Rewards</a>
     </p>
@@ -337,7 +337,8 @@ h1{
 </script>
 
 <script>
-  document.getElementById("year").textContent = new Date().getFullYear();
+  const yearEl = document.getElementById("year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 </script>
 
 <script src="/assets/ga.js"></script>
