@@ -328,7 +328,7 @@ h1{
       title:'Fiverr Credits – up to $100',
       text:'Grab your Fiverr bonus via my invite:',
       url: link
-    }).catch(()=>{}));
+    }).catch(()=>{});
   }else if(shareBtn){
     shareBtn.disabled = true;
     shareBtn.textContent = 'Share unavailable';
@@ -336,7 +336,10 @@ h1{
 })();
 </script>
 
-<script src="/assets/ga.js"></script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
+<script src="/assets/ga.js"></script>
 </body>
 </html>
