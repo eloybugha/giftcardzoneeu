@@ -3,108 +3,340 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Get up to $100 Fiverr Credits • Invite Bonus</title>
-<meta name="description" content="Claim up to $100 in Fiverr Credits via invite. Free to join. Works worldwide. Limited referral slots." />
+
+<title>Get up to $100 Fiverr Credits | Invite Bonus</title>
+<meta name="description" content="Claim up to $100 in Fiverr Credits via invite. Free to join. Useful for logos, websites, video editing, content, and more." />
 <link rel="canonical" href="https://giftcardzoneeu.com/go/fiverr-credits/" />
+<meta name="robots" content="index,follow" />
+
 <meta property="og:title" content="Get up to $100 Fiverr Credits" />
-<meta property="og:description" content="Join via invite and unlock bonus on your first order. Limited referral slots." />
+<meta property="og:description" content="Join via invite and unlock bonus credits on your first order." />
 <meta property="og:type" content="website" />
+<meta property="og:image" content="https://giftcardzoneeu.com/assets/tools/fiverr/fiverr-model.webp" />
 <meta name="twitter:card" content="summary_large_image" />
+
 <style>
-  :root{--bg:#0b0e14;--card:#111623;--text:#e8eefc;--muted:#9fb0d1;--ring:#2b5cff;
-        --gap:16px;--radius:16px;--shadow:0 10px 30px rgba(0,0,0,.35)}
-  *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,Segoe UI,Roboto,Inter,Arial}
-  .wrap{max-width:980px;margin:34px auto;padding:0 16px}
-  .card{background:linear-gradient(180deg,#12192a 0%, #0b0e14 100%);border:1px solid rgba(43,92,255,.25);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px}
-  h1{font-size:clamp(24px,3vw,34px);margin:0 0 10px}
-  .cta{display:inline-block;background:#2b5cff;color:#fff;padding:14px 18px;border-radius:12px;text-decoration:none;font-weight:700;letter-spacing:.2px}
-  .row{display:flex;gap:var(--gap);flex-wrap:wrap;align-items:center}
-  .col{flex:1 1 360px}
-  .muted{color:var(--muted)}
-  .box{background:#0f1524;border:1px solid rgba(43,92,255,.25);border-radius:14px;padding:16px 18px}
-  code{font-size:12px;word-break:break-all}
-  .foot{margin-top:18px;font-size:12.5px;color:#7f93bf}
+:root{
+  --bg:#08111f;
+  --card:#101a2c;
+  --soft:#16233a;
+  --text:#eef5ff;
+  --muted:#aab9d6;
+  --blue:#2b5cff;
+  --cyan:#7dd3fc;
+  --gold:#ffd166;
+  --line:rgba(255,255,255,.12);
+  --radius:22px;
+  --shadow:0 22px 60px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(43,92,255,.28), transparent 34%),
+    radial-gradient(circle at top right, rgba(125,211,252,.18), transparent 30%),
+    var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:1160px;margin:auto;padding:0 18px}
+
+/* NAV */
+.nav{
+  position:sticky;top:0;z-index:20;
+  backdrop-filter:blur(18px);
+  background:rgba(8,17,31,.78);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  max-width:1160px;margin:auto;padding:13px 18px;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900}
+.logo img{width:42px;height:42px;object-fit:contain}
+.nav-links{display:flex;gap:10px;flex-wrap:wrap}
+.nav-links a{
+  padding:9px 12px;border-radius:999px;
+  color:#dce8ff;font-size:14px;
+}
+.nav-links a:hover{background:rgba(255,255,255,.08)}
+
+/* HERO */
+.hero{padding:54px 0 34px}
+.hero-card{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:28px;
+  align-items:center;
+  background:linear-gradient(135deg,rgba(16,26,44,.96),rgba(9,15,29,.96));
+  border:1px solid var(--line);
+  border-radius:30px;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+.hero-copy{padding:42px}
+.badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 12px;border-radius:999px;
+  background:rgba(125,211,252,.12);
+  border:1px solid rgba(125,211,252,.28);
+  color:#c9f3ff;font-weight:800;font-size:13px;
+}
+h1{
+  font-size:clamp(34px,5vw,62px);
+  line-height:1.02;
+  margin:18px 0 14px;
+  letter-spacing:-1.5px;
+}
+.highlight{color:var(--gold)}
+.lead{font-size:18px;color:var(--muted);max-width:620px}
+.checks{padding-left:0;list-style:none;margin:22px 0}
+.checks li{margin:9px 0;color:#dbe8ff}
+.checks li:before{content:"✅ ";}
+
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:15px 19px;border-radius:15px;
+  font-weight:900;border:1px solid transparent;
+  cursor:pointer;
+}
+.btn-primary{
+  background:linear-gradient(135deg,#2b5cff,#00b67a);
+  color:#fff;
+  box-shadow:0 12px 28px rgba(43,92,255,.28);
+}
+.btn-ghost{
+  background:rgba(255,255,255,.06);
+  border-color:var(--line);
+  color:#eef5ff;
+}
+.invite-box{
+  margin-top:16px;
+  background:rgba(255,255,255,.05);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:13px 15px;
+  color:#bcd3ff;
+  font-size:13px;
+  word-break:break-all;
+}
+.hero-img{
+  min-height:560px;
+  background:url("/assets/tools/fiverr/fiverr-model.webp") center/cover no-repeat;
+  position:relative;
+}
+.hero-img:after{
+  content:"";
+  position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(8,17,31,.45),transparent 45%);
+}
+
+/* SECTIONS */
+.section{padding:28px 0}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+.box{
+  background:rgba(16,26,44,.86);
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:22px;
+}
+.box h2,.box h3{margin-top:0}
+.box p{color:var(--muted)}
+.link-card{
+  display:block;
+  transition:.2s ease;
+}
+.link-card:hover{transform:translateY(-3px);border-color:rgba(125,211,252,.42)}
+.small{font-size:13px;color:#8797b9}
+.footer{
+  padding:30px 0 42px;
+  color:#8494b7;
+  font-size:13px;
+  text-align:center;
+}
+.footer a{color:#cfe2ff}
+@media(max-width:850px){
+  .hero-card{grid-template-columns:1fr}
+  .hero-copy{padding:30px 22px}
+  .hero-img{min-height:420px;order:-1}
+  .grid{grid-template-columns:1fr}
+  .nav-inner{align-items:flex-start;flex-direction:column}
+}
 </style>
 </head>
+
 <body>
-  <main class="wrap">
-    <div class="card">
-      <div class="row">
-        <div class="col">
-          <h1>🎁 Get up to <span style="color:#9cc2ff">$100</span> in Fiverr Credits</h1>
-          <p class="muted">Join via our referral and unlock bonus credits on your first purchase.
-            Perfect for logos, video editing, websites, and more.</p>
-          <ul>
-            <li>✅ Free to join • Works worldwide</li>
-            <li>✅ Bonus applies on first order</li>
-            <li>✅ Limited referral slots • First come, first served</li>
-          </ul>
-          <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:stretch;margin-top:6px">
-            <a class="cta" href="YOUR_FIVERR_REF_LINK" target="_blank" rel="nofollow noopener">Claim My $100 Bonus</a>
-            <button id="copyB" style="background:#141b2c;color:#e8eefc;border:1px solid rgba(156,194,255,.25);padding:14px 16px;border-radius:12px;cursor:pointer">
-              Copy Invite Link
-            </button>
-            <button id="shareB" style="background:#141b2c;color:#e8eefc;border:1px solid rgba(156,194,255,.25);padding:14px 16px;border-radius:12px;cursor:pointer">
-              Share…
-            </button>
-          </div>
-        </div>
-        <div class="col">
-          <div class="box">
-            <strong style="color:#bcd3ff">Your Invite:</strong><br/>
-            <code id="linkCode">YOUR_FIVERR_REF_LINK</code>
-          </div>
-        </div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="/">
+      <img src="/assets/gz-logo.png" alt="GiftCardZoneEU logo">
+      <span>GiftCardZoneEU</span>
+    </a>
+    <nav class="nav-links">
+      <a href="/travel/">Travel</a>
+      <a href="/shopping/">Shopping</a>
+      <a href="/rewards/">Rewards</a>
+      <a href="/tools/">Tools</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section class="hero">
+  <div class="hero-card">
+    <div class="hero-copy">
+      <span class="badge">🎁 Fiverr Invite Bonus</span>
+      <h1>Get up to <span class="highlight">$100</span> in Fiverr Credits</h1>
+      <p class="lead">
+        Join Fiverr through our invite link and unlock bonus credits you can use for logos,
+        websites, video editing, writing, social media, and other freelance services.
+      </p>
+
+      <ul class="checks">
+        <li>Free to join and available worldwide</li>
+        <li>Useful for creators, students, freelancers, and business owners</li>
+        <li>Perfect for starting a project without paying full price upfront</li>
+      </ul>
+
+      <div class="cta-row">
+        <a class="btn btn-primary cta" href="https://www.fiverr.com/pe/WEKNLwd" target="_blank" rel="nofollow sponsored noopener noreferrer">
+          Claim My Fiverr Bonus
+        </a>
+        <button id="copyB" class="btn btn-ghost">Copy Invite Link</button>
+        <button id="shareB" class="btn btn-ghost">Share</button>
       </div>
-      <p class="foot">⚠️ Referral rewards and eligibility may change. Check Fiverr’s official terms.</p>
+
+      <div class="invite-box">
+        Invite link: <code id="linkCode">https://www.fiverr.com/pe/WEKNLwd</code>
+      </div>
     </div>
-  </main><section style="margin-top:28px; background:#0f1524; border:1px solid rgba(43,92,255,.25);
-border-radius:14px; padding:22px;">
-  <h2 style="color:#9cc2ff; font-size:22px; margin:0 0 10px;">
-    Why Fiverr Credits Are Useful
-  </h2>
-  <p style="color:#e8eefc; line-height:1.6; margin:0 0 12px;">
-    Fiverr is one of the largest freelance marketplaces in the world, trusted by millions of users
-    for services like logo design, website building, video editing, writing, social media marketing,
-    and more. With this <strong>Fiverr referral credit offer</strong>, new users can unlock up to 
-    <strong>$100 in bonus credits</strong> to use on their first order — making it easier to hire 
-    professionals without spending full price.
-  </p>
-  <p style="color:#9fb0d1; line-height:1.6; margin:0 0 12px;">
-    These credits work globally and are ideal for business owners, students, content creators,
-    and anyone who wants affordable but high-quality services. 
-    Take advantage while this <em>Fiverr invite promotion</em> is still active — slots are limited.
-  </p>
-  <p style="color:#7f93bf; font-size:13px; margin:0;">
-    Tip: Fiverr credits do not expire instantly, so you can sign up now and use them later when you need help with a project.
-  </p>
+
+    <div class="hero-img" role="img" aria-label="Creator using Fiverr freelance services"></div>
+  </div>
 </section>
 
+<section class="section">
+  <div class="grid">
+    <div class="box">
+      <h3>💼 For Business</h3>
+      <p>Use Fiverr credits for logos, landing pages, product photos, website fixes, and marketing help.</p>
+    </div>
+    <div class="box">
+      <h3>🎬 For Creators</h3>
+      <p>Hire editors, thumbnail designers, script writers, voice-over artists, or social media experts.</p>
+    </div>
+    <div class="box">
+      <h3>🌍 Works Worldwide</h3>
+      <p>Fiverr is global, so users from many countries can join and find freelance services online.</p>
+    </div>
+  </div>
+</section>
 
-  <script>
-    (function(){
-      const link = 'https://www.fiverr.com/pe/WEKNLwd';           // ← replace this once
-      document.querySelectorAll('a.cta').forEach(a=>a.href = link);
-      const codeEl = document.getElementById('linkCode'); if(codeEl) codeEl.textContent = link;
+<section class="section">
+  <div class="box">
+    <h2>Why Fiverr Credits Are Useful</h2>
+    <p>
+      Fiverr is a freelance marketplace where you can hire people for design, websites, video editing,
+      writing, business tasks, and more. With this Fiverr invite offer, new users may receive up to
+      $100 in bonus credits for their first order, depending on Fiverr’s current eligibility rules.
+    </p>
+    <p>
+      This is useful if you want to test a service, improve your business assets, or hire affordable
+      help for a small project.
+    </p>
+  </div>
+</section>
 
-      const copy = async ()=>{
-        try{ await navigator.clipboard.writeText(link); alert('Invite link copied!'); }
-        catch(e){ prompt('Copy this link:', link); }
-      };
-      document.getElementById('copyB')?.addEventListener('click', copy);
+<section class="section">
+  <h2>Explore More from GiftCardZoneEU</h2>
+  <div class="grid">
+    <a class="box link-card" href="/travel/">
+      <h3>✈️ Travel Deals</h3>
+      <p>Find hotel and travel booking pages for different countries and cities.</p>
+    </a>
+    <a class="box link-card" href="/shopping/">
+      <h3>🛍️ Shopping Finds</h3>
+      <p>Discover budget-friendly online shopping ideas and useful product pages.</p>
+    </a>
+    <a class="box link-card" href="/rewards/">
+      <h3>🎁 Rewards Center</h3>
+      <p>Explore gift card, reward, and earning-related pages from our ecosystem.</p>
+    </a>
+  </div>
+</section>
 
-      const shareBtn = document.getElementById('shareB');
-      if(shareBtn && navigator.share){
-        shareBtn.addEventListener('click', ()=>navigator.share({
-          title:'Fiverr Credits – up to $100',
-          text:'Grab your bonus via my invite:',
-          url: link
-        }).catch(()=>{}));
-      } else if(shareBtn){ shareBtn.disabled = true; shareBtn.textContent = 'Share unavailable'; }
+<section class="section">
+  <div class="box">
+    <h2>FAQ</h2>
+    <h3>Is Fiverr free to join?</h3>
+    <p>Yes. Creating an account is free. You only pay when you order a service.</p>
 
-      // Optional: auto-redirect after 7s for lazy users
-      setTimeout(()=>{ window.location.href = link; }, 7000);
-    })();
-  </script>
+    <h3>Do Fiverr credits always give exactly $100?</h3>
+    <p>No. Rewards and eligibility can change depending on Fiverr’s official terms, location, and account status.</p>
+
+    <h3>What can I use Fiverr for?</h3>
+    <p>You can use it for logos, websites, SEO help, social media content, video editing, writing, and more.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <p>
+      GiftCardZoneEU may earn a referral reward when you join through our invite link.
+      Fiverr rewards and eligibility may change. Always check Fiverr’s official terms.
+    </p>
+    <p>
+      <a href="/">Home</a> · <a href="/travel/">Travel</a> · <a href="/shopping/">Shopping</a> · <a href="/rewards/">Rewards</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const link = 'https://www.fiverr.com/pe/WEKNLwd';
+
+  document.querySelectorAll('a.cta').forEach(a => a.href = link);
+
+  const codeEl = document.getElementById('linkCode');
+  if(codeEl) codeEl.textContent = link;
+
+  const copy = async () => {
+    try{
+      await navigator.clipboard.writeText(link);
+      alert('Invite link copied!');
+    }catch(e){
+      prompt('Copy this link:', link);
+    }
+  };
+
+  document.getElementById('copyB')?.addEventListener('click', copy);
+
+  const shareBtn = document.getElementById('shareB');
+  if(shareBtn && navigator.share){
+    shareBtn.addEventListener('click', () => navigator.share({
+      title:'Fiverr Credits – up to $100',
+      text:'Grab your Fiverr bonus via my invite:',
+      url: link
+    }).catch(()=>{}));
+  }else if(shareBtn){
+    shareBtn.disabled = true;
+    shareBtn.textContent = 'Share unavailable';
+  }
+})();
+</script>
+
+<script src="/assets/ga.js"></script>
+
 </body>
 </html>
