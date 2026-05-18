@@ -40,6 +40,38 @@ body{
   color:var(--text);
   line-height:1.6;
 }
+  .sticky-cta{
+  position:fixed;
+  bottom:14px;
+  left:14px;
+  right:14px;
+  z-index:9999;
+  display:none;
+}
+
+.sticky-cta a{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:16px 18px;
+  border-radius:18px;
+  background:linear-gradient(135deg,#2b5cff,#00b67a);
+  color:#fff;
+  font-weight:900;
+  text-decoration:none;
+  box-shadow:0 14px 35px rgba(0,0,0,.35);
+  backdrop-filter:blur(10px);
+}
+
+@media(max-width:850px){
+  .sticky-cta{
+    display:block;
+  }
+
+  body{
+    padding-bottom:90px;
+  }
+}
 a{text-decoration:none;color:inherit}
 .wrap{max-width:1160px;margin:auto;padding:0 18px}
 
