@@ -3,122 +3,318 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+
 <title>🎉 Congratulations! — GiftCardZoneEU</title>
-<meta name="description" content="You’re almost done! Tap the button to unlock your reward now. Limited-time offer.">
+<meta name="description" content="Selected offers are optimized for your device and region. Continue to access available offers.">
 <link rel="canonical" href="https://giftcardzoneeu.com/congrats/" />
-  <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;800&display=swap" rel="stylesheet">
+
 <style>
   :root{
-    --bg:#0b0f14; --card:#0f1822; --txt:#eef6ff; --muted:#a5b4c3;
-    --accent:#28d07b; --accent2:#12b169; --ring:#3ef39b; --glow:0 8px 40px rgba(62,243,155,.35)
+    --bg:#0b0f14;
+    --card:#0f1822;
+    --txt:#eef6ff;
+    --muted:#a5b4c3;
+    --accent:#28d07b;
+    --accent2:#12b169;
+    --ring:#3ef39b;
+    --glow:0 8px 40px rgba(62,243,155,.35);
   }
-  *{box-sizing:border-box;margin:0;padding:0}
+
+  *{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+  }
+
   body{
-    background: radial-gradient(1200px 700px at 70% -10%, #123 0%, var(--bg) 55%, var(--bg) 100%);
-    color:var(--txt); font:600 16px/1.5 Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;
-    min-height:100svh; display:grid; place-items:center; padding:24px
+    background:radial-gradient(1200px 700px at 70% -10%, #123 0%, var(--bg) 55%, var(--bg) 100%);
+    color:var(--txt);
+    font:600 16px/1.5 Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+    min-height:100svh;
+    display:grid;
+    place-items:center;
+    padding:24px;
   }
-  .wrap{max-width:720px; width:100%}
-  .card{
-  .card{
-  padding-right:170px;
-}
 
-.character{
-  position:absolute;
-  width:150px;
-  right:22px;
-  bottom:18px;
-  opacity:.98;
-  pointer-events:none;
-  z-index:1;
-  animation:floaty 3s ease-in-out infinite;
-  filter:drop-shadow(0 0 24px rgba(62,243,155,.75)) brightness(1.25) contrast(1.15);
-}
+  .wrap{
+    max-width:860px;
+    width:100%;
+  }
 
-.card > *:not(.character){
-  position:relative;
-  z-index:2;
-}
-
-@media(max-width:700px){
   .card{
-    padding-right:28px;
-    padding-bottom:150px;
+    position:relative;
+    overflow:hidden;
+    min-height:390px;
+    padding:34px 210px 34px 34px;
+    border-radius:22px;
+    border:1px solid rgba(62,243,155,.28);
+    background:
+      radial-gradient(360px 260px at 92% 70%, rgba(62,243,155,.18), transparent 70%),
+      linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.012));
+    box-shadow:var(--glow);
+  }
+
+  canvas{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    z-index:3;
+  }
+
+  .badge{
+    position:relative;
+    z-index:4;
+    display:inline-flex;
+    gap:8px;
+    align-items:center;
+    background:rgba(62,243,155,.15);
+    color:#bfffe1;
+    border:1px solid rgba(62,243,155,.4);
+    padding:7px 12px;
+    border-radius:999px;
+    font-size:13px;
+    margin-bottom:18px;
+  }
+
+  h1{
+    position:relative;
+    z-index:4;
+    font-size:clamp(32px,5vw,48px);
+    line-height:1.18;
+    letter-spacing:-.04em;
+    margin-bottom:14px;
+    max-width:620px;
+  }
+
+  .sub{
+    position:relative;
+    z-index:4;
+    color:var(--muted);
+    margin-bottom:24px;
+    max-width:560px;
+    font-size:17px;
+  }
+
+  .cta{
+    position:relative;
+    z-index:4;
+    display:inline-block;
+    margin-top:4px;
+    font-weight:800;
+    letter-spacing:.2px;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    color:#00130a;
+    text-decoration:none;
+    padding:15px 26px;
+    border-radius:16px;
+    box-shadow:0 6px 24px rgba(40,208,123,.35);
+    transform:translateY(0);
+    transition:.15s ease;
+  }
+
+  .cta:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 36px rgba(40,208,123,.45);
+  }
+
+  .grid{
+    position:relative;
+    z-index:4;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:14px;
+    margin-top:24px;
+  }
+
+  .row{
+    display:flex;
+    gap:10px;
+    align-items:center;
+  }
+
+  .flag{
+    width:18px;
+    height:18px;
+    border-radius:4px;
+    object-fit:cover;
+    border:1px solid rgba(255,255,255,.2);
+  }
+
+  .note{
+    font-size:13px;
+    color:#a9b7c6;
+    max-width:560px;
+  }
+
+  .timer{
+    font-feature-settings:"tnum" 1;
+    font-variant-numeric:tabular-nums;
   }
 
   .character{
-    width:120px;
-    right:22px;
+    position:absolute;
+    right:28px;
     bottom:18px;
+    width:170px;
+    max-height:330px;
+    object-fit:contain;
+    opacity:.98;
+    pointer-events:none;
+    z-index:2;
+    animation:floaty 3s ease-in-out infinite;
+    filter:
+      drop-shadow(0 0 26px rgba(62,243,155,.75))
+      brightness(1.25)
+      contrast(1.15);
   }
-}
 
-  animation:floaty 3s ease-in-out infinite;
+  @keyframes floaty{
+    0%{transform:translateY(0)}
+    50%{transform:translateY(-10px)}
+    100%{transform:translateY(0)}
+  }
 
-  filter:
-    drop-shadow(0 0 18px rgba(62,243,155,.65))
-    brightness(1.18)
-    contrast(1.12);
-}
+  @media(max-width:700px){
+    body{
+      padding:18px;
+    }
 
-@keyframes floaty{
-  0%{transform:translateY(0)}
-  50%{transform:translateY(-10px)}
-  100%{transform:translateY(0)}
-}
+    .wrap{
+      max-width:100%;
+    }
 
-@media(max-width:700px){
-  .character{width:110px;opacity:.85}
-}
+    .card{
+      min-height:520px;
+      padding:30px 28px 160px;
+    }
+
+    h1{
+      font-size:34px;
+      max-width:100%;
+    }
+
+    .sub{
+      font-size:15px;
+    }
+
+    .character{
+      width:130px;
+      right:20px;
+      bottom:18px;
+      opacity:.98;
+    }
+  }
 </style>
 </head>
+
 <body>
   <div class="wrap">
     <div class="card">
-  <canvas id="fx"></canvas>
-<img class="character"
-  src="/assets/congrats/animated-person.webp"
-  alt="Animated character">
-      <span class="badge">✅ Verified eligibility • <span class="timer" id="t">00:29</span> left</span>
-      <h1>Selected offers are optimized for your device and region</h1>
-      <p class="sub">Complete the final step below to unlock your offer. Limited-time access applies.</p>
+      <canvas id="fx"></canvas>
 
-      <!-- 👉 SET YOUR OFFER URL HERE -->
+      <img class="character"
+           src="/assets/congrats/animated-person.webp"
+           alt="Animated character">
+
+      <span class="badge">✅ Verified eligibility • <span class="timer" id="t">00:29</span> left</span>
+
+      <h1>Selected offers are optimized for your device and region</h1>
+
+      <p class="sub">
+        Complete the final step below to unlock your offer. Limited-time access applies.
+      </p>
+
       <a class="cta" id="go"
          href="https://millionairelucidlytransmitted.com/r213cbb9mr?key=260fe979627d3329490b55e190d439de"
-         rel="noopener nofollow">Access Offer</a>
+         rel="noopener nofollow">
+        Access Offer
+      </a>
 
       <div class="grid">
-        <div class="row"><img class="flag" id="f" alt="Flag"><span id="loc">Detecting location…</span></div>
-        <div class="note">By continuing, you agree to the promo terms. Availability varies by country and device.</div>
+        <div class="row">
+          <img class="flag" id="f" alt="Flag">
+          <span id="loc">Detecting location…</span>
+        </div>
+
+        <div class="note">
+          By continuing, you agree to the promo terms. Availability varies by country and device.
+        </div>
       </div>
     </div>
   </div>
 
 <script>
-/* --- Countdown (30s) + optional auto-open on zero --- */
 let s=29, el=document.getElementById('t');
-const tick=()=>{ el.textContent=`00:${String(s).padStart(2,'0')}`; if(s--<=0){clearInterval(int);/* window.location.href=document.getElementById('go').href; */} };
-const int=setInterval(tick,1000); tick();
 
-/* --- Lightweight confetti --- */
-const c=document.getElementById('fx'), x=c.getContext('2d'); let W,H,parts=[];
-function size(){W=c.width=innerWidth; H=c.height=Math.max(300,innerHeight*0.6)}
-function spawn(n=90){parts=[...Array(n)].map(()=>({x:Math.random()*W,y:-10-Math.random()*H,v:1+Math.random()*2,s:4+Math.random()*5,r:Math.random()*6.2,dr:(Math.random()-.5)*0.06}))}
-function step(){x.clearRect(0,0,W,H); parts.forEach(p=>{p.y+=p.v; p.r+=p.dr; x.save(); x.translate(p.x,p.y); x.rotate(p.r); x.fillStyle=`hsl(${(p.y/4)%360} 90% 60%)`; x.fillRect(-p.s/2,-p.s/2,p.s,p.s); x.restore(); if(p.y>H+20) p.y=-10}); requestAnimationFrame(step)}
-size(); spawn(); step(); addEventListener('resize',()=>{size(); spawn(120)})
+const tick=()=>{
+  el.textContent=`00:${String(s).padStart(2,'0')}`;
+  if(s--<=0){
+    clearInterval(int);
+  }
+};
 
-/* --- Geo hint (flag + country) --- */
+const int=setInterval(tick,1000);
+tick();
+
+const c=document.getElementById('fx'), x=c.getContext('2d');
+let W,H,parts=[];
+
+function size(){
+  W=c.width=c.offsetWidth;
+  H=c.height=c.offsetHeight;
+}
+
+function spawn(n=80){
+  parts=[...Array(n)].map(()=>({
+    x:Math.random()*W,
+    y:-10-Math.random()*H,
+    v:1+Math.random()*2,
+    s:4+Math.random()*5,
+    r:Math.random()*6.2,
+    dr:(Math.random()-.5)*0.06
+  }));
+}
+
+function step(){
+  x.clearRect(0,0,W,H);
+  parts.forEach(p=>{
+    p.y+=p.v;
+    p.r+=p.dr;
+    x.save();
+    x.translate(p.x,p.y);
+    x.rotate(p.r);
+    x.fillStyle=`hsl(${(p.y/4)%360} 90% 60%)`;
+    x.fillRect(-p.s/2,-p.s/2,p.s,p.s);
+    x.restore();
+    if(p.y>H+20) p.y=-10;
+  });
+  requestAnimationFrame(step);
+}
+
+size();
+spawn();
+step();
+
+addEventListener('resize',()=>{
+  size();
+  spawn(100);
+});
+
 (async ()=>{
   try{
     const r=await fetch('https://ipapi.co/json/');
     const j=await r.json();
-    document.getElementById('loc').textContent = `Offer optimized for ${j.country_name || 'your region'}`;
-    document.getElementById('f').src = `https://flagcdn.com/24x18/${(j.country_code||'us').toLowerCase()}.png`;
+
+    document.getElementById('loc').textContent =
+      `Offer optimized for ${j.country_name || 'your region'}`;
+
+    document.getElementById('f').src =
+      `https://flagcdn.com/24x18/${(j.country_code||'us').toLowerCase()}.png`;
   }catch(e){
     document.getElementById('loc').textContent='Offer optimized for your region';
     document.getElementById('f').style.display='none';
@@ -130,5 +326,6 @@ size(); spawn(); step(); addEventListener('resize',()=>{size(); spawn(120)})
   <style>.timer{display:none}</style>
   You’re eligible to claim your reward. Tap the button above to continue.
 </noscript>
+
 </body>
 </html>
