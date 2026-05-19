@@ -50,13 +50,18 @@
   .character{
   position:absolute;
   width:120px;
-  right:28px;
+  right:18px;
   bottom:10px;
-  opacity:.92;
+  opacity:.98;
   pointer-events:none;
   z-index:2;
+
   animation:floaty 3s ease-in-out infinite;
-  filter:drop-shadow(0 0 18px rgba(62,243,155,.45));
+
+  filter:
+    drop-shadow(0 0 18px rgba(62,243,155,.65))
+    brightness(1.18)
+    contrast(1.12);
 }
 
 @keyframes floaty{
