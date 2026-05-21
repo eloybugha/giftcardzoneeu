@@ -3,11 +3,26 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Creator Hub — Fiverr + Canva | GiftCardZoneEU</title>
-<meta name="referrer" content="no-referrer" />
-<meta http-equiv="Cache-Control" content="no-store" />
 
-<!-- (Optional) Microsoft Clarity for this page too -->
+<title>Creator Hub – Fiverr & Canva Tools | GiftCardZoneEU</title>
+<meta name="description" content="Explore creator tools for fast design and freelance help. Use Fiverr to hire pros and Canva to create designs quickly." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://giftcardzoneeu.com/partners/creative-hub/" />
+<link rel="icon" href="/assets/gz-logo.png" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Creator Hub – Fiverr & Canva Tools" />
+<meta property="og:description" content="Design faster with Canva or hire freelancers on Fiverr through GiftCardZoneEU Creator Hub." />
+<meta property="og:url" content="https://giftcardzoneeu.com/partners/creative-hub/" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Creator Hub – Fiverr & Canva Tools" />
+<meta name="twitter:description" content="Find creator tools for design, freelancing, logos, videos, and websites." />
+
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+<script src="/assets/ga.js"></script>
+
 <script>
 (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
 t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
@@ -17,95 +32,318 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 
 <style>
 :root{
-  --bg:#0b0f14; --card:#0f1626; --txt:#e6eaf5; --muted:#9aa6bd;
-  --accent:#22c55e; --accent2:#60a5fa; --border:#1f2937;
+  --bg:#070b12;
+  --card:#101827;
+  --card2:#0f172a;
+  --txt:#eef3ff;
+  --muted:#a8b3c7;
+  --accent:#22c55e;
+  --accent2:#60a5fa;
+  --border:#243047;
+  --gold:#facc15;
 }
 *{box-sizing:border-box}
-html,body{height:100%}
 body{
-  margin:0; min-height:100dvh; background:radial-gradient(1200px 600px at 70% -20%,#1f2433 0%,#0b0f14 48%,#0b0f14 100%);
-  color:var(--txt); font-family:system-ui,-apple-system,"Segoe UI",Roboto,Inter,sans-serif;
-  display:grid; place-items:center; padding:18px;
+  margin:0;
+  min-height:100vh;
+  background:
+    radial-gradient(900px 480px at 80% -10%,rgba(96,165,250,.22),transparent 55%),
+    radial-gradient(700px 420px at 10% 20%,rgba(34,197,94,.12),transparent 55%),
+    var(--bg);
+  color:var(--txt);
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Inter,sans-serif;
 }
-.container{
-  width:100%; max-width:780px; background:color-mix(in oklab, var(--card) 92%, transparent);
-  border:1px solid var(--border); border-radius:18px; padding:22px; box-shadow:0 20px 50px rgba(0,0,0,.35);
-  animation:fadeIn .8s ease both;
-}
-h1{margin:0 0 8px; font-weight:800; letter-spacing:.2px}
-.lead{color:var(--muted); margin:0 0 18px; font-size:15px}
-.grid{display:grid; gap:14px}
-@media(min-width:680px){.grid{grid-template-columns:1fr 1fr}}
+a{text-decoration:none;color:inherit}
+.wrap{width:min(1120px,100%);margin:auto;padding:22px}
 
-.card{
-  border:1px solid var(--border); border-radius:16px; padding:16px; background:rgba(16,24,39,.86);
-  display:flex; flex-direction:column; gap:12px; min-height:220px
+.nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:34px;
 }
-.badge{display:inline-flex; gap:8px; align-items:center; font-weight:700; font-size:12px; letter-spacing:.3px}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:900;
+}
+.logo img{
+  width:42px;
+  height:42px;
+  border-radius:12px;
+}
+.navlinks{
+  display:flex;
+  gap:12px;
+  font-size:14px;
+  color:var(--muted);
+}
+.navlinks a{
+  padding:9px 12px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:rgba(255,255,255,.03);
+}
+
+.hero{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:24px;
+  align-items:center;
+  padding:34px;
+  border:1px solid var(--border);
+  border-radius:28px;
+  background:linear-gradient(180deg,rgba(16,24,39,.94),rgba(15,23,42,.88));
+  box-shadow:0 24px 70px rgba(0,0,0,.38);
+}
+.kicker{
+  display:inline-flex;
+  gap:8px;
+  align-items:center;
+  padding:8px 12px;
+  border:1px solid rgba(250,204,21,.35);
+  border-radius:999px;
+  color:#fde68a;
+  background:rgba(250,204,21,.08);
+  font-weight:800;
+  font-size:13px;
+}
+h1{
+  font-size:clamp(42px,7vw,76px);
+  line-height:.95;
+  margin:18px 0 16px;
+  letter-spacing:-2px;
+}
+.lead{
+  color:var(--muted);
+  font-size:18px;
+  line-height:1.65;
+  max-width:660px;
+}
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:22px;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  min-height:52px;
+  padding:14px 18px;
+  border-radius:15px;
+  font-weight:900;
+  border:1px solid var(--border);
+}
+.btn.primary{
+  color:#061018;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+}
+.btn.secondary{
+  color:var(--txt);
+  background:rgba(255,255,255,.05);
+}
+
+.panel{
+  border:1px solid var(--border);
+  border-radius:24px;
+  padding:20px;
+  background:
+    linear-gradient(180deg,rgba(96,165,250,.12),rgba(34,197,94,.08)),
+    rgba(2,6,23,.72);
+}
+.mock{
+  border-radius:20px;
+  background:#050914;
+  border:1px solid var(--border);
+  padding:18px;
+}
+.mock-row{
+  display:flex;
+  gap:10px;
+  margin-bottom:12px;
+}
+.dot{width:12px;height:12px;border-radius:50%;background:#334155}
+.mock-card{
+  padding:16px;
+  border-radius:16px;
+  background:#111827;
+  border:1px solid #263247;
+  margin-top:12px;
+}
+.mock-card strong{display:block;margin-bottom:6px}
+.mock-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+  margin-top:24px;
+}
+.card{
+  border:1px solid var(--border);
+  border-radius:24px;
+  padding:24px;
+  background:rgba(15,23,42,.78);
+}
+.badge{
+  display:inline-flex;
+  gap:8px;
+  align-items:center;
+  font-weight:900;
+  margin-bottom:14px;
+}
 .badge.fiv{color:#22c55e}
 .badge.can{color:#60a5fa}
-ul{margin:0; padding-left:18px; color:var(--muted); font-size:14px}
-.btn{
-  appearance:none; border:1px solid var(--border); background:linear-gradient(90deg,var(--accent),var(--accent2));
-  color:#061018; font-weight:800; border-radius:12px; padding:12px 14px; text-align:center; text-decoration:none;
+.card h2{
+  font-size:30px;
+  line-height:1.15;
+  margin:0 0 16px;
 }
-.btn.alt{
-  background:transparent; color:var(--txt); border:1px solid #2b3953;
+.card p,.card li{
+  color:var(--muted);
+  line-height:1.55;
 }
-.footer{margin-top:14px; color:#7f8aa5; font-size:12px; text-align:center}
-@keyframes fadeIn{from{opacity:0; transform:translateY(6px)} to{opacity:1; transform:translateY(0)}}
+ul{margin:0 0 18px;padding-left:20px}
+.note{
+  margin-top:22px;
+  padding:16px;
+  border:1px solid rgba(250,204,21,.25);
+  border-radius:18px;
+  background:rgba(250,204,21,.07);
+  color:#fde68a;
+  font-size:14px;
+}
+.footer{
+  text-align:center;
+  color:#7f8aa5;
+  font-size:13px;
+  padding:34px 12px 10px;
+}
+@media(max-width:820px){
+  .hero,.grid{grid-template-columns:1fr}
+  .nav{align-items:flex-start;gap:14px;flex-direction:column}
+  .hero{padding:24px}
+}
 </style>
 </head>
+
 <body>
-  <main class="container">
-    <h1>Creator Hub</h1>
-    <p class="lead">Two ways to get pro results fast — design it yourself with Canva, or hire a pro in minutes on Fiverr.</p>
+<div class="wrap">
+
+  <nav class="nav">
+    <a class="logo" href="/">
+      <img src="/assets/gz-logo.png" alt="GiftCardZoneEU logo">
+      <span>GiftCardZoneEU</span>
+    </a>
+    <div class="navlinks">
+      <a href="/">Home</a>
+      <a href="/partners/">Partners</a>
+      <a href="/shopping/">Shopping</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div>
+        <div class="kicker">⚡ Creator tools for faster results</div>
+        <h1>Creator Hub</h1>
+        <p class="lead">
+          Build faster, design better, and launch cleaner projects. Use Fiverr to hire skilled freelancers, or Canva to create designs yourself in minutes.
+        </p>
+
+        <div class="hero-actions">
+          <a id="fiverrHero" class="btn primary" href="#">Explore Fiverr →</a>
+          <a id="canvaHero" class="btn secondary" href="#">Try Canva Free →</a>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="mock">
+          <div class="mock-row"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          <div class="mock-card">
+            <strong>Logo, video, website, design</strong>
+            <p>Find creative help or build your own visuals using beginner-friendly creator tools.</p>
+          </div>
+          <div class="mock-card">
+            <strong>Fast launch workflow</strong>
+            <p>Plan → design → publish → promote. Good for creators, small websites, and affiliate projects.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section class="grid">
-      <!-- Fiverr -->
       <article class="card">
         <div class="badge fiv">🧰 Fiverr • Hire pros fast</div>
-        <h2 style="margin:0">Need a designer, editor, or developer today?</h2>
+        <h2>Need a designer, editor, or developer?</h2>
         <ul>
-          <li>Hire vetted freelancers worldwide</li>
-          <li>Clear pricing & delivery time</li>
-          <li>Perfect for logos, video edits, websites</li>
+          <li>Hire freelancers for logos, videos, websites, and content</li>
+          <li>Compare pricing, reviews, and delivery time</li>
+          <li>Useful when you need help finishing a project faster</li>
         </ul>
-        <a id="fiverrBtn" class="btn" href="#">Explore Fiverr →</a>
+        <a id="fiverrBtn" class="btn primary" href="#">Explore Fiverr →</a>
       </article>
 
-      <!-- Canva -->
       <article class="card">
         <div class="badge can">🎨 Canva • Design it yourself</div>
-        <h2 style="margin:0">Create stunning designs in minutes</h2>
+        <h2>Create stunning designs in minutes</h2>
         <ul>
-          <li>Free templates for posts, logos, flyers</li>
-          <li>Drag-and-drop editor (no skills needed)</li>
-          <li>Upgrade to Pro for premium assets</li>
+          <li>Use templates for posts, logos, flyers, and banners</li>
+          <li>Drag-and-drop editor for beginners</li>
+          <li>Upgrade later for premium assets and brand tools</li>
         </ul>
-        <a id="canvaBtn" class="btn alt" href="#">Try Canva Free →</a>
+        <a id="canvaBtn" class="btn secondary" href="#">Try Canva Free →</a>
       </article>
     </section>
 
-    <p class="footer">⚡ Fast, safe redirects • No sign-in required • GiftCardZoneEU</p>
+    <div class="note">
+      Affiliate disclosure: GiftCardZoneEU may earn a commission when you visit or purchase through partner links, at no extra cost to you.
+    </div>
   </main>
 
+  <footer class="footer">
+    © <span id="year"></span> GiftCardZoneEU • Creator Hub
+  </footer>
+</div>
+
 <script>
-/* 🔗 Affiliate links (replace Canva once you have it) */
 const FIVERR = "https://www.fiverr.com/pe/WEKNLwd";
-const CANVA  = "YOUR_CANVA_AFFILIATE_LINK_HERE";
+const CANVA  = "https://www.canva.com/join/bzx-wgk-hcd";
 
-/* 🧩 Pass through any query (?src=tt&c=us) to help tracking */
 const q = location.search;
-document.getElementById("fiverrBtn").href = FIVERR + (q ? (FIVERR.includes("?")?"&":"?") + q.slice(1) : "");
-document.getElementById("canvaBtn").href  = (CANVA.includes("YOUR_CANVA") ? "#" : (CANVA + (q ? (CANVA.includes("?")?"&":"?") + q.slice(1) : "")));
 
-/* Disable Canva button until you add real link */
-if(document.getElementById("canvaBtn").href.endsWith("#")){
-  document.getElementById("canvaBtn").textContent = "Add Canva link soon →";
-  document.getElementById("canvaBtn").style.opacity = .6;
-  document.getElementById("canvaBtn").style.pointerEvents = "none";
+function withTracking(url){
+  if(!q) return url;
+  return url + (url.includes("?") ? "&" : "?") + q.slice(1);
 }
+
+function setLink(id,url){
+  const el = document.getElementById(id);
+  if(!el) return;
+
+  if(url.includes("YOUR_CANVA")){
+    el.href = "#";
+    el.textContent = "Add Canva link soon →";
+    el.style.opacity = ".6";
+    el.style.pointerEvents = "none";
+  }else{
+    el.href = withTracking(url);
+    el.rel = "nofollow sponsored noopener noreferrer";
+    el.target = "_blank";
+  }
+}
+
+setLink("fiverrHero", FIVERR);
+setLink("fiverrBtn", FIVERR);
+setLink("canvaHero", CANVA);
+setLink("canvaBtn", CANVA);
+
+document.getElementById("year").textContent = new Date().getFullYear();
 </script>
+
 </body>
 </html>
