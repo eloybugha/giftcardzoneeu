@@ -89,13 +89,13 @@ a{text-decoration:none;color:inherit}
 .hero{
   min-height:520px;
   display:flex;
-  align-items:center;
+  align-items:flex-end;
   padding:64px 38px;
   border:1px solid var(--border);
   border-radius:28px;
   background:
-    linear-gradient(90deg,rgba(3,7,18,.92) 0%,rgba(3,7,18,.72) 42%,rgba(3,7,18,.12) 100%),
-    url('/assets/creator-hub-hero.webp') center/cover no-repeat;
+    linear-gradient(180deg,rgba(3,7,18,.35) 0%,rgba(3,7,18,.78) 55%,rgba(3,7,18,.94) 100%),
+    url('/assets/creator-hub-hero.webp') center 38%/cover no-repeat;
   box-shadow:0 24px 70px rgba(0,0,0,.38);
   overflow:hidden;
 }
@@ -236,9 +236,14 @@ ul{margin:0 0 18px;padding-left:20px}
   padding:34px 12px 10px;
 }
 @media(max-width:820px){
-  .hero,.grid{grid-template-columns:1fr}
-  .nav{align-items:flex-start;gap:14px;flex-direction:column}
-  .hero{padding:24px}
+  .hero{
+    min-height:560px;
+    padding:34px 24px;
+    align-items:flex-end;
+    background:
+      linear-gradient(180deg,rgba(3,7,18,.35) 0%,rgba(3,7,18,.72) 50%,rgba(3,7,18,.95) 100%),
+      url('/assets/creator-hub-hero.webp') center top/cover no-repeat;
+  }
 }
 </style>
 </head>
