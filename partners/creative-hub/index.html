@@ -87,15 +87,27 @@ a{text-decoration:none;color:inherit}
 }
 
 .hero{
-  display:grid;
-  grid-template-columns:1.05fr .95fr;
-  gap:24px;
+  min-height:520px;
+  display:flex;
   align-items:center;
-  padding:34px;
+  padding:64px 38px;
   border:1px solid var(--border);
   border-radius:28px;
-  background:linear-gradient(180deg,rgba(16,24,39,.94),rgba(15,23,42,.88));
+  background:
+    linear-gradient(90deg,rgba(3,7,18,.92) 0%,rgba(3,7,18,.72) 42%,rgba(3,7,18,.12) 100%),
+    url('/assets/creator-hub-hero.webp') center/cover no-repeat;
   box-shadow:0 24px 70px rgba(0,0,0,.38);
+  overflow:hidden;
+}
+
+.hero > div:first-child{
+  max-width:560px;
+  position:relative;
+  z-index:2;
+}
+
+.panel{
+  display:none;
 }
 .kicker{
   display:inline-flex;
@@ -248,33 +260,19 @@ ul{margin:0 0 18px;padding-left:20px}
 
   <main>
     <section class="hero">
-      <div>
-        <div class="kicker">⚡ Creator tools for faster results</div>
-        <h1>Creator Hub</h1>
-        <p class="lead">
-          Build faster, design better, and launch cleaner projects. Use Fiverr to hire skilled freelancers, or Canva to create designs yourself in minutes.
-        </p>
+  <div>
+    <div class="kicker">⚡ Creator tools for faster results</div>
+    <h1>Creator Hub</h1>
+    <p class="lead">
+      Build faster, design better, and launch cleaner projects. Use Fiverr to hire skilled freelancers, or Canva to create designs yourself in minutes.
+    </p>
 
-        <div class="hero-actions">
-          <a id="fiverrHero" class="btn primary" href="#">Explore Fiverr →</a>
-          <a id="canvaHero" class="btn secondary" href="#">Try Canva Free →</a>
-        </div>
-      </div>
-
-      <div class="panel">
-        <div class="mock">
-          <div class="mock-row"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-          <div class="mock-card">
-            <strong>Logo, video, website, design</strong>
-            <p>Find creative help or build your own visuals using beginner-friendly creator tools.</p>
-          </div>
-          <div class="mock-card">
-            <strong>Fast launch workflow</strong>
-            <p>Plan → design → publish → promote. Good for creators, small websites, and affiliate projects.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <div class="hero-actions">
+      <a id="fiverrHero" class="btn primary" href="#">Explore Fiverr →</a>
+      <a id="canvaHero" class="btn secondary" href="#">Try Canva Free →</a>
+    </div>
+  </div>
+</section>
 
     <section class="grid">
       <article class="card">
