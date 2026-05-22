@@ -35,6 +35,10 @@
 
 *{box-sizing:border-box}
 
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   margin:0;
   font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
@@ -44,7 +48,10 @@ body{
   color:var(--text);
 }
 
-a{text-decoration:none;color:inherit}
+a{
+  text-decoration:none;
+  color:inherit;
+}
 
 .topbar{
   position:fixed;
@@ -55,8 +62,9 @@ a{text-decoration:none;color:inherit}
   display:flex;
   align-items:center;
   justify-content:space-between;
+  gap:16px;
   padding:14px 22px;
-  background:rgba(3,16,18,.72);
+  background:rgba(3,16,18,.76);
   backdrop-filter:blur(14px);
   border-bottom:1px solid var(--line);
 }
@@ -65,7 +73,8 @@ a{text-decoration:none;color:inherit}
   display:flex;
   align-items:center;
   gap:10px;
-  font-weight:800;
+  font-weight:900;
+  white-space:nowrap;
 }
 
 .brand img{
@@ -74,13 +83,27 @@ a{text-decoration:none;color:inherit}
   border-radius:50%;
 }
 
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  font-size:14px;
+  color:#d9eeee;
+  font-weight:700;
+}
+
+.nav-links a:hover{
+  color:var(--green);
+}
+
 .nav-cta{
   padding:10px 18px;
   border-radius:999px;
   background:var(--green);
   color:#001b14;
-  font-weight:900;
+  font-weight:950;
   box-shadow:0 12px 28px rgba(0,242,169,.25);
+  white-space:nowrap;
 }
 
 .hero{
@@ -89,7 +112,8 @@ a{text-decoration:none;color:inherit}
   align-items:flex-end;
   padding:120px 20px 46px;
   background:
-    linear-gradient(180deg,rgba(0,0,0,.16),rgba(0,0,0,.38) 45%,rgba(0,0,0,.88)),
+    linear-gradient(90deg,rgba(0,0,0,.72),rgba(0,0,0,.32) 48%,rgba(0,0,0,.36)),
+    linear-gradient(180deg,rgba(0,0,0,.1),rgba(0,0,0,.42) 45%,rgba(0,0,0,.9)),
     url("/assets/vpn-germany-bg.webp");
   background-size:cover;
   background-position:center;
@@ -106,7 +130,7 @@ a{text-decoration:none;color:inherit}
   padding:26px;
   border:1px solid rgba(255,255,255,.18);
   border-radius:30px;
-  background:rgba(3,16,18,.62);
+  background:rgba(3,16,18,.68);
   backdrop-filter:blur(16px);
   box-shadow:0 24px 70px rgba(0,0,0,.45);
 }
@@ -121,7 +145,7 @@ a{text-decoration:none;color:inherit}
   background:rgba(0,242,169,.14);
   border:1px solid rgba(0,242,169,.35);
   color:var(--green2);
-  font-weight:800;
+  font-weight:900;
   font-size:13px;
 }
 
@@ -133,7 +157,7 @@ h1{
 }
 
 .hero p{
-  max-width:700px;
+  max-width:720px;
   margin:18px 0 0;
   font-size:clamp(16px,2vw,20px);
   color:#dce8e9;
@@ -153,7 +177,7 @@ h1{
   justify-content:center;
   padding:15px 24px;
   border-radius:999px;
-  font-weight:900;
+  font-weight:950;
 }
 
 .btn-primary{
@@ -193,12 +217,30 @@ h1{
   margin-top:34px;
 }
 
+.grid-3{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:34px;
+}
+
 .card{
   padding:24px;
   border-radius:24px;
   background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.04));
   border:1px solid var(--line);
   box-shadow:0 18px 48px rgba(0,0,0,.22);
+}
+
+a.card{
+  display:block;
+  transition:.22s ease;
+}
+
+a.card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(0,242,169,.48);
+  box-shadow:0 22px 58px rgba(0,242,169,.1);
 }
 
 .card h3{
@@ -241,6 +283,28 @@ h1{
   color:#e8f7f4;
 }
 
+.link-strip{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:24px;
+}
+
+.link-strip a{
+  padding:10px 14px;
+  border-radius:999px;
+  background:rgba(255,255,255,.07);
+  border:1px solid var(--line);
+  color:#dffdf6;
+  font-weight:800;
+  font-size:14px;
+}
+
+.link-strip a:hover{
+  background:rgba(0,242,169,.16);
+  border-color:rgba(0,242,169,.45);
+}
+
 .faq{
   display:grid;
   gap:16px;
@@ -275,9 +339,26 @@ h1{
 
 .footer{
   text-align:center;
-  padding:36px 20px 90px;
+  padding:36px 20px 92px;
   color:#8fa1a4;
   border-top:1px solid var(--line);
+}
+
+.footer-links{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-bottom:16px;
+}
+
+.footer-links a{
+  color:#dffdf6;
+  font-weight:750;
+}
+
+.footer-links a:hover{
+  color:var(--green);
 }
 
 .sticky-cta{
@@ -303,18 +384,56 @@ h1{
   box-shadow:0 18px 50px rgba(0,242,169,.32);
 }
 
-@media(max-width:850px){
-  .grid{grid-template-columns:1fr 1fr}
-  .split{grid-template-columns:1fr}
-  .topbar{padding:12px 16px}
-  .brand span{font-size:14px}
+@media(max-width:900px){
+  .nav-links{
+    display:none;
+  }
+
+  .grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .grid-3{
+    grid-template-columns:1fr;
+  }
+
+  .split{
+    grid-template-columns:1fr;
+  }
 }
 
 @media(max-width:560px){
-  .grid{grid-template-columns:1fr}
-  .hero{min-height:88vh;padding:105px 14px 34px}
-  .hero-box{padding:20px;border-radius:24px}
-  .btn{width:100%}
+  .topbar{
+    padding:12px 16px;
+  }
+
+  .brand span{
+    font-size:14px;
+  }
+
+  .nav-cta{
+    padding:9px 14px;
+    font-size:13px;
+  }
+
+  .hero{
+    min-height:88vh;
+    padding:105px 14px 34px;
+    background-position:center;
+  }
+
+  .hero-box{
+    padding:20px;
+    border-radius:24px;
+  }
+
+  .btn{
+    width:100%;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
 }
 </style>
 </head>
@@ -326,6 +445,14 @@ h1{
     <img src="/assets/gz-logo.png" alt="GiftCardZoneEU Logo">
     <span>GiftCardZoneEU</span>
   </a>
+
+  <nav class="nav-links" aria-label="Main navigation">
+    <a href="/travel/germany/">Germany Travel</a>
+    <a href="/travel/germany/berlin/">Berlin</a>
+    <a href="/travel/germany/frankfurt/">Frankfurt</a>
+    <a href="/travel/germany/munich/">Munich</a>
+  </nav>
+
   <a class="nav-cta" href="https://www.tkqlhce.com/click-101586981-15554404" target="_blank" rel="nofollow sponsored noopener noreferrer">
     Get VPN
   </a>
@@ -337,10 +464,12 @@ h1{
   <div class="hero-inner">
     <div class="hero-box">
       <div class="badge">🇩🇪 Germany Travel Security</div>
+
       <h1>Surfshark VPN for Germany</h1>
+
       <p>
         Stay private, secure public WiFi, protect your devices, and browse safely while traveling or living in Germany.
-        A clean, fast VPN option for hotels, airports, cafés, and everyday internet use.
+        A clean, fast VPN option for hotels, airports, cafés, train stations, and everyday internet use.
       </p>
 
       <div class="hero-actions">
@@ -351,6 +480,13 @@ h1{
           Why Use It?
         </a>
       </div>
+
+      <div class="link-strip">
+        <a href="/travel/germany/">Germany Travel</a>
+        <a href="/travel/germany/berlin/">Berlin Hotels</a>
+        <a href="/travel/germany/frankfurt/">Frankfurt Hotels</a>
+        <a href="/travel/germany/munich/">Munich Hotels</a>
+      </div>
     </div>
   </div>
 </section>
@@ -358,14 +494,14 @@ h1{
 <section class="section" id="why">
   <h2>Why use a VPN in Germany?</h2>
   <p class="section-lead">
-    Whether you are visiting Berlin, Munich, Hamburg, Frankfurt, or Cologne, a VPN helps add an extra layer of privacy
-    when using public WiFi and everyday online services.
+    Whether you are visiting Berlin, Munich, Hamburg, Frankfurt, Cologne, or Düsseldorf, a VPN helps add an extra layer
+    of privacy when using public WiFi and everyday online services.
   </p>
 
   <div class="grid">
     <div class="card">
       <h3>🔒 Private Browsing</h3>
-      <p>Help protect your online activity from unwanted tracking and unsafe networks.</p>
+      <p>Help protect your online activity from unwanted tracking and unsafe public networks.</p>
     </div>
 
     <div class="card">
@@ -398,6 +534,9 @@ h1{
         <a class="btn btn-primary" href="https://www.tkqlhce.com/click-101586981-15554404" target="_blank" rel="nofollow sponsored noopener noreferrer">
           Protect My Connection
         </a>
+        <a class="btn btn-secondary" href="/travel/germany/">
+          Plan Germany Trip
+        </a>
       </div>
     </div>
 
@@ -410,6 +549,59 @@ h1{
         <div class="check">✅ Laptop, phone, and tablet privacy</div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Plan your Germany trip safely</h2>
+  <p class="section-lead">
+    After securing your connection with Surfshark, continue planning your Germany trip with GiftCardZoneEU travel guides.
+  </p>
+
+  <div class="grid">
+    <a class="card" href="/travel/germany/">
+      <h3>🇩🇪 Germany Travel Guide</h3>
+      <p>Explore where to stay, city guides, hotel areas, and travel planning tips across Germany.</p>
+    </a>
+
+    <a class="card" href="/travel/germany/berlin/">
+      <h3>🏙️ Berlin Hotels</h3>
+      <p>Find the best areas to stay in Berlin for culture, nightlife, museums, and city breaks.</p>
+    </a>
+
+    <a class="card" href="/travel/germany/frankfurt/">
+      <h3>✈️ Frankfurt Hotels</h3>
+      <p>Useful for airport stays, business trips, trade fairs, and Germany travel connections.</p>
+    </a>
+
+    <a class="card" href="/travel/germany/munich/">
+      <h3>🏔️ Munich Hotels</h3>
+      <p>Plan a stay near old town, museums, beer halls, and southern Germany highlights.</p>
+    </a>
+  </div>
+</section>
+
+<section class="section">
+  <h2>More Germany city guides</h2>
+  <p class="section-lead">
+    Connect this VPN page with your Germany travel cluster so visitors can continue browsing useful destination pages.
+  </p>
+
+  <div class="grid-3">
+    <a class="card" href="/travel/germany/hamburg/">
+      <h3>⚓ Hamburg</h3>
+      <p>Explore hotel areas near the harbor, canals, nightlife, and northern Germany attractions.</p>
+    </a>
+
+    <a class="card" href="/travel/germany/cologne/">
+      <h3>⛪ Cologne</h3>
+      <p>Find stays near Cologne Cathedral, the old town, riverside walks, and cultural highlights.</p>
+    </a>
+
+    <a class="card" href="/travel/germany/dusseldorf/">
+      <h3>🛍️ Düsseldorf</h3>
+      <p>Compare areas for shopping, business trips, Rhine views, and stylish city breaks.</p>
+    </a>
   </div>
 </section>
 
@@ -449,22 +641,33 @@ h1{
   <div class="faq">
     <details>
       <summary>Is Surfshark good for Germany?</summary>
-      <p>Yes. Surfshark is a practical VPN choice for Germany if you want safer browsing, privacy, and protection when using shared or public WiFi.</p>
+      <p>
+        Yes. Surfshark is a practical VPN choice for Germany if you want safer browsing, privacy, and protection
+        when using shared or public WiFi.
+      </p>
     </details>
 
     <details>
       <summary>Should travelers use a VPN in Germany?</summary>
-      <p>It is a smart option, especially when using hotel WiFi, café WiFi, airport WiFi, or train station networks.</p>
+      <p>
+        It is a smart option, especially when using hotel WiFi, café WiFi, airport WiFi, or train station networks.
+      </p>
     </details>
 
     <details>
       <summary>Can I use Surfshark on multiple devices?</summary>
-      <p>Surfshark is known for unlimited device support, which is useful if you want to protect your phone, laptop, and tablet.</p>
+      <p>
+        Surfshark is known for unlimited device support, which is useful if you want to protect your phone, laptop,
+        and tablet.
+      </p>
     </details>
 
     <details>
       <summary>Is a paid VPN better than a free VPN?</summary>
-      <p>For serious privacy and security, a trusted paid VPN is usually better than a random free VPN because free VPNs may have limits, slower speeds, or weaker trust signals.</p>
+      <p>
+        For serious privacy and security, a trusted paid VPN is usually better than a random free VPN because free VPNs
+        may have limits, slower speeds, or weaker trust signals.
+      </p>
     </details>
   </div>
 </section>
@@ -479,6 +682,17 @@ h1{
 </main>
 
 <footer class="footer">
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/travel/">Travel</a>
+    <a href="/travel/germany/">Germany</a>
+    <a href="/travel/germany/berlin/">Berlin</a>
+    <a href="/travel/germany/frankfurt/">Frankfurt</a>
+    <a href="/travel/germany/munich/">Munich</a>
+    <a href="/travel/germany/hamburg/">Hamburg</a>
+    <a href="/travel/germany/cologne/">Cologne</a>
+  </div>
+
   © <span id="year"></span> GiftCardZoneEU • Surfshark Germany VPN Guide
 </footer>
 
