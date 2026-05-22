@@ -91,10 +91,18 @@ a{text-decoration:none;color:inherit}
   rgba(0,0,0,.18) 70%,
   rgba(0,0,0,.40) 100%),
   url("/assets/vpn-canada-bg.webp");
+
   background-size:cover;
   background-position:72% center;
   background-repeat:no-repeat;
+
+  min-height:720px;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+
   padding:70px 0 80px;
+
   border-bottom:1px solid rgba(255,255,255,.08);
 }
 
@@ -281,12 +289,13 @@ a{text-decoration:none;color:inherit}
 }
 
 @media(max-width:900px){
-  .trust-grid,
-  .features,
-  .info-grid,
-  .partner-box{
-    grid-template-columns:1fr;
-  }
+
+.hero-wrap{
+min-height:640px;
+padding:42px 0 52px;
+}
+
+}
 
   .topbar{
     align-items:flex-start;
