@@ -2,176 +2,670 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>Surfshark VPN UK | Fast & Secure VPN</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Best VPN for the UK – Get Surfshark for fast, secure, and unlimited internet. Protect your privacy, access global content, and stay safe online in the United Kingdom." />
+
+<title>Surfshark VPN UK | Fast & Secure VPN for Travel</title>
+<meta name="description" content="Use Surfshark VPN in the UK for private browsing, secure public WiFi, unlimited devices, fast speeds, and safer travel internet access." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://giftcardzoneeu.com/surfshark-uk/" />
 <link rel="icon" href="/assets/gz-logo.png" />
 
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Surfshark VPN UK | Fast & Secure VPN" />
+<meta property="og:description" content="Protect your privacy in the UK with Surfshark VPN. Secure public WiFi, browse safely, and access global content." />
+<meta property="og:url" content="https://giftcardzoneeu.com/surfshark-uk/" />
+<meta property="og:image" content="https://giftcardzoneeu.com/assets/vpn-uk-bg.webp" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Surfshark VPN UK | Fast & Secure VPN" />
+<meta name="twitter:description" content="Fast, secure VPN for UK travel, privacy, and public WiFi protection." />
+<meta name="twitter:image" content="https://giftcardzoneeu.com/assets/vpn-uk-bg.webp" />
+
 <style>
-  :root{
-    --card-bg: rgba(255,255,255,.08);
-    --pill-bg: rgba(0,0,0,.35);
-  }
+:root{
+  --bg:#061315;
+  --card:#0b2024;
+  --soft:#102f35;
+  --text:#ffffff;
+  --muted:#b8c7ca;
+  --green:#00f2a9;
+  --green2:#66ffd4;
+  --line:rgba(255,255,255,.14);
+}
 
-  *{ box-sizing:border-box; }
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
 
-  body{
-    margin:0;
-    min-height:100vh;
-    background:
-      linear-gradient(135deg,#0f2027,#203a43,#2c5364),
-      url("/surfshark-uk/assets/vpn-uk-bg.jpg");
-    background-size:cover;
-    background-position:center;
-    background-attachment:fixed;
-    color:#fff;
-    font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
-  }
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  background:
+    radial-gradient(circle at top left,rgba(0,242,169,.18),transparent 34%),
+    linear-gradient(180deg,#031012,#07191c 45%,#041113);
+  color:var(--text);
+}
 
-  .container{
-    max-width:1100px;
-    margin:auto;
-    padding:60px 20px;
-  }
+a{text-decoration:none;color:inherit}
 
+.topbar{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:50;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:14px 22px;
+  background:rgba(3,16,18,.76);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:900;
+  white-space:nowrap;
+}
+
+.brand img{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  font-size:14px;
+  color:#d9eeee;
+  font-weight:700;
+}
+
+.nav-links a:hover{color:var(--green)}
+
+.nav-cta{
+  padding:10px 18px;
+  border-radius:999px;
+  background:var(--green);
+  color:#001b14;
+  font-weight:950;
+  box-shadow:0 12px 28px rgba(0,242,169,.25);
+  white-space:nowrap;
+}
+
+.hero{
+  min-height:92vh;
+  display:flex;
+  align-items:flex-end;
+  padding:120px 20px 46px;
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.72),rgba(0,0,0,.32) 48%,rgba(0,0,0,.36)),
+    linear-gradient(180deg,rgba(0,0,0,.1),rgba(0,0,0,.42) 45%,rgba(0,0,0,.9)),
+    url("/assets/vpn-uk-bg.webp");
+  background-size:cover;
+  background-position:center;
+}
+
+.hero-inner{
+  width:100%;
+  max-width:1120px;
+  margin:0 auto;
+}
+
+.hero-box{
+  max-width:820px;
+  padding:26px;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:30px;
+  background:rgba(3,16,18,.68);
+  backdrop-filter:blur(16px);
+  box-shadow:0 24px 70px rgba(0,0,0,.45);
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 14px;
+  margin-bottom:14px;
+  border-radius:999px;
+  background:rgba(0,242,169,.14);
+  border:1px solid rgba(0,242,169,.35);
+  color:var(--green2);
+  font-weight:900;
+  font-size:13px;
+}
+
+h1{
+  margin:0;
+  font-size:clamp(36px,6vw,68px);
+  line-height:1.02;
+  letter-spacing:-1.8px;
+}
+
+.hero p{
+  max-width:720px;
+  margin:18px 0 0;
+  font-size:clamp(16px,2vw,20px);
+  color:#dce8e9;
+  line-height:1.7;
+}
+
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  margin-top:26px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:15px 24px;
+  border-radius:999px;
+  font-weight:950;
+}
+
+.btn-primary{
+  background:var(--green);
+  color:#001b14;
+  box-shadow:0 15px 34px rgba(0,242,169,.26);
+}
+
+.btn-secondary{
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.18);
+}
+
+.link-strip{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:24px;
+}
+
+.link-strip a{
+  padding:10px 14px;
+  border-radius:999px;
+  background:rgba(255,255,255,.07);
+  border:1px solid var(--line);
+  color:#dffdf6;
+  font-weight:800;
+  font-size:14px;
+}
+
+.link-strip a:hover{
+  background:rgba(0,242,169,.16);
+  border-color:rgba(0,242,169,.45);
+}
+
+.section{
+  max-width:1120px;
+  margin:0 auto;
+  padding:72px 20px;
+}
+
+.section h2{
+  margin:0 0 14px;
+  font-size:clamp(28px,4vw,44px);
+  letter-spacing:-.8px;
+}
+
+.section-lead{
+  max-width:760px;
+  color:var(--muted);
+  line-height:1.8;
+  font-size:17px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+  margin-top:34px;
+}
+
+.grid-3{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:34px;
+}
+
+.card{
+  padding:24px;
+  border-radius:24px;
+  background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.04));
+  border:1px solid var(--line);
+  box-shadow:0 18px 48px rgba(0,0,0,.22);
+}
+
+a.card{
+  display:block;
+  transition:.22s ease;
+}
+
+a.card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(0,242,169,.48);
+  box-shadow:0 22px 58px rgba(0,242,169,.1);
+}
+
+.card h3{
+  margin:0 0 10px;
+  font-size:20px;
+}
+
+.card p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.7;
+}
+
+.split{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:24px;
+  align-items:center;
+}
+
+.panel{
+  padding:30px;
+  border-radius:30px;
+  background:
+    linear-gradient(135deg,rgba(0,242,169,.14),rgba(255,255,255,.05));
+  border:1px solid rgba(0,242,169,.22);
+}
+
+.checks{
+  display:grid;
+  gap:14px;
+  margin-top:24px;
+}
+
+.check{
+  padding:16px 18px;
+  border-radius:18px;
+  background:rgba(0,0,0,.22);
+  border:1px solid var(--line);
+  color:#e8f7f4;
+}
+
+.faq{
+  display:grid;
+  gap:16px;
+  margin-top:32px;
+}
+
+.faq details{
+  padding:20px;
+  border-radius:20px;
+  background:rgba(255,255,255,.06);
+  border:1px solid var(--line);
+}
+
+.faq summary{
+  cursor:pointer;
+  font-weight:900;
+}
+
+.faq p{
+  color:var(--muted);
+  line-height:1.7;
+}
+
+.disclosure{
+  padding:18px 20px;
+  border-radius:20px;
+  background:rgba(255,255,255,.06);
+  border:1px solid var(--line);
+  color:var(--muted);
+  line-height:1.7;
+}
+
+.footer{
+  text-align:center;
+  padding:36px 20px 92px;
+  color:#8fa1a4;
+  border-top:1px solid var(--line);
+}
+
+.footer-links{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-bottom:16px;
+}
+
+.footer-links a{
+  color:#dffdf6;
+  font-weight:750;
+}
+
+.footer-links a:hover{color:var(--green)}
+
+.sticky-cta{
+  position:fixed;
+  left:16px;
+  right:16px;
+  bottom:16px;
+  z-index:60;
+  max-width:520px;
+  margin:auto;
+  display:flex;
+  justify-content:center;
+}
+
+.sticky-cta a{
+  width:100%;
+  text-align:center;
+  padding:15px 22px;
+  border-radius:999px;
+  background:var(--green);
+  color:#001b14;
+  font-weight:950;
+  box-shadow:0 18px 50px rgba(0,242,169,.32);
+}
+
+@media(max-width:900px){
+  .nav-links{display:none}
+  .grid{grid-template-columns:1fr 1fr}
+  .grid-3{grid-template-columns:1fr}
+  .split{grid-template-columns:1fr}
+}
+
+@media(max-width:560px){
   .hero{
-    text-align:center;
-    padding-top:10px;
+    min-height:88vh;
+    padding:105px 14px 34px;
+    background-size:105% auto;
+    background-position:center top;
   }
 
-  .logo{
-    width:64px;
-    height:auto;
-    margin:0 auto 12px auto;
-    display:block;
+  .hero-box{
+    padding:20px;
+    border-radius:24px;
+    margin-top:260px;
   }
 
-  .brand-pill{
-    display:inline-block;
-    padding:6px 14px;
-    background:var(--pill-bg);
-    border-radius:20px;
-    font-size:13px;
-    margin:0 auto 18px auto;
-  }
-
-  .hero h1{
-    font-size:42px;
-    line-height:1.1;
-    margin:0 0 14px 0;
-  }
-
-  .hero p{
-    font-size:18px;
-    opacity:.9;
-    margin:0;
-  }
-
-  .cta{
-    display:inline-block;
-    margin-top:30px;
-    padding:15px 35px;
-    background:#00f2a9;
-    color:#000;
-    font-weight:800;
-    border-radius:30px;
-    text-decoration:none;
-    transition:transform .12s ease, opacity .12s ease;
-  }
-
-  .cta:hover{ transform:translateY(-1px); opacity:.95; }
-
-  .features{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-    gap:30px;
-    margin-top:70px;
-    align-items:stretch;
-  }
-
-  .feature{
-    background:var(--card-bg);
-    padding:28px 26px;
-    border-radius:18px;
-    text-align:left;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    min-height:140px;
-    backdrop-filter: blur(6px);
-  }
-
-  .feature h3{
-    margin:0 0 10px 0;
-    font-size:18px;
-    letter-spacing:.2px;
-  }
-
-  .feature p{
-    margin:0;
-    opacity:.9;
-    line-height:1.45;
-    font-size:15px;
-  }
-
-  .footer{
-    text-align:center;
-    opacity:.6;
-    font-size:14px;
-    margin-top:80px;
-  }
-
-  @media (max-width:600px){
-    .hero h1{ font-size:34px; }
-    .hero p{ font-size:16px; }
-    .feature{ text-align:center; }
-    body{ background-attachment:scroll; }
-  }
+  .btn{width:100%}
+  .grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 
 <body>
-  <div class="container">
-    <div class="hero">
-  <div class="brand-pill">Powered by GiftCardZoneEU</div>
 
-  <h1>Best VPN for UK – Get Surfshark Now</h1>
-  <p>Fast, secure and unlimited VPN access – perfect for UK privacy & global content</p>
+<header class="topbar">
+  <a class="brand" href="/">
+    <img src="/assets/gz-logo.png" alt="GiftCardZoneEU Logo">
+    <span>GiftCardZoneEU</span>
+  </a>
 
-  <a class="cta" href="https://www.tkqlhce.com/click-101586981-15554404" target="_blank" rel="noopener">
-    Get Surfshark VPN (UK)
+  <nav class="nav-links" aria-label="Main navigation">
+  <a href="/travel/uk/">UK Travel</a>
+  <a href="/surfshark-germany/">Germany VPN</a>
+  <a href="/surfshark-usa/">USA VPN</a>
+</nav>
+
+  <a class="nav-cta" href="https://www.tkqlhce.com/click-101586981-15554404" target="_blank" rel="nofollow sponsored noopener noreferrer">
+    Get VPN
+  </a>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-box">
+      <div class="badge">🇬🇧 UK Travel Security</div>
+
+      <h1>Surfshark VPN for the UK</h1>
+
+      <p>
+        Stay private, secure public WiFi, protect your devices, and browse safely while traveling or living in the United Kingdom.
+        A clean, fast VPN option for hotels, airports, cafés, train stations, coworking spaces, and everyday internet use.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://www.tkqlhce.com/click-101586981-15554404" target="_blank" rel="nofollow sponsored noopener noreferrer">
+          Get Surfshark VPN
+        </a>
+        <a class="btn btn-secondary" href="#why">
+          Why Use It?
+        </a>
+      </div>
+
+      <div class="link-strip">
+        <a href="/travel/uk/">UK Travel</a>
+        <a href="/travel/uk/london/">London Hotels</a>
+        <a href="/travel/uk/manchester/">Manchester Hotels</a>
+        <a href="/travel/uk/edinburgh/">Edinburgh Hotels</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="why">
+  <h2>Why use a VPN in the UK?</h2>
+  <p class="section-lead">
+    Whether you are visiting London, Manchester, Edinburgh, Liverpool, Birmingham, Oxford, or Cambridge,
+    a VPN helps add an extra layer of privacy when using public WiFi and everyday online services.
+  </p>
+
+  <div class="grid">
+  <a class="card" href="/travel/uk/">
+    <h3>🇬🇧 UK Travel Guide</h3>
+    <p>Explore where to stay, UK travel planning, hotel options, and safe browsing tips.</p>
+  </a>
+
+  <a class="card" href="/surfshark-germany/">
+    <h3>🇩🇪 Germany VPN</h3>
+    <p>Secure your Germany trip with a Surfshark travel security guide.</p>
+  </a>
+
+  <a class="card" href="/surfshark-usa/">
+    <h3>🇺🇸 USA VPN</h3>
+    <p>Protect your connection while browsing, booking, and traveling in the USA.</p>
+  </a>
+
+  <a class="card" href="/travel/">
+    <h3>🌍 Travel Hub</h3>
+    <p>Browse more travel guides and destination pages from GiftCardZoneEU.</p>
+  </a>
+</div>
+</section>
+
+<section class="section">
+  <div class="split">
+    <div>
+      <h2>Built for UK travelers, remote workers, and everyday browsing</h2>
+      <p class="section-lead">
+        Surfshark is a strong fit for UK travel pages because visitors often book hotels, flights, rail transport,
+        attractions, and activities while connected to shared networks. A VPN adds trust and protection during those moments.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://www.tkqlhce.com/click-101586981-15554404" target="_blank" rel="nofollow sponsored noopener noreferrer">
+          Protect My Connection
+        </a>
+        <a class="btn btn-secondary" href="/travel/uk/">
+          Plan UK Trip
+        </a>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3>Best use cases</h3>
+      <div class="checks">
+        <div class="check">✅ Hotel and apartment WiFi</div>
+        <div class="check">✅ Airport and train station browsing</div>
+        <div class="check">✅ Travel booking and payment protection</div>
+        <div class="check">✅ Laptop, phone, and tablet privacy</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Plan your UK trip safely</h2>
+  <p class="section-lead">
+    After securing your connection with Surfshark, continue planning your UK trip with GiftCardZoneEU travel guides.
+  </p>
+
+  <div class="grid">
+    <a class="card" href="/travel/uk/">
+      <h3>🇬🇧 UK Travel Guide</h3>
+      <p>Explore where to stay, city guides, hotel areas, and travel planning tips across the United Kingdom.</p>
+    </a>
+
+    <a class="card" href="/travel/uk/london/">
+      <h3>🏙️ London Hotels</h3>
+      <p>Find the best areas to stay in London for sightseeing, shopping, food, museums, and city breaks.</p>
+    </a>
+
+    <a class="card" href="/travel/uk/manchester/">
+      <h3>🎵 Manchester Hotels</h3>
+      <p>Compare areas for nightlife, football, shopping, culture, and northern England stays.</p>
+    </a>
+
+    <a class="card" href="/travel/uk/edinburgh/">
+      <h3>🏰 Edinburgh Hotels</h3>
+      <p>Plan a stay near the old town, castle, festivals, historic streets, and Scotland highlights.</p>
+    </a>
+  </div>
+</section>
+
+<section class="section">
+  <h2>More UK city guides</h2>
+  <p class="section-lead">
+    Connect this VPN page with your UK travel cluster so visitors can continue browsing useful destination pages.
+  </p>
+
+  <div class="grid-3">
+    <a class="card" href="/travel/uk/liverpool/">
+      <h3>🎸 Liverpool</h3>
+      <p>Explore hotel areas near music heritage, waterfront walks, museums, nightlife, and cultural attractions.</p>
+    </a>
+
+    <a class="card" href="/travel/uk/birmingham/">
+      <h3>🏬 Birmingham</h3>
+      <p>Find stays for shopping, business trips, concerts, canals, and central England travel.</p>
+    </a>
+
+    <a class="card" href="/travel/uk/oxford/">
+      <h3>🎓 Oxford</h3>
+      <p>Compare areas for university heritage, historic streets, museums, gardens, and peaceful city breaks.</p>
+    </a>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Surfshark VPN benefits</h2>
+  <p class="section-lead">
+    A premium VPN should feel simple, fast, and safe — not complicated. Surfshark gives users practical privacy tools
+    without making the experience heavy.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>⚡ Fast connection</h3>
+      <p>Designed for smooth browsing, streaming, and daily internet use.</p>
+    </div>
+
+    <div class="card">
+      <h3>🛡️ Kill switch</h3>
+      <p>Adds protection if the VPN connection unexpectedly drops.</p>
+    </div>
+
+    <div class="card">
+      <h3>🧹 Cleaner browsing</h3>
+      <p>Extra tools may help reduce trackers, unsafe pages, and unwanted interruptions.</p>
+    </div>
+
+    <div class="card">
+      <h3>🌐 Travel friendly</h3>
+      <p>Useful across the UK and other international destinations.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>UK VPN FAQ</h2>
+
+  <div class="faq">
+    <details>
+      <summary>Is Surfshark good for the UK?</summary>
+      <p>
+        Yes. Surfshark is a practical VPN choice for the UK if you want safer browsing, privacy, and protection
+        when using shared or public WiFi.
+      </p>
+    </details>
+
+    <details>
+      <summary>Should travelers use a VPN in the UK?</summary>
+      <p>
+        It is a smart option, especially when using hotel WiFi, café WiFi, airport WiFi, train station WiFi, or coworking networks.
+      </p>
+    </details>
+
+    <details>
+      <summary>Can I use Surfshark on multiple devices?</summary>
+      <p>
+        Surfshark is known for unlimited device support, which is useful if you want to protect your phone, laptop,
+        and tablet.
+      </p>
+    </details>
+
+    <details>
+      <summary>Is a paid VPN better than a free VPN?</summary>
+      <p>
+        For serious privacy and security, a trusted paid VPN is usually better than a random free VPN because free VPNs
+        may have limits, slower speeds, or weaker trust signals.
+      </p>
+    </details>
+  </div>
+</section>
+
+<section class="section">
+  <div class="disclosure">
+    <strong>Affiliate disclosure:</strong> GiftCardZoneEU may earn a commission when you purchase through our links,
+    at no extra cost to you. This helps support our travel and online safety content.
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-links">
+  <a href="/">Home</a>
+  <a href="/travel/">Travel</a>
+  <a href="/travel/uk/">UK Travel</a>
+  <a href="/surfshark-germany/">Surfshark Germany</a>
+  <a href="/surfshark-usa/">Surfshark USA</a>
+</div>
+
+  © <span id="year"></span> GiftCardZoneEU • Surfshark UK VPN Guide
+</footer>
+
+<div class="sticky-cta">
+  <a href="https://www.tkqlhce.com/click-101586981-15554404" target="_blank" rel="nofollow sponsored noopener noreferrer">
+    Get Surfshark VPN for UK
   </a>
 </div>
 
-    <div class="features">
-      <div class="feature">
-        <h3>🔒 Strong Security</h3>
-        <p>Military-grade encryption with kill switch protection.</p>
-      </div>
-
-      <div class="feature">
-        <h3>🌍 Access Global Content</h3>
-        <p>Unlock websites & streaming platforms worldwide.</p>
-      </div>
-
-      <div class="feature">
-        <h3>⚡ Fast Speeds</h3>
-        <p>Optimized servers for smooth browsing & downloads.</p>
-      </div>
-
-      <div class="feature">
-        <h3>📱 Unlimited Devices</h3>
-        <p>One account protects all your devices.</p>
-      </div>
-    </div>
-
-    <div class="footer">
-      © <span id="year"></span> GiftCardZoneEU • Affiliate disclosure applies
-    </div>
-  </div>
-
 <script>
-  document.getElementById("year").textContent = new Date().getFullYear();
+document.getElementById("year").textContent = new Date().getFullYear();
 </script>
+
+<script src="/assets/ga.js"></script>
+
 </body>
 </html>
