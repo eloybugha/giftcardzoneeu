@@ -26,9 +26,9 @@
   <style>
     :root {
       --bg: #020617;
-      --panel: rgba(15, 23, 42, 0.94);
+      --panel: rgba(15, 23, 42, 0.92);
       --panel-strong: rgba(15, 23, 42, 0.985);
-      --card: rgba(15, 23, 42, 0.9);
+      --card: rgba(15, 23, 42, 0.86);
       --accent: #f97316;
       --accent-2: #fde047;
       --accent-3: #ef4444;
@@ -36,7 +36,6 @@
       --muted: #cbd5e1;
       --soft: #94a3b8;
       --line: rgba(148, 163, 184, 0.28);
-      --white-line: rgba(248, 250, 252, 0.55);
       --green: #22c55e;
       --shadow: 0 26px 80px rgba(0, 0, 0, 0.55);
     }
@@ -88,7 +87,7 @@
       padding: 10px 12px;
       border: 1px solid var(--line);
       border-radius: 999px;
-      background: rgba(2, 6, 23, 0.78);
+      background: rgba(2, 6, 23, 0.82);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
       box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
@@ -156,57 +155,55 @@
     .nav .nav-cta {
       color: #111827;
       background: linear-gradient(135deg, #fed7aa, #fb923c, #f97316);
-      font-weight: 800;
+      font-weight: 900;
       box-shadow: 0 14px 35px rgba(249, 115, 22, 0.35);
     }
 
-    .hero {
-      position: relative;
-      overflow: hidden;
-      min-height: 670px;
+    /* SOLO IMAGE HERO — no page text overlay */
+    .hero-image-wrap {
       margin-top: 18px;
       border-radius: 34px;
+      overflow: hidden;
       border: 1px solid rgba(248, 250, 252, 0.18);
       background: #020617;
       box-shadow: var(--shadow);
-      isolation: isolate;
+      position: relative;
     }
 
-    .hero::before {
+    .hero-image-wrap::after {
       content: "";
       position: absolute;
       inset: 0;
-      background-image: url("/partners/12go-china/assets/12go-hero.webp");
-      background-size: cover;
-      background-position: center;
-      transform: scale(1.04);
-      filter: brightness(0.82) saturate(1.15) contrast(1.05);
-      z-index: -3;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
+      pointer-events: none;
       background:
-        radial-gradient(circle at 82% 14%, rgba(249, 115, 22, 0.24), transparent 28%),
-        radial-gradient(circle at 18% 10%, rgba(248, 250, 252, 0.1), transparent 34%),
-        linear-gradient(90deg, rgba(2, 6, 23, 0.96) 0%, rgba(2, 6, 23, 0.88) 43%, rgba(2, 6, 23, 0.45) 100%),
-        linear-gradient(180deg, rgba(2, 6, 23, 0.18), rgba(2, 6, 23, 0.92));
-      z-index: -2;
+        linear-gradient(180deg, rgba(2, 6, 23, 0.06), rgba(2, 6, 23, 0.16)),
+        radial-gradient(circle at bottom left, rgba(249, 115, 22, 0.14), transparent 36%);
     }
 
-    .hero-inner {
-      min-height: 670px;
-      padding: 58px 54px 42px;
+    .hero-image {
+      width: 100%;
+      height: clamp(360px, 58vw, 650px);
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .intro-panel {
+      margin-top: 22px;
+      border-radius: 34px;
+      padding: 34px;
+      border: 1px solid rgba(248, 250, 252, 0.16);
+      background:
+        radial-gradient(circle at top right, rgba(249, 115, 22, 0.14), transparent 32%),
+        radial-gradient(circle at bottom left, rgba(34, 197, 94, 0.08), transparent 34%),
+        rgba(15, 23, 42, 0.9);
+      box-shadow: 0 22px 70px rgba(0, 0, 0, 0.35);
+    }
+
+    .intro-grid {
       display: grid;
       grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.72fr);
-      gap: 30px;
-      align-items: center;
-    }
-
-    .hero-copy {
-      max-width: 680px;
+      gap: 28px;
+      align-items: start;
     }
 
     .eyebrow {
@@ -216,13 +213,13 @@
       padding: 8px 12px;
       border-radius: 999px;
       border: 1px solid rgba(248, 250, 252, 0.22);
-      background: rgba(15, 23, 42, 0.65);
+      background: rgba(2, 6, 23, 0.55);
       color: #fed7aa;
       font-size: 0.78rem;
-      font-weight: 800;
+      font-weight: 900;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.22);
     }
 
     .eyebrow-dot {
@@ -234,10 +231,10 @@
     }
 
     h1 {
-      margin-top: 20px;
-      font-size: clamp(2.35rem, 5vw, 5.1rem);
-      line-height: 0.94;
-      letter-spacing: -0.075em;
+      margin-top: 18px;
+      font-size: clamp(2.25rem, 5vw, 4.5rem);
+      line-height: 0.97;
+      letter-spacing: -0.07em;
       max-width: 760px;
     }
 
@@ -247,12 +244,11 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      text-shadow: none;
     }
 
     .subtitle {
-      margin-top: 22px;
-      max-width: 650px;
+      margin-top: 20px;
+      max-width: 700px;
       color: var(--muted);
       font-size: 1.04rem;
     }
@@ -271,7 +267,7 @@
       padding: 8px 11px;
       border-radius: 999px;
       border: 1px solid rgba(248, 250, 252, 0.18);
-      background: rgba(15, 23, 42, 0.76);
+      background: rgba(2, 6, 23, 0.42);
       color: #e5e7eb;
       font-size: 0.82rem;
     }
@@ -299,7 +295,7 @@
       border-radius: 999px;
       text-decoration: none;
       font-size: 0.9rem;
-      font-weight: 900;
+      font-weight: 950;
       letter-spacing: 0.04em;
       text-transform: uppercase;
       transition: 0.18s ease;
@@ -308,19 +304,19 @@
     .btn-primary {
       color: #111827;
       background: linear-gradient(135deg, #ffedd5 0%, #fdba74 25%, #fb923c 55%, #f97316 100%);
-      box-shadow: 0 20px 55px rgba(249, 115, 22, 0.5), 0 0 0 1px rgba(248, 250, 252, 0.7);
+      box-shadow: 0 20px 55px rgba(249, 115, 22, 0.46), 0 0 0 1px rgba(248, 250, 252, 0.7);
     }
 
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 26px 70px rgba(249, 115, 22, 0.7), 0 0 0 1px rgba(248, 250, 252, 0.9);
+      box-shadow: 0 26px 70px rgba(249, 115, 22, 0.66), 0 0 0 1px rgba(248, 250, 252, 0.9);
       filter: brightness(1.04);
     }
 
     .btn-ghost {
       color: #fff;
       border: 1px solid rgba(248, 250, 252, 0.25);
-      background: rgba(15, 23, 42, 0.72);
+      background: rgba(2, 6, 23, 0.48);
     }
 
     .btn-ghost:hover {
@@ -335,7 +331,7 @@
       gap: 10px;
       color: var(--soft);
       font-size: 0.86rem;
-      max-width: 590px;
+      max-width: 620px;
     }
 
     .check {
@@ -356,15 +352,15 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 12px;
       margin-top: 28px;
-      max-width: 670px;
+      max-width: 760px;
     }
 
     .stat {
       padding: 14px;
       border-radius: 18px;
       border: 1px solid rgba(248, 250, 252, 0.15);
-      background: rgba(15, 23, 42, 0.68);
-      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.22);
+      background: rgba(2, 6, 23, 0.42);
+      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.18);
     }
 
     .stat strong {
@@ -386,10 +382,10 @@
       border: 1px solid rgba(248, 250, 252, 0.18);
       background:
         radial-gradient(circle at top left, rgba(249, 115, 22, 0.13), transparent 42%),
-        rgba(15, 23, 42, 0.82);
+        rgba(2, 6, 23, 0.38);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
-      box-shadow: 0 26px 70px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 20px 55px rgba(0, 0, 0, 0.28);
       overflow: hidden;
     }
 
@@ -421,7 +417,7 @@
       border: 1px solid rgba(34, 197, 94, 0.35);
       color: #bbf7d0;
       font-size: 0.72rem;
-      font-weight: 800;
+      font-weight: 850;
     }
 
     .routes {
@@ -434,14 +430,14 @@
       padding: 13px;
       border-radius: 18px;
       border: 1px solid rgba(148, 163, 184, 0.22);
-      background: rgba(2, 6, 23, 0.45);
+      background: rgba(2, 6, 23, 0.42);
       transition: 0.16s ease;
     }
 
     .route-card:hover {
       transform: translateY(-2px);
       border-color: rgba(249, 115, 22, 0.45);
-      background: rgba(15, 23, 42, 0.78);
+      background: rgba(15, 23, 42, 0.72);
     }
 
     .route-top {
@@ -465,7 +461,7 @@
       color: #fed7aa;
       background: rgba(249, 115, 22, 0.1);
       font-size: 0.68rem;
-      font-weight: 800;
+      font-weight: 850;
       text-transform: uppercase;
       letter-spacing: 0.08em;
     }
@@ -497,7 +493,7 @@
     .section-kicker {
       color: #fb923c;
       font-size: 0.78rem;
-      font-weight: 900;
+      font-weight: 950;
       letter-spacing: 0.14em;
       text-transform: uppercase;
     }
@@ -549,6 +545,47 @@
     .info-card p {
       color: var(--soft);
       font-size: 0.9rem;
+    }
+
+    .vpn-panel {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 14px;
+    }
+
+    .vpn-card {
+      border-radius: 24px;
+      padding: 20px;
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      background:
+        radial-gradient(circle at top right, rgba(34, 197, 94, 0.1), transparent 32%),
+        rgba(2, 6, 23, 0.44);
+    }
+
+    .vpn-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+    }
+
+    .vpn-card p {
+      color: var(--soft);
+      font-size: 0.9rem;
+      margin-bottom: 14px;
+    }
+
+    .vpn-card a {
+      display: inline-flex;
+      text-decoration: none;
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 950;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      background: rgba(248, 250, 252, 0.1);
+      border: 1px solid rgba(248, 250, 252, 0.18);
+      color: #fff;
     }
 
     .steps-grid {
@@ -739,14 +776,8 @@
         padding: 7px 9px;
       }
 
-      .hero-inner {
+      .intro-grid {
         grid-template-columns: 1fr;
-        padding: 42px 28px 30px;
-      }
-
-      .hero,
-      .hero-inner {
-        min-height: auto;
       }
 
       .route-panel {
@@ -754,7 +785,8 @@
       }
 
       .grid-3,
-      .steps-grid {
+      .steps-grid,
+      .vpn-panel {
         grid-template-columns: 1fr;
       }
 
@@ -796,23 +828,23 @@
         font-size: 0.74rem;
       }
 
-      .hero {
-        border-radius: 26px;
+      .hero-image-wrap {
+        border-radius: 24px;
         margin-top: 12px;
       }
 
-      .hero::after {
-        background:
-          linear-gradient(180deg, rgba(2, 6, 23, 0.84), rgba(2, 6, 23, 0.96)),
-          radial-gradient(circle at top, rgba(249, 115, 22, 0.16), transparent 42%);
+      .hero-image {
+        height: 330px;
+        object-position: center;
       }
 
-      .hero-inner {
-        padding: 34px 18px 22px;
+      .intro-panel {
+        padding: 24px 18px;
+        border-radius: 24px;
       }
 
       h1 {
-        font-size: clamp(2.15rem, 12vw, 3.2rem);
+        font-size: clamp(2.05rem, 11vw, 3.15rem);
       }
 
       .subtitle {
@@ -886,9 +918,20 @@
     </header>
 
     <main>
-      <section class="hero" id="top">
-        <div class="hero-inner">
-          <div class="hero-copy">
+      <!-- SOLO IMAGE ONLY: no duplicate page title overlay -->
+      <section class="hero-image-wrap" aria-label="China transport hero image">
+        <img
+          class="hero-image"
+          src="/partners/12go-china/assets/12go-hero.webp"
+          alt="China train station with high-speed train, city skyline and traveler"
+          loading="eager"
+        />
+      </section>
+
+      <!-- TITLE AND CONTENT BELOW IMAGE -->
+      <section class="intro-panel" id="book">
+        <div class="intro-grid">
+          <div>
             <div class="eyebrow">
               <span class="eyebrow-dot"></span>
               China · Trains · Buses · Ferries · Transfers
@@ -913,7 +956,7 @@
               <span class="tag"><span>•</span> Xi'an</span>
             </div>
 
-            <div class="cta-row" id="book">
+            <div class="cta-row">
               <a
                 class="btn btn-primary"
                 href="https://www.dpbolvw.net/click-101586981-17115158"
@@ -1077,6 +1120,33 @@
             <p>
               Pay securely on 12Go and follow their confirmation instructions for your ticket or transfer.
             </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="travel-security">
+        <div class="section-kicker">Travel security</div>
+        <h2>Stay safer online while traveling</h2>
+        <p class="lead">
+          When checking transport bookings, maps, email or hotel details on airport, station or café Wi-Fi,
+          a travel VPN can help add a layer of privacy and protection.
+        </p>
+
+        <div class="vpn-panel">
+          <article class="vpn-card">
+            <h3>NordVPN for travel</h3>
+            <p>
+              Useful for travelers who want stronger privacy when browsing on shared public Wi-Fi networks.
+            </p>
+            <a href="#" rel="nofollow sponsored noopener noreferrer" target="_blank">Add NordVPN link</a>
+          </article>
+
+          <article class="vpn-card">
+            <h3>Surfshark for travel</h3>
+            <p>
+              A flexible VPN option for phones, tablets and laptops while moving between cities and stations.
+            </p>
+            <a href="#" rel="nofollow sponsored noopener noreferrer" target="_blank">Add Surfshark link</a>
           </article>
         </div>
       </section>
