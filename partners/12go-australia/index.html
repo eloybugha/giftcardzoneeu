@@ -4,251 +4,1176 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Australia Transport Booking with 12Go | GiftCardZoneEU</title>
-  <meta name="description" content="Book trains, buses, ferries and airport transfers across Australia via 12Go. Compare routes, schedules, and operators easily." />
+  <title>Australia Train, Bus & Ferry Tickets | GiftCardZoneEU × 12Go</title>
+  <meta name="description" content="Compare Australia trains, buses, ferries and airport transfers with 12Go. Start from GiftCardZoneEU and search transport routes across Sydney, Melbourne, Brisbane, Gold Coast, Canberra, Adelaide, Perth and more." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://giftcardzoneeu.com/partners/12go-australia/" />
+  <link rel="icon" href="/assets/gz-logo.png" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="12Go Australia Transport Booking | GiftCardZoneEU" />
-  <meta property="og:description" content="Compare seats, schedules & operators for transport across Australia." />
+  <meta property="og:title" content="Australia Train, Bus & Ferry Tickets | GiftCardZoneEU × 12Go" />
+  <meta property="og:description" content="Compare Australia transport options through 12Go, including trains, buses, ferries and transfers when available." />
   <meta property="og:url" content="https://giftcardzoneeu.com/partners/12go-australia/" />
-  <meta property="og:image" content="https://giftcardzoneeu.com/partners/12go-australia/assets/12go-hero-au.webp" />
-<meta name="twitter:image" content="https://giftcardzoneeu.com/partners/12go-australia/assets/12go-hero-au.webp" />
+  <meta property="og:image" content="https://giftcardzoneeu.com/partners/12go-australia/assets/12go-hero.webp" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Australia Train, Bus & Ferry Tickets | GiftCardZoneEU × 12Go" />
+  <meta name="twitter:description" content="Plan Australia transport routes with 12Go — trains, buses, ferries and airport transfers across major cities." />
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/partners/12go-australia/assets/12go-hero.webp" />
+
   <style>
     :root {
       --bg: #020617;
-      --card-bg: #020617;
-      --page-bg: #0b1220;
-      --accent: #00c3a3;
-      --accent-soft: rgba(0, 195, 163, 0.08);
-      --accent-strong: rgba(0, 195, 163, 0.16);
-      --text-main: #e5e7eb;
-      --text-muted: #9ca3af;
-      --border-subtle: rgba(148, 163, 184, 0.45);
-      --chip-bg: rgba(15, 23, 42, 0.92);
+      --panel: rgba(15, 23, 42, 0.92);
+      --card: rgba(15, 23, 42, 0.86);
+      --accent: #f97316;
+      --accent-2: #fde047;
+      --text: #f8fafc;
+      --muted: #cbd5e1;
+      --soft: #94a3b8;
+      --line: rgba(148, 163, 184, 0.28);
+      --green: #22c55e;
+      --shadow: 0 26px 80px rgba(0, 0, 0, 0.55);
     }
 
-    * { box-sizing: border-box; margin:0; padding:0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
     body {
-      min-height: 100vh;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      color: var(--text-main);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
-        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.82)),
-        url("/travel/australia/assets/12go-hero.webp") center/cover no-repeat fixed;
+        radial-gradient(circle at top left, rgba(249, 115, 22, 0.22), transparent 34%),
+        radial-gradient(circle at top right, rgba(14, 165, 233, 0.16), transparent 30%),
+        linear-gradient(180deg, #020617 0%, #050816 52%, #000 100%);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
     }
 
-    .page {
-      max-width:1080px;
-      margin:0 auto;
-      padding:24px 16px 56px;
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .page-shell {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 24px 0 36px;
     }
 
-    header {
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      margin-bottom:18px;
-      gap:12px;
+    .topbar {
+      position: sticky;
+      top: 12px;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(2, 6, 23, 0.82);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
     }
 
-    .brand { display:flex; align-items:center; gap:10px; }
-
-    .brandMark {
-      width:36px; height:36px; border-radius:12px;
-      background: conic-gradient(from 200deg, #00c3a3,#22c55e,#38bdf8,#00c3a3);
-      display:flex; align-items:center; justify-content:center;
-      box-shadow: 0 12px 40px rgba(15,118,110,0.6);
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      min-width: max-content;
     }
 
-    .brandMark span { font-size:18px; font-weight:800; color:#0f172a; }
+    .logo img {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      box-shadow: 0 0 0 2px rgba(248, 250, 252, 0.65), 0 0 30px rgba(56, 189, 248, 0.4);
+      object-fit: cover;
+      background: #fff;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.05;
+    }
+
+    .logo-text strong {
+      font-size: 0.86rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .logo-text span {
+      font-size: 0.72rem;
+      color: var(--soft);
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .nav a {
+      text-decoration: none;
+      padding: 8px 11px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: 0.18s ease;
+      white-space: nowrap;
+    }
+
+    .nav a:hover {
+      border-color: rgba(248, 250, 252, 0.28);
+      background: rgba(248, 250, 252, 0.08);
+      color: #fff;
+    }
+
+    .nav .nav-cta {
+      color: #111827;
+      background: linear-gradient(135deg, #fed7aa, #fb923c, #f97316);
+      font-weight: 900;
+      box-shadow: 0 14px 35px rgba(249, 115, 22, 0.35);
+    }
+
+    .hero-image-wrap {
+      margin-top: 18px;
+      border-radius: 34px;
+      overflow: hidden;
+      border: 1px solid rgba(248, 250, 252, 0.18);
+      background: #020617;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .hero-image-wrap::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, rgba(2, 6, 23, 0.06), rgba(2, 6, 23, 0.16)),
+        radial-gradient(circle at bottom left, rgba(249, 115, 22, 0.14), transparent 36%);
+    }
+
+    .hero-image {
+      width: 100%;
+      height: clamp(360px, 58vw, 650px);
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .intro-panel {
+      margin-top: 22px;
+      border-radius: 34px;
+      padding: 34px;
+      border: 1px solid rgba(248, 250, 252, 0.16);
+      background:
+        radial-gradient(circle at top right, rgba(249, 115, 22, 0.14), transparent 32%),
+        radial-gradient(circle at bottom left, rgba(14, 165, 233, 0.1), transparent 34%),
+        rgba(15, 23, 42, 0.9);
+      box-shadow: 0 22px 70px rgba(0, 0, 0, 0.35);
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.72fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(248, 250, 252, 0.22);
+      background: rgba(2, 6, 23, 0.55);
+      color: #fed7aa;
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.22);
+    }
+
+    .eyebrow-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--green), #15803d);
+      box-shadow: 0 0 16px rgba(34, 197, 94, 0.9);
+    }
+
+    h1 {
+      margin-top: 18px;
+      font-size: clamp(2.25rem, 5vw, 4.5rem);
+      line-height: 0.97;
+      letter-spacing: -0.07em;
+      max-width: 760px;
+    }
+
+    .highlight {
+      display: inline-block;
+      background: linear-gradient(120deg, #fff7ed 0%, #fdba74 35%, #f97316 64%, #fde047 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .subtitle {
+      margin-top: 20px;
+      max-width: 700px;
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 22px;
+    }
 
     .tag {
-      padding:6px 10px; border-radius:999px; font-size:11px;
-      display:inline-flex; align-items:center; gap:6px;
-      border:1px solid rgba(148,163,184,0.5);
-      background:radial-gradient(circle at top left,#1f2937,#020617);
-      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(248, 250, 252, 0.18);
+      background: rgba(2, 6, 23, 0.42);
+      color: #e5e7eb;
+      font-size: 0.82rem;
     }
 
-    .tagDot { width:7px; height:7px; border-radius:999px; background:#22c55e;
-      box-shadow: 0 0 0 5px rgba(34,197,94,0.2);
+    .tag span {
+      color: #fb923c;
+      font-weight: 900;
     }
 
-    .hero {
-      border-radius:22px; overflow:hidden;
-      border:1px solid rgba(148,163,184,0.4);
-      background:linear-gradient(145deg,#020617,#020617);
-      margin-bottom:26px; padding:24px 22px;
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin-top: 28px;
     }
 
-    .hero h1 { font-size:26px; margin-bottom:10px; }
-    .hero p { font-size:14px; color:var(--text-muted); margin-bottom:16px; }
-
-    .btnPrimary {
-      background:linear-gradient(135deg,#00c3a3,#22c55e);
-      color:#020617; padding:10px 18px; border-radius:999px;
-      font-size:14px; font-weight:600; text-decoration:none;
-      display:inline-flex; align-items:center; gap:8px;
-      box-shadow:0 14px 40px rgba(16,185,129,0.5);
-      cursor:pointer;
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 48px;
+      padding: 13px 19px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 950;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: 0.18s ease;
     }
 
-    .btnGhost {
-      border-radius:999px; padding:9px 14px;
-      border:1px solid rgba(148,163,184,0.6);
-      background:rgba(15,23,42,0.9);
-      font-size:13px; text-decoration:none;
-      color:var(--text-muted); display:inline-flex; gap:6px;
+    .btn-primary {
+      color: #111827;
+      background: linear-gradient(135deg, #ffedd5 0%, #fdba74 25%, #fb923c 55%, #f97316 100%);
+      box-shadow: 0 20px 55px rgba(249, 115, 22, 0.46), 0 0 0 1px rgba(248, 250, 252, 0.7);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 26px 70px rgba(249, 115, 22, 0.66), 0 0 0 1px rgba(248, 250, 252, 0.9);
+      filter: brightness(1.04);
+    }
+
+    .btn-ghost {
+      color: #fff;
+      border: 1px solid rgba(248, 250, 252, 0.25);
+      background: rgba(2, 6, 23, 0.48);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(248, 250, 252, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .secure-note {
+      margin-top: 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: var(--soft);
+      font-size: 0.86rem;
+      max-width: 620px;
+    }
+
+    .check {
+      flex: 0 0 auto;
+      width: 22px;
+      height: 22px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(34, 197, 94, 0.16);
+      color: #86efac;
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      font-weight: 900;
+    }
+
+    .stats-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 28px;
+      max-width: 760px;
+    }
+
+    .stat {
+      padding: 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(248, 250, 252, 0.15);
+      background: rgba(2, 6, 23, 0.42);
+      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.18);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.08rem;
+      line-height: 1.1;
+      color: #fff;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 4px;
+      color: var(--soft);
+      font-size: 0.78rem;
+    }
+
+    .route-panel {
+      border-radius: 28px;
+      border: 1px solid rgba(248, 250, 252, 0.18);
+      background:
+        radial-gradient(circle at top left, rgba(249, 115, 22, 0.13), transparent 42%),
+        rgba(2, 6, 23, 0.38);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 20px 55px rgba(0, 0, 0, 0.28);
+      overflow: hidden;
+    }
+
+    .panel-head {
+      padding: 18px 18px 14px;
+      border-bottom: 1px solid rgba(248, 250, 252, 0.12);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .panel-head h2 {
+      font-size: 1.05rem;
+      letter-spacing: -0.02em;
+    }
+
+    .panel-head p {
+      margin-top: 4px;
+      color: var(--soft);
+      font-size: 0.78rem;
+    }
+
+    .mini-badge {
+      min-width: max-content;
+      border-radius: 999px;
+      padding: 6px 10px;
+      background: rgba(34, 197, 94, 0.13);
+      border: 1px solid rgba(34, 197, 94, 0.35);
+      color: #bbf7d0;
+      font-size: 0.72rem;
+      font-weight: 850;
+    }
+
+    .routes {
+      display: grid;
+      gap: 10px;
+      padding: 16px;
+    }
+
+    .route-card {
+      padding: 13px;
+      border-radius: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      background: rgba(2, 6, 23, 0.42);
+      transition: 0.16s ease;
+    }
+
+    .route-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(249, 115, 22, 0.45);
+      background: rgba(15, 23, 42, 0.72);
+    }
+
+    .route-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 4px;
+    }
+
+    .route-top strong {
+      font-size: 0.9rem;
+      color: #fff;
+    }
+
+    .mode {
+      min-width: max-content;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(248, 250, 252, 0.18);
+      color: #fed7aa;
+      background: rgba(249, 115, 22, 0.1);
+      font-size: 0.68rem;
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .route-card p {
+      color: var(--soft);
+      font-size: 0.78rem;
     }
 
     .section {
-      border-radius:20px;
-      border:1px solid var(--border-subtle);
-      background:rgba(15,23,42,0.75);
-      padding:16px; margin-bottom:18px;
+      margin-top: 22px;
+      padding: 30px;
+      border-radius: 30px;
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      background:
+        radial-gradient(circle at top right, rgba(249, 115, 22, 0.08), transparent 36%),
+        rgba(15, 23, 42, 0.76);
+      box-shadow: 0 20px 70px rgba(0, 0, 0, 0.22);
     }
 
-    .routesGrid {
-      display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-      gap:10px; margin-top:6px;
-    }
-    .routeCard {
-      border-radius:16px; background:#020617;
-      border:1px solid rgba(148,163,184,0.45);
-      padding:12px; display:flex; flex-direction:column; gap:6px;
-    }
-    .routeTitle { font-size:14px; font-weight:600; }
-    .routeMeta { font-size:12px; color:var(--text-muted); }
-    .routeTagRow { display:flex; gap:6px; flex-wrap:wrap; margin-top:4px; }
-    .routeTag { font-size:11px; padding:4px 7px; border-radius:999px;
-      background:rgba(15,23,42,0.96); border:1px dashed var(--border-subtle);
-      color:var(--text-muted);
-    }
-    .routeLink { margin-top:6px; font-size:12px; color:#e0f2fe; text-decoration:none; }
-
-    .trustRow {
-      margin-top:8px; font-size:11px;
-      color:var(--text-muted); display:flex; gap:8px; flex-wrap:wrap;
-    }
-    .trustBadge {
-      padding:5px 8px; border-radius:999px;
-      border:1px dashed var(--border-subtle);
-      background:rgba(15,23,42,0.8);
+    .section-kicker {
+      color: #fb923c;
+      font-size: 0.78rem;
+      font-weight: 950;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
     }
 
-    .disclosure { font-size:11px; color:var(--text-muted); line-height:1.5; }
+    .section h2 {
+      margin-top: 4px;
+      font-size: clamp(1.55rem, 2.5vw, 2.45rem);
+      line-height: 1.05;
+      letter-spacing: -0.045em;
+    }
 
-    footer { margin-top:18px; font-size:11px; color:var(--text-muted); text-align:left; }
+    .section p.lead {
+      max-width: 730px;
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    .grid-3,
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .info-card,
+    .step-card {
+      border-radius: 22px;
+      padding: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      background: rgba(2, 6, 23, 0.44);
+    }
+
+    .info-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 12px;
+      border-radius: 15px;
+      background: linear-gradient(135deg, rgba(249, 115, 22, 0.22), rgba(14, 165, 233, 0.12));
+      border: 1px solid rgba(249, 115, 22, 0.22);
+      font-size: 1.15rem;
+    }
+
+    .info-card h3,
+    .step-card h3 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .info-card p,
+    .step-card p {
+      color: var(--soft);
+      font-size: 0.9rem;
+    }
+
+    .step-num {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #fed7aa, #f97316);
+      color: #111827;
+      font-weight: 1000;
+      box-shadow: 0 12px 30px rgba(249, 115, 22, 0.35);
+      margin-bottom: 13px;
+    }
+
+    .vpn-panel {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 14px;
+    }
+
+    .vpn-card {
+      border-radius: 24px;
+      padding: 20px;
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      background:
+        radial-gradient(circle at top right, rgba(34, 197, 94, 0.1), transparent 32%),
+        rgba(2, 6, 23, 0.44);
+    }
+
+    .vpn-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+    }
+
+    .vpn-card p {
+      color: var(--soft);
+      font-size: 0.9rem;
+      margin-bottom: 14px;
+    }
+
+    .vpn-card a {
+      display: inline-flex;
+      text-decoration: none;
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 950;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      background: rgba(248, 250, 252, 0.1);
+      border: 1px solid rgba(248, 250, 252, 0.18);
+      color: #fff;
+    }
+
+    .link-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .link-card {
+      text-decoration: none;
+      border-radius: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      background: rgba(2, 6, 23, 0.42);
+      padding: 15px;
+      transition: 0.16s ease;
+      min-height: 108px;
+    }
+
+    .link-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(249, 115, 22, 0.48);
+      background: rgba(15, 23, 42, 0.72);
+    }
+
+    .link-card strong {
+      display: block;
+      color: #fff;
+      margin-bottom: 5px;
+      font-size: 0.94rem;
+    }
+
+    .link-card span {
+      display: block;
+      color: var(--soft);
+      font-size: 0.78rem;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    details {
+      border-radius: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      background: rgba(2, 6, 23, 0.42);
+      padding: 14px 16px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 850;
+      color: #fff;
+    }
+
+    details p {
+      margin-top: 8px;
+      color: var(--soft);
+      font-size: 0.92rem;
+    }
+
+    .bottom-cta {
+      margin-top: 22px;
+      border-radius: 30px;
+      padding: 28px;
+      border: 1px solid rgba(249, 115, 22, 0.25);
+      background:
+        radial-gradient(circle at top left, rgba(249, 115, 22, 0.2), transparent 38%),
+        linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(2, 6, 23, 0.92));
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .bottom-cta h2 {
+      font-size: clamp(1.35rem, 2.2vw, 2rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+    }
+
+    .bottom-cta p {
+      margin-top: 8px;
+      color: var(--muted);
+      max-width: 650px;
+    }
+
+    .disclosure {
+      margin-top: 18px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      background: rgba(2, 6, 23, 0.5);
+      color: var(--soft);
+      font-size: 0.82rem;
+    }
+
+    .footer {
+      padding: 24px 4px 0;
+      color: var(--soft);
+      font-size: 0.82rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .footer a {
+      color: #e5e7eb;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(229, 231, 235, 0.28);
+    }
+
+    .sticky-cta {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 60;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      color: #111827;
+      font-size: 0.82rem;
+      font-weight: 1000;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #ffedd5, #fb923c, #f97316);
+      box-shadow: 0 18px 55px rgba(249, 115, 22, 0.58);
+      border: 1px solid rgba(248, 250, 252, 0.7);
+    }
+
+    @media (max-width: 980px) {
+      .topbar { align-items: flex-start; border-radius: 24px; }
+      .nav { gap: 6px; }
+      .nav a { padding: 7px 9px; }
+      .intro-grid { grid-template-columns: 1fr; }
+      .grid-3, .steps-grid, .vpn-panel { grid-template-columns: 1fr; }
+      .link-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .bottom-cta { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 680px) {
+      .page-shell {
+        width: min(100% - 20px, 1180px);
+        padding-top: 12px;
+      }
+
+      .topbar {
+        position: relative;
+        top: 0;
+        flex-direction: column;
+        align-items: stretch;
+        border-radius: 22px;
+      }
+
+      .logo-text span { display: none; }
+
+      .nav {
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: 2px;
+      }
+
+      .nav a { font-size: 0.74rem; }
+
+      .hero-image-wrap {
+        border-radius: 24px;
+        margin-top: 12px;
+      }
+
+      .hero-image {
+        height: 330px;
+        object-position: center;
+      }
+
+      .intro-panel {
+        padding: 24px 18px;
+        border-radius: 24px;
+      }
+
+      h1 { font-size: clamp(2.05rem, 11vw, 3.15rem); }
+      .subtitle { font-size: 0.96rem; }
+      .stats-strip { grid-template-columns: 1fr; }
+      .panel-head, .route-top { flex-direction: column; align-items: flex-start; }
+      .section { padding: 22px 16px; border-radius: 24px; }
+      .link-grid { grid-template-columns: 1fr; }
+      .bottom-cta { padding: 22px 16px; border-radius: 24px; }
+
+      .sticky-cta {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        justify-content: center;
+      }
+
+      .footer { padding-bottom: 66px; }
+    }
   </style>
 </head>
 
 <body>
-  <div class="page">
+  <div class="page-shell">
+    <header class="topbar" aria-label="Site navigation">
+      <a class="logo" href="/" aria-label="GiftCardZoneEU homepage">
+        <img src="/assets/gz-logo.png" alt="GiftCardZoneEU logo" />
+        <span class="logo-text">
+          <strong>GiftCardZoneEU</strong>
+          <span>Travel partners & booking guides</span>
+        </span>
+      </a>
 
-    <header>
-      <div class="brand">
-        <div class="brandMark"><span>GZ</span></div>
-        <div class="brandText">
-          <small>Partners</small>
-          <strong>Australia</strong>
-        </div>
-      </div>
-      <div class="tag"><div class="tagDot"></div>Official affiliate partner</div>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/travel/">Travel Hub</a>
+        <a href="/partners/12go/">12Go Hub</a>
+        <a href="/partners/12go-china/">China 12Go</a>
+        <a href="/partners/12go-philippines/">Philippines 12Go</a>
+        <a href="/partners/12go-brazil/">Brazil 12Go</a>
+        <a class="nav-cta" href="#book">Book Australia</a>
+      </nav>
     </header>
 
     <main>
-      <section class="hero" aria-label="Hero section">
-        <h1>Book transport across Australia with 12Go</h1>
-        <p>Compare operators, seat classes, departure times and island or airport transfers, then checkout securely on 12Go.</p>
+      <section class="hero-image-wrap" aria-label="Australia transport hero image">
+        <img
+          class="hero-image"
+          src="/partners/12go-australia/assets/12go-hero.webp"
+          alt="Australia transport travel scene with city skyline, train, bus or ferry and traveler"
+          loading="eager"
+        />
+      </section>
 
-        <div style="display:flex; gap:10px; flex-wrap:wrap;">
-          <a class="btnPrimary" href="https://www.tkqlhce.com/click-101586981-17115164" target="_blank" rel="noopener noreferrer">
-            <span>Start booking Australia routes</span> →
+      <section class="intro-panel" id="book">
+        <div class="intro-grid">
+          <div>
+            <div class="eyebrow">
+              <span class="eyebrow-dot"></span>
+              Australia · Trains · Buses · Ferries · Transfers
+            </div>
+
+            <h1>
+              Book <span class="highlight">Australia transport</span> with 12Go
+            </h1>
+
+            <p class="subtitle">
+              Compare routes across Australia with 12Go — including trains, long-distance buses,
+              ferries, airport transfers and selected private transfers when available.
+              Start from GiftCardZoneEU, then complete your booking securely on 12Go.
+            </p>
+
+            <div class="hero-tags">
+              <span class="tag"><span>•</span> Sydney</span>
+              <span class="tag"><span>•</span> Melbourne</span>
+              <span class="tag"><span>•</span> Brisbane</span>
+              <span class="tag"><span>•</span> Gold Coast</span>
+              <span class="tag"><span>•</span> Canberra</span>
+              <span class="tag"><span>•</span> Adelaide</span>
+            </div>
+
+            <div class="cta-row">
+              <a
+                class="btn btn-primary"
+                href="https://www.dpbolvw.net/click-101586981-17115158"
+                target="_blank"
+                rel="nofollow sponsored noopener noreferrer"
+              >
+                Open 12Go Australia Search ↗
+              </a>
+
+              <a class="btn btn-ghost" href="#routes">
+                View popular routes
+              </a>
+            </div>
+
+            <div class="secure-note">
+              <span class="check">✓</span>
+              <span>
+                Booking, payment, ticket confirmation and customer support are handled by 12Go.
+                GiftCardZoneEU helps you start from the right travel partner page.
+              </span>
+            </div>
+
+            <div class="stats-strip" aria-label="Australia travel booking highlights">
+              <div class="stat">
+                <strong>Major cities</strong>
+                <span>Plan routes around Sydney, Melbourne, Brisbane, Gold Coast and more.</span>
+              </div>
+              <div class="stat">
+                <strong>Multiple options</strong>
+                <span>Compare rail, bus, ferry and transfer choices when available.</span>
+              </div>
+              <div class="stat">
+                <strong>Secure checkout</strong>
+                <span>Finish your booking directly on the official 12Go website.</span>
+              </div>
+            </div>
+          </div>
+
+          <aside class="route-panel" aria-label="Popular Australia routes">
+            <div class="panel-head">
+              <div>
+                <h2>Popular Australia route ideas</h2>
+                <p>Use these as starting points when searching on 12Go.</p>
+              </div>
+              <span class="mini-badge">12Go Partner</span>
+            </div>
+
+            <div class="routes" id="routes">
+              <article class="route-card">
+                <div class="route-top">
+                  <strong>Sydney ⇄ Melbourne</strong>
+                  <span class="mode">Train / Bus</span>
+                </div>
+                <p>A classic east-coast route for travelers connecting Australia’s two biggest city hubs.</p>
+              </article>
+
+              <article class="route-card">
+                <div class="route-top">
+                  <strong>Sydney ⇄ Canberra</strong>
+                  <span class="mode">Bus / Train</span>
+                </div>
+                <p>Useful for capital city trips, business travel and short multi-city planning.</p>
+              </article>
+
+              <article class="route-card">
+                <div class="route-top">
+                  <strong>Brisbane ⇄ Gold Coast</strong>
+                  <span class="mode">City transfer</span>
+                </div>
+                <p>A strong route idea for beach stays, airport movement and Queensland travel plans.</p>
+              </article>
+
+              <article class="route-card">
+                <div class="route-top">
+                  <strong>Melbourne ⇄ Adelaide</strong>
+                  <span class="mode">Rail / Bus</span>
+                </div>
+                <p>Good for longer Australia itineraries across Victoria and South Australia.</p>
+              </article>
+
+              <article class="route-card">
+                <div class="route-top">
+                  <strong>Cairns ⇄ Port Douglas</strong>
+                  <span class="mode">Transfer</span>
+                </div>
+                <p>A useful search idea for tropical North Queensland trips and reef-focused travel.</p>
+              </article>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="why">
+        <div class="section-kicker">Why start here</div>
+        <h2>A focused Australia transport page built for travelers</h2>
+        <p class="lead">
+          Instead of jumping around different transport websites, this partner page sends you straight
+          to 12Go’s Australia search flow. You can compare available travel options, choose a schedule,
+          and finish your booking on 12Go.
+        </p>
+
+        <div class="grid-3">
+          <article class="info-card">
+            <div class="info-icon">🚆</div>
+            <h3>Train route planning</h3>
+            <p>
+              Search major Australia rail route ideas and compare available schedules when supported by 12Go.
+            </p>
+          </article>
+
+          <article class="info-card">
+            <div class="info-icon">🚌</div>
+            <h3>Bus and transfer options</h3>
+            <p>
+              For some routes, 12Go may show buses, airport transfers or private transfer options.
+            </p>
+          </article>
+
+          <article class="info-card">
+            <div class="info-icon">⛴️</div>
+            <h3>Ferry and island movement</h3>
+            <p>
+              Depending on route coverage, ferry-style travel options may appear for coastal or island plans.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="how">
+        <div class="section-kicker">How it works</div>
+        <h2>Book Australia transport in three simple steps</h2>
+        <p class="lead">
+          GiftCardZoneEU does not process transport bookings. We guide you to the official 12Go booking page
+          so you can search, compare and complete your trip securely.
+        </p>
+
+        <div class="steps-grid">
+          <article class="step-card">
+            <div class="step-num">1</div>
+            <h3>Search your route</h3>
+            <p>
+              Choose your origin, destination, date and number of passengers on 12Go’s search page.
+            </p>
+          </article>
+
+          <article class="step-card">
+            <div class="step-num">2</div>
+            <h3>Compare options</h3>
+            <p>
+              Review available trains, buses, ferries or transfers depending on the route and date.
+            </p>
+          </article>
+
+          <article class="step-card">
+            <div class="step-num">3</div>
+            <h3>Confirm on 12Go</h3>
+            <p>
+              Pay securely on 12Go and follow their confirmation instructions for your ticket or transfer.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="travel-security">
+        <div class="section-kicker">Travel security</div>
+        <h2>Stay safer online while traveling in Australia</h2>
+        <p class="lead">
+          When checking transport bookings, maps, email or hotel details on airport, station, café or hotel Wi-Fi,
+          a travel VPN can help add a layer of privacy and protection.
+        </p>
+
+        <div class="vpn-panel">
+          <article class="vpn-card">
+            <h3>NordVPN for travel</h3>
+            <p>
+              Useful for travelers who want stronger privacy when browsing on shared public Wi-Fi networks.
+            </p>
+            <a href="https://www.jdoqocy.com/click-101586981-17085924" rel="nofollow sponsored noopener noreferrer" target="_blank">Open NordVPN ↗</a>
+          </article>
+
+          <article class="vpn-card">
+            <h3>Surfshark for travel</h3>
+            <p>
+              A flexible VPN option for phones, tablets and laptops while moving between cities and stations.
+            </p>
+            <a href="https://www.tkqlhce.com/click-101586981-15554404" rel="nofollow sponsored noopener noreferrer" target="_blank">Open Surfshark ↗</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="internal-links">
+        <div class="section-kicker">Explore more</div>
+        <h2>Connected GiftCardZoneEU travel pages</h2>
+        <p class="lead">
+          Use these internal links to continue exploring transport, travel hubs and partner pages inside
+          the GiftCardZoneEU ecosystem.
+        </p>
+
+        <div class="link-grid">
+          <a class="link-card" href="/travel/">
+            <strong>Travel Hub</strong>
+            <span>Browse country and city travel guides across GiftCardZoneEU.</span>
           </a>
-          <a class="btnGhost" href="https://www.tkqlhce.com/click-101586981-17115164" target="_blank" rel="noopener noreferrer">
-            View schedules
+
+          <a class="link-card" href="/travel/australia/">
+            <strong>Australia Travel</strong>
+            <span>Explore Australia city stays, hotels and destination ideas.</span>
+          </a>
+
+          <a class="link-card" href="/partners/12go/">
+            <strong>12Go Main Partner Page</strong>
+            <span>See the main 12Go transport partner hub for route planning.</span>
+          </a>
+
+          <a class="link-card" href="/partners/12go-china/">
+            <strong>12Go China</strong>
+            <span>Compare China transport route ideas through the 12Go partner page.</span>
+          </a>
+
+          <a class="link-card" href="/partners/12go-philippines/">
+            <strong>12Go Philippines</strong>
+            <span>Compare transport options for island and city routes in the Philippines.</span>
+          </a>
+
+          <a class="link-card" href="/partners/12go-brazil/">
+            <strong>12Go Brazil</strong>
+            <span>Explore Brazil transport route planning through the 12Go partner page.</span>
+          </a>
+
+          <a class="link-card" href="/travel/new-zealand/">
+            <strong>New Zealand Travel</strong>
+            <span>Continue planning Oceania travel with New Zealand destination pages.</span>
+          </a>
+
+          <a class="link-card" href="/">
+            <strong>GiftCardZoneEU Home</strong>
+            <span>Return to the main homepage for travel, shopping and rewards.</span>
           </a>
         </div>
-        <div class="tinyNote" style="margin-top:6px;">Redirects to 12Go secure checkout page.</div>
       </section>
 
-      <section class="section">
-        <div class="sectionHeader">
-          <h2 style="font-size:17px;">Popular Australia Routes on 12Go</h2>
-          <p style="font-size:13px;">Most searched bus, train, and ferry transfers.</p>
-        </div>
+      <section class="section" id="faq">
+        <div class="section-kicker">FAQ</div>
+        <h2>Australia transport booking questions</h2>
 
-        <div class="routesGrid">
-          <article class="routeCard">
-            <div class="routeTitle">Sydney → Canberra</div>
-            <div class="routeMeta">Bus and train options.</div>
-            <div class="routeTagRow"><span class="routeTag">Express seats</span><span class="routeTag">AC coaches</span></div>
-            <a class="routeLink" href="https://www.tkqlhce.com/click-101586981-17115164" target="_blank" rel="noopener noreferrer">Check Sydney–Canberra →</a>
-          </article>
+        <div class="faq-list">
+          <details open>
+            <summary>Who handles my booking?</summary>
+            <p>
+              Your booking is handled by 12Go. GiftCardZoneEU is an affiliate partner page that helps
+              send you to the correct transport booking flow.
+            </p>
+          </details>
 
-          <article class="routeCard">
-            <div class="routeTitle">Melbourne → Adelaide</div>
-            <div class="routeMeta">Scenic cross-border transfers.</div>
-            <div class="routeTagRow"><span class="routeTag">Rail classes</span><span class="routeTag">Overnight seats</span></div>
-            <a class="routeLink" href="https://www.tkqlhce.com/click-101586981-17115164" target="_blank" rel="noopener noreferrer">View MEL–ADL →</a>
-          </article>
+          <details>
+            <summary>Does GiftCardZoneEU take payment?</summary>
+            <p>
+              No. GiftCardZoneEU does not collect card details or process transport bookings. Payment
+              and ticket confirmation are handled on 12Go.
+            </p>
+          </details>
 
-          <article class="routeCard">
-            <div class="routeTitle">Brisbane → Fraser Island</div>
-            <div class="routeMeta">Ferry + bus combos.</div>
-            <div class="routeTagRow"><span class="routeTag">Port transfers</span><span class="routeTag">Island hop</span></div>
-            <a class="routeLink" href="https://www.tkqlhce.com/click-101586981-17115164" target="_blank" rel="noopener noreferrer">See BNE–Fraser →</a>
-          </article>
+          <details>
+            <summary>What transport can I search for in Australia?</summary>
+            <p>
+              Depending on the route and availability, 12Go may show trains, buses, ferries, airport
+              transfers or private transfer options.
+            </p>
+          </details>
 
-          <article class="routeCard">
-            <div class="routeTitle">Phuket-style island connections</div>
-            <div class="routeMeta">Tasmania, Whitsundays & more.</div>
-            <div class="routeTagRow"><span class="routeTag">Fast & slow ferries</span><span class="routeTag">Seat classes</span></div>
-            <a class="routeLink" href="https://www.tkqlhce.com/click-101586981-17115164" target="_blank" rel="noopener noreferrer">Discover ferries →</a>
-          </article>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="sectionHeader">
-          <h2 style="font-size:17px;">Why 12Go works well for AU</h2>
-          <p style="font-size:13px;">Smarter transport comparisons & secure checkout</p>
-        </div>
-
-        <div class="benefitsGrid">
-          <article class="benefitCard"><div class="benefitTitle">Compare operators</div><p>Trains, buses, ferries, and airport transfer partners.</p></article>
-          <article class="benefitCard"><div class="benefitTitle">Seat classes</div><p>Economy to sleeper and premium seats.</p></article>
-          <article class="benefitCard"><div class="benefitTitle">E-tickets</div><p>Mobile-friendly tickets for most routes.</p></article>
-          <article class="benefitCard"><div class="benefitTitle">Secure payments</div><p>Processed directly on 12Go secure checkout.</p></article>
-        </div>
-
-        <div class="trustRow">
-          <div class="trustBadge">✔ GiftCardZoneEU verified</div>
-          <div class="trustBadge">✔ 12Go secure checkout</div>
-          <div class="trustBadge">✔ No extra fees from us</div>
+          <details>
+            <summary>Are all Australia routes available on 12Go?</summary>
+            <p>
+              Availability depends on 12Go’s route coverage, suppliers, travel date and booking conditions.
+              Search directly on 12Go to see the latest options for your route.
+            </p>
+          </details>
         </div>
       </section>
 
-      <section class="section">
-        <div class="sectionHeader"><h2 style="font-size:17px;">Affiliate disclosure</h2></div>
-        <p class="disclosure">We may earn a small commission if you book via our 12Go link at no extra cost.</p>
+      <section class="bottom-cta">
+        <div>
+          <h2>Ready to search Australia trains, buses and transfers?</h2>
+          <p>
+            Open 12Go from this partner page, enter your route, compare available options and finish your
+            booking securely on 12Go.
+          </p>
+        </div>
+
+        <a
+          class="btn btn-primary"
+          href="https://www.dpbolvw.net/click-101586981-17115158"
+          target="_blank"
+          rel="nofollow sponsored noopener noreferrer"
+        >
+          Search on 12Go ↗
+        </a>
       </section>
+
+      <div class="disclosure">
+        <strong>Affiliate disclosure:</strong>
+        This page is an affiliate landing page by GiftCardZoneEU. If you continue to 12Go and complete a booking,
+        GiftCardZoneEU may earn a commission at no extra cost to you. 12Go is a separate company and is responsible
+        for booking details, payment, confirmation and customer support.
+      </div>
     </main>
 
-    <footer>
-  <p>12Go is a separate company. For booking support please contact 12Go Help Centre.</p>
-  <p>© <span id="year"></span> GiftCardZoneEU. All rights reserved.</p>
-</footer>
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
+    <footer class="footer">
+      <p>© <span id="year"></span> GiftCardZoneEU. All rights reserved.</p>
+      <p>
+        <a href="/">Home</a> ·
+        <a href="/travel/">Travel</a> ·
+        <a href="/travel/australia/">Australia Travel</a> ·
+        <a href="/partners/12go/">12Go Hub</a>
+      </p>
+    </footer>
   </div>
+
+  <a
+    class="sticky-cta"
+    href="https://www.dpbolvw.net/click-101586981-17115158"
+    target="_blank"
+    rel="nofollow sponsored noopener noreferrer"
+  >
+    Search 12Go Australia ↗
+  </a>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+  <script src="/assets/ga.js"></script>
 </body>
 </html>
-
