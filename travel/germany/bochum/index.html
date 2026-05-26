@@ -486,12 +486,12 @@
     }
 
     @media(max-width:820px){
-  .nav{
-    align-items:flex-start;
-    flex-direction:column;
-  }
-
   .navlinks{
+    position:relative;
+    mask-image:linear-gradient(to right, black 88%, transparent 100%);
+    -webkit-mask-image:linear-gradient(to right, black 88%, transparent 100%);
+  }
+ .navlinks{
     display:flex;
     flex-wrap:nowrap;
     overflow-x:auto;
