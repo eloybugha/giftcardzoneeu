@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Best Hotels in Australia | Where to Stay & Book Online</title>
-  <meta name="description" content="Find the best hotels in Australia including Sydney, Melbourne, Brisbane and Perth. Compare hotel deals with trusted travel partners like Booking.com, Agoda and Trip.com." />
+  <meta name="description" content="Find the best hotels in Australia including Sydney, Melbourne, Brisbane and Perth. Compare hotel deals with trusted travel partners like Trip.com and Expedia." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://giftcardzoneeu.com/travel/australia/" />
   <link rel="icon" href="/assets/gz-logo.png" />
@@ -30,7 +30,7 @@
     "@type": "WebPage",
     "name": "Best Hotels in Australia | Where to Stay & Book Online",
     "url": "https://giftcardzoneeu.com/travel/australia/",
-    "description": "Find the best hotels in Australia including Sydney, Melbourne, Brisbane and Perth. Compare hotel deals with trusted travel partners like Booking.com, Agoda and Trip.com."
+    "description": "Find the best hotels in Australia including Sydney, Melbourne, Brisbane and Perth. Compare hotel deals with trusted travel partners like Trip.com and Expedia."
   }
   </script>
 
@@ -102,7 +102,8 @@
       width:100%;
       display:flex;
       align-items:center;
-      justify-content:flex-start;
+      justify-content:space-between;
+      gap:18px;
       padding:14px 22px;
       background:rgba(0,0,0,0.70);
       backdrop-filter:blur(8px);
@@ -113,6 +114,42 @@
     .nav img{
       height:42px;
       width:auto;
+      flex:0 0 auto;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      gap:10px;
+      overflow-x:auto;
+      white-space:nowrap;
+      scrollbar-width:none;
+      -webkit-overflow-scrolling:touch;
+      mask-image:linear-gradient(90deg, transparent 0, #000 18px, #000 calc(100% - 18px), transparent 100%);
+      -webkit-mask-image:linear-gradient(90deg, transparent 0, #000 18px, #000 calc(100% - 18px), transparent 100%);
+      padding:2px 8px;
+    }
+
+    .nav-links::-webkit-scrollbar{
+      display:none;
+    }
+
+    .nav-links a{
+      color:rgba(255,255,255,0.88);
+      font-size:14px;
+      font-weight:700;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.12);
+      background:rgba(255,255,255,0.06);
+      transition:background .2s ease, color .2s ease, transform .2s ease;
+    }
+
+    .nav-links a:hover{
+      background:rgba(64,191,255,0.18);
+      color:#ffffff;
+      transform:translateY(-1px);
     }
 
     .hero{
@@ -294,21 +331,97 @@
       margin-bottom:10px;
     }
 
+    .disclosure-box{
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.10);
+      border-radius:18px;
+      padding:18px 20px;
+      margin-top:24px;
+      color:rgba(255,255,255,0.82);
+      font-size:0.95rem;
+    }
+
     .footer{
       text-align:center;
-      padding:28px 20px 34px;
+      padding:34px 20px 112px;
       color:rgba(255,255,255,0.70);
       font-size:14px;
       border-top:1px solid rgba(255,255,255,0.06);
     }
 
+    .footer p{
+      max-width:860px;
+      margin:0 auto 8px;
+      color:rgba(255,255,255,0.70);
+    }
+
+    .gz-sticky-cta{
+      position:fixed;
+      left:50%;
+      bottom:18px;
+      transform:translateX(-50%);
+      width:calc(100% - 28px);
+      max-width:760px;
+      background:linear-gradient(135deg,#ff8a00,#ffb703);
+      color:#111827;
+      border-radius:18px;
+      padding:14px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      box-shadow:0 18px 45px rgba(0,0,0,.35);
+      z-index:2000;
+      border:1px solid rgba(255,255,255,.35);
+    }
+
+    .gz-sticky-cta strong{
+      display:block;
+      font-size:15px;
+      line-height:1.2;
+    }
+
+    .gz-sticky-cta span{
+      display:block;
+      font-size:13px;
+      opacity:.82;
+      margin-top:2px;
+    }
+
+    .gz-sticky-cta a{
+      background:#111827;
+      color:#fff;
+      padding:10px 16px;
+      border-radius:999px;
+      font-weight:800;
+      white-space:nowrap;
+      text-decoration:none;
+    }
+
+    .gz-sticky-cta a:hover{
+      opacity:.92;
+    }
+
     @media (max-width:768px){
       .nav{
-        padding:12px 16px;
+        padding:12px 12px;
+        gap:10px;
       }
 
       .nav img{
         height:38px;
+      }
+
+      .nav-links{
+        justify-content:flex-start;
+        gap:8px;
+        max-width:calc(100vw - 82px);
+        padding:2px 4px;
+      }
+
+      .nav-links a{
+        font-size:12px;
+        padding:7px 10px;
       }
 
       .hero{
@@ -345,6 +458,31 @@
         height:170px;
       }
     }
+
+    @media(max-width:640px){
+      .gz-sticky-cta{
+        bottom:12px;
+        padding:12px;
+        border-radius:16px;
+      }
+
+      .gz-sticky-cta strong{
+        font-size:13px;
+      }
+
+      .gz-sticky-cta span{
+        font-size:12px;
+      }
+
+      .gz-sticky-cta a{
+        padding:9px 13px;
+        font-size:13px;
+      }
+
+      .footer{
+        padding-bottom:124px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -353,6 +491,14 @@
     <a href="https://giftcardzoneeu.com/" aria-label="GiftCardZoneEU Home">
       <img src="/assets/gz-logo.png" alt="GiftCardZoneEU Logo" />
     </a>
+
+    <div class="nav-links" aria-label="Australia travel navigation">
+      <a href="#why-australia">Why Australia</a>
+      <a href="#cities">Top Cities</a>
+      <a href="#booking-tips">Booking Tips</a>
+      <a href="#partners">Trip.com & Expedia</a>
+      <a href="/travel/">Travel Hub</a>
+    </div>
   </div>
 
   <section class="hero">
@@ -362,7 +508,7 @@
         Compare hotels and travel deals in Sydney, Melbourne, Brisbane, Perth and more.
         Discover where to stay and book with trusted travel partners worldwide.
       </p>
-      <p class="hero-partner">GiftCardZoneEU × Trusted Travel Partners</p>
+      <p class="hero-partner">GiftCardZoneEU × Trip.com & Expedia</p>
 
       <div class="hero-actions">
         <a href="#partners" class="btn">Compare Hotel Deals</a>
@@ -373,7 +519,7 @@
 
   <main class="container">
 
-    <section class="section">
+    <section class="section" id="why-australia">
       <h2>Why Visit Australia?</h2>
       <p>
         Australia is one of the world’s most exciting travel destinations, offering a mix of iconic
@@ -473,7 +619,7 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="booking-tips">
       <h2>Hotel Booking Tips for Australia</h2>
       <div class="grid">
         <div class="card">
@@ -504,45 +650,52 @@
 
     <section class="section" id="partners">
       <h2>Book Hotels with Trusted Travel Partners</h2>
+      <p>
+        For this Australia travel guide, GiftCardZoneEU highlights Trip.com as the primary booking
+        option and Expedia as the secondary partner for comparing hotels, flights and travel deals.
+      </p>
+
       <div class="grid">
-
-        <div class="card">
-          <h3>Booking.com</h3>
-          <p>
-            Search thousands of hotels and accommodations across Australia with flexible booking
-            options and a wide selection of city and leisure stays.
-          </p>
-          <a href="https://www.booking.com/" class="btn" rel="nofollow sponsored noopener noreferrer">Search Hotels</a>
-        </div>
-
-        <div class="card">
-          <h3>Agoda</h3>
-          <p>
-            Compare hotel deals across Australia and explore prices in major cities, popular districts
-            and top travel destinations.
-          </p>
-          <a href="https://www.agoda.com/" class="btn" rel="nofollow sponsored noopener noreferrer">View Deals</a>
-        </div>
 
         <div class="card">
           <h3>Trip.com</h3>
           <p>
-            Book flights and hotels together for better trip planning and travel savings across
-            Australia’s leading cities and destinations.
+            Compare Australia hotels, flights and travel deals across Sydney, Melbourne, Brisbane,
+            Perth and other popular destinations. Trip.com is the primary travel partner for this page.
           </p>
-          <a href="https://www.jdoqocy.com/click-101586981-13761944" class="btn" rel="nofollow sponsored noopener noreferrer">Find Hotels</a>
+          <a href="https://www.jdoqocy.com/click-101586981-13761944"
+             class="btn"
+             target="_blank"
+             rel="nofollow sponsored noopener noreferrer">Find Hotels on Trip.com</a>
         </div>
 
+        <div class="card">
+          <h3>Expedia</h3>
+          <p>
+            Explore hotels, vacation packages and flexible travel options across Australia. Expedia is
+            included as a trusted secondary option for travelers comparing more booking choices.
+          </p>
+          <a href="https://www.tkqlhce.com/click-101586981-15261175"
+             class="btn"
+             target="_blank"
+             rel="nofollow sponsored noopener noreferrer">Compare Deals on Expedia</a>
+        </div>
+
+      </div>
+
+      <div class="disclosure-box">
+        GiftCardZoneEU may earn a commission when you click or book through partner links on this page.
+        This does not add extra cost to you and helps support the website.
       </div>
     </section>
 
     <section class="section">
       <h2>Why Book with Trusted Travel Partners?</h2>
       <p>
-        Using trusted travel platforms makes it easier to compare room prices, accommodation types,
-        booking flexibility and user reviews in one place. Whether you are planning a short city break
-        or a longer Australia trip, comparing travel partners can help you find a hotel that matches
-        your budget, preferred location and travel needs.
+        Using trusted travel partners like Trip.com and Expedia makes it easier to compare room prices,
+        accommodation types, booking flexibility and available travel options in one place. Whether you
+        are planning a short city break or a longer Australia trip, comparing trusted partners can help
+        you find a hotel that matches your budget, preferred location and travel needs.
       </p>
     </section>
 
@@ -609,94 +762,31 @@
 
   </main>
 
-  <div class="footer">
-    © <span id="year"></span> GiftCardZoneEU
+  <footer class="footer">
+    <p>
+      GiftCardZoneEU may earn a commission when you book through our partner links.
+      This helps support the site at no extra cost to you.
+    </p>
+    <p>© <span id="year"></span> GiftCardZoneEU. All rights reserved.</p>
+  </footer>
+
+  <!-- Sticky Trip.com CTA -->
+  <div class="gz-sticky-cta">
+    <div>
+      <strong>Ready to compare Australia travel deals?</strong>
+      <span>Find hotels and flights with Trip.com.</span>
+    </div>
+    <a href="https://www.jdoqocy.com/click-101586981-13761944"
+       target="_blank"
+       rel="nofollow sponsored noopener noreferrer">
+      Find Deals
+    </a>
   </div>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
-<!-- Sticky Trip.com CTA -->
-<div class="gz-sticky-cta">
-  <div>
-    <strong>Ready to compare Australia travel deals?</strong>
-    <span>Find hotels and flights with Trip.com.</span>
-  </div>
-  <a href="https://www.jdoqocy.com/click-101586981-13761944"
-     target="_blank"
-     rel="nofollow sponsored noopener noreferrer">
-    Find Deals
-  </a>
-</div>
+  <script src="/assets/ga.js"></script>
 
-<style>
-  .gz-sticky-cta{
-    position:fixed;
-    left:50%;
-    bottom:18px;
-    transform:translateX(-50%);
-    width:calc(100% - 28px);
-    max-width:760px;
-    background:linear-gradient(135deg,#ff8a00,#ffb703);
-    color:#111827;
-    border-radius:18px;
-    padding:14px 16px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:14px;
-    box-shadow:0 18px 45px rgba(0,0,0,.35);
-    z-index:2000;
-    border:1px solid rgba(255,255,255,.35);
-  }
-
-  .gz-sticky-cta strong{
-    display:block;
-    font-size:15px;
-    line-height:1.2;
-  }
-
-  .gz-sticky-cta span{
-    display:block;
-    font-size:13px;
-    opacity:.82;
-    margin-top:2px;
-  }
-
-  .gz-sticky-cta a{
-    background:#111827;
-    color:#fff;
-    padding:10px 16px;
-    border-radius:999px;
-    font-weight:800;
-    white-space:nowrap;
-    text-decoration:none;
-  }
-
-  .gz-sticky-cta a:hover{
-    opacity:.92;
-  }
-
-  @media(max-width:640px){
-    .gz-sticky-cta{
-      bottom:12px;
-      padding:12px;
-      border-radius:16px;
-    }
-
-    .gz-sticky-cta strong{
-      font-size:13px;
-    }
-
-    .gz-sticky-cta span{
-      font-size:12px;
-    }
-
-    .gz-sticky-cta a{
-      padding:9px 13px;
-      font-size:13px;
-    }
-  }
-</style>
 </body>
-</html> 
+</html>
