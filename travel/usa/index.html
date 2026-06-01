@@ -5,22 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Best Hotels in USA | Where to Stay & Book Online</title>
-  <meta name="description" content="Find the best hotels in USA including New York, Los Angeles, Las Vegas and Miami. Compare hotel deals with trusted travel partners like Trip.com and Expedia." />
+  <meta name="description" content="Find the best hotels in the USA including New York, Los Angeles, Las Vegas and Miami. Compare hotel deals with trusted travel partners like Trip.com and Expedia." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://giftcardzoneeu.com/travel/usa/" />
   <link rel="icon" href="/assets/gz-logo.png" />
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Best Hotels in USA | GiftCardZoneEU" />
-  <meta property="og:description" content="Compare hotel deals across USA including New York, Los Angeles, Las Vegas and Miami." />
+  <meta property="og:description" content="Compare hotel deals across the USA including New York, Los Angeles, Las Vegas and Miami." />
   <meta property="og:url" content="https://giftcardzoneeu.com/travel/usa/" />
   <meta property="og:image" content="https://giftcardzoneeu.com/assets/travel/usa/usa-hero.webp" />
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Best Hotels in USA | GiftCardZoneEU" />
-  <meta name="twitter:description" content="Find top places to stay in USA and compare trusted hotel booking partners." />
+  <meta name="twitter:description" content="Find top places to stay in the USA and compare trusted hotel booking partners." />
   <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/travel/usa/usa-hero.webp" />
 
   <link rel="preload" as="image" href="/assets/travel/usa/usa-hero.webp" />
@@ -34,7 +32,7 @@
     }
 
     body{
-      background:linear-gradient(180deg,#02142b 0%,#03224a 100%);
+      background:#061224;
       color:#fff;
       line-height:1.7;
     }
@@ -47,8 +45,8 @@
       position:sticky;
       top:0;
       z-index:999;
-      background:rgba(2,10,22,0.88);
-      backdrop-filter:blur(10px);
+      background:rgba(4,12,26,0.88);
+      backdrop-filter:blur(14px);
       border-bottom:1px solid rgba(255,255,255,0.08);
       padding:12px 20px;
     }
@@ -59,7 +57,7 @@
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:20px;
+      gap:18px;
     }
 
     .logo-link{
@@ -67,61 +65,75 @@
       align-items:center;
       gap:10px;
       color:#fff;
-      font-weight:800;
+      font-weight:900;
+      letter-spacing:-0.02em;
     }
 
     .logo-link img{
-      height:42px;
       width:42px;
+      height:42px;
       border-radius:50%;
+      box-shadow:0 0 0 2px rgba(255,255,255,0.12);
     }
 
     .nav-mini{
       display:flex;
       align-items:center;
       gap:18px;
-      font-size:0.95rem;
+      font-size:0.94rem;
     }
 
     .nav-mini a{
       color:#dbeafe;
-      font-weight:700;
+      font-weight:800;
       opacity:0.9;
     }
 
     .nav-mini a:hover{
-      color:#3db8ff;
+      color:#7dd3fc;
     }
 
     .hero{
       position:relative;
-      min-height:82vh;
-      overflow:hidden;
-      background:
-        radial-gradient(circle at 18% 20%,rgba(61,184,255,0.22),transparent 32%),
-        linear-gradient(120deg,rgba(2,12,30,0.94) 0%,rgba(2,20,43,0.82) 45%,rgba(2,20,43,0.24) 100%),
-        url('/assets/travel/usa/usa-hero.webp') center right/cover no-repeat;
+      min-height:84vh;
       display:flex;
       align-items:center;
-      padding:90px 20px;
+      overflow:hidden;
+      padding:92px 20px;
+      background:
+        linear-gradient(90deg,rgba(3,10,24,0.92) 0%,rgba(3,10,24,0.72) 44%,rgba(3,10,24,0.18) 100%),
+        url('/assets/travel/usa/usa-hero.webp') center right/cover no-repeat;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 18% 24%,rgba(59,130,246,0.30),transparent 32%),
+        radial-gradient(circle at 78% 18%,rgba(251,146,60,0.18),transparent 34%);
+      pointer-events:none;
     }
 
     .hero::after{
       content:"";
       position:absolute;
-      inset:0;
-      background:linear-gradient(180deg,transparent 65%,rgba(2,20,43,0.98) 100%);
+      left:0;
+      right:0;
+      bottom:0;
+      height:170px;
+      background:linear-gradient(180deg,transparent,rgba(6,18,36,1));
       pointer-events:none;
     }
 
     .hero-inner{
       position:relative;
       z-index:2;
-      width:100%;
       max-width:1200px;
+      width:100%;
       margin:0 auto;
       display:grid;
-      grid-template-columns:minmax(0,620px) 1fr;
+      grid-template-columns:minmax(0,650px) 1fr;
       gap:40px;
       align-items:center;
     }
@@ -130,43 +142,69 @@
       display:inline-flex;
       align-items:center;
       gap:8px;
-      padding:8px 14px;
+      padding:8px 15px;
       border-radius:999px;
-      background:rgba(61,184,255,0.14);
-      border:1px solid rgba(61,184,255,0.35);
-      color:#bdeaff;
-      font-size:0.88rem;
-      font-weight:700;
+      background:rgba(14,165,233,0.14);
+      border:1px solid rgba(125,211,252,0.38);
+      color:#bae6fd;
+      font-size:0.9rem;
+      font-weight:900;
       margin-bottom:18px;
     }
 
     .hero h1{
-      font-size:clamp(2.35rem,5vw,4.6rem);
-      line-height:1.05;
-      letter-spacing:-0.05em;
+      font-size:clamp(2.45rem,5.3vw,4.9rem);
+      line-height:1.03;
+      letter-spacing:-0.06em;
       margin-bottom:20px;
-      max-width:760px;
     }
 
     .hero h1 span{
-      background:linear-gradient(120deg,#ffffff,#9ee7ff,#3db8ff);
+      display:block;
+      background:linear-gradient(120deg,#ffffff,#bae6fd,#38bdf8);
       -webkit-background-clip:text;
       background-clip:text;
       color:transparent;
     }
 
     .hero p{
+      max-width:630px;
+      color:#dbeafe;
       font-size:1.12rem;
-      max-width:620px;
-      color:#d8e8f7;
-      margin:0 0 28px;
+      margin-bottom:26px;
     }
 
     .hero-buttons{
       display:flex;
-      gap:14px;
-      justify-content:flex-start;
       flex-wrap:wrap;
+      gap:14px;
+      align-items:center;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 22px;
+      border-radius:999px;
+      font-weight:900;
+      transition:transform .2s ease,box-shadow .2s ease,background .2s ease;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+    }
+
+    .btn-primary{
+      color:#061224;
+      background:linear-gradient(135deg,#facc15,#fb923c);
+      box-shadow:0 18px 38px rgba(251,146,60,0.26);
+    }
+
+    .btn-secondary{
+      color:#fff;
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.22);
     }
 
     .hero-trust{
@@ -177,149 +215,271 @@
     }
 
     .hero-trust span{
-      padding:9px 12px;
+      padding:9px 13px;
       border-radius:999px;
       background:rgba(255,255,255,0.09);
-      border:1px solid rgba(255,255,255,0.14);
-      color:#dbeafe;
+      border:1px solid rgba(255,255,255,0.12);
+      color:#e0f2fe;
       font-size:0.9rem;
-      font-weight:700;
-    }
-
-    .btn{
-      padding:14px 22px;
-      border-radius:999px;
-      font-weight:bold;
-      display:inline-block;
-      margin-top:12px;
-      transition:transform .2s ease,box-shadow .2s ease,background .2s ease;
-    }
-
-    .btn:hover{
-      transform:translateY(-2px);
-    }
-
-    .btn-primary{
-      background:linear-gradient(135deg,#3db8ff,#9ee7ff);
-      color:#06213d;
-      display:inline-block;
-      text-align:center;
-      box-shadow:0 16px 34px rgba(61,184,255,0.22);
-    }
-
-    .btn-secondary{
-      border:1px solid rgba(255,255,255,0.25);
-      color:#fff;
-      background:rgba(255,255,255,0.06);
+      font-weight:800;
     }
 
     .container{
       max-width:1200px;
       margin:0 auto;
-      padding:60px 20px;
+      padding:62px 20px 90px;
     }
 
     section{
-      margin-bottom:58px;
+      margin-bottom:64px;
+    }
+
+    .section-kicker{
+      color:#facc15;
+      text-transform:uppercase;
+      letter-spacing:0.12em;
+      font-size:0.78rem;
+      font-weight:900;
+      margin-bottom:8px;
     }
 
     .section-title{
-      font-size:2.2rem;
-      margin-bottom:20px;
-      color:#3db8ff;
-      letter-spacing:-0.03em;
+      font-size:clamp(1.8rem,3vw,2.55rem);
+      line-height:1.15;
+      letter-spacing:-0.04em;
+      margin-bottom:18px;
+      color:#fff;
     }
 
     .section-text{
-      margin-bottom:20px;
-      color:#d8e8f7;
-      max-width:920px;
+      color:#cbd5e1;
+      max-width:940px;
+      margin-bottom:18px;
+      font-size:1.03rem;
+    }
+
+    .trust-row{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+      margin-top:-34px;
+      margin-bottom:68px;
+      position:relative;
+      z-index:5;
+    }
+
+    .trust-card{
+      background:rgba(15,23,42,0.92);
+      border:1px solid rgba(255,255,255,0.10);
+      border-radius:22px;
+      padding:20px;
+      box-shadow:0 24px 60px rgba(0,0,0,0.22);
+    }
+
+    .trust-card strong{
+      display:block;
+      font-size:1.05rem;
+      margin-bottom:4px;
+      color:#fff;
+    }
+
+    .trust-card span{
+      color:#cbd5e1;
+      font-size:0.92rem;
     }
 
     .grid{
       display:grid;
       grid-template-columns:repeat(2,1fr);
-      gap:28px;
+      gap:26px;
       margin-top:28px;
     }
 
     .card{
-      background:rgba(19,40,82,0.88);
-      border:1px solid rgba(255,255,255,0.09);
-      border-radius:20px;
+      background:linear-gradient(180deg,rgba(15,33,64,0.96),rgba(12,25,50,0.96));
+      border:1px solid rgba(255,255,255,0.10);
+      border-radius:24px;
+      overflow:hidden;
+      box-shadow:0 26px 70px rgba(0,0,0,0.24);
+    }
+
+    .card-body{
       padding:24px;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-      box-shadow:0 22px 50px rgba(0,0,0,0.18);
     }
 
     .card h3{
+      font-size:1.35rem;
       margin-bottom:10px;
-      font-size:1.25rem;
+      letter-spacing:-0.02em;
     }
 
     .card p{
-      flex-grow:1;
-      color:#d8e8f7;
+      color:#cbd5e1;
+      margin-bottom:16px;
     }
 
     .city-card img{
       width:100%;
-      height:230px;
+      height:245px;
       object-fit:cover;
-      border-radius:16px;
-      margin-bottom:14px;
+      display:block;
+    }
+
+    .city-badge{
+      display:inline-flex;
+      margin-bottom:12px;
+      padding:7px 11px;
+      border-radius:999px;
+      background:rgba(250,204,21,0.12);
+      border:1px solid rgba(250,204,21,0.25);
+      color:#fde68a;
+      font-size:0.82rem;
+      font-weight:900;
+    }
+
+    .info-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px;
+      margin-top:28px;
+    }
+
+    .info-box{
+      background:rgba(255,255,255,0.07);
+      border:1px solid rgba(255,255,255,0.10);
+      border-radius:22px;
+      padding:22px;
+    }
+
+    .info-box h3{
+      font-size:1.12rem;
+      margin-bottom:8px;
+    }
+
+    .info-box p{
+      color:#cbd5e1;
     }
 
     .partner-card{
       position:relative;
-      overflow:hidden;
+      padding:26px;
     }
 
     .partner-card::before{
       content:"";
       position:absolute;
       inset:0;
-      background:radial-gradient(circle at top right,rgba(61,184,255,0.18),transparent 42%);
+      background:radial-gradient(circle at top right,rgba(250,204,21,0.15),transparent 44%);
       pointer-events:none;
     }
 
-    .partner-card h3,
-    .partner-card p,
-    .partner-card a{
+    .partner-card > *{
       position:relative;
       z-index:2;
     }
 
+    .partner-label{
+      display:inline-flex;
+      padding:7px 11px;
+      border-radius:999px;
+      background:rgba(56,189,248,0.12);
+      border:1px solid rgba(56,189,248,0.25);
+      color:#bae6fd;
+      font-size:0.82rem;
+      font-weight:900;
+      margin-bottom:14px;
+    }
+
+    .faq{
+      display:grid;
+      gap:16px;
+      margin-top:26px;
+    }
+
+    .faq-item{
+      background:rgba(255,255,255,0.07);
+      border:1px solid rgba(255,255,255,0.10);
+      border-radius:20px;
+      padding:22px;
+    }
+
+    .faq-item h3{
+      font-size:1.08rem;
+      margin-bottom:8px;
+    }
+
+    .faq-item p{
+      color:#cbd5e1;
+    }
+
     .disclosure{
-      background:rgba(255,255,255,0.08);
-      border:1px solid rgba(255,255,255,0.12);
-      color:#d8e8f7;
+      background:rgba(250,204,21,0.10);
+      border:1px solid rgba(250,204,21,0.22);
+      color:#fde68a;
       padding:18px 20px;
       border-radius:18px;
-      margin-top:35px;
+      margin-top:28px;
       font-size:0.95rem;
+    }
+
+    .sticky-cta{
+      position:fixed;
+      left:50%;
+      bottom:18px;
+      transform:translateX(-50%);
+      z-index:998;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      background:rgba(4,12,26,0.92);
+      border:1px solid rgba(255,255,255,0.14);
+      border-radius:999px;
+      padding:10px 12px 10px 18px;
+      box-shadow:0 18px 48px rgba(0,0,0,0.34);
+      backdrop-filter:blur(14px);
+    }
+
+    .sticky-cta span{
+      color:#e2e8f0;
+      font-size:0.92rem;
+      font-weight:800;
+      white-space:nowrap;
+    }
+
+    .sticky-cta a{
+      background:linear-gradient(135deg,#facc15,#fb923c);
+      color:#061224;
+      padding:11px 17px;
+      border-radius:999px;
+      font-weight:900;
+      white-space:nowrap;
     }
 
     footer{
       text-align:center;
-      padding:30px;
-      color:#c8d8ea;
+      padding:34px 20px 96px;
+      color:#cbd5e1;
       border-top:1px solid rgba(255,255,255,0.08);
+      background:#040b18;
     }
 
     @media(max-width:900px){
       .topbar-inner{
-        align-items:center;
+        gap:12px;
+      }
+
+      .logo-link span{
+        display:none;
       }
 
       .nav-mini{
-        max-width:70%;
+        max-width:78%;
         overflow-x:auto;
         white-space:nowrap;
         gap:14px;
         padding-bottom:4px;
+        -webkit-mask-image:linear-gradient(90deg,#000 82%,transparent);
+        mask-image:linear-gradient(90deg,#000 82%,transparent);
       }
 
       .nav-mini::-webkit-scrollbar{
@@ -327,12 +487,12 @@
       }
 
       .hero{
-        min-height:78vh;
-        background:
-          linear-gradient(180deg,rgba(2,12,30,0.55) 0%,rgba(2,12,30,0.88) 58%,rgba(2,20,43,1) 100%),
-          url('/assets/travel/usa/usa-hero.webp') center top/cover no-repeat;
+        min-height:82vh;
         align-items:flex-end;
-        padding:260px 18px 54px;
+        padding:260px 18px 58px;
+        background:
+          linear-gradient(180deg,rgba(3,10,24,0.22) 0%,rgba(3,10,24,0.82) 55%,rgba(6,18,36,1) 100%),
+          url('/assets/travel/usa/usa-hero.webp') center top/cover no-repeat;
       }
 
       .hero-inner{
@@ -340,28 +500,56 @@
       }
 
       .hero h1{
-        font-size:2.35rem;
+        font-size:2.42rem;
       }
 
       .hero p{
         font-size:1rem;
       }
 
-      .hero-buttons{
-        justify-content:flex-start;
-      }
-
       .hero-buttons .btn{
         width:100%;
-        text-align:center;
       }
 
-      .grid{
+      .trust-row{
+        grid-template-columns:1fr;
+        margin-top:0;
+      }
+
+      .grid,
+      .info-grid{
         grid-template-columns:1fr;
       }
 
-      .section-title{
-        font-size:1.75rem;
+      .city-card img{
+        height:220px;
+      }
+
+      .sticky-cta{
+        left:12px;
+        right:12px;
+        bottom:10px;
+        transform:none;
+        width:auto;
+        border-radius:22px;
+        align-items:stretch;
+        flex-direction:column;
+        padding:10px;
+      }
+
+      .sticky-cta span{
+        padding:4px 8px 0;
+        text-align:center;
+        font-size:0.88rem;
+      }
+
+      .sticky-cta a{
+        text-align:center;
+        padding:12px 14px;
+      }
+
+      footer{
+        padding-bottom:140px;
       }
     }
   </style>
@@ -371,15 +559,17 @@
 
 <header class="topbar">
   <div class="topbar-inner">
-    <a href="https://giftcardzoneeu.com/" class="logo-link">
+    <a href="https://giftcardzoneeu.com/" class="logo-link" aria-label="GiftCardZoneEU homepage">
       <img src="/assets/gz-logo.png" alt="GiftCardZoneEU logo">
       <span>GiftCardZoneEU</span>
     </a>
 
     <nav class="nav-mini" aria-label="USA travel navigation">
+      <a href="#why">Why Visit</a>
       <a href="#cities">Top Cities</a>
-      <a href="#partners">Travel Partners</a>
-      <a href="#tips">Booking Tips</a>
+      <a href="#partners">Book Hotels</a>
+      <a href="#tips">Tips</a>
+      <a href="#faq">FAQ</a>
     </nav>
   </div>
 </header>
@@ -390,24 +580,25 @@
       <div class="hero-badge">🇺🇸 USA Travel Guide</div>
 
       <h1>
-        Best Hotels in USA <span>Where to Stay & Book Online</span>
+        Best Hotels in USA
+        <span>Where to Stay & Book Online</span>
       </h1>
 
       <p>
-        Planning a trip to the USA? Discover top places to stay in New York,
-        Los Angeles, Las Vegas and Miami. Compare hotel deals and book smarter
-        for your next travel experience.
+        Planning a trip to the United States? Explore top places to stay in New York,
+        Los Angeles, Las Vegas and Miami, then compare hotel deals with trusted travel partners.
       </p>
 
       <div class="hero-buttons">
-        <a href="#partners" class="btn btn-primary">Compare Hotel Deals</a>
+        <a href="#partners" class="btn btn-primary">Compare USA Hotel Deals</a>
         <a href="#cities" class="btn btn-secondary">Explore Top Cities</a>
       </div>
 
       <div class="hero-trust">
-        <span>Hotel deals</span>
         <span>Top USA cities</span>
-        <span>Trip.com + Expedia</span>
+        <span>Hotel deals</span>
+        <span>Trip.com primary</span>
+        <span>Expedia alternative</span>
       </div>
     </div>
   </div>
@@ -415,121 +606,259 @@
 
 <main class="container">
 
-<section>
-  <h2 class="section-title">Why Visit USA</h2>
-  <p class="section-text">
-    The United States offers world-famous cities, iconic landmarks, beautiful coastlines, national parks
-    and endless travel experiences. From city breaks and shopping trips to beaches and entertainment,
-    the USA has something for every kind of traveler.
-  </p>
-</section>
-
-<section>
-  <h2 class="section-title">Best Time to Visit USA</h2>
-  <p class="section-text">
-    The best time to visit the USA depends on the region, but spring and fall are often ideal for pleasant weather,
-    sightseeing and more comfortable travel conditions. Summer is popular for family vacations, while winter is great
-    for festive city trips and warm-weather escapes in southern destinations.
-  </p>
-</section>
-
-<section id="tips">
-  <h2 class="section-title">How to Find the Best Hotel Deals in USA</h2>
-  <p class="section-text">
-    Hotel prices in the USA can vary widely depending on city, season and major events. Comparing trusted travel platforms
-    helps you find better prices, flexible cancellation options and the right location for your trip.
-  </p>
-</section>
-
-<section id="cities">
-  <h2 class="section-title">Top Cities in USA</h2>
-
-  <div class="grid">
-
-    <div class="card city-card">
-      <img src="/assets/travel/usa/newyork.webp" alt="New York skyline USA">
-      <h3>New York</h3>
-      <p>The city that never sleeps, known for iconic landmarks, shopping, museums and Broadway.</p>
+  <div class="trust-row">
+    <div class="trust-card">
+      <strong>City breaks</strong>
+      <span>New York, Los Angeles, Las Vegas and Miami.</span>
     </div>
 
-    <div class="card city-card">
-      <img src="/assets/travel/usa/losangeles.webp" alt="Los Angeles city view USA">
-      <h3>Los Angeles</h3>
-      <p>Famous for Hollywood, sunny weather, beaches and a laid-back California lifestyle.</p>
+    <div class="trust-card">
+      <strong>Flexible trips</strong>
+      <span>Compare hotels, flights and packages before booking.</span>
     </div>
 
-    <div class="card city-card">
-      <img src="/assets/travel/usa/lasvegas.webp" alt="Las Vegas skyline USA">
-      <h3>Las Vegas</h3>
-      <p>A top destination for entertainment, nightlife, resorts and unforgettable desert experiences.</p>
+    <div class="trust-card">
+      <strong>Trusted partners</strong>
+      <span>Use well-known platforms for travel search.</span>
     </div>
 
-    <div class="card city-card">
-      <img src="/assets/travel/usa/miami.webp" alt="Miami beach skyline USA">
-      <h3>Miami</h3>
-      <p>Known for beaches, nightlife, art deco style and vibrant coastal energy.</p>
+    <div class="trust-card">
+      <strong>Smart planning</strong>
+      <span>Pick the right area based on your travel style.</span>
     </div>
-
-  </div>
-</section>
-
-<section>
-  <h2 class="section-title">Where to Stay in USA</h2>
-  <p class="section-text">
-    Choose your destination based on your travel style. New York is ideal for city breaks and culture,
-    Los Angeles for sunshine and entertainment, Las Vegas for nightlife and resorts, and Miami for beach stays
-    and tropical vibes.
-  </p>
-</section>
-
-<section id="partners">
-  <h2 class="section-title">Book Hotels with Trusted Travel Partners</h2>
-  <p class="section-text">
-    Compare USA hotels, flights, packages and travel deals through trusted travel partners before booking your trip.
-  </p>
-
-  <div class="grid">
-
-    <div class="card partner-card">
-      <h3>Trip.com</h3>
-      <p>
-        Search USA hotels, flights, and travel packages across top destinations like New York,
-        Los Angeles, Las Vegas, and Miami.
-      </p>
-      <a href="https://www.jdoqocy.com/click-101586981-13761944"
-         class="btn btn-primary"
-         target="_blank"
-         rel="nofollow sponsored noopener noreferrer">
-        Find Hotels on Trip.com
-      </a>
-    </div>
-
-    <div class="card partner-card">
-      <h3>Expedia</h3>
-      <p>
-        Compare hotels, flights, vacation packages, and car rentals for USA trips with flexible
-        travel search options.
-      </p>
-      <a href="https://www.tkqlhce.com/click-101586981-15261175"
-         class="btn btn-primary"
-         target="_blank"
-         rel="nofollow sponsored noopener noreferrer">
-        View USA Deals on Expedia
-      </a>
-    </div>
-
   </div>
 
-  <div class="disclosure">
-    <strong>Affiliate disclosure:</strong> GiftCardZoneEU may earn a commission when you click partner links
-    and make a qualifying booking or purchase. This does not change the price you see.
-  </div>
-</section>
+  <section id="why">
+    <div class="section-kicker">USA travel planning</div>
+    <h2 class="section-title">Why Visit the USA</h2>
+    <p class="section-text">
+      The United States is one of the world’s biggest travel destinations, offering famous skylines,
+      beaches, entertainment districts, shopping streets, national parks, museums and food scenes.
+      Whether you want a fast city break, a family trip, a beach escape or a nightlife weekend,
+      the USA has a destination that fits your plan.
+    </p>
+  </section>
+
+  <section>
+    <div class="section-kicker">Best season</div>
+    <h2 class="section-title">Best Time to Visit the USA</h2>
+    <p class="section-text">
+      The best time to visit depends on the region. Spring and fall are often comfortable for sightseeing,
+      city walks and lower crowd levels in many destinations. Summer is popular for family vacations and
+      beach trips, while winter can be ideal for festive city breaks, shopping trips and warm southern escapes.
+    </p>
+  </section>
+
+  <section id="cities">
+    <div class="section-kicker">Where to go</div>
+    <h2 class="section-title">Top Cities in the USA</h2>
+    <p class="section-text">
+      These four cities are strong starting points for first-time visitors because they offer iconic attractions,
+      many hotel choices and easy travel planning options.
+    </p>
+
+    <div class="grid">
+
+      <article class="card city-card">
+        <img src="/assets/travel/usa/newyork.webp" alt="New York skyline in the USA">
+        <div class="card-body">
+          <span class="city-badge">City break</span>
+          <h3>New York</h3>
+          <p>
+            A classic USA destination for landmarks, shopping, museums, restaurants, Broadway and skyline views.
+          </p>
+        </div>
+      </article>
+
+      <article class="card city-card">
+        <img src="/assets/travel/usa/losangeles.webp" alt="Los Angeles city view in the USA">
+        <div class="card-body">
+          <span class="city-badge">Sunshine + entertainment</span>
+          <h3>Los Angeles</h3>
+          <p>
+            Best for Hollywood, beaches, theme parks, food spots, shopping areas and relaxed California stays.
+          </p>
+        </div>
+      </article>
+
+      <article class="card city-card">
+        <img src="/assets/travel/usa/lasvegas.webp" alt="Las Vegas skyline in the USA">
+        <div class="card-body">
+          <span class="city-badge">Entertainment</span>
+          <h3>Las Vegas</h3>
+          <p>
+            Great for resorts, shows, nightlife, casinos, desert tours and short high-energy weekend trips.
+          </p>
+        </div>
+      </article>
+
+      <article class="card city-card">
+        <img src="/assets/travel/usa/miami.webp" alt="Miami beach skyline in the USA">
+        <div class="card-body">
+          <span class="city-badge">Beach stay</span>
+          <h3>Miami</h3>
+          <p>
+            A strong choice for beach hotels, nightlife, art deco streets, warm weather and coastal travel.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="section-kicker">Hotel areas</div>
+    <h2 class="section-title">Where to Stay in the USA</h2>
+    <p class="section-text">
+      Choose your destination based on your travel style. New York is ideal for city breaks and culture,
+      Los Angeles works well for sunshine and entertainment, Las Vegas is strong for nightlife and resort stays,
+      while Miami is best for beach hotels and tropical city energy.
+    </p>
+
+    <div class="info-grid">
+      <div class="info-box">
+        <h3>For first-time visitors</h3>
+        <p>Pick central areas near major attractions, public transport, restaurants and walking routes.</p>
+      </div>
+
+      <div class="info-box">
+        <h3>For better value</h3>
+        <p>Compare hotel prices across nearby districts, not only the most famous tourist zones.</p>
+      </div>
+
+      <div class="info-box">
+        <h3>For short trips</h3>
+        <p>Stay close to the main activity area to save time on transport and transfers.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="tips">
+    <div class="section-kicker">Booking guide</div>
+    <h2 class="section-title">How to Find Better Hotel Deals in the USA</h2>
+    <p class="section-text">
+      Hotel prices in the USA can change quickly depending on the city, season, major events, concerts,
+      conferences and holidays. Compare trusted platforms before booking so you can check prices,
+      cancellation rules, location, taxes and available room types.
+    </p>
+
+    <div class="info-grid">
+      <div class="info-box">
+        <h3>Compare early</h3>
+        <p>Start checking prices before your travel dates get close, especially for New York, Las Vegas and Miami.</p>
+      </div>
+
+      <div class="info-box">
+        <h3>Check location</h3>
+        <p>A cheaper hotel can cost more overall if it is too far from the places you want to visit.</p>
+      </div>
+
+      <div class="info-box">
+        <h3>Read policies</h3>
+        <p>Always check cancellation rules, resort fees, taxes, parking costs and breakfast details.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="partners">
+    <div class="section-kicker">Travel partners</div>
+    <h2 class="section-title">Book USA Hotels with Trusted Travel Partners</h2>
+    <p class="section-text">
+      Compare hotels, flights, packages and travel deals through trusted travel partners before booking your USA trip.
+    </p>
+
+    <div class="grid">
+
+      <article class="card partner-card">
+        <span class="partner-label">Primary hotel partner</span>
+        <h3>Trip.com</h3>
+        <p>
+          Search hotels, flights and travel packages for major USA destinations including New York,
+          Los Angeles, Las Vegas and Miami.
+        </p>
+        <a href="https://www.jdoqocy.com/click-101586981-13761944"
+           class="btn btn-primary"
+           target="_blank"
+           rel="nofollow sponsored noopener noreferrer">
+          Find Hotels on Trip.com
+        </a>
+      </article>
+
+      <article class="card partner-card">
+        <span class="partner-label">Alternative travel partner</span>
+        <h3>Expedia</h3>
+        <p>
+          Compare hotels, flights, vacation packages and car rentals for USA trips with flexible
+          travel search options.
+        </p>
+        <a href="https://www.tkqlhce.com/click-101586981-15261175"
+           class="btn btn-primary"
+           target="_blank"
+           rel="nofollow sponsored noopener noreferrer">
+          View USA Deals on Expedia
+        </a>
+      </article>
+
+    </div>
+
+    <div class="disclosure">
+      <strong>Affiliate disclosure:</strong> GiftCardZoneEU may earn a commission when you click partner links
+      and make a qualifying booking or purchase. This does not change the price you see.
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="section-kicker">Helpful answers</div>
+    <h2 class="section-title">USA Hotel Booking FAQ</h2>
+
+    <div class="faq">
+      <div class="faq-item">
+        <h3>What is the best city to visit first in the USA?</h3>
+        <p>
+          New York is one of the best first-time choices because it has famous landmarks, strong public transport,
+          many hotels and plenty of things to do in a short trip.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Is Las Vegas good for a short trip?</h3>
+        <p>
+          Yes. Las Vegas is popular for short stays because many hotels, shows, restaurants and entertainment areas
+          are concentrated around the Strip.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Where should beach travelers stay in the USA?</h3>
+        <p>
+          Miami is a strong option for beach-focused travelers, especially if you want warm weather, nightlife,
+          coastal hotels and a tropical city feel.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Should I compare hotel prices before booking?</h3>
+        <p>
+          Yes. USA hotel prices can vary by platform, city, season and event dates, so comparing trusted travel partners
+          can help you find a better option.
+        </p>
+      </div>
+    </div>
+  </section>
 
 </main>
 
+<div class="sticky-cta" aria-label="Sticky USA hotel booking call to action">
+  <span>Ready to compare USA hotel deals?</span>
+  <a href="https://www.jdoqocy.com/click-101586981-13761944"
+     target="_blank"
+     rel="nofollow sponsored noopener noreferrer">
+    Search on Trip.com
+  </a>
+</div>
+
 <footer>
-  <p>&copy; <span id="year"></span> GiftCardZoneEU</p>
+  <p>&copy; <span id="year"></span> GiftCardZoneEU. All rights reserved.</p>
 </footer>
 
 <script>
