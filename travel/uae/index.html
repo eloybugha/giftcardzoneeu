@@ -1,28 +1,27 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <title>Best Hotels in UAE | Where to Stay & Book Online</title>
-<meta name="description" content="Find the best hotels in the UAE. Compare prices in Dubai, Abu Dhabi, Sharjah, Ras Al Khaimah and more with trusted booking partners." />
+<meta name="description" content="Find the best hotels in the UAE. Compare places to stay in Dubai, Abu Dhabi, Sharjah, Ras Al Khaimah and more with trusted travel booking partners." />
 <meta name="robots" content="index, follow" />
 <link rel="canonical" href="https://giftcardzoneeu.com/travel/uae/" />
 
 <link rel="icon" href="/assets/gz-logo.png" />
 
-<!-- Open Graph -->
-<meta property="og:title" content="Best Hotels in UAE | GiftCardZoneEU">
-<meta property="og:description" content="Compare hotel deals in the UAE with trusted travel partners.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://giftcardzoneeu.com/travel/uae/">
-<meta property="og:image" content="https://giftcardzoneeu.com/assets/travel/uae/uae-hero.webp">
+<meta property="og:title" content="Best Hotels in UAE | Where to Stay & Book Online" />
+<meta property="og:description" content="Compare UAE hotel areas, travel tips, and trusted booking partners for Dubai, Abu Dhabi, Sharjah, and Ras Al Khaimah." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://giftcardzoneeu.com/travel/uae/" />
+<meta property="og:image" content="https://giftcardzoneeu.com/assets/travel/uae/uae-hero.webp" />
 
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Best Hotels in UAE">
-<meta name="twitter:description" content="Find and book hotels in the UAE with trusted platforms.">
-<meta name="twitter:image" content="https://giftcardzoneeu.com/assets/travel/uae/uae-hero.webp">
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Best Hotels in UAE" />
+<meta name="twitter:description" content="Find where to stay in the UAE and compare hotels with trusted travel partners." />
+<meta name="twitter:image" content="https://giftcardzoneeu.com/assets/travel/uae/uae-hero.webp" />
 
 <script src="/assets/ga.js"></script>
 
@@ -30,335 +29,700 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#f5f7fa;
-color:#111827;
-line-height:1.6
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f4f7fb;
+  color:#142033;
+  line-height:1.65;
 }
-
 a{text-decoration:none;color:inherit}
+img{max-width:100%}
+
+:root{
+  --navy:#07182d;
+  --blue:#0f2b52;
+  --orange:#ff6b1a;
+  --gold:#ffd35a;
+  --muted:#64748b;
+  --card:#ffffff;
+  --line:#e5e7eb;
+}
 
 .topbar{
-position:sticky;
-top:0;
-z-index:1000;
-display:flex;
-justify-content:center;
-padding:12px;
-background:#fff;
-border-bottom:1px solid #eee;
-box-shadow:0 2px 10px rgba(0,0,0,0.04)
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(15,23,42,.08);
 }
-
-.logo-link img{
-width:54px;
-height:54px;
-border-radius:50%;
-box-shadow:0 6px 18px rgba(0,0,0,0.1)
+.nav{
+  max-width:1180px;
+  margin:auto;
+  padding:14px 22px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
 }
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:900;
+  color:#0f172a;
+}
+.brand img{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  box-shadow:0 6px 18px rgba(0,0,0,.14);
+}
+.navlinks{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  font-size:14px;
+  font-weight:800;
+  color:#334155;
+}
+.navlinks a:hover{color:var(--orange)}
 
 .hero{
-position:relative;
-min-height:420px;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-color:#fff
+  position:relative;
+  min-height:620px;
+  display:flex;
+  align-items:center;
+  color:#fff;
+  overflow:hidden;
 }
-
 .hero::before{
-content:"";
-position:absolute;
-inset:0;
-background:
-linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.7)),
-url("/assets/travel/uae/uae-hero.webp") center/cover no-repeat;
-z-index:0
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg,rgba(3,10,25,.86) 0%,rgba(3,10,25,.58) 44%,rgba(3,10,25,.18) 100%),
+    url("/assets/travel/uae/uae-hero.webp") center/cover no-repeat;
+  z-index:0;
 }
-
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:auto 0 0;
+  height:140px;
+  background:linear-gradient(0deg,#f4f7fb 0%,rgba(244,247,251,0) 100%);
+  z-index:1;
+}
+.hero-inner{
+  position:relative;
+  z-index:2;
+  width:100%;
+  max-width:1180px;
+  margin:auto;
+  padding:80px 22px 120px;
+}
 .hero-content{
-position:relative;
-z-index:1;
-padding:20px;
-max-width:760px
+  max-width:760px;
 }
-
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:9px 15px;
+  border-radius:999px;
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.24);
+  font-size:14px;
+  font-weight:900;
+  margin-bottom:18px;
+}
 .hero h1{
-font-size:42px;
-margin-bottom:12px;
-line-height:1.15
+  margin:0 0 16px;
+  font-size:clamp(42px,6vw,72px);
+  line-height:1.04;
+  letter-spacing:-2px;
 }
-
 .hero p{
-max-width:680px;
-margin:0 auto 16px;
-font-size:17px
+  margin:0 0 26px;
+  max-width:720px;
+  color:#e5edf8;
+  font-size:19px;
+}
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+}
+.btn{
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  padding:15px 24px;
+  border-radius:999px;
+  font-weight:900;
+  transition:transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+}
+.btn:hover{
+  transform:translateY(-2px);
+  opacity:.96;
+}
+.btn-primary{
+  background:linear-gradient(135deg,#ff7a1a,#ff4d00);
+  color:#fff;
+  box-shadow:0 16px 36px rgba(255,90,0,.32);
+}
+.btn-secondary{
+  background:rgba(255,255,255,.14);
+  color:#fff;
+  border:1px solid rgba(255,255,255,.35);
 }
 
-.hero-badge{
-display:inline-block;
-background:rgba(255,255,255,0.16);
-border:1px solid rgba(255,255,255,0.28);
-padding:8px 14px;
-border-radius:999px;
-font-size:14px;
-font-weight:700;
-margin-bottom:16px
+.trust-row{
+  position:relative;
+  z-index:5;
+  max-width:1180px;
+  margin:-82px auto 34px;
+  padding:0 22px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
 }
-
-.hero-cta{
-display:inline-block;
-margin-top:8px;
-background:#ff5a00;
-color:#fff;
-padding:14px 24px;
-border-radius:999px;
-font-weight:700;
-box-shadow:0 10px 25px rgba(0,0,0,0.2)
+.trust-card{
+  background:#fff;
+  border-radius:20px;
+  padding:20px;
+  border:1px solid rgba(15,23,42,.08);
+  box-shadow:0 18px 38px rgba(15,23,42,.10);
+}
+.trust-card strong{
+  display:block;
+  margin-bottom:4px;
+  color:#10203a;
+}
+.trust-card span{
+  color:var(--muted);
+  font-size:14px;
 }
 
 .wrapper{
-max-width:1100px;
-margin:auto;
-padding:30px 20px 100px
+  max-width:1180px;
+  margin:auto;
+  padding:0 22px 120px;
 }
-
 .section{
-background:#fff;
-padding:22px;
-border-radius:18px;
-margin-bottom:20px;
-border:1px solid #eee;
-box-shadow:0 6px 18px rgba(0,0,0,0.04)
+  margin-bottom:28px;
 }
-
+.panel{
+  background:#fff;
+  border:1px solid rgba(15,23,42,.08);
+  border-radius:24px;
+  padding:30px;
+  box-shadow:0 16px 38px rgba(15,23,42,.06);
+}
 .section h2{
-margin-top:0;
-margin-bottom:12px;
-font-size:26px
+  margin:0 0 12px;
+  font-size:clamp(28px,4vw,42px);
+  line-height:1.12;
+  letter-spacing:-1px;
 }
-
+.section p{
+  color:#475569;
+  margin:0 0 14px;
+}
 .grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:15px
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+.city-card{
+  background:#fff;
+  border-radius:22px;
+  overflow:hidden;
+  border:1px solid rgba(15,23,42,.08);
+  box-shadow:0 14px 30px rgba(15,23,42,.06);
+}
+.city-card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  display:block;
+}
+.city-card div{
+  padding:18px;
+}
+.city-card h3{
+  margin:0 0 8px;
+  font-size:20px;
+}
+.city-card p{
+  margin:0;
+  color:#64748b;
+  font-size:15px;
 }
 
-.card{
-background:#fff;
-border:1px solid #eee;
-border-radius:16px;
-overflow:hidden;
-text-align:center;
-font-weight:600;
-transition:transform .2s ease, box-shadow .2s ease
+.two-col{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:22px;
+  align-items:start;
+}
+.pick-card{
+  background:linear-gradient(145deg,#07182d,#153867);
+  color:#fff;
+  border-radius:24px;
+  padding:28px;
+  box-shadow:0 16px 38px rgba(15,23,42,.14);
+}
+.pick-card h2{
+  color:#fff;
+}
+.pick-item{
+  padding:16px;
+  border-radius:16px;
+  background:rgba(255,255,255,.09);
+  border:1px solid rgba(255,255,255,.12);
+  margin-top:12px;
+}
+.pick-item strong{
+  color:#fff;
+}
+.pick-item span{
+  display:block;
+  color:#dbeafe;
+  font-size:15px;
 }
 
-.card:hover{
-transform:translateY(-4px);
-box-shadow:0 10px 22px rgba(0,0,0,0.08)
+.partner-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+.partner-card{
+  border-radius:22px;
+  padding:24px;
+  color:#fff;
+  min-height:210px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  box-shadow:0 18px 40px rgba(15,23,42,.12);
+}
+.partner-card h3{
+  margin:0 0 8px;
+  font-size:25px;
+}
+.partner-card p{
+  color:rgba(255,255,255,.84);
+}
+.trip-card{
+  background:linear-gradient(145deg,#0b2344,#0679ff);
+}
+.expedia-card{
+  background:linear-gradient(145deg,#101827,#334155);
+}
+.partner-card .btn{
+  width:100%;
+  background:#fff;
+  color:#111827;
+  margin-top:16px;
 }
 
-.card img{
-width:100%;
-height:170px;
-object-fit:cover;
-display:block
+.tip-list{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+  margin-top:18px;
+}
+.tip{
+  padding:18px;
+  border-radius:18px;
+  background:#f8fafc;
+  border:1px solid #e2e8f0;
+}
+.tip strong{
+  display:block;
+  margin-bottom:6px;
+  color:#0f172a;
 }
 
-.card p{
-padding:12px;
-margin:0
+.link-pills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:18px;
+}
+.link-pills a{
+  display:inline-flex;
+  padding:12px 16px;
+  border-radius:999px;
+  background:#f1f5f9;
+  color:#1e293b;
+  font-weight:900;
+  border:1px solid #e2e8f0;
+}
+.link-pills a:hover{
+  background:#e2e8f0;
 }
 
-.btn{
-display:block;
-padding:15px;
-border-radius:14px;
-color:#fff;
-text-align:center;
-font-weight:700;
-transition:opacity .2s ease, transform .2s ease
+.faq details{
+  background:#fff;
+  border:1px solid #e2e8f0;
+  border-radius:18px;
+  padding:18px 20px;
+  margin-bottom:12px;
 }
-
-.btn:hover{
-opacity:.95;
-transform:translateY(-2px)
+.faq summary{
+  cursor:pointer;
+  font-weight:900;
+  color:#0f172a;
 }
-
-.agoda{background:#20a39e}
-.booking{background:#003580}
-.trip{background:#027aff}
-
-.tips-list{
-padding-left:18px;
-margin:0
-}
-
-.tips-list li{
-margin-bottom:8px
+.faq details p{
+  margin-top:12px;
 }
 
 .disclosure{
-font-size:15px;
-color:#374151
+  background:#fff8ed;
+  border:1px solid #fed7aa;
+  color:#7c2d12;
+  border-radius:20px;
+  padding:20px;
+  font-size:15px;
 }
-
-.footer{
-text-align:center;
-margin:20px;
-color:#666
+footer{
+  background:#07111f;
+  color:#94a3b8;
+  text-align:center;
+  padding:34px 20px 96px;
 }
 
 .sticky-cta{
-position:fixed;
-bottom:15px;
-left:50%;
-transform:translateX(-50%);
-z-index:9999;
-width:92%;
-max-width:520px
+  position:fixed;
+  z-index:9999;
+  left:50%;
+  bottom:18px;
+  transform:translateX(-50%);
+  width:min(92%,680px);
+  background:#0f172a;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:999px;
+  padding:10px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  box-shadow:0 16px 44px rgba(0,0,0,.28);
 }
-
+.sticky-cta span{
+  color:#fff;
+  font-weight:900;
+  padding-left:14px;
+  flex:1;
+}
 .sticky-cta a{
-display:block;
-background:#ff5a00;
-color:#fff;
-text-align:center;
-padding:16px;
-border-radius:50px;
-font-weight:700;
-font-size:16px;
-box-shadow:0 8px 25px rgba(0,0,0,0.22)
+  background:linear-gradient(135deg,#ff7a1a,#ff4d00);
+  color:#fff;
+  border-radius:999px;
+  padding:13px 22px;
+  font-weight:900;
+  white-space:nowrap;
 }
 
-@media (max-width:768px){
-.hero{min-height:360px}
-.hero h1{font-size:32px}
-.hero p{font-size:15px}
-.section h2{font-size:22px}
+@media(max-width:900px){
+  .nav{
+    align-items:flex-start;
+    flex-direction:column;
+    gap:12px;
+  }
+  .navlinks{
+    width:100%;
+    overflow-x:auto;
+    padding-bottom:4px;
+  }
+  .hero{
+    min-height:560px;
+  }
+  .hero::before{
+    background:
+      linear-gradient(180deg,rgba(3,10,25,.70) 0%,rgba(3,10,25,.72) 58%,rgba(3,10,25,.92) 100%),
+      url("/assets/travel/uae/uae-hero.webp") center/cover no-repeat;
+  }
+  .hero-inner{
+    padding:70px 22px 110px;
+  }
+  .hero h1{
+    font-size:42px;
+    letter-spacing:-1px;
+  }
+  .hero p{
+    font-size:17px;
+  }
+  .trust-row,
+  .grid,
+  .partner-grid,
+  .tip-list,
+  .two-col{
+    grid-template-columns:1fr;
+  }
+  .trust-row{
+    margin-top:-70px;
+  }
+  .panel{
+    padding:24px;
+  }
+  .sticky-cta{
+    left:12px;
+    right:12px;
+    bottom:10px;
+    transform:none;
+    width:auto;
+    border-radius:22px;
+    align-items:stretch;
+    flex-direction:column;
+    padding:10px;
+  }
+  .sticky-cta span{
+    padding:4px 8px 0;
+    text-align:center;
+    font-size:.9rem;
+  }
+  .sticky-cta a{
+    text-align:center;
+  }
+  footer{
+    padding-bottom:135px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<div class="topbar">
-<a href="https://giftcardzoneeu.com/" class="logo-link">
-<img src="/assets/gz-logo.png" alt="GiftCardZoneEU Logo">
-</a>
-</div>
+<header class="topbar">
+  <nav class="nav" aria-label="Main navigation">
+    <a class="brand" href="https://giftcardzoneeu.com/" aria-label="GiftCardZoneEU home">
+      <img src="/assets/gz-logo.png" alt="GiftCardZoneEU logo" />
+      <span>GiftCardZoneEU</span>
+    </a>
+
+    <div class="navlinks">
+      <a href="/travel/">Travel</a>
+      <a href="/travel/germany/">Germany</a>
+      <a href="/shopping/">Shopping</a>
+      <a href="/rewards/">Rewards</a>
+      <a href="/partners/">Partners</a>
+    </div>
+  </nav>
+</header>
 
 <section class="hero">
-<div class="hero-content">
-<div class="hero-badge">GiftCardZoneEU × Trusted Travel Partners</div>
-<h1>Best Hotels in UAE 🇦🇪</h1>
-<p>Compare hotel prices across multiple platforms and find the best deals in Dubai, Abu Dhabi, Sharjah, Ras Al Khaimah and more.</p>
-<a href="https://www.jdoqocy.com/click-101586981-13761944" class="hero-cta" target="_blank" rel="nofollow sponsored noopener noreferrer">Compare UAE Hotel Deals</a>
-</div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="badge">🇦🇪 UAE hotel guide</div>
+      <h1>Best Hotels in UAE — Where to Stay & Book Online</h1>
+      <p>Planning a UAE trip? Compare hotel areas in Dubai, Abu Dhabi, Sharjah, Ras Al Khaimah and more before choosing where to stay.</p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">Search UAE Hotels on Trip.com</a>
+        <a class="btn btn-secondary" href="https://www.tkqlhce.com/click-101586981-15261175" target="_blank" rel="nofollow sponsored noopener noreferrer">Compare Stays on Expedia</a>
+      </div>
+    </div>
+  </div>
 </section>
+
+<div class="trust-row">
+  <div class="trust-card">
+    <strong>Dubai stays</strong>
+    <span>Best for skyline, shopping, beaches, and first-time UAE trips.</span>
+  </div>
+  <div class="trust-card">
+    <strong>Abu Dhabi hotels</strong>
+    <span>Good for culture, family trips, resorts, and city comfort.</span>
+  </div>
+  <div class="trust-card">
+    <strong>Beach resorts</strong>
+    <span>Compare stays in Dubai, Ras Al Khaimah, Ajman, and coastal areas.</span>
+  </div>
+  <div class="trust-card">
+    <strong>Hotel deals</strong>
+    <span>Check prices, location, fees, and cancellation rules before booking.</span>
+  </div>
+</div>
 
 <main class="wrapper">
 
-<div class="section">
-<h2>Top Travel Partners</h2>
-<div class="grid">
-<a class="btn agoda" href="https://www.agoda.com" target="_blank" rel="nofollow sponsored noopener noreferrer">View Agoda Deals</a>
-<a class="btn booking" href="https://www.booking.com" target="_blank" rel="nofollow sponsored noopener noreferrer">Search on Booking.com</a>
-<a class="btn trip" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">Find Hotels on Trip.com</a>
-</div>
-</div>
+  <section class="section two-col">
+    <div class="panel">
+      <h2>Stay in the UAE — choose the right base</h2>
+      <p>The United Arab Emirates is one of the easiest destinations to plan if you want modern hotels, city skylines, beach resorts, shopping malls, desert experiences, and family-friendly attractions in one trip.</p>
+      <p>Dubai is the most popular choice for first-time visitors, while Abu Dhabi is excellent for culture, resorts, and a calmer city stay. Sharjah can work well for budget-conscious travelers, and Ras Al Khaimah is a strong option for beach resorts and mountain access.</p>
+      <p>The best place to stay depends on your trip style, airport arrival, transport plan, and whether you want nightlife, family attractions, beaches, malls, or a quieter resort base.</p>
+    </div>
 
-<div class="section">
-<h2>Top Areas to Stay in UAE</h2>
-<div class="grid">
+    <aside class="pick-card">
+      <h2>Quick pick guide</h2>
+      <div class="pick-item">
+        <strong>Best for first trip</strong>
+        <span>Dubai Marina, Downtown Dubai, or Deira depending on budget.</span>
+      </div>
+      <div class="pick-item">
+        <strong>Best for culture</strong>
+        <span>Abu Dhabi city, Corniche, or areas near major attractions.</span>
+      </div>
+      <div class="pick-item">
+        <strong>Best for budget</strong>
+        <span>Sharjah, Deira, Bur Dubai, or airport-connected areas.</span>
+      </div>
+      <div class="pick-item">
+        <strong>Best for resorts</strong>
+        <span>Ras Al Khaimah, Palm Jumeirah, Jumeirah Beach, or coastal areas.</span>
+      </div>
+    </aside>
+  </section>
 
-<div class="card">
-<img src="/assets/travel/uae/dubai.webp" alt="Dubai hotels">
-<p>Dubai</p>
-</div>
+  <section class="section">
+    <h2>Top UAE areas to stay</h2>
+    <p>Use these city guides as a starting point when comparing UAE hotel locations.</p>
 
-<div class="card">
-<img src="/assets/travel/uae/abu-dhabi.webp" alt="Abu Dhabi hotels">
-<p>Abu Dhabi</p>
-</div>
+    <div class="grid">
+      <article class="city-card">
+        <img src="/assets/travel/uae/dubai.webp" alt="Dubai skyline and hotels in the UAE" loading="lazy" />
+        <div>
+          <h3>Dubai</h3>
+          <p>Best for luxury hotels, shopping, beaches, nightlife, business trips, and first-time UAE travel.</p>
+        </div>
+      </article>
 
-<div class="card">
-<img src="/assets/travel/uae/sharjah.webp" alt="Sharjah hotels">
-<p>Sharjah</p>
-</div>
+      <article class="city-card">
+        <img src="/assets/travel/uae/abu-dhabi.webp" alt="Abu Dhabi hotels and city attractions" loading="lazy" />
+        <div>
+          <h3>Abu Dhabi</h3>
+          <p>Great for culture, family attractions, resorts, the Corniche, and a more relaxed city stay.</p>
+        </div>
+      </article>
 
-<div class="card">
-<img src="/assets/travel/uae/ras-al-khaimah.webp" alt="Ras Al Khaimah hotels">
-<p>Ras Al Khaimah</p>
-</div>
+      <article class="city-card">
+        <img src="/assets/travel/uae/sharjah.webp" alt="Sharjah hotel area in the UAE" loading="lazy" />
+        <div>
+          <h3>Sharjah</h3>
+          <p>A practical choice for travelers comparing value stays, museums, markets, and access to Dubai.</p>
+        </div>
+      </article>
 
-</div>
-</div>
+      <article class="city-card">
+        <img src="/assets/travel/uae/ras-al-khaimah.webp" alt="Ras Al Khaimah beach resort hotels" loading="lazy" />
+        <div>
+          <h3>Ras Al Khaimah</h3>
+          <p>Ideal for beach resorts, family breaks, desert trips, and mountain activities away from the busiest city zones.</p>
+        </div>
+      </article>
+    </div>
+  </section>
 
-<div class="section">
-<h2>Why Visit UAE?</h2>
-<p>The United Arab Emirates is known for its luxury hotels, modern skyline, desert adventures, shopping destinations, and iconic attractions like Burj Khalifa, Palm Jumeirah, Sheikh Zayed Grand Mosque, and world-class beach resorts.</p>
-<p><strong>Tip:</strong> Hotel prices in the UAE can vary depending on the platform and season. Compare Agoda, Booking.com, and Trip.com before booking to get the best deal.</p>
-</div>
+  <section class="section">
+    <div class="partner-grid">
+      <article class="partner-card trip-card">
+        <div>
+          <h3>Compare UAE hotels on Trip.com</h3>
+          <p>Use Trip.com to check UAE hotel prices, locations, amenities, and available deals before choosing your stay.</p>
+        </div>
+        <a class="btn" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">Search Trip.com Hotels</a>
+      </article>
 
-<div class="section">
-<h2>Hotel Booking Tips</h2>
-<ul class="tips-list">
-<li>Book early during peak seasons and holidays for better rates</li>
-<li>Compare Agoda, Booking.com, and Trip.com before choosing</li>
-<li>Stay near metro stations or major attractions for convenience</li>
-<li>Check free cancellation and breakfast inclusions</li>
-</ul>
-</div>
+      <article class="partner-card expedia-card">
+        <div>
+          <h3>Compare UAE stays on Expedia</h3>
+          <p>Expedia can help you compare hotels, packages, and travel options for Dubai, Abu Dhabi, and other UAE destinations.</p>
+        </div>
+        <a class="btn" href="https://www.tkqlhce.com/click-101586981-15261175" target="_blank" rel="nofollow sponsored noopener noreferrer">View Expedia Hotels</a>
+      </article>
+    </div>
+  </section>
 
-<div class="section">
-<h2>Best Time to Visit UAE</h2>
-<p>The best time to visit the UAE is from November to March when the weather is cooler and more comfortable for sightseeing, shopping, and outdoor activities. This is also the busiest season, so booking early is a smart move.</p>
-</div>
+  <section class="section panel">
+    <h2>Why visit the UAE?</h2>
+    <p>The UAE is known for modern skylines, luxury hotels, desert adventures, shopping malls, beach resorts, family attractions, and landmarks such as Burj Khalifa, Palm Jumeirah, Sheikh Zayed Grand Mosque, Louvre Abu Dhabi, and Jebel Jais.</p>
+    <p>It can work for short stopovers, family vacations, luxury trips, business travel, beach breaks, and shopping-focused holidays. Because each emirate has a different feel, comparing hotel areas before booking is important.</p>
+  </section>
 
-<div class="section">
-<h2>Explore More Travel Pages</h2>
+  <section class="section panel">
+    <h2>UAE hotel booking tips</h2>
+    <div class="tip-list">
+      <div class="tip">
+        <strong>Check the location carefully</strong>
+        Dubai and Abu Dhabi are spread out, so a cheaper hotel far from your plans may cost more in taxis and travel time.
+      </div>
+      <div class="tip">
+        <strong>Compare flexible dates</strong>
+        Hotel prices can change around events, holidays, conferences, weekends, and peak winter travel.
+      </div>
+      <div class="tip">
+        <strong>Review total cost</strong>
+        Check taxes, resort fees, parking, breakfast, cancellation policy, and final checkout price.
+      </div>
+      <div class="tip">
+        <strong>Choose your trip style</strong>
+        Pick beach areas for resorts, Downtown for attractions, Marina for nightlife, and airport areas for short stays.
+      </div>
+    </div>
+  </section>
 
-<div class="grid">
+  <section class="section panel">
+    <h2>Best time to visit the UAE</h2>
+    <p>The most comfortable travel season is usually from November to March, when the weather is cooler for sightseeing, beaches, outdoor dining, and desert trips. This is also a busy season, so early hotel comparison can help.</p>
+    <p>Summer can be very hot, but hotel prices may be lower in some areas. For travelers who plan mostly indoor activities, malls, resorts, and short taxi rides, summer can still work with careful planning.</p>
+  </section>
 
-<a class="card" href="/travel/germany/">
-<p>🇩🇪 Germany Travel Guide</p>
-</a>
+  <section class="section panel">
+    <h2>Explore more travel pages</h2>
+    <p>Continue comparing more GiftCardZoneEU travel guides and partner pages.</p>
+    <div class="link-pills">
+      <a href="/travel/">Travel Hub</a>
+      <a href="/travel/germany/">Germany Travel</a>
+      <a href="/travel/belgium/">Belgium Travel</a>
+      <a href="/travel/australia/">Australia Travel</a>
+      <a href="/travel/singapore/">Singapore Travel</a>
+      <a href="/partners/">Partners</a>
+    </div>
+  </section>
 
-<a class="card" href="/travel/belgium/">
-<p>🇧🇪 Belgium Travel Guide</p>
-</a>
+  <section class="section faq">
+    <h2>UAE hotel FAQ</h2>
 
-<a class="card" href="/travel/australia/">
-<p>🇦🇺 Australia Travel Guide</p>
-</a>
+    <details>
+      <summary>Where should I stay in the UAE for a first trip?</summary>
+      <p>Dubai is usually the easiest first choice because it has many hotels, attractions, malls, beach areas, airport access, and transport options. Abu Dhabi is also excellent for a calmer cultural trip.</p>
+    </details>
 
-<a class="card" href="/travel/singapore/">
-<p>🇸🇬 Singapore Travel Guide</p>
-</a>
+    <details>
+      <summary>Is Dubai or Abu Dhabi better for hotels?</summary>
+      <p>Dubai is better for nightlife, shopping, beaches, and first-time sightseeing. Abu Dhabi is better for culture, resorts, family attractions, and a more relaxed city stay.</p>
+    </details>
 
-</div>
-</div>
+    <details>
+      <summary>Should I compare UAE hotel prices before booking?</summary>
+      <p>Yes. UAE hotel prices can change depending on season, events, location, and booking platform. Always compare the final price, cancellation policy, and location before booking.</p>
+    </details>
 
-<div class="section disclosure">
-<strong>Affiliate Disclosure:</strong>
-We may earn a small commission when you book through our links at no extra cost to you.
-</div>
+    <details>
+      <summary>Does GiftCardZoneEU handle the hotel booking?</summary>
+      <p>No. GiftCardZoneEU provides travel guides and partner links. Booking, payment, cancellation, and customer support are handled by the travel partner you choose.</p>
+    </details>
+  </section>
+
+  <section class="section disclosure">
+    <strong>Affiliate disclosure:</strong> GiftCardZoneEU may earn a commission when you click partner links and make a qualifying booking or purchase. This does not change the price you see, but it helps support our travel guides and comparison pages.
+  </section>
 
 </main>
 
-<div class="footer">
-© <span id="year"></span> GiftCardZoneEU
+<div class="sticky-cta">
+  <span>Ready to compare UAE hotel prices?</span>
+  <a href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">Search Trip.com</a>
 </div>
 
-<div class="sticky-cta">
-<a href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">
-🔥 Check UAE Hotel Deals Now
-</a>
-</div>
+<footer>
+  © <span id="year"></span> GiftCardZoneEU. UAE travel guide and hotel comparison.
+</footer>
 
 <script>
 document.getElementById("year").textContent = new Date().getFullYear();
@@ -366,3 +730,4 @@ document.getElementById("year").textContent = new Date().getFullYear();
 
 </body>
 </html>
+```
