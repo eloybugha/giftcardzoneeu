@@ -26,11 +26,9 @@
     :root{
       --bg:#07111f;
       --panel:#0d1b2f;
-      --panel2:#10243f;
       --text:#f8fafc;
       --muted:#b6c6d8;
       --soft:#dbeafe;
-      --blue:#38bdf8;
       --orange:#fb923c;
       --yellow:#facc15;
       --green:#22c55e;
@@ -80,21 +78,11 @@
       align-items:center;
       gap:10px;
       font-weight:900;
-      letter-spacing:.2px;
       padding:8px 13px 8px 9px;
       border-radius:999px;
       background:linear-gradient(135deg,rgba(34,197,94,.18),rgba(56,189,248,.12));
       border:1px solid rgba(34,197,94,.35);
       box-shadow:0 10px 26px rgba(34,197,94,.12);
-    }
-
-    .brand span{
-      color:#f8fafc;
-    }
-
-    .brand:hover{
-      background:linear-gradient(135deg,rgba(34,197,94,.28),rgba(56,189,248,.18));
-      border-color:rgba(34,197,94,.55);
     }
 
     .brand img{
@@ -139,7 +127,6 @@
     }
 
     .hero-image{
-      position:relative;
       overflow:hidden;
       border-radius:34px;
       border:1px solid var(--border);
@@ -153,7 +140,6 @@
       height:100%;
       min-height:360px;
       object-fit:cover;
-      opacity:.96;
     }
 
     .hero-card{
@@ -162,7 +148,6 @@
       display:grid;
       grid-template-columns:1.25fr .75fr;
       gap:20px;
-      align-items:stretch;
     }
 
     .intro,
@@ -176,8 +161,6 @@
 
     .eyebrow{
       display:inline-flex;
-      align-items:center;
-      gap:8px;
       color:#fde68a;
       background:rgba(250,204,21,.1);
       border:1px solid rgba(250,204,21,.22);
@@ -248,7 +231,6 @@
       display:inline-flex;
       justify-content:center;
       align-items:center;
-      text-align:center;
       width:100%;
       padding:15px 18px;
       border-radius:18px;
@@ -256,6 +238,7 @@
       color:#111827;
       font-weight:950;
       box-shadow:0 18px 40px rgba(251,146,60,.26);
+      text-align:center;
     }
 
     .secondary-link{
@@ -274,10 +257,6 @@
     .section{margin-top:26px}
 
     .section-head{
-      display:flex;
-      justify-content:space-between;
-      align-items:end;
-      gap:18px;
       margin-bottom:16px;
     }
 
@@ -301,11 +280,22 @@
     }
 
     .card{
+      position:relative;
+      overflow:hidden;
       background:linear-gradient(180deg,rgba(16,36,63,.92),rgba(13,27,47,.92));
       border:1px solid var(--border);
       border-radius:24px;
       padding:22px;
+      min-height:270px;
       box-shadow:0 16px 35px rgba(0,0,0,.16);
+    }
+
+    .card:before{
+      content:"";
+      position:absolute;
+      inset:0 0 auto 0;
+      height:5px;
+      background:rgba(255,255,255,.15);
     }
 
     .card .icon{
@@ -314,10 +304,9 @@
       display:grid;
       place-items:center;
       border-radius:15px;
-      background:rgba(56,189,248,.12);
-      border:1px solid rgba(56,189,248,.22);
       margin-bottom:14px;
       font-size:1.35rem;
+      border:1px solid rgba(255,255,255,.14);
     }
 
     .card h3{
@@ -326,10 +315,70 @@
     }
 
     .card p{
-      margin:0;
+      margin:0 0 16px;
       color:var(--muted);
       font-size:.96rem;
     }
+
+    .mini-cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      margin-top:auto;
+      padding:9px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.14);
+      color:#fff;
+      font-weight:900;
+      font-size:.86rem;
+    }
+
+    .mini-cta:hover{
+      background:rgba(255,255,255,.13);
+    }
+
+    .card.flight{
+      border-color:rgba(56,189,248,.36);
+      box-shadow:0 0 30px rgba(56,189,248,.12);
+    }
+    .card.flight:before{background:linear-gradient(90deg,#38bdf8,#0ea5e9)}
+    .card.flight .icon{background:rgba(56,189,248,.15)}
+
+    .card.hotel{
+      border-color:rgba(251,146,60,.42);
+      box-shadow:0 0 30px rgba(251,146,60,.14);
+    }
+    .card.hotel:before{background:linear-gradient(90deg,#fb923c,#facc15)}
+    .card.hotel .icon{background:rgba(251,146,60,.16)}
+
+    .card.package{
+      border-color:rgba(168,85,247,.38);
+      box-shadow:0 0 30px rgba(168,85,247,.13);
+    }
+    .card.package:before{background:linear-gradient(90deg,#a855f7,#ec4899)}
+    .card.package .icon{background:rgba(168,85,247,.16)}
+
+    .card.car{
+      border-color:rgba(34,197,94,.38);
+      box-shadow:0 0 30px rgba(34,197,94,.13);
+    }
+    .card.car:before{background:linear-gradient(90deg,#22c55e,#84cc16)}
+    .card.car .icon{background:rgba(34,197,94,.16)}
+
+    .card.lastminute{
+      border-color:rgba(244,63,94,.38);
+      box-shadow:0 0 30px rgba(244,63,94,.13);
+    }
+    .card.lastminute:before{background:linear-gradient(90deg,#f43f5e,#fb7185)}
+    .card.lastminute .icon{background:rgba(244,63,94,.16)}
+
+    .card.budget{
+      border-color:rgba(250,204,21,.42);
+      box-shadow:0 0 30px rgba(250,204,21,.13);
+    }
+    .card.budget:before{background:linear-gradient(90deg,#facc15,#f97316)}
+    .card.budget .icon{background:rgba(250,204,21,.16)}
 
     .feature-panel{
       display:grid;
@@ -366,7 +415,6 @@
     .mini-list span{
       display:flex;
       gap:10px;
-      align-items:flex-start;
       color:#dbeafe;
       font-weight:750;
     }
@@ -387,10 +435,6 @@
       color:#dbeafe;
       font-weight:800;
       font-size:.9rem;
-    }
-
-    .travel-links a:hover{
-      background:rgba(255,255,255,.1);
     }
 
     .vpn-panel{
@@ -430,8 +474,6 @@
       background:rgba(255,255,255,.06);
       font-weight:900;
     }
-
-    .vpn-buttons a:hover{background:rgba(255,255,255,.1)}
 
     .faq{
       display:grid;
@@ -509,31 +551,6 @@
       font-weight:950;
     }
 
-    .card,
-    .wide-card,
-    .deal-box,
-    .intro,
-    .vpn-panel,
-    details{
-      box-shadow:
-        0 0 0 1px rgba(251,146,60,.08),
-        0 18px 45px rgba(0,0,0,.22),
-        0 0 28px rgba(251,146,60,.10);
-    }
-
-    .card:hover,
-    .wide-card:hover,
-    .deal-box:hover,
-    .intro:hover,
-    .vpn-panel:hover,
-    details:hover{
-      border-color:rgba(251,146,60,.28);
-      box-shadow:
-        0 0 0 1px rgba(251,146,60,.14),
-        0 22px 55px rgba(0,0,0,.28),
-        0 0 36px rgba(251,146,60,.17);
-    }
-
     @media(max-width:900px){
       .hero-card,
       .feature-panel,
@@ -542,10 +559,6 @@
       }
 
       .grid{grid-template-columns:1fr}
-
-      .section-head{display:block}
-
-      .nav{align-items:flex-start}
 
       .navlinks{display:none}
 
@@ -556,6 +569,10 @@
       .wide-card,
       .vpn-panel{
         padding:21px;
+      }
+
+      .card{
+        min-height:auto;
       }
 
       .sticky-cta{
@@ -650,61 +667,65 @@
   <main>
     <section class="section">
       <div class="section-head">
-        <div>
-          <h2>What you can compare for Boston</h2>
-          <p class="section-desc">
-            CheapTickets is useful if you want one travel starting point for flights, hotels, packages, car rentals, city stays, airport trips, university visits, event weekends, and short-notice Boston travel.
-          </p>
-        </div>
+        <h2>What you can compare for Boston</h2>
+        <p class="section-desc">
+          Choose the Boston travel option you need below. Each box is color-coded so visitors can quickly scan and click the right travel category.
+        </p>
       </div>
 
       <div class="grid">
-        <article class="card">
+        <article class="card flight">
           <div class="icon">✈️</div>
           <h3>Flights to Boston</h3>
           <p>
             Search for domestic and international flights to Boston, compare schedules, and check route options through Boston Logan International Airport or nearby connections.
           </p>
+          <a class="mini-cta" href="https://www.tkqlhce.com/click-101586981-12843040" target="_blank" rel="nofollow sponsored noopener noreferrer">Compare flights →</a>
         </article>
 
-        <article class="card">
+        <article class="card hotel">
           <div class="icon">🏨</div>
           <h3>Boston hotels</h3>
           <p>
             Look for hotels near Downtown Boston, Back Bay, Seaport, Fenway, Beacon Hill, Cambridge, North End, Logan Airport, or business-friendly areas.
           </p>
+          <a class="mini-cta" href="https://www.tkqlhce.com/click-101586981-12843040" target="_blank" rel="nofollow sponsored noopener noreferrer">Compare hotels →</a>
         </article>
 
-        <article class="card">
+        <article class="card package">
           <div class="icon">🏙️</div>
           <h3>City vacation packages</h3>
           <p>
             Bundle-style searches can help when you need both airfare and hotel options for a Boston city break, university visit, sports weekend, event stay, or family vacation.
           </p>
+          <a class="mini-cta" href="https://www.tkqlhce.com/click-101586981-12843040" target="_blank" rel="nofollow sponsored noopener noreferrer">View packages →</a>
         </article>
 
-        <article class="card">
+        <article class="card car">
           <div class="icon">🚗</div>
           <h3>Car rentals</h3>
           <p>
             Useful for airport pickups, New England side trips, family visits, business travel, university tours, coastal drives, or wider Massachusetts travel plans.
           </p>
+          <a class="mini-cta" href="https://www.tkqlhce.com/click-101586981-12843040" target="_blank" rel="nofollow sponsored noopener noreferrer">Check cars →</a>
         </article>
 
-        <article class="card">
+        <article class="card lastminute">
           <div class="icon">🧳</div>
           <h3>Last-minute Boston trips</h3>
           <p>
             Check short-notice travel options when you need a quick city break, business stay, sports trip, family visit, conference stay, or urgent travel arrangement.
           </p>
+          <a class="mini-cta" href="https://www.tkqlhce.com/click-101586981-12843040" target="_blank" rel="nofollow sponsored noopener noreferrer">Last-minute deals →</a>
         </article>
 
-        <article class="card">
+        <article class="card budget">
           <div class="icon">💳</div>
           <h3>Travel budgeting</h3>
           <p>
             Compare before you book so you can balance price, hotel area, airport choice, baggage fees, cancellation rules, parking costs, and total Boston trip cost.
           </p>
+          <a class="mini-cta" href="https://www.tkqlhce.com/click-101586981-12843040" target="_blank" rel="nofollow sponsored noopener noreferrer">Compare deals →</a>
         </article>
       </div>
     </section>
@@ -750,16 +771,14 @@
 
     <section class="section">
       <div class="section-head">
-        <div>
-          <h2>How to use CheapTickets for Boston wisely</h2>
-          <p class="section-desc">
-            A simple Boston booking checklist before you click the final payment button.
-          </p>
-        </div>
+        <h2>How to use CheapTickets for Boston wisely</h2>
+        <p class="section-desc">
+          A simple Boston booking checklist before you click the final payment button.
+        </p>
       </div>
 
       <div class="grid">
-        <article class="card">
+        <article class="card flight">
           <div class="icon">📅</div>
           <h3>Compare flexible dates</h3>
           <p>
@@ -767,7 +786,7 @@
           </p>
         </article>
 
-        <article class="card">
+        <article class="card hotel">
           <div class="icon">📍</div>
           <h3>Check the location</h3>
           <p>
@@ -775,7 +794,7 @@
           </p>
         </article>
 
-        <article class="card">
+        <article class="card budget">
           <div class="icon">🧾</div>
           <h3>Review total cost</h3>
           <p>
@@ -810,12 +829,10 @@
 
     <section class="section">
       <div class="section-head">
-        <div>
-          <h2>CheapTickets Boston FAQ</h2>
-          <p class="section-desc">
-            Quick answers for travelers comparing CheapTickets before booking a Boston trip.
-          </p>
-        </div>
+        <h2>CheapTickets Boston FAQ</h2>
+        <p class="section-desc">
+          Quick answers for travelers comparing CheapTickets before booking a Boston trip.
+        </p>
       </div>
 
       <div class="faq">
