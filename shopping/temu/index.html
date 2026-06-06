@@ -16,14 +16,12 @@
 
   <link rel="preload" as="image" href="/assets/shopping/temu/temu-hero.webp" />
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Temu Deals & Online Shopping | GiftCardZoneEU" />
   <meta property="og:description" content="Explore Temu shopping deals for fashion, gadgets, home products and more with GiftCardZoneEU." />
   <meta property="og:url" content="https://giftcardzoneeu.com/shopping/temu/" />
   <meta property="og:image" content="https://giftcardzoneeu.com/assets/shopping/temu/temu-hero.webp" />
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Temu Deals & Online Shopping | GiftCardZoneEU" />
   <meta name="twitter:description" content="Find budget-friendly Temu deals on fashion, gadgets, home and lifestyle products." />
@@ -32,8 +30,9 @@
   <style>
     :root {
       --bg: #020617;
-      --bg-soft: rgba(15, 23, 42, 0.88);
-      --card: rgba(15, 23, 42, 0.78);
+      --bg-2: #081226;
+      --bg-soft: rgba(15, 23, 42, 0.94);
+      --card: rgba(15, 23, 42, 0.92);
       --border: rgba(148, 163, 184, 0.22);
       --text: #e5e7eb;
       --muted: #94a3b8;
@@ -58,8 +57,8 @@
       font-family: Arial, Helvetica, sans-serif;
       color: var(--text);
       background:
-        linear-gradient(rgba(2, 6, 23, 0.78), rgba(2, 6, 23, 0.9)),
-        url('/assets/shopping/temu/temu-hero.webp') center/cover fixed no-repeat;
+        radial-gradient(circle at top left, rgba(249,115,22,0.18), transparent 34%),
+        linear-gradient(180deg, #020617 0%, #081226 42%, #020617 100%);
     }
 
     a {
@@ -77,7 +76,7 @@
       top: 0;
       z-index: 1000;
       backdrop-filter: blur(14px);
-      background: rgba(2, 6, 23, 0.78);
+      background: rgba(2, 6, 23, 0.84);
       border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
@@ -136,19 +135,39 @@
       box-shadow: var(--shadow);
     }
 
+    .hero-image-wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 34px 20px 0;
+    }
+
+    .hero-image-card {
+      border-radius: 30px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: var(--shadow);
+      background: rgba(15,23,42,0.75);
+    }
+
+    .hero-image-card img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
     .hero {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 72px 20px 44px;
+      padding: 34px 20px 44px;
       display: grid;
       grid-template-columns: 1.2fr 0.8fr;
       gap: 26px;
-      align-items: center;
+      align-items: stretch;
     }
 
     .hero-copy {
-      background: rgba(2, 6, 23, 0.54);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid rgba(255,255,255,0.10);
       border-radius: 28px;
       padding: 34px;
       box-shadow: var(--shadow);
@@ -436,8 +455,16 @@
         justify-content: flex-start;
       }
 
+      .hero-image-wrap {
+        padding: 22px 14px 0;
+      }
+
+      .hero-image-card {
+        border-radius: 20px;
+      }
+
       .hero {
-        padding-top: 40px;
+        padding: 24px 14px 36px;
       }
 
       .hero-copy,
@@ -478,6 +505,7 @@
   }
   </script>
 </head>
+
 <body>
 
   <header class="topbar">
@@ -500,6 +528,13 @@
   </header>
 
   <main>
+
+    <section class="hero-image-wrap" aria-label="Temu shopping hero image">
+      <div class="hero-image-card">
+        <img src="/assets/shopping/temu/temu-hero.webp" alt="Temu online shopping deals for fashion, home, gadgets and beauty" />
+      </div>
+    </section>
+
     <section class="hero">
       <div class="hero-copy">
         <span class="eyebrow">Online Shopping Deals</span>
@@ -652,6 +687,7 @@
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="footer">
@@ -666,6 +702,8 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+
   <script src="/assets/ga.js"></script>
+
 </body>
 </html>
