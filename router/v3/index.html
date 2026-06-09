@@ -1,680 +1,641 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <title>GiftCardZoneEU | Global Travel Router</title>
-  <meta name="description" content="Choose your country and compare trusted hotel, travel, partner and survey deals from GiftCardZoneEU. Manual routing only, no auto-redirect on load." />
-  <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://giftcardzoneeu.com/router/v3/" />
-
-  <link rel="icon" href="/favicon.ico" sizes="any" />
-  <link rel="icon" type="image/png" sizes="48x48" href="/assets/gz-logo-48.png" />
-  <link rel="icon" type="image/png" sizes="192x192" href="/assets/gz-logo-192.png" />
-  <link rel="apple-touch-icon" href="/assets/gz-logo-180.png" />
-
-  <meta property="og:title" content="GiftCardZoneEU | Global Travel Router" />
-  <meta property="og:description" content="Choose your country and compare trusted global hotel, travel and partner deals." />
-  <meta property="og:url" content="https://giftcardzoneeu.com/router/v3/" />
-  <meta property="og:image" content="https://giftcardzoneeu.com/assets/router-global-travel-hero.webp" />
-  <meta property="og:type" content="website" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="GiftCardZoneEU | Global Travel Router" />
-  <meta name="twitter:description" content="Manual global travel router for trusted country travel pages and partner deals." />
-  <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/router-global-travel-hero.webp" />
-
-  <script src="/assets/ga.js"></script>
-
-  <style>
-    :root {
-      --bg: #f6f8fb;
-      --text: #111827;
-      --muted: #64748b;
-      --card: #ffffff;
-      --line: rgba(15, 23, 42, 0.10);
-      --blue: #2563eb;
-      --sky: #0ea5e9;
-      --orange: #f97316;
-      --dark: #0f172a;
-      --shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
-      --radius: 24px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(37, 99, 235, 0.10), transparent 34%),
-        radial-gradient(circle at top right, rgba(249, 115, 22, 0.10), transparent 32%),
-        var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(255, 255, 255, 0.94);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .nav {
-      width: min(1120px, 92%);
-      margin: 0 auto;
-      min-height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 14px 8px 8px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, #fff7ed, #eff6ff);
-      border: 1px solid rgba(37, 99, 235, 0.18);
-      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
-      font-weight: 950;
-      color: #0f172a;
-      white-space: nowrap;
-    }
-
-    .brand img {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-    }
-
-    .brand span::after {
-      content: "Home";
-      margin-left: 7px;
-      display: inline-flex;
-      padding: 4px 8px;
-      border-radius: 999px;
-      background: #fff;
-      color: var(--blue);
-      font-size: 0.72rem;
-      font-weight: 950;
-      border: 1px solid rgba(37, 99, 235, 0.12);
-      vertical-align: middle;
-    }
-
-    .navlinks {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.92rem;
-      font-weight: 800;
-      color: #334155;
-      white-space: nowrap;
-    }
-
-    .navlinks a {
-      padding: 9px 12px;
-      border-radius: 999px;
-    }
-
-    .navlinks a:hover {
-      background: #eff6ff;
-      color: var(--blue);
-    }
-
-    .hero {
-      width: min(1120px, 92%);
-      margin: 42px auto 0;
-      background:
-        linear-gradient(135deg, rgba(15, 23, 42, 0.92), rgba(30, 64, 175, 0.86)),
-        url("/assets/router-global-travel-hero.webp") center/cover no-repeat;
-      color: #fff;
-      border-radius: 34px;
-      padding: clamp(34px, 6vw, 70px);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      position: relative;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      width: 260px;
-      height: 260px;
-      right: -90px;
-      bottom: -120px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.12);
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.13);
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      backdrop-filter: blur(10px);
-      font-weight: 900;
-      margin-bottom: 18px;
-    }
-
-    h1 {
-      max-width: 830px;
-      margin: 0;
-      font-size: clamp(2.3rem, 5vw, 5rem);
-      line-height: 1.02;
-      letter-spacing: -0.06em;
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero p {
-      max-width: 760px;
-      margin: 20px 0 0;
-      font-size: clamp(1rem, 2vw, 1.18rem);
-      color: rgba(255, 255, 255, 0.90);
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 28px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 13px 20px;
-      border-radius: 999px;
-      font-weight: 950;
-      transition: 0.2s ease;
-    }
-
-    .btn-primary {
-      background: var(--orange);
-      color: #fff;
-      box-shadow: 0 18px 38px rgba(249, 115, 22, 0.35);
-    }
-
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.14);
-      color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.26);
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .trust-row {
-      width: min(1120px, 92%);
-      margin: -24px auto 0;
-      position: relative;
-      z-index: 5;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-    }
-
-    .trust-card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 18px;
-      box-shadow: var(--shadow);
-    }
-
-    .trust-card strong {
-      display: block;
-      margin-bottom: 3px;
-      font-size: 0.98rem;
-    }
-
-    .trust-card span {
-      display: block;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    main {
-      width: min(1120px, 92%);
-      margin: 62px auto 80px;
-    }
-
-    .section-head {
-      max-width: 820px;
-      margin-bottom: 24px;
-    }
-
-    .section-head .tag {
-      display: inline-flex;
-      padding: 7px 12px;
-      background: #e0f2fe;
-      color: #075985;
-      border-radius: 999px;
-      font-weight: 900;
-      font-size: 0.84rem;
-      margin-bottom: 12px;
-    }
-
-    h2 {
-      margin: 0;
-      font-size: clamp(1.75rem, 3vw, 3rem);
-      line-height: 1.1;
-      letter-spacing: -0.045em;
-    }
-
-    .section-head p {
-      margin: 14px 0 0;
-      color: var(--muted);
-      font-size: 1.03rem;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-    }
-
-    .route-card {
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 19px;
-      min-height: 130px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
-      transition: 0.2s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .route-card::after {
-      content: "";
-      position: absolute;
-      width: 90px;
-      height: 90px;
-      right: -42px;
-      bottom: -44px;
-      border-radius: 50%;
-      background: rgba(14, 165, 233, 0.10);
-    }
-
-    .route-card:hover {
-      transform: translateY(-3px);
-      border-color: rgba(37, 99, 235, 0.35);
-      box-shadow: 0 18px 36px rgba(15, 23, 42, 0.12);
-    }
-
-    .route-card strong {
-      display: block;
-      font-size: 1.05rem;
-      margin-bottom: 5px;
-    }
-
-    .route-card span {
-      display: block;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .route-card .go {
-      margin-top: 16px;
-      color: var(--blue);
-      font-weight: 950;
-      position: relative;
-      z-index: 2;
-    }
-
-    .wide-panel {
-      margin-top: 46px;
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 18px;
-    }
-
-    .panel {
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 26px;
-      box-shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
-    }
-
-    .panel.dark {
-      background: linear-gradient(135deg, #0f172a, #1e3a8a);
-      color: #fff;
-    }
-
-    .panel h3 {
-      margin: 0 0 10px;
-      font-size: 1.35rem;
-      letter-spacing: -0.03em;
-    }
-
-    .panel p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .panel.dark p {
-      color: rgba(255, 255, 255, 0.84);
-    }
-
-    .badges {
-      margin-top: 18px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .badges span {
-      display: inline-flex;
-      padding: 8px 11px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      font-size: 0.88rem;
-      font-weight: 850;
-    }
-
-    .disclosure {
-      margin-top: 46px;
-      background: #fff7ed;
-      border: 1px solid #fed7aa;
-      color: #7c2d12;
-      border-radius: 20px;
-      padding: 18px 20px;
-      font-size: 0.95rem;
-    }
-
-    footer {
-      padding: 32px 20px;
-      text-align: center;
-      color: var(--muted);
-      background: #fff;
-      border-top: 1px solid var(--line);
-    }
-
-    @media (max-width: 980px) {
-      .trust-row,
-      .grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .wide-panel {
-        grid-template-columns: 1fr;
-      }
-
-      .navlinks {
-        display: none;
-      }
-    }
-
-    @media (max-width: 560px) {
-      .nav {
-        justify-content: center;
-      }
-
-      .brand span::after {
-        display: none;
-      }
-
-      .hero {
-        margin-top: 24px;
-        border-radius: 26px;
-      }
-
-      .hero-actions {
-        flex-direction: column;
-      }
-
-      .btn {
-        width: 100%;
-      }
-
-      .trust-row {
-        margin-top: 16px;
-        grid-template-columns: 1fr;
-      }
-
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      main {
-        margin-top: 46px;
-      }
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>GiftCardZoneEU | Global Travel Router</title>
+<meta name="description" content="Choose your country and explore trusted GiftCardZoneEU travel deals, hotel guides, partner pages and booking resources." />
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="https://giftcardzoneeu.com/router/v3/" />
+
+<meta property="og:title" content="GiftCardZoneEU | Global Travel Router" />
+<meta property="og:description" content="Compare trusted global travel booking partners and destination pages." />
+<meta property="og:url" content="https://giftcardzoneeu.com/router/v3/" />
+<meta property="og:image" content="https://giftcardzoneeu.com/assets/router-global-travel-hero.webp" />
+<meta property="og:type" content="website" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="GiftCardZoneEU | Global Travel Router" />
+<meta name="twitter:description" content="Choose your country and explore trusted travel deals and booking partners." />
+<meta name="twitter:image" content="https://giftcardzoneeu.com/assets/router-global-travel-hero.webp" />
+
+<link rel="icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" href="/assets/gz-logo-180.png" />
+
+<style>
+:root{
+  --bg:#eef3fb;
+  --bg2:#f8fafc;
+  --text:#0f172a;
+  --muted:#64748b;
+  --card:#ffffff;
+  --line:rgba(15,23,42,.10);
+  --blue:#2563eb;
+  --sky:#0ea5e9;
+  --orange:#ff7a18;
+  --shadow:0 18px 45px rgba(15,23,42,.10);
+  --radius:24px;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at top left,rgba(14,165,233,.12),transparent 32%),
+    linear-gradient(180deg,#f8fbff 0%,#eef3fb 52%,#e8eef7 100%);
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+img{
+  max-width:100%;
+  display:block;
+}
+
+.topbar{
+  background:#ffffff;
+  border-bottom:1px solid rgba(15,23,42,.08);
+  position:sticky;
+  top:0;
+  z-index:20;
+}
+
+.nav{
+  max-width:1180px;
+  margin:auto;
+  padding:18px 22px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+}
+
+.brand{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 14px;
+  border:1px solid rgba(37,99,235,.14);
+  border-radius:999px;
+  background:linear-gradient(135deg,#ffffff,#f4f8ff);
+  box-shadow:0 10px 28px rgba(15,23,42,.08);
+  font-weight:900;
+}
+
+.brand img{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+}
+
+.brand span{
+  white-space:nowrap;
+}
+
+.navlinks{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.navlinks a{
+  font-size:14px;
+  font-weight:800;
+  padding:10px 14px;
+  border-radius:999px;
+  color:#334155;
+  background:#f8fafc;
+  border:1px solid rgba(15,23,42,.08);
+}
+
+.navlinks a.cta{
+  background:var(--orange);
+  color:#fff;
+  border-color:transparent;
+}
+
+.wrap{
+  max-width:1180px;
+  margin:auto;
+  padding:52px 22px 34px;
+}
+
+.hero{
+  min-height:560px;
+  border-radius:34px;
+  overflow:hidden;
+  position:relative;
+  display:flex;
+  align-items:center;
+  padding:70px 74px;
+  color:#fff;
+  background:
+    linear-gradient(90deg,rgba(3,7,18,.22),rgba(15,23,42,.06)),
+    url("/assets/router-global-travel-hero.webp") center/cover no-repeat;
+  box-shadow:0 26px 80px rgba(15,23,42,.22);
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:auto 0 0 0;
+  height:42%;
+  background:linear-gradient(180deg,transparent,rgba(3,7,18,.18));
+  pointer-events:none;
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:860px;
+  text-shadow:0 3px 18px rgba(0,0,0,.35);
+}
+
+.kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:11px 16px;
+  border-radius:999px;
+  background:rgba(15,23,42,.38);
+  border:1px solid rgba(255,255,255,.26);
+  backdrop-filter:blur(10px);
+  font-weight:900;
+  font-size:15px;
+}
+
+h1{
+  margin:24px 0 18px;
+  font-size:clamp(38px,6vw,72px);
+  line-height:.98;
+  letter-spacing:-.06em;
+  max-width:950px;
+}
+
+.hero p{
+  margin:0;
+  max-width:850px;
+  font-size:clamp(17px,2vw,22px);
+  line-height:1.6;
+  color:#f8fafc;
+  font-weight:600;
+}
+
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:16px;
+  margin-top:34px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:16px 24px;
+  border-radius:999px;
+  font-weight:900;
+  border:1px solid rgba(255,255,255,.28);
+  box-shadow:0 14px 32px rgba(0,0,0,.18);
+}
+
+.btn.primary{
+  background:var(--orange);
+  color:#fff;
+  border-color:transparent;
+}
+
+.btn.secondary{
+  color:#fff;
+  background:rgba(15,23,42,.32);
+  backdrop-filter:blur(10px);
+}
+
+.trust-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+  margin-top:-36px;
+  position:relative;
+  z-index:3;
+}
+
+.trust-card{
+  background:rgba(255,255,255,.94);
+  border:1px solid rgba(15,23,42,.08);
+  border-radius:22px;
+  padding:22px;
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(12px);
+}
+
+.trust-card strong{
+  display:block;
+  font-size:17px;
+  margin-bottom:8px;
+}
+
+.trust-card p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.55;
+}
+
+.section{
+  margin-top:76px;
+}
+
+.label{
+  display:inline-flex;
+  align-items:center;
+  padding:9px 14px;
+  border-radius:999px;
+  background:#dff6ff;
+  color:#0369a1;
+  font-weight:900;
+  font-size:13px;
+}
+
+.section h2{
+  margin:18px 0 12px;
+  font-size:clamp(30px,4vw,46px);
+  line-height:1.05;
+  letter-spacing:-.04em;
+}
+
+.section-intro{
+  color:var(--muted);
+  max-width:790px;
+  font-size:17px;
+  line-height:1.7;
+  margin:0 0 32px;
+}
+
+.country-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+}
+
+.country-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:23px;
+  padding:24px;
+  box-shadow:0 14px 35px rgba(15,23,42,.07);
+  position:relative;
+  overflow:hidden;
+  transition:.2s ease;
+}
+
+.country-card::after{
+  content:"";
+  position:absolute;
+  right:-34px;
+  bottom:-34px;
+  width:110px;
+  height:110px;
+  border-radius:50%;
+  background:rgba(14,165,233,.12);
+}
+
+.country-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 22px 48px rgba(15,23,42,.12);
+}
+
+.country-card h3{
+  margin:0 0 10px;
+  font-size:20px;
+}
+
+.country-card p{
+  margin:0 0 22px;
+  color:var(--muted);
+  line-height:1.55;
+}
+
+.country-card a{
+  position:relative;
+  z-index:2;
+  color:var(--blue);
+  font-weight:900;
+}
+
+.partner-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.partner-card{
+  background:linear-gradient(180deg,#ffffff,#f8fbff);
+  border:1px solid var(--line);
+  border-radius:23px;
+  padding:26px;
+  box-shadow:0 14px 35px rgba(15,23,42,.07);
+}
+
+.partner-card h3{
+  margin:0 0 12px;
+  font-size:21px;
+}
+
+.partner-card p{
+  color:var(--muted);
+  line-height:1.65;
+  margin:0 0 22px;
+}
+
+.partner-card a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:13px 18px;
+  border-radius:999px;
+  background:#eff6ff;
+  color:#1d4ed8;
+  font-weight:900;
+}
+
+.disclosure{
+  margin-top:70px;
+  padding:24px;
+  border-radius:22px;
+  background:#fff7ed;
+  border:1px solid rgba(251,146,60,.25);
+  color:#7c2d12;
+  line-height:1.65;
+}
+
+footer{
+  margin-top:44px;
+  padding:34px 22px;
+  text-align:center;
+  color:#64748b;
+  border-top:1px solid rgba(15,23,42,.08);
+}
+
+@media(max-width:900px){
+  .nav{
+    align-items:flex-start;
+  }
+
+  .navlinks{
+    overflow-x:auto;
+    flex-wrap:nowrap;
+    max-width:100%;
+    padding-bottom:4px;
+  }
+
+  .navlinks a{
+    white-space:nowrap;
+  }
+
+  .hero{
+    min-height:520px;
+    padding:54px 34px;
+    border-radius:28px;
+    background:
+      linear-gradient(90deg,rgba(3,7,18,.28),rgba(15,23,42,.08)),
+      url("/assets/router-global-travel-hero.webp") center/cover no-repeat;
+  }
+
+  .trust-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .partner-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:620px){
+  .wrap{
+    padding:34px 16px 26px;
+  }
+
+  .brand span{
+    font-size:14px;
+  }
+
+  .navlinks{
+    display:none;
+  }
+
+  .hero{
+    min-height:500px;
+    padding:44px 24px;
+    border-radius:24px;
+    background:
+      linear-gradient(90deg,rgba(3,7,18,.34),rgba(15,23,42,.10)),
+      url("/assets/router-global-travel-hero.webp") center/cover no-repeat;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  .hero-actions{
+    flex-direction:column;
+  }
+
+  .btn{
+    width:100%;
+  }
+
+  .trust-grid,
+  .country-grid{
+    grid-template-columns:1fr;
+  }
+
+  .trust-grid{
+    margin-top:20px;
+  }
+}
+</style>
 </head>
 
 <body>
-  <header class="topbar">
-    <nav class="nav" aria-label="Main navigation">
-      <a href="/" class="brand" aria-label="GiftCardZoneEU Home">
-        <img src="/assets/gz-logo.png" alt="GiftCardZoneEU logo" />
-        <span>GiftCardZoneEU</span>
-      </a>
 
-      <div class="navlinks">
-        <a href="/travel/">Travel</a>
-        <a href="/partners/">Partners</a>
-        <a href="/shopping/">Shopping</a>
-        <a href="/surveys/">Surveys</a>
-      </div>
-    </nav>
-  </header>
+<header class="topbar">
+  <nav class="nav" aria-label="Main navigation">
+    <a class="brand" href="/" aria-label="GiftCardZoneEU homepage">
+      <img src="/assets/gz-logo-48.png" alt="GiftCardZoneEU logo" />
+      <span>GiftCardZoneEU</span>
+    </a>
+
+    <div class="navlinks">
+      <a href="/">Home</a>
+      <a href="/travel/">Travel</a>
+      <a href="/partners/">Partners</a>
+      <a href="/shopping/">Shopping</a>
+      <a class="cta" href="/travel/">Explore Deals</a>
+    </div>
+  </nav>
+</header>
+
+<main class="wrap">
 
   <section class="hero">
-    <div class="badge">🌍 Manual Global Travel Router</div>
+    <div class="hero-content">
+      <div class="kicker">🌍 Manual Global Travel Router</div>
 
-    <h1>Choose your country and explore trusted travel deals.</h1>
+      <h1>Choose your country and explore trusted travel deals.</h1>
 
-    <p>
-      Select a destination below to open curated GiftCardZoneEU travel pages, hotel guides,
-      partner pages and survey resources. This router uses manual links only, with no automatic redirect on load.
-    </p>
+      <p>
+        Select a destination below to open curated GiftCardZoneEU travel pages,
+        hotel guides, partner pages and survey resources. This router uses manual
+        links only, with no automatic redirect on load.
+      </p>
 
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="/travel/">Explore Travel Hub</a>
-      <a class="btn btn-secondary" href="/partners/">View Partners</a>
+      <div class="hero-actions">
+        <a class="btn primary" href="/travel/">Explore Travel Hub</a>
+        <a class="btn secondary" href="/partners/">View Partners</a>
+      </div>
     </div>
   </section>
 
-  <div class="trust-row">
+  <section class="trust-grid" aria-label="Router benefits">
     <div class="trust-card">
       <strong>Manual routing</strong>
-      <span>Visitors choose the country or category they want to open.</span>
+      <p>Visitors choose the country or category they want to open.</p>
     </div>
 
     <div class="trust-card">
       <strong>Fast loading</strong>
-      <span>Simple HTML page built for clean navigation and quick access.</span>
+      <p>Simple HTML page built for clean navigation and quick access.</p>
     </div>
 
     <div class="trust-card">
       <strong>Brand-safe</strong>
-      <span>No forced redirect, no hidden movement and no confusing page jump.</span>
+      <p>No forced redirect, no hidden movement and no confusing page jump.</p>
     </div>
 
     <div class="trust-card">
       <strong>Verified partners</strong>
-      <span>Routes connect to trusted GiftCardZoneEU travel and partner pages.</span>
+      <p>Routes connect to trusted GiftCardZoneEU travel and partner pages.</p>
     </div>
-  </div>
+  </section>
 
-  <main>
-    <section>
-      <div class="section-head">
-        <span class="tag">Country routes</span>
-        <h2>Global travel destinations</h2>
-        <p>
-          Choose a country page to compare hotel ideas, travel guides and booking partner options.
-        </p>
-      </div>
+  <section class="section">
+    <span class="label">Country routes</span>
+    <h2>Global travel destinations</h2>
+    <p class="section-intro">
+      Choose a country page to compare hotel ideas, travel guides and booking partner options.
+    </p>
 
-      <div class="grid">
-        <a class="route-card" href="/travel/india/">
-          <div>
-            <strong>🇮🇳 India Deals</strong>
-            <span>Hotels, routes and travel partner options.</span>
-          </div>
-          <div class="go">Open India →</div>
-        </a>
+    <div class="country-grid">
 
-        <a class="route-card" href="/travel/brazil/">
-          <div>
-            <strong>🇧🇷 Brazil Deals</strong>
-            <span>Travel deals and destination planning.</span>
-          </div>
-          <div class="go">Open Brazil →</div>
-        </a>
+      <article class="country-card">
+        <h3>🇮🇳 India Deals</h3>
+        <p>Hotels, routes and travel partner options.</p>
+        <a href="/travel/india/">Open India →</a>
+      </article>
 
-        <a class="route-card" href="/travel/indonesia/">
-          <div>
-            <strong>🇮🇩 Indonesia Deals</strong>
-            <span>Hotels, islands and travel ideas.</span>
-          </div>
-          <div class="go">Open Indonesia →</div>
-        </a>
+      <article class="country-card">
+        <h3>🇧🇷 Brazil Deals</h3>
+        <p>Travel deals and destination planning.</p>
+        <a href="/travel/brazil/">Open Brazil →</a>
+      </article>
 
-        <a class="route-card" href="/travel/germany/">
-          <div>
-            <strong>🇩🇪 Germany Deals</strong>
-            <span>City hotel guides and partner booking options.</span>
-          </div>
-          <div class="go">Open Germany →</div>
-        </a>
+      <article class="country-card">
+        <h3>🇮🇩 Indonesia Deals</h3>
+        <p>Hotels, islands and travel ideas.</p>
+        <a href="/travel/indonesia/">Open Indonesia →</a>
+      </article>
 
-        <a class="route-card" href="/travel/netherlands/">
-          <div>
-            <strong>🇳🇱 Netherlands Deals</strong>
-            <span>Amsterdam, Rotterdam and more hotel ideas.</span>
-          </div>
-          <div class="go">Open Netherlands →</div>
-        </a>
+      <article class="country-card">
+        <h3>🇩🇪 Germany Deals</h3>
+        <p>City hotel guides and partner booking options.</p>
+        <a href="/travel/germany/">Open Germany →</a>
+      </article>
 
-        <a class="route-card" href="/travel/japan/">
-          <div>
-            <strong>🇯🇵 Japan Deals</strong>
-            <span>Travel inspiration and booking partner options.</span>
-          </div>
-          <div class="go">Open Japan →</div>
-        </a>
+      <article class="country-card">
+        <h3>🇦🇹 Austria Deals</h3>
+        <p>Hotels, city breaks and destination guides.</p>
+        <a href="/travel/austria/">Open Austria →</a>
+      </article>
 
-        <a class="route-card" href="/travel/philippines/">
-          <div>
-            <strong>🇵🇭 Philippines Deals</strong>
-            <span>Island trips, hotels and local travel ideas.</span>
-          </div>
-          <div class="go">Open Philippines →</div>
-        </a>
+      <article class="country-card">
+        <h3>🇳🇱 Netherlands Deals</h3>
+        <p>Amsterdam, Rotterdam and Dutch city travel pages.</p>
+        <a href="/travel/netherlands/">Open Netherlands →</a>
+      </article>
 
-        <a class="route-card" href="/travel/uk/">
-          <div>
-            <strong>🇬🇧 UK Deals</strong>
-            <span>London and UK travel partner pages.</span>
-          </div>
-          <div class="go">Open UK →</div>
-        </a>
+      <article class="country-card">
+        <h3>🇧🇪 Belgium Deals</h3>
+        <p>Brussels, Bruges, Ghent and Belgium hotel pages.</p>
+        <a href="/travel/belgium/">Open Belgium →</a>
+      </article>
 
-        <a class="route-card" href="/travel/canada/">
-          <div>
-            <strong>🇨🇦 Canada Deals</strong>
-            <span>Hotels, routes and destination pages.</span>
-          </div>
-          <div class="go">Open Canada →</div>
-        </a>
+      <article class="country-card">
+        <h3>🇬🇧 United Kingdom Deals</h3>
+        <p>UK travel pages and hotel partner options.</p>
+        <a href="/travel/uk/">Open UK →</a>
+      </article>
 
-        <a class="route-card" href="/travel/usa/">
-          <div>
-            <strong>🇺🇸 USA Deals</strong>
-            <span>US city travel pages and partner options.</span>
-          </div>
-          <div class="go">Open USA →</div>
-        </a>
+    </div>
+  </section>
 
-        <a class="route-card" href="/surveys/">
-          <div>
-            <strong>🧾 Survey Sites</strong>
-            <span>Explore survey and rewards resources.</span>
-          </div>
-          <div class="go">Open Surveys →</div>
-        </a>
+  <section class="section">
+    <span class="label">Partner routes</span>
+    <h2>Trusted booking partners</h2>
+    <p class="section-intro">
+      Open partner pages for travel booking, transport routes and curated deal options.
+    </p>
 
-        <a class="route-card" href="/partners/">
-          <div>
-            <strong>🤝 Travel Partners</strong>
-            <span>Browse GiftCardZoneEU partner pages.</span>
-          </div>
-          <div class="go">Open Partners →</div>
-        </a>
-      </div>
-    </section>
+    <div class="partner-grid">
 
-    <section class="wide-panel">
-      <div class="panel">
-        <h3>Why this router is safe</h3>
-        <p>
-          This page does not force visitors to another page automatically. It gives clear manual
-          country and category choices, which keeps the experience cleaner for users and easier
-          for search engines to understand.
-        </p>
-      </div>
+      <article class="partner-card">
+        <h3>Trip.com</h3>
+        <p>Compare hotels, flights and travel deals through the primary travel partner route.</p>
+        <a href="https://www.jdoqocy.com/click-101586981-13761944" rel="nofollow sponsored noopener noreferrer" target="_blank">Open Trip.com →</a>
+      </article>
 
-      <div class="panel dark">
-        <h3>Router checks</h3>
-        <p>
-          Clean navigation, fast loading, indexable page, clear internal links and simple country routing.
-        </p>
+      <article class="partner-card">
+        <h3>Expedia</h3>
+        <p>Explore hotel and travel package options through the Expedia partner route.</p>
+        <a href="https://www.tkqlhce.com/click-101586981-15261175" rel="nofollow sponsored noopener noreferrer" target="_blank">Open Expedia →</a>
+      </article>
 
-        <div class="badges">
-          <span>✔ Manual links</span>
-          <span>⚡ Fast page</span>
-          <span>🛡 Brand-safe</span>
-          <span>🌐 Global routes</span>
-        </div>
-      </div>
-    </section>
+      <article class="partner-card">
+        <h3>12Go</h3>
+        <p>Find train, bus, ferry and route ideas for country-to-country travel planning.</p>
+        <a href="/partners/12go/">Open 12Go Hub →</a>
+      </article>
 
-    <section class="disclosure">
-      <strong>Affiliate disclosure:</strong>
-      GiftCardZoneEU may earn a commission when visitors book or sign up through selected partner links
-      on destination or partner pages, at no extra cost to the visitor.
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <footer>
-    <p>© <span id="year"></span> GiftCardZoneEU. Travel guides, hotel ideas, partner pages and affiliate resources.</p>
-  </footer>
+  <section class="disclosure">
+    <strong>Affiliate disclosure:</strong>
+    GiftCardZoneEU may earn a commission when visitors use selected partner links.
+    This does not change the price for the visitor and helps support the website.
+  </section>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+</main>
+
+<footer>
+  <p>© <span id="year"></span> GiftCardZoneEU. All rights reserved.</p>
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+<script src="/assets/ga.js"></script>
+
 </body>
 </html>
