@@ -32,10 +32,19 @@
   --white:#ffffff;
 }
 
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
+
+html{
+  width:100%;
+  overflow-x:hidden;
+}
 
 body{
   margin:0;
+  width:100%;
+  overflow-x:hidden;
   font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   background:
     radial-gradient(circle at top left,rgba(34,197,94,.18),transparent 32%),
@@ -43,6 +52,10 @@ body{
     var(--bg);
   color:var(--text);
   line-height:1.6;
+}
+
+img{
+  max-width:100%;
 }
 
 a{
@@ -65,7 +78,7 @@ header{
 }
 
 .nav{
-  height:70px;
+  min-height:70px;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -78,12 +91,14 @@ header{
   gap:10px;
   font-weight:900;
   letter-spacing:.2px;
+  min-width:0;
 }
 
 .brand img{
   width:38px;
   height:38px;
   border-radius:12px;
+  flex:0 0 auto;
 }
 
 .brand span{
@@ -91,6 +106,7 @@ header{
   border:1px solid rgba(34,197,94,.35);
   border-radius:999px;
   background:rgba(15,23,42,.72);
+  white-space:nowrap;
 }
 
 .navlinks{
@@ -99,6 +115,7 @@ header{
   gap:18px;
   color:var(--muted);
   font-size:14px;
+  white-space:nowrap;
 }
 
 .navlinks a:hover{
@@ -115,13 +132,19 @@ header{
 
 .hero{
   padding:82px 0 54px;
+  overflow:hidden;
 }
 
 .hero-grid{
   display:grid;
-  grid-template-columns:1.08fr .92fr;
+  grid-template-columns:minmax(0,1.08fr) minmax(320px,.92fr);
   gap:34px;
   align-items:center;
+}
+
+.hero-grid > div,
+.hero-card{
+  min-width:0;
 }
 
 .badge{
@@ -185,6 +208,9 @@ h1{
 }
 
 .hero-card{
+  width:100%;
+  max-width:520px;
+  justify-self:end;
   border:1px solid var(--line);
   border-radius:30px;
   overflow:hidden;
@@ -381,10 +407,20 @@ footer{
   flex-wrap:wrap;
 }
 
-@media(max-width:850px){
+/* tablet fix: ito yung important para hindi maputol yung hero card */
+@media(max-width:980px){
+  .hero{
+    padding:54px 0 44px;
+  }
+
   .hero-grid,
   .split{
     grid-template-columns:1fr;
+  }
+
+  .hero-card{
+    max-width:100%;
+    justify-self:center;
   }
 
   .cards{
@@ -400,12 +436,88 @@ footer{
     display:none;
   }
 
+  .hero-card img{
+    height:300px;
+  }
+}
+
+/* small phone polish */
+@media(max-width:520px){
+  .container{
+    width:min(100% - 32px,1120px);
+  }
+
+  .nav{
+    min-height:64px;
+  }
+
+  .brand img{
+    width:34px;
+    height:34px;
+  }
+
+  .brand span{
+    padding:6px 10px;
+    font-size:14px;
+  }
+
   .hero{
-    padding-top:54px;
+    padding:42px 0 34px;
+  }
+
+  h1{
+    font-size:42px;
+    letter-spacing:-1.6px;
+  }
+
+  .lead{
+    font-size:16px;
+  }
+
+  .hero-actions{
+    flex-direction:column;
+  }
+
+  .btn{
+    width:100%;
+    text-align:center;
+  }
+
+  .hero-card{
+    border-radius:24px;
   }
 
   .hero-card img{
-    height:260px;
+    height:240px;
+  }
+
+  .panel{
+    padding:18px;
+  }
+
+  .panel h2{
+    font-size:22px;
+  }
+
+  .section{
+    padding:42px 0;
+  }
+
+  .card,
+  .info-box,
+  .cta-band{
+    border-radius:22px;
+    padding:20px;
+  }
+
+  .step{
+    grid-template-columns:38px 1fr;
+    padding:16px;
+  }
+
+  .num{
+    width:38px;
+    height:38px;
   }
 }
 </style>
