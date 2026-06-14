@@ -75,39 +75,6 @@
   }
   </script>
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Can I book flights to Malaysia with MyTrip?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. MyTrip can help travelers compare flight options to Malaysia, including routes to Kuala Lumpur, Penang, Langkawi and other destinations."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I compare hotels in Malaysia on this page?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "This page helps travelers start their Malaysia trip search with MyTrip, including flight and hotel deal options where available."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Which Malaysia destinations are popular for travelers?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Popular Malaysia destinations include Kuala Lumpur, Penang, Langkawi, Johor Bahru, Kota Kinabalu and Malacca."
-        }
-      }
-    ]
-  }
-  </script>
-
   <style>
     :root {
       --bg: #f5f7fb;
@@ -117,10 +84,8 @@
       --card: #ffffff;
       --line: rgba(15, 23, 42, 0.10);
       --blue: #2563eb;
-      --blue-dark: #1d4ed8;
       --orange: #f97316;
       --orange-dark: #ea580c;
-      --green: #10b981;
       --shadow: 0 22px 55px rgba(15, 23, 42, 0.16);
       --radius: 26px;
     }
@@ -231,9 +196,9 @@
       align-items: end;
       color: #fff;
       background:
-        linear-gradient(90deg, rgba(7, 17, 31, 0.88), rgba(7, 17, 31, 0.48), rgba(7, 17, 31, 0.18)),
-        linear-gradient(180deg, rgba(7, 17, 31, 0.10), rgba(7, 17, 31, 0.82)),
-        url("/partners/mytrip-malaysia/assets/mytrip-hero.webp") center/cover no-repeat;
+        linear-gradient(90deg, rgba(7, 17, 31, 0.88), rgba(7, 17, 31, 0.48), rgba(7, 17, 31, 0.12)),
+        linear-gradient(180deg, rgba(7, 17, 31, 0.06), rgba(7, 17, 31, 0.82)),
+        url("/partners/mytrip-malaysia/assets/mytrip-hero.webp") right center/cover no-repeat;
       overflow: hidden;
     }
 
@@ -242,8 +207,8 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(circle at 18% 20%, rgba(249, 115, 22, 0.28), transparent 32%),
-        radial-gradient(circle at 78% 28%, rgba(37, 99, 235, 0.28), transparent 36%);
+        radial-gradient(circle at 18% 20%, rgba(249, 115, 22, 0.25), transparent 32%),
+        radial-gradient(circle at 78% 28%, rgba(37, 99, 235, 0.22), transparent 36%);
       pointer-events: none;
     }
 
@@ -269,7 +234,7 @@
     }
 
     h1 {
-      max-width: 930px;
+      max-width: 880px;
       margin: 0;
       font-size: clamp(2.35rem, 5vw, 5.1rem);
       line-height: 1.02;
@@ -277,7 +242,7 @@
     }
 
     .hero p {
-      max-width: 790px;
+      max-width: 760px;
       margin: 22px 0 0;
       font-size: clamp(1rem, 2vw, 1.22rem);
       color: rgba(255, 255, 255, 0.92);
@@ -401,16 +366,10 @@
       align-items: stretch;
     }
 
-    .panel,
-    .quick-box,
-    .card,
-    details {
-      border-radius: var(--radius);
-    }
-
     .panel {
       background: #fff;
       border: 1px solid var(--line);
+      border-radius: var(--radius);
       padding: 28px;
       box-shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
     }
@@ -421,6 +380,7 @@
     .quick-box {
       background: linear-gradient(135deg, #0f172a, #1e3a8a);
       color: #fff;
+      border-radius: var(--radius);
       padding: 28px;
       box-shadow: var(--shadow);
     }
@@ -454,6 +414,7 @@
     .card {
       background: #fff;
       border: 1px solid var(--line);
+      border-radius: var(--radius);
       padding: 25px;
       box-shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
     }
@@ -570,6 +531,7 @@
     details {
       background: #fff;
       border: 1px solid var(--line);
+      border-radius: 20px;
       padding: 18px 20px;
       box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
     }
@@ -661,7 +623,7 @@
       .hero {
         min-height: 620px;
         background:
-          linear-gradient(180deg, rgba(7, 17, 31, 0.16), rgba(7, 17, 31, 0.86)),
+          linear-gradient(180deg, rgba(7, 17, 31, 0.18), rgba(7, 17, 31, 0.86)),
           url("/partners/mytrip-malaysia/assets/mytrip-hero.webp") center top/cover no-repeat;
       }
 
@@ -946,47 +908,6 @@
             Compare Hotels
           </a>
         </article>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-head">
-        <span class="tag">FAQ</span>
-        <h2>MyTrip Malaysia FAQ</h2>
-      </div>
-
-      <div class="faq">
-        <details>
-          <summary>Can I book flights to Malaysia with MyTrip?</summary>
-          <p>
-            Yes. MyTrip can help travelers compare flight options to Malaysia, including routes to Kuala Lumpur,
-            Penang, Langkawi and other destinations.
-          </p>
-        </details>
-
-        <details>
-          <summary>Can I compare hotels in Malaysia on this page?</summary>
-          <p>
-            This page helps travelers start their Malaysia trip search with MyTrip, including flight and hotel deal
-            options where available.
-          </p>
-        </details>
-
-        <details>
-          <summary>Which Malaysia destinations are popular for travelers?</summary>
-          <p>
-            Popular Malaysia destinations include Kuala Lumpur, Penang, Langkawi, Johor Bahru,
-            Kota Kinabalu and Malacca.
-          </p>
-        </details>
-
-        <details>
-          <summary>Should I compare prices before booking?</summary>
-          <p>
-            Yes. Always compare dates, baggage rules, cancellation terms, hotel location, guest ratings and final price
-            before completing your booking.
-          </p>
-        </details>
       </div>
     </section>
 
