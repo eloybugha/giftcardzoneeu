@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <title>Where to Stay in Lübeck – Best Areas & Hotels + Deals | GiftCardZoneEU</title>
-<meta name="description" content="Plan where to stay in Lübeck, Germany. Compare the best areas including Lübeck Altstadt, Hauptbahnhof, Holstentor, Trave River and Travemünde, with hotel and travel deal options." />
+<meta name="description" content="Plan where to stay in Lübeck, Germany. Compare the best areas including Lübeck Altstadt, Holstentor, Hauptbahnhof, Trave River and Travemünde, with hotel and travel deal options." />
 <meta name="robots" content="index, follow" />
 <link rel="canonical" href="https://giftcardzoneeu.com/travel/germany/lubeck/" />
 
@@ -40,6 +40,7 @@
   --radius:22px;
 }
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
   margin:0;
   font-family:Arial, Helvetica, sans-serif;
@@ -56,6 +57,8 @@ img{max-width:100%;display:block}
   width:min(1120px,92%);
   margin:auto;
 }
+
+/* Header */
 .header{
   position:sticky;
   top:0;
@@ -104,6 +107,8 @@ img{max-width:100%;display:block}
   color:#06101e;
   font-weight:800;
 }
+
+/* Hero */
 .hero{
   position:relative;
   min-height:650px;
@@ -116,7 +121,7 @@ img{max-width:100%;display:block}
   position:absolute;
   inset:0;
   background:
-    linear-gradient(180deg, rgba(7,17,31,.12) 0%, rgba(7,17,31,.38) 38%, rgba(7,17,31,.96) 100%),
+    linear-gradient(180deg, rgba(7,17,31,.10) 0%, rgba(7,17,31,.42) 42%, rgba(7,17,31,.96) 100%),
     url('/assets/travel/germany/lubeck-hero.webp') center/cover no-repeat;
   transform:scale(1.02);
 }
@@ -150,14 +155,14 @@ img{max-width:100%;display:block}
   font-size:14px;
 }
 h1{
-  max-width:850px;
+  max-width:880px;
   margin:18px 0 18px;
   font-size:clamp(38px,6vw,72px);
   line-height:1.03;
   letter-spacing:-2px;
 }
 .hero p{
-  max-width:720px;
+  max-width:740px;
   margin:0 0 28px;
   font-size:clamp(17px,2vw,21px);
   color:#d7e3f6;
@@ -184,6 +189,11 @@ h1{
   background:rgba(255,255,255,.08);
   color:#fff;
 }
+.btn:hover{
+  transform:translateY(-1px);
+}
+
+/* Layout */
 .section{
   padding:58px 0;
 }
@@ -200,7 +210,7 @@ h1{
   letter-spacing:-1px;
 }
 .section-title p{
-  max-width:560px;
+  max-width:570px;
   margin:0;
   color:var(--muted);
 }
@@ -234,6 +244,37 @@ h1{
   font-weight:700;
   font-size:13px;
 }
+
+/* 4-image Germany travel format */
+.image-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+.image-card{
+  overflow:hidden;
+  border-radius:var(--radius);
+  background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.035));
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+}
+.image-card img{
+  width:100%;
+  height:235px;
+  object-fit:cover;
+}
+.image-card-body{
+  padding:20px;
+}
+.image-card-body h3{
+  margin:0 0 8px;
+  font-size:21px;
+}
+.image-card-body p{
+  margin:0;
+  color:var(--muted);
+}
+
 .split{
   display:grid;
   grid-template-columns:1.05fr .95fr;
@@ -247,7 +288,13 @@ h1{
   padding:26px;
   box-shadow:var(--shadow);
 }
-.panel h2,.panel h3{margin-top:0}
+.panel h2,
+.panel h3{
+  margin-top:0;
+}
+.panel p{
+  color:#d7e4f7;
+}
 .list{
   display:grid;
   gap:13px;
@@ -261,6 +308,10 @@ h1{
   background:rgba(255,255,255,.055);
   border:1px solid rgba(255,255,255,.08);
   color:#dce9fb;
+}
+.list a{
+  color:#eaf6ff;
+  font-weight:700;
 }
 .notice{
   border-left:4px solid var(--gold);
@@ -319,10 +370,12 @@ details p{
   background:rgba(0,0,0,.18);
 }
 .footer a{color:#eaf6ff}
+
 @media(max-width:850px){
   .navlinks{display:none}
   .hero{min-height:590px}
   .grid{grid-template-columns:1fr}
+  .image-grid{grid-template-columns:1fr}
   .split{grid-template-columns:1fr}
   .section-title{display:block}
   .section-title p{margin-top:10px}
@@ -335,9 +388,14 @@ details p{
   "@context":"https://schema.org",
   "@type":"TravelGuide",
   "name":"Where to Stay in Lübeck – Best Areas & Hotels + Deals",
-  "description":"A travel guide to the best areas to stay in Lübeck, Germany, including Lübeck Altstadt, Hauptbahnhof, Holstentor, the Trave River and Travemünde.",
+  "description":"A travel guide to the best areas to stay in Lübeck, Germany, including Lübeck Altstadt, Holstentor, Hauptbahnhof, the Trave River and Travemünde.",
   "url":"https://giftcardzoneeu.com/travel/germany/lubeck/",
-  "image":"https://giftcardzoneeu.com/assets/travel/germany/lubeck-hero.webp",
+  "image":[
+    "https://giftcardzoneeu.com/assets/travel/germany/lubeck-hero.webp",
+    "https://giftcardzoneeu.com/assets/travel/germany/lubeck-altstadt.webp",
+    "https://giftcardzoneeu.com/assets/travel/germany/lubeck-holstentor.webp",
+    "https://giftcardzoneeu.com/assets/travel/germany/lubeck-travemunde.webp"
+  ],
   "about":{
     "@type":"Place",
     "name":"Lübeck",
@@ -459,7 +517,7 @@ details p{
 
     <p>
       Lübeck is one of northern Germany’s most beautiful historic cities, known for its Old Town island,
-      medieval gates, riverside views and easy access to Travemünde by the Baltic Sea.
+      medieval brick architecture, riverside views and easy access to Travemünde by the Baltic Sea.
       This guide helps you choose the best area to stay based on sightseeing, transport, food and short trips.
     </p>
 
@@ -539,6 +597,49 @@ details p{
 </section>
 
 <section class="section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Lübeck travel highlights</h2>
+      <p>
+        Four-image Germany travel format: hero plus three visual area cards for Old Town, Holstentor and Travemünde.
+      </p>
+    </div>
+
+    <div class="image-grid">
+      <article class="image-card">
+        <img src="/assets/travel/germany/lubeck-altstadt.webp" alt="Lübeck Altstadt Old Town brick buildings and historic streets" loading="lazy">
+        <div class="image-card-body">
+          <h3>Lübeck Altstadt</h3>
+          <p>
+            The best base for first-time visitors, historic streets, cafés, restaurants and walkable sightseeing.
+          </p>
+        </div>
+      </article>
+
+      <article class="image-card">
+        <img src="/assets/travel/germany/lubeck-holstentor.webp" alt="Holstentor gate in Lübeck Germany near the Trave River" loading="lazy">
+        <div class="image-card-body">
+          <h3>Holstentor</h3>
+          <p>
+            Lübeck’s most famous landmark area, good for photos and easy access between the station and Old Town.
+          </p>
+        </div>
+      </article>
+
+      <article class="image-card">
+        <img src="/assets/travel/germany/lubeck-travemunde.webp" alt="Travemünde beach and Baltic Sea near Lübeck Germany" loading="lazy">
+        <div class="image-card-body">
+          <h3>Travemünde</h3>
+          <p>
+            A good side trip if you want Baltic Sea views, beach walks and a slower coastal stay near Lübeck.
+          </p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
   <div class="container split">
     <div class="panel">
       <h2>Quick recommendation</h2>
@@ -560,7 +661,7 @@ details p{
       <h3>Booking tip</h3>
       <div class="notice">
         For short stays, do not choose a hotel too far from the Old Town unless the price difference is worth it.
-        Lübeck is best enjoyed on foot, especially around Altstadt and the river.
+        Lübeck is best enjoyed on foot, especially around Altstadt, Holstentor and the river.
       </div>
 
       <ul class="list">
