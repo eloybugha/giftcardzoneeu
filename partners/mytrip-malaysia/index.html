@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +9,9 @@
   <meta name="description" content="Book flights and hotel deals in Malaysia with MyTrip. Explore Kuala Lumpur, Penang, Langkawi, Johor Bahru and more. Compare prices and secure your travel bookings fast and easy." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://giftcardzoneeu.com/partners/mytrip-malaysia/" />
-  <link rel="icon" href="/assets/gz-logo.png" />
+
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/assets/gz-logo-180.png" />
 
   <meta property="og:title" content="Flights & Hotels in Malaysia | GiftCardZoneEU × MyTrip" />
   <meta property="og:description" content="Search flight and hotel deals across Malaysia — Kuala Lumpur, Penang, Langkawi, Johor Bahru and more with MyTrip." />
@@ -38,7 +41,7 @@
       "url": "https://giftcardzoneeu.com/",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://giftcardzoneeu.com/assets/gz-logo.png"
+        "url": "https://giftcardzoneeu.com/assets/gz-logo-192.png"
       }
     },
     "about": {
@@ -70,6 +73,47 @@
         "position": 3,
         "name": "MyTrip Malaysia",
         "item": "https://giftcardzoneeu.com/partners/mytrip-malaysia/"
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is MyTrip useful for searching Malaysia flights?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. MyTrip can be used to search Malaysia flight options, compare routes and review travel dates for destinations such as Kuala Lumpur, Penang, Langkawi and Johor Bahru."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I search hotels in Malaysia with MyTrip?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Travelers can use MyTrip to compare hotel options in Malaysia, including city stays, airport hotels, beach areas and popular tourist districts."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What Malaysia destinations should I check first?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Popular Malaysia destinations include Kuala Lumpur for city breaks, Penang for food and heritage, Langkawi for beaches, Johor Bahru for Singapore border routes and Kota Kinabalu for nature trips."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What should I review before booking on MyTrip?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Before booking, review the final price, baggage rules, cancellation policy, flight times, airport location, hotel map area, guest ratings and payment details."
+        }
       }
     ]
   }
@@ -523,6 +567,61 @@
       z-index: 2;
     }
 
+    .checklist-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .check-item {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
+    }
+
+    .check-item strong {
+      display: block;
+      color: #0f172a;
+      font-size: 1rem;
+      margin-bottom: 5px;
+    }
+
+    .check-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .related-link {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
+      font-weight: 950;
+    }
+
+    .related-link span {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .related-link:hover {
+      background: #eff6ff;
+      color: var(--blue);
+    }
+
     .faq {
       display: grid;
       gap: 14px;
@@ -630,7 +729,9 @@
       .trust-row,
       .cards,
       .intro-grid,
-      .deal-box {
+      .deal-box,
+      .checklist-grid,
+      .related-grid {
         grid-template-columns: 1fr;
       }
 
@@ -702,7 +803,7 @@
   <header class="topbar">
     <nav class="nav">
       <a href="/" class="brand" aria-label="GiftCardZoneEU Home">
-        <img src="/assets/gz-logo.png" alt="GiftCardZoneEU logo" />
+        <img src="/assets/gz-logo-192.png" alt="GiftCardZoneEU logo" />
         <span>GiftCardZoneEU</span>
       </a>
 
@@ -831,42 +932,42 @@
       </div>
 
       <div class="destination-grid">
-        <a class="destination" href="https://www.jdoqocy.com/click-101586981-17066590" target="_blank" rel="nofollow sponsored noopener noreferrer">
+        <a class="destination" aria-label="Search MyTrip deals for Kuala Lumpur" href="https://www.jdoqocy.com/click-101586981-17066590" target="_blank" rel="nofollow sponsored noopener noreferrer">
           Kuala Lumpur
           <span>Skyline views, shopping, food, city hotels</span>
         </a>
 
-        <a class="destination" href="https://www.jdoqocy.com/click-101586981-17066590" target="_blank" rel="nofollow sponsored noopener noreferrer">
+        <a class="destination" aria-label="Search MyTrip deals for Penang" href="https://www.jdoqocy.com/click-101586981-17066590" target="_blank" rel="nofollow sponsored noopener noreferrer">
           Penang
           <span>Heritage streets, food trips and culture</span>
         </a>
 
-        <a class="destination" href="https://www.jdoqocy.com/click-101586981-17066590" target="_blank" rel="nofollow sponsored noopener noreferrer">
+        <a class="destination" aria-label="Search MyTrip deals for Langkawi" href="https://www.jdoqocy.com/click-101586981-17066590" target="_blank" rel="nofollow sponsored noopener noreferrer">
           Langkawi
           <span>Island stays, beaches and resort trips</span>
         </a>
 
-        <a class="destination" href="https://www.jdoqocy.com/click-101586981-17066590" target="_blank" rel="nofollow sponsored noopener noreferrer">
+        <a class="destination" aria-label="Search MyTrip deals for Johor Bahru" href="https://www.jdoqocy.com/click-101586981-17066590" target="_blank" rel="nofollow sponsored noopener noreferrer">
           Johor Bahru
           <span>Singapore border routes and city stays</span>
         </a>
 
-        <a class="destination" href="https://www.jdoqocy.com/click-101586981-17066590" target="_blank" rel="nofollow sponsored noopener noreferrer">
+        <a class="destination" aria-label="Search MyTrip deals for Kota Kinabalu" href="https://www.jdoqocy.com/click-101586981-17066590" target="_blank" rel="nofollow sponsored noopener noreferrer">
           Kota Kinabalu
           <span>Nature trips, islands and Sabah routes</span>
         </a>
 
-        <a class="destination" href="https://www.jdoqocy.com/click-101586981-17066590" target="_blank" rel="nofollow sponsored noopener noreferrer">
+        <a class="destination" aria-label="Search MyTrip deals for Malacca" href="https://www.jdoqocy.com/click-101586981-17066590" target="_blank" rel="nofollow sponsored noopener noreferrer">
           Malacca
           <span>Historic center, weekend trips and food</span>
         </a>
 
-        <a class="destination" href="/partners/">
+        <a class="destination" href="/partners/" aria-label="Browse more GiftCardZoneEU travel partners">
           More Partners
           <span>Explore more travel booking partners</span>
         </a>
 
-        <a class="destination" href="/travel/">
+        <a class="destination" href="/travel/" aria-label="Browse GiftCardZoneEU travel guides">
           Travel Guides
           <span>Browse more GiftCardZoneEU travel pages</span>
         </a>
@@ -912,6 +1013,155 @@
     </section>
 
     <section class="section">
+      <div class="section-head">
+        <span class="tag">Booking checklist</span>
+        <h2>Before you book your Malaysia trip</h2>
+        <p>
+          A quick checklist helps you avoid surprise costs and choose the right flight or hotel option for your travel style.
+        </p>
+      </div>
+
+      <div class="checklist-grid">
+        <div class="check-item">
+          <strong>Check the final price</strong>
+          <span>Review taxes, service fees, payment charges and the full checkout amount before confirming.</span>
+        </div>
+
+        <div class="check-item">
+          <strong>Review baggage rules</strong>
+          <span>Compare cabin baggage, checked baggage, weight limits and airline-specific rules.</span>
+        </div>
+
+        <div class="check-item">
+          <strong>Read cancellation terms</strong>
+          <span>Check refund rules, change fees and cancellation conditions before paying.</span>
+        </div>
+
+        <div class="check-item">
+          <strong>Confirm airport and location</strong>
+          <span>For flights and hotels, check the map area, airport distance and transport options.</span>
+        </div>
+
+        <div class="check-item">
+          <strong>Compare travel dates</strong>
+          <span>Flexible dates may help you find better routes, hotel availability or lower total trip cost.</span>
+        </div>
+
+        <div class="check-item">
+          <strong>Check guest ratings</strong>
+          <span>For hotels, review ratings, recent feedback, location notes and included amenities.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <span class="tag">Malaysia travel tips</span>
+        <h2>Best Malaysia trip ideas to compare</h2>
+        <p>
+          Malaysia works for different travel styles, so it helps to match your destination with your main trip goal.
+        </p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <div class="icon">🌆</div>
+          <h3>Kuala Lumpur city break</h3>
+          <p>
+            Good for skyline views, shopping malls, food courts, transport connections and short hotel stays.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="icon">🍜</div>
+          <h3>Penang food trip</h3>
+          <p>
+            Useful for travelers who want heritage streets, local food, culture, cafes and walkable city areas.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="icon">🏝️</div>
+          <h3>Langkawi beach escape</h3>
+          <p>
+            Better for island stays, beach resorts, relaxed trips, family travel and scenic holiday planning.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <span class="tag">Related guides</span>
+        <h2>Explore more GiftCardZoneEU travel pages</h2>
+        <p>
+          Continue planning with more partner pages, travel guides and booking resources from GiftCardZoneEU.
+        </p>
+      </div>
+
+      <div class="related-grid">
+        <a class="related-link" href="/partners/">
+          Travel Partners
+          <span>Browse more booking partners and travel deal pages.</span>
+        </a>
+
+        <a class="related-link" href="/travel/">
+          Travel Guides
+          <span>Explore destination guides, city pages and travel resources.</span>
+        </a>
+
+        <a class="related-link" href="/shopping/">
+          Shopping Deals
+          <span>Find shopping, gift card and online deal resources.</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <span class="tag">Malaysia FAQ</span>
+        <h2>MyTrip Malaysia booking questions</h2>
+        <p>
+          Quick answers for travelers comparing Malaysia flights, hotels and travel options through MyTrip.
+        </p>
+      </div>
+
+      <div class="faq">
+        <details>
+          <summary>Is MyTrip useful for searching Malaysia flights?</summary>
+          <p>
+            Yes. MyTrip can help travelers search Malaysia flight options, compare routes and review travel dates for
+            destinations such as Kuala Lumpur, Penang, Langkawi and Johor Bahru.
+          </p>
+        </details>
+
+        <details>
+          <summary>Can I search hotels in Malaysia with MyTrip?</summary>
+          <p>
+            Yes. Travelers can use MyTrip to compare hotel options in Malaysia, including city stays, airport hotels,
+            beach areas and popular tourist districts.
+          </p>
+        </details>
+
+        <details>
+          <summary>What Malaysia destinations should I check first?</summary>
+          <p>
+            Popular Malaysia destinations include Kuala Lumpur for city breaks, Penang for food and heritage, Langkawi
+            for beaches, Johor Bahru for Singapore border routes and Kota Kinabalu for nature trips.
+          </p>
+        </details>
+
+        <details>
+          <summary>What should I review before booking on MyTrip?</summary>
+          <p>
+            Before booking, review the final price, baggage rules, cancellation policy, flight times, airport location,
+            hotel map area, guest ratings and payment details.
+          </p>
+        </details>
+      </div>
+    </section>
+
+    <section class="section">
       <div class="disclosure">
         <strong>Affiliate disclosure:</strong>
         GiftCardZoneEU may earn a commission when you book through some links on this page,
@@ -938,3 +1188,4 @@
   </script>
 </body>
 </html>
+```
