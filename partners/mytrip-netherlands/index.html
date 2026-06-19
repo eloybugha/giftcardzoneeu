@@ -245,15 +245,15 @@
       overflow: hidden;
     }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 18% 20%, rgba(249, 115, 22, 0.25), transparent 32%),
-        radial-gradient(circle at 78% 28%, rgba(37, 99, 235, 0.22), transparent 36%);
-      pointer-events: none;
-    }
+    .hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg, rgba(7,12,24,.62) 0%, rgba(7,12,24,.42) 48%, rgba(7,12,24,.28) 100%),
+    linear-gradient(180deg, rgba(7,12,24,.18) 0%, rgba(7,12,24,.55) 100%);
+  z-index:1;
+}
 
     .hero-inner {
       position: relative;
