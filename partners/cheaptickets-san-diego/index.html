@@ -1,714 +1,914 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-<title>CheapTickets San Diego – Flights, Hotels & Travel Deals | GiftCardZoneEU</title>
-<meta name="description" content="Find San Diego travel deals with CheapTickets. Compare flights, hotels, vacation packages, and budget-friendly travel options for San Diego, California." />
-<meta name="robots" content="index, follow" />
-<link rel="canonical" href="https://giftcardzoneeu.com/partners/cheaptickets-san-diego/" />
-
-<meta property="og:title" content="CheapTickets San Diego – Flights, Hotels & Travel Deals" />
-<meta property="og:description" content="Compare San Diego flights, hotels, vacation packages, and budget-friendly travel deals with CheapTickets." />
-<meta property="og:image" content="https://giftcardzoneeu.com/assets/partners/cheaptickets/cheaptickets-san-diego-hero.webp" />
-<meta property="og:url" content="https://giftcardzoneeu.com/partners/cheaptickets-san-diego/" />
-<meta property="og:type" content="website" />
-
-<link rel="icon" href="/favicon.ico" />
-<script src="/assets/ga.js"></script>
-
-<style>
-:root {
-  --blue: #2563eb;
-  --dark: #0f172a;
-  --muted: #64748b;
-  --soft: #f8fafc;
-  --line: #e2e8f0;
-  --orange: #ff7a1a;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-  color: var(--dark);
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: rgba(255,255,255,0.92);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--line);
-}
-
-.nav {
-  max-width: 1180px;
-  margin: 0 auto;
-  padding: 18px 22px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 800;
-}
-
-.logo {
-  width: 38px;
-  height: 38px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #38bdf8, #2563eb);
-  color: #fff;
-  display: grid;
-  place-items: center;
-  font-size: 14px;
-  font-weight: 900;
-}
-
-.navlinks {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  font-size: 14px;
-  font-weight: 700;
-  color: #334155;
-}
-
-.nav-cta {
-  background: var(--blue);
-  color: white;
-  padding: 13px 20px;
-  border-radius: 999px;
-  box-shadow: 0 8px 18px rgba(37,99,235,0.25);
-}
-
-.wrap {
-  max-width: 1180px;
-  margin: 0 auto;
-  padding: 34px 22px 70px;
-}
-
-.hero {
-  position: relative;
-  min-height: 640px;
-  border-radius: 30px;
-  overflow: hidden;
-  background:
-    linear-gradient(
-      rgba(5, 15, 35, 0.08),
-      rgba(5, 15, 35, 0.10)
-    ),
-    url("/assets/partners/cheaptickets/cheaptickets-san-diego-hero.webp") center center / contain no-repeat;
-  background-color: #dff3ff;
-  display: flex;
-  align-items: flex-end;
-  padding: 54px;
-  box-shadow: 0 22px 55px rgba(15, 23, 42, 0.15);
-}
-
-.hero-content {
-  max-width: 690px;
-  color: white;
-  position: relative;
-  z-index: 2;
-  text-shadow: 0 3px 16px rgba(0,0,0,0.42);
-}
-
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(15,23,42,0.52);
-  border: 1px solid rgba(255,255,255,0.35);
-  color: white;
-  padding: 10px 16px;
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 800;
-  backdrop-filter: blur(8px);
-  margin-bottom: 18px;
-}
-
-.hero h1 {
-  margin: 0 0 18px;
-  font-size: clamp(42px, 5vw, 68px);
-  line-height: 0.96;
-  letter-spacing: -0.06em;
-}
-
-.hero p {
-  margin: 0 0 26px;
-  font-size: 21px;
-  line-height: 1.55;
-  color: rgba(255,255,255,0.95);
-}
-
-.cta-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px 24px;
-  border-radius: 999px;
-  font-weight: 900;
-  font-size: 15px;
-}
-
-.btn-primary {
-  background: var(--orange);
-  color: white;
-  box-shadow: 0 10px 24px rgba(255,122,26,0.32);
-}
-
-.btn-secondary {
-  background: rgba(255,255,255,0.22);
-  color: white;
-  border: 1px solid rgba(255,255,255,0.3);
-  backdrop-filter: blur(8px);
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-  margin-top: 34px;
-}
-
-.card {
-  background: white;
-  border: 1px solid var(--line);
-  border-radius: 24px;
-  padding: 30px;
-  box-shadow: 0 14px 35px rgba(15,23,42,0.06);
-}
-
-.card h2,
-.card h3 {
-  margin: 0 0 14px;
-  font-size: 28px;
-  letter-spacing: -0.04em;
-}
-
-.card p {
-  margin: 0;
-  color: var(--muted);
-  line-height: 1.7;
-  font-size: 17px;
-}
-
-.section {
-  margin-top: 44px;
-  background: white;
-  border: 1px solid var(--line);
-  border-radius: 28px;
-  padding: 42px;
-  box-shadow: 0 12px 32px rgba(15,23,42,0.05);
-}
-
-.section h2 {
-  margin: 0 0 14px;
-  font-size: 36px;
-  line-height: 1.12;
-  letter-spacing: -0.05em;
-}
-
-.section > p {
-  margin: 0 0 28px;
-  color: var(--muted);
-  font-size: 17px;
-  line-height: 1.75;
-}
-
-.steps {
-  display: grid;
-  gap: 16px;
-}
-
-.step {
-  display: grid;
-  grid-template-columns: 58px 1fr;
-  gap: 18px;
-  align-items: start;
-  background: #f8fafc;
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  padding: 20px;
-}
-
-.num {
-  width: 44px;
-  height: 44px;
-  border-radius: 15px;
-  background: #eaf2ff;
-  color: var(--blue);
-  display: grid;
-  place-items: center;
-  font-weight: 900;
-  font-size: 18px;
-}
-
-.step strong {
-  display: block;
-  margin-bottom: 8px;
-  font-size: 17px;
-}
-
-.step span {
-  color: var(--muted);
-  line-height: 1.65;
-  font-size: 16px;
-}
-
-.grid-2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 22px;
-}
-
-.tip {
-  background: #f8fafc;
-  border: 1px solid var(--line);
-  border-radius: 22px;
-  padding: 24px;
-}
-
-.tip h3 {
-  margin: 0 0 10px;
-  font-size: 22px;
-}
-
-.tip p {
-  margin: 0;
-  color: var(--muted);
-  line-height: 1.7;
-}
-
-.faq {
-  display: grid;
-  gap: 16px;
-}
-
-.faq-item {
-  background: #f8fafc;
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  padding: 24px;
-}
-
-.faq-item h3 {
-  margin: 0 0 10px;
-  font-size: 20px;
-}
-
-.faq-item p {
-  margin: 0;
-  color: var(--muted);
-  line-height: 1.7;
-}
-
-.final-cta {
-  margin-top: 44px;
-  background: linear-gradient(135deg, #0f172a, #1e3a8a);
-  color: white;
-  border-radius: 30px;
-  padding: 46px;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 24px;
-  align-items: center;
-  box-shadow: 0 22px 55px rgba(15,23,42,0.18);
-}
-
-.final-cta h2 {
-  margin: 0 0 12px;
-  font-size: 34px;
-  letter-spacing: -0.05em;
-}
-
-.final-cta p {
-  margin: 0;
-  color: rgba(255,255,255,0.8);
-  line-height: 1.7;
-  font-size: 17px;
-}
-
-.footer {
-  text-align: center;
-  color: var(--muted);
-  font-size: 14px;
-  padding: 34px 20px 48px;
-}
-
-@media (max-width: 900px) {
-  .navlinks {
-    gap: 14px;
-  }
-
-  .cards,
-  .grid-2,
-  .final-cta {
-    grid-template-columns: 1fr;
-  }
-
-  .hero {
-    min-height: 520px;
-    padding: 32px;
-  }
-}
-
-@media (max-width: 768px) {
-  .nav {
-    padding: 14px 18px;
-  }
-
-  .navlinks {
-    display: none;
-  }
-
-  .wrap {
-    padding: 24px 16px 56px;
-  }
-
-  .hero {
-    min-height: 390px;
-    padding: 22px;
-    border-radius: 22px;
-    background-size: contain;
-    background-position: center top;
-    align-items: flex-end;
-  }
-
-  .hero-content {
-    max-width: 100%;
-  }
-
-  .badge {
-    font-size: 12px;
-    padding: 8px 12px;
-    margin-bottom: 12px;
-  }
-
-  .hero h1 {
-    font-size: 30px;
-    line-height: 1.08;
-    letter-spacing: -0.05em;
-    margin-bottom: 12px;
-  }
-
-  .hero p {
-    font-size: 15px;
-    line-height: 1.45;
-    margin-bottom: 18px;
-  }
-
-  .btn {
-    padding: 13px 17px;
-    font-size: 13px;
-  }
-
-  .cards {
-    margin-top: 26px;
-    gap: 16px;
-  }
-
-  .card,
-  .section,
-  .final-cta {
-    padding: 24px;
-    border-radius: 22px;
-  }
-
-  .card h2,
-  .card h3 {
-    font-size: 24px;
-  }
-
-  .section h2,
-  .final-cta h2 {
-    font-size: 28px;
-  }
-
-  .step {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "CheapTickets San Diego Travel Deals",
-  "url": "https://giftcardzoneeu.com/partners/cheaptickets-san-diego/",
-  "description": "Compare San Diego flights, hotels, packages, and travel deals with CheapTickets.",
-  "isPartOf": {
-    "@type": "WebSite",
-    "name": "GiftCardZoneEU",
-    "url": "https://giftcardzoneeu.com/"
-  }
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://giftcardzoneeu.com/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Partners",
-      "item": "https://giftcardzoneeu.com/partners/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "CheapTickets San Diego",
-      "item": "https://giftcardzoneeu.com/partners/cheaptickets-san-diego/"
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>CheapTickets San Diego Travel Deals – Flights, Hotels & Vacation Packages</title>
+  <meta name="description" content="Compare CheapTickets San Diego travel deals for flights, hotels, vacation packages, car rentals, beach trips, family vacations, weekend getaways, airport stays, coastal breaks, and last-minute San Diego travel through GiftCardZoneEU." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://giftcardzoneeu.com/partners/cheaptickets-san-diego/" />
+
+  <meta property="og:title" content="CheapTickets San Diego Travel Deals – Flights, Hotels & Vacation Packages" />
+  <meta property="og:description" content="Explore CheapTickets San Diego deals for flights, hotels, vacation packages, car rentals, beach trips, family vacations, weekend breaks, airport stays, and budget San Diego getaways." />
+  <meta property="og:image" content="https://giftcardzoneeu.com/assets/partners/cheaptickets/cheaptickets-san-diego-hero.webp" />
+  <meta property="og:url" content="https://giftcardzoneeu.com/partners/cheaptickets-san-diego/" />
+  <meta property="og:type" content="website" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CheapTickets San Diego Travel Deals – Flights, Hotels & Vacation Packages" />
+  <meta name="twitter:description" content="Find San Diego flights, hotels, packages, car rentals, airport stays, beach trips, family vacations, and travel deals through CheapTickets." />
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/partners/cheaptickets/cheaptickets-san-diego-hero.webp" />
+
+  <link rel="icon" href="/assets/gz-logo.png" />
+
+  <style>
+    :root{
+      --bg:#07111f;
+      --panel:#0d1b2f;
+      --text:#f8fafc;
+      --muted:#b6c6d8;
+      --soft:#dbeafe;
+      --orange:#fb923c;
+      --yellow:#facc15;
+      --green:#22c55e;
+      --border:rgba(255,255,255,.12);
+      --shadow:0 24px 80px rgba(0,0,0,.38);
+      --radius:26px;
+      --max:1160px;
     }
-  ]
-}
-</script>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Can I compare San Diego flights and hotels with CheapTickets?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. CheapTickets lets travelers compare flights, hotels, and vacation package options for San Diego in one place."
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:
+        radial-gradient(circle at top left,rgba(56,189,248,.22),transparent 34%),
+        radial-gradient(circle at top right,rgba(251,146,60,.18),transparent 30%),
+        linear-gradient(180deg,#06101d 0%,#07111f 45%,#08111e 100%);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter:blur(18px);
+      background:rgba(7,17,31,.82);
+      border-bottom:1px solid var(--border);
+    }
+
+    .nav{
+      max-width:var(--max);
+      margin:auto;
+      padding:14px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:900;
+      padding:8px 13px 8px 9px;
+      border-radius:999px;
+      background:linear-gradient(135deg,rgba(34,197,94,.18),rgba(56,189,248,.12));
+      border:1px solid rgba(34,197,94,.35);
+      box-shadow:0 10px 26px rgba(34,197,94,.12);
+    }
+
+    .brand img{
+      width:42px;
+      height:42px;
+      border-radius:12px;
+    }
+
+    .navlinks{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .navlinks a{
+      font-size:.9rem;
+      color:var(--muted);
+      padding:8px 12px;
+      border:1px solid transparent;
+      border-radius:999px;
+    }
+
+    .navlinks a:hover{
+      border-color:var(--border);
+      color:#fff;
+      background:rgba(255,255,255,.06);
+    }
+
+    .cta-small{
+      background:linear-gradient(135deg,var(--orange),var(--yellow));
+      color:#111827 !important;
+      font-weight:900;
+      box-shadow:0 12px 28px rgba(251,146,60,.25);
+    }
+
+    .hero{
+      max-width:var(--max);
+      margin:auto;
+      padding:34px 18px 20px;
+    }
+
+    .hero-image{
+      overflow:hidden;
+      border-radius:34px;
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+      background:#0b1728;
+      min-height:360px;
+    }
+
+    .hero-image img{
+      width:100%;
+      height:100%;
+      min-height:360px;
+      object-fit:cover;
+      object-position:center center;
+    }
+
+    .hero-card{
+      max-width:var(--max);
+      margin:22px auto 0;
+      display:grid;
+      grid-template-columns:1.25fr .75fr;
+      gap:20px;
+    }
+
+    .intro,
+    .deal-box{
+      background:linear-gradient(180deg,rgba(15,35,62,.94),rgba(13,27,47,.94));
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:26px;
+      box-shadow:0 18px 45px rgba(0,0,0,.2);
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      color:#fde68a;
+      background:rgba(250,204,21,.1);
+      border:1px solid rgba(250,204,21,.22);
+      padding:7px 12px;
+      border-radius:999px;
+      font-weight:800;
+      font-size:.84rem;
+      margin-bottom:14px;
+    }
+
+    h1{
+      margin:0;
+      font-size:clamp(2.1rem,5vw,4.3rem);
+      line-height:1.02;
+      letter-spacing:-.055em;
+    }
+
+    .title-gradient{
+      background:linear-gradient(120deg,#fff7ed,#fb923c,#fde047);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .lead{
+      color:var(--soft);
+      font-size:1.08rem;
+      margin:18px 0 0;
+      max-width:780px;
+    }
+
+    .chips{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:20px;
+    }
+
+    .chip{
+      border:1px solid var(--border);
+      color:#dbeafe;
+      background:rgba(255,255,255,.06);
+      padding:8px 12px;
+      border-radius:999px;
+      font-weight:800;
+      font-size:.86rem;
+    }
+
+    .deal-box{
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap:16px;
+    }
+
+    .deal-box h2{
+      margin:0;
+      font-size:1.45rem;
+      line-height:1.15;
+    }
+
+    .deal-box p{
+      margin:0;
+      color:var(--muted);
+    }
+
+    .big-cta{
+      display:inline-flex;
+      justify-content:center;
+      align-items:center;
+      width:100%;
+      padding:15px 18px;
+      border-radius:18px;
+      background:linear-gradient(135deg,var(--orange),var(--yellow));
+      color:#111827;
+      font-weight:950;
+      box-shadow:0 18px 40px rgba(251,146,60,.26);
+      text-align:center;
+    }
+
+    .secondary-link{
+      text-align:center;
+      color:#dbeafe;
+      font-weight:800;
+      font-size:.9rem;
+    }
+
+    main{
+      max-width:var(--max);
+      margin:auto;
+      padding:20px 18px 120px;
+    }
+
+    .section{margin-top:26px}
+
+    .section-head{
+      margin-bottom:16px;
+    }
+
+    .section h2{
+      font-size:clamp(1.55rem,3vw,2.4rem);
+      line-height:1.12;
+      letter-spacing:-.035em;
+      margin:0;
+    }
+
+    .section-desc{
+      color:var(--muted);
+      margin:8px 0 0;
+      max-width:760px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+
+    .card{
+      position:relative;
+      overflow:hidden;
+      background:linear-gradient(180deg,rgba(16,36,63,.92),rgba(13,27,47,.92));
+      border:1px solid var(--border);
+      border-radius:24px;
+      padding:22px;
+      min-height:270px;
+      box-shadow:0 16px 35px rgba(0,0,0,.16);
+    }
+
+    .card:before{
+      content:"";
+      position:absolute;
+      inset:0 0 auto 0;
+      height:5px;
+      background:rgba(255,255,255,.15);
+    }
+
+    .card .icon{
+      width:46px;
+      height:46px;
+      display:grid;
+      place-items:center;
+      border-radius:15px;
+      margin-bottom:14px;
+      font-size:1.35rem;
+      border:1px solid rgba(255,255,255,.14);
+    }
+
+    .card h3{
+      margin:0 0 8px;
+      font-size:1.12rem;
+    }
+
+    .card p{
+      margin:0 0 16px;
+      color:var(--muted);
+      font-size:.96rem;
+    }
+
+    .mini-cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      margin-top:auto;
+      padding:9px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.14);
+      color:#fff;
+      font-weight:900;
+      font-size:.86rem;
+    }
+
+    .mini-cta:hover{
+      background:rgba(255,255,255,.13);
+    }
+
+    .card.flight{
+      border-color:rgba(56,189,248,.36);
+      box-shadow:0 0 30px rgba(56,189,248,.12);
+    }
+    .card.flight:before{background:linear-gradient(90deg,#38bdf8,#0ea5e9)}
+    .card.flight .icon{background:rgba(56,189,248,.15)}
+
+    .card.hotel{
+      border-color:rgba(251,146,60,.42);
+      box-shadow:0 0 30px rgba(251,146,60,.14);
+    }
+    .card.hotel:before{background:linear-gradient(90deg,#fb923c,#facc15)}
+    .card.hotel .icon{background:rgba(251,146,60,.16)}
+
+    .card.package{
+      border-color:rgba(168,85,247,.38);
+      box-shadow:0 0 30px rgba(168,85,247,.13);
+    }
+    .card.package:before{background:linear-gradient(90deg,#a855f7,#ec4899)}
+    .card.package .icon{background:rgba(168,85,247,.16)}
+
+    .card.car{
+      border-color:rgba(34,197,94,.38);
+      box-shadow:0 0 30px rgba(34,197,94,.13);
+    }
+    .card.car:before{background:linear-gradient(90deg,#22c55e,#84cc16)}
+    .card.car .icon{background:rgba(34,197,94,.16)}
+
+    .card.lastminute{
+      border-color:rgba(244,63,94,.38);
+      box-shadow:0 0 30px rgba(244,63,94,.13);
+    }
+    .card.lastminute:before{background:linear-gradient(90deg,#f43f5e,#fb7185)}
+    .card.lastminute .icon{background:rgba(244,63,94,.16)}
+
+    .card.budget{
+      border-color:rgba(250,204,21,.42);
+      box-shadow:0 0 30px rgba(250,204,21,.13);
+    }
+    .card.budget:before{background:linear-gradient(90deg,#facc15,#f97316)}
+    .card.budget .icon{background:rgba(250,204,21,.16)}
+
+    .feature-panel{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+    }
+
+    .wide-card{
+      background:
+        radial-gradient(circle at top left,rgba(251,146,60,.16),transparent 34%),
+        linear-gradient(180deg,rgba(16,36,63,.95),rgba(13,27,47,.95));
+      border:1px solid var(--border);
+      border-radius:28px;
+      padding:26px;
+      box-shadow:0 18px 45px rgba(0,0,0,.18);
+    }
+
+    .wide-card h3{
+      margin:0 0 10px;
+      font-size:1.35rem;
+    }
+
+    .wide-card p{
+      margin:0 0 16px;
+      color:var(--muted);
+    }
+
+    .mini-list{
+      display:grid;
+      gap:10px;
+      margin-top:14px;
+    }
+
+    .mini-list span{
+      display:flex;
+      gap:10px;
+      color:#dbeafe;
+      font-weight:750;
+    }
+
+    .mini-list b{color:#86efac}
+
+    .travel-links{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .travel-links a{
+      padding:10px 13px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.05);
+      color:#dbeafe;
+      font-weight:800;
+      font-size:.9rem;
+    }
+
+    .vpn-panel{
+      background:
+        radial-gradient(circle at top right,rgba(34,197,94,.16),transparent 28%),
+        linear-gradient(135deg,#07111f,#0d1b2f 60%,#10243f);
+      border:1px solid var(--border);
+      border-radius:30px;
+      padding:26px;
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:18px;
+      align-items:center;
+      box-shadow:var(--shadow);
+    }
+
+    .vpn-panel h2{margin:0 0 10px}
+
+    .vpn-panel p{
+      margin:0;
+      color:var(--muted);
+    }
+
+    .vpn-buttons{
+      display:grid;
+      gap:10px;
+    }
+
+    .vpn-buttons a{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      padding:14px 16px;
+      border-radius:18px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.06);
+      font-weight:900;
+    }
+
+    .faq{
+      display:grid;
+      gap:12px;
+    }
+
+    details{
+      background:rgba(16,36,63,.9);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:16px 18px;
+    }
+
+    summary{
+      cursor:pointer;
+      font-weight:900;
+      color:#fff;
+    }
+
+    details p{
+      color:var(--muted);
+      margin:10px 0 0;
+    }
+
+    .disclosure{
+      margin-top:24px;
+      color:#cbd5e1;
+      font-size:.92rem;
+      background:rgba(255,255,255,.06);
+      border:1px solid var(--border);
+      border-radius:20px;
+      padding:16px 18px;
+    }
+
+    footer{
+      border-top:1px solid var(--border);
+      background:rgba(3,7,18,.55);
+      color:#94a3b8;
+      padding:26px 18px;
+      text-align:center;
+    }
+
+    .sticky-cta{
+      position:fixed;
+      left:50%;
+      bottom:18px;
+      transform:translateX(-50%);
+      z-index:60;
+      width:min(94%,720px);
+      background:rgba(7,17,31,.88);
+      border:1px solid rgba(255,255,255,.18);
+      backdrop-filter:blur(18px);
+      border-radius:999px;
+      box-shadow:0 18px 60px rgba(0,0,0,.42);
+      padding:8px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+
+    .sticky-cta span{
+      padding-left:14px;
+      font-weight:850;
+      color:#dbeafe;
+      font-size:.92rem;
+    }
+
+    .sticky-cta a{
+      white-space:nowrap;
+      padding:12px 18px;
+      border-radius:999px;
+      background:linear-gradient(135deg,var(--orange),var(--yellow));
+      color:#111827;
+      font-weight:950;
+    }
+
+    @media(max-width:900px){
+      .hero-card,
+      .feature-panel,
+      .vpn-panel{
+        grid-template-columns:1fr;
       }
-    },
-    {
-      "@type": "Question",
-      "name": "What should I check before booking a San Diego trip?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Check the full trip cost, hotel location, cancellation rules, baggage fees, resort fees, and whether a flight and hotel package gives better value."
+
+      .grid{grid-template-columns:1fr}
+
+      .navlinks{display:none}
+
+      .hero{padding-top:22px}
+
+      .hero-image{
+        min-height:0;
       }
-    },
-    {
-      "@type": "Question",
-      "name": "Which San Diego areas are popular for travelers?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Downtown San Diego, Mission Valley, La Jolla, Old Town, Coronado, and beach areas are common choices depending on budget and travel style."
+
+      .hero-image img{
+        min-height:0;
+        height:auto;
+        object-fit:contain;
+      }
+
+      .intro,
+      .deal-box,
+      .wide-card,
+      .vpn-panel{
+        padding:21px;
+      }
+
+      .card{
+        min-height:auto;
+      }
+
+      .sticky-cta{
+        left:12px;
+        right:12px;
+        bottom:10px;
+        transform:none;
+        width:auto;
+        border-radius:22px;
+        align-items:stretch;
+        flex-direction:column;
+      }
+
+      .sticky-cta span{
+        padding:6px 10px 0;
+        text-align:center;
+      }
+
+      .sticky-cta a{
+        width:100%;
+        text-align:center;
+      }
+
+      footer{
+        padding-bottom:130px;
       }
     }
-  ]
-}
-</script>
+  </style>
 </head>
 
 <body>
+  <header class="topbar">
+    <nav class="nav">
+      <a class="brand" href="/">
+        <img src="/assets/gz-logo.png" alt="GiftCardZoneEU logo" />
+        <span>GiftCardZoneEU</span>
+      </a>
 
-<header class="header">
-  <nav class="nav">
-    <a class="brand" href="/">
-      <span class="logo">GZ</span>
-      <span>GiftCardZoneEU</span>
-    </a>
-
-    <div class="navlinks">
-      <a href="/travel/">Travel</a>
-      <a href="/travel/usa/">USA</a>
-      <a href="/partners/">Partners</a>
-      <a href="/partners/cheaptickets/">CheapTickets</a>
-      <a class="nav-cta" href="https://www.tkqlhce.com/click-101586981-12843040" rel="nofollow sponsored noopener" target="_blank">Check deals</a>
-    </div>
-  </nav>
-</header>
-
-<main class="wrap">
+      <div class="navlinks">
+        <a href="/travel/">Travel</a>
+        <a href="/travel/usa/">USA</a>
+        <a href="/partners/">Partners</a>
+        <a href="/partners/cheaptickets/">CheapTickets</a>
+        <a class="cta-small" href="https://www.tkqlhce.com/click-101586981-12843040" target="_blank" rel="nofollow sponsored noopener noreferrer">Open CheapTickets</a>
+      </div>
+    </nav>
+  </header>
 
   <section class="hero">
-    <div class="hero-content">
-      <div class="badge">CheapTickets San Diego Travel Deals</div>
-      <h1>Compare San Diego flights, hotels, and travel deals.</h1>
-      <p>Planning a San Diego trip? Use CheapTickets to compare flights, hotels, vacation packages, and budget-friendly travel options before you book.</p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="https://www.tkqlhce.com/click-101586981-12843040" rel="nofollow sponsored noopener" target="_blank">Search CheapTickets deals</a>
-        <a class="btn btn-secondary" href="/travel/usa/">Read San Diego tips</a>
-      </div>
+    <div class="hero-image">
+      <img src="/assets/partners/cheaptickets/cheaptickets-san-diego-hero.webp" alt="CheapTickets San Diego travel deals for flights hotels vacation packages beach trips family vacations airport stays weekend getaways coastal breaks and car rentals" />
     </div>
-  </section>
 
-  <section class="cards">
-    <article class="card">
-      <h2>Flights</h2>
-      <p>Compare flight dates, airlines, nearby airports, and total trip cost before booking your San Diego route.</p>
-    </article>
+    <div class="hero-card">
+      <div class="intro">
+        <div class="eyebrow">Budget San Diego travel partner</div>
+        <h1>
+          Find San Diego deals with
+          <span class="title-gradient">CheapTickets</span>
+        </h1>
+        <p class="lead">
+          Planning a trip to San Diego? CheapTickets can help travelers compare flights, hotels, vacation packages, car rentals, airport hotels, beach stays, family vacations, weekend breaks, conference trips, zoo visits, coastal getaways, theme park days, and last-minute San Diego travel options in one place. Use this page as a quick starting point before booking your San Diego getaway online.
+        </p>
 
-    <article class="card">
-      <h2>Hotels</h2>
-      <p>Look at hotel location, reviews, fees, and cancellation rules to find better value for your stay.</p>
-    </article>
-
-    <article class="card">
-      <h2>Packages</h2>
-      <p>Check flight and hotel bundles to see whether a San Diego package deal can save more than booking separately.</p>
-    </article>
-  </section>
-
-  <section class="section">
-    <h2>Why book San Diego travel with CheapTickets?</h2>
-    <p>San Diego is a strong city for beach trips, family vacations, weekend breaks, conferences, and California road trips. CheapTickets gives travelers a simple way to compare flights, hotels, and package options in one place.</p>
-
-    <div class="steps">
-      <div class="step">
-        <div class="num">1</div>
-        <div>
-          <strong>Compare full trip cost</strong>
-          <span>Check the final price with taxes, fees, baggage, resort fees, and cancellation terms before booking.</span>
+        <div class="chips">
+          <span class="chip">San Diego flights</span>
+          <span class="chip">San Diego hotels</span>
+          <span class="chip">Beach trips</span>
+          <span class="chip">Vacation packages</span>
+          <span class="chip">Car rentals</span>
         </div>
       </div>
 
-      <div class="step">
-        <div class="num">2</div>
+      <aside class="deal-box">
         <div>
-          <strong>Choose the right San Diego area</strong>
-          <span>Downtown, Mission Valley, La Jolla, Old Town, and beach areas can fit different travel styles and budgets.</span>
+          <h2>Check current CheapTickets San Diego deals</h2>
+          <p>
+            Compare prices before booking and look for bundled options when flights and hotels are part of the same San Diego trip.
+          </p>
         </div>
-      </div>
 
-      <div class="step">
-        <div class="num">3</div>
         <div>
-          <strong>Check package savings</strong>
-          <span>Flight plus hotel packages can sometimes offer better value, especially for weekend trips and vacation stays.</span>
+          <a class="big-cta" href="https://www.tkqlhce.com/click-101586981-12843040" target="_blank" rel="nofollow sponsored noopener noreferrer">
+            Search CheapTickets San Diego Deals
+          </a>
+          <p class="secondary-link">Sponsored partner link</p>
         </div>
-      </div>
+      </aside>
     </div>
   </section>
 
-  <section class="section">
-    <h2>Popular San Diego trip ideas</h2>
-    <p>San Diego works well for travelers who want beaches, waterfront views, family attractions, food spots, and relaxed Southern California weather.</p>
-
-    <div class="grid-2">
-      <div class="tip">
-        <h3>Beach and coastal stay</h3>
-        <p>Look for stays near La Jolla, Mission Beach, Pacific Beach, or Coronado if your trip is focused on ocean views and relaxed days.</p>
+  <main>
+    <section class="section">
+      <div class="section-head">
+        <h2>What you can compare for San Diego</h2>
+        <p class="section-desc">
+          Choose the San Diego travel option you need below. Each box is color-coded so visitors can quickly scan and click the right travel category.
+        </p>
       </div>
 
-      <div class="tip">
-        <h3>Downtown and harbor stay</h3>
-        <p>Downtown San Diego is convenient for the waterfront, restaurants, nightlife, conference travel, and quick access to major attractions.</p>
+      <div class="grid">
+        <article class="card flight">
+          <div class="icon">✈️</div>
+          <h3>Flights to San Diego</h3>
+          <p>
+            Search for domestic and international flights to San Diego, compare schedules, and check route options through San Diego International Airport or nearby Southern California connections.
+          </p>
+          <a class="mini-cta" href="https://www.tkqlhce.com/click-101586981-12843040" target="_blank" rel="nofollow sponsored noopener noreferrer">Compare flights →</a>
+        </article>
+
+        <article class="card hotel">
+          <div class="icon">🏨</div>
+          <h3>San Diego hotels</h3>
+          <p>
+            Look for hotels near Downtown San Diego, Gaslamp Quarter, Little Italy, Mission Bay, La Jolla, Coronado, Old Town, Pacific Beach, airport areas, beach zones, family attractions, and conference locations.
+          </p>
+          <a class="mini-cta" href="https://www.tkqlhce.com/click-101586981-12843040" target="_blank" rel="nofollow sponsored noopener noreferrer">Compare hotels →</a>
+        </article>
+
+        <article class="card package">
+          <div class="icon">🌊</div>
+          <h3>Beach vacation packages</h3>
+          <p>
+            Bundle-style searches can help when you need both airfare and hotel options for a San Diego beach trip, family vacation, weekend break, conference stay, zoo visit, coastal getaway, or Southern California route.
+          </p>
+          <a class="mini-cta" href="https://www.tkqlhce.com/click-101586981-12843040" target="_blank" rel="nofollow sponsored noopener noreferrer">View packages →</a>
+        </article>
+
+        <article class="card car">
+          <div class="icon">🚗</div>
+          <h3>Car rentals</h3>
+          <p>
+            Useful for airport pickups, beach hopping, family visits, La Jolla trips, Coronado drives, Old Town stops, theme park days, conference schedules, and wider Southern California travel plans.
+          </p>
+          <a class="mini-cta" href="https://www.tkqlhce.com/click-101586981-12843040" target="_blank" rel="nofollow sponsored noopener noreferrer">Check cars →</a>
+        </article>
+
+        <article class="card lastminute">
+          <div class="icon">🧳</div>
+          <h3>Last-minute San Diego trips</h3>
+          <p>
+            Check short-notice travel options when you need a quick beach escape, airport hotel, family visit, conference trip, coastal weekend, event stay, or urgent San Diego travel arrangement.
+          </p>
+          <a class="mini-cta" href="https://www.tkqlhce.com/click-101586981-12843040" target="_blank" rel="nofollow sponsored noopener noreferrer">Last-minute deals →</a>
+        </article>
+
+        <article class="card budget">
+          <div class="icon">💳</div>
+          <h3>Travel budgeting</h3>
+          <p>
+            Compare before you book so you can balance price, hotel area, airport choice, baggage fees, cancellation rules, parking costs, car rental needs, beach access, local transport, and total San Diego trip cost.
+          </p>
+          <a class="mini-cta" href="https://www.tkqlhce.com/click-101586981-12843040" target="_blank" rel="nofollow sponsored noopener noreferrer">Compare deals →</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="feature-panel">
+        <article class="wide-card">
+          <h3>Good fit for San Diego budget planning</h3>
+          <p>
+            San Diego prices can move around beach season, school breaks, summer travel, sports events, conferences, family vacations, holiday weekends, airport demand, theme park trips, zoo visits, and major city events. Comparing flights, hotels, airport access, car rentals, and package-style options before booking can help you avoid rushed decisions.
+          </p>
+
+          <div class="mini-list">
+            <span><b>✓</b> Compare flexible travel dates</span>
+            <span><b>✓</b> Check flight + hotel options</span>
+            <span><b>✓</b> Look for downtown, beach, airport, family, conference, or coastal-area stays</span>
+            <span><b>✓</b> Review total trip cost before booking</span>
+          </div>
+        </article>
+
+        <article class="wide-card">
+          <h3>Travel pages you may also like</h3>
+          <p>
+            Explore more GiftCardZoneEU travel guides and partner pages before choosing your San Diego trip.
+          </p>
+
+          <div class="travel-links">
+            <a href="/travel/">Travel Hub</a>
+            <a href="/travel/usa/">USA Travel</a>
+            <a href="/partners/cheaptickets/">CheapTickets</a>
+            <a href="/partners/cheaptickets-los-angeles/">CheapTickets Los Angeles</a>
+            <a href="/partners/cheaptickets-san-francisco/">CheapTickets San Francisco</a>
+            <a href="/partners/cheaptickets-las-vegas/">CheapTickets Las Vegas</a>
+            <a href="/partners/cheaptickets-phoenix/">CheapTickets Phoenix</a>
+            <a href="/partners/cheaptickets-denver/">CheapTickets Denver</a>
+            <a href="/partners/cheaptickets-seattle/">CheapTickets Seattle</a>
+            <a href="/partners/cheaptickets-dallas/">CheapTickets Dallas</a>
+            <a href="/partners/cheaptickets-houston/">CheapTickets Houston</a>
+            <a href="/partners/cheaptickets-new-york/">CheapTickets New York</a>
+            <a href="/partners/cheaptickets-orlando/">CheapTickets Orlando</a>
+            <a href="/partners/cheaptickets-miami/">CheapTickets Miami</a>
+            <a href="/partners/">Partners</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>How to use CheapTickets for San Diego wisely</h2>
+        <p class="section-desc">
+          A simple San Diego booking checklist before you click the final payment button.
+        </p>
       </div>
 
-      <div class="tip">
-        <h3>Family vacation</h3>
-        <p>Compare hotels near family attractions, parking options, breakfast inclusions, and flexible cancellation rules.</p>
+      <div class="grid">
+        <article class="card flight">
+          <div class="icon">📅</div>
+          <h3>Compare flexible dates</h3>
+          <p>
+            San Diego prices can change depending on season, airport choice, events, holidays, route, airline schedule, hotel area, school breaks, beach demand, conference demand, weekend trips, and availability. Try nearby dates if your schedule allows it.
+          </p>
+        </article>
+
+        <article class="card hotel">
+          <div class="icon">📍</div>
+          <h3>Check the location</h3>
+          <p>
+            For hotels, compare the price with the area. A cheaper stay far from your beach, airport, meeting location, family visit, zoo day, conference venue, downtown area, or planned attractions may cost more in transport and time.
+          </p>
+        </article>
+
+        <article class="card budget">
+          <div class="icon">🧾</div>
+          <h3>Review total cost</h3>
+          <p>
+            Before booking, check taxes, hotel fees, baggage rules, cancellation policy, parking fees, resort-style fees, car rental cost, airport transfers, attraction access, local transport, and the final price shown at checkout.
+          </p>
+        </article>
       </div>
+    </section>
 
-      <div class="tip">
-        <h3>California road trip</h3>
-        <p>San Diego can be a strong starting point or final stop for Southern California trips, especially when paired with Los Angeles or coastal routes.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <h2>San Diego booking checklist</h2>
-    <p>Before booking, compare the details that can change the real value of a cheap travel deal.</p>
-
-    <div class="steps">
-      <div class="step">
-        <div class="num">✓</div>
+    <section class="section">
+      <div class="vpn-panel">
         <div>
-          <strong>Check nearby airports and flight times</strong>
-          <span>Look at arrival time, layovers, baggage rules, and airport transfer cost before choosing the cheapest flight.</span>
+          <div class="eyebrow">Travel security tip</div>
+          <h2>Use a VPN when booking on public Wi-Fi</h2>
+          <p>
+            When comparing San Diego travel deals in airports, cafés, hotels, coworking spaces, conference centers, beach areas, train stations, event venues, or shared networks, a VPN can add an extra privacy layer while you browse and manage bookings.
+          </p>
+        </div>
+
+        <div class="vpn-buttons">
+          <a href="/partners/nordvpn/" target="_self">
+            <span>NordVPN travel security</span>
+            <strong>View</strong>
+          </a>
+          <a href="/partners/surfshark/" target="_self">
+            <span>Surfshark travel security</span>
+            <strong>View</strong>
+          </a>
         </div>
       </div>
+    </section>
 
-      <div class="step">
-        <div class="num">✓</div>
-        <div>
-          <strong>Review hotel fees</strong>
-          <span>Some stays may have parking fees, resort fees, deposits, or extra charges that affect the final price.</span>
-        </div>
+    <section class="section">
+      <div class="section-head">
+        <h2>CheapTickets San Diego FAQ</h2>
+        <p class="section-desc">
+          Quick answers for travelers comparing CheapTickets before booking a San Diego trip.
+        </p>
       </div>
 
-      <div class="step">
-        <div class="num">✓</div>
-        <div>
-          <strong>Read cancellation terms</strong>
-          <span>Flexible bookings can be useful if your travel dates, flight schedule, or group plans might change.</span>
-        </div>
+      <div class="faq">
+        <details>
+          <summary>What can I search for San Diego on CheapTickets?</summary>
+          <p>
+            CheapTickets can be used to search travel options such as San Diego flights, hotels, vacation packages, car rentals, airport stays, beach trips, family vacations, weekend breaks, conference trips, event stays, coastal getaways, and trip deals.
+          </p>
+        </details>
+
+        <details>
+          <summary>Is CheapTickets useful for San Diego flight and hotel bundles?</summary>
+          <p>
+            It can be useful for comparing package-style options, especially when you are planning a San Diego trip that needs both airfare and accommodation.
+          </p>
+        </details>
+
+        <details>
+          <summary>Is San Diego a good city for package-style travel searches?</summary>
+          <p>
+            Yes. San Diego can be a good fit for package-style searches because travelers may need flights, hotels, airport stays, car rentals, beach hotels, family-friendly areas, conference stays, attraction access, or multi-day coastal trips in one booking plan.
+          </p>
+        </details>
+
+        <details>
+          <summary>Should I compare prices before booking San Diego?</summary>
+          <p>
+            Yes. San Diego travel prices can change based on dates, airport choice, hotel area, beach season, events, conference demand, school breaks, cancellation rules, parking costs, car rental needs, and availability. Always check the final total before paying.
+          </p>
+        </details>
+
+        <details>
+          <summary>Does GiftCardZoneEU handle the booking?</summary>
+          <p>
+            No. GiftCardZoneEU helps you discover travel partners and booking options. The actual booking, payment, cancellation, and customer support are handled by the travel provider.
+          </p>
+        </details>
       </div>
+    </section>
+
+    <div class="disclosure">
+      <strong>Affiliate disclosure:</strong>
+      GiftCardZoneEU may earn a commission when you click partner links and make a qualifying booking or purchase. This does not change the price you see, but it helps support our travel guides and comparison pages.
     </div>
-  </section>
+  </main>
 
-  <section class="section">
-    <h2>CheapTickets San Diego FAQ</h2>
+  <div class="sticky-cta">
+    <span>Compare San Diego flights, hotels, packages, beach trips, airport stays, family vacations, weekend breaks, coastal getaways, and car rentals with CheapTickets.</span>
+    <a href="https://www.tkqlhce.com/click-101586981-12843040" target="_blank" rel="nofollow sponsored noopener noreferrer">
+      Open CheapTickets
+    </a>
+  </div>
 
-    <div class="faq">
-      <div class="faq-item">
-        <h3>Can I compare San Diego flights and hotels with CheapTickets?</h3>
-        <p>Yes. CheapTickets helps travelers compare San Diego flights, hotels, and package options in one place.</p>
-      </div>
+  <footer>
+    <p>© <span id="year"></span> GiftCardZoneEU. CheapTickets San Diego travel partner guide.</p>
+  </footer>
 
-      <div class="faq-item">
-        <h3>What is the best area to stay in San Diego?</h3>
-        <p>It depends on your trip. Downtown is convenient, La Jolla is scenic, Mission Valley can be practical, and beach areas are good for coastal trips.</p>
-      </div>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 
-      <div class="faq-item">
-        <h3>Are San Diego package deals worth checking?</h3>
-        <p>Yes. Flight and hotel packages can sometimes give better value than booking separately, especially when travel dates are flexible.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>What should I compare before booking?</h3>
-        <p>Compare total price, hotel location, reviews, cancellation rules, baggage fees, parking costs, resort fees, and package inclusions.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="final-cta">
-    <div>
-      <h2>Ready to compare San Diego travel deals?</h2>
-      <p>Search CheapTickets for San Diego flights, hotels, packages, and budget-friendly travel options.</p>
-    </div>
-    <a class="btn btn-primary" href="https://www.tkqlhce.com/click-101586981-12843040" rel="nofollow sponsored noopener" target="_blank">Check CheapTickets deals</a>
-  </section>
-
-</main>
-
-<footer class="footer">
-  © 2026 GiftCardZoneEU. Travel deals, partner guides, and destination resources.
-</footer>
-
+  <script src="/assets/ga.js"></script>
 </body>
 </html>
