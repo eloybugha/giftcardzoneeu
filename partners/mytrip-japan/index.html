@@ -241,7 +241,7 @@
       background:
         linear-gradient(90deg, rgba(7, 17, 31, 0.66) 0%, rgba(7, 17, 31, 0.34) 43%, rgba(7, 17, 31, 0.06) 100%),
         linear-gradient(180deg, rgba(7, 17, 31, 0.03) 0%, rgba(7, 17, 31, 0.46) 100%),
-        url("/partners/mytrip-japan/assets/mytrip-hero.webp") right center/cover no-repeat;
+        url("/partners/mytrip-japan/assets/mytrip-hero.webp") center center/cover no-repeat;
       overflow: hidden;
     }
 
@@ -719,12 +719,38 @@
 
     @media (max-width: 860px) {
       .nav {
+        min-height: auto;
+        padding: 12px 0;
+        flex-direction: column;
         justify-content: center;
-        min-height: 70px;
+        gap: 10px;
       }
 
       .navlinks {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        gap: 8px;
+        overflow-x: auto;
+        padding: 0 2px 4px;
+        font-size: 0.82rem;
+        scrollbar-width: none;
+      }
+
+      .navlinks::-webkit-scrollbar {
         display: none;
+      }
+
+      .navlinks a {
+        flex: 0 0 auto;
+        padding: 8px 11px;
+        background: #f8fafc;
+        border: 1px solid rgba(15, 23, 42, 0.08);
+      }
+
+      .navlinks .nav-cta {
+        background: var(--orange);
+        color: #fff;
       }
 
       .hero {
