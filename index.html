@@ -4,16 +4,16 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<title>GiftCardZoneEU • Travel, Shopping & Rewards</title>
-<meta name="description" content="GiftCardZoneEU helps visitors find travel deals, shopping finds, reward sites, gift card guides, and online earning options worldwide." />
-<link rel="canonical" href="https://giftcardzoneeu.com/" />
+  <title>GiftCardZoneEU • Travel, Shopping & Rewards</title>
+  <meta name="description" content="GiftCardZoneEU helps visitors find travel deals, shopping finds, reward sites, gift card guides, and online earning options worldwide." />
+  <link rel="canonical" href="https://giftcardzoneeu.com/" />
 
-<link rel="icon" href="/favicon.ico" sizes="any" />
-<link rel="icon" type="image/png" sizes="48x48" href="/assets/gz-logo-48.png" />
-<link rel="icon" type="image/png" sizes="192x192" href="/assets/gz-logo-192.png" />
-<link rel="apple-touch-icon" href="/assets/gz-logo-180.png" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/gz-logo-48.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/gz-logo-192.png" />
+  <link rel="apple-touch-icon" href="/assets/gz-logo-180.png" />
 
-<meta name="robots" content="index,follow" />
+  <meta name="robots" content="index,follow" />
 
   <meta property="og:title" content="GiftCardZoneEU • Travel, Shopping & Rewards" />
   <meta property="og:description" content="Explore travel deals, shopping finds, reward platforms, and online earning guides in one place." />
@@ -25,15 +25,29 @@
 
   <style>
     *{box-sizing:border-box}
+
     body{
       margin:0;
       font-family:Inter,Arial,sans-serif;
       background:#f4f6fb;
       color:#111827;
     }
-    a{text-decoration:none;color:inherit}
-    img{max-width:100%;display:block}
-    .wrap{max-width:1180px;margin:auto;padding:0 18px}
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    .wrap{
+      max-width:1180px;
+      margin:auto;
+      padding:0 18px;
+    }
 
     .hero{
       background:
@@ -44,6 +58,7 @@
       padding:38px 0 72px;
       box-shadow:0 20px 55px rgba(31,41,55,.18);
     }
+
     .nav{
       display:flex;
       justify-content:space-between;
@@ -51,24 +66,31 @@
       gap:16px;
       margin-bottom:56px;
     }
+
     .logo{
       display:flex;
       align-items:center;
       gap:12px;
       font-weight:900;
       font-size:22px;
+      white-space:nowrap;
     }
+
     .logo img{
       width:44px;
       height:44px;
       border-radius:14px;
       object-fit:cover;
+      flex:0 0 auto;
     }
+
     .nav-links{
       display:flex;
       gap:10px;
       flex-wrap:wrap;
+      justify-content:flex-end;
     }
+
     .nav-links a{
       background:rgba(255,255,255,.16);
       border:1px solid rgba(255,255,255,.22);
@@ -77,6 +99,11 @@
       font-weight:800;
       font-size:14px;
     }
+
+    .hero-content{
+      max-width:920px;
+    }
+
     .hero h1{
       font-size:clamp(42px,7vw,86px);
       line-height:1.05;
@@ -84,6 +111,7 @@
       letter-spacing:-2px;
       max-width:900px;
     }
+
     .hero p{
       font-size:clamp(17px,2.8vw,25px);
       line-height:1.45;
@@ -91,11 +119,13 @@
       max-width:860px;
       color:rgba(255,255,255,.92);
     }
+
     .hero-actions{
       display:flex;
       flex-wrap:wrap;
       gap:12px;
     }
+
     .btn{
       display:inline-flex;
       align-items:center;
@@ -106,10 +136,21 @@
       font-weight:900;
       box-shadow:0 14px 30px rgba(0,0,0,.18);
     }
-    .btn.primary{background:#fff;color:#111827}
-    .btn.dark{background:#111827;color:#fff}
 
-    section{padding:52px 0 0}
+    .btn.primary{
+      background:#fff;
+      color:#111827;
+    }
+
+    .btn.dark{
+      background:#111827;
+      color:#fff;
+    }
+
+    section{
+      padding:52px 0 0;
+    }
+
     .section-head{
       display:flex;
       justify-content:space-between;
@@ -117,11 +158,13 @@
       gap:16px;
       margin-bottom:22px;
     }
+
     h2{
       margin:0;
       font-size:clamp(30px,4vw,48px);
       letter-spacing:-1px;
     }
+
     .section-head p{
       margin:8px 0 0;
       color:#5b6475;
@@ -135,6 +178,7 @@
       grid-template-columns:repeat(2,minmax(0,1fr));
       gap:24px;
     }
+
     .card{
       position:relative;
       overflow:hidden;
@@ -144,26 +188,37 @@
       min-height:100%;
       transition:.2s ease;
     }
-    .card:hover{transform:translateY(-3px)}
+
+    .card:hover{
+      transform:translateY(-3px);
+    }
+
     .card img{
       width:100%;
       height:265px;
       object-fit:cover;
       background:#e5e7eb;
     }
-    .card-body{padding:24px}
+
+    .card-body{
+      padding:24px;
+      padding-right:86px;
+    }
+
     .card h3{
       margin:0 0 10px;
       font-size:clamp(23px,3vw,34px);
       line-height:1.15;
       letter-spacing:-.5px;
     }
+
     .card p{
       margin:0;
       color:#5b6475;
       font-size:18px;
       line-height:1.45;
     }
+
     .flag{
       position:absolute;
       top:18px;
@@ -175,6 +230,7 @@
       z-index:3;
       box-shadow:0 10px 22px rgba(0,0,0,.14);
     }
+
     .arrow{
       position:absolute;
       right:22px;
@@ -196,6 +252,7 @@
       flex-wrap:wrap;
       margin-top:18px;
     }
+
     .shop-btn{
       display:inline-flex;
       align-items:center;
@@ -207,7 +264,10 @@
       font-weight:900;
       font-size:17px;
     }
-    .shop-btn.alt{background:#111827}
+
+    .shop-btn.alt{
+      background:#111827;
+    }
 
     .earn{
       display:grid;
@@ -215,6 +275,7 @@
       gap:18px;
       margin-top:28px;
     }
+
     .earn a{
       background:#fff;
       border-radius:24px;
@@ -224,12 +285,18 @@
       align-items:center;
       box-shadow:0 16px 35px rgba(17,24,39,.08);
     }
-    .earn span{font-size:36px}
+
+    .earn span{
+      font-size:36px;
+      flex:0 0 auto;
+    }
+
     .earn strong{
       display:block;
       font-size:20px;
       margin-bottom:5px;
     }
+
     .earn small{
       color:#6b7280;
       font-size:15px;
@@ -242,17 +309,20 @@
       gap:18px;
       margin-bottom:56px;
     }
+
     .trust div{
       background:#fff;
       border-radius:26px;
       padding:24px;
       box-shadow:0 16px 35px rgba(17,24,39,.08);
     }
+
     .trust b{
       display:block;
       font-size:19px;
       margin-bottom:12px;
     }
+
     .trust p{
       margin:0;
       color:#374151;
@@ -268,36 +338,200 @@
     }
 
     @media(max-width:800px){
-      .hero{padding-bottom:54px}
-      .nav{align-items:flex-start;margin-bottom:42px}
-      .nav-links{display:none}
-      .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-      .card{border-radius:24px}
-      .card img{height:210px}
-      .card-body{padding:18px}
-      .card h3{font-size:24px}
-      .card p{font-size:16px}
-      .arrow{width:46px;height:46px;right:16px;bottom:16px}
-      .earn{grid-template-columns:repeat(2,minmax(0,1fr))}
-      .trust{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .hero{
+        padding:28px 0 52px;
+      }
+
+      .nav{
+        margin-bottom:34px;
+      }
+
+      .nav-links{
+        display:none;
+      }
+
+      .logo{
+        font-size:20px;
+      }
+
+      .logo img{
+        width:38px;
+        height:38px;
+        border-radius:12px;
+      }
+
+      .hero h1{
+        font-size:clamp(42px,11vw,62px);
+        line-height:1.04;
+        letter-spacing:-1.4px;
+        margin-bottom:18px;
+      }
+
+      .hero p{
+        font-size:19px;
+        line-height:1.45;
+        max-width:100%;
+      }
+
+      .hero-actions{
+        gap:10px;
+      }
+
+      .btn{
+        padding:13px 17px;
+        font-size:15px;
+      }
+
+      .grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:16px;
+      }
+
+      .card{
+        border-radius:24px;
+      }
+
+      .card img{
+        height:210px;
+      }
+
+      .card-body{
+        padding:18px;
+        padding-right:68px;
+      }
+
+      .card h3{
+        font-size:24px;
+      }
+
+      .card p{
+        font-size:16px;
+      }
+
+      .arrow{
+        width:46px;
+        height:46px;
+        right:16px;
+        bottom:16px;
+      }
+
+      .earn{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+
+      .trust{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
     }
 
     @media(max-width:520px){
-      .wrap{padding:0 14px}
-      .hero{border-radius:0 0 30px 30px}
-      .hero h1{letter-spacing:-1px}
-      .grid{gap:14px}
-      .card img{height:170px}
-      .card h3{font-size:20px}
-      .card p{font-size:15px}
-      .card-body{padding:15px}
-      .shop-btn{font-size:14px;padding:10px 13px}
-      .earn{gap:14px}
-      .earn a{padding:16px;border-radius:18px}
-      .earn span{font-size:28px}
-      .earn strong{font-size:17px}
-      .trust{gap:14px}
-      .trust div{padding:18px;border-radius:20px}
+      .wrap{
+        padding:0 14px;
+      }
+
+      .hero{
+        border-radius:0 0 30px 30px;
+        padding:24px 0 44px;
+      }
+
+      .nav{
+        margin-bottom:30px;
+      }
+
+      .logo{
+        font-size:18px;
+        gap:10px;
+      }
+
+      .logo img{
+        width:34px;
+        height:34px;
+      }
+
+      .hero h1{
+        font-size:clamp(38px,12vw,52px);
+        line-height:1.04;
+        letter-spacing:-1px;
+      }
+
+      .hero p{
+        font-size:17px;
+        line-height:1.5;
+      }
+
+      .hero-actions{
+        display:grid;
+        grid-template-columns:1fr;
+        max-width:260px;
+      }
+
+      .btn{
+        width:100%;
+        padding:13px 16px;
+      }
+
+      section{
+        padding-top:44px;
+      }
+
+      .section-head{
+        margin-bottom:18px;
+      }
+
+      .grid{
+        grid-template-columns:1fr;
+        gap:16px;
+      }
+
+      .card img{
+        height:190px;
+      }
+
+      .card h3{
+        font-size:23px;
+      }
+
+      .card p{
+        font-size:15.5px;
+      }
+
+      .card-body{
+        padding:18px;
+        padding-right:70px;
+      }
+
+      .shop-btn{
+        font-size:14px;
+        padding:10px 13px;
+      }
+
+      .earn{
+        grid-template-columns:1fr;
+        gap:14px;
+      }
+
+      .earn a{
+        padding:16px;
+        border-radius:18px;
+      }
+
+      .earn span{
+        font-size:28px;
+      }
+
+      .earn strong{
+        font-size:17px;
+      }
+
+      .trust{
+        grid-template-columns:1fr;
+        gap:14px;
+      }
+
+      .trust div{
+        padding:18px;
+        border-radius:20px;
+      }
     }
   </style>
 </head>
@@ -312,19 +546,22 @@
         </a>
 
         <div class="nav-links">
-  <a href="/travel/">Travel</a>
-  <a href="/partners/">Partners</a>
-  <a href="/shopping/">Shopping</a>
-  <a href="/partners/vpn/">VPN</a>
-  <a href="/rewards/">Rewards</a>
-</div>
+          <a href="/travel/">Travel</a>
+          <a href="/partners/">Partners</a>
+          <a href="/shopping/">Shopping</a>
+          <a href="/partners/vpn/">VPN</a>
+          <a href="/rewards/">Rewards</a>
+        </div>
+      </nav>
 
-      <h1>Travel, Shopping & Rewards in One Place</h1>
-      <p>Explore trusted travel pages, shopping finds, reward platforms, and online earning guides built for visitors worldwide.</p>
+      <div class="hero-content">
+        <h1>Travel, Shopping & Rewards in One Place</h1>
+        <p>Explore trusted travel pages, shopping finds, reward platforms, and online earning guides built for visitors worldwide.</p>
 
-      <div class="hero-actions">
-        <a class="btn primary" href="/travel/">Explore Travel Deals →</a>
-        <a class="btn dark" href="#earn">Ways to Earn Online</a>
+        <div class="hero-actions">
+          <a class="btn primary" href="/travel/">Explore Travel Deals →</a>
+          <a class="btn dark" href="#earn">Ways to Earn Online</a>
+        </div>
       </div>
     </div>
   </header>
@@ -366,14 +603,15 @@
           </div>
           <span class="arrow">→</span>
         </a>
-       <a class="card" href="/shopping/">
-  <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1200&auto=format&fit=crop" alt="Shopping hub">
-  <div class="card-body">
-    <h3>Shopping Guides & Finds</h3>
-    <p>Browse shopping pages, product finds, and useful deal guides.</p>
-  </div>
-  <span class="arrow">→</span>
-</a> 
+
+        <a class="card" href="/shopping/">
+          <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1200&auto=format&fit=crop" alt="Shopping hub">
+          <div class="card-body">
+            <h3>Shopping Guides & Finds</h3>
+            <p>Browse shopping pages, product finds, and useful deal guides.</p>
+          </div>
+          <span class="arrow">→</span>
+        </a>
 
         <div class="card">
           <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=1200&auto=format&fit=crop" alt="Shopping deals">
