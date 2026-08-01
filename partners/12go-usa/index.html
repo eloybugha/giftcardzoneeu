@@ -1,235 +1,1273 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-  <title>USA Train, Bus & Ferry Tickets | GiftCardZoneEU × 12Go</title>
-  <meta name="description" content="Book USA trains, buses, ferries and airport transfers — New York, Los Angeles, Chicago, Miami, Las Vegas and more via 12Go." />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://giftcardzoneeu.com/partners/12go-usa/" />
+<title>USA Train, Bus & Ferry Tickets | GiftCardZoneEU × 12Go</title>
+<meta name="description" content="Compare and book USA trains, buses, ferries and airport transfers for New York, Washington DC, Boston, Chicago, Los Angeles, Miami and more through 12Go.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://giftcardzoneeu.com/partners/12go-usa/">
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="12Go USA Transport Booking | GiftCardZoneEU" />
-  <meta property="og:description" content="Compare and book USA trains, buses and ferries — secure checkout via 12Go." />
-  <meta property="og:url" content="https://giftcardzoneeu.com/partners/12go-usa/" />
-  <meta property="og:image" content="https://giftcardzoneeu.com/partners/12go-usa/assets/12go-hero.jpg" />
+<link rel="preload" as="image" href="/partners/12go-usa/assets/12go-hero.jpg">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/gz-logo-48.png">
+<link rel="apple-touch-icon" href="/assets/gz-logo-180.png">
+<meta name="theme-color" content="#020617">
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="USA Travel Tickets | GiftCardZoneEU × 12Go" />
-  <meta name="twitter:description" content="Book USA trains, buses, ferries and airport transfers securely via 12Go." />
-  <meta name="twitter:image" content="https://giftcardzoneeu.com/partners/12go-usa/assets/12go-hero.jpg" />
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GiftCardZoneEU">
+<meta property="og:title" content="USA Transport Tickets with 12Go | GiftCardZoneEU">
+<meta property="og:description" content="Compare trains, buses, ferries and airport transfers across the United States through 12Go.">
+<meta property="og:url" content="https://giftcardzoneeu.com/partners/12go-usa/">
+<meta property="og:image" content="https://giftcardzoneeu.com/partners/12go-usa/assets/12go-hero.jpg">
+<meta property="og:image:alt" content="Traveler at a USA train station with train, bus and city skyline">
 
-  <link rel="icon" href="https://giftcardzoneeu.com/assets/favicon.png" />
-  <meta name="theme-color" content="#020617" />
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="USA Train and Bus Tickets | GiftCardZoneEU × 12Go">
+<meta name="twitter:description" content="Search USA trains, buses, ferries and transfers through 12Go.">
+<meta name="twitter:image" content="https://giftcardzoneeu.com/partners/12go-usa/assets/12go-hero.jpg">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: system-ui, sans-serif;
-      background: #020617;
-      color: #f8fafc;
+<script src="/assets/ga.js"></script>
+
+<style>
+:root{
+  --bg:#020617;
+  --bg2:#07111f;
+  --panel:#0f172a;
+  --panel2:#111c31;
+  --text:#f8fafc;
+  --muted:#cbd5e1;
+  --soft:#94a3b8;
+  --line:rgba(148,163,184,.25);
+  --blue:#38bdf8;
+  --blue2:#0ea5e9;
+  --cyan:#67e8f9;
+  --green:#4ade80;
+  --shadow:0 24px 70px rgba(2,6,23,.46);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:
+    radial-gradient(circle at 15% 10%,rgba(14,165,233,.08),transparent 32%),
+    linear-gradient(180deg,#020617 0%,#06101d 52%,#020617 100%);
+  color:var(--text);
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+button,input,select,textarea{font:inherit}
+.container{width:min(1160px,calc(100% - 36px));margin:auto}
+.skip-link{
+  position:absolute;
+  left:-9999px;
+  top:10px;
+  z-index:9999;
+  padding:10px 14px;
+  background:#fff;
+  color:#000;
+  border-radius:8px;
+}
+.skip-link:focus{left:10px}
+.topbar{
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  z-index:20;
+  padding:18px 0;
+}
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  padding:10px 12px 10px 16px;
+  background:rgba(2,6,23,.72);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:999px;
+  box-shadow:0 14px 45px rgba(2,6,23,.35);
+  backdrop-filter:blur(16px);
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:max-content;
+  text-decoration:none;
+  font-weight:800;
+}
+.brand img{
+  width:32px;
+  height:32px;
+  object-fit:contain;
+  border-radius:9px;
+}
+.nav-links{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:7px;
+}
+.nav-links a{
+  padding:9px 12px;
+  border-radius:999px;
+  color:#dbeafe;
+  font-size:.82rem;
+  font-weight:700;
+  text-decoration:none;
+  transition:.18s ease;
+}
+.nav-links a:hover{
+  background:rgba(255,255,255,.09);
+  color:#fff;
+}
+.nav-links .nav-cta{
+  background:linear-gradient(135deg,#e0f2fe,var(--blue));
+  color:#082f49;
+  box-shadow:0 10px 26px rgba(14,165,233,.28);
+}
+.hero{
+  position:relative;
+  min-height:920px;
+  display:flex;
+  align-items:center;
+  isolation:isolate;
+  overflow:hidden;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url("/partners/12go-usa/assets/12go-hero.jpg") center/cover no-repeat;
+  z-index:-3;
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg,rgba(2,6,23,.94) 0%,rgba(2,6,23,.83) 40%,rgba(2,6,23,.55) 70%,rgba(2,6,23,.45) 100%),
+    linear-gradient(180deg,rgba(2,6,23,.46) 0%,rgba(2,6,23,.12) 38%,rgba(2,6,23,.92) 100%);
+  z-index:-2;
+}
+.hero-glow{
+  position:absolute;
+  width:520px;
+  height:520px;
+  left:-180px;
+  bottom:-160px;
+  border-radius:50%;
+  background:rgba(14,165,233,.17);
+  filter:blur(90px);
+  z-index:-1;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.15fr) minmax(340px,.85fr);
+  gap:46px;
+  align-items:center;
+  padding:150px 0 90px;
+}
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  padding:8px 13px;
+  border:1px solid rgba(186,230,253,.28);
+  border-radius:999px;
+  background:rgba(2,6,23,.64);
+  color:#e0f2fe;
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(12px);
+  font-size:.78rem;
+  font-weight:800;
+}
+.eyebrow img{
+  width:22px;
+  height:22px;
+  object-fit:contain;
+}
+.hero h1{
+  max-width:760px;
+  margin:20px 0 18px;
+  font-size:clamp(2.65rem,5.8vw,5.15rem);
+  line-height:1.01;
+  letter-spacing:-.055em;
+  text-wrap:balance;
+}
+.hero h1 span{
+  background:linear-gradient(90deg,#7dd3fc,#22d3ee);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.hero-lead{
+  max-width:690px;
+  margin:0;
+  color:#d7e2ef;
+  font-size:clamp(1rem,1.7vw,1.12rem);
+  line-height:1.75;
+}
+.pills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-top:23px;
+}
+.pill{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:8px 12px;
+  border:1px solid rgba(148,163,184,.34);
+  border-radius:999px;
+  background:rgba(15,23,42,.68);
+  color:#e2e8f0;
+  backdrop-filter:blur(8px);
+  font-size:.76rem;
+  font-weight:650;
+}
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:26px;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  min-height:50px;
+  padding:13px 21px;
+  border:1px solid transparent;
+  border-radius:999px;
+  text-decoration:none;
+  font-size:.9rem;
+  font-weight:850;
+  transition:transform .18s ease,box-shadow .18s ease,background .18s ease;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn:focus-visible{outline:3px solid #fff;outline-offset:4px}
+.btn-primary{
+  background:linear-gradient(135deg,#e0f2fe,var(--blue));
+  color:#082f49;
+  box-shadow:0 18px 42px rgba(14,165,233,.34);
+}
+.btn-secondary{
+  border-color:rgba(255,255,255,.20);
+  background:rgba(15,23,42,.68);
+  color:#f8fafc;
+  backdrop-filter:blur(10px);
+}
+.trust{
+  display:flex;
+  flex-wrap:wrap;
+  gap:16px;
+  margin-top:23px;
+  color:#dbeafe;
+  font-size:.78rem;
+}
+.trust span{display:flex;align-items:center;gap:7px}
+.route-card{
+  padding:25px;
+  background:linear-gradient(180deg,rgba(15,23,42,.94),rgba(7,17,31,.95));
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:26px;
+  box-shadow:0 28px 90px rgba(2,6,23,.58);
+  backdrop-filter:blur(18px);
+}
+.route-card-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:20px;
+  margin-bottom:18px;
+}
+.route-card h2{
+  margin:0;
+  font-size:1.45rem;
+  letter-spacing:-.03em;
+}
+.route-card-head span{
+  padding:6px 9px;
+  background:rgba(56,189,248,.12);
+  border:1px solid rgba(56,189,248,.22);
+  border-radius:999px;
+  color:#7dd3fc;
+  font-size:.68rem;
+  font-weight:800;
+}
+.route-list{display:grid;gap:9px}
+.route{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:12px;
+  align-items:center;
+  padding:11px 12px;
+  background:rgba(2,6,23,.45);
+  border:1px solid rgba(148,163,184,.22);
+  border-radius:13px;
+}
+.route strong{
+  color:#f1f5f9;
+  font-size:.8rem;
+}
+.route small{
+  color:#7dd3fc;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  font-size:.64rem;
+  font-weight:800;
+}
+.route-card .btn{width:100%;margin-top:18px}
+.route-note{
+  margin:14px 0 0;
+  color:var(--soft);
+  font-size:.71rem;
+  line-height:1.6;
+}
+.hero-bottom{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  padding-bottom:23px;
+}
+.hero-stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
+.stat{
+  padding:15px 16px;
+  background:rgba(2,6,23,.72);
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:16px;
+  backdrop-filter:blur(12px);
+}
+.stat strong{
+  display:block;
+  color:#fff;
+  font-size:.96rem;
+}
+.stat span{
+  display:block;
+  margin-top:3px;
+  color:var(--soft);
+  font-size:.72rem;
+}
+section.content-section{padding:92px 0}
+.section-head{
+  max-width:760px;
+  margin:0 auto 40px;
+  text-align:center;
+}
+.kicker{
+  display:inline-block;
+  margin-bottom:10px;
+  color:#67e8f9;
+  font-size:.72rem;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.16em;
+}
+.section-head h2{
+  margin:0;
+  font-size:clamp(2rem,4vw,3.25rem);
+  line-height:1.08;
+  letter-spacing:-.045em;
+  text-wrap:balance;
+}
+.section-head p{
+  margin:15px auto 0;
+  color:var(--muted);
+  line-height:1.75;
+}
+.feature-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+.feature-card{
+  padding:25px;
+  background:linear-gradient(180deg,rgba(15,23,42,.88),rgba(8,17,31,.88));
+  border:1px solid var(--line);
+  border-radius:22px;
+  box-shadow:0 16px 45px rgba(2,6,23,.22);
+}
+.icon-box{
+  display:grid;
+  place-items:center;
+  width:46px;
+  height:46px;
+  margin-bottom:18px;
+  border-radius:14px;
+  background:rgba(56,189,248,.11);
+  border:1px solid rgba(56,189,248,.21);
+  font-size:1.25rem;
+}
+.feature-card h3{
+  margin:0 0 9px;
+  font-size:1rem;
+}
+.feature-card p{
+  margin:0;
+  color:var(--soft);
+  font-size:.84rem;
+  line-height:1.65;
+}
+.alt-section{
+  background:
+    radial-gradient(circle at 85% 20%,rgba(34,211,238,.08),transparent 30%),
+    rgba(15,23,42,.32);
+  border-top:1px solid rgba(255,255,255,.05);
+  border-bottom:1px solid rgba(255,255,255,.05);
+}
+.steps{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+.step{
+  position:relative;
+  padding:28px;
+  background:rgba(15,23,42,.73);
+  border:1px solid var(--line);
+  border-radius:23px;
+}
+.step-number{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:38px;
+  height:38px;
+  margin-bottom:18px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#bae6fd,#22d3ee);
+  color:#083344;
+  font-weight:950;
+}
+.step h3{margin:0 0 9px;font-size:1.08rem}
+.step p{margin:0;color:var(--soft);line-height:1.7;font-size:.86rem}
+.dest-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+.destination{
+  min-height:205px;
+  padding:23px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  background:
+    linear-gradient(180deg,rgba(2,6,23,.06),rgba(2,6,23,.92)),
+    radial-gradient(circle at 75% 15%,rgba(56,189,248,.22),transparent 33%),
+    #132238;
+  border:1px solid var(--line);
+  border-radius:23px;
+  overflow:hidden;
+}
+.destination small{
+  color:#7dd3fc;
+  font-weight:850;
+  text-transform:uppercase;
+  letter-spacing:.09em;
+}
+.destination h3{
+  margin:7px 0;
+  font-size:1.35rem;
+}
+.destination p{
+  margin:0;
+  color:#bdc9d7;
+  font-size:.8rem;
+  line-height:1.55;
+}
+.booking-panel{
+  display:grid;
+  grid-template-columns:1fr .9fr;
+  gap:22px;
+  align-items:stretch;
+}
+.booking-copy,.booking-info{
+  padding:32px;
+  border:1px solid var(--line);
+  border-radius:26px;
+}
+.booking-copy{
+  background:
+    radial-gradient(circle at 95% 5%,rgba(56,189,248,.15),transparent 32%),
+    linear-gradient(145deg,#0f172a,#07111f);
+}
+.booking-copy h2{
+  margin:0;
+  font-size:clamp(2rem,4vw,3.15rem);
+  line-height:1.08;
+  letter-spacing:-.045em;
+}
+.booking-copy p{
+  color:var(--muted);
+  line-height:1.75;
+}
+.booking-info{
+  background:rgba(15,23,42,.66);
+}
+.info-row{
+  display:grid;
+  grid-template-columns:38px 1fr;
+  gap:13px;
+  padding:15px 0;
+  border-bottom:1px solid rgba(148,163,184,.16);
+}
+.info-row:last-child{border-bottom:0}
+.info-row span{
+  display:grid;
+  place-items:center;
+  width:38px;
+  height:38px;
+  border-radius:12px;
+  background:rgba(56,189,248,.10);
+}
+.info-row h3{
+  margin:0 0 5px;
+  font-size:.92rem;
+}
+.info-row p{
+  margin:0;
+  color:var(--soft);
+  font-size:.78rem;
+  line-height:1.6;
+}
+.faq-wrap{
+  max-width:900px;
+  margin:auto;
+  display:grid;
+  gap:12px;
+}
+details{
+  background:rgba(15,23,42,.78);
+  border:1px solid var(--line);
+  border-radius:17px;
+  overflow:hidden;
+}
+summary{
+  position:relative;
+  padding:19px 52px 19px 20px;
+  cursor:pointer;
+  list-style:none;
+  color:#f8fafc;
+  font-weight:800;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{
+  content:"+";
+  position:absolute;
+  right:20px;
+  top:50%;
+  transform:translateY(-50%);
+  color:#67e8f9;
+  font-size:1.35rem;
+}
+details[open] summary::after{content:"−"}
+details p{
+  margin:0;
+  padding:0 20px 20px;
+  color:var(--muted);
+  line-height:1.75;
+  font-size:.88rem;
+}
+.final-cta{
+  padding:40px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:30px;
+  background:
+    linear-gradient(120deg,rgba(14,165,233,.18),rgba(15,23,42,.86)),
+    #0f172a;
+  border:1px solid rgba(103,232,249,.18);
+  border-radius:28px;
+}
+.final-cta h2{
+  margin:0 0 8px;
+  font-size:clamp(1.7rem,3vw,2.55rem);
+  letter-spacing:-.04em;
+}
+.final-cta p{
+  margin:0;
+  color:var(--muted);
+}
+footer{
+  padding:34px 0;
+  border-top:1px solid rgba(255,255,255,.06);
+  color:var(--soft);
+  font-size:.78rem;
+}
+.footer-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+.footer-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:15px;
+}
+.footer-links a{text-decoration:none}
+.footer-links a:hover{color:#fff}
+@media(max-width:980px){
+  .nav-links a:not(.nav-cta){display:none}
+  .hero{min-height:auto}
+  .hero-grid{
+    grid-template-columns:1fr;
+    padding:145px 0 190px;
+  }
+  .route-card{max-width:720px}
+  .hero-bottom{padding-bottom:30px}
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
+  .feature-grid{grid-template-columns:repeat(2,1fr)}
+  .booking-panel{grid-template-columns:1fr}
+}
+@media(max-width:720px){
+  .container{width:min(100% - 26px,1160px)}
+  .topbar{padding-top:12px}
+  .nav{padding:8px 9px 8px 12px}
+  .brand span{font-size:.83rem}
+  .nav-links .nav-cta{padding:8px 11px;font-size:.72rem}
+  .hero::before{background-position:61% center}
+  .hero::after{
+    background:
+      linear-gradient(180deg,rgba(2,6,23,.38) 0%,rgba(2,6,23,.73) 33%,rgba(2,6,23,.96) 75%,#020617 100%);
+  }
+  .hero-grid{
+    padding:128px 0 250px;
+    gap:28px;
+  }
+  .hero h1{font-size:2.65rem}
+  .hero-lead{font-size:.93rem}
+  .route-card{padding:19px}
+  .hero-bottom{padding-bottom:28px}
+  .hero-stats{grid-template-columns:1fr 1fr}
+  .stat{padding:12px}
+  section.content-section{padding:68px 0}
+  .feature-grid,.steps,.dest-grid{grid-template-columns:1fr}
+  .booking-copy,.booking-info{padding:23px}
+  .final-cta{
+    padding:28px 23px;
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  .footer-row{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+}
+@media(max-width:460px){
+  .hero-grid{padding-bottom:285px}
+  .hero-actions .btn{width:100%}
+  .hero-stats{gap:8px}
+  .stat strong{font-size:.8rem}
+  .stat span{font-size:.64rem}
+  .route{
+    grid-template-columns:1fr;
+    gap:4px;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .btn{transition:none}
+}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"WebPage",
+      "@id":"https://giftcardzoneeu.com/partners/12go-usa/#webpage",
+      "url":"https://giftcardzoneeu.com/partners/12go-usa/",
+      "name":"USA Train, Bus & Ferry Tickets | GiftCardZoneEU × 12Go",
+      "description":"Compare and book trains, buses, ferries and airport transfers across the United States through 12Go.",
+      "inLanguage":"en",
+      "isPartOf":{
+        "@type":"WebSite",
+        "@id":"https://giftcardzoneeu.com/#website",
+        "url":"https://giftcardzoneeu.com/",
+        "name":"GiftCardZoneEU"
+      },
+      "about":{
+        "@type":"Service",
+        "name":"USA transport ticket search and booking",
+        "areaServed":{
+          "@type":"Country",
+          "name":"United States"
+        },
+        "provider":{
+          "@type":"Organization",
+          "name":"12Go",
+          "url":"https://12go.asia/"
+        }
+      },
+      "publisher":{
+        "@type":"Organization",
+        "@id":"https://giftcardzoneeu.com/#organization",
+        "name":"GiftCardZoneEU",
+        "url":"https://giftcardzoneeu.com/",
+        "logo":{
+          "@type":"ImageObject",
+          "url":"https://giftcardzoneeu.com/assets/gz-logo-192.png"
+        }
+      },
+      "primaryImageOfPage":{
+        "@type":"ImageObject",
+        "url":"https://giftcardzoneeu.com/partners/12go-usa/assets/12go-hero.jpg"
+      }
+    },
+    {
+      "@type":"BreadcrumbList",
+      "@id":"https://giftcardzoneeu.com/partners/12go-usa/#breadcrumb",
+      "itemListElement":[
+        {
+          "@type":"ListItem",
+          "position":1,
+          "name":"Home",
+          "item":"https://giftcardzoneeu.com/"
+        },
+        {
+          "@type":"ListItem",
+          "position":2,
+          "name":"Partners",
+          "item":"https://giftcardzoneeu.com/partners/"
+        },
+        {
+          "@type":"ListItem",
+          "position":3,
+          "name":"12Go USA",
+          "item":"https://giftcardzoneeu.com/partners/12go-usa/"
+        }
+      ]
+    },
+    {
+      "@type":"FAQPage",
+      "@id":"https://giftcardzoneeu.com/partners/12go-usa/#faq",
+      "mainEntity":[
+        {
+          "@type":"Question",
+          "name":"Can I book USA train and bus tickets through 12Go?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"Travelers can use 12Go to search and compare supported train, bus, ferry and transfer options in the United States. Availability depends on the route, date and transport operator."
+          }
+        },
+        {
+          "@type":"Question",
+          "name":"Which USA routes can I search?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"Supported searches may include routes involving New York, Washington DC, Boston, Philadelphia, Chicago, Milwaukee, Los Angeles, San Diego, Miami, Orlando, San Francisco and other destinations."
+          }
+        },
+        {
+          "@type":"Question",
+          "name":"Does GiftCardZoneEU process the payment?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"No. GiftCardZoneEU provides travel information and referral links. Searches, payments, confirmations, cancellations and customer service are handled by 12Go and the selected transport provider."
+          }
+        },
+        {
+          "@type":"Question",
+          "name":"Are prices and schedules guaranteed?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"No. Prices, schedules, availability, baggage policies and booking conditions can change. Travelers should confirm all details on 12Go before completing payment."
+          }
+        },
+        {
+          "@type":"Question",
+          "name":"Can I book airport transfers through 12Go?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"Airport transfer options may be shown for supported cities and travel dates. Available vehicles and transfer services depend on the destination and provider."
+          }
+        },
+        {
+          "@type":"Question",
+          "name":"Will GiftCardZoneEU earn a commission?",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"GiftCardZoneEU may earn a commission from eligible bookings made through affiliate links, at no additional cost to the traveler."
+          }
+        }
+      ]
     }
-
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      padding: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    /* Background Image */
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: url("https://giftcardzoneeu.com/partners/12go-usa/assets/12go-hero.jpg") center/cover no-repeat;
-      filter: brightness(0.85);
-      z-index: -2;
-    }
-
-    /* Dark Overlay */
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(15,23,42,0.85), rgba(15,23,42,0.9));
-      z-index: -1;
-    }
-
-    .content {
-      width: 100%;
-      max-width: 1100px;
-      display: grid;
-      gap: 32px;
-      grid-template-columns: 1.3fr 1fr;
-      position: relative;
-      z-index: 2;
-    }
-
-    @media(max-width: 800px) {
-      .content { grid-template-columns: 1fr; }
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 14px;
-      background: rgba(15,23,42,0.95);
-      border: 1px solid rgba(148,163,184,0.5);
-      border-radius: 999px;
-    }
-
-    .badge img {
-      width: 28px;
-      height: 28px;
-    }
-
-    h1 {
-      font-size: 32px;
-      margin: 10px 0 14px;
-      line-height: 1.18;
-    }
-
-    p {
-      color: #cbd5e1;
-      font-size: 15px;
-      line-height: 1.6;
-    }
-
-    .pill-row, .trust-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 18px;
-    }
-
-    .pill {
-      padding: 6px 12px;
-      background: rgba(15,23,42,0.9);
-      border: 1px solid rgba(148,163,184,0.4);
-      border-radius: 999px;
-      font-size: 12px;
-    }
-
-    .cta-btn {
-      display: inline-flex;
-      margin-top: 20px;
-      padding: 12px 22px;
-      background: radial-gradient(circle at 0% 0%, #e0f2fe, #38bdf8);
-      border-radius: 999px;
-      color: #0f172a;
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 14px;
-      box-shadow: 0 18px 40px rgba(7,89,133,0.7);
-      transition: transform .15s ease;
-    }
-
-    .cta-btn:hover { transform: translateY(-1px); }
-
-    aside {
-      background: rgba(15,23,42,0.95);
-      padding: 18px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .route {
-      margin-bottom: 10px;
-      background: rgba(15,23,42,0.75);
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.45);
-      font-size: 12px;
-      display: flex;
-      justify-content: space-between;
-    }
-
-    footer{
-      padding: 18px 14px;
-      font-size: 0.8rem;
-      background: #020617;
-      color: rgba(255,255,255,0.75);
-      text-align: center;
-      border-top: 1px solid rgba(255,255,255,0.06);
-    }
-  </style>
+  ]
+}
+</script>
 </head>
 
 <body>
-  <section class="hero">
-    <div class="content">
+<a class="skip-link" href="#main-content">Skip to content</a>
 
-      <div>
-        <div class="badge">
-          <img 
-            src="https://giftcardzoneeu.com/assets/gz-logo.png"
-            alt="GiftCardZoneEU Logo"
-            width="28"
-            height="28"
-          />
-          <span>GiftCardZoneEU × 12Go USA</span>
-        </div>
+<header class="topbar">
+  <div class="container">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="/">
+        <img src="/assets/gz-logo-48.png" alt="GiftCardZoneEU logo" width="32" height="32">
+        <span>GiftCardZoneEU</span>
+      </a>
 
-        <h1>
-          Book USA <span style="color:#38bdf8">train & bus tickets</span> with 12Go — fast & secure.
-        </h1>
-
-        <p>
-          Travel across the United States: <strong>New York, Washington DC, Boston, Chicago, Los Angeles, Miami</strong> and more.
-          Compare trains, buses, ferries & airport transfers. Booking is completed safely on <strong>12Go</strong>.
-        </p>
-
-        <div class="pill-row">
-          <div class="pill">Amtrak & regional rail</div>
-          <div class="pill">City & intercity buses</div>
-          <div class="pill">Airport transfers</div>
-          <div class="pill">Popular East Coast routes</div>
-        </div>
-
+      <div class="nav-links">
+        <a href="/travel/">Travel</a>
+        <a href="/travel/usa/">USA</a>
+        <a href="/partners/">Partners</a>
+        <a href="/partners/12go/">12Go</a>
         <a
-          class="cta-btn"
+          class="nav-cta"
           href="https://www.tkqlhce.com/click-101586981-17115150"
           target="_blank"
           rel="nofollow sponsored noopener noreferrer"
         >
-          Book USA Tickets on 12Go
+          Book Tickets
         </a>
+      </div>
+    </nav>
+  </div>
+</header>
 
-        <div class="trust-row">
-          <div class="pill">✓ Instant confirmation on many routes</div>
-          <div class="pill">💳 Secure 12Go checkout</div>
+<main id="main-content">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-glow"></div>
+
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">
+            <img src="/assets/gz-logo-48.png" alt="" width="22" height="22">
+            <span>GiftCardZoneEU × 12Go USA</span>
+          </div>
+
+          <h1 id="hero-title">
+            Explore the USA by <span>train, bus and transfer</span>
+          </h1>
+
+          <p class="hero-lead">
+            Compare available transport options for destinations including
+            <strong>New York, Washington DC, Boston, Chicago, Los Angeles, Miami</strong>
+            and more. Search routes, review schedules and complete your booking securely through
+            <strong>12Go</strong>.
+          </p>
+
+          <div class="pills" aria-label="Transport options">
+            <span class="pill">🚆 Train routes</span>
+            <span class="pill">🚌 Intercity buses</span>
+            <span class="pill">🚐 Airport transfers</span>
+            <span class="pill">⛴ Ferry options</span>
+          </div>
+
+          <div class="hero-actions">
+            <a
+              class="btn btn-primary"
+              href="https://www.tkqlhce.com/click-101586981-17115150"
+              target="_blank"
+              rel="nofollow sponsored noopener noreferrer"
+            >
+              Search USA Tickets →
+            </a>
+
+            <a class="btn btn-secondary" href="#popular-routes">
+              View Popular Routes
+            </a>
+          </div>
+
+          <div class="trust" aria-label="Booking information">
+            <span>✓ Secure checkout through 12Go</span>
+            <span>✓ Multiple transport categories</span>
+          </div>
+        </div>
+
+        <aside class="route-card" id="popular-routes" aria-labelledby="routes-title">
+          <div class="route-card-head">
+            <h2 id="routes-title">Popular USA routes</h2>
+            <span>Route ideas</span>
+          </div>
+
+          <div class="route-list">
+            <div class="route"><strong>New York → Washington DC</strong><small>Train / bus</small></div>
+            <div class="route"><strong>New York → Boston</strong><small>Train / bus</small></div>
+            <div class="route"><strong>New York → Philadelphia</strong><small>Train / bus</small></div>
+            <div class="route"><strong>Boston → Washington DC</strong><small>Train / bus</small></div>
+            <div class="route"><strong>Los Angeles → San Diego</strong><small>Train / bus</small></div>
+            <div class="route"><strong>Miami → Orlando</strong><small>Train / bus</small></div>
+            <div class="route"><strong>Chicago → Milwaukee</strong><small>Train</small></div>
+            <div class="route"><strong>San Francisco → Los Angeles</strong><small>Bus / train</small></div>
+          </div>
+
+          <a
+            class="btn btn-primary"
+            href="https://www.tkqlhce.com/click-101586981-17115150"
+            target="_blank"
+            rel="nofollow sponsored noopener noreferrer"
+          >
+            Compare Routes and Prices →
+          </a>
+
+          <p class="route-note">
+            Routes shown are travel ideas only. Availability, schedules and prices depend on your
+            selected date and transport provider.
+          </p>
+        </aside>
+      </div>
+    </div>
+
+    <div class="hero-bottom">
+      <div class="container">
+        <div class="hero-stats">
+          <div class="stat">
+            <strong>Train travel</strong>
+            <span>Search supported rail routes</span>
+          </div>
+          <div class="stat">
+            <strong>Bus travel</strong>
+            <span>Compare intercity operators</span>
+          </div>
+          <div class="stat">
+            <strong>Transfers</strong>
+            <span>Airport and city connections</span>
+          </div>
+          <div class="stat">
+            <strong>One search</strong>
+            <span>Review multiple options</span>
+          </div>
         </div>
       </div>
-
-      <aside>
-        <h3>Popular USA Routes</h3>
-        <div class="route"><span>New York → Washington DC</span><span>train/bus</span></div>
-        <div class="route"><span>New York → Boston</span><span>train/bus</span></div>
-        <div class="route"><span>New York → Philadelphia</span><span>train/bus</span></div>
-        <div class="route"><span>Boston → Washington DC</span><span>train/bus</span></div>
-        <div class="route"><span>Los Angeles → San Diego</span><span>train/bus</span></div>
-        <div class="route"><span>Miami → Orlando</span><span>train/bus</span></div>
-        <div class="route"><span>Chicago → Milwaukee</span><span>train</span></div>
-        <div class="route"><span>San Francisco → Los Angeles</span><span>bus/train</span></div>
-
-        <p style="margin-top:18px;font-size:12px;color:#94a3b8">
-          GiftCardZoneEU does not process payments. All bookings are completed on 12Go.
-        </p>
-      </aside>
-
     </div>
   </section>
 
-  <footer>
-    © <script>document.write(new Date().getFullYear())</script> GiftCardZoneEU.com – All Rights Reserved
-  </footer>
+  <section class="content-section">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Travel options</span>
+        <h2>Choose the transport that fits your USA journey</h2>
+        <p>
+          Compare supported transport categories based on your destination, departure date,
+          journey length and personal travel preferences.
+        </p>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="icon-box">🚆</div>
+          <h3>Trains</h3>
+          <p>
+            Search available rail services for major cities and selected regional connections.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <div class="icon-box">🚌</div>
+          <h3>Intercity buses</h3>
+          <p>
+            Compare scheduled bus options for city-to-city journeys across supported routes.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <div class="icon-box">🚐</div>
+          <h3>Airport transfers</h3>
+          <p>
+            Check transfer options between supported airports, hotels and city locations.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <div class="icon-box">⛴</div>
+          <h3>Ferries</h3>
+          <p>
+            Ferry services may appear where available for selected coastal and island journeys.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section alt-section">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Simple booking</span>
+        <h2>How booking through 12Go works</h2>
+        <p>
+          GiftCardZoneEU helps travelers discover the booking platform. Search, checkout,
+          confirmation and customer support take place through 12Go.
+        </p>
+      </div>
+
+      <div class="steps">
+        <article class="step">
+          <span class="step-number">1</span>
+          <h3>Enter your journey</h3>
+          <p>
+            Choose your departure location, destination, travel date and number of passengers.
+          </p>
+        </article>
+
+        <article class="step">
+          <span class="step-number">2</span>
+          <h3>Compare available options</h3>
+          <p>
+            Review available departure times, transport categories, operators and booking terms.
+          </p>
+        </article>
+
+        <article class="step">
+          <span class="step-number">3</span>
+          <h3>Complete booking securely</h3>
+          <p>
+            Select your preferred journey and finish payment directly through the 12Go platform.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Destination ideas</span>
+        <h2>Popular cities for USA transport searches</h2>
+        <p>
+          These destinations can help you begin planning a multi-city journey across the
+          United States.
+        </p>
+      </div>
+
+      <div class="dest-grid">
+        <article class="destination">
+          <small>East Coast</small>
+          <h3>New York</h3>
+          <p>Search routes toward Boston, Philadelphia, Washington DC and other cities.</p>
+        </article>
+
+        <article class="destination">
+          <small>Capital region</small>
+          <h3>Washington DC</h3>
+          <p>Compare selected rail and bus services from nearby East Coast destinations.</p>
+        </article>
+
+        <article class="destination">
+          <small>New England</small>
+          <h3>Boston</h3>
+          <p>Explore available city-to-city transport connections across the Northeast.</p>
+        </article>
+
+        <article class="destination">
+          <small>Midwest</small>
+          <h3>Chicago</h3>
+          <p>Search supported train and bus journeys toward nearby regional cities.</p>
+        </article>
+
+        <article class="destination">
+          <small>West Coast</small>
+          <h3>Los Angeles</h3>
+          <p>Compare transport options toward San Diego, San Francisco and other locations.</p>
+        </article>
+
+        <article class="destination">
+          <small>Florida</small>
+          <h3>Miami</h3>
+          <p>Review available routes and transfer options for journeys across Florida.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section alt-section">
+    <div class="container">
+      <div class="booking-panel">
+        <div class="booking-copy">
+          <span class="kicker">Before booking</span>
+          <h2>Check the details that matter for your trip</h2>
+
+          <p>
+            Transport schedules and booking conditions can vary by operator. Review departure
+            stations, travel duration, baggage rules, cancellation conditions and passenger
+            information before completing payment.
+          </p>
+
+          <a
+            class="btn btn-primary"
+            href="https://www.tkqlhce.com/click-101586981-17115150"
+            target="_blank"
+            rel="nofollow sponsored noopener noreferrer"
+          >
+            Check USA Transport Options →
+          </a>
+        </div>
+
+        <div class="booking-info">
+          <div class="info-row">
+            <span>📍</span>
+            <div>
+              <h3>Confirm the station</h3>
+              <p>Large cities may have several departure terminals or pickup locations.</p>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <span>🧳</span>
+            <div>
+              <h3>Review baggage rules</h3>
+              <p>Allowances and extra baggage charges can differ between operators.</p>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <span>🕒</span>
+            <div>
+              <h3>Check departure times</h3>
+              <p>Arrive early and verify the latest instructions on your booking confirmation.</p>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <span>📄</span>
+            <div>
+              <h3>Read booking conditions</h3>
+              <p>Cancellation, changes and refund rules depend on the selected ticket.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section" id="faq">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Frequently asked questions</span>
+        <h2>Questions about booking USA transport</h2>
+        <p>
+          Helpful information before searching for trains, buses, ferries and transfers.
+        </p>
+      </div>
+
+      <div class="faq-wrap">
+        <details>
+          <summary>Can I book USA train and bus tickets through 12Go?</summary>
+          <p>
+            Travelers can use 12Go to search and compare supported train, bus, ferry and
+            transfer options in the United States. Availability depends on the route,
+            date and transport operator.
+          </p>
+        </details>
+
+        <details>
+          <summary>Which USA routes can I search?</summary>
+          <p>
+            Supported searches may include routes involving New York, Washington DC,
+            Boston, Philadelphia, Chicago, Milwaukee, Los Angeles, San Diego, Miami,
+            Orlando, San Francisco and other destinations.
+          </p>
+        </details>
+
+        <details>
+          <summary>Does GiftCardZoneEU process my payment?</summary>
+          <p>
+            No. GiftCardZoneEU provides information and referral links. Search results,
+            payment, booking confirmation, cancellation and customer service are handled
+            by 12Go and the selected transport provider.
+          </p>
+        </details>
+
+        <details>
+          <summary>Are transport prices and schedules guaranteed?</summary>
+          <p>
+            No. Prices, schedules, availability, baggage policies and booking terms can
+            change. Always confirm the final information on 12Go before paying.
+          </p>
+        </details>
+
+        <details>
+          <summary>Can I search for airport transfers?</summary>
+          <p>
+            Airport transfer options may appear for supported cities and travel dates.
+            Available vehicles, pickup locations and transfer conditions depend on the provider.
+          </p>
+        </details>
+
+        <details>
+          <summary>Will I receive a booking confirmation?</summary>
+          <p>
+            Confirmation details are provided according to the selected journey and operator.
+            Review the confirmation instructions sent by 12Go after completing your booking.
+          </p>
+        </details>
+
+        <details>
+          <summary>Can I cancel or change my ticket?</summary>
+          <p>
+            Change, cancellation and refund rules vary by ticket and operator. Read the
+            fare conditions carefully before completing payment and contact 12Go support
+            for booking-related assistance.
+          </p>
+        </details>
+
+        <details>
+          <summary>Does GiftCardZoneEU earn a commission?</summary>
+          <p>
+            GiftCardZoneEU may earn a commission from eligible bookings made through
+            affiliate links, at no additional cost to the traveler.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <div class="final-cta">
+        <div>
+          <h2>Ready to search your USA journey?</h2>
+          <p>Compare available transport routes and complete your booking through 12Go.</p>
+        </div>
+
+        <a
+          class="btn btn-primary"
+          href="https://www.tkqlhce.com/click-101586981-17115150"
+          target="_blank"
+          rel="nofollow sponsored noopener noreferrer"
+        >
+          Search USA Tickets →
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-row">
+    <div>
+      © <span id="year"></span> GiftCardZoneEU.com — All rights reserved.
+    </div>
+
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/travel/">Travel</a>
+      <a href="/partners/">Partners</a>
+      <a href="/privacy/">Privacy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById("year").textContent=new Date().getFullYear();
+</script>
 </body>
 </html>
