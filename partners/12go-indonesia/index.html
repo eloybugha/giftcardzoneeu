@@ -808,8 +808,34 @@
         background-position: 62% center;
       }
 
+      .nav {
+        gap: 14px;
+      }
+
+      .nav-right {
+        gap: 14px;
+        min-width: 0;
+      }
+
       .nav-links {
+        display: flex;
+        gap: 14px;
+        overflow-x: auto;
+        white-space: nowrap;
+        scrollbar-width: none;
+      }
+
+      .nav-links::-webkit-scrollbar {
         display: none;
+      }
+
+      .nav-links a {
+        font-size: 0.82rem;
+      }
+
+      .nav-cta {
+        flex: 0 0 auto;
+        padding-inline: 18px;
       }
 
       .hero-content {
@@ -853,6 +879,10 @@
 
       .nav {
         min-height: 67px;
+      }
+
+      .nav-links {
+        display: none;
       }
 
       .brand {
