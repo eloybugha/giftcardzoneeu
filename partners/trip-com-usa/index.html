@@ -1,365 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Trip.com USA – Cheap Flights & Hotels (2026)</title>
-  <meta name="description" content="Explore the USA with Trip.com. Find cheap flights, hotels and travel deals for New York, Los Angeles, Las Vegas and Miami with GiftCardZoneEU." />
-  <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://giftcardzoneeu.com/partners/trip-com-usa/" />
-  <link rel="icon" href="/assets/gz-logo.png" />
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Trip.com USA – Cheap Flights & Hotels (2026)" />
-  <meta property="og:description" content="Discover USA travel deals with Trip.com. Compare hotels, flights and city stays across New York, Los Angeles, Las Vegas and Miami." />
-  <meta property="og:url" content="https://giftcardzoneeu.com/partners/trip-com-usa/" />
-  <meta property="og:image" content="https://giftcardzoneeu.com/assets/partners/trip-usa-hero.webp" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Trip.com USA – Cheap Flights & Hotels (2026)" />
-  <meta name="twitter:description" content="Book USA hotels and flights with Trip.com through GiftCardZoneEU." />
-  <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/partners/trip-usa-hero.webp" />
-
-  <link rel="preload" as="image" href="/assets/partners/trip-usa-hero.webp" />
-
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-    }
-
-    body{
-      background:#08152f;
-      color:#ffffff;
-      line-height:1.6;
-    }
-
-    a{
-      text-decoration:none;
-    }
-
-    .nav{
-      position:fixed;
-      top:0;
-      left:0;
-      width:100%;
-      display:flex;
-      align-items:center;
-      justify-content:flex-start;
-      padding:14px 22px;
-      background:rgba(0,0,0,0.70);
-      backdrop-filter:blur(8px);
-      z-index:1000;
-      border-bottom:1px solid rgba(255,255,255,0.06);
-    }
-
-    .nav img{
-      height:42px;
-      width:auto;
-      display:block;
-    }
-
-    .hero{
-      min-height:65vh;
-      background:
-        linear-gradient(rgba(4,10,24,0.42), rgba(4,10,24,0.62)),
-        url("/assets/partners/trip-usa-hero.webp");
-      background-size:cover;
-      background-position:center;
-      background-repeat:no-repeat;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      padding:100px 20px 28px;
-    }
-
-    .hero-overlay{
-      width:100%;
-      max-width:960px;
-      background:rgba(0,0,0,0.42);
-      border:1px solid rgba(255,255,255,0.08);
-      border-radius:20px;
-      padding:28px 22px;
-      box-shadow:0 16px 40px rgba(0,0,0,0.26);
-    }
-
-    .hero h1{
-      font-size:clamp(2rem, 5vw, 4rem);
-      line-height:1.1;
-      margin-bottom:14px;
-    }
-
-    .hero p{
-      font-size:clamp(1rem, 2.2vw, 1.2rem);
-      color:rgba(255,255,255,0.93);
-      max-width:760px;
-      margin:0 auto;
-    }
-
-    .hero-partner{
-      margin-top:10px;
-      font-size:14px;
-      opacity:0.82;
-      letter-spacing:0.3px;
-    }
-
-    .container{
-      max-width:1180px;
-      margin:0 auto;
-      padding:44px 20px 60px;
-    }
-
-    .section{
-      margin-bottom:52px;
-    }
-
-    .section h2{
-      font-size:clamp(1.7rem, 3vw, 2.2rem);
-      color:#40bfff;
-      margin-bottom:16px;
-    }
-
-    .section p{
-      color:rgba(255,255,255,0.92);
-      max-width:920px;
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-      gap:22px;
-      margin-top:22px;
-    }
-
-    .card{
-      background:#12213f;
-      border:1px solid rgba(255,255,255,0.06);
-      border-radius:20px;
-      padding:24px;
-      box-shadow:0 12px 28px rgba(0,0,0,0.18);
-      transition:transform 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .card:hover{
-      transform:translateY(-4px);
-      box-shadow:0 16px 34px rgba(0,0,0,0.24);
-    }
-
-    .card img{
-      width:100%;
-      height:170px;
-      object-fit:cover;
-      border-radius:14px;
-      margin-bottom:14px;
-      transition:transform .4s;
-    }
-
-    .card:hover img{
-      transform:scale(1.05);
-    }
-
-    .card h3{
-      font-size:1.25rem;
-      margin-bottom:10px;
-      color:#ffffff;
-    }
-
-    .card p{
-      color:rgba(255,255,255,0.88);
-      font-size:0.98rem;
-    }
-
-    .btn{
-      display:inline-block;
-      margin-top:16px;
-      padding:11px 18px;
-      border-radius:10px;
-      background:#40bfff;
-      color:#06111f;
-      font-weight:700;
-      transition:opacity 0.2s ease, transform 0.2s ease;
-    }
-
-    .btn:hover{
-      opacity:0.92;
-      transform:translateY(-1px);
-    }
-
-    .footer{
-      text-align:center;
-      padding:28px 20px 34px;
-      color:rgba(255,255,255,0.70);
-      font-size:14px;
-      border-top:1px solid rgba(255,255,255,0.06);
-    }
-
-    @media (max-width:768px){
-      .nav{
-        padding:12px 16px;
-      }
-
-      .nav img{
-        height:38px;
-      }
-
-      .hero{
-        min-height:58vh;
-        padding:92px 16px 22px;
-      }
-
-      .hero-overlay{
-        padding:22px 16px;
-        border-radius:16px;
-      }
-
-      .hero h1{
-        font-size:clamp(1.9rem, 7vw, 3rem);
-      }
-
-      .hero p{
-        font-size:1rem;
-      }
-
-      .hero-partner{
-        font-size:13px;
-      }
-
-      .container{
-        padding:34px 20px 54px;
-      }
-
-      .section{
-        margin-bottom:42px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Trip.com USA â€“ Cheap Flights & Hotels (2026) | GiftCardZoneEU</title>
+<meta name="description" content="Compare Trip.com USA hotels, flights and travel deals for New York, Los Angeles, Las Vegas, Miami and more popular destinations.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://giftcardzoneeu.com/partners/trip-com-usa/">
+<link rel="icon" href="/assets/gz-logo.png">
+<link rel="preload" as="image" href="/assets/partners/trip-usa-hero.webp">
+<meta property="og:type" content="website"><meta property="og:title" content="Trip.com USA â€“ Cheap Flights & Hotels (2026)">
+<meta property="og:description" content="Compare USA hotels, flights and travel deals with Trip.com.">
+<meta property="og:url" content="https://giftcardzoneeu.com/partners/trip-com-usa/">
+<meta property="og:image" content="https://giftcardzoneeu.com/assets/partners/trip-usa-hero.webp">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Trip.com USA â€“ Cheap Flights & Hotels (2026)">
+<meta name="twitter:description" content="Plan USA city breaks, hotel stays and flights with Trip.com.">
+<meta name="twitter:image" content="https://giftcardzoneeu.com/assets/partners/trip-usa-hero.webp">
+<script src="/assets/ga.js"></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://giftcardzoneeu.com/partners/trip-com-usa/#webpage","url":"https://giftcardzoneeu.com/partners/trip-com-usa/","name":"Trip.com USA â€“ Cheap Flights & Hotels (2026)","description":"Compare Trip.com USA hotels, flights and travel deals for popular American destinations.","isPartOf":{"@type":"WebSite","name":"GiftCardZoneEU","url":"https://giftcardzoneeu.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://giftcardzoneeu.com/"},{"@type":"ListItem","position":2,"name":"Partners","item":"https://giftcardzoneeu.com/partners/"},{"@type":"ListItem","position":3,"name":"Trip.com USA","item":"https://giftcardzoneeu.com/partners/trip-com-usa/"}]}]}
+</script>
+<style>
+:root{--navy:#071427;--navy2:#0b2039;--blue:#1479ff;--sky:#66d6ff;--white:#fff;--muted:#b9c8d9;--line:rgba(255,255,255,.12);--card:rgba(13,37,65,.84)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--navy);color:var(--white);line-height:1.65}a{text-decoration:none;color:inherit}img{display:block;max-width:100%}.wrap{width:min(1160px,calc(100% - 40px));margin:auto}
+.site-header{position:fixed;inset:0 0 auto;z-index:1000;background:rgba(5,15,29,.84);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}.logo img{height:43px;width:auto}.nav-links{display:flex;align-items:center;gap:26px;font-size:.94rem;font-weight:650}.nav-links a:not(.nav-cta){color:#dbe8f5}.nav-links a:hover{color:var(--sky)}
+.nav-cta,.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;background:linear-gradient(135deg,var(--blue),#19b8ff);color:#fff;font-weight:800;box-shadow:0 12px 28px rgba(20,121,255,.28);transition:.25s ease}.nav-cta{padding:10px 18px}.nav-cta:hover,.btn:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(20,121,255,.4)}
+.hero{min-height:760px;display:flex;align-items:center;padding:150px 0 90px;background:linear-gradient(90deg,rgba(4,13,26,.96),rgba(4,13,26,.74) 48%,rgba(4,13,26,.18)),linear-gradient(0deg,var(--navy),transparent 32%),url("/assets/partners/trip-usa-hero.webp") center/cover no-repeat}.hero-copy{max-width:720px}.eyebrow{display:inline-flex;margin-bottom:22px;padding:7px 13px;border:1px solid rgba(102,214,255,.34);border-radius:999px;background:rgba(8,31,55,.65);color:var(--sky);font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+h1{font-size:clamp(2.8rem,6vw,5.5rem);line-height:1.02;letter-spacing:-.055em}.accent{color:var(--sky)}.hero-text{max-width:650px;margin:24px 0 30px;color:#e0eaf4;font-size:clamp(1.03rem,2vw,1.22rem)}.hero-actions{display:flex;flex-wrap:wrap;gap:14px}.btn{min-height:52px;padding:0 25px}.btn-secondary{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.22);box-shadow:none}.btn-secondary:hover{background:rgba(255,255,255,.15);box-shadow:none}.trust-row{display:flex;flex-wrap:wrap;gap:18px 28px;margin-top:30px;color:#dce8f3;font-size:.9rem}.trust-row span:before{content:"âœ“";color:#59e1ad;font-weight:900;margin-right:7px}
+main{padding:82px 0}.crumbs{margin-bottom:48px;color:#8fa6bc;font-size:.88rem}.crumbs a:hover{color:var(--sky)}.section{margin-bottom:90px}.section-head{max-width:760px;margin-bottom:28px}.kicker{color:var(--sky);font-size:.78rem;font-weight:850;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}h2{font-size:clamp(2rem,4vw,3.25rem);line-height:1.15;letter-spacing:-.035em;margin-bottom:14px}.lead{color:var(--muted);font-size:1.05rem}
+.city-grid,.feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.city-card,.feature-card{overflow:hidden;border:1px solid var(--line);border-radius:22px;background:var(--card);box-shadow:0 18px 42px rgba(0,0,0,.2)}.city-card img{width:100%;height:220px;object-fit:cover;transition:transform .5s}.city-card:hover img{transform:scale(1.055)}.city-copy{padding:21px}.city-copy h3,.feature-card h3{font-size:1.25rem;margin-bottom:7px}.city-copy p,.feature-card p{color:var(--muted);font-size:.94rem}
+.feature-grid{grid-template-columns:repeat(3,1fr)}.feature-card{padding:28px}.icon{display:grid;place-items:center;width:48px;height:48px;margin-bottom:20px;border-radius:14px;background:linear-gradient(135deg,rgba(20,121,255,.24),rgba(102,214,255,.16));color:var(--sky);font-size:1.3rem;font-weight:900}.text-link{display:inline-flex;margin-top:19px;color:var(--sky);font-weight:800}.text-link:hover{color:#fff}
+.cta-box{padding:clamp(34px,6vw,66px);border:1px solid rgba(102,214,255,.22);border-radius:30px;background:radial-gradient(circle at 90% 10%,rgba(53,184,255,.3),transparent 35%),linear-gradient(135deg,#0d2e55,#0b1c34);text-align:center}.cta-box h2{max-width:760px;margin:0 auto 14px}.cta-box>p:not(.kicker):not(.disclosure){max-width:680px;margin:0 auto 25px;color:#c8d7e6}.disclosure{margin-top:18px;color:#8fa7bd;font-size:.8rem}
+footer{border-top:1px solid var(--line);padding:38px 0;color:#8fa6bc;font-size:.9rem}.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}.footer-links{display:flex;flex-wrap:wrap;gap:20px}.footer-links a:hover{color:var(--sky)}
+@media(max-width:900px){.nav-links a:not(.nav-cta){display:none}.city-grid{grid-template-columns:repeat(2,1fr)}.feature-grid{grid-template-columns:1fr}.hero{min-height:700px;background-position:62% center}}
+@media(max-width:600px){.wrap{width:min(100% - 28px,1160px)}.nav{height:64px}.logo img{height:38px}.nav-cta{padding:9px 14px;font-size:.82rem}.hero{min-height:680px;padding:120px 0 70px;background:linear-gradient(rgba(4,13,26,.7),rgba(4,13,26,.94)),url("/assets/partners/trip-usa-hero.webp") center/cover no-repeat}.hero-actions{flex-direction:column}.btn{width:100%}.trust-row{gap:8px 18px}.city-grid{grid-template-columns:1fr}.city-card img{height:230px}.section{margin-bottom:68px}.footer-inner{align-items:flex-start;flex-direction:column}}
+</style>
 </head>
 <body>
-
-  <div class="nav">
-    <a href="https://giftcardzoneeu.com/" aria-label="GiftCardZoneEU Home">
-      <img src="/assets/gz-logo.png" alt="GiftCardZoneEU Logo" />
-    </a>
-  </div>
-
-  <section class="hero">
-    <div class="hero-overlay">
-      <h1>Trip.com USA Travel Deals</h1>
-      <p>
-        Find cheap flights, hotels and city stays in the USA with Trip.com.
-        Explore New York, Los Angeles, Las Vegas and Miami with trusted travel booking options.
-      </p>
-      <p class="hero-partner">GiftCardZoneEU × Trip.com USA</p>
-    </div>
-  </section>
-
-  <main class="container">
-
-    <section class="section">
-      <h2>Why Visit the USA</h2>
-      <p>
-        The United States is one of the world’s most popular travel destinations, offering iconic cities,
-        famous landmarks, entertainment districts, shopping, beaches and unforgettable road trip routes.
-        From New York’s energy to Miami’s coastal vibe, the USA offers city breaks, family travel,
-        business trips and long-haul adventures for every kind of traveler.
-      </p>
-    </section>
-
-    <section class="section">
-      <h2>Top Cities in the USA</h2>
-      <div class="grid">
-
-        <div class="card">
-          <img src="/assets/partners/trip-usa/newyork.webp" alt="New York USA" />
-          <h3>New York</h3>
-          <p>
-            New York is known for skyline views, iconic attractions, museums, shopping and nonstop city energy.
-          </p>
-        </div>
-
-        <div class="card">
-          <img src="/assets/partners/trip-usa/losangeles.webp" alt="Los Angeles USA" />
-          <h3>Los Angeles</h3>
-          <p>
-            Los Angeles offers Hollywood landmarks, sunny weather, beaches, entertainment and a laid-back California atmosphere.
-          </p>
-        </div>
-
-        <div class="card">
-          <img src="/assets/partners/trip-usa/lasvegas.webp" alt="Las Vegas USA" />
-          <h3>Las Vegas</h3>
-          <p>
-            Las Vegas is famous for nightlife, major resorts, live shows and unforgettable desert city experiences.
-          </p>
-        </div>
-
-        <div class="card">
-          <img src="/assets/partners/trip-usa/miami.webp" alt="Miami USA" />
-          <h3>Miami</h3>
-          <p>
-            Miami combines beaches, nightlife, warm weather and vibrant city culture for a stylish coastal trip.
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Why Book USA Travel with Trip.com</h2>
-      <p>
-        Trip.com helps travelers compare hotel stays, flight options and travel deals in one place.
-        Whether you are planning a city break, family vacation, business travel or a multi-city USA itinerary,
-        you can <a href="https://www.jdoqocy.com/click-101586981-13761944" rel="nofollow sponsored noopener noreferrer">search USA hotels on Trip.com</a>
-        and compare available accommodation options before booking your stay.
-      </p>
-    </section>
-
-    <section class="section">
-      <h2>Book USA Hotels & Flights with Trip.com</h2>
-      <div class="grid">
-
-        <div class="card">
-          <h3>Hotels in the USA</h3>
-          <p>
-            Browse hotel options across New York, Los Angeles, Las Vegas, Miami and other popular destinations in the USA.
-          </p>
-          <a href="https://www.jdoqocy.com/click-101586981-13761944" class="btn" rel="nofollow sponsored noopener noreferrer">Book with Trip.com</a>
-        </div>
-
-        <div class="card">
-          <h3>Flights & Travel Deals</h3>
-          <p>
-            Compare flights and travel deals for the USA and plan a smoother trip with one trusted booking platform.
-          </p>
-          <a href="https://www.jdoqocy.com/click-101586981-13761944" class="btn" rel="nofollow sponsored noopener noreferrer">Find Travel Deals</a>
-        </div>
-
-        <div class="card">
-          <h3>City Breaks & Vacation Stays</h3>
-          <p>
-            From weekend city breaks to longer vacations, Trip.com gives flexible booking options for USA travel.
-          </p>
-          <a href="https://www.jdoqocy.com/click-101586981-13761944" class="btn" rel="nofollow sponsored noopener noreferrer">Explore USA</a>
-        </div>
-
-      </div>
-    </section>
-
-  </main>
-
-  <div class="footer">
-    © <span id="year"></span> GiftCardZoneEU
-  </div>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-
+<header class="site-header"><nav class="nav wrap" aria-label="Primary navigation"><a class="logo" href="/" aria-label="GiftCardZoneEU home"><img src="/assets/gz-logo.png" alt="GiftCardZoneEU"></a><div class="nav-links"><a href="/travel/">Travel</a><a href="/partners/">Partners</a><a href="/offers/">Offers</a><a href="/tools/">Tools</a><a class="nav-cta" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">Search Trip.com</a></div></nav></header>
+<section class="hero"><div class="wrap"><div class="hero-copy"><div class="eyebrow">Trip.com USA travel partner</div><h1>Discover More of the <span class="accent">USA</span></h1><p class="hero-text">Compare hotels, flights and travel deals for New York, Los Angeles, Las Vegas, Miami and destinations across the United States.</p><div class="hero-actions"><a class="btn" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">Explore USA Deals â†’</a><a class="btn btn-secondary" href="#top-cities">View Top Cities</a></div><div class="trust-row"><span>Hotels & flights</span><span>Popular USA cities</span><span>Easy comparison</span></div></div></div></section>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> â€º <a href="/partners/">Partners</a> â€º <span>Trip.com USA</span></nav>
+<section class="section" id="top-cities"><div class="section-head"><p class="kicker">Popular destinations</p><h2>Four iconic USA city breaks</h2><p class="lead">Start with skyline views, sunny beaches, world-class entertainment or an unforgettable desert escape.</p></div><div class="city-grid">
+<article class="city-card"><img src="/assets/partners/trip-usa/newyork.webp" alt="New York skyline" loading="lazy" width="640" height="440"><div class="city-copy"><h3>New York</h3><p>Iconic landmarks, museums, Broadway, shopping and nonstop city energy.</p></div></article>
+<article class="city-card"><img src="/assets/partners/trip-usa/losangeles.webp" alt="Los Angeles city view" loading="lazy" width="640" height="440"><div class="city-copy"><h3>Los Angeles</h3><p>Hollywood attractions, beaches, sunshine and California culture.</p></div></article>
+<article class="city-card"><img src="/assets/partners/trip-usa/lasvegas.webp" alt="Las Vegas city lights" loading="lazy" width="640" height="440"><div class="city-copy"><h3>Las Vegas</h3><p>Landmark resorts, live shows, nightlife and desert adventures.</p></div></article>
+<article class="city-card"><img src="/assets/partners/trip-usa/miami.webp" alt="Miami beach and skyline" loading="lazy" width="640" height="440"><div class="city-copy"><h3>Miami</h3><p>Warm beaches, Art Deco style, nightlife and vibrant coastal culture.</p></div></article>
+</div></section>
+<section class="section"><div class="section-head"><p class="kicker">Plan in one place</p><h2>Why travelers use Trip.com</h2><p class="lead">Search accommodation and transport options for a quick city break, business trip, family holiday or multi-city USA itinerary.</p></div><div class="feature-grid">
+<article class="feature-card"><div class="icon">H</div><h3>USA Hotels</h3><p>Browse stays across major cities and compare the options available for your travel dates.</p><a class="text-link" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">Search hotels â†’</a></article>
+<article class="feature-card"><div class="icon">âœˆ</div><h3>Flights & Deals</h3><p>Explore flight choices and travel offers through one convenient booking platform.</p><a class="text-link" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">Compare flights â†’</a></article>
+<article class="feature-card"><div class="icon">â˜…</div><h3>Flexible Trips</h3><p>Plan anything from a weekend escape to a longer American road-trip itinerary.</p><a class="text-link" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">Explore USA â†’</a></article>
+</div></section>
+<section class="section cta-box"><p class="kicker">Ready to explore?</p><h2>Find your next USA stay with Trip.com</h2><p>Check current hotel, flight and city-break options for destinations across the United States.</p><a class="btn" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">Check Trip.com Deals â†’</a><p class="disclosure">Affiliate disclosure: GiftCardZoneEU may earn a commission from qualifying bookings at no extra cost to you.</p></section>
+</main>
+<footer><div class="footer-inner wrap"><p>Â© <span id="year"></span> GiftCardZoneEU. All rights reserved.</p><div class="footer-links"><a href="/about/">About</a><a href="/privacy-policy/">Privacy</a><a href="/affiliate-disclosure/">Affiliate Disclosure</a><a href="/contact/">Contact</a></div></div></footer>
+<script>document.getElementById("year").textContent=new Date().getFullYear();</script>
 </body>
 </html>
