@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Best Hotels in Norway | Where to Stay & Book Online</title>
-  <meta name="description" content="Compare hotel deals in Norway. Discover where to stay in Oslo, Bergen, Tromsø, and Stavanger with trusted travel partners." />
+  <meta name="description" content="Compare hotel deals in Norway. Discover where to stay in Oslo, Bergen, TromsÃ¸, and Stavanger with trusted travel partners." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://giftcardzoneeu.com/travel/norway/" />
 
@@ -43,13 +43,20 @@
       position:sticky;
       top:0;
       z-index:1000;
-      display:flex;
-      justify-content:center;
-      align-items:center;
       padding:12px 16px;
       background:rgba(255,255,255,.96);
       backdrop-filter:blur(8px);
       border-bottom:1px solid #e8ebf0;
+    }
+
+    .topbar-inner{
+      width:100%;
+      max-width:1200px;
+      margin:0 auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:24px;
     }
 
     .logo-link img{
@@ -58,6 +65,28 @@
       border-radius:50%;
       box-shadow:0 8px 22px rgba(0,0,0,.10);
       display:block;
+    }
+
+    .main-nav{
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      gap:8px;
+    }
+
+    .main-nav a{
+      color:#374151;
+      padding:9px 11px;
+      border-radius:10px;
+      font-size:15px;
+      font-weight:700;
+      transition:.2s ease;
+    }
+
+    .main-nav a:hover,
+    .main-nav a[aria-current="page"]{
+      color:#0b63f3;
+      background:#eef4ff;
     }
 
     .hero{
@@ -454,7 +483,7 @@
     }
 
     .tips-list li::before{
-      content:"✔";
+      content:"âœ”";
       position:absolute;
       left:0;
       top:0;
@@ -571,6 +600,31 @@
     }
 
     @media (max-width: 680px){
+      .topbar{
+        padding:9px 12px;
+      }
+      .topbar-inner{
+        gap:12px;
+      }
+      .logo-link img{
+        width:46px;
+        height:46px;
+      }
+      .main-nav{
+        flex:1;
+        justify-content:flex-start;
+        overflow-x:auto;
+        scrollbar-width:none;
+        -webkit-overflow-scrolling:touch;
+      }
+      .main-nav::-webkit-scrollbar{
+        display:none;
+      }
+      .main-nav a{
+        flex:0 0 auto;
+        padding:8px 10px;
+        font-size:14px;
+      }
       .hero{
         min-height:auto;
       }
@@ -626,27 +680,38 @@
 <body>
 
   <div class="topbar">
-    <a href="https://giftcardzoneeu.com/" class="logo-link" aria-label="GiftCardZoneEU Home">
-      <img src="/assets/gz-logo.png" alt="GiftCardZoneEU Logo">
-    </a>
+    <div class="topbar-inner">
+      <a href="/" class="logo-link" aria-label="GiftCardZoneEU Home">
+        <img src="/assets/gz-logo.png" alt="GiftCardZoneEU Logo">
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="/">Home</a>
+        <a href="/travel/" aria-current="page">Travel</a>
+        <a href="/partners/">Partners</a>
+        <a href="/shopping/">Shopping</a>
+        <a href="/vpn/">VPN</a>
+        <a href="/tools/">Tools</a>
+      </nav>
+    </div>
   </div>
 
   <section class="hero">
     <div class="hero-inner">
       <div class="hero-copy">
-        <h1>Best Hotels in Norway 🇳🇴</h1>
-        <p>Compare hotel deals in Oslo, Bergen, Tromsø, and Stavanger with trusted booking partners.</p>
+        <h1>Best Hotels in Norway ðŸ‡³ðŸ‡´</h1>
+        <p>Compare hotel deals in Oslo, Bergen, TromsÃ¸, and Stavanger with trusted booking partners.</p>
 
         <div class="hero-buttons">
-          <a class="hero-btn hero-btn-primary" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">🛏️ Compare Hotel Deals</a>
+          <a class="hero-btn hero-btn-primary" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">ðŸ›ï¸ Compare Hotel Deals</a>
           <a class="hero-btn hero-btn-secondary" href="#cities">Explore Cities</a>
         </div>
 
         <div class="trust-row">
-          <div class="trust-pill"><span class="icon">🏷️</span><span>Best Price Guarantee</span></div>
-          <div class="trust-pill"><span class="icon">🛡️</span><span>Trusted Partners</span></div>
-          <div class="trust-pill"><span class="icon">🔄</span><span>Free Cancellation</span></div>
-          <div class="trust-pill"><span class="icon">🔒</span><span>Secure Booking</span></div>
+          <div class="trust-pill"><span class="icon">ðŸ·ï¸</span><span>Best Price Guarantee</span></div>
+          <div class="trust-pill"><span class="icon">ðŸ›¡ï¸</span><span>Trusted Partners</span></div>
+          <div class="trust-pill"><span class="icon">ðŸ”„</span><span>Free Cancellation</span></div>
+          <div class="trust-pill"><span class="icon">ðŸ”’</span><span>Secure Booking</span></div>
         </div>
       </div>
 
@@ -701,8 +766,8 @@
           <div class="city-content">
             <h3>Oslo</h3>
             <div class="badge badge-teal">Capital &amp; Waterfront</div>
-            <p>Stylish neighborhoods, museums, and scenic waterfront stays in Norway’s modern capital.</p>
-            <a class="city-link link-teal" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">View Hotels →</a>
+            <p>Stylish neighborhoods, museums, and scenic waterfront stays in Norwayâ€™s modern capital.</p>
+            <a class="city-link link-teal" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">View Hotels â†’</a>
           </div>
         </article>
 
@@ -711,18 +776,18 @@
           <div class="city-content">
             <h3>Bergen</h3>
             <div class="badge badge-blue">Fjords Gateway</div>
-            <p>Colorful harbor views, mountain backdrops, and easy access to Norway’s famous fjords.</p>
-            <a class="city-link link-blue" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">View Hotels →</a>
+            <p>Colorful harbor views, mountain backdrops, and easy access to Norwayâ€™s famous fjords.</p>
+            <a class="city-link link-blue" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">View Hotels â†’</a>
           </div>
         </article>
 
         <article class="city-card">
           <img src="/assets/travel/norway/tromso.webp" alt="Tromso northern lights">
           <div class="city-content">
-            <h3>Tromsø</h3>
+            <h3>TromsÃ¸</h3>
             <div class="badge badge-purple">Northern Lights</div>
             <p>Arctic adventures, winter charm, and one of the best places to see the aurora.</p>
-            <a class="city-link link-purple" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">View Hotels →</a>
+            <a class="city-link link-purple" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">View Hotels â†’</a>
           </div>
         </article>
 
@@ -732,7 +797,7 @@
             <h3>Stavanger</h3>
             <div class="badge badge-orange">Coastal Adventure</div>
             <p>Charming old streets, coastal scenery, and a perfect base for Preikestolen trips.</p>
-            <a class="city-link link-orange" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">View Hotels →</a>
+            <a class="city-link link-orange" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">View Hotels â†’</a>
           </div>
         </article>
 
@@ -742,7 +807,7 @@
     <section class="two-col">
       <div class="info-box">
         <div class="info-head">
-          <div class="info-icon">🏔️</div>
+          <div class="info-icon">ðŸ”ï¸</div>
           <div>
             <h3>Why Visit Norway?</h3>
           </div>
@@ -750,15 +815,15 @@
         <p>Norway offers dramatic fjords, clean cities, mountain escapes, and unforgettable experiences from summer cruises to Northern Lights adventures.</p>
 
         <div class="micro-pills">
-          <div class="micro-pill">✅ Clean &amp; Safe</div>
-          <div class="micro-pill">🏞️ Stunning Fjords</div>
-          <div class="micro-pill">❄️ Great in All Seasons</div>
+          <div class="micro-pill">âœ… Clean &amp; Safe</div>
+          <div class="micro-pill">ðŸžï¸ Stunning Fjords</div>
+          <div class="micro-pill">â„ï¸ Great in All Seasons</div>
         </div>
       </div>
 
       <div class="info-box">
         <div class="info-head">
-          <div class="info-icon" style="background:#fff3eb;">💡</div>
+          <div class="info-icon" style="background:#fff3eb;">ðŸ’¡</div>
           <div>
             <h3>Hotel Booking Tips</h3>
           </div>
@@ -777,40 +842,40 @@
       <h2>Explore More Travel Guides</h2>
       <div class="travel-links">
         <a class="travel-link-card" href="/travel/sweden/">
-          <div>🇸🇪 Sweden<small>Travel Guide</small></div>
-          <div class="travel-link-arrow">›</div>
+          <div>ðŸ‡¸ðŸ‡ª Sweden<small>Travel Guide</small></div>
+          <div class="travel-link-arrow">â€º</div>
         </a>
 
         <a class="travel-link-card" href="/travel/germany/">
-          <div>🇩🇪 Germany<small>Travel Guide</small></div>
-          <div class="travel-link-arrow">›</div>
+          <div>ðŸ‡©ðŸ‡ª Germany<small>Travel Guide</small></div>
+          <div class="travel-link-arrow">â€º</div>
         </a>
 
         <a class="travel-link-card" href="/travel/belgium/">
-          <div>🇧🇪 Belgium<small>Travel Guide</small></div>
-          <div class="travel-link-arrow">›</div>
+          <div>ðŸ‡§ðŸ‡ª Belgium<small>Travel Guide</small></div>
+          <div class="travel-link-arrow">â€º</div>
         </a>
 
         <a class="travel-link-card" href="/travel/netherlands/">
-          <div>🇳🇱 Netherlands<small>Travel Guide</small></div>
-          <div class="travel-link-arrow">›</div>
+          <div>ðŸ‡³ðŸ‡± Netherlands<small>Travel Guide</small></div>
+          <div class="travel-link-arrow">â€º</div>
         </a>
       </div>
     </section>
 
     <div class="disclosure">
-      <span>🛡️</span>
+      <span>ðŸ›¡ï¸</span>
       <span><strong>Affiliate Disclosure:</strong> We may earn a small commission when you book through our links at no extra cost to you.</span>
     </div>
 
   </main>
 
   <a class="sticky-cta" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">
-    🔥 Check Norway Hotel Deals Now →
+    ðŸ”¥ Check Norway Hotel Deals Now â†’
   </a>
 
   <div class="footer">
-    © <span id="year"></span> GiftCardZoneEU
+    Â© <span id="year"></span> GiftCardZoneEU
   </div>
 
   <script>
