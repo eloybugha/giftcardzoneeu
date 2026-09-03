@@ -14,14 +14,14 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Explore Asia Travel Deals | Trip.com Partner" />
-  <meta property="og:description" content="Compare hotel deals across Asia â€” Japan, Singapore, Thailand, Philippines and more." />
+  <meta property="og:description" content="Compare hotel deals across Asia — Japan, Singapore, Thailand, Philippines and more." />
   <meta property="og:url" content="https://giftcardzoneeu.com/asia/" />
   <meta property="og:image" content="https://giftcardzoneeu.com/assets/asia-hero.webp" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Explore Asia Travel Deals | Trip.com Partner" />
-  <meta name="twitter:description" content="Compare hotel deals across Asia â€” Japan, Singapore, Thailand, Philippines and more." />
+  <meta name="twitter:description" content="Compare hotel deals across Asia — Japan, Singapore, Thailand, Philippines and more." />
   <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/asia-hero.webp" />
 
   <style>
@@ -45,6 +45,7 @@
       background:#050816;
       color:var(--text);
       line-height:1.6;
+      padding-bottom:86px;
     }
 
     .logo-home{
@@ -279,11 +280,54 @@
       box-shadow:0 12px 30px rgba(236,72,153,0.35);
       transition:transform .15s ease, opacity .15s ease;
       white-space:nowrap;
+      min-width:158px;
     }
 
     .btn:hover{
       transform:translateY(-1px);
       opacity:.96;
+    }
+
+    .btn:focus-visible,
+    .sticky-cta-button:focus-visible{
+      outline:3px solid #fbbf24;
+      outline-offset:3px;
+    }
+
+    .sticky-cta{
+      position:fixed;
+      left:50%;
+      bottom:16px;
+      transform:translateX(-50%);
+      z-index:1000;
+      width:min(620px,calc(100% - 28px));
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:1rem;
+      padding:.7rem .75rem .7rem 1rem;
+      border:1px solid rgba(255,255,255,.2);
+      border-radius:1rem;
+      background:rgba(5,8,22,.94);
+      box-shadow:0 16px 45px rgba(0,0,0,.5);
+      backdrop-filter:blur(12px);
+    }
+
+    .sticky-cta-copy strong,
+    .sticky-cta-copy span{display:block;}
+    .sticky-cta-copy strong{font-size:.93rem;}
+    .sticky-cta-copy span{font-size:.76rem;color:#cbd5e1;}
+
+    .sticky-cta-button{
+      flex-shrink:0;
+      padding:.68rem 1rem;
+      border-radius:.75rem;
+      background:linear-gradient(135deg,#fb7185,#8b5cf6);
+      color:#fff;
+      font-size:.86rem;
+      font-weight:800;
+      text-decoration:none;
+      box-shadow:0 10px 25px rgba(236,72,153,.32);
     }
 
     .travel-info{
@@ -399,9 +443,13 @@
       }
 
       .card-footer{
-        flex-direction:column;
-        align-items:flex-start;
+        align-items:center;
       }
+
+      .card-footer .btn{width:100%;}
+      .sticky-cta-copy span{display:none;}
+      .sticky-cta{bottom:10px;padding:.6rem .65rem .6rem .8rem;}
+      .sticky-cta-button{padding:.62rem .78rem;font-size:.8rem;}
 
       .travel-info-block{
         padding:1rem;
@@ -427,11 +475,11 @@
       <div class="hero-inner">
         <div class="hero-badge">
           <span class="hero-badge-dot"></span>
-          Trip.com Partner â€¢ GiftCardZoneEU Asia Network
+          Trip.com Partner • GiftCardZoneEU Asia Network
         </div>
         <h1 class="hero-title">Explore Top Asia Travel & Hotel Deals</h1>
         <p class="hero-subtitle">
-          Discover hotel deals across Asia â€” Japan, Singapore, Thailand, the Philippines and more.
+          Discover hotel deals across Asia — Japan, Singapore, Thailand, the Philippines and more.
           Book smarter and explore Asia with GiftCardZoneEU.
         </p>
       </div>
@@ -440,7 +488,7 @@
     <main class="content">
       <section class="section-heading">
         <h2>Top Hotel Deals in Asia</h2>
-        <p>Start exploring top Asian destinations â€” more countries coming soon.</p>
+        <p>Start exploring top Asian destinations — more countries coming soon.</p>
       </section>
 
       <section class="grid">
@@ -450,7 +498,7 @@
             <img src="/assets/japan-hotel-deals.webp" alt="Japan hotel deals">
           </div>
           <h3 class="card-title">Japan Hotel Deals</h3>
-          <p class="card-sub">Tokyo, Kyoto, Osaka â€” culture, technology and unforgettable travel experiences.</p>
+          <p class="card-sub">Tokyo, Kyoto, Osaka — culture, technology and unforgettable travel experiences.</p>
           <div class="chip-row">
             <span class="chip">Japan</span>
             <span class="chip">City & culture</span>
@@ -458,7 +506,7 @@
           </div>
           <div class="card-footer">
             <span>Live now</span>
-            <a class="btn" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">View Japan Deals â†—</a>
+            <a class="btn" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">View Japan Deals ↗</a>
           </div>
         </article>
 
@@ -467,7 +515,7 @@
             <img src="/assets/singapore-hotel-deals.webp" alt="Singapore hotel deals">
           </div>
           <h3 class="card-title">Singapore Hotel Deals</h3>
-          <p class="card-sub">Modern, clean, fast â€” discover hotels in Singaporeâ€™s top districts.</p>
+          <p class="card-sub">Modern, clean, fast — discover hotels in Singapore’s top districts.</p>
           <div class="chip-row">
             <span class="chip">Singapore</span>
             <span class="chip">City trips</span>
@@ -475,7 +523,7 @@
           </div>
           <div class="card-footer">
             <span>Live now</span>
-            <a class="btn" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">View Singapore Deals â†—</a>
+            <a class="btn" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">View Singapore Deals ↗</a>
           </div>
         </article>
 
@@ -484,7 +532,7 @@
             <img src="/assets/thailand-hotel-deals.webp" alt="Thailand hotel deals">
           </div>
           <h3 class="card-title">Thailand Hotel Deals</h3>
-          <p class="card-sub">Bangkok, Phuket, Chiang Mai â€” islands, nightlife and nature escapes.</p>
+          <p class="card-sub">Bangkok, Phuket, Chiang Mai — islands, nightlife and nature escapes.</p>
           <div class="chip-row">
             <span class="chip">Thailand</span>
             <span class="chip">Beaches</span>
@@ -492,7 +540,7 @@
           </div>
           <div class="card-footer">
             <span>Live now</span>
-            <a class="btn" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">View Thailand Deals â†—</a>
+            <a class="btn" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">View Thailand Deals ↗</a>
           </div>
         </article>
 
@@ -501,7 +549,7 @@
             <img src="/assets/philippines-hotel-deals.webp" alt="Philippines hotel deals">
           </div>
           <h3 class="card-title">Philippines Hotel Deals</h3>
-          <p class="card-sub">Boracay, Palawan, Cebu â€” beaches, islands, food, nightlife and unforgettable escapes.</p>
+          <p class="card-sub">Boracay, Palawan, Cebu — beaches, islands, food, nightlife and unforgettable escapes.</p>
           <div class="chip-row">
             <span class="chip">Philippines</span>
             <span class="chip">Beaches</span>
@@ -509,7 +557,7 @@
           </div>
           <div class="card-footer">
             <span>Live now</span>
-            <a class="btn" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">View Philippines Deals â†—</a>
+            <a class="btn" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">View Philippines Deals ↗</a>
           </div>
         </article>
 
@@ -526,7 +574,7 @@
         <div class="travel-info-block">
           <h2>Popular Travel Destinations in Asia</h2>
           <p>
-            Asia is home to some of the worldâ€™s most exciting travel destinations. Japan blends ancient traditions with modern cities like Tokyo, Kyoto, and Osaka. Singapore offers a futuristic skyline, premium shopping, and family-friendly attractions. Thailand is known for its beaches, nightlife, and island adventures, while the Philippines offers scenic coastlines, island hopping, and well-known destinations such as Boracay, Cebu, and Palawan.
+            Asia is home to some of the world’s most exciting travel destinations. Japan blends ancient traditions with modern cities like Tokyo, Kyoto, and Osaka. Singapore offers a futuristic skyline, premium shopping, and family-friendly attractions. Thailand is known for its beaches, nightlife, and island adventures, while the Philippines offers scenic coastlines, island hopping, and well-known destinations such as Boracay, Cebu, and Palawan.
           </p>
         </div>
 
@@ -540,7 +588,7 @@
     </main>
 
     <section class="partners-section">
-  <h2 class="partners-title">ðŸŒ Top Travel Partners</h2>
+  <h2 class="partners-title">🌏 Top Travel Partners</h2>
 
   <div class="partners-grid">
 
@@ -554,12 +602,20 @@
 
 
     <footer class="footer">
-      Â© <span id="year"></span> Part of
+      © <span id="year"></span> Part of
       <a href="https://giftcardzoneeu.com/">GiftCardZoneEU.com</a>
-      travel &amp; deals network. Trip.com partner page â€” links may contain affiliate tracking.
+      travel &amp; deals network. Trip.com partner page — links may contain affiliate tracking.
     </footer>
 
   </div>
+
+  <aside class="sticky-cta" aria-label="Trip.com booking link">
+    <div class="sticky-cta-copy">
+      <strong>Ready to explore Asia?</strong>
+      <span>Compare hotels and travel deals with Trip.com.</span>
+    </div>
+    <a class="sticky-cta-button" href="https://www.jdoqocy.com/click-101586981-13761944" target="_blank" rel="nofollow sponsored noopener noreferrer">View Trip.com Deals ↗</a>
+  </aside>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
