@@ -1,19 +1,71 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Germany Deals • Top Picks | GiftCardZoneEU</title>
-  <meta name="description" content="Curated Germany deals. Clean grid, lazy-loaded images and direct affiliate links." />
-  <meta name="robots" content="index, follow" />
+  <title>Top Angebote in Deutschland – Technik, Haushalt & Reise | GiftCardZoneEU</title>
+
+  <meta
+    name="description"
+    content="Entdecke ausgewählte Angebote in Deutschland für Technik, Haushalt, Reisen und Alltag. Preise und Verfügbarkeit direkt bei AliExpress prüfen."
+  />
+
+  <meta name="robots" content="index,follow,max-image-preview:large" />
   <link rel="canonical" href="https://giftcardzoneeu.com/deals/germany/" />
 
-  <meta property="og:title" content="Germany Deals • Top Picks" />
-  <meta property="og:url" content="https://giftcardzoneeu.com/deals/germany/" />
-  <meta property="og:description" content="Hot finds with direct AliExpress links." />
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/gz-logo-48.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/gz-logo-192.png" />
+  <link rel="apple-touch-icon" href="/assets/gz-logo-180.png" />
+
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="GiftCardZoneEU" />
+  <meta property="og:locale" content="de_DE" />
+
+  <meta
+    property="og:title"
+    content="Top Angebote in Deutschland – Technik, Haushalt & Reise"
+  />
+
+  <meta
+    property="og:description"
+    content="Ausgewählte Angebote und praktische Produkte für Technik, Haushalt, Reisen und Alltag."
+  />
+
+  <meta
+    property="og:url"
+    content="https://giftcardzoneeu.com/deals/germany/"
+  />
+
+  <meta
+    property="og:image"
+    content="https://giftcardzoneeu.com/assets/germany/qcy-h3-pro.webp?v=3"
+  />
+
+  <meta
+    property="og:image:alt"
+    content="Ausgewählte Angebote und Produkte in Deutschland"
+  />
+
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
+
+  <meta
+    name="twitter:title"
+    content="Top Angebote in Deutschland | GiftCardZoneEU"
+  />
+
+  <meta
+    name="twitter:description"
+    content="Ausgewählte Angebote für Technik, Haushalt, Reisen und Alltag."
+  />
+
+  <meta
+    name="twitter:image"
+    content="https://giftcardzoneeu.com/assets/germany/qcy-h3-pro.webp?v=3"
+  />
 
   <style>
     :root{
@@ -21,26 +73,53 @@
       --card:#111623;
       --text:#e8eefc;
       --muted:#9fb0d1;
+      --english:#8fa2c8;
       --ring:#2b5cff;
       --cta:#2b5cff;
       --cta-t:#fff;
+      --green:#3ddc84;
       --gap:18px;
       --radius:18px;
       --shadow:0 10px 32px rgba(0,0,0,.34);
     }
 
-    *{box-sizing:border-box}
+    *{
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
 
     body{
       margin:0;
       background:
-        radial-gradient(circle at top left,rgba(37,99,235,.22),transparent 34%),
-        radial-gradient(circle at top right,rgba(14,165,233,.14),transparent 32%),
-        linear-gradient(180deg,#0b1020 0%,#080b12 55%,#05070b 100%);
+        radial-gradient(
+          circle at top left,
+          rgba(37,99,235,.22),
+          transparent 34%
+        ),
+        radial-gradient(
+          circle at top right,
+          rgba(14,165,233,.14),
+          transparent 32%
+        ),
+        linear-gradient(
+          180deg,
+          #0b1020 0%,
+          #080b12 55%,
+          #05070b 100%
+        );
       color:var(--text);
-      font:500 16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;
+      font:500 16px/1.5 system-ui,-apple-system,
+      "Segoe UI",Roboto,Inter,Arial,sans-serif;
     }
 
+    a{
+      color:inherit;
+    }
+
+    /* Navigation */
     .nav{
       position:sticky;
       top:0;
@@ -48,8 +127,9 @@
       display:flex;
       align-items:center;
       justify-content:space-between;
+      gap:20px;
       padding:12px 18px;
-      background:rgba(8,11,18,.78);
+      background:rgba(8,11,18,.82);
       backdrop-filter:blur(16px);
       border-bottom:1px solid rgba(255,255,255,.07);
     }
@@ -79,48 +159,130 @@
 
     .navlinks{
       display:flex;
-      gap:10px;
       flex-wrap:wrap;
+      justify-content:flex-end;
+      gap:10px;
     }
 
     .navlinks a{
       padding:9px 12px;
+      border:1px solid rgba(255,255,255,.08);
       border-radius:999px;
       background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.08);
       color:#cbd5e1;
       font-size:14px;
+      transition:.18s ease;
     }
 
+    .navlinks a:hover,
+    .navlinks a:focus{
+      border-color:rgba(96,165,250,.5);
+      background:rgba(37,99,235,.15);
+      color:#fff;
+    }
+
+    /* Main container */
     .wrap{
+      width:100%;
       max-width:1150px;
       margin:26px auto;
-      padding:0 16px 34px;
+      padding:0 16px 40px;
     }
 
+    /* Breadcrumb */
+    .breadcrumb{
+      display:flex;
+      flex-wrap:wrap;
+      gap:7px;
+      margin-bottom:14px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .breadcrumb a{
+      color:#bfdbfe;
+      text-decoration:none;
+    }
+
+    .breadcrumb a:hover{
+      text-decoration:underline;
+    }
+
+    /* Hero */
     .hero{
       margin-bottom:18px;
-      padding:22px;
+      padding:26px;
+      border:1px solid rgba(96,165,250,.20);
       border-radius:22px;
       background:
-        linear-gradient(135deg,rgba(37,99,235,.22),rgba(15,23,42,.78)),
+        linear-gradient(
+          135deg,
+          rgba(37,99,235,.25),
+          rgba(15,23,42,.80)
+        ),
         rgba(15,23,42,.78);
-      border:1px solid rgba(96,165,250,.20);
       box-shadow:0 16px 42px rgba(0,0,0,.32);
     }
 
+    .hero-label{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      margin-bottom:12px;
+      padding:6px 11px;
+      border:1px solid rgba(96,165,250,.28);
+      border-radius:999px;
+      background:rgba(37,99,235,.13);
+      color:#dbeafe;
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.3px;
+      text-transform:uppercase;
+    }
+
     .hero h1{
-      margin:0 0 8px;
-      font-size:clamp(1.6rem,4vw,2.5rem);
+      max-width:850px;
+      margin:0 0 10px;
+      font-size:clamp(1.8rem,4vw,2.65rem);
       line-height:1.1;
+      letter-spacing:-.4px;
     }
 
-    .hero p{
+    .hero .primary-text{
+      max-width:790px;
       margin:0;
-      color:var(--muted);
-      max-width:760px;
+      color:#bac8e5;
+      font-size:16px;
     }
 
+    .english-text{
+      display:block;
+      margin-top:7px;
+      color:var(--english);
+      font-size:13px;
+      font-weight:500;
+    }
+
+    /* Affiliate disclosure */
+    .disclosure{
+      margin-bottom:18px;
+      padding:13px 16px;
+      border:1px solid rgba(61,220,132,.20);
+      border-radius:14px;
+      background:rgba(61,220,132,.07);
+      color:#d1fae5;
+      font-size:13px;
+    }
+
+    .disclosure strong{
+      color:#86efac;
+    }
+
+    .disclosure .english-text{
+      color:#9fc4b1;
+    }
+
+    /* Deals heading */
     .topbar{
       display:flex;
       align-items:center;
@@ -129,9 +291,9 @@
       margin:0 0 18px;
       padding:14px 16px;
       border:1px solid rgba(96,165,250,.18);
+      border-radius:16px;
       background:rgba(15,23,42,.72);
       backdrop-filter:blur(14px);
-      border-radius:16px;
       box-shadow:0 10px 28px rgba(0,0,0,.24);
     }
 
@@ -145,26 +307,23 @@
     .topbar .dot{
       width:12px;
       height:12px;
-      border-radius:50%;
-      background:#3ddc84;
-      box-shadow:0 0 18px rgba(61,220,132,.75);
       flex:0 0 auto;
+      border-radius:50%;
+      background:var(--green);
+      box-shadow:0 0 18px rgba(61,220,132,.75);
     }
 
+    .topbar-note{
+      color:var(--muted);
+      font-size:13px;
+      text-align:right;
+    }
+
+    /* Product grid */
     .grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
       gap:var(--gap);
-    }
-
-    @media (max-width:980px){
-      .grid{grid-template-columns:repeat(2,1fr)}
-    }
-
-    @media (max-width:640px){
-      .grid{grid-template-columns:1fr}
-      .topbar{align-items:flex-start;flex-direction:column}
-      .nav{align-items:flex-start;gap:10px;flex-direction:column}
     }
 
     .card{
@@ -172,23 +331,44 @@
       display:flex;
       flex-direction:column;
       gap:12px;
-      background:
-        linear-gradient(180deg,#111827 0%,#0d1423 100%);
+      min-height:100%;
+      padding:14px;
+      overflow:hidden;
       border:1px solid rgba(96,165,250,.16);
       border-radius:var(--radius);
+      background:
+        linear-gradient(
+          180deg,
+          #111827 0%,
+          #0d1423 100%
+        );
       box-shadow:
         var(--shadow),
         0 0 24px rgba(37,99,235,.07);
-      padding:14px;
-      min-height:100%;
-      overflow:hidden;
+      transition:
+        transform .18s ease,
+        border-color .18s ease,
+        box-shadow .18s ease;
+    }
+
+    .card:hover{
+      transform:translateY(-3px);
+      border-color:rgba(96,165,250,.44);
+      box-shadow:
+        0 16px 40px rgba(0,0,0,.42),
+        0 0 30px rgba(37,99,235,.12);
     }
 
     .card::before{
       content:"";
       position:absolute;
       inset:0;
-      background:linear-gradient(135deg,rgba(96,165,250,.08),transparent 42%);
+      background:
+        linear-gradient(
+          135deg,
+          rgba(96,165,250,.08),
+          transparent 42%
+        );
       pointer-events:none;
     }
 
@@ -201,9 +381,9 @@
       align-items:center;
       gap:5px;
       padding:6px 10px;
-      border-radius:999px;
-      background:rgba(15,23,42,.78);
       border:1px solid rgba(255,255,255,.14);
+      border-radius:999px;
+      background:rgba(15,23,42,.82);
       color:#fff;
       font-size:12px;
       font-weight:900;
@@ -213,29 +393,42 @@
     .card img{
       position:relative;
       z-index:1;
+      display:block;
       width:100%;
       aspect-ratio:1.4/1;
       object-fit:cover;
-      border-radius:14px;
       border:1px solid rgba(255,255,255,.08);
+      border-radius:14px;
       background:#0b1120;
     }
 
     .title{
       position:relative;
       z-index:1;
-      font-weight:900;
-      font-size:1.17rem;
-      line-height:1.25;
       margin:2px 0 0;
+      font-size:1.17rem;
+      font-weight:900;
+      line-height:1.25;
+    }
+
+    .product-description{
+      position:relative;
+      z-index:1;
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
     }
 
     .price{
       position:relative;
       z-index:1;
-      font-size:14px;
-      color:var(--muted);
       margin:0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .price strong{
+      color:#e8eefc;
     }
 
     .tags{
@@ -248,46 +441,172 @@
     }
 
     .tag{
-      font-size:12px;
-      color:#dbeafe;
-      background:rgba(37,99,235,.13);
+      padding:4px 9px;
       border:1px solid rgba(96,165,250,.24);
       border-radius:999px;
-      padding:4px 9px;
+      background:rgba(37,99,235,.13);
+      color:#dbeafe;
+      font-size:12px;
     }
 
     .btn{
       position:relative;
       z-index:1;
       display:flex;
+      flex-direction:column;
       align-items:center;
       justify-content:center;
-      gap:8px;
-      background:linear-gradient(135deg,#2563eb,#3b82f6);
-      color:var(--cta-t);
-      text-decoration:none;
-      font-weight:900;
-      padding:13px;
-      border-radius:14px;
-      border:1px solid rgba(147,197,253,.28);
-      transition:.18s ease;
+      gap:1px;
+      min-height:52px;
       margin-top:10px;
+      padding:10px 13px;
+      border:1px solid rgba(147,197,253,.28);
+      border-radius:14px;
+      background:linear-gradient(135deg,#2563eb,#3b82f6);
       box-shadow:0 10px 24px rgba(37,99,235,.35);
+      color:var(--cta-t);
+      font-size:14px;
+      font-weight:900;
+      line-height:1.25;
+      text-align:center;
+      text-decoration:none;
+      transition:.18s ease;
     }
 
-    .btn:hover{
+    .btn small{
+      color:#dbeafe;
+      font-size:11px;
+      font-weight:600;
+    }
+
+    .btn:hover,
+    .btn:focus{
       transform:translateY(-2px);
+      background:linear-gradient(135deg,#1d4ed8,#2563eb);
       box-shadow:0 14px 30px rgba(37,99,235,.45);
     }
 
-    .muted{color:var(--muted)}
+    .muted{
+      color:var(--muted);
+    }
 
+    /* Information section */
+    .info-section{
+      margin-top:30px;
+      padding:24px;
+      border:1px solid rgba(96,165,250,.16);
+      border-radius:20px;
+      background:rgba(15,23,42,.72);
+      box-shadow:0 12px 34px rgba(0,0,0,.25);
+    }
+
+    .info-section h2{
+      margin:0 0 10px;
+      font-size:clamp(1.35rem,3vw,1.8rem);
+    }
+
+    .info-section h3{
+      margin:22px 0 7px;
+      font-size:1.08rem;
+    }
+
+    .info-section p,
+    .info-section li{
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .info-section p{
+      margin:0 0 12px;
+    }
+
+    .info-section ul{
+      margin:10px 0 0;
+      padding-left:20px;
+    }
+
+    .info-section li + li{
+      margin-top:7px;
+    }
+
+    .price-notice{
+      margin-top:18px;
+      padding:14px;
+      border-left:3px solid #fbbf24;
+      border-radius:9px;
+      background:rgba(251,191,36,.08);
+      color:#fde68a;
+      font-size:13px;
+    }
+
+    .price-notice .english-text{
+      color:#d6bd76;
+    }
+
+    /* Footer */
     .foot{
-      opacity:.82;
+      margin:25px 0 0;
+      color:#aab8d6;
       font-size:13px;
       text-align:center;
-      margin:22px 0 0;
-      color:#aab8d6;
+    }
+
+    .footer-links{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:9px 15px;
+      margin-bottom:9px;
+    }
+
+    .footer-links a{
+      color:#cbd5e1;
+      text-decoration:none;
+    }
+
+    .footer-links a:hover{
+      color:#bfdbfe;
+      text-decoration:underline;
+    }
+
+    @media(max-width:980px){
+      .grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+    }
+
+    @media(max-width:640px){
+      .nav{
+        position:relative;
+        flex-direction:column;
+        align-items:center;
+        gap:10px;
+      }
+
+      .navlinks{
+        justify-content:center;
+      }
+
+      .wrap{
+        margin-top:18px;
+      }
+
+      .hero{
+        padding:21px 18px;
+      }
+
+      .topbar{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .topbar-note{
+        text-align:left;
+      }
+
+      .grid{
+        grid-template-columns:1fr;
+      }
     }
   </style>
 </head>
@@ -295,129 +614,585 @@
 <body>
 
   <header class="nav">
-    <a class="brand" href="/" aria-label="GiftCardZoneEU Home">
-      <img src="/assets/gz-logo.png" alt="GiftCardZoneEU Logo">
+    <a class="brand" href="/" aria-label="GiftCardZoneEU Startseite">
+      <img
+        src="/assets/gz-logo.png"
+        alt="GiftCardZoneEU Logo"
+        width="42"
+        height="42"
+      />
       <span>GiftCardZoneEU</span>
     </a>
 
-    <nav class="navlinks" aria-label="Main navigation">
-      <a href="/travel/">Travel</a>
+    <nav class="navlinks" aria-label="Hauptnavigation">
+      <a href="/">Startseite</a>
+      <a href="/travel/">Reisen</a>
       <a href="/shopping/">Shopping</a>
-      <a href="/rewards/">Rewards</a>
-      <a href="/deals/germany/">Germany Deals</a>
+      <a href="/rewards/">Prämien</a>
+      <a href="/deals/germany/" aria-current="page">Deutschland-Angebote</a>
     </nav>
   </header>
 
-  <div class="wrap">
+  <main class="wrap">
+
+    <nav class="breadcrumb" aria-label="Brotkrümelnavigation">
+      <a href="/">Startseite</a>
+      <span>›</span>
+      <a href="/shopping/">Shopping</a>
+      <span>›</span>
+      <span>Deutschland-Angebote</span>
+    </nav>
 
     <section class="hero">
-      <h1>Germany Deals & Smart Finds</h1>
-      <p>Curated product picks for everyday savings, travel comfort, home gadgets and useful lifestyle finds.</p>
+      <span class="hero-label">🇩🇪 Angebote in Deutschland</span>
+
+      <h1>Top Angebote &amp; praktische Produkte in Deutschland</h1>
+
+      <p class="primary-text">
+        Entdecke ausgewählte Produkte für Technik, Haushalt, Reisen und
+        Alltag. Prüfe den aktuellen Preis und die Verfügbarkeit direkt bei
+        AliExpress.
+
+        <span class="english-text" lang="en">
+          Discover selected products for technology, home, travel and
+          everyday life. Check the current price and availability directly
+          on AliExpress.
+        </span>
+      </p>
     </section>
 
-    <div class="topbar">
-      <div class="topbar-left">
-        <div class="dot"></div>
-        <strong>Top On-Sale Product Recommendations!</strong>
+    <aside class="disclosure">
+      <strong>Affiliate-Hinweis:</strong>
+      Einige Links auf dieser Seite sind Affiliate-Links. Wenn du über einen
+      solchen Link einkaufst, erhalten wir möglicherweise eine Provision –
+      ohne zusätzliche Kosten für dich.
+
+      <span class="english-text" lang="en">
+        Affiliate disclosure: Some links on this page are affiliate links.
+        We may earn a commission from qualifying purchases at no extra cost
+        to you.
+      </span>
+    </aside>
+
+    <section aria-labelledby="deal-heading">
+
+      <div class="topbar">
+        <div class="topbar-left">
+          <div class="dot" aria-hidden="true"></div>
+          <strong id="deal-heading">
+            Ausgewählte Produktangebote
+          </strong>
+        </div>
+
+        <span class="topbar-note">
+          Direkte AliExpress-Links · Keine Pop-ups · Bilder werden verzögert geladen
+          <span class="english-text" lang="en">
+            Direct AliExpress links · No pop-ups · Lazy-loaded images
+          </span>
+        </span>
       </div>
-      <span class="muted">Direct AliExpress links • No popups • Images lazy-loaded</span>
-    </div>
 
-    <div class="grid">
+      <div class="grid">
 
-      <article class="card">
-        <span class="badge">🔥 Best Pick</span>
-        <img loading="lazy" src="/assets/germany/qcy-h3-pro.webp?v=3" alt="QCY H3 Pro ANC Headphones" onerror="this.onerror=null;this.src='/assets/placeholder.webp'">
-        <h3 class="title">QCY H3 Pro ANC Headphones</h3>
-        <p class="price"><strong>Price Now:</strong> €38.79 <span class="muted">(Original: €120.73)</span></p>
-        <div class="tags"><span class="tag">Hi-Res</span><span class="tag">ANC</span><span class="tag">LDAC</span></div>
-        <a class="btn" href="https://s.click.aliexpress.com/e/_c2y2L9E7" target="_blank" rel="nofollow sponsored noopener noreferrer">🔗 Click & Buy</a>
-      </article>
+        <!-- QCY H3 Pro -->
+        <article class="card">
+          <span class="badge">🔥 Top-Auswahl</span>
 
-      <article class="card">
-        <span class="badge">✈️ Travel</span>
-        <img loading="lazy" src="/assets/germany/hd-monocular-telescope.webp?v=3" alt="HD Monocular Telescope Clip-on" onerror="this.onerror=null;this.src='/assets/placeholder.webp'">
-        <h3 class="title">HD Monocular Telescope (Clip-on)</h3>
-        <p class="price"><strong>Price Now:</strong> €14.99 <span class="muted">(Original: €29.99)</span></p>
-        <div class="tags"><span class="tag">Travel</span><span class="tag">Zoom</span></div>
-        <a class="btn" href="https://s.click.aliexpress.com/e/_c379HEaX" target="_blank" rel="nofollow sponsored noopener noreferrer">🔗 Click & Buy</a>
-      </article>
+          <img
+            loading="lazy"
+            src="/assets/germany/qcy-h3-pro.webp?v=3"
+            alt="QCY H3 Pro ANC Kopfhörer"
+            width="500"
+            height="357"
+            onerror="this.onerror=null;this.src='/assets/placeholder.webp'"
+          />
 
-      <article class="card">
-        <span class="badge">💨 Home</span>
-        <img loading="lazy" src="/assets/germany/mini-air-humidifier-aroma.webp?v=3" alt="Mini Air Humidifier Aroma" onerror="this.onerror=null;this.src='/assets/placeholder.webp'">
-        <h3 class="title">Mini Air Humidifier (Aroma)</h3>
-        <p class="price"><strong>Price Now:</strong> €0.99 <span class="muted">(Original: €8.13)</span></p>
-        <div class="tags"><span class="tag">88% off</span><span class="tag">Aroma</span></div>
-        <a class="btn" href="https://s.click.aliexpress.com/e/_c4S1Q8Bp" target="_blank" rel="nofollow sponsored noopener noreferrer">🔗 Click & Buy</a>
-      </article>
+          <h2 class="title">QCY H3 Pro ANC Kopfhörer</h2>
 
-      <article class="card">
-        <span class="badge">✨ Trending</span>
-        <img loading="lazy" src="/deals/germany/assets/germany/wood-style-air-diffuser.webp?v=4" alt="Wood-Style Air Diffuser" onerror="this.onerror=null;this.src='/assets/placeholder.webp'">
-        <h3 class="title">Wood-Style Air Diffuser</h3>
-        <p class="price"><strong>Price Now:</strong> €6.49 <span class="muted">(Original: €15.99)</span></p>
-        <div class="tags"><span class="tag">Home</span></div>
-        <a class="btn" href="https://s.click.aliexpress.com/e/_c4a8U4aX" target="_blank" rel="nofollow sponsored noopener noreferrer">🔗 Click & Buy</a>
-      </article>
+          <p class="product-description">
+            Kabellose Kopfhörer mit aktiver Geräuschunterdrückung,
+            Hi-Res-Audio und LDAC-Unterstützung.
 
-      <article class="card">
-        <img loading="lazy" src="/assets/germany/air-aroma-humidifier.webp?v=3" alt="Air Aroma Humidifier" onerror="this.onerror=null;this.src='/assets/placeholder.webp'">
-        <h3 class="title">Air Aroma Humidifier</h3>
-        <p class="price"><strong>Price Now:</strong> €5.29 <span class="muted">(Original: €12.99)</span></p>
-        <div class="tags"><span class="tag">Home</span></div>
-        <a class="btn" href="https://s.click.aliexpress.com/e/_c3QTotbd" target="_blank" rel="nofollow sponsored noopener noreferrer">🔗 Click & Buy</a>
-      </article>
+            <span class="english-text" lang="en">
+              Wireless headphones with active noise cancellation,
+              Hi-Res Audio and LDAC support.
+            </span>
+          </p>
 
-      <article class="card">
-        <img loading="lazy" src="/assets/germany/mini-heat-bag-sealing-tool.webp?v=3" alt="Mini Heat Bag Sealing Tool" onerror="this.onerror=null;this.src='/assets/placeholder.webp'">
-        <h3 class="title">Mini Heat Bag Sealing Tool</h3>
-        <p class="price"><strong>Price Now:</strong> €2.19 <span class="muted">(Original: €6.99)</span></p>
-        <div class="tags"><span class="tag">Kitchen</span></div>
-        <a class="btn" href="https://s.click.aliexpress.com/e/_c40npSIn" target="_blank" rel="nofollow sponsored noopener noreferrer">🔗 Click & Buy</a>
-      </article>
+          <p class="price">
+            <strong>Angezeigter Preis:</strong>
+            €38.79
+            <span class="muted">(Ursprünglich: €120.73)</span>
+          </p>
 
-      <article class="card">
-        <img loading="lazy" src="/assets/germany/deodorize-toilet-cleaning.webp?v=3" alt="Deodorize Toilet Cleaning Sheets" onerror="this.onerror=null;this.src='/assets/placeholder.webp'">
-        <h3 class="title">Deodorize Toilet Cleaning Sheets</h3>
-        <p class="price"><strong>Price Now:</strong> €0.99 <span class="muted">(Original: €3.99)</span></p>
-        <div class="tags"><span class="tag">Home</span><span class="tag">Clean</span></div>
-        <a class="btn" href="https://s.click.aliexpress.com/e/_c4Vvkmtz" target="_blank" rel="nofollow sponsored noopener noreferrer">🔗 Click & Buy</a>
-      </article>
+          <div class="tags">
+            <span class="tag">Hi-Res</span>
+            <span class="tag">ANC</span>
+            <span class="tag">LDAC</span>
+          </div>
 
-      <article class="card">
-        <img loading="lazy" src="/assets/germany/qcy-melobuds-n70.webp?v=3" alt="QCY Melobuds N70" onerror="this.onerror=null;this.src='/assets/placeholder.webp'">
-        <h3 class="title">QCY Melobuds N70</h3>
-        <p class="price"><strong>Price Now:</strong> €24.99 <span class="muted">(Example price)</span></p>
-        <div class="tags"><span class="tag">TWS</span><span class="tag">Bluetooth</span></div>
-        <a class="btn" href="https://s.click.aliexpress.com/e/_c4UpcWU3" target="_blank" rel="nofollow sponsored noopener noreferrer">🔗 Click & Buy</a>
-      </article>
+          <a
+            class="btn"
+            href="https://s.click.aliexpress.com/e/_c2y2L9E7"
+            target="_blank"
+            rel="nofollow sponsored noopener noreferrer"
+          >
+            Preis bei AliExpress prüfen
+            <small lang="en">Check price on AliExpress ↗</small>
+          </a>
+        </article>
 
-      <article class="card">
-        <img loading="lazy" src="/deals/germany/assets/germany/men-women-fashion-sport-led.webp?v=2" alt="LED Sport Watch Unisex" onerror="this.onerror=null;this.src='/assets/placeholder.webp'">
-        <h3 class="title">LED Sport Watch (Unisex)</h3>
-        <p class="price"><strong>Price Now:</strong> €3.49 <span class="muted">(Example price)</span></p>
-        <div class="tags"><span class="tag">LED</span><span class="tag">Sport</span></div>
-        <a class="btn" href="https://s.click.aliexpress.com/e/_c2v4PpkR" target="_blank" rel="nofollow sponsored noopener noreferrer">🔗 Click & Buy</a>
-      </article>
+        <!-- Monocular Telescope -->
+        <article class="card">
+          <span class="badge">✈️ Reise</span>
 
-    </div>
+          <img
+            loading="lazy"
+            src="/assets/germany/hd-monocular-telescope.webp?v=3"
+            alt="HD Monokular-Teleskop mit Smartphone-Clip"
+            width="500"
+            height="357"
+            onerror="this.onerror=null;this.src='/assets/placeholder.webp'"
+          />
 
-    <p class="foot">🇩🇪 Updated regularly. Prices may change at checkout. Affiliate disclosure: we may earn a commission.</p>
-  </div>
+          <h2 class="title">
+            HD Monokular-Teleskop mit Smartphone-Clip
+          </h2>
+
+          <p class="product-description">
+            Kompaktes Monokular für Reisen, Naturbeobachtung und
+            Smartphone-Fotografie.
+
+            <span class="english-text" lang="en">
+              Compact monocular for travel, nature viewing and
+              smartphone photography.
+            </span>
+          </p>
+
+          <p class="price">
+            <strong>Angezeigter Preis:</strong>
+            €14.99
+            <span class="muted">(Ursprünglich: €29.99)</span>
+          </p>
+
+          <div class="tags">
+            <span class="tag">Reise</span>
+            <span class="tag">Zoom</span>
+          </div>
+
+          <a
+            class="btn"
+            href="https://s.click.aliexpress.com/e/_c379HEaX"
+            target="_blank"
+            rel="nofollow sponsored noopener noreferrer"
+          >
+            Preis bei AliExpress prüfen
+            <small lang="en">Check price on AliExpress ↗</small>
+          </a>
+        </article>
+
+        <!-- Mini Humidifier -->
+        <article class="card">
+          <span class="badge">💨 Haushalt</span>
+
+          <img
+            loading="lazy"
+            src="/assets/germany/mini-air-humidifier-aroma.webp?v=3"
+            alt="Mini-Luftbefeuchter mit Aroma-Funktion"
+            width="500"
+            height="357"
+            onerror="this.onerror=null;this.src='/assets/placeholder.webp'"
+          />
+
+          <h2 class="title">
+            Mini-Luftbefeuchter mit Aroma-Funktion
+          </h2>
+
+          <p class="product-description">
+            Kompaktes Gerät für Schreibtisch, Schlafzimmer oder kleine Räume.
+
+            <span class="english-text" lang="en">
+              Compact device for a desk, bedroom or small room.
+            </span>
+          </p>
+
+          <p class="price">
+            <strong>Angezeigter Preis:</strong>
+            €0.99
+            <span class="muted">(Ursprünglich: €8.13)</span>
+          </p>
+
+          <div class="tags">
+            <span class="tag">Haushalt</span>
+            <span class="tag">Aroma</span>
+          </div>
+
+          <a
+            class="btn"
+            href="https://s.click.aliexpress.com/e/_c4S1Q8Bp"
+            target="_blank"
+            rel="nofollow sponsored noopener noreferrer"
+          >
+            Preis bei AliExpress prüfen
+            <small lang="en">Check price on AliExpress ↗</small>
+          </a>
+        </article>
+
+        <!-- Wood-Style Diffuser -->
+        <article class="card">
+          <span class="badge">✨ Beliebt</span>
+
+          <img
+            loading="lazy"
+            src="/deals/germany/assets/germany/wood-style-air-diffuser.webp?v=4"
+            alt="Luftdiffusor in Holzoptik"
+            width="500"
+            height="357"
+            onerror="this.onerror=null;this.src='/assets/placeholder.webp'"
+          />
+
+          <h2 class="title">Luftdiffusor in Holzoptik</h2>
+
+          <p class="product-description">
+            Dekorativer Aroma-Diffusor in Holzoptik für Wohn- und Schlafräume.
+
+            <span class="english-text" lang="en">
+              Decorative wood-style aroma diffuser for living rooms
+              and bedrooms.
+            </span>
+          </p>
+
+          <p class="price">
+            <strong>Angezeigter Preis:</strong>
+            €6.49
+            <span class="muted">(Ursprünglich: €15.99)</span>
+          </p>
+
+          <div class="tags">
+            <span class="tag">Haushalt</span>
+            <span class="tag">Aroma</span>
+          </div>
+
+          <a
+            class="btn"
+            href="https://s.click.aliexpress.com/e/_c4a8U4aX"
+            target="_blank"
+            rel="nofollow sponsored noopener noreferrer"
+          >
+            Preis bei AliExpress prüfen
+            <small lang="en">Check price on AliExpress ↗</small>
+          </a>
+        </article>
+
+        <!-- Air Aroma Humidifier -->
+        <article class="card">
+          <img
+            loading="lazy"
+            src="/assets/germany/air-aroma-humidifier.webp?v=3"
+            alt="Aroma-Luftbefeuchter"
+            width="500"
+            height="357"
+            onerror="this.onerror=null;this.src='/assets/placeholder.webp'"
+          />
+
+          <h2 class="title">Aroma-Luftbefeuchter</h2>
+
+          <p class="product-description">
+            Kleiner Luftbefeuchter für eine angenehme Atmosphäre zu Hause
+            oder im Büro.
+
+            <span class="english-text" lang="en">
+              Small humidifier designed for use at home or in the office.
+            </span>
+          </p>
+
+          <p class="price">
+            <strong>Angezeigter Preis:</strong>
+            €5.29
+            <span class="muted">(Ursprünglich: €12.99)</span>
+          </p>
+
+          <div class="tags">
+            <span class="tag">Haushalt</span>
+            <span class="tag">Büro</span>
+          </div>
+
+          <a
+            class="btn"
+            href="https://s.click.aliexpress.com/e/_c3QTotbd"
+            target="_blank"
+            rel="nofollow sponsored noopener noreferrer"
+          >
+            Preis bei AliExpress prüfen
+            <small lang="en">Check price on AliExpress ↗</small>
+          </a>
+        </article>
+
+        <!-- Bag Sealer -->
+        <article class="card">
+          <img
+            loading="lazy"
+            src="/assets/germany/mini-heat-bag-sealing-tool.webp?v=3"
+            alt="Mini-Verschweißgerät für Lebensmittelbeutel"
+            width="500"
+            height="357"
+            onerror="this.onerror=null;this.src='/assets/placeholder.webp'"
+          />
+
+          <h2 class="title">
+            Mini-Verschweißgerät für Lebensmittelbeutel
+          </h2>
+
+          <p class="product-description">
+            Handliches Versiegelungsgerät zum erneuten Verschließen
+            geeigneter Kunststoffbeutel.
+
+            <span class="english-text" lang="en">
+              Compact heat-sealing tool for resealing suitable plastic bags.
+            </span>
+          </p>
+
+          <p class="price">
+            <strong>Angezeigter Preis:</strong>
+            €2.19
+            <span class="muted">(Ursprünglich: €6.99)</span>
+          </p>
+
+          <div class="tags">
+            <span class="tag">Küche</span>
+            <span class="tag">Praktisch</span>
+          </div>
+
+          <a
+            class="btn"
+            href="https://s.click.aliexpress.com/e/_c40npSIn"
+            target="_blank"
+            rel="nofollow sponsored noopener noreferrer"
+          >
+            Preis bei AliExpress prüfen
+            <small lang="en">Check price on AliExpress ↗</small>
+          </a>
+        </article>
+
+        <!-- Toilet Cleaning Sheets -->
+        <article class="card">
+          <img
+            loading="lazy"
+            src="/assets/germany/deodorize-toilet-cleaning.webp?v=3"
+            alt="Reinigungsblätter für die Toilette"
+            width="500"
+            height="357"
+            onerror="this.onerror=null;this.src='/assets/placeholder.webp'"
+          />
+
+          <h2 class="title">
+            Reinigungsblätter für die Toilette
+          </h2>
+
+          <p class="product-description">
+            Kompakte Reinigungsblätter für die regelmäßige
+            Toilettenpflege.
+
+            <span class="english-text" lang="en">
+              Compact cleaning sheets for regular toilet care.
+            </span>
+          </p>
+
+          <p class="price">
+            <strong>Angezeigter Preis:</strong>
+            €0.99
+            <span class="muted">(Ursprünglich: €3.99)</span>
+          </p>
+
+          <div class="tags">
+            <span class="tag">Haushalt</span>
+            <span class="tag">Reinigung</span>
+          </div>
+
+          <a
+            class="btn"
+            href="https://s.click.aliexpress.com/e/_c4Vvkmtz"
+            target="_blank"
+            rel="nofollow sponsored noopener noreferrer"
+          >
+            Preis bei AliExpress prüfen
+            <small lang="en">Check price on AliExpress ↗</small>
+          </a>
+        </article>
+
+        <!-- QCY Melobuds -->
+        <article class="card">
+          <img
+            loading="lazy"
+            src="/assets/germany/qcy-melobuds-n70.webp?v=3"
+            alt="QCY MeloBuds N70 Bluetooth-Kopfhörer"
+            width="500"
+            height="357"
+            onerror="this.onerror=null;this.src='/assets/placeholder.webp'"
+          />
+
+          <h2 class="title">
+            QCY MeloBuds N70 Bluetooth-Kopfhörer
+          </h2>
+
+          <p class="product-description">
+            Kabellose In-Ear-Kopfhörer für Musik, Telefonate und
+            den täglichen Gebrauch.
+
+            <span class="english-text" lang="en">
+              Wireless in-ear headphones for music, calls and daily use.
+            </span>
+          </p>
+
+          <p class="price">
+            <strong>Beispielpreis:</strong>
+            €24.99
+          </p>
+
+          <div class="tags">
+            <span class="tag">TWS</span>
+            <span class="tag">Bluetooth</span>
+          </div>
+
+          <a
+            class="btn"
+            href="https://s.click.aliexpress.com/e/_c4UpcWU3"
+            target="_blank"
+            rel="nofollow sponsored noopener noreferrer"
+          >
+            Preis bei AliExpress prüfen
+            <small lang="en">Check price on AliExpress ↗</small>
+          </a>
+        </article>
+
+        <!-- LED Watch -->
+        <article class="card">
+          <img
+            loading="lazy"
+            src="/deals/germany/assets/germany/men-women-fashion-sport-led.webp?v=2"
+            alt="LED-Sportuhr für Damen und Herren"
+            width="500"
+            height="357"
+            onerror="this.onerror=null;this.src='/assets/placeholder.webp'"
+          />
+
+          <h2 class="title">
+            LED-Sportuhr für Damen und Herren
+          </h2>
+
+          <p class="product-description">
+            Einfache digitale LED-Uhr im sportlichen Unisex-Design.
+
+            <span class="english-text" lang="en">
+              Simple digital LED watch with a sporty unisex design.
+            </span>
+          </p>
+
+          <p class="price">
+            <strong>Beispielpreis:</strong>
+            €3.49
+          </p>
+
+          <div class="tags">
+            <span class="tag">LED</span>
+            <span class="tag">Sport</span>
+          </div>
+
+          <a
+            class="btn"
+            href="https://s.click.aliexpress.com/e/_c2v4PpkR"
+            target="_blank"
+            rel="nofollow sponsored noopener noreferrer"
+          >
+            Preis bei AliExpress prüfen
+            <small lang="en">Check price on AliExpress ↗</small>
+          </a>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="info-section">
+      <h2>So findest du passende Angebote</h2>
+
+      <p>
+        Vergleiche vor dem Kauf den aktuellen Preis, die Versandkosten,
+        die Lieferzeit und die Bewertungen des Verkäufers. Je nach Standort,
+        Konto und laufender Aktion kann der endgültige Preis unterschiedlich
+        sein.
+
+        <span class="english-text" lang="en">
+          Before buying, compare the current price, shipping cost,
+          delivery time and seller ratings. The final price may vary
+          depending on your location, account and available promotion.
+        </span>
+      </p>
+
+      <h3>Worauf solltest du vor dem Kauf achten?</h3>
+
+      <ul>
+        <li>Prüfe die aktuelle Produktbeschreibung und die gewählte Variante.</li>
+        <li>Vergleiche Kundenbewertungen und Verkäuferbewertungen.</li>
+        <li>Kontrolliere Versandkosten und erwartete Lieferzeit.</li>
+        <li>Prüfe Rückgabe-, Erstattungs- und Käuferschutzbedingungen.</li>
+        <li>Der Preis auf AliExpress ist immer der maßgebliche Endpreis.</li>
+      </ul>
+
+      <div class="price-notice">
+        <strong>Preishinweis:</strong>
+        Die auf dieser Seite genannten Preise sind Beispiele oder Preise,
+        die zum Zeitpunkt der letzten Prüfung angezeigt wurden. Preise,
+        Rabatte, Versandkosten und Verfügbarkeit können sich jederzeit ändern.
+
+        <span class="english-text" lang="en">
+          Price notice: Prices shown on this page are examples or prices
+          displayed when last checked. Prices, discounts, shipping costs
+          and availability may change at any time.
+        </span>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <div class="footer-links">
+        <a href="/">Startseite</a>
+        <a href="/travel/">Reisen</a>
+        <a href="/shopping/">Shopping</a>
+        <a href="/rewards/">Prämien</a>
+        <a href="/about/">Über uns</a>
+        <a href="/privacy-policy/">Datenschutz</a>
+        <a href="/affiliate-disclosure/">Affiliate-Hinweis</a>
+        <a href="/contact/">Kontakt</a>
+      </div>
+
+      <div>
+        🇩🇪 Regelmäßig aktualisiert ·
+        © <span id="year"></span> GiftCardZoneEU
+      </div>
+    </footer>
+
+  </main>
 
   <script>
-    document.querySelectorAll('a.btn[target="_blank"]').forEach(a=>{
-      a.addEventListener('click',()=>{
-        try{
-          if (navigator.sendBeacon) {
-            navigator.sendBeacon('/go/ping', 'germany-deal');
-          }
-        } catch(e){}
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    document
+      .querySelectorAll('a.btn[target="_blank"]')
+      .forEach(function(link){
+        link.addEventListener("click",function(){
+          try{
+            if(navigator.sendBeacon){
+              navigator.sendBeacon(
+                "/go/ping",
+                "germany-deal"
+              );
+            }
+          }catch(error){}
+        });
       });
-    });
   </script>
 
   <script src="/assets/ga.js"></script>
+
 </body>
 </html>
