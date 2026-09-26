@@ -178,9 +178,7 @@
       font-weight: 800;
     }
 
-    .hero {
-      background: var(--navy);
-    }
+    .hero { background: var(--navy); }
 
     .hero-image {
       display: block;
@@ -215,7 +213,7 @@
 
     .lead {
       max-width: 730px;
-      margin: 18px 0 0;
+      margin: 24px 0 0;
       color: #e5f1fa;
       font-size: 1.14rem;
     }
@@ -290,6 +288,38 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 40px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: #fff;
+    }
+
+    .compare {
+      width: 100%;
+      min-width: 600px;
+      border-collapse: collapse;
+    }
+
+    .compare th,
+    .compare td {
+      padding: 16px 18px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .compare th { background: #eaf3fb; }
+    .compare tr:last-child td { border-bottom: 0; }
+
+    .route-tip {
+      margin-top: 22px;
+      padding: 20px 24px;
+      background: #edf7ff;
+      border: 1px solid #cfe3f5;
+      border-radius: 16px;
     }
 
     .check { padding-left: 22px; }
@@ -380,7 +410,6 @@
       .navlinks::-webkit-scrollbar { display: none; }
       .navlinks a:not(.pill) { display: inline-flex; }
       .navlinks .pill { flex: 0 0 auto; }
-
       .hero-content { padding: 25px 0 36px; }
       .grid, .split { grid-template-columns: 1fr; }
       section { padding: 55px 0; }
@@ -490,6 +519,58 @@
     </section>
 
     <section>
+      <div class="container">
+        <h2>Bangkok to Chiang Mai: train or bus?</h2>
+
+        <p class="intro">
+          Both options can make the long overland journey. The better choice
+          depends on how you want to spend the night, your departure point
+          and the arrival time that suits your plans.
+        </p>
+
+        <div class="table-wrap">
+          <table class="compare">
+            <thead>
+              <tr>
+                <th>What matters</th>
+                <th>Overnight train</th>
+                <th>Long-distance bus</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>On-board comfort</td>
+                <td>Look for a sleeper berth if you want to lie down; check the class and berth shown on your ticket.</td>
+                <td>Compare standard and more spacious seats by operator; check the seat layout in the listing.</td>
+              </tr>
+              <tr>
+                <td>Bangkok departure</td>
+                <td>Check the exact station on your ticket. Some Chiang Mai services depart from Krung Thep Aphiwat.</td>
+                <td>Check the exact bus terminal and allow enough time to reach it.</td>
+              </tr>
+              <tr>
+                <td>Chiang Mai arrival</td>
+                <td>Confirm Chiang Mai railway station and plan the final trip to your accommodation.</td>
+                <td>Confirm the listed bus arrival point; different services may use different stops.</td>
+              </tr>
+              <tr>
+                <td>Best fit</td>
+                <td>Consider this if a sleeper berth and rail journey appeal to you.</td>
+                <td>Consider this if the available bus departure, seat type or fare fits your plans better.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="route-tip">
+          <strong>Compare the actual tickets for your date.</strong>
+          Schedules, travel times, fares, seats and cancellation rules can
+          change. Check these details on 12Go before paying.
+        </div>
+      </div>
+    </section>
+
+    <section>
       <div class="container split">
         <div>
           <h2>What to check before booking</h2>
@@ -529,7 +610,7 @@
           <div class="card">
             <div class="icon">2</div>
             <h3>Review each itinerary</h3>
-            <p>Check transport type, stations or piers, transfers, duration and operator conditions.</p>
+            <p>Check the exact station or terminal, seat or berth, arrival point, duration and operator conditions.</p>
           </div>
 
           <div class="card">
