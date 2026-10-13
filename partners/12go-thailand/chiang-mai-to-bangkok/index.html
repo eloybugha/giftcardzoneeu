@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
   <title>Chiang Mai to Bangkok by Train or Bus | Tickets &amp; Booking | GiftCardZoneEU</title>
   <meta name="description" content="Compare Chiang Mai to Bangkok train and bus tickets on 12Go. Check sleeper options, boarding points, Bangkok arrival locations and luggage conditions.">
@@ -50,6 +50,7 @@
 
     body {
       margin: 0;
+      padding-bottom: calc(100px + env(safe-area-inset-bottom, 0px));
       font-family: Arial, Helvetica, sans-serif;
       line-height: 1.7;
       color: var(--text);
@@ -95,6 +96,9 @@
     }
 
     .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
       color: var(--white);
       font-size: 23px;
       font-weight: 800;
@@ -103,6 +107,14 @@
 
     .brand:hover {
       text-decoration: none;
+    }
+
+    .brand-logo {
+      width: 46px;
+      height: 46px;
+      flex: 0 0 46px;
+      object-fit: contain;
+      border-radius: 10px;
     }
 
     .nav {
@@ -373,6 +385,47 @@
       color: #e2ecf7;
     }
 
+    .sticky-cta {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1000;
+      padding: 12px 0 calc(12px + env(safe-area-inset-bottom, 0px));
+      border-top: 1px solid #27415e;
+      background: var(--navy);
+      color: var(--white);
+      box-shadow: 0 -6px 24px rgba(7, 29, 56, 0.18);
+    }
+
+    .sticky-cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .sticky-cta-copy {
+      min-width: 0;
+      line-height: 1.4;
+    }
+
+    .sticky-cta-copy strong {
+      display: block;
+      font-size: 16px;
+    }
+
+    .sticky-cta-copy span {
+      display: block;
+      margin-top: 3px;
+      color: #c9d8e9;
+      font-size: 13px;
+    }
+
+    .sticky-cta .button {
+      flex-shrink: 0;
+    }
+
     @media (max-width: 900px) {
       .layout {
         grid-template-columns: 1fr;
@@ -400,6 +453,12 @@
 
       .brand {
         font-size: 21px;
+      }
+
+      .brand-logo {
+        width: 40px;
+        height: 40px;
+        flex-basis: 40px;
       }
 
       .nav {
@@ -441,6 +500,34 @@
       .booking-box .button {
         width: 100%;
       }
+
+      .sticky-cta-inner {
+        gap: 10px;
+      }
+
+      .sticky-cta-copy strong {
+        font-size: 13px;
+      }
+
+      .sticky-cta-copy span {
+        font-size: 11px;
+      }
+
+      .sticky-cta .button {
+        min-height: 48px;
+        padding: 11px 14px;
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .sticky-cta-copy {
+        display: none;
+      }
+
+      .sticky-cta .button {
+        width: 100%;
+      }
     }
   </style>
 
@@ -475,7 +562,17 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="/">GiftCardZoneEU</a>
+      <a class="brand" href="/" aria-label="GiftCardZoneEU home">
+        <img
+          class="brand-logo"
+          src="/assets/gz-logo-180.png"
+          alt=""
+          width="46"
+          height="46"
+          decoding="async"
+        >
+        <span>GiftCardZoneEU</span>
+      </a>
 
       <nav class="nav" aria-label="Main navigation">
         <a href="/travel/">Travel</a>
@@ -909,12 +1006,30 @@
     </div>
   </footer>
 
+  <aside class="sticky-cta" aria-label="Quick ticket booking">
+    <div class="container sticky-cta-inner">
+      <div class="sticky-cta-copy">
+        <strong>Chiang Mai → Bangkok</strong>
+        <span>Compare train &amp; bus tickets</span>
+      </div>
+
+      <a
+        class="button booking-link"
+        href="https://12go.asia/en/travel/chiang-mai/bangkok"
+        target="_blank"
+        rel="sponsored noopener"
+      >
+        Check Tickets →
+      </a>
+    </div>
+  </aside>
+
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
     /*
       Paste your verified 12Go affiliate deep link between the quotes.
-      This updates all three booking buttons.
+      This updates all four booking buttons, including the sticky CTA.
     */
     const affiliateBookingUrl = "";
 
