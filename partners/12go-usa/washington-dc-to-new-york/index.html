@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Washington, DC to New York City by Train or Bus | GiftCardZoneEU</title>
+  <meta name="description" content="Compare morning Amtrak and FlixBus trips from Washington, DC to New York. See sample fares and find the Manhattan arrival stop closest to your hotel.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#071d38">
+
+  <link rel="canonical" href="https://giftcardzoneeu.com/partners/12go-usa/washington-dc-to-new-york/">
+  <link rel="icon" href="/assets/gz-favicon.png">
+  <link rel="apple-touch-icon" href="/assets/gz-logo-180.png">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="GiftCardZoneEU">
+  <meta property="og:title" content="Washington, DC to New York City by Train or Bus">
+  <meta property="og:description" content="Compare fares, morning arrival times and Manhattan stops for your hotel.">
+  <meta property="og:url" content="https://giftcardzoneeu.com/partners/12go-usa/washington-dc-to-new-york/">
+  <meta property="og:image" content="https://giftcardzoneeu.com/assets/partners/12go/washington-dc-to-new-york-hero.webp">
+  <meta property="og:image:alt" content="Travel illustration of a glass-roofed train hall and the Manhattan skyline">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Washington, DC to New York City by Train or Bus">
+  <meta name="twitter:description" content="Compare morning fares and find the right Manhattan arrival stop.">
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/partners/12go/washington-dc-to-new-york-hero.webp">
+  <meta name="twitter:image:alt" content="Travel illustration of a Manhattan train hall">
+
+  <style>
+    :root { --navy:#071d38; --orange:#ff8a24; --line:#dfe7ef; --bar:90px; }
+    * { box-sizing:border-box; }
+    html { scroll-padding:16px 0 calc(var(--bar) + 16px); }
+
+    body {
+      margin:0;
+      padding-bottom:var(--bar);
+      background:#f3f6fa;
+      color:#213248;
+      font:16px/1.65 Arial,Helvetica,sans-serif;
+    }
+
+    .wrap { width:min(1120px,calc(100% - 28px)); margin:auto; }
+    a { color:#125ba6; text-underline-offset:3px; }
+    :focus-visible { outline:3px solid #ea8b26; outline-offset:3px; }
+    .skip { position:absolute; top:-5em; left:10px; padding:8px; background:white; }
+    .skip:focus { top:0; }
+
+    header,footer,.sticky { background:var(--navy); color:white; padding:16px 0; }
+    header a,footer a { color:white; }
+    .row,.nav,.brand { display:flex; align-items:center; flex-wrap:wrap; gap:14px; }
+    .row { justify-content:space-between; }
+    .brand { font-size:22px; font-weight:bold; text-decoration:none; }
+    .brand img { border-radius:9px; }
+    .crumb,.note { font-size:14px; padding:14px 0; }
+
+    .hero,.book,.card { border-radius:18px; overflow:hidden; }
+    .hero img {
+      display:block;
+      width:100%;
+      height:clamp(190px,32vw,400px);
+      object-fit:cover;
+    }
+
+    .intro,.book {
+      padding:clamp(20px,4vw,38px);
+      background:linear-gradient(125deg,var(--navy),#163c65);
+      color:white;
+    }
+
+    .kicker {
+      color:#ffd3a8;
+      font-size:13px;
+      font-weight:bold;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    h1,h2,h3 { line-height:1.22; margin:0 0 .55em; }
+    h1 { font-size:clamp(30px,5vw,48px); }
+    h2 { font-size:25px; }
+    h3 { font-size:19px; }
+    p { margin:0 0 1em; }
+    p:last-child { margin-bottom:0; }
+
+    .button {
+      display:inline-block;
+      padding:11px 17px;
+      background:var(--orange);
+      color:var(--navy);
+      border-radius:10px;
+      font-weight:bold;
+      text-decoration:none;
+    }
+
+    .button:hover { background:#ffb571; }
+    .note { margin:14px 0; padding:13px 17px; background:#e8f1fb; border-radius:12px; }
+
+    .layout {
+      display:grid;
+      grid-template-columns:minmax(0,1fr) 270px;
+      gap:16px;
+      align-items:start;
+    }
+
+    .card {
+      background:white;
+      border:1px solid var(--line);
+      margin-bottom:16px;
+      padding:clamp(17px,3vw,26px);
+    }
+
+    .choices { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+    .choice { padding:17px; background:#f7faff; border:1px solid var(--line); border-radius:12px; }
+    .scroll { overflow-x:auto; }
+    table { width:100%; min-width:620px; border-collapse:collapse; font-size:15px; }
+    caption { text-align:left; color:#55677b; margin-bottom:10px; }
+    th,td { border:1px solid var(--line); padding:10px; vertical-align:top; text-align:left; }
+    th { background:#edf3fa; }
+    summary { cursor:pointer; font-weight:bold; }
+    details + details,details p { margin-top:10px; }
+    .links { display:grid; gap:8px; }
+    .book { margin-bottom:20px; }
+
+    .sticky {
+      position:fixed;
+      bottom:0;
+      left:0;
+      right:0;
+      padding:9px 0 calc(9px + env(safe-area-inset-bottom,0px));
+      border-top:1px solid #38516a;
+    }
+
+    @media(max-width:820px) {
+      .layout { grid-template-columns:minmax(0,1fr); gap:0; }
+      aside { grid-row:1; }
+    }
+
+    @media(max-width:540px) {
+      .choices { grid-template-columns:1fr; }
+      .sticky .row { flex-wrap:nowrap; gap:8px; font-size:14px; }
+      .sticky a { flex-shrink:0; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"Article",
+        "headline":"Washington, DC to New York City by Train or Bus",
+        "image":"https://giftcardzoneeu.com/assets/partners/12go/washington-dc-to-new-york-hero.webp",
+        "mainEntityOfPage":"https://giftcardzoneeu.com/partners/12go-usa/washington-dc-to-new-york/",
+        "publisher":{"@type":"Organization","name":"GiftCardZoneEU"}
+      },
+      {
+        "@type":"BreadcrumbList",
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Home","item":"https://giftcardzoneeu.com/"},
+          {"@type":"ListItem","position":2,"name":"Travel","item":"https://giftcardzoneeu.com/travel/"},
+          {"@type":"ListItem","position":3,"name":"Washington, DC to New York City","item":"https://giftcardzoneeu.com/partners/12go-usa/washington-dc-to-new-york/"}
+        ]
+      },
+      {
+        "@type":"FAQPage",
+        "mainEntity":[
+          {
+            "@type":"Question",
+            "name":"How long is the train from DC to New York?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"The two morning examples took 2 hours 54 minutes and 3 hours 34 minutes. Check the scheduled time for your train."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"Which New York station should I book for Manhattan?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"Choose New York Penn Station (NYP) for Amtrak. Moynihan Train Hall serves this station."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"Does the bus arrive at Penn Station?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"Some buses use the Midtown stop at 300 West 31st Street, across from Moynihan Train Hall. Other trips use different stops. Check the address on your ticket."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header>
+    <div class="wrap row">
+      <a class="brand" href="/">
+        <img src="/assets/gz-logo-180.png" width="44" height="44" alt="">
+        GiftCardZoneEU
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/travel/">Travel</a>
+        <a href="/partners/12go-japan-promo/">Japan Promo</a>
+        <a href="/partners/12go-thailand/">Thailand Routes</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap" id="main">
+    <nav class="crumb" aria-label="Breadcrumb">
+      <a href="/">Home</a> ›
+      <a href="/travel/">Travel</a> ›
+      <span aria-current="page">Washington, DC to New York City</span>
+    </nav>
+
+    <article>
+      <section class="hero" aria-labelledby="page-title">
+        <img
+          src="/assets/partners/12go/washington-dc-to-new-york-hero.webp"
+          width="1600"
+          height="800"
+          fetchpriority="high"
+          alt="Travel illustration of a glass-roofed train hall and the Manhattan skyline">
+
+        <div class="intro">
+          <p class="kicker">United States · Washington, DC → New York City</p>
+          <h1 id="page-title">Washington, DC to New York City by Train or Bus</h1>
+          <p>If your hotel is near Penn Station, both a train and a bus can leave you within a few blocks of reception. For Times Square or Hudson Yards, the address on the bus ticket can change which trip gets you to your hotel first.</p>
+          <a class="button"
+             href="https://www.dpbolvw.net/click-101586981-17115158?url=https%3A%2F%2F12go.asia%2Fen%2Ftravel%2Fwashington-dc%2Fnew-york"
+             target="_blank"
+             rel="sponsored nofollow noopener noreferrer">Compare departures on 12Go →</a>
+        </div>
+      </section>
+
+      <p class="note">
+        <strong>Affiliate disclosure.</strong> We may earn a commission if you book through our 12Go links.
+        <a href="/affiliate-disclosure/">Read our disclosure</a>.
+      </p>
+
+      <div class="layout">
+        <div>
+          <section class="card" id="answer">
+            <h2>Which trip fits your morning?</h2>
+            <div class="choices">
+              <div class="choice">
+                <h3>For an early appointment</h3>
+                <p>The 4:54 AM train in the sample reached New York at 7:48 AM. Check how you will reach Union Station that early and allow time from Penn Station to your appointment.</p>
+              </div>
+              <div class="choice">
+                <h3>For a hotel check-in</h3>
+                <p>The 7:40 AM economy train was the cheapest of the three examples below. The bus arrived earlier. Compare the time you can leave your bags at the hotel with the time each trip gets you there.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="card" id="compare">
+            <h2>Morning departures, fares and arrival points</h2>
+            <div class="scroll" role="region" aria-label="Trip comparison" tabindex="0">
+              <table>
+                <caption>Historical one-way examples from 12Go for November 16, 2026. Times are local and fares are in US dollars. Check current prices for your date.</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Operator and class</th>
+                    <th scope="col">Depart → arrive</th>
+                    <th scope="col">Duration</th>
+                    <th scope="col">Fare</th>
+                    <th scope="col">New York arrival</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Amtrak business</th>
+                    <td>4:54 AM → 7:48 AM</td>
+                    <td>2 hr 54 min</td>
+                    <td>$209.24</td>
+                    <td>Penn Station (NYP)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">FlixBus standard</th>
+                    <td>5:15 AM → 9:50 AM</td>
+                    <td>4 hr 35 min</td>
+                    <td>$45.21</td>
+                    <td>Stop unspecified in the schedule summary</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Amtrak economy</th>
+                    <td>7:40 AM → 11:14 AM</td>
+                    <td>3 hr 34 min</td>
+                    <td>$26.26</td>
+                    <td>Penn Station (NYP)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="card" id="rail">
+            <h2>Amtrak from Washington Union Station to New York Penn</h2>
+            <p>Search for <strong>Washington Union Station (WAS) → New York Penn Station (NYP)</strong>. The DC station is at 50 Massachusetts Avenue NE. If your Philadelphia train brought you into Union Station, look up the New York train number on the departure board.</p>
+            <p>In Manhattan, Moynihan Train Hall is on Eighth Avenue between West 31st and West 33rd Streets. If someone is meeting you, agree on a street corner or a hall entrance before you arrive. “Penn Station” alone leaves several places to look.</p>
+          </section>
+
+          <section class="card" id="bus">
+            <h2>Which bus stop is closest to your hotel?</h2>
+            <p>Check both ends of the ticket. In DC, FlixBus lists Union Station at <strong>50 Massachusetts Avenue NE</strong> and Dupont Circle at <strong>1600 Connecticut Avenue NW</strong>. At Union Station, follow the bus signs for your departure.</p>
+            <ul>
+              <li><strong>Penn Station or Madison Square Garden:</strong> Look for New York Midtown (31st St &amp; 8th Ave), at 300 West 31st Street, across from Moynihan Train Hall.</li>
+              <li><strong>Times Square:</strong> Compare a trip serving Port Authority at 625 Eighth Avenue. Use the terminal address when mapping the walk to your hotel.</li>
+              <li><strong>Hudson Yards:</strong> FlixBus lists a stop at 600 West 34th Street. Match the street number to your ticket because other nearby stops have similar names.</li>
+            </ul>
+            <p>Open the individual departure before paying. The citywide route page lists several stops, and your bus serves the arrival printed on your ticket.</p>
+          </section>
+
+          <section class="card" id="faq">
+            <h2>Washington, DC to New York FAQ</h2>
+            <details>
+              <summary>How long is the train from DC to New York?</summary>
+              <p>The two morning examples took 2 hours 54 minutes and 3 hours 34 minutes. Check the scheduled time for your train.</p>
+            </details>
+            <details>
+              <summary>Which New York station should I book for Manhattan?</summary>
+              <p>Choose New York Penn Station (NYP) for Amtrak. Moynihan Train Hall serves this station.</p>
+            </details>
+            <details>
+              <summary>Does the bus arrive at Penn Station?</summary>
+              <p>Some buses use the Midtown stop at 300 West 31st Street, across from Moynihan Train Hall. Other trips use different stops. Check the address on your ticket.</p>
+            </details>
+          </section>
+
+          <section class="card links" id="sources">
+            <h2>Sources for your travel date</h2>
+            <a href="https://12go.asia/en/travel/washington-dc/new-york">12Go schedule and fare examples</a>
+            <a href="https://www.amtrak.com/stations/was">Amtrak Washington Union Station</a>
+            <a href="https://www.amtrak.com/stations/nyp">Amtrak New York Penn Station and Moynihan Train Hall</a>
+            <a href="https://www.flixbus.com/bus-routes/bus-washington-dc-new-york-ny">FlixBus route and stop addresses</a>
+          </section>
+
+          <section class="card links">
+            <h2>Planning a three-city trip?</h2>
+            <p>If you start in New York, use these guides for the first two legs before returning from DC.</p>
+            <a href="/partners/12go-usa/new-york-to-philadelphia/">New York to Philadelphia by train or bus</a>
+            <a href="/partners/12go-usa/philadelphia-to-washington-dc/">Philadelphia to Washington, DC by train or bus</a>
+          </section>
+        </div>
+
+        <aside>
+          <nav class="card links" aria-label="On this page">
+            <h2>Plan your journey</h2>
+            <a href="#answer">Which trip fits?</a>
+            <a href="#compare">Times and fares</a>
+            <a href="#rail">Amtrak stations</a>
+            <a href="#bus">Bus stops by hotel area</a>
+            <a href="#faq">Common questions</a>
+            <a href="#sources">Sources</a>
+          </nav>
+        </aside>
+      </div>
+
+      <section class="book">
+        <h2>Check departures for your date</h2>
+        <p>Choose a travel date, then check the arrival stop and final fare before booking.</p>
+        <a class="button"
+           href="https://www.dpbolvw.net/click-101586981-17115158?url=https%3A%2F%2F12go.asia%2Fen%2Ftravel%2Fwashington-dc%2Fnew-york"
+           target="_blank"
+           rel="sponsored nofollow noopener noreferrer">Compare departures on 12Go →</a>
+      </section>
+    </article>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <nav aria-label="Footer navigation">
+        <a href="/travel/">Travel hub</a> ·
+        <a href="/partners/12go-usa/philadelphia-to-washington-dc/">Philadelphia to Washington, DC</a> ·
+        <a href="/affiliate-disclosure/">Affiliate disclosure</a>
+      </nav>
+      <p>© <span id="year">2026</span> GiftCardZoneEU</p>
+    </div>
+  </footer>
+
+  <div class="sticky" role="region" aria-label="Ticket search">
+    <div class="wrap row">
+      <strong>Washington, DC → New York</strong>
+      <a class="button"
+         href="https://www.dpbolvw.net/click-101586981-17115158?url=https%3A%2F%2F12go.asia%2Fen%2Ftravel%2Fwashington-dc%2Fnew-york"
+         target="_blank"
+         rel="sponsored nofollow noopener noreferrer">Check trips →</a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const bar = document.querySelector(".sticky");
+
+    function reserveSpace() {
+      document.documentElement.style.setProperty(
+        "--bar",
+        Math.ceil(bar.getBoundingClientRect().height) + "px"
+      );
+    }
+
+    reserveSpace();
+
+    if ("ResizeObserver" in window) {
+      new ResizeObserver(reserveSpace).observe(bar);
+    } else {
+      window.addEventListener("resize", reserveSpace);
+    }
+  </script>
+</body>
+</html>
