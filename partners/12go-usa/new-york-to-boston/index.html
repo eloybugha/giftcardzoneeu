@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>New York City to Boston by Train or Bus | GiftCardZoneEU</title>
+  <meta name="description" content="Compare Amtrak, FlixBus and Peter Pan from New York City to Boston. See sample fares and journey times, then choose South Station or Back Bay for your hotel.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#071d38">
+
+  <link rel="canonical" href="https://giftcardzoneeu.com/partners/12go-usa/new-york-to-boston/">
+  <link rel="icon" href="/assets/gz-favicon.png">
+  <link rel="apple-touch-icon" href="/assets/gz-logo-180.png">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="GiftCardZoneEU">
+  <meta property="og:title" content="New York City to Boston by Train or Bus">
+  <meta property="og:description" content="Compare New York departures, sample fares and the Boston arrival station closest to your hotel.">
+  <meta property="og:url" content="https://giftcardzoneeu.com/partners/12go-usa/new-york-to-boston/">
+  <meta property="og:image" content="https://giftcardzoneeu.com/assets/partners/12go/new-york-to-boston-hero.webp">
+  <meta property="og:image:alt" content="Boston, the destination of the journey from New York City">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="New York City to Boston by Train or Bus">
+  <meta name="twitter:description" content="Compare train and bus fares, Manhattan boarding points and Boston arrival stations.">
+  <meta name="twitter:image" content="https://giftcardzoneeu.com/assets/partners/12go/new-york-to-boston-hero.webp">
+  <meta name="twitter:image:alt" content="Boston, the destination of the journey from New York City">
+
+  <style>
+    :root {
+      --navy: #071d38;
+      --orange: #ff8a24;
+      --line: #dfe7ef;
+      --bar: 90px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-padding: 16px 0 calc(var(--bar) + 16px); }
+
+    body {
+      margin: 0;
+      padding-bottom: var(--bar);
+      background: #f3f6fa;
+      color: #213248;
+      font: 16px/1.65 Arial, Helvetica, sans-serif;
+    }
+
+    .wrap { width: min(1120px, calc(100% - 28px)); margin: auto; }
+    a { color: #125ba6; text-underline-offset: 3px; }
+    :focus-visible { outline: 3px solid #ea8b26; outline-offset: 3px; }
+
+    .skip {
+      position: absolute;
+      top: -5em;
+      left: 10px;
+      z-index: 3;
+      padding: 8px;
+      background: white;
+    }
+
+    .skip:focus { top: 0; }
+
+    header, footer, .sticky {
+      padding: 16px 0;
+      background: var(--navy);
+      color: white;
+    }
+
+    header a, footer a { color: white; }
+
+    .row, .nav, .brand {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .row { justify-content: space-between; }
+    .brand { font-size: 22px; font-weight: bold; text-decoration: none; }
+    .brand img { border-radius: 9px; }
+    .crumb, .note { padding: 14px 0; font-size: 14px; }
+    .hero, .book, .card { border-radius: 18px; overflow: hidden; }
+
+    .hero img {
+      display: block;
+      width: 100%;
+      height: clamp(190px, 32vw, 400px);
+      object-fit: cover;
+    }
+
+    .intro, .book {
+      padding: clamp(20px, 4vw, 38px);
+      background: linear-gradient(125deg, var(--navy), #163c65);
+      color: white;
+    }
+
+    .kicker {
+      color: #ffd3a8;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 { margin: 0 0 .55em; line-height: 1.22; }
+    h1 { font-size: clamp(30px, 5vw, 48px); }
+    h2 { font-size: 25px; }
+    h3 { font-size: 19px; }
+    p { margin: 0 0 1em; }
+    p:last-child { margin-bottom: 0; }
+
+    .button {
+      display: inline-block;
+      padding: 11px 17px;
+      border-radius: 10px;
+      background: var(--orange);
+      color: var(--navy);
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .button:hover { background: #ffb571; }
+
+    .note {
+      margin: 14px 0;
+      padding: 13px 17px;
+      border-radius: 12px;
+      background: #e8f1fb;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 270px;
+      align-items: start;
+      gap: 16px;
+    }
+
+    .card {
+      margin-bottom: 16px;
+      padding: clamp(17px, 3vw, 26px);
+      border: 1px solid var(--line);
+      background: white;
+    }
+
+    .choices {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .choice {
+      padding: 17px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #f7faff;
+    }
+
+    .scroll { overflow-x: auto; }
+    table { width: 100%; min-width: 610px; border-collapse: collapse; font-size: 15px; }
+    caption { margin-bottom: 10px; color: #55677b; text-align: left; }
+
+    th, td {
+      padding: 10px;
+      border: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th { background: #edf3fa; }
+    summary { cursor: pointer; font-weight: bold; }
+    details + details, details p { margin-top: 10px; }
+    .links { display: grid; gap: 8px; }
+    .book { margin-bottom: 20px; }
+
+    .sticky {
+      position: fixed;
+      z-index: 2;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      padding: 9px 0 calc(9px + env(safe-area-inset-bottom, 0px));
+      border-top: 1px solid #38516a;
+    }
+
+    @media (max-width: 820px) {
+      .layout { grid-template-columns: minmax(0, 1fr); gap: 0; }
+      aside { grid-row: 1; }
+    }
+
+    @media (max-width: 540px) {
+      .choices { grid-template-columns: 1fr; }
+      .sticky .row { flex-wrap: nowrap; gap: 8px; font-size: 14px; }
+      .sticky a { flex-shrink: 0; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "New York City to Boston by Train or Bus",
+        "mainEntityOfPage": "https://giftcardzoneeu.com/partners/12go-usa/new-york-to-boston/",
+        "image": "https://giftcardzoneeu.com/assets/partners/12go/new-york-to-boston-hero.webp",
+        "publisher": {
+          "@type": "Organization",
+          "name": "GiftCardZoneEU"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://giftcardzoneeu.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Travel",
+            "item": "https://giftcardzoneeu.com/travel/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "New York City to Boston",
+            "item": "https://giftcardzoneeu.com/partners/12go-usa/new-york-to-boston/"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How long is the train from New York City to Boston?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The two Amtrak examples in our comparison took 4 hours 5 minutes and 4 hours 21 minutes. Check the arrival time for the Boston station you select."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which Boston station should I choose for Copley Square?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Look for Boston Back Bay (BBY). Its Dartmouth Street entrance is near Copley Square and the Boston Public Library."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where do I meet someone arriving by bus at Boston South Station?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "If the ticket lists the South Station bus terminal, use 700 Atlantic Avenue when arranging pickup. Agree on a meeting point in the bus terminal."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header>
+    <div class="wrap row">
+      <a class="brand" href="/">
+        <img src="/assets/gz-logo-180.png" width="44" height="44" alt="">
+        GiftCardZoneEU
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/travel/">Travel</a>
+        <a href="/partners/12go-japan-promo/">Japan Promo</a>
+        <a href="/partners/12go-thailand/">Thailand Routes</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap" id="main">
+    <nav class="crumb" aria-label="Breadcrumb">
+      <a href="/">Home</a> ›
+      <a href="/travel/">Travel</a> ›
+      <span aria-current="page">New York City to Boston</span>
+    </nav>
+
+    <article>
+      <section class="hero" aria-labelledby="page-title">
+        <img
+          src="/assets/partners/12go/new-york-to-boston-hero.webp"
+          width="1600"
+          height="800"
+          fetchpriority="high"
+          alt="Boston, the destination of the journey from New York City">
+
+        <div class="intro">
+          <p class="kicker">United States · New York City → Boston</p>
+          <h1 id="page-title">New York City to Boston by Train or Bus</h1>
+          <p>Staying near Copley Square? Search for a train to Back Bay before booking South Station. For a downtown hotel, compare South Station train and bus arrivals. In the morning examples below, a bus leaving Manhattan at 9:30 AM reached Boston just 17 minutes after the 9:00 AM train.</p>
+          <a class="button"
+             href="https://www.dpbolvw.net/click-101586981-17115158?url=https%3A%2F%2F12go.asia%2Fen%2Ftravel%2Fnew-york%2Fboston"
+             target="_blank"
+             rel="sponsored nofollow noopener noreferrer">Compare Boston departures on 12Go →</a>
+        </div>
+      </section>
+
+      <p class="note">
+        <strong>Affiliate disclosure.</strong> We may earn a commission if you book through our 12Go links.
+        <a href="/affiliate-disclosure/">Read our disclosure</a>.
+      </p>
+
+      <div class="layout">
+        <div>
+          <section class="card" id="arrival">
+            <h2>South Station or Back Bay for your hotel?</h2>
+            <div class="choices">
+              <div class="choice">
+                <h3>Back Bay for Copley Square</h3>
+                <p>Enter <strong>Boston Back Bay (BBY)</strong> as your Amtrak destination. Map the walk from <strong>145 Dartmouth Street</strong> to your hotel. This station is handy for Copley Square and the Boston Public Library.</p>
+              </div>
+              <div class="choice">
+                <h3>South Station for downtown</h3>
+                <p>Search for <strong>Boston South Station (BOS)</strong> if you want a train into the Financial District. For a hotel across Fort Point Channel, map the walk to its entrance. A Seaport street address can still be a substantial walk with luggage.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="card" id="compare">
+            <h2>Morning trains and buses from New York</h2>
+            <div class="scroll" role="region" aria-label="Morning trips and sample fares" tabindex="0">
+              <table>
+                <caption>
+                  Selected one-way listings from the 12Go schedule displayed for November 24, 2026.
+                  Times are local. Fares are in US dollars and can change with availability.
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Operator and class</th>
+                    <th scope="col">Leave New York</th>
+                    <th scope="col">Reach Boston</th>
+                    <th scope="col">Duration</th>
+                    <th scope="col">Sample fare</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Amtrak · Business</th>
+                    <td>5:27 AM</td>
+                    <td>9:32 AM</td>
+                    <td>4 hr 5 min</td>
+                    <td>$139.66</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Amtrak · Economy</th>
+                    <td>5:44 AM</td>
+                    <td>10:05 AM</td>
+                    <td>4 hr 21 min</td>
+                    <td>$110.42</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Amtrak · Economy</th>
+                    <td>9:00 AM</td>
+                    <td>1:38 PM</td>
+                    <td>4 hr 38 min</td>
+                    <td>$189.56</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Peter Pan Bus Lines · Standard AC</th>
+                    <td>9:30 AM</td>
+                    <td>1:55 PM</td>
+                    <td>4 hr 25 min</td>
+                    <td>$44.99</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">FlixBus · Standard</th>
+                    <td>11:15 AM</td>
+                    <td>3:40 PM</td>
+                    <td>4 hr 25 min</td>
+                    <td>$53.20</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="note">These are city-to-city listings. Open the individual departure to see its boarding address and Boston arrival stop before using the time to plan a connection.</p>
+          </section>
+
+          <section class="card" id="rail">
+            <h2>Taking Amtrak from New York Penn Station</h2>
+            <p>Use <strong>New York Penn Station (NYP)</strong> as your departure station. If you are arriving on the train from Washington, DC and continuing to Boston, match your onward train number to the departure board at Penn Station.</p>
+            <p>Search your Boston destination by station code. If a hotel gives directions from Back Bay, enter <strong>BBY</strong> and check the arrival time for that stop. If someone is meeting you at South Station, send them <strong>BOS</strong>, your train number and your scheduled arrival.</p>
+          </section>
+
+          <section class="card" id="bus">
+            <h2>Where to board the bus in New York</h2>
+            <p>FlixBus lists several boarding points for this route. Two Manhattan stops have different entrances even though both are near Eighth Avenue.</p>
+            <ul>
+              <li><strong>New York Midtown:</strong> 300 West 31st Street, across from Moynihan Train Hall. If you have just arrived by train, use the street address to find the outdoor boarding area.</li>
+              <li><strong>Port Authority Bus Terminal:</strong> 625 Eighth Avenue. Allow time to get inside and locate the departure gate shown for your bus.</li>
+            </ul>
+            <p>In Boston, FlixBus lists its <strong>South Station bus terminal at 700 Atlantic Avenue</strong>. It also lists a Brookline stop, so check the destination on your ticket before arranging pickup. For a Peter Pan booking, use the stops on that operator’s itinerary.</p>
+          </section>
+
+          <section class="card" id="faq">
+            <h2>New York City to Boston FAQ</h2>
+            <details>
+              <summary>How long is the train from New York City to Boston?</summary>
+              <p>The 5:27 AM and 5:44 AM trains in our comparison took 4 hours 5 minutes and 4 hours 21 minutes. The 9:00 AM example took 4 hours 38 minutes. Check the arrival time for the Boston station you select.</p>
+            </details>
+            <details>
+              <summary>Which Boston station should I choose for Copley Square?</summary>
+              <p>Look for Boston Back Bay (BBY). Its Dartmouth Street entrance is near Copley Square and the Boston Public Library.</p>
+            </details>
+            <details>
+              <summary>Where do I meet someone arriving by bus at Boston South Station?</summary>
+              <p>If the ticket lists the South Station bus terminal, use 700 Atlantic Avenue when arranging pickup. Agree on a meeting point in the bus terminal.</p>
+            </details>
+          </section>
+
+          <section class="card links" id="sources">
+            <h2>Schedules and station details</h2>
+            <a href="https://12go.asia/en/travel/new-york/boston">12Go · New York to Boston schedule and fares</a>
+            <a href="https://www.amtrak.com/stations/nyp">Amtrak · New York Penn Station and Moynihan Train Hall</a>
+            <a href="https://www.amtrak.com/stations/bby">Amtrak · Boston Back Bay Station</a>
+            <a href="https://www.amtrak.com/stations/bos">Amtrak · Boston South Station</a>
+            <a href="https://www.flixbus.com/bus-routes/bus-new-york-ny-boston-ma">FlixBus · New York and Boston stop addresses</a>
+          </section>
+
+          <section class="card links">
+            <h2>Connecting through New York City?</h2>
+            <p>If Boston is the next stop on a Northeast trip, use the DC guide to check where you reach Manhattan before choosing your onward train or bus.</p>
+            <a href="/partners/12go-usa/washington-dc-to-new-york/">Washington, DC to New York City by train or bus</a>
+            <a href="/partners/12go-usa/new-york-to-philadelphia/">New York City to Philadelphia by train or bus</a>
+            <a href="/partners/12go-usa/philadelphia-to-washington-dc/">Philadelphia to Washington, DC by train or bus</a>
+          </section>
+        </div>
+
+        <aside>
+          <nav class="card links" aria-label="On this page">
+            <h2>Plan your journey</h2>
+            <a href="#arrival">South Station or Back Bay?</a>
+            <a href="#compare">Morning times and fares</a>
+            <a href="#rail">Amtrak from Penn Station</a>
+            <a href="#bus">Bus boarding and arrival stops</a>
+            <a href="#faq">Common questions</a>
+            <a href="#sources">Schedules and station details</a>
+          </nav>
+        </aside>
+      </div>
+
+      <section class="book">
+        <h2>Find a departure for your Boston trip</h2>
+        <p>Choose your travel date, open a departure and check the Boston arrival address against your hotel before booking.</p>
+        <a class="button"
+           href="https://www.dpbolvw.net/click-101586981-17115158?url=https%3A%2F%2F12go.asia%2Fen%2Ftravel%2Fnew-york%2Fboston"
+           target="_blank"
+           rel="sponsored nofollow noopener noreferrer">Compare trains and buses on 12Go →</a>
+      </section>
+    </article>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <nav aria-label="Footer navigation">
+        <a href="/travel/">Travel hub</a> ·
+        <a href="/partners/12go-usa/washington-dc-to-new-york/">Washington, DC to New York City</a> ·
+        <a href="/affiliate-disclosure/">Affiliate disclosure</a>
+      </nav>
+      <p>© <span id="year">2026</span> GiftCardZoneEU</p>
+    </div>
+  </footer>
+
+  <div class="sticky" role="region" aria-label="Ticket search">
+    <div class="wrap row">
+      <strong>New York City → Boston</strong>
+      <a class="button"
+         href="https://www.dpbolvw.net/click-101586981-17115158?url=https%3A%2F%2F12go.asia%2Fen%2Ftravel%2Fnew-york%2Fboston"
+         target="_blank"
+         rel="sponsored nofollow noopener noreferrer">Check trips →</a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const bar = document.querySelector(".sticky");
+
+    function reserveSpace() {
+      document.documentElement.style.setProperty(
+        "--bar",
+        Math.ceil(bar.getBoundingClientRect().height) + "px"
+      );
+    }
+
+    reserveSpace();
+
+    if ("ResizeObserver" in window) {
+      new ResizeObserver(reserveSpace).observe(bar);
+    } else {
+      window.addEventListener("resize", reserveSpace);
+    }
+  </script>
+</body>
+</html>
